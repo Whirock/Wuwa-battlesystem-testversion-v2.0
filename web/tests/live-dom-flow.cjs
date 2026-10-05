@@ -28,7 +28,7 @@ for line in sys.stdin:
 `],{cwd:path.resolve(__dirname,'../..'),stdio:['pipe','pipe','inherit']});
 let buffer='',pending=[];bridge.stdout.on('data',chunk=>{buffer+=chunk;let ix;while((ix=buffer.indexOf('\n'))>=0){const response=JSON.parse(buffer.slice(0,ix));buffer=buffer.slice(ix+1);pending.shift()(response)}});
 let actionPosts=0;const fetch=async(p,opt={})=>{if(p.endsWith('/actions'))actionPosts++;const result=await new Promise(resolve=>{pending.push(resolve);bridge.stdin.write(JSON.stringify({path:p,body:opt.body?JSON.parse(opt.body):undefined})+'\n')});return {ok:result.ok,status:result.ok?200:400,json:async()=>result.data}};
-const memory=new Map();const sandbox={document,window,console,fetch,setTimeout,clearTimeout,Blob,URL,sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)}};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../assets/rule-text.js'),'utf8'),sandbox);vm.runInContext(fs.readFileSync(path.join(__dirname,'../assets/app.js'),'utf8').replace(/boot\(\);\s*$/,''),sandbox);
+const memory=new Map();const sandbox={document,window,console,fetch,setTimeout,clearTimeout,Blob,URL,sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)}};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../assets/visual-ui.js'),'utf8'),sandbox);vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../assets/rule-text.js'),'utf8'),sandbox);vm.runInContext(fs.readFileSync(path.join(__dirname,'../assets/app.js'),'utf8').replace(/boot\(\);\s*$/,''),sandbox);
 const $=s=>document.querySelector(s);async function run(code){return vm.runInContext(code,sandbox)}
 (async()=>{try{
 await run('boot()');assert.equal($('#battle-mode').value,'rules');
@@ -39,7 +39,7 @@ assert($('#encounter-preview').textContent.includes('头目'));
 assert($('#encounter-preview').textContent.includes('50%'));
 for(const route of document.querySelectorAll('[data-route]')){route.value=route.querySelectorAll('option')[1].value;route.onchange();}
 await $('#start').onclick();assert($('#allied-bodies'));assert.equal(document.querySelectorAll('[data-actor="NPC_01"]').length,1);
-assert.equal(document.querySelectorAll('[data-actor="PLAYER_BODY_01"]').length,0,'player has one shared resource strip, no template body duplication');
+assert.equal(document.querySelectorAll('[data-actor="PLAYER_BODY_01"]').length,1,'player has one real body, no template body duplication');
 assert(document.querySelector('[data-actor="NPC_01"]').textContent.includes('65 / 65'));
 assert(document.querySelector('[data-actor="NPC_01"]').textContent.includes('行动点 1 / 1'));
 assert(document.querySelector('[data-actor="NPC_01"]').textContent.includes('锁定目标：试验核心'));
@@ -47,6 +47,8 @@ assert(document.querySelector('[data-actor="ENEMY_01"]').textContent.includes('�
 assert(document.querySelector('[data-actor="ENEMY_01"]').textContent.includes('防御、护盾、格挡前'));
 assert.equal(document.querySelector('[data-actor="NPC_01"]').querySelectorAll('button').length,0,'no NPC command controls');
 assert.equal(await run('battle.view.engine_version'),'shared-runtime-2.0');
+const beforeVisual=await run('JSON.stringify(battle)'),beforePosts=actionPosts;
+$('#visual-style').value='D';$('#visual-style').onchange();$('#visual-style').value='B';$('#visual-style').onchange();assert.equal(await run('JSON.stringify(battle)'),beforeVisual);assert.equal(actionPosts,beforePosts);assert.equal(document.querySelectorAll('[data-preview-skin]').length,0);
 const id=await run('battle.id'),rev=await run('battle.view.revision');const end=$('#end-turn');end.onclick();end.onclick();while(await run('busy'))await new Promise(r=>setTimeout(r,10));assert.equal(actionPosts,1);assert.equal(await run('battle.view.revision'),rev+1);
 const save=await run('api(`/api/battles/${battle.id}/export?kind=save`)');assert.equal(save.format,'wuwa-lab-private-save-v2');
 const savedRevision=await run('battle.view.revision');await $('#end-turn').onclick();while(await run('busy'))await new Promise(r=>setTimeout(r,10));
@@ -78,5 +80,10 @@ for(const encounterId of allEncounterIds){
  assert($('#app').textContent.includes(encounterId.includes('PATROL')?'普通敌':encounterId.includes('ELITE')?'精英':'头目'));
  await $('#retreat').onclick();$('#confirm-retreat').onclick();while(await run('busy'))await new Promise(r=>setTimeout(r,10));await $('#return').onclick();
 }
+await run(`selectedRoleIds=['lynae','mornye','chisa'];loadProfile()`);
+for(const route of document.querySelectorAll('[data-route]')){route.value=route.querySelectorAll('option')[1].value;route.onchange();}
+await $('#start').onclick();const skinSave=JSON.stringify(await run('api(`/api/battles/${battle.id}/export?kind=save`)')),skinPosts=actionPosts;
+for(const role of ['lynae','mornye','chisa']){const select=$('#preview-role');select.value=role;select.onchange({target:select});assert.equal(document.querySelectorAll('[data-preview-skin]').length,2);document.querySelector('[data-preview-skin="alternate"]').onclick();assert.equal(document.querySelector('[data-preview-skin="alternate"]').getAttribute('aria-pressed'),'true');$('#visual-style').value='B';$('#visual-style').onchange();$('#visual-style').value='D';$('#visual-style').onchange();assert.equal(document.querySelector('[data-preview-skin="alternate"]').getAttribute('aria-pressed'),'true');}
+assert.equal(actionPosts,skinPosts);assert.equal(JSON.stringify(await run('api(`/api/battles/${battle.id}/export?kind=save`)')),skinSave);assert.equal(document.querySelectorAll('[data-actor="PLAYER_BODY_01"]').length,1);assert(document.querySelector('.modality-preview').textContent.includes('非额外战斗身体'));
 console.log('PASS live DOM: mode separation, six encounters, pinned actor/intent/target data, independent ally resources, no NPC commands, idempotent end turn, v2 restore/cross-route rejection, explicit NPC-death display fixture, legacy T/save regression. No browser or balance acceptance.');
 }finally{bridge.kill();process.exitCode=0}})().catch(e=>{console.error(e);bridge.kill();process.exitCode=1});

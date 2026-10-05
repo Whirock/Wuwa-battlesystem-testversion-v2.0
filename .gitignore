@@ -5,3 +5,7 @@ __pycache__/
 node_modules/
 .pytest_cache/
 web/tests/*.png
+
+# No redistribution permission verified for optional private image assets
+web/assets/private-research/
+qa_ui/
