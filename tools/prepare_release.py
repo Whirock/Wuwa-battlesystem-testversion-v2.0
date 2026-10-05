@@ -37,7 +37,7 @@ def main():
                       'qualification': 'experimental_unqualified'}]})
     allowed_roots = {'runtime', 'packs', 'web', 'combat-data', 'tools'}
     allowed_files = {'.gitignore', '.gitattributes', 'README.md', 'TEST_STATUS.md', 'SOURCE_MANIFEST.json',
-                     'API_CONTRACT.md', 'app.py', 'git_updates.py', 'pack_manager.py',
+                     'API_CONTRACT.md', 'presentation.py', 'tests/test_presentation.py', 'CHANGELOG_v0_2_0.md', 'app.py', 'git_updates.py', 'pack_manager.py',
                      'start.bat', 'start.sh', 'tests/test_app.py'}
     inventory = []
     for p in sorted(ROOT.rglob('*')):

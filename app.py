@@ -4,10 +4,12 @@ import argparse, copy, hashlib, json, mimetypes, os, secrets, threading, webbrow
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit, parse_qs, unquote
+from presentation import guide, resolve_profile, role_details
 from runtime.engine import Engine
 from runtime.data import Data
 from pack_manager import PackManager
 from git_updates import GitUpdates
+APP_VERSION='0.2.0'
 BASE=Path(__file__).resolve().parent
 class Lab:
     def __init__(self,user=None):
@@ -20,19 +22,21 @@ class Lab:
             g=p['gear']; key=hashlib.sha256(json.dumps(g,sort_keys=True).encode()).hexdigest()[:16]
             seen.setdefault(key,{'id':key,'label':g.get('loadout_id','gear')+' / '+p['stage'],'gear':g})
         return list(seen.values())
+    def rule_definitions(self,d):
+        return {k:getattr(d,k) for k in ('statuses','tokens','modifiers','deployments','inherents','roles','abilities')}
     def catalog(self):
         candidates=[]
         for c in 'ABC':
             d=self.data(c)
-            candidates.append({'id':c,'status':'experimental_unqualified','roles':[{'id':rid,'name':r.get('name_zh',{'aemeath':'爱弥斯','lynae':'琳奈','mornye':'莫宁','denia':'达妮娅','chisa':'千咲'}.get(rid,rid))} for rid,r in d.roles.items()], 'profiles':[{'id':p['id'],'stage':p['stage'],'roles':p['roles']} for p in d.profiles], 'abilities':d.abilities,'scenarios':d.system['enemy_catalogues']+[{'id':d.spatial['supplemental_fixture']['fixture_id'],'label':'空间补充测试场景'}], 'gear_profiles':self.gear_profiles(d)})
-        return {'data_version':self.packs.active,'candidates':candidates,'qualification':'实验／未合格；正式合格方案 0'}
+            candidates.append({'id':c,'guide':guide(d),'rule_definitions':self.rule_definitions(d),'status':'experimental_unqualified','roles':[{'id':rid,'name':r.get('name_zh',{'aemeath':'爱弥斯','lynae':'琳奈','mornye':'莫宁','denia':'达妮娅','chisa':'千咲'}.get(rid,rid))} for rid,r in d.roles.items()], 'profiles':[{'id':p['id'],'stage':p['stage'],'roles':p['roles']} for p in d.profiles], 'abilities':d.abilities,'scenarios':d.system['enemy_catalogues']+[{'id':d.spatial['supplemental_fixture']['fixture_id'],'label':'空间补充测试场景'}], 'gear_profiles':self.gear_profiles(d)})
+        return {'app_version':APP_VERSION,'data_version':self.packs.active,'candidates':candidates,'qualification':'实验／未合格；正式合格方案 0'}
     def profile(self,body):
         d=self.data(body.get('candidate','A'))
-        p=d.profile(profile_id=body.get('profile_id') or None,stage=body.get('stage','early'),roles=body.get('roles'),routes=body.get('routes'),deck=body.get('deck'))
-        return {'data_version':self.packs.active,'profile':p,'abilities':d.abilities}
+        p=d.profile(**resolve_profile(d,body))
+        return {'data_version':self.packs.active,'profile':p,'role_details':role_details(d,p),'abilities':d.abilities}
     def snapshot(self,identifier):
         b=self.battles[identifier];e=b['engine']; actions=e.legal_actions(include_blocked=True)
-        return {'id':identifier,'data_version':b['version'],'qualification':'experimental_unqualified','candidate':e.candidate,'abilities':e.data.abilities,'view':e.public_view(),'events':copy.deepcopy(e.state['events']),**actions}
+        return {'id':identifier,'data_version':b['version'],'qualification':'experimental_unqualified','candidate':e.candidate,'rule_definitions':self.rule_definitions(e.data),'abilities':e.data.abilities,'view':e.public_view(),'events':copy.deepcopy(e.state['events']),**actions}
     def persist(self,identifier):
         obj=self.export(identifier,'save');temp=self.user/(identifier+'.tmp');temp.write_text(json.dumps(obj,ensure_ascii=False),encoding='utf8');os.replace(temp,self.user/(identifier+'.json'))
     def create(self,body):
@@ -41,7 +45,7 @@ class Lab:
         if body.get('gear_profile_id'):
             gear=next((x['gear'] for x in self.gear_profiles(d) if x['id']==body['gear_profile_id']),None)
             if gear is None:raise ValueError('Unknown equipment profile')
-        e.new_battle(profile_id=body.get('profile_id') or None,stage=body.get('stage','early'),roles=body.get('roles'),routes=body.get('routes'),deck=body.get('deck'),enemy_id=body.get('enemy_id','T1_SINGLE'),seed=secrets.randbits(53),battle_id=identifier,gear=gear)
+        e.new_battle(**resolve_profile(d,body),enemy_id=body.get('enemy_id','T1_SINGLE'),seed=secrets.randbits(53),battle_id=identifier,gear=gear)
         self.battles[identifier]={'engine':e,'version':version};self.persist(identifier);return self.snapshot(identifier)
     def apply(self,identifier,body):
         e=self.battles[identifier]['engine']
