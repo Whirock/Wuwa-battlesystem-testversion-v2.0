@@ -35,9 +35,12 @@ def main():
     write_json(ROOT / 'combat-data/index.json', {'schema': 'wuwa-package-index-v1',
         'releases': [{'version': VERSION, 'engine_schema': SCHEMA,
                       'qualification': 'experimental_unqualified'}]})
-    allowed_roots = {'runtime', 'packs', 'web', 'combat-data', 'tools'}
+    allowed_roots = {'runtime', 'packs', 'web', 'combat-data', 'tools', 'live-data'}
     allowed_files = {'.gitignore', '.gitattributes', 'README.md', 'TEST_STATUS.md', 'SOURCE_MANIFEST.json',
-                     'API_CONTRACT.md', 'presentation.py', 'tests/test_presentation.py', 'CHANGELOG_v0_2_0.md', 'app.py', 'git_updates.py', 'pack_manager.py',
+                     'API_CONTRACT.md', 'presentation.py', 'tests/test_presentation.py', 'CHANGELOG_v0_2_0.md', 'CHANGELOG_v0_2_0_zh_CN.md', 'CHANGELOG_v0_3_0.md',
+                     'LIVE_API_CONTRACT.md', 'LIVE_SCHEMA_FREEZE.json',
+                     'tests/test_live_api.py', 'tests/test_live_engine_independent.py',
+                     'tests/test_live_transactions.py', 'tests/test_live_healing_targets.py', 'app.py', 'git_updates.py', 'pack_manager.py',
                      'start.bat', 'start.sh', 'tests/test_app.py'}
     inventory = []
     for p in sorted(ROOT.rglob('*')):

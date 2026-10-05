@@ -1,0 +1,36 @@
+{
+  "engine_version": "shared-runtime-2.0",
+  "data_schema": "wuwa-data-v2",
+  "actor_schema": "combat-actors-v1",
+  "encounter_schema": "combat-encounters-v1",
+  "save_schema": "combat-save-v2",
+  "content_version": "original-prototypes-0.1",
+  "content_sha256": "300192762f304eeba82d87fae8f6a46dce48fb51f844ccf17e7490c3a7d4b0f4",
+  "authoritative_content": "live-data/prototypes-v1.json",
+  "validator": "runtime/live_content.py:validate_content",
+  "runtime": "runtime/live_engine.py:LiveEngine",
+  "legacy_runtime": "runtime/engine.py:Engine",
+  "parent_player_definition_schema": "wuwa-data-v1",
+  "status": "experimental_uncalibrated_gui_integrated",
+  "npc_supported_effects": [
+    "damage",
+    "block",
+    "shield",
+    "charge",
+    "wait"
+  ],
+  "npc_equipment": "empty_only",
+  "player_body_count": 1,
+  "npc_body_count_variants": [
+    0,
+    1
+  ],
+  "template_count_range": [
+    1,
+    3
+  ],
+  "fixed_encounter_count": 6,
+  "app_version": "0.3.0",
+  "real_browser_verified": false,
+  "windows_verified": false
+}

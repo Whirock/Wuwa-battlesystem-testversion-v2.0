@@ -1,55 +1,188 @@
 {
-  "runtime_version": "v4",
+  "schema": "wuwa-source-manifest-v2",
+  "app_version": "0.3.0",
+  "runtime_versions": {
+    "legacy": "shared-runtime-1.0",
+    "live": "shared-runtime-2.0"
+  },
   "qualification": "experimental_unqualified",
-  "note": "Standalone playable experimental data. Source annotations not needed for play were omitted; combat rules are unchanged. No third-party asset license is granted.",
+  "live_content_version": "original-prototypes-0.1",
+  "note": "本清单记录实际运行源码、角色数据、实战原型、界面与用户说明的校验值；不包含本清单自身、内部执行日志、项目计划或个人存档。原规则与实战引擎分别保留，数值未校准，不构成正式合格或第三方素材许可。",
   "files": [
     {
-      "path": "runtime/engine.py",
-      "sha256": "5f769288e7b42f9e5af2d9841616e1ff3ab5d1b4deab4ac8bf25cd8147c07185"
+      "path": "API_CONTRACT.md",
+      "size": 3927,
+      "sha256": "9c7f24c4220643f33dfdce1c3bcd7928ef944d3193aaa6ea8011494f56227786"
     },
     {
-      "path": "runtime/data.py",
-      "sha256": "db70a4bc4d99c59c104e7f10027720411dc1e69dee2ffabc4fd9f2eaf6765dc0"
+      "path": "CHANGELOG_v0_2_0_zh_CN.md",
+      "size": 1194,
+      "sha256": "651a359cb67ab8b281c3318e7bd219735b9bce89463cfa64a46934d81b5fb028"
     },
     {
-      "path": "runtime/equipment.py",
-      "sha256": "d1858edea2181356c1339d14f49cea868ce72740fc0049a9b00babfdc6d1a139"
+      "path": "CHANGELOG_v0_3_0.md",
+      "size": 2402,
+      "sha256": "b2d3888404243ce384eef6d0298d9983a24bc7a969f02e6f5b2b60d64073643b"
     },
     {
-      "path": "packs/builtin/system_contract/SYSTEM_CONTRACT.json",
-      "sha256": "b2a7ff79d9c0d4281d6c4fc43a4ef2bd6bcc8448965fa7a7b452c825eaf17de9"
+      "path": "LIVE_API_CONTRACT.md",
+      "size": 7491,
+      "sha256": "66b044ea03f6c719922eb028d8d2eae8181677c0ec4229075d8900eaf1218fc6"
     },
     {
-      "path": "packs/builtin/system_contract/COMMON_EFFECT_DSL.json",
-      "sha256": "e6c13f8369845da3f65a886fa064d7fa7892b6db411518ebfe52f5da6c90ef00"
+      "path": "LIVE_SCHEMA_FREEZE.json",
+      "size": 1031,
+      "sha256": "e9a66cdeefccf781b4d0b776b6b3ea09c6f7c19c37a1a8c3606dd9f81e5032e2"
     },
     {
-      "path": "packs/builtin/system_contract/INTERFACE_COMPATIBILITY_CLOSURE.json",
-      "sha256": "cd300b85cf08331a17cb9706fcf0299ec454e75a233c11543bbb17ddc95df657"
+      "path": "README.md",
+      "size": 4736,
+      "sha256": "a5cf5260973bc79668a21a4abd1bfe4ae1260f624cbb06f879728967c25be657"
     },
     {
-      "path": "packs/builtin/system_contract/SPATIAL_TAGS_ADDENDUM.json",
-      "sha256": "9257b04cf3e8796a9410fca12096daa463688782b02f298d002398983d47f438"
+      "path": "TEST_STATUS.md",
+      "size": 2076,
+      "sha256": "4a8e79c62fd24358c1cab568e93046c74b792e79004749481ca43ac1493ca37d"
     },
     {
-      "path": "packs/builtin/system_contract/CORE_BENCHMARK_LOADOUT.json",
-      "sha256": "546d5aea8dd1f94d6f8eb91b0b5807694661dc16ebc51469ea4121113f98556a"
+      "path": "app.py",
+      "size": 12353,
+      "sha256": "4999f8ed565549289ecd84a3dd06189c961e1ad41d06a8a700814acd546d99d0"
+    },
+    {
+      "path": "git_updates.py",
+      "size": 5297,
+      "sha256": "cd0aa2e9943946ab78c7f680a4197bac884d93ee749fa550e060c567046a9401"
+    },
+    {
+      "path": "live-data/prototypes-v1.json",
+      "size": 17830,
+      "sha256": "300192762f304eeba82d87fae8f6a46dce48fb51f844ccf17e7490c3a7d4b0f4"
+    },
+    {
+      "path": "pack_manager.py",
+      "size": 5115,
+      "sha256": "7f27606ca087d0ea5354d2b465f6f43bcb2954cb75f08c6daaa52a7babb52107"
     },
     {
       "path": "packs/builtin/batch_01/A/CANDIDATE.json",
+      "size": 4096339,
       "sha256": "2b57a7b1e9ae1962148ae72306a23c8a0a631df0fcf52b87d514637f9932915f"
     },
     {
       "path": "packs/builtin/batch_01/B/CANDIDATE.json",
+      "size": 695046,
       "sha256": "d017a4f918bc3dc9cba3caeb54d70643399bb831cfb0af28576dfefda1405c56"
     },
     {
       "path": "packs/builtin/batch_01/C/CANDIDATE.json",
+      "size": 1284331,
       "sha256": "ecbc3b300462a2ed460ea0b4cc9b28d6a951780a75d3130c4f60c248daa92abe"
     },
     {
+      "path": "packs/builtin/system_contract/COMMON_EFFECT_DSL.json",
+      "size": 69883,
+      "sha256": "e6c13f8369845da3f65a886fa064d7fa7892b6db411518ebfe52f5da6c90ef00"
+    },
+    {
+      "path": "packs/builtin/system_contract/CORE_BENCHMARK_LOADOUT.json",
+      "size": 4801,
+      "sha256": "546d5aea8dd1f94d6f8eb91b0b5807694661dc16ebc51469ea4121113f98556a"
+    },
+    {
+      "path": "packs/builtin/system_contract/INTERFACE_COMPATIBILITY_CLOSURE.json",
+      "size": 35939,
+      "sha256": "cd300b85cf08331a17cb9706fcf0299ec454e75a233c11543bbb17ddc95df657"
+    },
+    {
+      "path": "packs/builtin/system_contract/SPATIAL_TAGS_ADDENDUM.json",
+      "size": 24815,
+      "sha256": "9257b04cf3e8796a9410fca12096daa463688782b02f298d002398983d47f438"
+    },
+    {
+      "path": "packs/builtin/system_contract/SYSTEM_CONTRACT.json",
+      "size": 70031,
+      "sha256": "b2a7ff79d9c0d4281d6c4fc43a4ef2bd6bcc8448965fa7a7b452c825eaf17de9"
+    },
+    {
       "path": "packs/builtin/system_contract/parts/equipment_profiles.json",
+      "size": 63695,
       "sha256": "21c895838d3b1d06dc7bd333b45439c33d384f4b35fb13d3871472eda23099cb"
+    },
+    {
+      "path": "presentation.py",
+      "size": 4948,
+      "sha256": "f2cf9f964e22645397e33c84deaffb7de9c9e4bff038d95544eae19ac8c0cf42"
+    },
+    {
+      "path": "runtime/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime/data.py",
+      "size": 94671,
+      "sha256": "db70a4bc4d99c59c104e7f10027720411dc1e69dee2ffabc4fd9f2eaf6765dc0"
+    },
+    {
+      "path": "runtime/engine.py",
+      "size": 113887,
+      "sha256": "5f769288e7b42f9e5af2d9841616e1ff3ab5d1b4deab4ac8bf25cd8147c07185"
+    },
+    {
+      "path": "runtime/equipment.py",
+      "size": 4662,
+      "sha256": "d1858edea2181356c1339d14f49cea868ce72740fc0049a9b00babfdc6d1a139"
+    },
+    {
+      "path": "runtime/live_content.py",
+      "size": 2858,
+      "sha256": "a9de0dff82bbac665d485dbd674e3a7001b2c3adc90f21bdab0a14a3b4e42c9d"
+    },
+    {
+      "path": "runtime/live_engine.py",
+      "size": 33846,
+      "sha256": "ba342cb0949187902c53c5959ce73f61546a5fdd3bb0102da04ec33ad8acbb4b"
+    },
+    {
+      "path": "start.bat",
+      "size": 482,
+      "sha256": "eeec73f891ad838125b4eb9fffe89a016cc56a30e451bcff0997fa6214ae7b50"
+    },
+    {
+      "path": "start.sh",
+      "size": 256,
+      "sha256": "8577be87fc24f1e134c71695fc6cf1c6e9471e3e1b7f77a96245dc16b00f10d3"
+    },
+    {
+      "path": "tools/prepare_release.py",
+      "size": 3415,
+      "sha256": "b729bcb568ae5eef778d59861a636296938ded87c2ef3a18fdf25a31723db43f"
+    },
+    {
+      "path": "web/assets/SOURCES.md",
+      "size": 295,
+      "sha256": "45d4e84e229c3e5628a02fbfb9a09aa26b571d6cfd082c4ffe7f998e8183000f"
+    },
+    {
+      "path": "web/assets/app.js",
+      "size": 43794,
+      "sha256": "a715e1dfd54bba19becf5fa4dcfbcaa5483186f1552fe50941e4b687b7f71121"
+    },
+    {
+      "path": "web/assets/rule-text.js",
+      "size": 45828,
+      "sha256": "4bc20da5282f31c287058485ea83132f342acc6f4be15a74272bcd1e0ee33579"
+    },
+    {
+      "path": "web/assets/style.css",
+      "size": 10780,
+      "sha256": "2f996142cd3df3b903bf24e10b3e8b5eaa2f40b92a2ddd38deb720fc745779b0"
+    },
+    {
+      "path": "web/index.html",
+      "size": 1225,
+      "sha256": "393447ed2143081f244e618eb573b59ffff5288c87f34e2d847d447d25a0158e"
     }
   ]
 }

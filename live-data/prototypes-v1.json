@@ -1,0 +1,714 @@
+{
+  "content_version": "original-prototypes-0.1",
+  "data_schema": "wuwa-data-v2",
+  "actor_schema": "combat-actors-v1",
+  "encounter_schema": "combat-encounters-v1",
+  "actors": {
+    "PROTO_RAIDER": {
+      "definition_id": "PROTO_RAIDER",
+      "definition_version": 1,
+      "display_name": "突击体",
+      "provenance": "project_original",
+      "kind": "enemy",
+      "faction_id": "hostile",
+      "enemy_rank": "ordinary",
+      "character_ability_source": "project:PROTO_RAIDER",
+      "base_stats": {
+        "max_hp": 42,
+        "attack": 10,
+        "defense": 0
+      },
+      "ability_ids": [
+        "jab",
+        "heavy",
+        "wait"
+      ],
+      "policy_id": "raider",
+      "equipment_snapshot": {
+        "owner_definition_id": "PROTO_RAIDER",
+        "effects": []
+      },
+      "growth_provenance": "original_test_prototype_standard_1",
+      "resource_definitions": {
+        "ap": {
+          "initial": 0,
+          "cap": 1,
+          "refresh": 1
+        },
+        "focus": {
+          "initial": 0,
+          "cap": 0,
+          "refresh": 0
+        }
+      },
+      "role_id": "proto_raider",
+      "behavior_summary": "强攻，交替突刺和可打断重击，追击低生命比例目标"
+    },
+    "PROTO_SHOOTER": {
+      "definition_id": "PROTO_SHOOTER",
+      "definition_version": 1,
+      "display_name": "散射体",
+      "provenance": "project_original",
+      "kind": "enemy",
+      "faction_id": "hostile",
+      "enemy_rank": "ordinary",
+      "character_ability_source": "project:PROTO_SHOOTER",
+      "base_stats": {
+        "max_hp": 36,
+        "attack": 8,
+        "defense": 0
+      },
+      "ability_ids": [
+        "shot",
+        "scatter",
+        "wait"
+      ],
+      "policy_id": "shooter",
+      "equipment_snapshot": {
+        "owner_definition_id": "PROTO_SHOOTER",
+        "effects": []
+      },
+      "growth_provenance": "original_test_prototype_standard_1",
+      "resource_definitions": {
+        "ap": {
+          "initial": 0,
+          "cap": 1,
+          "refresh": 1
+        },
+        "focus": {
+          "initial": 0,
+          "cap": 0,
+          "refresh": 0
+        }
+      },
+      "role_id": "proto_shooter",
+      "behavior_summary": "远程施压，普通射击优先玩家，偶数轮散射真实敌对身体"
+    },
+    "PROTO_BULWARK": {
+      "definition_id": "PROTO_BULWARK",
+      "definition_version": 1,
+      "display_name": "护壁体",
+      "provenance": "project_original",
+      "kind": "enemy",
+      "faction_id": "hostile",
+      "enemy_rank": "elite",
+      "character_ability_source": "project:PROTO_BULWARK",
+      "base_stats": {
+        "max_hp": 120,
+        "attack": 12,
+        "defense": 0
+      },
+      "ability_ids": [
+        "strike",
+        "brace",
+        "crush",
+        "wait"
+      ],
+      "policy_id": "bulwark",
+      "equipment_snapshot": {
+        "owner_definition_id": "PROTO_BULWARK",
+        "effects": []
+      },
+      "growth_provenance": "original_test_prototype_standard_1",
+      "resource_definitions": {
+        "ap": {
+          "initial": 0,
+          "cap": 1,
+          "refresh": 1
+        },
+        "focus": {
+          "initial": 0,
+          "cap": 0,
+          "refresh": 0
+        }
+      },
+      "role_id": "proto_bulwark",
+      "behavior_summary": "稳健，防守后重击再普通攻击，选择高生命比例目标"
+    },
+    "PROTO_CORE": {
+      "definition_id": "PROTO_CORE",
+      "definition_version": 1,
+      "display_name": "试验核心",
+      "provenance": "project_original",
+      "kind": "enemy",
+      "faction_id": "hostile",
+      "enemy_rank": "boss",
+      "character_ability_source": "project:PROTO_CORE",
+      "base_stats": {
+        "max_hp": 180,
+        "attack": 14,
+        "defense": 0
+      },
+      "ability_ids": [
+        "strike",
+        "charge",
+        "slam",
+        "pulse",
+        "wait"
+      ],
+      "policy_id": "core",
+      "equipment_snapshot": {
+        "owner_definition_id": "PROTO_CORE",
+        "effects": []
+      },
+      "growth_provenance": "original_test_prototype_standard_1",
+      "resource_definitions": {
+        "ap": {
+          "initial": 0,
+          "cap": 1,
+          "refresh": 1
+        },
+        "focus": {
+          "initial": 0,
+          "cap": 0,
+          "refresh": 0
+        }
+      },
+      "role_id": "proto_core",
+      "behavior_summary": "阶段型，公开蓄力后群体重击，半血下一轮切阶段"
+    },
+    "PROTO_SENTINEL": {
+      "definition_id": "PROTO_SENTINEL",
+      "definition_version": 1,
+      "display_name": "自主守护者",
+      "provenance": "project_original",
+      "kind": "npc",
+      "faction_id": "allied",
+      "enemy_rank": null,
+      "character_ability_source": "project:PROTO_SENTINEL",
+      "base_stats": {
+        "max_hp": 65,
+        "attack": 8,
+        "defense": 0
+      },
+      "ability_ids": [
+        "stab",
+        "cover",
+        "wait"
+      ],
+      "policy_id": "sentinel",
+      "equipment_snapshot": {
+        "owner_definition_id": "PROTO_SENTINEL",
+        "effects": []
+      },
+      "growth_provenance": "original_test_prototype_standard_1",
+      "resource_definitions": {
+        "ap": {
+          "initial": 0,
+          "cap": 1,
+          "refresh": 1
+        },
+        "focus": {
+          "initial": 2,
+          "cap": 2,
+          "refresh": 1
+        }
+      },
+      "role_id": "proto_sentinel",
+      "behavior_summary": "谨慎守护，优先保护伤者或公开高来袭目标，否则攻击低生命敌人"
+    }
+  },
+  "abilities": {
+    "wait": {
+      "ability_id": "wait",
+      "target_selector": "self",
+      "damage": 0,
+      "hit_count": 0,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "jab": {
+      "ability_id": "jab",
+      "target_selector": "lowest_hp_ratio",
+      "damage": 8,
+      "hit_count": 1,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "heavy": {
+      "ability_id": "heavy",
+      "target_selector": "lowest_hp_ratio",
+      "damage": 14,
+      "hit_count": 1,
+      "cooldown_rounds": 1,
+      "interruptible": true,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "shot": {
+      "ability_id": "shot",
+      "target_selector": "prefer_player",
+      "damage": 6,
+      "hit_count": 1,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "scatter": {
+      "ability_id": "scatter",
+      "target_selector": "all_hostile",
+      "damage": 4,
+      "hit_count": 2,
+      "cooldown_rounds": 1,
+      "interruptible": true,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "strike": {
+      "ability_id": "strike",
+      "target_selector": "highest_hp_ratio",
+      "damage": 12,
+      "hit_count": 1,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "brace": {
+      "ability_id": "brace",
+      "target_selector": "self",
+      "damage": 0,
+      "hit_count": 0,
+      "cooldown_rounds": 1,
+      "interruptible": false,
+      "effect": "block",
+      "amount": 12,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral",
+      "followup_ability_id": "crush"
+    },
+    "crush": {
+      "ability_id": "crush",
+      "target_selector": "highest_hp_ratio",
+      "damage": 24,
+      "hit_count": 1,
+      "cooldown_rounds": 2,
+      "interruptible": true,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "charge": {
+      "ability_id": "charge",
+      "target_selector": "self",
+      "damage": 0,
+      "hit_count": 0,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": "charge",
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral",
+      "followup_ability_id": "slam"
+    },
+    "slam": {
+      "ability_id": "slam",
+      "target_selector": "all_hostile",
+      "damage": 20,
+      "hit_count": 1,
+      "cooldown_rounds": 0,
+      "interruptible": true,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "pulse": {
+      "ability_id": "pulse",
+      "target_selector": "all_hostile",
+      "damage": 6,
+      "hit_count": 2,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "stab": {
+      "ability_id": "stab",
+      "target_selector": "lowest_hp",
+      "damage": 6,
+      "hit_count": 1,
+      "cooldown_rounds": 0,
+      "interruptible": false,
+      "effect": null,
+      "amount": 0,
+      "costs": {
+        "ap": 1,
+        "focus": 0
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    },
+    "cover": {
+      "ability_id": "cover",
+      "target_selector": "friendly_guard",
+      "damage": 0,
+      "hit_count": 0,
+      "cooldown_rounds": 1,
+      "interruptible": false,
+      "effect": "shield",
+      "amount": 10,
+      "costs": {
+        "ap": 1,
+        "focus": 1
+      },
+      "target_death_policy": "locked_fizzle_pay",
+      "hit_mask": "UNIVERSAL",
+      "provenance": "project_original",
+      "damage_tags": [
+        "direct"
+      ],
+      "element": "neutral"
+    }
+  },
+  "encounters": {
+    "LIVE_PATROL_01": {
+      "encounter_id": "LIVE_PATROL_01",
+      "id": "LIVE_PATROL_01",
+      "label": "普通巡逻遭遇",
+      "schema_version": "combat-encounters-v1",
+      "difficulty_snapshot_id": "standard_1_early_uncalibrated",
+      "qualification": "experimental_uncalibrated",
+      "enemy_definitions": [
+        "PROTO_RAIDER",
+        "PROTO_SHOOTER"
+      ],
+      "ally_definitions": [],
+      "victory_conditions": [
+        "all_hostiles_dead"
+      ],
+      "defeat_conditions": [
+        "player_dead"
+      ],
+      "protected_entity_ids": [],
+      "round_limit": 50,
+      "public_phase_rules": {
+        "PROTO_CORE": {
+          "threshold_hp_bp": 5000,
+          "apply_at": "next_round_start",
+          "phase1": [
+            "strike",
+            "charge",
+            "slam"
+          ],
+          "phase2": [
+            "pulse",
+            "charge",
+            "slam"
+          ]
+        }
+      }
+    },
+    "LIVE_PATROL_01_ALLY": {
+      "encounter_id": "LIVE_PATROL_01_ALLY",
+      "id": "LIVE_PATROL_01_ALLY",
+      "label": "普通巡逻遭遇 · 友军协战对照",
+      "schema_version": "combat-encounters-v1",
+      "difficulty_snapshot_id": "standard_1_early_uncalibrated",
+      "qualification": "experimental_uncalibrated",
+      "enemy_definitions": [
+        "PROTO_RAIDER",
+        "PROTO_SHOOTER"
+      ],
+      "ally_definitions": [
+        "PROTO_SENTINEL"
+      ],
+      "victory_conditions": [
+        "all_hostiles_dead"
+      ],
+      "defeat_conditions": [
+        "player_dead"
+      ],
+      "protected_entity_ids": [],
+      "round_limit": 50,
+      "public_phase_rules": {
+        "PROTO_CORE": {
+          "threshold_hp_bp": 5000,
+          "apply_at": "next_round_start",
+          "phase1": [
+            "strike",
+            "charge",
+            "slam"
+          ],
+          "phase2": [
+            "pulse",
+            "charge",
+            "slam"
+          ]
+        }
+      }
+    },
+    "LIVE_ELITE_01": {
+      "encounter_id": "LIVE_ELITE_01",
+      "id": "LIVE_ELITE_01",
+      "label": "精英护壁遭遇",
+      "schema_version": "combat-encounters-v1",
+      "difficulty_snapshot_id": "standard_1_early_uncalibrated",
+      "qualification": "experimental_uncalibrated",
+      "enemy_definitions": [
+        "PROTO_BULWARK"
+      ],
+      "ally_definitions": [],
+      "victory_conditions": [
+        "all_hostiles_dead"
+      ],
+      "defeat_conditions": [
+        "player_dead"
+      ],
+      "protected_entity_ids": [],
+      "round_limit": 50,
+      "public_phase_rules": {
+        "PROTO_CORE": {
+          "threshold_hp_bp": 5000,
+          "apply_at": "next_round_start",
+          "phase1": [
+            "strike",
+            "charge",
+            "slam"
+          ],
+          "phase2": [
+            "pulse",
+            "charge",
+            "slam"
+          ]
+        }
+      }
+    },
+    "LIVE_ELITE_01_ALLY": {
+      "encounter_id": "LIVE_ELITE_01_ALLY",
+      "id": "LIVE_ELITE_01_ALLY",
+      "label": "精英护壁遭遇 · 友军协战对照",
+      "schema_version": "combat-encounters-v1",
+      "difficulty_snapshot_id": "standard_1_early_uncalibrated",
+      "qualification": "experimental_uncalibrated",
+      "enemy_definitions": [
+        "PROTO_BULWARK"
+      ],
+      "ally_definitions": [
+        "PROTO_SENTINEL"
+      ],
+      "victory_conditions": [
+        "all_hostiles_dead"
+      ],
+      "defeat_conditions": [
+        "player_dead"
+      ],
+      "protected_entity_ids": [],
+      "round_limit": 50,
+      "public_phase_rules": {
+        "PROTO_CORE": {
+          "threshold_hp_bp": 5000,
+          "apply_at": "next_round_start",
+          "phase1": [
+            "strike",
+            "charge",
+            "slam"
+          ],
+          "phase2": [
+            "pulse",
+            "charge",
+            "slam"
+          ]
+        }
+      }
+    },
+    "LIVE_BOSS_01": {
+      "encounter_id": "LIVE_BOSS_01",
+      "id": "LIVE_BOSS_01",
+      "label": "头目核心遭遇",
+      "schema_version": "combat-encounters-v1",
+      "difficulty_snapshot_id": "standard_1_early_uncalibrated",
+      "qualification": "experimental_uncalibrated",
+      "enemy_definitions": [
+        "PROTO_CORE"
+      ],
+      "ally_definitions": [],
+      "victory_conditions": [
+        "all_hostiles_dead"
+      ],
+      "defeat_conditions": [
+        "player_dead"
+      ],
+      "protected_entity_ids": [],
+      "round_limit": 50,
+      "public_phase_rules": {
+        "PROTO_CORE": {
+          "threshold_hp_bp": 5000,
+          "apply_at": "next_round_start",
+          "phase1": [
+            "strike",
+            "charge",
+            "slam"
+          ],
+          "phase2": [
+            "pulse",
+            "charge",
+            "slam"
+          ]
+        }
+      }
+    },
+    "LIVE_BOSS_01_ALLY": {
+      "encounter_id": "LIVE_BOSS_01_ALLY",
+      "id": "LIVE_BOSS_01_ALLY",
+      "label": "头目核心遭遇 · 友军协战对照",
+      "schema_version": "combat-encounters-v1",
+      "difficulty_snapshot_id": "standard_1_early_uncalibrated",
+      "qualification": "experimental_uncalibrated",
+      "enemy_definitions": [
+        "PROTO_CORE"
+      ],
+      "ally_definitions": [
+        "PROTO_SENTINEL"
+      ],
+      "victory_conditions": [
+        "all_hostiles_dead"
+      ],
+      "defeat_conditions": [
+        "player_dead"
+      ],
+      "protected_entity_ids": [],
+      "round_limit": 50,
+      "public_phase_rules": {
+        "PROTO_CORE": {
+          "threshold_hp_bp": 5000,
+          "apply_at": "next_round_start",
+          "phase1": [
+            "strike",
+            "charge",
+            "slam"
+          ],
+          "phase2": [
+            "pulse",
+            "charge",
+            "slam"
+          ]
+        }
+      }
+    }
+  }
+}

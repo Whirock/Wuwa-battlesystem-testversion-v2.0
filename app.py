@@ -6,10 +6,12 @@ from pathlib import Path
 from urllib.parse import urlsplit, parse_qs, unquote
 from presentation import guide, resolve_profile, role_details
 from runtime.engine import Engine
+from runtime.live_engine import LiveEngine
+from runtime.live_content import content as live_content, ENGINE_VERSION as LIVE_ENGINE_VERSION
 from runtime.data import Data
 from pack_manager import PackManager
 from git_updates import GitUpdates
-APP_VERSION='0.2.0'
+APP_VERSION='0.3.0'
 BASE=Path(__file__).resolve().parent
 class Lab:
     def __init__(self,user=None):
@@ -29,23 +31,35 @@ class Lab:
         for c in 'ABC':
             d=self.data(c)
             candidates.append({'id':c,'guide':guide(d),'rule_definitions':self.rule_definitions(d),'status':'experimental_unqualified','roles':[{'id':rid,'name':r.get('name_zh',{'aemeath':'爱弥斯','lynae':'琳奈','mornye':'莫宁','denia':'达妮娅','chisa':'千咲'}.get(rid,rid))} for rid,r in d.roles.items()], 'profiles':[{'id':p['id'],'stage':p['stage'],'roles':p['roles']} for p in d.profiles], 'abilities':d.abilities,'scenarios':d.system['enemy_catalogues']+[{'id':d.spatial['supplemental_fixture']['fixture_id'],'label':'空间补充测试场景'}], 'gear_profiles':self.gear_profiles(d)})
-        return {'app_version':APP_VERSION,'data_version':self.packs.active,'candidates':candidates,'qualification':'实验／未合格；正式合格方案 0'}
+        return {'app_version':APP_VERSION,'data_version':self.packs.active,'live_content':live_content(),'live_engine_version':LIVE_ENGINE_VERSION,'live_gui_status':'integrated_experimental','candidates':candidates,'qualification':'实验／未合格；正式合格方案 0'}
     def profile(self,body):
         d=self.data(body.get('candidate','A'))
         p=d.profile(**resolve_profile(d,body))
         return {'data_version':self.packs.active,'profile':p,'role_details':role_details(d,p),'abilities':d.abilities}
     def snapshot(self,identifier):
         b=self.battles[identifier];e=b['engine']; actions=e.legal_actions(include_blocked=True)
-        return {'id':identifier,'data_version':b['version'],'qualification':'experimental_unqualified','candidate':e.candidate,'rule_definitions':self.rule_definitions(e.data),'abilities':e.data.abilities,'view':e.public_view(),'events':copy.deepcopy(e.state['events']),**actions}
+        live_definitions=None
+        rules=copy.deepcopy(self.rule_definitions(e.data))
+        if isinstance(e,LiveEngine):
+            live_definitions={'content_version':e.live_content['content_version'],'content_hash':e.content_hash,
+                'actors':copy.deepcopy(e.live_content['actors']),'abilities':copy.deepcopy(e.live_content['abilities']),
+                'encounter':copy.deepcopy(e.state['encounter'])}
+            rules['statuses']['LIVE_COVER']={'id':'LIVE_COVER','name_zh':'守护护盾','description':'原创守护者提供的10点盾；同来源替换，下一轮开始到期；不是治疗。'}
+        return {'id':identifier,'data_version':b['version'],'qualification':'experimental_unqualified','candidate':e.candidate,'rule_definitions':rules,'live_definitions':live_definitions,'abilities':e.data.abilities,'view':e.public_view(),'events':copy.deepcopy(e.state['events']),**actions}
     def persist(self,identifier):
         obj=self.export(identifier,'save');temp=self.user/(identifier+'.tmp');temp.write_text(json.dumps(obj,ensure_ascii=False),encoding='utf8');os.replace(temp,self.user/(identifier+'.json'))
     def create(self,body):
-        version=self.packs.active;c=body.get('candidate','A');d=self.data(c,version);e=Engine(c,data=d);identifier=secrets.token_hex(12)
+        version=self.packs.active;c=body.get('candidate','A');d=self.data(c,version)
+        is_live='encounter_id' in body
+        if is_live and 'enemy_id' in body:raise ValueError('Use encounter_id or legacy enemy_id, not both')
+        if is_live and any(k in body for k in ['actors','abilities','policy','ally_variant_id']):raise ValueError('Live content must use a registered encounter ID')
+        e=(LiveEngine if is_live else Engine)(c,data=d);identifier=secrets.token_hex(12)
         gear=None
         if body.get('gear_profile_id'):
             gear=next((x['gear'] for x in self.gear_profiles(d) if x['id']==body['gear_profile_id']),None)
             if gear is None:raise ValueError('Unknown equipment profile')
-        e.new_battle(**resolve_profile(d,body),enemy_id=body.get('enemy_id','T1_SINGLE'),seed=secrets.randbits(53),battle_id=identifier,gear=gear)
+        scenario={'encounter_id':body['encounter_id']} if is_live else {'enemy_id':body.get('enemy_id','T1_SINGLE')}
+        e.new_battle(**resolve_profile(d,body),seed=secrets.randbits(53),battle_id=identifier,gear=gear,**scenario)
         self.battles[identifier]={'engine':e,'version':version};self.persist(identifier);return self.snapshot(identifier)
     def apply(self,identifier,body):
         e=self.battles[identifier]['engine']
@@ -53,18 +67,18 @@ class Lab:
         result=e.apply(body);self.persist(identifier);return {**self.snapshot(identifier),'receipt':result}
     def export(self,identifier,kind):
         b=self.battles[identifier];e=b['engine']
-        if kind=='save':return {'format':'wuwa-lab-private-save-v1','warning':'本地调试存档含隐藏牌序与随机状态，请勿用于公平对局信息。','data_version':b['version'],'checkpoint':json.loads(e.serialize())}
+        if kind=='save':return {'format':'wuwa-lab-private-save-v2' if isinstance(e,LiveEngine) else 'wuwa-lab-private-save-v1','warning':'本地调试存档含隐藏牌序与随机状态，请勿用于公平对局信息。','data_version':b['version'],'checkpoint':json.loads(e.serialize())}
         if kind!='log':raise ValueError('Unknown export kind')
         return {'format':'wuwa-lab-test-receipt-v1','qualification':'experimental_unqualified','data_version':b['version'],'runtime_hash':e.runtime_hash,'source_hashes':e.data.manifest,'public_view':e.public_view(),'actions':e.state['actions'],'receipts':e.state['receipts'],'events':e.state['events']}
     def restore(self,body):
         saved=copy.deepcopy(body['save'])
-        if saved.get('format')!='wuwa-lab-private-save-v1':raise ValueError('Unsupported save format')
+        if saved.get('format') not in ['wuwa-lab-private-save-v1','wuwa-lab-private-save-v2']:raise ValueError('Unsupported save format')
         version=saved['data_version'];root=str(self.packs.path(version));checkpoint=saved['checkpoint']
         # Always replace source paths with an installed, pinned package. Never read user paths.
         checkpoint['root']=root
         initial=checkpoint.get('state',{}).get('initial_checkpoint')
         if initial:initial['root']=root
-        e=Engine.load(checkpoint)
+        e=(LiveEngine if saved['format']=='wuwa-lab-private-save-v2' else Engine).load(checkpoint)
         # Reconstruct solely from initial state + engine-checked actions, verify exact result.
         replay=e.replay()
         if replay._combat_hash()!=e._combat_hash():raise ValueError('Save replay mismatch')

@@ -20,11 +20,3 @@ Battle: `{id,candidate,data_version,qualification,view,events,legal,blocked,abil
 Request shape: `{battle_id,action_id,expected_revision,actor_entity_id,command,card_instance_id_or_null,branch_id_or_null,target_entity_ids,choices}`. Commands currently `play_card`, `activate_deployment`, `end_turn`, `retreat`. No front-end rule calculations or hidden-outcome previews. Fields may use internal identifiers; render human names from `abilities` where present.
 
 Server writes debug saves to `user_data/` (gitignored). Only web/ is statically served. No arbitrary filesystem APIs. Manual package install: `python app.py --install-pack DIRECTORY`. Git transport is read-only and restricted to the verified public repository above. No tokens are created or saved. This is not an engine updater.
-
-## Application 0.2 additions (combat data unchanged)
-
-- Catalog additionally returns `app_version`, per-candidate `guide` and `rule_definitions` for read-only player explanations. App version is independent from `data_version`.
-- Profile and battle creation accept 1–3 distinct registered `roles` in any click order. Early/mid/late selections resolve by role set to an existing frozen profile; no skills, cards, statistics, or acquisition receipts are synthesized. Fresh acquisition retains its original engine path.
-- Profile response additionally returns `role_details`: actual initial private pools/caps/phases, owned role cards, common A/D mappings, and presentation notes for the chosen candidate/stage.
-- Battle response additionally returns `rule_definitions` from the battle's pinned data version. Clients must not use the current setup version to explain an older battle.
-- Preparation drafts are isolated by content version, candidate, stage, and selected role set in browser session storage. No cross-candidate physical-card ID migration occurs. Changing roles retains only still-owned legal selections and explicitly lists removed cards; newly available cards are not automatically added. Incompatible equipment selection falls back visibly to the stage default.
