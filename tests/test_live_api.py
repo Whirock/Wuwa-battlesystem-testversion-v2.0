@@ -35,7 +35,7 @@ class LiveApiTests(unittest.TestCase):
         self.assertEqual(c['live_gui_status'],'integrated_experimental')
 
     def test_v02_profile_metadata_and_live_definition_pinning(self):
-        c=self.lab.catalog();self.assertEqual(c['app_version'],'0.3.0')
+        c=self.lab.catalog();self.assertEqual(c['app_version'],'0.3.1')
         self.assertTrue(c['candidates'][0]['guide']);self.assertIn('statuses',c['candidates'][0]['rule_definitions'])
         roles=['lynae','aemeath']
         p=self.lab.profile({'candidate':'A','stage':'early','roles':roles})

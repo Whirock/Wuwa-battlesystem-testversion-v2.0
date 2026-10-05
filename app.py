@@ -11,7 +11,7 @@ from runtime.live_content import content as live_content, ENGINE_VERSION as LIVE
 from runtime.data import Data
 from pack_manager import PackManager
 from git_updates import GitUpdates
-APP_VERSION='0.3.0'
+APP_VERSION='0.3.1'
 BASE=Path(__file__).resolve().parent
 class Lab:
     def __init__(self,user=None):

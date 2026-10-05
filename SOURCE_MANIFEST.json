@@ -1,6 +1,6 @@
 {
   "schema": "wuwa-source-manifest-v2",
-  "app_version": "0.3.0",
+  "app_version": "0.3.1",
   "runtime_versions": {
     "legacy": "shared-runtime-1.0",
     "live": "shared-runtime-2.0"
@@ -10,9 +10,24 @@
   "note": "本清单记录实际运行源码、角色数据、实战原型、界面与用户说明的校验值；不包含本清单自身、内部执行日志、项目计划或个人存档。原规则与实战引擎分别保留，数值未校准，不构成正式合格或第三方素材许可。",
   "files": [
     {
+      "path": ".gitattributes",
+      "size": 19,
+      "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
+    },
+    {
+      "path": ".gitignore",
+      "size": 89,
+      "sha256": "8928791d0b97474635f4455172230991419ab65454c43fc56a456be47a2d4b8a"
+    },
+    {
       "path": "API_CONTRACT.md",
       "size": 3927,
       "sha256": "9c7f24c4220643f33dfdce1c3bcd7928ef944d3193aaa6ea8011494f56227786"
+    },
+    {
+      "path": "CHANGELOG_v0_2_0.md",
+      "size": 1432,
+      "sha256": "3c2d057de5c1bd32ce8b3b87ac7e6ce60f8f28c0c2787e1a33dd682651faff12"
     },
     {
       "path": "CHANGELOG_v0_2_0_zh_CN.md",
@@ -23,6 +38,11 @@
       "path": "CHANGELOG_v0_3_0.md",
       "size": 2402,
       "sha256": "b2d3888404243ce384eef6d0298d9983a24bc7a969f02e6f5b2b60d64073643b"
+    },
+    {
+      "path": "CHANGELOG_v0_3_1_zh_CN.md",
+      "size": 1067,
+      "sha256": "6c4e6b36c27fd8165ee5aa20cf323ff0a101bcc07fa37ed661905db1fdd59236"
     },
     {
       "path": "LIVE_API_CONTRACT.md",
@@ -36,18 +56,73 @@
     },
     {
       "path": "README.md",
-      "size": 4736,
-      "sha256": "a5cf5260973bc79668a21a4abd1bfe4ae1260f624cbb06f879728967c25be657"
+      "size": 4976,
+      "sha256": "8ecc26608500b31edbf118956c50f8bd6ba484fb20d6c1df7bacf86a2f868d23"
     },
     {
       "path": "TEST_STATUS.md",
-      "size": 2076,
-      "sha256": "4a8e79c62fd24358c1cab568e93046c74b792e79004749481ca43ac1493ca37d"
+      "size": 3105,
+      "sha256": "751b4054c96b80d753717ffdf2da009aa6a04002d77ba0aa8fe6d2482541957f"
     },
     {
       "path": "app.py",
       "size": 12353,
-      "sha256": "4999f8ed565549289ecd84a3dd06189c961e1ad41d06a8a700814acd546d99d0"
+      "sha256": "04c150e2f6e32e5c89fc2cfc2bfa3e75014d6c31a1cafacdecc46acdbae783cd"
+    },
+    {
+      "path": "combat-data/index.json",
+      "size": 210,
+      "sha256": "f84c2b7a3a4737ffbe072450b24a5ae0c1ca0962ffac7be230758a3f7264c787"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/batch_01/A/CANDIDATE.json",
+      "size": 4096339,
+      "sha256": "2b57a7b1e9ae1962148ae72306a23c8a0a631df0fcf52b87d514637f9932915f"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/batch_01/B/CANDIDATE.json",
+      "size": 695046,
+      "sha256": "d017a4f918bc3dc9cba3caeb54d70643399bb831cfb0af28576dfefda1405c56"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/batch_01/C/CANDIDATE.json",
+      "size": 1284331,
+      "sha256": "ecbc3b300462a2ed460ea0b4cc9b28d6a951780a75d3130c4f60c248daa92abe"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/manifest.json",
+      "size": 1696,
+      "sha256": "0a00f666e03d4bb1062da50d8b9d2143fc4f05250bd6ea8bec5a088bede4178c"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/system_contract/COMMON_EFFECT_DSL.json",
+      "size": 69883,
+      "sha256": "e6c13f8369845da3f65a886fa064d7fa7892b6db411518ebfe52f5da6c90ef00"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/system_contract/CORE_BENCHMARK_LOADOUT.json",
+      "size": 4801,
+      "sha256": "546d5aea8dd1f94d6f8eb91b0b5807694661dc16ebc51469ea4121113f98556a"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/system_contract/INTERFACE_COMPATIBILITY_CLOSURE.json",
+      "size": 35939,
+      "sha256": "cd300b85cf08331a17cb9706fcf0299ec454e75a233c11543bbb17ddc95df657"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/system_contract/SPATIAL_TAGS_ADDENDUM.json",
+      "size": 24815,
+      "sha256": "9257b04cf3e8796a9410fca12096daa463688782b02f298d002398983d47f438"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/system_contract/SYSTEM_CONTRACT.json",
+      "size": 70031,
+      "sha256": "b2a7ff79d9c0d4281d6c4fc43a4ef2bd6bcc8448965fa7a7b452c825eaf17de9"
+    },
+    {
+      "path": "combat-data/packages/batch01_abc_experimental_v1/system_contract/parts/equipment_profiles.json",
+      "size": 63695,
+      "sha256": "21c895838d3b1d06dc7bd333b45439c33d384f4b35fb13d3871472eda23099cb"
     },
     {
       "path": "git_updates.py",
@@ -155,9 +230,54 @@
       "sha256": "8577be87fc24f1e134c71695fc6cf1c6e9471e3e1b7f77a96245dc16b00f10d3"
     },
     {
+      "path": "tests/test_app.py",
+      "size": 11933,
+      "sha256": "187b8ce8b7677cd823e3458359f49ae9cc8a6441d925f2fd379d7b557e97e394"
+    },
+    {
+      "path": "tests/test_live_api.py",
+      "size": 3231,
+      "sha256": "f70baff45b39f982cf98951adecf1ba556bfc6fafbd199557fbd2d06be5c0cb4"
+    },
+    {
+      "path": "tests/test_live_engine_independent.py",
+      "size": 21589,
+      "sha256": "456ef70c45b44109c9b21f91cc8b590777f2cf86ceb162d518d6829f1077f51b"
+    },
+    {
+      "path": "tests/test_live_healing_targets.py",
+      "size": 2604,
+      "sha256": "4f24dc6aa3247254b054d5e2c5320f747d99ac3ba0ad3096f96cb53d76555ec5"
+    },
+    {
+      "path": "tests/test_live_transactions.py",
+      "size": 4825,
+      "sha256": "b6bb8c963473af961e834096be466150bc64b1b44fbe1b6e2cbe19ed745a62de"
+    },
+    {
+      "path": "tests/test_presentation.py",
+      "size": 3151,
+      "sha256": "b8682b839ccdc42f7ccaba6f084068e4eb52e179b7528140fc28bb2a53333892"
+    },
+    {
+      "path": "tests/test_static_startup.py",
+      "size": 1692,
+      "sha256": "efe70bbe9c16e95cc52ef4b7b802ce1a6127d47cdd778f106473a7ee19c85563"
+    },
+    {
+      "path": "tools/check_live_stage_boundaries.py",
+      "size": 995,
+      "sha256": "550c6659bb723544aed95444be766e2baa7f23fb3fcc15869c535b8137e69421"
+    },
+    {
       "path": "tools/prepare_release.py",
-      "size": 3415,
-      "sha256": "b729bcb568ae5eef778d59861a636296938ded87c2ef3a18fdf25a31723db43f"
+      "size": 3476,
+      "sha256": "19a9c605d19f5ff6f482276751a762b0351a7acca94f564ba348fd11c849cc59"
+    },
+    {
+      "path": "tools/smoke_live_54.py",
+      "size": 2482,
+      "sha256": "2b121643eb11daece02315c4f9d62b2245c0c9814da98f96aa7c84c598106460"
     },
     {
       "path": "web/assets/SOURCES.md",
@@ -167,12 +287,12 @@
     {
       "path": "web/assets/app.js",
       "size": 43794,
-      "sha256": "a715e1dfd54bba19becf5fa4dcfbcaa5483186f1552fe50941e4b687b7f71121"
+      "sha256": "58a2efc736f84a66c1b6f9ba96a720bf7222474726615c8c2a2419a22328e02b"
     },
     {
       "path": "web/assets/rule-text.js",
       "size": 45828,
-      "sha256": "4bc20da5282f31c287058485ea83132f342acc6f4be15a74272bcd1e0ee33579"
+      "sha256": "66c91d5338f6557837abbee8638bcd6d9ed231f5a98b90ec5936769b0fd2fc2c"
     },
     {
       "path": "web/assets/style.css",
@@ -183,6 +303,36 @@
       "path": "web/index.html",
       "size": 1225,
       "sha256": "393447ed2143081f244e618eb573b59ffff5288c87f34e2d847d447d25a0158e"
+    },
+    {
+      "path": "web/tests/dom-flow.cjs",
+      "size": 11460,
+      "sha256": "943ee989bc097345d6062badc3cfe98266d7962a5d6299ed91d553db147c51a5"
+    },
+    {
+      "path": "web/tests/live-dom-flow.cjs",
+      "size": 8956,
+      "sha256": "ef260956a22956ab4b0b9fb8a48aca3bd82b4cb51689d4a376b233db9ca5f9ce"
+    },
+    {
+      "path": "web/tests/render-contract.cjs",
+      "size": 6148,
+      "sha256": "dcfb4492ed81cfc7e542012baa8762f17a8cec193b986f0854384e9c58d3a4c3"
+    },
+    {
+      "path": "web/tests/route-labels.cjs",
+      "size": 6354,
+      "sha256": "6e9d2d528ee8a381d2dccfad16fdc20465f3c3a1491a5ced78fe8c3832f7ca01"
+    },
+    {
+      "path": "web/tests/rule-text.cjs",
+      "size": 8718,
+      "sha256": "6af32a04a48350d8df0f03cd877bfdcd974b3c43ff0015805280d2fc0aa6f546"
+    },
+    {
+      "path": "web/tests/smoke.cjs",
+      "size": 2303,
+      "sha256": "a6d0420929ecbf00944bc27b3b368353fe3570c200bcaa5446c3ee39856c9735"
     }
   ]
 }

@@ -37,7 +37,7 @@ def main():
                       'qualification': 'experimental_unqualified'}]})
     allowed_roots = {'runtime', 'packs', 'web', 'combat-data', 'tools', 'live-data'}
     allowed_files = {'.gitignore', '.gitattributes', 'README.md', 'TEST_STATUS.md', 'SOURCE_MANIFEST.json',
-                     'API_CONTRACT.md', 'presentation.py', 'tests/test_presentation.py', 'CHANGELOG_v0_2_0.md', 'CHANGELOG_v0_2_0_zh_CN.md', 'CHANGELOG_v0_3_0.md',
+                     'API_CONTRACT.md', 'presentation.py', 'tests/test_presentation.py', 'CHANGELOG_v0_2_0.md', 'CHANGELOG_v0_2_0_zh_CN.md', 'CHANGELOG_v0_3_0.md', 'CHANGELOG_v0_3_1_zh_CN.md', 'tests/test_static_startup.py',
                      'LIVE_API_CONTRACT.md', 'LIVE_SCHEMA_FREEZE.json',
                      'tests/test_live_api.py', 'tests/test_live_engine_independent.py',
                      'tests/test_live_transactions.py', 'tests/test_live_healing_targets.py', 'app.py', 'git_updates.py', 'pack_manager.py',
