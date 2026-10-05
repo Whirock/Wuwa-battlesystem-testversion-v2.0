@@ -1,9 +1,9 @@
 {
   "schema": "wuwa-source-manifest-v2",
   "app_version": "0.3.1",
-  "ui_checkpoint": "0.4-reconstructed-development",
+  "ui_checkpoint": "0.4-private-assets-hooks-technical-preview",
   "qualification": "experimental_unqualified",
-  "note": "重建源码检查点，非稳定版；不含任何原game图片或PMX。真实渲染及GIF未验收。",
+  "note": "公共源码检查点，仅资源元数据/接入钩子，不含第三方图片或技术GIF；渲染与完整动画未验收。",
   "files": [
     {
       "path": ".gitattributes",
@@ -12,8 +12,8 @@
     },
     {
       "path": ".gitignore",
-      "size": 200,
-      "sha256": "5b2725a5fd0a072ae792551c393a18333b0fad2d22c9a58fdc7ed2caf7053b1e"
+      "size": 222,
+      "sha256": "46231706d2371333d8dc75395a484f80aa0d3f285c842bcc374ed3019519f005"
     },
     {
       "path": "API_CONTRACT.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "RECOVERY_CHECKPOINT.md",
-      "size": 2232,
-      "sha256": "9b36207a2899951d825995d0e9cde7088295056fc00018e1a292cd01bc1d9328"
+      "size": 3181,
+      "sha256": "9dda733a30ac7ca090ba8e537a63007dede25710718e2fd70a8570739db46a07"
     },
     {
       "path": "TEST_STATUS.md",
@@ -276,6 +276,11 @@
       "sha256": "1be1abd21207ebd4b59570c785aea641f96a5d16160253ac0869fc80d334ad3f"
     },
     {
+      "path": "tools/export_readonly_preview.cjs",
+      "size": 4604,
+      "sha256": "aa5373640861b7456daf7365fde810da8081437ad17731b8554ff9a94bf26df1"
+    },
+    {
       "path": "tools/prepare_release.py",
       "size": 3476,
       "sha256": "19a9c605d19f5ff6f482276751a762b0351a7acca94f564ba348fd11c849cc59"
@@ -286,14 +291,24 @@
       "sha256": "2b121643eb11daece02315c4f9d62b2245c0c9814da98f96aa7c84c598106460"
     },
     {
+      "path": "tools/verify_private_assets.py",
+      "size": 889,
+      "sha256": "478399b5e050547a247979e27c74ef8b0cb511c01340653325e160e9daca3a72"
+    },
+    {
       "path": "web/assets/SOURCES.md",
-      "size": 750,
-      "sha256": "2c2cb714e1ec32af03d5c11be05e726a28f4097a45fdc9d7653f5e7e8f0dd459"
+      "size": 1132,
+      "sha256": "51562bf96720a7271c24f5260d44b595f91c9c36d15da4b4ec7db9df5a4d381b"
     },
     {
       "path": "web/assets/app.js",
-      "size": 43486,
-      "sha256": "15939b9854938410a97488a7e994c60515559cf505bfd2166ab9308f30a2d05f"
+      "size": 43644,
+      "sha256": "eb055c7c5dc9972bcca6c16de0c798b41f33188cc52dcf946bafff511f0ec60e"
+    },
+    {
+      "path": "web/assets/asset-catalog.js",
+      "size": 22205,
+      "sha256": "9e93eaa00bbd68fdb97a67f51eadf5cbb065142b9074fdbd256122ba21e2c599"
     },
     {
       "path": "web/assets/rule-text.js",
@@ -302,38 +317,43 @@
     },
     {
       "path": "web/assets/style.css",
-      "size": 20987,
-      "sha256": "90cbd3046ad28a87d297d6b290928c2a37ab7d5384187ffcfed4c2dea3344910"
+      "size": 21819,
+      "sha256": "e6720f9695674a2f3690a7a05cf09fc1fad0f5f04ddb49305cae2f777a624570"
     },
     {
       "path": "web/assets/visual-ui.js",
-      "size": 14029,
-      "sha256": "7eeec153fe994d175f64fec5df0d45be697fef50d3c5654dc500223377142e99"
+      "size": 16480,
+      "sha256": "c4117cdd84f95fd6e2d838d528a3b97bc5271211702a1ef5597013630def7fe2"
     },
     {
       "path": "web/index.html",
-      "size": 1286,
-      "sha256": "7ee7ab0ec3b410d1b7c73841dc2f7988f9f9e9ddb04438cb69055150f6c5a143"
+      "size": 1335,
+      "sha256": "c63c5abb7004dcb29e65e4a6f5c86929b000f9be3a36e39e366dfd1c13d57624"
+    },
+    {
+      "path": "web/tests/asset-catalog.cjs",
+      "size": 1118,
+      "sha256": "dba16a9637c681e691ea4b5ca0bf357beabc217fbe0d58c4953ac9c392c3523d"
     },
     {
       "path": "web/tests/dom-flow.cjs",
-      "size": 11605,
-      "sha256": "45985f43bf3714dd0289dadbdd9c6642b1627586ca2d82ffe824639c4fcdd405"
+      "size": 11720,
+      "sha256": "0b428b614a0536a71fad05fe657ce99230f500168cac5acf2f7cbdd284d0bc85"
     },
     {
       "path": "web/tests/live-dom-flow.cjs",
-      "size": 10702,
-      "sha256": "d4e4317427e1ece0b8e13da3805bbbdceb31c3b097397fc0268559af61ad6192"
+      "size": 10817,
+      "sha256": "b448934c4e7e761b534ba214c9581709828159e76c47e26200f2ee578ecb6484"
     },
     {
       "path": "web/tests/render-contract.cjs",
-      "size": 6274,
-      "sha256": "22d098cf622ff0f78441e555d8742308f3c0e25ddc8d7d7d7eda15be195a8878"
+      "size": 6395,
+      "sha256": "0a99861d8722491230f4102cd4e76f18fcef3a05e6adc45ad6be7b561910512e"
     },
     {
       "path": "web/tests/route-labels.cjs",
-      "size": 6465,
-      "sha256": "5d21ba403b66aa477b02b7b7c195fa20e0457f4bbe942ec69edb0de1c179f658"
+      "size": 6580,
+      "sha256": "3b19c9969557b07b30c66e204c80bb5ffa653eb82c96835893a64b5949778085"
     },
     {
       "path": "web/tests/rule-text.cjs",
@@ -347,8 +367,8 @@
     },
     {
       "path": "web/tests/visual-feedback.cjs",
-      "size": 4051,
-      "sha256": "1869aebd2b559e85075ab09eee6e2398710d2e654d94e48291c91781b54d0680"
+      "size": 4166,
+      "sha256": "45954cdcd55d00221252e3016ee9fc7c275f203948a4413b71120c89ef648128"
     }
   ]
 }
