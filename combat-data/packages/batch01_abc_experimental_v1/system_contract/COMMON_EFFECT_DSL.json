@@ -1,0 +1,1321 @@
+{
+  "schema_version": "wuwa.effect_dsl.v1.1",
+  "artifact_id": "COMMON_EFFECT_DSL",
+  "status": "FROZEN_PROVISIONAL_PRETEST_COMMON_ADDENDUM",
+  "base_contract_file": "SYSTEM_CONTRACT.json",
+  "base_frozen_sha256": "8f0954c82f96cd6843a6f87cf9e389869befbdc6b7fcf315d8a917c2c12bd837",
+  "purpose": "三个候选共用一种声明式能力数据和解释器；本附录是既有共同语义的形式化，不是战斗引擎或新的候选机制。聚怪/飞行由独立已请求补充合同定义。",
+  "no_arbitrary_code": true,
+  "programming_banned": [
+    "JavaScript",
+    "Python",
+    "eval",
+    "lambda",
+    "callbacks",
+    "dynamic code strings",
+    "unbounded loops",
+    "branch chosen by arbitrary function"
+  ],
+  "conventions": {
+    "ids": "ASCII stable IDs, namespace core/role/candidate/equipment; display names separate",
+    "integers": "finite signed integer expression intermediates; paid costs and applied resource amounts nonnegative; damage values clampnonnegative bycommonrule",
+    "basis_points": 10000,
+    "order": "array order is semantic; no mapiteration order dependency",
+    "unknown_symbol": "compile-time rejection; no guessed defaults, no eval fallback",
+    "extension_rule": "new operation must be added to shared registry with complete types/ownership/cost/trigger/termination tests and shared schema validation beforeengine. Prefer macro lowering to existingops. No per-candidate bespoke code or silentunknownop."
+  },
+  "ability_schema": {
+    "required": [
+      "id",
+      "owner_role_id",
+      "ability_tags",
+      "card_type",
+      "cost",
+      "condition",
+      "targets",
+      "branches",
+      "effects"
+    ],
+    "fields": {
+      "id": "unique registered string",
+      "owner_role_id": "role_id or null forcommon",
+      "ability_tags": "set of declared strings e.g basic,resonance_skill,liberation,direct,anomaly,shock,tune",
+      "card_type": "action|deploy|mode forcard abilities; null ifability_kindactivation/passive. Compatibility spellingsactivation/passive normalize toability_kind andcard_type=null beforevalidation; theynevercreatefourth/fifthcardtype.",
+      "cost": "Cost object",
+      "condition": "Predicate evaluated againstroot_snapshot beforepayment",
+      "targets": "TargetSelector object withstable selector_id",
+      "branches": "array Branch; [] means no playerbranch",
+      "effects": "array Effect; in branchingability these are baseeffects executed before selectedbranch.effects",
+      "skill_id": "string|null",
+      "acquisition_id": "must beowned or intrinsicallygranted byfreshmode",
+      "source_refs": "source/identity references, nonexecutable",
+      "growth_by_level": "array levelmin/max andexplicitdata overrides; must beprecompiled intofrozenability forbattle",
+      "usage_limit": "Limit object ornull",
+      "deployment_definition_id": "required when thisabilitydeploys a named object",
+      "ability_kind": "optional card|activation|passive; inferredfromcard_type when omitted. Onlycard kind owns a realcard instance."
+    }
+  },
+  "Branch": {
+    "required": [
+      "id",
+      "condition",
+      "cost",
+      "effects"
+    ],
+    "fields": {
+      "id": "stable string referencedbyrequest.branch_id",
+      "condition": "Predicate onroot_snapshot",
+      "cost": "ADDITIONAL toabilitybasecost, neverreplaceimplicitly",
+      "effects": "orderedEffect array afterbaseeffects",
+      "targets_override": "optional completeTargetSelector; absentuseabilitytargets",
+      "card_type": "optional action|deploy override; selected branch fixes runtime cardtype BEFORE legality/cost/zone processing; absent inherits definition. Cannot override to mode/passive/activation.",
+      "ability_tags": "optional static registered stringset; unionwithbaseability_tags andfreeze inroot snapshot BEFORE legality/payment; requestcannotprovide/override tags",
+      "keywords": "optional unique array from[exhaust]; unionwithbasekeywords BEFOREpayment, cannotremovebaseexhaust, no clientinjection",
+      "usage_limit": "optional existingLimit; baseANDbranch notoverride; stablelearnedskill+branch acrosscopies/recovery/switches, reservedbeforepay andconsumedonce onrootcommit"
+    },
+    "selection": "if branches nonempty, request mustchooseexactlyone existinglegalbranch. No automatic first-match branch orarbitrary searchfunction. Optionalconditional effects usewhen; they do notselect aplayerbranch.",
+    "card_type_lifecycle": "Effective runtime typeaction disposes todiscard/exhaust; deploy moves same sourceinstance resolving->deployed, never also discards or copies. Newdefinition doesnot imply newentitycopy. Actor sees selectedcardtype inpreview.",
+    "tag_policy": "Onlydeclaredselectedbranch tags apply; aemeath_r2 onR2branch only, notentireRdefinition. Tags do notgrantacquisition orpermitfalsequalifyingevents.",
+    "keyword_and_limit_contract": {
+      "Branch_keywords": {
+        "type": "unique array fromallowlist[exhaust]",
+        "default": [],
+        "normalization": "effectivekeywords=base unionselectedbranch BEFOREpayment; cannotremovebaseexhaust, no clientkeywordinput, no aftereffectsdisposalchoice",
+        "physical_card_only": "activation/passive have no extra card; useclose_deployment destination for their existingdeployedinstance",
+        "disposal": "effectiveaction ends inexactlydiscardorexhaust; effectivedeploy stayssameinstance deployed thenmoves once atclose accordingfrozenexhaust_on_leave; no simultaneouszone"
+      },
+      "Branch_usage_limit": {
+        "type": "existing Limit",
+        "combination": "base AND branch, neverreplacebase; eachmusthavecapacity",
+        "scope": "stable learnedskill+branch across allentitycardcopies, recoveries, alternateprintings andtemplate switches inonebattle",
+        "key": [
+          "battle_id",
+          "owner_body_id",
+          "owner_role_id",
+          "skill_id",
+          "branch_id",
+          "declared_limit_id",
+          "round_token_if_per_round"
+        ],
+        "charge_point": "reserve beforepayment; consume one use on successful rootcommit evenif effectlater0; whole-rootrollback/invalidrequest/retryconsumes0; atomicwithcost/receipt",
+        "not_resource": "limitcounter ispermissionbudget, notthirdspendableprivatepool",
+        "legal_preview": "blocked selectedbranch isnotlegal; otherlegalbranches remain available"
+      }
+    }
+  },
+  "Cost": {
+    "energy": "IntExpr, default0",
+    "private": "array[{resource_id:string,amount:IntExpr}], scopealwaysowner_template",
+    "tokens": "array[{token_id:string,amount:IntExpr}], declaredowner scopeinregistry",
+    "hp": "forbiddenbase; mustbe0",
+    "card_choices": "array[{choice_id:string,selector:CardSelector,count:IntExpr,destination:discard|exhaust}], []default",
+    "evaluation": "allcost expressions evaluateonroot_snapshot, neveraftercostsideeffects; privateall representedwithrefowner.private.ID; cannotspendotherrolepool",
+    "payment_receipt": "context.payment.energy andcontext.payment.private.ID captureactualpaid quantities, usedforfinishercoefficients withoutlookingat nowempty pools",
+    "atomic": "base+branch costmerged; validate all andchoicecardsbeforeanypay; sourcecardcannotdiscard/exhaustitself ascostunless explicitlyallowedwithresolvinglifecycle andsinglefinaldisposal"
+  },
+  "Effect": {
+    "required": [
+      "effect_id",
+      "op",
+      "target",
+      "args"
+    ],
+    "fields": {
+      "effect_id": "unique stable string withinability, usedfordedup",
+      "op": "catalogue key below",
+      "target": "TargetSelector or CardSelector asoperationrequires",
+      "args": "exact object allowedbyoperationcatalogue",
+      "when": "Predicate; omitted=true",
+      "tags": "declared additional eventtags; default[]"
+    },
+    "when_timing": "evaluate againstcurrentdeterministicstate immediatelybeforethiseffect; use root_snapshot refs toexplicitlytestprepaymentstate. Omitted/false effect isno-op, notrefund. Costs neverconditionalhere.",
+    "multi_target": "selector resolves stableentity_idorder at effecttime unless selector.snapshot=root bindsrootset; no duplicate targets; each operation appliesperentity; simultaneous=true onlydamagegroup andusescommondeathrule",
+    "no_loop": "no while/recursiveeffectcall; foreach overfinite selectedtargets implicitandboundedbyencounter; registeredmacro expansion finite"
+  },
+  "IntExpr": {
+    "literals": "integer",
+    "ref": {
+      "format": {
+        "ref": "registered.path"
+      },
+      "allowed_roots": [
+        "actor",
+        "owner",
+        "active",
+        "target",
+        "skill",
+        "battle",
+        "context",
+        "root_snapshot"
+      ],
+      "examples": [
+        "actor.attack",
+        "actor.hp",
+        "actor.max_hp",
+        "owner.private.sync",
+        "owner.phase.form",
+        "active.role_id",
+        "target.hp",
+        "target.status.fusion_burst.stacks",
+        "skill.level",
+        "battle.round",
+        "context.payment.private.sync",
+        "context.event.actual_heal",
+        "context.event.accepted_stacks",
+        "context.event.hp_lost",
+        "root_snapshot.owner.private.sync",
+        "context.deployment.remaining_uses",
+        "owner.history.saw_spent",
+        "context.deployment.remaining_uses",
+        "owner.contributors.shock.count",
+        "owner.contributors.fusion_burst.count",
+        "context.event.ability_tags",
+        "context.event.root_action_id",
+        "root_snapshot.actor.deployment.C_MOR_FIELD.exists",
+        "context.switch.full_handoff",
+        "context.switch.from_template_id",
+        "context.switch.to_template_id"
+      ],
+      "registry_rule": "role privateids, phaseaxes,statusids andtokens aredeclared incandidatedata andvalidated beforeuse; unknownpathscompilefail, no wildcard/pointercode",
+      "deployment_lookup": "actor.deployment.<registered_stacking_key>.exists isreadonly boolean derivedfrom uniqueownedfinitefield; root_snapshot variantreads prepayment. Missingknownkey=false, unknownregisteredkeycompileerror; notnewstored flag.",
+      "closed_registry": "INTERFACE_COMPATIBILITY_CLOSURE.json sections.read_only_registry andstandard_typed_field_families; prose-only candidate helpersdo notcreate fields.",
+      "aliases": {
+        "owner.contribution.<route>.count": "owner.contributors.<route>.count",
+        "owner.contributions.<route>.count": "owner.contributors.<route>.count",
+        "context.damage.role_id": "context.damage.ability_role_id",
+        "context.event.hit_count": "context.damage.ability_hit_count (incoming enemydamage/guard scope)",
+        "context.event.ability_hit_count": "context.damage.ability_hit_count (same scope)",
+        "context.event.incoming.ability.hit_count": "context.damage.ability_hit_count (same scope)",
+        "context.deployment.payload.<field>": "context.deployment.paid_snapshot.<registered_field>",
+        "context.token.bound_role_id": "context.token.beneficiary_role_id",
+        "bound_token.<registered_token_id>.count": "context.status.bound_token_count onlywhenid equals thatstatusdeclaredboundtoken",
+        "target.resonance_progress": "target.status.resonance.progress",
+        "target.status.resonance_progress.stacks": "target.status.resonance.progress",
+        "context.event.pre_root_havoc_bane.source_role_id": "context.event.pre_root_status.havoc_bane.source_role_id"
+      }
+    },
+    "arithmetic": {
+      "format": {
+        "calc": "add|sub|mul|floor_div|min|max|clamp",
+        "args": [
+          "IntExpr"
+        ]
+      },
+      "arity": {
+        "add": "2..8",
+        "sub": 2,
+        "mul": "2..4",
+        "floor_div": 2,
+        "min": "2..8",
+        "max": "2..8",
+        "clamp": 3
+      },
+      "floor_div": "integerfloordivision; denominator>0 compileproof orpreflightcheck, elseillegalaction; nofloat/NaN",
+      "clamp": "args value,lower,upper; lower<=upper"
+    },
+    "queries": {
+      "count_selected": {
+        "query": "count_selected",
+        "selector_id": "registeredselector"
+      },
+      "status_stacks": {
+        "query": "status_stacks",
+        "entity": "actor|target|owner_body",
+        "status_id": "registeredstatus"
+      },
+      "resource_cap": {
+        "query": "resource_cap",
+        "resource_id": "ownerprivateid"
+      },
+      "zone_count": {
+        "query": "zone_count",
+        "selector": "CardSelector"
+      },
+      "contributor_count": {
+        "query": "contributor_count",
+        "route": "shock|fusion_burst",
+        "owner": "owner_template"
+      },
+      "deployment_exists": {
+        "query": "deployment_exists",
+        "stacking_key": "registeredliteralkey",
+        "owner": "actor|owner_template",
+        "result_type": "boolean"
+      }
+    },
+    "safety": "expression depth<=8, nodes<=64; no random expressions; typecheck rejects enum path innumericcontext"
+  },
+  "Predicate": {
+    "literal": "true|false",
+    "comparison": {
+      "format": {
+        "cmp": "eq|ne|lt|le|gt|ge|in",
+        "left": "ValueExpr",
+        "right": "ValueExpr"
+      },
+      "ValueExpr": "IntExpr, primitive enum/string/bool, literalarray, or registeredtypedreadonly ref; cmp in rightmay be allowedfinitetag/IDtuple ref; noarbitraryquery",
+      "in": "leftprimitive ismember ofrightarray"
+    },
+    "all": {
+      "all": [
+        "Predicate"
+      ]
+    },
+    "any": {
+      "any": [
+        "Predicate"
+      ]
+    },
+    "not": {
+      "not": "Predicate"
+    },
+    "has": {
+      "has": "status|tag|learned_skill|learned_inherent|token",
+      "entity": "actor|owner_template|owner_body|target",
+      "id": "registeredid"
+    },
+    "safety": "depth<=8,nodes<=64,all/any<=16elements; deterministic shortcircuitdoesnot mutate; missingoptionalstatus=falseorzero perregistry, missingrequiredfield error"
+  },
+  "TargetSelector": {
+    "required": [
+      "selector_id",
+      "kind"
+    ],
+    "kinds": [
+      "self_body",
+      "owner_template",
+      "active_template",
+      "next_template_bound",
+      "chosen_enemy",
+      "chosen_ally_body",
+      "all_enemies",
+      "all_allies",
+      "fixed_entities",
+      "enemy_group",
+      "event_actor",
+      "event_target",
+      "deployment_owner"
+    ],
+    "fields": {
+      "selector_id": "stableID forrequest.choices binding",
+      "kind": "oneenumabove",
+      "entity_ids": "fixed_entities: literal stableID array OR {array_ref:context.deployment.paid_snapshot.target_entity_ids} OR {array_ref:context.bound_target_entity_ids}; nootherarray refs orqueries",
+      "min": "integer default1",
+      "max": "integer default1; allselectorsdefaultencounterfinitecount",
+      "filter": "Predicate on eachcandidate; defaulttrue",
+      "snapshot": "root|current defaultrootforchosen, currentforall",
+      "primary_selector_id": "enemy_group requires previouschosen_enemy selector",
+      "allow_dead": "false default; true onlyexplicitdeathcleanup, nevernormalhealing"
+    },
+    "choice": "chosen selectors use request.target_entity_ids orrequest.choices[selector_id]; noautoretargeunless target_fallback inregistereddefinition",
+    "enemy_group": "defined by SPATIAL_TAGS_ADDENDUM; immutablebossneverjoins movablegroup; ungroupedprimary selects onlyitself",
+    "next_template_bound": "onlyexistingpaidfullhandoff grants, boundto actualto_template atcreation",
+    "frozen_array_refs": {
+      "type": "immutable tuple ofunique canonical entity IDs",
+      "create": "copy chosenvalidatedIDs oncewhen deployment/grantcreated; deep copy notalias to mutablecurrenttargetlist",
+      "resolution": "keep originaltuple; dead fixed targets fizzle withreason, no replacement, no nearesttarget/currenttarget query; stableID order",
+      "validation": "must resolve onlyfrom ownedregistereddeployment/binding; missingrequired snapshot rejectsdefinition/activation, doesnotguess",
+      "save": "tupleandcreation-source persist incheckpoint andhash"
+    }
+  },
+  "CardSelector": {
+    "required": [
+      "selector_id",
+      "kind",
+      "zones"
+    ],
+    "kind": "cards",
+    "zones": "nonempty subsetdraw,hand,resolving,discard,exhaust,deployed",
+    "fields": {
+      "owner_role_id": "roleid|null|any, defaultany",
+      "skill_id": "registeredskillid|null, defaultany",
+      "card_definition_id": "registeredid|null",
+      "instance_ids": "optional exact IDs fromrequest choice",
+      "tags_all": "array",
+      "exclude_origin_instance": "boolean defaulttrue forrecovery",
+      "count": "IntExpr default1",
+      "selection": "player|top|oldest|stable_id|random, defaultplayer",
+      "on_insufficient": "illegal|up_to, defaultillegal"
+    },
+    "random": "only declaredrandom selector uses card_effect_rng domainwithroot_action/effectid index, logged; neveruseexternal/unseededrandom",
+    "no_ownership_gain": "selection doesnot createcardsorlearnskills; recover onlysameinstance"
+  },
+  "Limit": {
+    "fields": {
+      "per_root_action": "nonnegativeint|null",
+      "per_owner_round": "nonnegativeint|null",
+      "per_battle": "nonnegativeint|null",
+      "per_deployment": "nonnegativeint|null",
+      "max_live_instances": "nonnegativeint|null"
+    },
+    "key": "sourceinstance +limitdefinitionid+scopetoken; counters saved; switchingdoesnotreset; 0disables, null meansnotthatlimit, notinfinite ifanotherfinitebudgetrequired",
+    "count_on": "successful_effect bydefault; attemptquota mustexplicitlysetattempt; runtimeidentitydedupstillapplies",
+    "branch_application": "Branch.usage_limit scope stablebattle/body/role/skill/branch/declaredlimit, notcardinstance; baseANDbranch. Commitoneuse; invalid/rollback/retryzero. Existingfiniteeffecttrigger quotasstillcounttheir declaredsuccess/attemptunit."
+  },
+  "DeploymentDefinition": {
+    "required": [
+      "id",
+      "source_card_policy",
+      "remaining_uses",
+      "duration",
+      "stacking_key",
+      "replacement",
+      "activation_ability_ids",
+      "hooks"
+    ],
+    "fields": {
+      "id": "registeredID",
+      "source_card_policy": "same_instance|effect_only",
+      "remaining_uses": "integer1..3",
+      "duration": {
+        "rounds": "integer1..3",
+        "boundary": "player_start|player_end|end_round",
+        "owner": "creatingbody"
+      },
+      "stacking_key": "literalregisteredkey, expanded withownerbody/templateasdeclared",
+      "replacement": "explicit_player_replace|reject_if_present",
+      "activation_ability_ids": "registeredabilities withability_kind=activation,card_type=null (legacy serializationcard_type=activation normalized); each owncost/condition/targets/effects; request commandactivate_deployment, deployment_instance_id andbranch_id.",
+      "hooks": "arrayHook; nohooklistenstocreationeventunlessdistincton_deployeffectsaredesignated",
+      "stat_policy": "snapshot sourceATK/skilllevel atcreation, currenttargetmitigation",
+      "on_leave_destination": "discard|exhaust, defaultsameasprintedcardkeyword",
+      "expire_effects": "ordered finiteEffects, default[]; no expiryrefundunlessdeclared",
+      "owner_exit": "persist|expire defaultpersist; cannotclearprivatepoolsbyimplicitexit",
+      "consume_use_on_activation": "boolean defaulttrue",
+      "consume_use_on_hook": "explicitperhookboolean",
+      "on_zero_uses": "expireimmediately aftercurrenthook/activationeffects",
+      "body_capacity": "common2; no hiddenextraslots"
+    },
+    "same_instance": "hand->resolving->deployed; activationdoesnotcreateorredrawsamecard; terminationmovesoriginalinstanceonce; effect_only fieldhasnoextraentitycardandusesbodydeploymentcapacity",
+    "activation_settlement": {
+      "explicitinstance": "Exact request.choices.deployment_instance_id; preflight validates actualowner, requiredregisteredstackingkey/definition, liveinstance andtargetconditions. NoIDprovided isillegal beforecost.",
+      "by_stacking_key": "Existingtypedselector allowedforclose,spend_uses,retarget consistently; mustresolveuniqueownedliveinstance; no selectinganotherrolefield.",
+      "context_current": "Insideactivation/hook equals immutablecontext deploymentinstanceID. Insidecardroot onlyallowedwhenstaticallyboundtoone preceding successfuldeploy effectresult inTHIS root; otherwisecompilefail. Candidate mustnameexpecteddefinition/creator effectbinding, cannotpickoldfield.",
+      "activation_auto_use": "Forconsume_use_on_activation=true, validateandreserve1use beforeeffects; applyonce aspartofrootpayment, preservepre_uses snapshot. At0 deferautocloseuntilactivationeffectsfinish. Ifeffect explicitlycloses oldinstance, finalizerdetectssameoldIDalreadyclosed anddoesnothing; nevertouch newreplacementwithsamestackingkey.",
+      "manual_use": "Ifusingexplicitdeployment_spend_uses, activationmustsetconsume_use_on_activation=false asalreadyrequired; neverbothdeduct.",
+      "atomicity": "rollbackrestoresuseandcardzone withothercosts; retryreturnsoriginalreceipt. Eacholdcard movesonce, effect_only movesnone.",
+      "selector_forms": [
+        {
+          "kind": "request_choice",
+          "choice_id": "deployment_instance_id",
+          "expected_owner_role": "registeredrole",
+          "expected_stacking_key": "registeredkey"
+        },
+        {
+          "kind": "by_stacking_key",
+          "stacking_key": "registeredkey",
+          "owner": "actor|owner_template"
+        },
+        {
+          "kind": "created_by_effect",
+          "creator_effect_id": "priorfixeddeployeffectID",
+          "expected_definition_id": "registereddefinition"
+        }
+      ],
+      "legacy_normalization": "literalexplicitinstance normalizesonlyto request_choice deployment_instance_id withdefinitiondeclaredowner/keyfilters; context_current outsideactivationrequires declaredcreated_by_effectbinding. Missing/ambiguous binding compilefail, notruntimeguess."
+    }
+  },
+  "Hook": {
+    "required": [
+      "id",
+      "event",
+      "condition",
+      "effects",
+      "limit"
+    ],
+    "fields": {
+      "id": "registeredID",
+      "event": "onecommon eventenum",
+      "condition": "Predicate withcontext.event",
+      "effects": "orderedEffects",
+      "limit": "Limit, finitebyroot/round/deployment/battle",
+      "consume_deployment_use": "boolean",
+      "allow_origin_event": "false default"
+    },
+    "dedup": "listener_instance+event_id+beneficiary; STATUS_APPLIED/FUSION alias oneevent; multi-hit rootlimit separatelyenforced",
+    "no_new_player_choice": "automatichook cannotprompt arbitraryfreeaction; ifchoiceneeded createfinitependingdeclaredchoice resolvedwithinoriginaltransaction, targets mustbeinrequestpreview; otherwiseexactdeterministicpolicy declared",
+    "event_values": "System commonevents plus event_registry_addendum timepoints/spatialevents; arbitrarynew eventnamecompilefails unlessregistered.",
+    "status_initialization_exception": {
+      "event": "STATUS_APPLIED",
+      "allow_origin_event": true,
+      "required_predicate": "accepted_stacks>0 AND event.status_instance_id==context.status.instance_id",
+      "scope": "Initialization onlyfornew acceptedinstance, notsame-name status elsewhere. Initialization effects limitedto declaredboundtoken grant; no damage/heal/draw/self-reapplication. Normalfollowup neveruses this exception to harvestcreationroot."
+    }
+  },
+  "operation_catalogue": {
+    "damage": {
+      "target_type": "TargetSelector",
+      "args": {
+        "basis": "scaled_attack|fixed",
+        "coefficient_bp": "IntExpr requiredifscaled",
+        "flat_amount": "IntExpr default0",
+        "fixed_amount": "IntExpr requirediffixed",
+        "damage_tags": "array required",
+        "element": "fusion|spectro|havoc|glacio|aero|electro|neutral",
+        "simultaneous": "bool defaultfalse"
+      },
+      "semantics": "common source stats, modifiers, mitigation anddeath; directtagonlyvalidrootrolehit; no implicitresourcegeneration",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "block": {
+      "target_type": "TargetSelector",
+      "args": {
+        "basis": "scaled_attack|fixed",
+        "coefficient_bp": "IntExpr ifscaled",
+        "amount": "IntExpr iffixed"
+      },
+      "semantics": "addblocktoactualbody untilnextplayerstart; noimplicitattack/heal",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "heal": {
+      "target_type": "TargetSelector",
+      "args": {
+        "basis": "scaled_attack|fixed",
+        "coefficient_bp": "IntExpr ifscaled",
+        "amount": "IntExpr iffixed"
+      },
+      "semantics": "clampmissingHP, actual_heal0no event, deadnotrevived",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "shield": {
+      "target_type": "TargetSelector",
+      "args": {
+        "basis": "scaled_attack|fixed",
+        "coefficient_bp": "IntExpr ifscaled",
+        "amount": "IntExpr iffixed",
+        "status_id": "registered",
+        "duration": "Duration",
+        "damage_filter": "Predicate defaulttrue",
+        "uses": "int|null",
+        "stacking_key": "registeredkey"
+      },
+      "semantics": "finitebody shield; commonabsorption andreplacepolicy; validatesregisteredsource andstatsnapshot",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "resource_gain": {
+      "target_type": "TargetSelector(owner_template orself_body)",
+      "args": {
+        "resource_id": "registeredprivate|energy|concerto",
+        "amount": "IntExpr"
+      },
+      "semantics": "apply clampandlogaccepted/overflow; noforeignprivate; explicitconcerto automaticgrants obeyextra1rootcap",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "resource_spend": {
+      "target_type": "TargetSelector(owner_template orself_body)",
+      "args": {
+        "resource_id": "registeredprivate|energy|concerto",
+        "amount": "IntExpr|all"
+      },
+      "semantics": "rules-mandatedresolutionconsumption suchasfinisherclear; NOT a hiddenfee inaddition toCost. Previewmustproveentiretransactionpayable; insufficient rejectsroot withnorollforward. PreferCost.privateforplayerpayments.",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "resource_set": {
+      "target_type": "TargetSelector(owner_template)",
+      "args": {
+        "resource_id": "registeredprivate",
+        "value": "IntExpr"
+      },
+      "semantics": "explicit reset/refill registeredskillonly; emits actualgain/spend delta, clampcap, nofree modegain; cannotcreateunlearnedpool",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "set_phase": {
+      "target_type": "TargetSelector(owner_template)",
+      "args": {
+        "axis_id": "registeredphaseaxis",
+        "value": "registeredenum"
+      },
+      "semantics": "transition must existinfinite transitiontable; noimplicitresource/HP/reset/growth sideeffects",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "apply_status": {
+      "target_type": "TargetSelector",
+      "args": {
+        "status_id": "registered",
+        "stacks": "IntExpr default1",
+        "duration": "Duration orregistereddefault",
+        "source_policy": "original_owner default",
+        "payload": "typed declaredfields only"
+      },
+      "semantics": "statusregistry defines finitecap/stacking/lifetime; emitsSTATUS_APPLIEDwithaccepted; fusion/offset usecommonaliases; zeroacceptednotqualifying",
+      "limits": "common transaction/ownership/trigger budget applies",
+      "capacity_policy": "对target额外角色标记配额2：同stacking_key按声明替换不占新槽；新不同键且2槽已满时，本effect接受量0，原因TARGET_MARK_CAPACITY，保留旧标记，无退款/贡献/装备实际施加触发，不造成已付根事务故障。若自动hook施加亦同。费用仍需合法，未学/非法target在预付校验拒绝。fusion/resonance公共状态不占此额外配额，空间成员关系只按已批准补充例外计。"
+    },
+    "remove_status": {
+      "target_type": "TargetSelector",
+      "args": {
+        "status_id": "registered",
+        "reason": "consumed|expired|replaced|cleansed|death"
+      },
+      "semantics": "removeonce; triggeronlydeclaredreason hooks; expirydoesnotinventheal",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "fusion_apply": {
+      "target_type": "TargetSelector",
+      "args": {
+        "stacks": "IntExpr"
+      },
+      "semantics": "canonical apply_status fusion_burst specializedsameeventID; basecap3/expanded5",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "fusion_detonate": {
+      "target_type": "TargetSelector",
+      "args": {},
+      "semantics": "explicitcommonconsumeall fusion then0.4ATKperstack anomaly; requirespositive stacks",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "resonance_add": {
+      "target_type": "TargetSelector",
+      "args": {
+        "amount": "IntExpr"
+      },
+      "semantics": "common progress cap6, noautomaticbreak",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "resonance_offset": {
+      "target_type": "TargetSelector",
+      "args": {
+        "route": "shock|tune"
+      },
+      "semantics": "canonicalfiniteoffset, same-tagaccepted0/replacementexplicit; notinterferenceitself",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "resonance_break": {
+      "target_type": "TargetSelector",
+      "args": {},
+      "semantics": "requiresprogress6; consume6, commonbreak+conditionalinterferencedamage, interruptonlyeligibleintent",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "extend_anomaly_cap": {
+      "target_type": "TargetSelector",
+      "args": {
+        "status_id": "fusion_burst",
+        "amount": "2"
+      },
+      "semantics": "commoncap3to5 nonstacking untilnextdetonation/death; noappliedstacks/contribution",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "deploy": {
+      "target_type": "TargetSelector(self_body)",
+      "args": {
+        "definition_id": "registeredDeploymentDefinition",
+        "source_card_instance": "origin|choseninstance",
+        "paid_activation_snapshot": "explicitdeclared typedvaluesonly"
+      },
+      "semantics": "createfiniteobjectwithin2capacity, samecardmovementbydefinition; noinstantloop/tick unlesson_deploydeclared",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "close_deployment": {
+      "target_type": "TargetSelector(deployment_owner)",
+      "args": {
+        "deployment_selector": "context_current withunambiguousdeclaredscope | literalexplicitinstance normalizedto validatedrequest_choice | typedrequest_choice/by_stacking_key/created_by_effect insharedselector_forms; noarbitraryquery",
+        "reason": "consumed|expired|replaced|owner_exit",
+        "destination": "discard|exhaust"
+      },
+      "semantics": "terminatesonce; cardownedinstance movesonce, originalownerpreserved",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "retain": {
+      "target_type": "CardSelector",
+      "args": {
+        "duration": "to_next_player_end",
+        "source_cost_reference": "abilitycost/private costalready paid",
+        "max_cards": "IntExpr<=2"
+      },
+      "semantics": "grant retain token toexistinghandinstances; doesnotcopy/retrieve; bodycap2; extraactualcostorsacrificedeffect requiredincandidatedef",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "draw": {
+      "target_type": "TargetSelector(self_body)",
+      "args": {
+        "count": "IntExpr nonnegative"
+      },
+      "semantics": "newdraw up tohand10, shuffle discard only, nooverdrawrepair",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "discard": {
+      "target_type": "CardSelector",
+      "args": {},
+      "semantics": "movesselectedhandinstances todiscard; notbasefreebutton; sourceandchoicecostdeclared",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "exhaust": {
+      "target_type": "CardSelector",
+      "args": {},
+      "semantics": "movesselectedvalidinstances tothisbattleexhaust, notpermanentdeletion",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "recover": {
+      "target_type": "CardSelector",
+      "args": {
+        "destination": "hand|draw_top",
+        "count": "IntExpr",
+        "preserve_usage_marks": true
+      },
+      "semantics": "sameinstance fromdeclared discard/exhaust, noown-source recoverydefault, allonce/usedmarks preserved; ownedlearnedonly, handoverflowillegal unlessup_to selector; finiteLimit required",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "generate": {
+      "target_type": "TargetSelector(self_body)",
+      "args": {
+        "card_definition_id": "registeredandlearned definition orregistered enemyburden",
+        "destination": "hand|draw_top|discard",
+        "count": "IntExpr<=3",
+        "temporary": true
+      },
+      "semantics": "newbattleonlyinstances, no collectiongrant; notfreeunlearnedactive; sourcefiniteLimit mandatory",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "grant_token": {
+      "target_type": "TargetSelector",
+      "args": {
+        "token_id": "registered",
+        "amount": "IntExpr",
+        "duration": "Duration",
+        "beneficiary_binding": "body|owner_template|next_template_bound|exact_entity"
+      },
+      "semantics": "boundedregisteredtoken, actualbindingatcreation, noimplicitrefillonswitch",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "consume_token": {
+      "target_type": "TargetSelector",
+      "args": {
+        "token_id": "registered",
+        "amount": "IntExpr"
+      },
+      "semantics": "consumeownedtoken once; preflightmustproveexists",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "grant_modifier": {
+      "target_type": "TargetSelector",
+      "args": {
+        "modifier_id": "registered",
+        "lane": "source_damage|equipment_damage|healing",
+        "amount_bp": "IntExpr",
+        "damage_filter": "Predicate",
+        "uses": "integer1..3",
+        "duration": "Duration",
+        "starts": "next_root_action"
+      },
+      "semantics": "finitegrant conformsto commonlanecaps andsourceownership; cannot enhance rootthatgranted it; noadditionalcontribution",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "proof": {
+      "target_type": "TargetSelector",
+      "args": {
+        "policy": "cap_hit|lethal_save|combined",
+        "cap_bp": 3000,
+        "uses": 1,
+        "on_consumed_heal": "registeredcoefficient or0",
+        "duration": "Duration",
+        "source_limit_per_battle": 1
+      },
+      "semantics": "exactcommonMornyeproofpriority; no naturalexpiryheal, oneactualbody andonesharedtoken",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "intent_control": {
+      "target_type": "TargetSelector",
+      "args": {
+        "kind": "reduce|delay|interrupt|cancel",
+        "intent_id": "chosenorcurrent",
+        "amount": "IntExpr onlyforreduce"
+      },
+      "semantics": "requirescatalogue/control eligibility; delay onceperintent; immunity producesdeclaredno-op nofreecompensation",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "gather": {
+      "target_type": "TargetSelector",
+      "args": {
+        "group_id": "SPATIAL_GROUP_01",
+        "duration_rounds": "integer1..3"
+      },
+      "semantics": "onlySPATIAL_TAGS_ADDENDUM_MOVABLE semantics; finitegrouping notdamage/stun, mixedtargets followaddendum",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "set_elevation": {
+      "target_type": "TargetSelector(self_body)",
+      "args": {
+        "elevation": "GROUND|AERIAL",
+        "duration_rounds": "integer1..3 whenAERIAL; exactly0 for explicitGROUND landing"
+      },
+      "semantics": "paid learned ability only; addendum hit filters, noextraenergy/body/autoheal",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "emit_tagged_event": {
+      "target_type": "TargetSelector",
+      "args": {
+        "event_type": "registered non-resource marker",
+        "payload": "typed declaredfields"
+      },
+      "semantics": "only marker events approvedincatalogue; cannot forge DAMAGE_APPLIED/HEAL_APPLIED/STATUS_APPLIED/contribution/XP/terminalreceipt; realopsmustproduce those",
+      "limits": "common transaction/ownership/trigger budget applies"
+    },
+    "history_add": {
+      "target_type": "TargetSelector(owner_template)",
+      "args": {
+        "history_id": "registered historical dimension",
+        "amount": "IntExpr from actualpayment/event quantity"
+      },
+      "semantics": "append bounded actualspent/progress history; clampdeclaredcap, no resource created andnotpayable. Perroot actualevent id dedup. Only source events declared inregistry canincrement.",
+      "limits": "counts toward common2private numericdimensions; never infer falsehistoricalspend"
+    },
+    "history_reset": {
+      "target_type": "TargetSelector(owner_template)",
+      "args": {
+        "history_id": "registered",
+        "value": 0,
+        "reason": "registered phasefinish/battleend"
+      },
+      "semantics": "explicit finishing cleanup only; ordinarymode switch cannot reset. No refund resource.",
+      "limits": "onlyregisteredreset transition"
+    },
+    "consume_source_set": {
+      "target_type": "TargetSelector(owner_template)",
+      "args": {
+        "route": "shock|fusion_burst or IntExpr ref ofcanonical routeenum"
+      },
+      "semantics": "only ownerroleaemeath and committedability tag aemeath_r2; consumes completedR2 selected canonicalroute contribution set once, otherroute retained. Must occurafter R2effects as mandatorycleanup; notarbitrary source reset ornew contribution.",
+      "limits": "SC08 source lifecycle, rootaction dedup"
+    },
+    "deployment_spend_uses": {
+      "target_type": "TargetSelector(deployment_owner)",
+      "args": {
+        "deployment_selector": "context_current withunambiguousdeclaredscope | literalexplicitinstance normalizedto validatedrequest_choice | typedrequest_choice/by_stacking_key/created_by_effect insharedselector_forms; noarbitraryquery",
+        "amount": "positive IntExpr"
+      },
+      "semantics": "consumeexistingfiniteuses, requiresowner/source authorization andpreflightenoughremaining. No refresh. Ifactivationuses thisop it must declare consume_use_on_activation=false toavoidimplicitdoublecharge. At0 expireaftercurrentactivationeffects, originalcardmovesonce.",
+      "limits": "samefiniteinstance, no borrowedotherroles unless explicitlyregisteredcooperativeactivation"
+    },
+    "deployment_retarget": {
+      "target_type": "TargetSelector(chosen_enemy orchosen_ally_body)",
+      "args": {
+        "deployment_selector": "context_current withunambiguousdeclaredscope | literalexplicitinstance normalizedto validatedrequest_choice | typedrequest_choice/by_stacking_key/created_by_effect insharedselector_forms; noarbitraryquery",
+        "new_target_selector_id": "registeredchosen selector"
+      },
+      "semantics": "paid authorizedactivation requires context.payment.energy>=1, existingownerdeployment andlegalnewtarget. Sameinstance retainsoriginalATK/level/expiry/uses/source; rebindonlytargetfield. No redeployevent, no newon_deploybenefit, no duplicatedcard. Anyextra usecostdeclared separately bydeployment_spend_uses.",
+      "limits": "requires learnednode/capability explicit; no globalfree retarget"
+    }
+  },
+  "state_registration": {
+    "resource": "id,ownerrole,cap,initial,acquisition,overflow; max2private numericdimensions",
+    "phase_axis": "id,enumvalues,initial,acquisition; max3realindependentaxes/template",
+    "status": "id,owner_scope,stacking_policy,max_stacks,duration,damage_filters,triggerIDs,source andconsumption; no implicitdefaultdamage",
+    "token": "id,owner_scope,maxcount,expiry,source,consumingevents; explicitonebodyordefinedtemplate",
+    "every_new_state": "must appearcandidatecomplexityledger; hiddenfields do notavoidbudget",
+    "history": "id,ownerrole,cap,initial0,allowedactualeventincrement,explicitfinishreset. Counts asprivate numericdimension but cannot appearCost.private; nofreelyspendablethirdpool."
+  },
+  "compatibility": {
+    "all_candidates": "must identify this DSL v1.0 and corecontractsha; sameop names/typeclasses; fullrolecardsaredata notseparateenginefunctions",
+    "macros": "candidate mayregister finite declarativemacro asorderedcoreeffects withtypedparameters; macrohascompiletime expansion limit64effects, no recursion or arbitrarycode",
+    "unknown_operation": "candidate designfails untilsharedregistryaddendumapproved; do notsilentlyimplementcustomop differently",
+    "validation_before_stage6": [
+      "all refs resolve",
+      "cost/condition fields typed",
+      "all effects catalogued",
+      "macroexpandfinite",
+      "all deployment activation IDs resolve",
+      "private/statebudgetchecked",
+      "each branch haspositive andnegative legality fixture",
+      "no effectaddresses anotherroleprivatepool without explicitapproved sharedtransferoperation (noneinbase)"
+    ]
+  },
+  "Duration": {
+    "required": [
+      "rounds",
+      "boundary"
+    ],
+    "fields": {
+      "rounds": "integer1..3",
+      "boundary": "player_start|player_end|end_round",
+      "owner_body_id": "actor bydefault",
+      "expires_on_owner_exit": "false default"
+    },
+    "absolute_expiry": "compute creationround+rounds once, neverrefreshonswitch; specialnext_player_end mapsnextbodyturnend; commonforever states mayusebattle_end onlyifexplicitregisteredtargetprogress nottemporarygrant"
+  },
+  "examples": [
+    {
+      "note": "Paidprepare E creates2privateunits, noarbitrarycode",
+      "ability": {
+        "id": "example.prepare",
+        "owner_role_id": "aemeath",
+        "ability_tags": [
+          "resonance_skill"
+        ],
+        "card_type": "action",
+        "cost": {
+          "energy": 1,
+          "private": [],
+          "tokens": [],
+          "card_choices": []
+        },
+        "condition": {
+          "cmp": "eq",
+          "left": {
+            "ref": "active.role_id"
+          },
+          "right": "aemeath"
+        },
+        "targets": {
+          "selector_id": "self",
+          "kind": "owner_template"
+        },
+        "branches": [],
+        "effects": [
+          {
+            "effect_id": "gain",
+            "op": "resource_gain",
+            "target": {
+              "selector_id": "owner",
+              "kind": "owner_template"
+            },
+            "args": {
+              "resource_id": "sync",
+              "amount": 2
+            }
+          }
+        ]
+      },
+      "not_a_candidate_card": "illustrates syntax only, notaddedtocollection orfrozenrolecardlist"
+    },
+    {
+      "note": "Finishercostuses snapshotall then damageusesthepaymentreceipt",
+      "cost": {
+        "energy": 1,
+        "private": [
+          {
+            "resource_id": "saw_remaining",
+            "amount": {
+              "ref": "root_snapshot.owner.private.saw_remaining"
+            }
+          }
+        ]
+      },
+      "effect": {
+        "effect_id": "finish_damage",
+        "op": "damage",
+        "target": {
+          "selector_id": "enemy",
+          "kind": "chosen_enemy"
+        },
+        "args": {
+          "basis": "scaled_attack",
+          "coefficient_bp": {
+            "calc": "add",
+            "args": [
+              10000,
+              {
+                "calc": "mul",
+                "args": [
+                  3000,
+                  {
+                    "ref": "context.payment.private.saw_remaining"
+                  }
+                ]
+              }
+            ]
+          },
+          "flat_amount": 0,
+          "damage_tags": [
+            "direct",
+            "liberation"
+          ],
+          "element": "havoc"
+        }
+      }
+    }
+  ],
+  "spatial_binding": "SPATIAL_TAGS_ADDENDUM.json isnormative: GROUND/AERIAL, groupSPATIAL_GROUP_01, duration1..3 end_round expiry=r+d-1, explicitGROUNDlanding0. Spatialduration overrides genericDurationformula foronlytheseops; no3D ormetadataabilitygrant.",
+  "registry_update_note": "Added shared serialization of conditionalaction/deploy branches, boundedhistory, selectedR2source consumption, paidsameinstancedeploymentuse/retarget; no newcandidate orengine code. Addedread-onlycontributorcount andformalphaseeventnames for existingcommonboundaries. Physicalcardtypes remainexactly3; noncard activation/passive usesability_kind.",
+  "source_count_refs": "owner.contributors.shock.count andowner.contributors.fusion_burst.count are read-only existingSC08 setcardinalities. Not resources orspendable thirdpool; cannotassigninset_phase/resource_set. Onlyconsume_source_set clears selectedR2route.",
+  "event_registry_addendum": {
+    "status": "formal names for already declared common phaseboundaries, notextra automaticturns",
+    "timepoints": {
+      "BATTLE_START": "once aftervalidatedbattleinitialstate beforefirstdraw andfirstintent",
+      "PLAYER_TURN_START": "once afterroundincrement, blockexpiry, energyreset anddraw, beforeplayerlegalactions",
+      "END_PLAYER": "once afterend_turnrequested beforehandcleanup andenemyphase",
+      "END_ROUND": "once afterenemyabilities beforeend_roundtemporaryexpiry",
+      "BATTLE_ENDED": "once terminalreceipt no furtherdiscretionary hooks"
+    },
+    "common_events": "allSYSTEM_CONTRACT.event_schema names plus equipmentCONCERTO_GAINED and thesephaseevents",
+    "extension_events": [
+      "GATHER_RESOLVED",
+      "GROUP_RELEASED",
+      "ELEVATION_CHANGED",
+      "HIT_INCOMPATIBLE"
+    ],
+    "no_double_hook": "aliases maynotproduce two phaseevents; same event ID one listenerinvocation; phaseevents systemowned andcannotbeplayerforged",
+    "normalized_input_aliases": {
+      "BATTLE_STARTED": "BATTLE_START",
+      "PLAYER_TURN_END": "END_PLAYER"
+    },
+    "deployment_creation_turn": "创建部署后的本轮END_PLAYER是不同系统事件，允许已声明END_PLAYER hook触发；只禁止监听原创建根动作同event_id，不能把禁止同event误作整轮禁用。"
+  },
+  "compiler_normalization": "Aliases listedhere are onlyformatnormalization. They neveremit duplicateevents, createextra cardtypes, changecosts orchooseplayerbranches. Runtime usescanonicalforms only.",
+  "change_control": "No semantic expansion during candidate authoring except bounded shared compiler/interface extension reviewed by root; no engine implemented.",
+  "handoff_binding_contract": {
+    "required_per_role": "intro_ability_id|null andoutro_ability_id|null, each referencing one registered acquiredability; duplicate binding IDs orsameeffectalsoinMODE_SWITCHED hook compilefail",
+    "authoritative_context": "context.switch.full_handoff boolean +from_template_id +to_template_id are readonly pre-action snapshot results ofcommon eligibility andactualtarget, notcandidate/client supplied. context.full_handoff maynormalize tocanonicalreadonlypath.",
+    "ordering": "commoncore reserves6, invokes outgoing boundoutro once, performsvalidswitch, invokes incoming boundintro once; unlearnedside none. MODE_SWITCHED observers cannotinvoke sameboundintro/outroagain.",
+    "choice_composition": "fullswitch preview collects any required boundintro/outro targets into namedrequest.choices selectors BEFOREpayment; no later unannouncedrandom/autoretarget selection.",
+    "ability_kind": "boundintro/outro use ability_kind=passive,card_type=null, noextra entitycard orfreeplayerbutton; their formalzeroCost ispaidbythecommon6-concerto transaction notfreeordinaryswitch",
+    "trigger_marker": "no optionalINTRO_RESOLVED marker isneeded toactivateability; actualregistered effects emittedonce bycore. Ifauditmarker used it isreadonlysystempost-resolution, neversecondinvocation"
+  },
+  "compatibility_closure_file": "INTERFACE_COMPATIBILITY_CLOSURE.json",
+  "typed_read_only_registry": {
+    "context.damage.kind": {
+      "type": "enum direct|anomaly|resonance_break|interference|other",
+      "semantics": "Actualcurrentdamagepacket semanticoperationclass, notcaller-chosencosmetictag.",
+      "scope": "damage/modifier/shield filter",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.element": {
+      "type": "element enum",
+      "semantics": "Actualpacket element.",
+      "scope": "damage/modifier/shield filter",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.ability_role_id": {
+      "type": "role_id|null",
+      "semantics": "Originalpacket abilityowner, including backgroundsource; nevercurrenttemplate.",
+      "scope": "damage/modifier/shield filter",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.branch_id": {
+      "type": "registeredbranch_id|null",
+      "semantics": "Branchofactualsourceability producingthispacket; astatuspacket usesitsoriginalcreatingabilitysnapshot ornull, not unrelatedtriggerrootbranch.",
+      "scope": "damage/modifier/shield filter",
+      "missing": "null for source with no branch",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.tags": {
+      "type": "finite string tuple",
+      "semantics": "Validated actualpacket tags; noclientinjection.",
+      "scope": "damage/modifier/shield filter",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.offset_route": {
+      "type": "shock|tune|null",
+      "semantics": "Offset consumed bycurrentresonance_break copiedbefore removal; also carriedbyitsinterferencepacket.",
+      "scope": "damage/modifier filter",
+      "missing": "null for nooffset/nonbreak",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.interference_kind": {
+      "type": "shock|tune|null",
+      "semantics": "Actualinterferencepath generated byresonance_break; cannot beforgedby damage_tags.",
+      "scope": "damage/modifier filter",
+      "missing": "null outside actualinterference",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.damage.ability_hit_count": {
+      "type": "integer>=0",
+      "semantics": "Declared totalincoming enemyability hit_count, notcountofhitsthatlanded;0fornondamaging publicintent.",
+      "scope": "incomingdamage/shield filter",
+      "missing": "required damagecatalogue metadata; notguessed from currentHP",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.heal.ability_role_id": {
+      "type": "role_id|null",
+      "semantics": "Actualheal source owner from healpacket, notcurrenttemplate orunrelatedroot.",
+      "scope": "healing filter",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.action.ability_role_id": {
+      "type": "role_id|null",
+      "semantics": "Immutable rootabilityowner; deliberatelydistinctfrom actualdamage/healsource.",
+      "scope": "rootaction context",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.action.branch_id": {
+      "type": "branch_id|null",
+      "semantics": "Immutable selectedrootbranch.",
+      "scope": "rootaction context",
+      "missing": "null when no branch",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.skill_id": {
+      "type": "skill_id|null",
+      "semantics": "Causalroot skill ID forRESOURCE_SPENT/action events; nofakeextra root forintro/outro.",
+      "scope": "typed event",
+      "missing": "null for no-skill event",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.resource_id": {
+      "type": "registeredresource_id",
+      "semantics": "RESOURCE_SPENT orGAINED actualresource.",
+      "scope": "resourceevent only",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.actual_heal": {
+      "type": "integer>=0",
+      "semantics": "HEAL_APPLIED actualamount; ACTION_COMMITTED sumsactualdeduplicatedheal ledger ofthatroot, each realbody/effectonce, no overheal.",
+      "scope": "heal event oractioncommitted",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.ability_id": {
+      "type": "ability_id|null",
+      "semantics": "Committedroot ability ID onACTION_COMMITTED; nested actualemitter remainsorigin_ability_id.",
+      "scope": "typed event",
+      "missing": "null for system-onlyevent",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.origin_ability_id": {
+      "type": "ability_id|null",
+      "semantics": "Actualregisteredability that emitted event, preservesintro/outro/backgroundsource.",
+      "scope": "typed event",
+      "missing": "null for system-onlyevent",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.branch_id": {
+      "type": "branch_id|null",
+      "semantics": "Rootselectedbranchsnapshot.",
+      "scope": "typed event",
+      "missing": "null if no branch",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.pre_death_status_ids": {
+      "type": "finitestatus_idtuple",
+      "semantics": "IDs ondying target immediatelybeforedeathcleanup; stableorder, captureonce.",
+      "scope": "TARGET_DIED",
+      "missing": "empty tuple ifnone",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.killer_side": {
+      "type": "allied|enemy|none",
+      "semantics": "Factionoforiginalcausal damageactor relative tolistener-owner team; ownbody isallied, no equipped-template counting.",
+      "scope": "TARGET_DIED",
+      "missing": "none if no causalcreditedactor",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.event.status_instance_id": {
+      "type": "instance_id",
+      "semantics": "Theexactstatusinstance actuallycreated/accepted bySTATUS_APPLIED; an ignoredfullcap attempt hasnullinstance ifnonecreated.",
+      "scope": "STATUS_APPLIED",
+      "missing": "null when no acceptedinstance",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.status.instance_id": {
+      "type": "instance_id",
+      "semantics": "Exactlive listenerstatus instance, notdefinitionID.",
+      "scope": "status hook",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.status.origin_root_action_id": {
+      "type": "action_id",
+      "semantics": "Root thatcreatedthisstatus, immutableacrossswitching.",
+      "scope": "status hook",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.status.target_entity_id": {
+      "type": "entity_id",
+      "semantics": "Exacthost body/enemy ofthisstatusinstance.",
+      "scope": "status hook",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.status.payload.<registered_field>": {
+      "type": "declared finite scalar/enum",
+      "semantics": "Typedpayload captured/deepcopiedatacceptedcreation; nofree newfields orcode.",
+      "scope": "status hook",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.status.bound_template_id": {
+      "type": "template_id|null",
+      "semantics": "Actualbeneficiary capturedbyapprovedbinding, notcurrent.",
+      "scope": "status hook",
+      "missing": "null when no templatebound",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.status.bound_token_count": {
+      "type": "integer0..3",
+      "semantics": "Currentcount ofonespecificallydeclaredtoken boundto thisstatusinstance; afterprecedingconsume reads updatedcount. No secondstatususescounter.",
+      "scope": "status hook",
+      "missing": "0 if its boundtoken exhausted/removed; mismatching binding iserror",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.token.beneficiary_body_id": {
+      "type": "body_id",
+      "semantics": "Exactactualbody fixedatgrant.",
+      "scope": "token hook",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.token.beneficiary_role_id": {
+      "type": "role_id|null",
+      "semantics": "Role ofactualboundtemplate fixedatfullhandoff, notcurrent.",
+      "scope": "token hook",
+      "missing": "null ifbody-onlygrant",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.token.payload.<registered_field>": {
+      "type": "declaredfinite scalar/enum",
+      "semantics": "Immutabletypedgrantpayload, e.g.route; noarbitraryquery.",
+      "scope": "token hook",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.switch.to_role_id": {
+      "type": "role_id|null",
+      "semantics": "Registrylookup ofcanonical to_template_id inauthoritativeswitch snapshot.",
+      "scope": "switch context",
+      "missing": "null only no-targetswitch",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "target.intent.hit_count": {
+      "type": "integer>=0",
+      "semantics": "Currentlylocked publicenemyintent declared totalhits;0fornondamage.",
+      "scope": "selectedenemy withpublicintent",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.selected_target_entity_ids": {
+      "type": "immutableentity_idtuple",
+      "semantics": "Currentroot validated chosen targettuple, deepcopied when storedbydeploy; cannotre-select afterpayment.",
+      "scope": "rootcreation context",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.deployment.paid_snapshot.<registered_field>": {
+      "type": "typedcreationpayload",
+      "semantics": "Immutabledeepcopy from validatedcreationvalues. target_entity_ids tuple androute registered; no currenttemplate substitution.",
+      "scope": "deployment hook/activation",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.deployment.fixed_target.alive": {
+      "type": "boolean",
+      "semantics": "Aliveflagofexactone frozenfixed target; no newtargetinference.",
+      "scope": "deployment withsingleboundtarget",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.deployment.locked_target_dead": {
+      "type": "boolean",
+      "semantics": "NOT context.deployment.fixed_target.alive, same frozenone-targetscope.",
+      "scope": "deployment withsingleboundtarget",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "root_snapshot.actor.deployment.<registered_key>.on_leave_destination": {
+      "type": "discard|exhaust|null",
+      "semantics": "Effective printed sourcecard exit zone capturedbefore action, includingfrozenbranch exhaust; effect_onlyhasnull, mustnotpretendacardexists.",
+      "scope": "root snapshot uniqueownedregisteredfield",
+      "missing": "null if absent/effect_only; useexists/has_source_card guard",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.selected_deployment.definition_id": {
+      "type": "registereddefinitionID",
+      "semantics": "IDofexactvalidated request-selectedinstance.",
+      "scope": "explicitdeploymentselection",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.selected_deployment.remaining_uses": {
+      "type": "integer0..3",
+      "semantics": "Samevalidatedliveinstance currentquota beforepayment; immutable root_snapshot available.",
+      "scope": "explicitdeploymentselection",
+      "missing": "error outside scope",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "context.last_created_deployment_instance_id": {
+      "type": "instance_id",
+      "semantics": "Resultofspecified preceding successfuldeploy inTHIS root only. Mustbeuniquelyboundbycompiled effectsequence, notarbitrarylastfieldguess.",
+      "scope": "postdeploy same root",
+      "missing": "error ifmissing/ambiguous/wrongdefinition",
+      "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+    },
+    "battle.encounter.grouping_enabled": {
+      "type": "boolean",
+      "semantics": "Authoritativefixtureflag true onlywhen approvedspatialaddendum active; no abilitypermission granted.",
+      "scope": "encounter snapshot",
+      "missing": "false whenexplicitcorefixture disables grouping",
+      "storage": "read-only fixturevalue"
+    },
+    "context.event.pre_root_status.<registered_status_id>.source_role_id": {
+      "type": "role_id|null",
+      "semantics": "Originalownerrole ofthisregisteredstatus ontheeventtarget inrootprepayment snapshot. Notpost-hit/notcurrentactive.",
+      "scope": "event withcausalroot andknownregisteredstatus",
+      "missing": "null whenabsentatrootstart",
+      "storage": "read-only rootsnapshot projection"
+    }
+  },
+  "standard_typed_field_families": {
+    "actor/target": "entity_id,body_id,hp,max_hp,attack,defense,alive,faction_id; actualresolvedentity only",
+    "owner": "role_id,template_id,body_id; private.<declared_spendable_id>, history.<declared_history_id>, phase.<declared_axis>; nohistory masqueradingasspendableprivate",
+    "active.role_id": "role_id|null, null while neutral",
+    "skill.level": "integer1..10 fromfrozenbattle skillrecord",
+    "battle.round": "nonnegativeinteger roundindex",
+    "context.event": "event_id,root_action_id,actor_entity_id,ability_role_id,character_ability_source,origin_kind,target_entity_id,tags,amount_requested,amount_applied plusapplicable typedfields inregistry",
+    "context.payment": "energy plusprivate.<declared_id> actualalready-paidamounts; neverremainingpool",
+    "context.switch": "readonlyfull_handoff,from_template_id,to_template_id plusderivedto_role_id",
+    "context.status": "instance_id,target_entity_id,origin_root_action_id,payload.<registeredfield>,bound_token_count,bound_template_id andsourcecreationmetadata",
+    "context.deployment": "remaining_uses,paid_snapshot.<registeredfield> including frozenIDtuples; fixed_target.alive requiresexactlyone originalboundtarget",
+    "root_snapshot prefix": "readsamevalidpath onimmutableprepayment snapshot; cannot makeunknownpath legal",
+    "owner.contributors.<route>.count": "route onlyshock/fusion_burst; readexistingactualsource setsize, never aresource",
+    "array membership": "cmp in rightmayberegisteredtypedtuple(fieldref) withsameelementtype; tagsboundeddeclaredstrings, IDtuplesboundedencounter, noiterator/wildcard/query"
+  },
+  "status_token_modifier_lifecycle": {
+    "no_callbacks": "on_apply/on_expire/on_remove codecallbacks notsupported. Finite declarative Hook+existingops only.",
+    "accepted_creation_hook": {
+      "event": "STATUS_APPLIED",
+      "allow_origin_event": true,
+      "required_predicate": "accepted_stacks>0 AND event.status_instance_id==context.status.instance_id",
+      "scope": "Initialization onlyfornew acceptedinstance, notsame-name status elsewhere. Initialization effects limitedto declaredboundtoken grant; no damage/heal/draw/self-reapplication. Normalfollowup neveruses this exception to harvestcreationroot."
+    },
+    "bound_token_identity": "Token key=(battle,status_instance_id,registeredtokenid), 0..3 count; one storedcounter, statusremaining_uses UIderivesit. Grantregistration mustmatchactualnewstatus andequalabsoluteexpiry; neverbindreplacementinstancebyname.",
+    "consume_order": "Explicitconsume_token onceBEFOREderivedbenefit. Noadditional consume_before_hook/automaticstatus-use decrement. Readbound_token_count thenremove_status when0.",
+    "cleanup": "remove/replace/expiry/death cleanup marksstatusexpired andremoves exactboundtoken anditslisteners. New replacement getsnewID; stalequeuedlistenerchecksID+liveness andskips. No cashback ordefaultremoveheal.",
+    "source_snapshot": "Skill-ownedstatus anditsderiveddamage use originalcreatingactor/role,sourceATK/skilllevel snapshot andfrozenpayload; targetmitigation reads currenttarget. Derivedpassivedamage staysnon-direct unless separatelyapproved asactualdirectskill; cannot borrowtriggeringroot/currenttemplate source.",
+    "modifier_backing": "grant_modifier usesregistered finitegrant representedbyone statusinstance, notdouble state. Registeredmodifier_id removablebyremove_status with sameowner+instance lookup, uses/expiry sharedwiththatonegrant. Noexternalfunction/callback.",
+    "existing_declaration_limits": "Everypayload/token/modifier/sourceview mustexistinfinitecandidate registry, counttrueindependentstate dimensions; do not approve unknownarbitraryfields justbecausecalledderived.",
+    "initialization_hook_example": {
+      "id": "example.seed_uses",
+      "event": "STATUS_APPLIED",
+      "allow_origin_event": true,
+      "condition": {
+        "all": [
+          {
+            "cmp": "gt",
+            "left": {
+              "ref": "context.event.accepted_stacks"
+            },
+            "right": 0
+          },
+          {
+            "cmp": "eq",
+            "left": {
+              "ref": "context.event.status_instance_id"
+            },
+            "right": {
+              "ref": "context.status.instance_id"
+            }
+          }
+        ]
+      },
+      "effects": "only registered grant_token for exactnewinstance, finitecount1..3 andidenticalabsoluteexpiry",
+      "limit": {
+        "per_root_action": 1
+      }
+    },
+    "effect_only_close": "When source_card_policy=effect_only, closing removesfield butmoves nocard regardlesssyntacticallysupplieddiscard/exhaust sentinel. on_leave_destination viewisnull, notinventedprinteddiscard. Candidatesmaylowerconditionalzonevia mutuallyexclusive when effects."
+  },
+  "interference_authority": {
+    "generation": "Onlyresonance_break with actualconsumedshock/tune offset creates INTERFERENCE_DAMAGE, carrying interference_kind. Ordinarydamageoperation cannotforge bytags or emit_tagged_event.",
+    "source": "Originalbreakabilityowner istheinterferencedamage source; observed/markedtarget presence alone no contribution.",
+    "shock_contribution": "Aemeath shock source set requires eventINTERFERENCE_DAMAGE, interference_kind=shock andhp_lost>0. Tune interference remainsdistinct anddoesnot masqueradeasshock.",
+    "local_lowering": "C alreadychangedobservation to finitefollowupmodifier andactualownbreak forMornyecontribution; no new observation damagekind isapproved.",
+    "filter_metadata": "resonance_break damage maycarry consumedoffset_route beforeclear soexistingtune-break modifierscanreadit; this doesnot convertitintointerference ordoublecount."
+  },
+  "no_candidate_callback_interpreter": true,
+  "semantic_change_boundary": "Thisv1.1 is reviewed closure ofexistingfinite declaration/ownership/lifecycle; still37ops. No per-candidatecallbacks, arbitraryfunctions, newcardgenerationrules, orrevisedbaseline numbers. Actualstatus/eventsource testcases remainNOT_RUN."
+}

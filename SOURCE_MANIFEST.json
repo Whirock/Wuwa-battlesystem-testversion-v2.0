@@ -1,0 +1,55 @@
+{
+  "runtime_version": "v4",
+  "qualification": "experimental_unqualified",
+  "note": "Standalone playable experimental data. Source annotations not needed for play were omitted; combat rules are unchanged. No third-party asset license is granted.",
+  "files": [
+    {
+      "path": "runtime/engine.py",
+      "sha256": "5f769288e7b42f9e5af2d9841616e1ff3ab5d1b4deab4ac8bf25cd8147c07185"
+    },
+    {
+      "path": "runtime/data.py",
+      "sha256": "db70a4bc4d99c59c104e7f10027720411dc1e69dee2ffabc4fd9f2eaf6765dc0"
+    },
+    {
+      "path": "runtime/equipment.py",
+      "sha256": "d1858edea2181356c1339d14f49cea868ce72740fc0049a9b00babfdc6d1a139"
+    },
+    {
+      "path": "packs/builtin/system_contract/SYSTEM_CONTRACT.json",
+      "sha256": "b2a7ff79d9c0d4281d6c4fc43a4ef2bd6bcc8448965fa7a7b452c825eaf17de9"
+    },
+    {
+      "path": "packs/builtin/system_contract/COMMON_EFFECT_DSL.json",
+      "sha256": "e6c13f8369845da3f65a886fa064d7fa7892b6db411518ebfe52f5da6c90ef00"
+    },
+    {
+      "path": "packs/builtin/system_contract/INTERFACE_COMPATIBILITY_CLOSURE.json",
+      "sha256": "cd300b85cf08331a17cb9706fcf0299ec454e75a233c11543bbb17ddc95df657"
+    },
+    {
+      "path": "packs/builtin/system_contract/SPATIAL_TAGS_ADDENDUM.json",
+      "sha256": "9257b04cf3e8796a9410fca12096daa463688782b02f298d002398983d47f438"
+    },
+    {
+      "path": "packs/builtin/system_contract/CORE_BENCHMARK_LOADOUT.json",
+      "sha256": "546d5aea8dd1f94d6f8eb91b0b5807694661dc16ebc51469ea4121113f98556a"
+    },
+    {
+      "path": "packs/builtin/batch_01/A/CANDIDATE.json",
+      "sha256": "2b57a7b1e9ae1962148ae72306a23c8a0a631df0fcf52b87d514637f9932915f"
+    },
+    {
+      "path": "packs/builtin/batch_01/B/CANDIDATE.json",
+      "sha256": "d017a4f918bc3dc9cba3caeb54d70643399bb831cfb0af28576dfefda1405c56"
+    },
+    {
+      "path": "packs/builtin/batch_01/C/CANDIDATE.json",
+      "sha256": "ecbc3b300462a2ed460ea0b4cc9b28d6a951780a75d3130c4f60c248daa92abe"
+    },
+    {
+      "path": "packs/builtin/system_contract/parts/equipment_profiles.json",
+      "sha256": "21c895838d3b1d06dc7bd333b45439c33d384f4b35fb13d3871472eda23099cb"
+    }
+  ]
+}

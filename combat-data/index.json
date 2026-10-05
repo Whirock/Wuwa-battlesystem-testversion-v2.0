@@ -1,0 +1,10 @@
+{
+  "schema": "wuwa-package-index-v1",
+  "releases": [
+    {
+      "version": "batch01_abc_experimental_v1",
+      "engine_schema": "wuwa-data-v1",
+      "qualification": "experimental_unqualified"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "wuwa.core_benchmark_loadout.v1.0",
+  "fixture_id": "COREGEAR_V1",
+  "status": "FROZEN_PROVISIONAL_PRETEST_LOADOUT",
+  "scope": "All3candidates, all25rosters, allearly/mid/late core450cells useidenticalarchetype/setstructure; thisisconcreteuntestedfixture selection, notnewcombat rule.",
+  "base_contract_sha256": "8f0954c82f96cd6843a6f87cf9e389869befbdc6b7fcf315d8a917c2c12bd837",
+  "ownership": "oneplayerbody ownsoneactualweapon and5actualEcho instances; allselectedtemplates reference same loadout",
+  "weapon": {
+    "archetype_id": "W_COMMON_EMERALD",
+    "matching_profile_id": null,
+    "generic_passive": "Use exact common equipment appendix, once per body; no extra passive granted bytemplatecount",
+    "flat_attack_by_recorded_snapshot": {
+      "early": 2,
+      "mid": 3,
+      "late": 4
+    },
+    "source": "explicit test equipment acquisition/upgrade receipts supplied perstage; body level alone grantsnothing"
+  },
+  "echoes": [
+    {
+      "echo_instance_id": "COREGEAR_ECHO_INSTANCE_01",
+      "echo_definition_id": "BENCH_ECHO_DEFINITION_01",
+      "display_name": "基准中性声骸1 非原作物品",
+      "cost": 4,
+      "set_id": "BENCH_NEUTRAL_SET_01",
+      "flat_stats": {
+        "attack": 0,
+        "hp": 0,
+        "defense": 0
+      },
+      "effects": [],
+      "acquisition_receipt_id": "COREGEAR_FIXTURE_RECEIPT_01"
+    },
+    {
+      "echo_instance_id": "COREGEAR_ECHO_INSTANCE_02",
+      "echo_definition_id": "BENCH_ECHO_DEFINITION_02",
+      "display_name": "基准中性声骸2 非原作物品",
+      "cost": 3,
+      "set_id": "BENCH_NEUTRAL_SET_02",
+      "flat_stats": {
+        "attack": 0,
+        "hp": 0,
+        "defense": 0
+      },
+      "effects": [],
+      "acquisition_receipt_id": "COREGEAR_FIXTURE_RECEIPT_02"
+    },
+    {
+      "echo_instance_id": "COREGEAR_ECHO_INSTANCE_03",
+      "echo_definition_id": "BENCH_ECHO_DEFINITION_03",
+      "display_name": "基准中性声骸3 非原作物品",
+      "cost": 3,
+      "set_id": "BENCH_NEUTRAL_SET_03",
+      "flat_stats": {
+        "attack": 0,
+        "hp": 0,
+        "defense": 0
+      },
+      "effects": [],
+      "acquisition_receipt_id": "COREGEAR_FIXTURE_RECEIPT_03"
+    },
+    {
+      "echo_instance_id": "COREGEAR_ECHO_INSTANCE_04",
+      "echo_definition_id": "BENCH_ECHO_DEFINITION_04",
+      "display_name": "基准中性声骸4 非原作物品",
+      "cost": 1,
+      "set_id": "BENCH_NEUTRAL_SET_04",
+      "flat_stats": {
+        "attack": 0,
+        "hp": 0,
+        "defense": 0
+      },
+      "effects": [],
+      "acquisition_receipt_id": "COREGEAR_FIXTURE_RECEIPT_04"
+    },
+    {
+      "echo_instance_id": "COREGEAR_ECHO_INSTANCE_05",
+      "echo_definition_id": "BENCH_ECHO_DEFINITION_05",
+      "display_name": "基准中性声骸5 非原作物品",
+      "cost": 1,
+      "set_id": "BENCH_NEUTRAL_SET_05",
+      "flat_stats": {
+        "attack": 0,
+        "hp": 0,
+        "defense": 0
+      },
+      "effects": [],
+      "acquisition_receipt_id": "COREGEAR_FIXTURE_RECEIPT_05"
+    }
+  ],
+  "neutral_set_registry": [
+    {
+      "set_id": "BENCH_NEUTRAL_SET_01",
+      "thresholds": [],
+      "effects": [],
+      "fixture_only": true
+    },
+    {
+      "set_id": "BENCH_NEUTRAL_SET_02",
+      "thresholds": [],
+      "effects": [],
+      "fixture_only": true
+    },
+    {
+      "set_id": "BENCH_NEUTRAL_SET_03",
+      "thresholds": [],
+      "effects": [],
+      "fixture_only": true
+    },
+    {
+      "set_id": "BENCH_NEUTRAL_SET_04",
+      "thresholds": [],
+      "effects": [],
+      "fixture_only": true
+    },
+    {
+      "set_id": "BENCH_NEUTRAL_SET_05",
+      "thresholds": [],
+      "effects": [],
+      "fixture_only": true
+    }
+  ],
+  "constraints": {
+    "echo_count": 5,
+    "cost_sum": 12,
+    "echo_flat_attack": 0,
+    "echo_flat_hp": 0,
+    "echo_flat_defense": 0,
+    "all_other_echo_numeric_modifiers": 0,
+    "active_set_threshold_effects": [],
+    "main_echo_active": "none",
+    "matching_bonus": "none"
+  },
+  "interpretation": "The5neutral/unmatchedEcho records below are visibly namedbenchmark fixtures, NOT claims of5verifiedoriginal-game items ororiginalset memberships. Each has a distinctneutralset_id withno effects, so no accidental2/3/5 threshold.",
+  "growth_comparability": "Supersedes the illustrative early2/mid2+3/late5set choices ONLY forcore benchmark gear selection. Thoseoriginal examples remainlegal equipmentablation choices, notautomaticgrowthrewards. Functional growth tests additionally keeprawpanel/resourcebudgetequal aspreregistered.",
+  "separate_ablations": "3weaponarchetypes/3real source-inspiredsets/5matchingprofiles and20pairedmatching-null representativeconfigs remainseparate mandatorycoverage; do notdisable them ormergegearbonusesintocoregrowthscore.",
+  "runtime_tests_run": 0
+}

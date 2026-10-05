@@ -1,0 +1,1542 @@
+{
+  "schema_version": "wuwa.system_contract.v1.0",
+  "contract_id": "WUWA-SC-20261004-01",
+  "title": "鸣潮战斗系统共同接口与测试基线",
+  "status": "PROVISIONAL_PRETEST_COMMON_BASELINE_FROZEN",
+  "stage": 4,
+  "created_at_utc": "2026-10-04T19:00:00Z",
+  "evidence_level": "F0_contract_only",
+  "candidate_count": 0,
+  "engine_implemented": false,
+  "human_fun_verified": false,
+  "decisions": [
+    {
+      "id": "SC01",
+      "title": "实体和来源",
+      "decision": "玩家1个body_id，1份HP、基础面板、装备和共享手牌；1至3个不同role_id模板，恰好0或1个激活模板（开场中立）。模板不是实体；人形机兵不是第二个实体。同角色NPC与模板可有不同entity_id，但贡献按同一character_ability_source去重。",
+      "rationale": "保持一身体和实际来源协作；独立NPC只作明确扩展"
+    },
+    {
+      "id": "SC02",
+      "title": "初始预算",
+      "decision": "每个玩家回合能量设为3（不结转）；新增抽5，不是补至5；手牌上限10。模态0费，正常出牌弃置；模态本身不产协奏、私池、熟练、抽牌、护盾或返费。只有已满协奏的有效交接可另外结算已学变奏/延奏；重复当前模态绝无此例外。首次有效激活仅安装已取得映射及规则。",
+      "rationale": "保留牌位、到手时机和供牌机会成本，同时不另造切换CD；3/5不是原作值也不是沿袭旧稿即正确"
+    },
+    {
+      "id": "SC03",
+      "title": "自由构筑",
+      "decision": "初始可编辑；出战牌组1至30张，实体卡副本不超过收藏中的owned_copy_count且同card_definition最多3。模态收藏首次给1实体副本，通用A/D起始各5份，可自选0至3份；每次学新技能给1份其卡式，追加实体副本须另有取得凭证。可0攻击、可不带模态、可全防/全模态；没有强制比例或玩家类型。",
+      "rationale": "有限收藏防无限复制；合法性与强度分开，完全无伤害亦可合法失败"
+    },
+    {
+      "id": "SC04",
+      "title": "首得和后学",
+      "decision": "首次模板只新增模态卡，且取得该模板通用A/D的内在机械映射及所需有限基础私池。五角色首得就有不同决定，不能仅换元素/名称。未学E/H/R、变奏、延奏、两固有和高级回路仍不可用；学习增加收藏但不改decklist。",
+      "rationale": "保证学习选择与收藏/配置/战场分层"
+    },
+    {
+      "id": "SC05",
+      "title": "共同共享资源",
+      "decision": "energy为本轮3费预算，concerto为跨轮0至6共享接力进度；不另加全员通用解放能量条。解放卡用已明示energy/私池/阶段成本，各版不得偷偷造第三公共强制量。私池切出保留，战斗结束清理。",
+      "rationale": "共享资源各有时间用途；删原作无意义逐秒量"
+    },
+    {
+      "id": "SC06",
+      "title": "重复当前模态",
+      "decision": "合法打出，支付印制费用（本轮0），弃置实体卡；无MODE_SWITCHED，不触发离场/入场/装备/协奏/固有/成长，不能重置任何次数或期限。记为ineffective_mode_play。",
+      "rationale": "不奖励重复、不藏兜底；无效操作不计有效行动"
+    },
+    {
+      "id": "SC07",
+      "title": "贡献去重",
+      "decision": "character_ability_source=role_id；真实合格事件后记录该来源，而非看装了谁。震谐需INTERFERENCE_DAMAGE且hp_lost>0；聚爆需FUSION_APPLIED且accepted_stacks>0。只认player_skill、npc_skill或由已学技能实际建立的deployment；装备自身、纯扩容、纯治疗、纯模式不计。",
+      "rationale": "区分实际合作与名单加成；人形机兵同源，千咲扩容不算施加"
+    },
+    {
+      "id": "SC08",
+      "title": "协作轨迹",
+      "decision": "仅已学爱弥斯第二固有且本场装入爱弥斯时启用两份来源集合；本场开始空，不追溯学习前事件。震谐门槛3不同来源，聚爆门槛2；本人可各计1。切出/换路线不清；选路R2完成后只消费该路集合。其他路保留至兑现/终战；来源死亡不撤销历史贡献。",
+      "rationale": "沿保留原不同阈值方向，单模板仍可完整基础终结，只不满团队收益；无需真NPC才能测三来源"
+    },
+    {
+      "id": "SC09",
+      "title": "压缩而非照抄",
+      "decision": "本批每模板最多2个私有数值维度，分别登记可消费池和不可消费历史量；最多3个真实独立分类轴（如爱弥斯形态、过载阶段、路线），每轴不超过4态；两个独立取得固有。隐藏或合并显示不减维数。若压缩无法保住已验收身份，必须回第四步登记例外、审阅并复测共同基线，不能由候选或实现者暗删身份。",
+      "rationale": "预算是本轮工程约束，不是人类最佳容量定律"
+    },
+    {
+      "id": "SC10",
+      "title": "统一基本数值",
+      "decision": "早中晚HP=100/150/220，ATK=10/15/22，DEF=0；中立A费用1伤害1.0ATK，中立D费用1格挡0.8ATK。首次角色映射同费1但以公开的准备、消费、延后和限定防护改变用途，具体本轮暂定系数见fresh_mode_mapping，不能只换颜色。",
+      "rationale": "先用少乘区可复算基线识别角色机制；装备/成长各有独立账本"
+    },
+    {
+      "id": "SC11",
+      "title": "敌人意图",
+      "decision": "每轮开始前公开下轮将执行的确切能力、目标规则、次数、基础伤害和修正来源；锁定intent_id和ability_id，敌人不读玩家手牌换招。仅公开控制/阶段事件能改动意图，并产意图修订记录。",
+      "rationale": "信息足以支撑取舍，避免临场补能力"
+    },
+    {
+      "id": "SC12",
+      "title": "无固定切换冷却",
+      "decision": "只由手牌、已取得模板及本次行动费用限制切换；同轮可以A到B到A。次数上限是牌流结果，不能另加一轮一次或冷却。",
+      "rationale": "遵守取消旧CD，防止用性能护栏冒充玩法CD"
+    },
+    {
+      "id": "SC13",
+      "title": "预注册口径澄清",
+      "decision": "fresh_acquisition首得检查允许模态内在A/D机械映射和有限基础私池，不包含独立E/H/R、变奏延奏及两后学固有。early_post_intro另外要求已取得高级回路与2主动的凭证；均非本体等级自动发放。",
+      "rationale": "分开首得检查与有真实学习记录的早期战斗快照，禁止用同名early偷赠成长"
+    }
+  ],
+  "identity_model": {
+    "entity_types": [
+      "player_body",
+      "npc_body",
+      "enemy_body"
+    ],
+    "player_body_fields": [
+      "body_id",
+      "hp",
+      "max_hp",
+      "base_stats",
+      "equipment_loadout_id",
+      "statuses",
+      "alive"
+    ],
+    "template_fields": [
+      "template_id",
+      "body_id",
+      "role_id",
+      "character_ability_source",
+      "learned_skill_ids",
+      "learned_inherent_ids",
+      "private_resources",
+      "phase_state",
+      "route"
+    ],
+    "npc_metadata_fields": [
+      "entity_id",
+      "role_id",
+      "character_ability_source",
+      "ability_catalogue_hash",
+      "policy_id",
+      "equipment_snapshot",
+      "growth_provenance"
+    ],
+    "npc_scope": "当前450格主矩阵均player_bodies=1,npc_bodies=0；二三人协作指2/3模板真实行动接力。NPC本阶段冻结数据与来源接口，后续至少用能力目录stub验实体区别与同源去重；不宣称完整NPC模拟完成。",
+    "equipment_owner": "body_id，模板仅引用；不得每模板另挂并叠加loadout"
+  },
+  "card_schema": {
+    "required": [
+      "card_instance_id",
+      "card_definition_id",
+      "card_type",
+      "skill_id_or_null",
+      "owner_template_id_or_null",
+      "owned_copy_id_or_null",
+      "cost",
+      "target_spec",
+      "play_condition",
+      "effects",
+      "keywords",
+      "origin",
+      "copy_index"
+    ],
+    "types": [
+      "action",
+      "deploy",
+      "mode"
+    ],
+    "collection_fields": [
+      "owned_skill_records",
+      "owned_card_instances",
+      "owned_templates"
+    ],
+    "decklist_fields": [
+      "selected_template_ids",
+      "card_instance_ids",
+      "weapon_instance_id",
+      "echo_instance_ids"
+    ],
+    "runtime_zones": [
+      "draw",
+      "hand",
+      "resolving",
+      "discard",
+      "exhaust",
+      "deployed",
+      "removed"
+    ],
+    "exactly_one_zone": true,
+    "temporary": "origin=generated不入永久收藏；本场exhaust不是删除收藏；无免费全局生成/回收操作",
+    "generic_attack": "COMMON_A为已拥有通用技能，1能量。中立分支1.0ATK；角色激活后按fresh_mode_mapping内在分支或后来已学扩展映射，在支付前绑定本次来源。映射不同不是额外实体卡，不自动授予E/H/R。",
+    "generic_defend": "COMMON_D为已拥有通用技能，1能量。中立0.8ATK格挡；角色内在映射可用有限准备换明确防护，保持防御职责不临场改攻击。映射或新学习的混合效果须预先列明。",
+    "cross_template": "专属牌默认owner_is_active；候选可明写off_template分支与成本/缩窄效果，否则拒绝，不自动变白板攻击；来源仍原owner",
+    "keywords": {
+      "retain": "由已学来源主动授予具体实例；默认至下个玩家回合结束一次，占手牌位；需额外资源或牺牲效应，不能单凭手牌位声称足够成本",
+      "exhaust": "从resolving移本场exhaust，不能通常洗回；只声明来源可取回，有限次数且不得重置原卡once标记",
+      "ethereal": "未打出且在手时回合末移exhaust；用于临时干扰，不删收藏",
+      "deploy": "卡进deployed且成为唯一场对象，不能同时弃置；默认总部署容量2，替换须指定原对象并放弃其剩余效应",
+      "draw": "源效果写明数量，先移实例后取下一张；上限之外的抽取终止，不弃一抽一",
+      "discard": "基础回合末弃置不是可自由手动弃牌按钮；技能弃牌可选择/随机须明示",
+      "cost_policy": "关键词本身不赠权限或零费；每个卡/节点/装备定义实际成本、次数、时点和失效"
+    },
+    "cost_schema": {
+      "energy": "nonnegative integer",
+      "private": [
+        {
+          "template_id": "owner template only",
+          "resource_id": "declared private resource",
+          "amount": "nonnegative integer"
+        }
+      ],
+      "consume_tokens": "explicit instance IDs or declared choice selectors",
+      "all_or_nothing": true,
+      "hp_cost": "forbidden in common baseline; no hidden debt"
+    }
+  },
+  "loadout_validation": {
+    "template_count_min": 1,
+    "template_count_max": 3,
+    "duplicate_role_templates": false,
+    "deck_size_min": 1,
+    "deck_size_max": 30,
+    "per_definition_copy_cap": 3,
+    "require_attack": false,
+    "require_defend": false,
+    "require_mode_in_deck": false,
+    "starting_active_template": null,
+    "level_based_build_permissions": false,
+    "unknown_or_unowned_cards": "reject_before_battle",
+    "first_acquisition": "唯一取得凭证给一张模态实体卡，并解锁其fresh_mode_mapping规则和所需有限基础资源；不额外送主动牌、两固有、变奏/延奏；重复角色给通用技能+1道具。"
+  },
+  "round_protocol": {
+    "start_battle": [
+      "validate frozen config and ownership",
+      "snapshot growth/equipment and actor stats",
+      "clear energy/concerto/private battle pools/temporary statuses and source sets",
+      "active_template=null; hp supplied by encounter fixture or campaign (never healed by template count)",
+      "shuffle deck; no guaranteed mode, no mulligan",
+      "create round1 enemy intents"
+    ],
+    "player_turn_start": [
+      "increment round",
+      "expire player_block and round-bound effects from prior cycle",
+      "energy=3; reset explicitly per_round charges",
+      "draw 5 up to hand10; no fill-to-five assumption",
+      "publish already selected current enemy intents",
+      "resolve declared start-turn deployments in priority order",
+      "offer legal actions"
+    ],
+    "player_phase": "zero or more validated root actions, including end_turn or retreat; no universal attack/dodge skill menu",
+    "end_player": [
+      "resolve declared end_player triggers",
+      "discard unretained hand; consume retention expiry as specified; resolve ethereal before normal discard",
+      "energy=0",
+      "future NPC ability slots (if configured) by stable entity_id",
+      "enemy abilities by declared initiative then entity_id, each one primary catalogue ability",
+      "resolve end_round duration/cleanup events",
+      "check terminal",
+      "create and publish next round intents"
+    ],
+    "block_lifetime": "player block gained in own turn remains through ensuing enemy phase and expires at next player_turn_start; shields have separately declared finite duration/uses; switching neither clears nor refreshes either",
+    "draw_rules": {
+      "empty_draw": "shuffle discard via keyed deterministic RNG and continue; resolving/deployed/exhaust never included",
+      "empty_both": "draw fewer; no fatigue damage or generated safety card",
+      "hand_overflow": "stop further requested draws; remaining unrequested cards stay draw; no compensation",
+      "end_hand": "unretained discard; retention is instance token and max2 retained instances/body, source costs still required"
+    },
+    "deployment_rules": {
+      "capacity": 2,
+      "same_key": "replace rather than stack; old card goes discard unless exhaust_on_leave; no refund",
+      "activation": "created during an event cannot listen to that same event unless definition explicitly gives on_deploy effect",
+      "departure": "skill-owned deployment persists when template switches unless declaration states owner_exit expiry; damage retains original owner/stats policy",
+      "stats_snapshot": "off-field damage/heal snapshots source ATK and skill level at creation; target mitigation reads current target; temporary buffs apply only if snapshot flags explicitly include them",
+      "termination": "remaining_uses integer0..3 or explicit round expiry<=3; no immortal automatic field in common profile",
+      "retreat": "no further field ticks after terminal"
+    }
+  },
+  "resources": {
+    "energy": {
+      "scope": "player_body",
+      "base_per_turn": 3,
+      "maximum": 10,
+      "carry": false,
+      "grant_policy": "only declared finite source; accepted=min(requested,10-current); overflow logged lost"
+    },
+    "concerto": {
+      "scope": "player_body",
+      "cap": 6,
+      "initial": 0,
+      "carry_across_rounds": true,
+      "baseline_gain": 1,
+      "qualifying": "once per paid action/deploy root action with at least one of hp damage>0, new block/shield>0, actual heal>0, accepted private resource>0, accepted fusion/resonance progress>0, or created nonempty finite deployment; cost.energy_paid>=1 OR private_resource_spent>0; pure phase/route/template change never qualifies",
+      "no_gain": [
+        "mode",
+        "repeat mode",
+        "equipment automatic event",
+        "automatic deployment tick",
+        "grant of concerto alone",
+        "pure draw/discard/retain",
+        "zero-value blocked effects"
+      ],
+      "cap_and_overflow": "saturate6; lost overflow no refund",
+      "additional_sources": "candidate may declare at most+1 additional concerto/root action from learned inherent or equipment finite per-round trigger; no trigger recursively gains from CONCERTO_GAINED"
+    },
+    "private": {
+      "scope": "template_id",
+      "required_fields": [
+        "resource_id",
+        "cap",
+        "initial",
+        "generation_events",
+        "spend_events",
+        "overflow",
+        "battle_reset"
+      ],
+      "max_independent_dimensions": 2,
+      "initial": 0,
+      "switch": "retain exact current state; no periodic off-field decay in common baseline",
+      "overflow": "saturate to cap, emit lost amount, no draw/heal substitution",
+      "pay": "no debt, no spending other template pool; validate full cost before mutation",
+      "learned_start_bonus": "once per battle from learned source, registered battle_start token, not on template activation",
+      "phase_exit": "deliberate named finisher may consume/clear specified owner resource; ordinary template switch never calls phase_exit",
+      "first_mode_intrinsic": "fresh_mode_mapping声明的基础资源从首得可用，初值0；高级私池/上限/阶段需实际后学。模态切入本身不生成或刷新资源。"
+    },
+    "full_concerto_switch": {
+      "eligible": "target template differs AND old_active_template nonnull AND concerto==6 at pre-action snapshot",
+      "first_activation": "no outro/intro even if external fixture erroneously supplies6; regular mapping only",
+      "sequence": [
+        "reserve and subtract6 before any exit trigger",
+        "snapshot old template outgoing learned effect and chosen target",
+        "remove old next-template grants that expire on exit",
+        "resolve old learned outro and its target-bound grant",
+        "if body terminal cancel remaining effects",
+        "set active template=target and emit MODE_SWITCHED",
+        "resolve target learned intro",
+        "settle queued equipment/passive reactions once",
+        "move mode instance to discard"
+      ],
+      "unlearned": "if a side has not learned its outro/intro that side resolves no effect; no free substitution; consume remains6",
+      "not_full": "switch and no intro/outro; concerto unchanged",
+      "repeat": "no consume/no effects",
+      "carry_over": "post-consumption gains, if a specifically declared nonrecursive effect grants them, start from0; old overflow not restored"
+    }
+  },
+  "event_schema": {
+    "required": [
+      "event_id",
+      "battle_id",
+      "root_action_id",
+      "parent_event_id",
+      "ordinal",
+      "event_type",
+      "actor_entity_id",
+      "ability_role_id",
+      "character_ability_source",
+      "origin_kind",
+      "origin_instance_id",
+      "target_entity_id",
+      "amount_requested",
+      "amount_applied",
+      "tags",
+      "pre_state_hash",
+      "post_state_hash"
+    ],
+    "origin_kinds": [
+      "player_skill",
+      "npc_skill",
+      "enemy_skill",
+      "deployment",
+      "equipment",
+      "system"
+    ],
+    "identity_note": "origin_action_id is original deployment create action, while root_action_id is current triggering root; preserve both for background events",
+    "source_qualification_key": [
+      "battle_id",
+      "benefit_owner_template_id",
+      "route",
+      "character_ability_source"
+    ],
+    "technical_event_key": [
+      "root_action_id",
+      "effect_definition_id",
+      "target_entity_id",
+      "ordinal"
+    ],
+    "listener_dedup_key": [
+      "listener_instance_id",
+      "event_id",
+      "benefit_target_id"
+    ],
+    "source_count": "distinct qualifying source keys, never instances, hits, templates equipped or gear count",
+    "event_names": [
+      "ACTION_COMMITTED",
+      "CARD_MOVED",
+      "RESOURCE_SPENT",
+      "RESOURCE_GAINED",
+      "MODE_SWITCHED",
+      "PHASE_CHANGED",
+      "DAMAGE_APPLIED",
+      "HEAL_APPLIED",
+      "BLOCK_GRANTED",
+      "SHIELD_GRANTED",
+      "FUSION_APPLIED",
+      "FUSION_DETONATED",
+      "RESONANCE_PROGRESS",
+      "RESONANCE_OFFSET_APPLIED",
+      "RESONANCE_BREAK",
+      "INTERFERENCE_DAMAGE",
+      "DEPLOYMENT_CREATED",
+      "DEPLOYMENT_EXPIRED",
+      "TARGET_DIED",
+      "SKILL_XP_PENDING",
+      "BATTLE_ENDED",
+      "STATUS_APPLIED",
+      "CONCERTO_GAINED"
+    ],
+    "status_alias": "STATUS_APPLIED(status_id,accepted_stacks,credited_source_body_id,source_template_id)；FUSION_APPLIED是fusion_burst的同一event_id特化视图，不新增事件或触发；RESONANCE_OFFSET_APPLIED映射shock_offset或tune_offset；havoc_bane为有限异常标记，非未定义第三常驻数槽。"
+  },
+  "action_api": {
+    "request_fields": [
+      "battle_id",
+      "action_id",
+      "expected_revision",
+      "actor_entity_id",
+      "command",
+      "card_instance_id_or_null",
+      "branch_id_or_null",
+      "target_entity_ids",
+      "choices"
+    ],
+    "commands": [
+      "play_card",
+      "activate_deployment",
+      "end_turn",
+      "retreat"
+    ],
+    "query_commands": [
+      "legal_actions",
+      "preview_action",
+      "get_state",
+      "serialize"
+    ],
+    "legal_actions": "return exact payable actions/branches/targets, printed costs, and blocked reasons without mutation/RNG/XP; zero legal cards still end_turn/retreat",
+    "action_id_scope": "unique within battle; payload canonical SHA256; accepted and rejected receipts persisted",
+    "idempotency": "same action_id + same canonical payload returns original receipt, zero new events/RNG/revision/XP; same action_id different payload -> ID_PAYLOAD_CONFLICT; new action_id is legitimate new attempt, not technical duplicate",
+    "revision": "new action must expected_revision==current; stale returns STALE_REVISION and no effect; same-id retry checked before revision check",
+    "transaction": [
+      "validate terminal/turn/ownership/zone/branch/targets/all resources/capacity/acquisition",
+      "snapshot cost and source; create resolving card",
+      "pay all costs atomically",
+      "run ordered effects and queue; removed/invalid targets follow declared fallback, never newly invented target",
+      "emit ledger with actual values; check death after each atomic damage/heal group",
+      "dispose card once; accrue pending skill XP once if successful non-mode skill use",
+      "commit events, receipt, state and revision+1 atomically"
+    ],
+    "invalid": "no cards moved, costs paid, RNG advance or XP; reject receipt stored, game revision unchanged",
+    "rollback": "implementation exception or semantic trigger-cycle error rolls back complete root action and returns ENGINE_FAULT; cannot continue candidate run as valid",
+    "target_rules": {
+      "target_spec": "self_body, one_enemy, all_enemies, one_ally_body, all_allies, or fixed_entity; role template never heal target",
+      "select": "player commits target ids before payment; exact current validity required",
+      "multi_target": "stable entity_id order; duplicate target IDs illegal",
+      "dead_mid_action": "later hits to dead fixed target fizzle; no automatic retarget unless definition explicitly says next_living",
+      "self_hp_cost": "cannot pay lethal HP cost unless action declares sacrificial and terminal semantics; common candidates initially forbid sacrificial HP costs"
+    }
+  },
+  "combat_math": {
+    "integer_only": true,
+    "basis_points": 10000,
+    "attack": "body base ATK + one weapon flat ATK + explicitly equipped Echo flat ATK; no ATK from template count",
+    "skill_scale_bp_by_level": [
+      10000,
+      10500,
+      11000,
+      11500,
+      12000,
+      12500,
+      13000,
+      13500,
+      14000,
+      15000
+    ],
+    "raw_damage": "floor(ATK * effect_coefficient_bp * skill_scale_bp / 100000000); then add explicit flat damage once",
+    "modifiers": "装备bonus lane内不同effect_id相加、同stacking_key只一份，上限+5000bp；角色明确来源的source_damage lane上限+10000bp，不与装备混成一份。之后source_damage、equipment_bonus、vulnerability、resistance按序乘算，各乘区后floor，不对同lane每条效果分别floor。超过对应上限记录截断，不隐性转资源。",
+    "defense": "post-modifier damage=floor(raw * 100/(100+max(0,DEF))); benchmark DEF=0, future DEF uses same formula",
+    "mitigation_order": [
+      "tag immunity",
+      "percentage reduction floor",
+      "predict damage after current shield and block without consuming them",
+      "if shared proof has lethal_save and predicted HP damage lethal: reserve lethal_save; otherwise cap_hit may truncate to0.30maxHP",
+      "consume shield oldest first then block using resulting damage",
+      "if lethal_save reserved, limit residual HP damage to hp-1",
+      "apply HP damage; consume at most one proof token; apply its declared removal heal once while alive",
+      "death check"
+    ],
+    "damage_fields": [
+      "raw",
+      "after_mitigation",
+      "shield_lost",
+      "block_lost",
+      "hp_lost",
+      "overkill"
+    ],
+    "block": "additive nonnegative, no implicit reflect/energy; generic D floor(0.8ATK*skillscale)",
+    "heal": "floor(ATK*heal_coefficient_bp*skillscale/1e8), clamp missingHP; overheal discarded; HEAL_APPLIED only ifactual_heal>0; dead cannot heal",
+    "shield": "separate finite status; same source_key replaces larger/current definition policy, never stacks by template copy; expires stated round/use",
+    "protection_optional": "选cap_hit、lethal_save或共享一令牌的combined，候选必须冻结。cap_hit对合格大额击在盾/格挡前截断至0.30maxHP并消费；若伤害不超阈值不消费。lethal_save依据常规免疫/减伤/盾/格挡之后的预测HP伤害是否致死，致死时剩余HP=1并消费。combined先按无proof的预测检查致死，若致死只用lethal_save，否则若超过大额阈值才用cap_hit。同击只消费一次，不是若干限伤再附送免死。自然到期不治疗；实际消费才可有一次已声明治疗。同来源每战最多授予一次。",
+    "death": "HP<=0 emitsTARGET_DIED once, alive=false; remove dead owner future primary actions, no implicit revival. In simultaneous damage group evaluate all then deaths; player dead and last enemy dead same group -> defeat unless objective definition explicitly pre-registered alternate. Before terminal, no after-death normal healing.",
+    "terminal": "stop pending discretionary triggers after terminal; finalize XP/receipt exactly once; outcome victory/defeat/retreat/stalemate separate",
+    "healing_modifiers": "治疗基础值先乘装备healing lane（上限+5000bp），最后按缺失生命截断；实际0治疗不触发HEAL_APPLIED。"
+  },
+  "public_target_states": {
+    "fusion": {
+      "stack_base_cap": 3,
+      "max_cap_with_expansion": 5,
+      "apply": "explicit tagged effect accepts min(amount,cap-current), positive accepted increments and qualifying event; cap extension does not add stacks",
+      "detonate": "explicit effect requires>=1, consumes all once; damage coefficient=4000bp per consumed stack, using triggering ability owner ATK; emitsFUSION_DETONATED notFUSION_APPLIED; no recursive reapply from its own damage",
+      "expansion": "single nonstacking+2cap source; lifetime until next detonation or target death/battle_end, overwrite does not add; consumed with detonation; zero stacks may retain expansion",
+      "damage_class": "anomaly, not direct, cannot satisfy direct-hit listeners"
+    },
+    "resonance": {
+      "progress_cap": 6,
+      "accumulate": "explicit effects saturate0..6; not all damage automatically accumulates",
+      "offset": "one target tag SHOCK or TUNE with source; applying same refreshes no extra count, different replaces; lasts to nextbreak/death/battle_end",
+      "break": "explicit effect requires progress6, consumes6; deals1.0ATK break damage. If existing offset, consumes it and emits corresponding INTERFERENCE_DAMAGE using an additional0.5ATK damage; only its actualhp_lost>0 qualifies shock contributor; no offset -> break only",
+      "control": "break cancels current intent only if intent.interruptible=true; otherwise just stated damage; no universal stall",
+      "not_equivalent": [
+        "progress",
+        "offset",
+        "break",
+        "interference"
+      ]
+    },
+    "named_marks": "at most2 extra named mark/deployment references per target; source effects define qualifyingdirect/anomaly events and finiteuses; cannot implement every source mark as additional unbounded counter",
+    "direct_damage": "root player/npc skill hit with tagdirect; multi-hit one qualifying listener use per root_action/target; equipmentproc, anomaly,DOT and deploymenttick are not direct unless specifically pre-registered as a direct ability, never inferred from positive damage",
+    "control_types": {
+      "reduce": "changes damage only",
+      "delay": "once per intent, moves unchanged intent to next round and replaces current with visiblewait; no repeatedpermanent delay",
+      "interrupt": "cancels interruptible current intent; next round follows catalogue policy",
+      "reposition": "requires movable target and relevant position model; base benchmark no grid, cannot invent Boss pull",
+      "cancel": "only explicit ability/interrupt permit, no shield equalscancel"
+    },
+    "generic_anomaly_tag": {
+      "status_id": "havoc_bane",
+      "representation": "占两个额外标记配额之一的布尔/一次机会状态；共同基线不维护额外虚湮数槽",
+      "apply": "不存在时accepted_stacks=1；已有且未消耗时重复附加accepted_stacks=0，不叠加/刷新，不再触发装备；实际产生的后续效果由已学千咲技能卡式定义",
+      "lifetime": "最多1个后续合格根行动机会或2轮，较早者结束；消耗后可由新合法行动重施",
+      "no_defaults": "标记本身不自动造成伤害；候选必须明确其直接/异常触发及效果，不能实现者猜测"
+    }
+  },
+  "ownership_and_trigger_order": {
+    "listener_order": [
+      "system death/terminal guards",
+      "intrinsic learned skill circuit",
+      "learned inherent by stable definition id",
+      "deployment by creation ordinal",
+      "weapon",
+      "Echo set",
+      "consumable/future extension"
+    ],
+    "event_queue": "FIFO breadth-first; events within effect ordered by effect list and targetentityid; listeners create new events appended; no recursive immediate execution",
+    "no_self_trigger": "listener cannot react to its own descendant effect type unless named acyclic transition allowed; no CONCERTO_GAINED->concerto or heal->same heal chain",
+    "limits": {
+      "max_trigger_depth": 8,
+      "max_derived_events_per_root_action": 64,
+      "max_root_actions_per_player_turn_safety": 24,
+      "meaning": "engineering fault detection, not free truncation/player cooldown; any valid intended combo hitting limit fails complexity gate and must be redesigned before qualification"
+    },
+    "next_template_grant": "bind benefit_template_id=actual to_template at qualified handoff; does not follow arbitrarycurrent. Consume only on matching named event; default expires on beneficiaryswitch-out or nextplayerturnend, whichever first. Originating own template later re-entry does not recreate consumed grant.",
+    "scopes": [
+      "owner_body",
+      "owner_template",
+      "next_template_bound",
+      "all_allied_bodies",
+      "target_enemy"
+    ],
+    "deaths": "already happened historical contribution remains; field future effects require field declared persist_after_owner_death, common defaultfalse"
+  },
+  "growth": {
+    "skill_record_key": [
+      "profile_id",
+      "template_role_id",
+      "skill_id"
+    ],
+    "levels": [
+      1,
+      10
+    ],
+    "initial": "仅实际取得的规则可用：通用A/D原有；首次模态附内在A/D映射与必要基础私池，不是赠专属主动或两固有。高级学习与外部凭证分开。",
+    "xp_per_level": 100,
+    "xp_per_successful_use": 10,
+    "xp_validity": "one per successfully committed root action per actually used skill, including legitimate repeat/failoutcome; technicalretry zero; passiveauto/deploymenttick gives no new skill-use XP; defensiveusemay count even if opponent laterdoesnotattack",
+    "xp_application": "collect battle pending XP ledger; commit at battleend on victory/defeat/retreat/stalemate; effective battle skill snapshot stays fixed till nextbattle to avoid midactionlevel shifts",
+    "normal_progression": "levels1..8: each100 increments1 carryoverflow; level9withoutheartflag mayreach100 andcap, discardextra; level9withheartflag reaches100 ->10; level10XP=0, no furthergrowth",
+    "plus_one_item": "outofbattle target anylearnedskill level<10, upgrade exactly1 withoutXP/materialcondition; retain existing0..99XP where level<10, clearXP at10. Doesnotlearnskill, doesnotunlocktemplatewidecap; target10/unlearned rejected with noitemspent",
+    "heart_demon_receipt": "idempotent fixed_target_victory token grants targetrole qualification flag; existing9and100skills immediately10; otherslevels/XPunchanged; future normal growth canreach10. Onefixedvictoryreceipt cannot granttwice orconsumeotherroleitem",
+    "inherents": "exactly two named source inherents perrole; separatelyacquired not cards bydefault, noXPlevelaxis; prereq associatedcoreabilitylearned + unique learningreceipt. Canonic origin retained even if manifestation functionalnode; onlyoneunlockrecord/no double benefits. I1 inmid fixture/I2 inlate fixture is explicit study history, neverbodylevelgift",
+    "milestones": "candidate defines atmost2 functionalnodechanges per learnedskill within1..10, including any10node; records priorchoice/newchoice/cost/source and exactlywhether replacesnumericbudget. No mandatory3/6/10 or universaldraw; max2inherents remains",
+    "chains": "all30sourcechains keepdisposition ledger adopted_fragment/replaced/omitted, no sixsteplevelaxis and no automaticwholechain bonuses",
+    "failure": "pending合法skillXP保留，战役奖励另行判断；不加反刷衰减、撤退重进惩罚或日XP封顶",
+    "skill_record_key_note": "通用COMMON_A/COMMON_D的template_role_id=null，是跨模板同一技能记录；专属技能使用自己的role_id。映射不复制技能记录或多发XP。"
+  },
+  "growth_snapshots": {
+    "fresh_acquisition": {
+      "role_count": "1..3",
+      "learned": "mode + generic A/D + its declared intrinsic fresh mapping and bounded base resource; no standalone active, intro/outro or two acquired inherents",
+      "inherents": 0,
+      "purpose": "firstgetrules; not used to provefullroleidentity"
+    },
+    "early": {
+      "body_level": 1,
+      "max_hp": 100,
+      "attack": 10,
+      "defense": 0,
+      "skills": "already acquired intrinsic mapping + newly learned advanced circuit and2selected active skills lvl1; receipts and choices frozen beforetests",
+      "inherents": 0,
+      "weapon_flat_attack": 2,
+      "echo_power_budget": "one legal2pieceset plus3unmatched; no5set auto gift",
+      "purpose": "postintroactualstudy snapshot"
+    },
+    "mid": {
+      "body_level": 30,
+      "max_hp": 150,
+      "attack": 15,
+      "defense": 0,
+      "skills": "fullidentitycore all lvl5",
+      "inherents": 1,
+      "weapon_flat_attack": 3,
+      "echo_power_budget": "2+3legalsets",
+      "purpose": "I1 explicitacquired, notlevelunlock"
+    },
+    "late": {
+      "body_level": 60,
+      "max_hp": 220,
+      "attack": 22,
+      "defense": 0,
+      "skills": "fullidentitycore lvl9, onechosenkeyskill10 via recordeditem orheartreceipt; optionalextensions explicitlylearned",
+      "inherents": 2,
+      "weapon_flat_attack": 4,
+      "echo_power_budget": "one5set OR2+3 withinCOST12",
+      "purpose": "candidate-specificpaidtimingtools, no universalenergy/draw frombodylevel"
+    },
+    "stage_normalization": "enemy values scale by (bodyATK+weaponflat)/12; base enemyfixture numbers atATK12; damage/hp floor once; no dynamic reading of currentplayerstats duringbattle. Early/mid/late testconfigs created beforehand.",
+    "gear_ownership": "these are three separate external training/equipment histories; enteringhigherbodylvl alone doesnotgrantgear/skills/items"
+  },
+  "campaign_boundary": {
+    "implemented_claim": "none; contract adapters and receipt tests only",
+    "battle_input": [
+      "encounter_id",
+      "battle_kind(real/simulation/heart_demon/material)",
+      "world_date_token",
+      "starting_hp",
+      "persistent_injuries",
+      "reward_policy_id",
+      "entry_receipt",
+      "optional_objective_set_id"
+    ],
+    "battle_output": [
+      "battle_id",
+      "outcome",
+      "final_hp",
+      "pending_xp_commit_id",
+      "injury_delta",
+      "reward_eligibility_receipt",
+      "consumptions",
+      "objective_results",
+      "world_time_delta_request"
+    ],
+    "C01": "simulation worldtime_delta=0, no narrative rescueclock/signinadvance; realmode mayproduce consequences forcampaignadapter",
+    "C02": "simulation lethal defeat forces HP1+extremeweakness, no new simulatedbodyinjury, preserves priorrealinjury; recoveryrequires12cumulative qualifying storyhours thenHPfloor30%max and opensregularhealing. Qualifyingrestactivities/weaknessresidue notimplemented; APIacceptsverifiedrestreceipt, rejects guessed elapsedwalltime",
+    "C03": "first activation160virtualcurrency, eachstoryday160, catchupallunsettleddays from trustedanchor; no startingdefaultyearcatchup",
+    "C04": "stamina240/storyday, maincap240 reserve2400, mainthenreserve; initialpoolvalue requiredexternalconfig no silentdefault",
+    "C05": "claimonlymaterialvictory costs40 or60 percatalogue, doubleclaimdoublecost/reward; failure0; weeklywar3sharedallbosses resetstoryMonday00:00; no claimsengineimplemented",
+    "C06": "heartdemon targetrole fixed, skill10/maxleveltargetweapon; onentry spend1globaldailyentry, no refundwinlose, nostamina/weeklycount/no banking; mirror identitynevertracks playerchanges",
+    "C07": "reforge daily10main/3sub; lock0..2 costs1,lock3costs2,lock4costs3, discardedresultnotrefunded; carryoverrequires externalpolicy unsupportedunlessspecified",
+    "C08": "gamevirtualonly; firstchar template, duplicate universal+1item, Echo farmonly; probability/cost tableexternalversioned required",
+    "optional_objectives": "exactly3compatibleextraobjectives may be attached bycampaign; all generated/previewed/lockedbeforebattle and recorded; failingone doesnoterase normalXP. Generator/rewardtable notimplemented, basefixtures optional_objectives=[] explicitlytestscope",
+    "rest_api": "apply_rest_receipt(receipt_id,qualified_story_hours,policy_id); externaladapter validatesqualification; battleengine never claims fullrecovery/economy implemented"
+  },
+  "persist_replay": {
+    "save_fields": [
+      "contract_version",
+      "candidate_manifest_hash",
+      "source_hashes",
+      "battle_id",
+      "revision",
+      "full_runtime_state",
+      "zone_membership",
+      "equipment_instances",
+      "growth_snapshot",
+      "pending_xp_ledger",
+      "action_receipts_and_payload_hashes",
+      "event_log_or_checkpoint_and_tail",
+      "contributor_sets",
+      "all_remaining_uses",
+      "intent_ids_and_revisions",
+      "rng_seed_and_domain_counters",
+      "terminal_receipt",
+      "settlement_receipts"
+    ],
+    "atomicity": "write checkpoint+receipt+journal commit marker atomically; only committed revisions load; recover incomplete txn by discard/uncommitted rollback, not payagain",
+    "rng": "SHA256 deterministic keyed random: encodeUTF8(contract_id|seed|domain|stable_context|draw_index), takefirst8bytes bigendian /2^64. Shuffle uses deterministic FisherYates at each position with rejection sampling for unbiased integer; domains initial_shuffle,reshuffle_n,enemy_policy,choice_tie separate. Save domaincounters. No languagebuiltin random/hash.",
+    "paired_conditions": "same encounter/growth/gear/roster andseed perversion; structurallydifferentdecklist uses stablecopyorder then ownshuffle withsamestream. Pairing controls randomness, not promiseidenticalhands. enemy_policy streamindependentofplayer actioncount.",
+    "replay": "replay committedcommands from initialsnapshot and seed must exactlymatch eachrevisionstatehash andeventledger; duplicatecommands mustnotadvance RNG orrevision",
+    "settlement": "settlement_id=battle_id+terminalrevision; XP/reward eligibility/outcome submitonce intransaction; save/load and repeated terminalreceipt do notduplicateXP/items",
+    "unknown_version": "reject load with unsupportedcontract/manifest; no silent reinterpretation; explicitversionmigration producesnewsave andaudit"
+  },
+  "complexity_budget": {
+    "private_numeric_dimensions_per_template_max": 2,
+    "phase_form_structure_per_template_max": null,
+    "route_enum_per_template_max": 1,
+    "learned_inherent_slots_per_template_max": 2,
+    "extra_template_temporary_tokens_max": 1,
+    "notes": "可消费资源、历史累计和分类轴分别报告。千咲实际已花占一个数值维度但不是可支付资源；爱弥斯人形/机兵、过载阶段、震谐/聚爆分别占三个轴。组合枚举或隐藏显示不减少真实维数。",
+    "body_shared_resources": [
+      "energy",
+      "concerto"
+    ],
+    "deployed_objects_per_body_max": 2,
+    "retained_cards_per_body_max": 2,
+    "target_common_numeric": [
+      "fusion_stacks",
+      "resonance_progress"
+    ],
+    "target_extra_named_marks_max": 2,
+    "target_count_benchmark_max": 3,
+    "per_action_trigger_depth_max": 8,
+    "derived_events_max": 64,
+    "free_loop_policy": "any reachable unbounded sequence of nonnegative energy/card/private economy withstrictpositive damage/heal/XP/concerto or retryyield isCritical; safetycap stop istestfailure notprooftermination",
+    "report": [
+      "peakindependentstate dimensions",
+      "legaldecisionbranchcount",
+      "effective rootactions",
+      "automaticderivedevents",
+      "ineffectivemodeplays",
+      "mandatorymaintenance actions",
+      "time-to-kill/rounds",
+      "drawstalls"
+    ],
+    "human_scope": "all budgets engineering hypotheses; modellegalityandchoice evidence nothumanreadability/funproof",
+    "private_spendable_pools_per_template_max": 2,
+    "history_numeric_counts_as_private_dimension": true,
+    "categorical_axes_per_template_max": 3,
+    "states_per_categorical_axis_max": 4,
+    "equipment_temporary_grants_per_body_max": 3,
+    "exception_policy": "身份保留优先于暗中压缩。超预算不可直接合格，须回第四步形成新共同合同并重审受影响候选。"
+  },
+  "candidate_extension_manifest": {
+    "must_be_complete_before_implementation": [
+      "all role poolids/caps/gain/spend/initial/overflow",
+      "phase/form/route finite transition table",
+      "all skill/cardids, printcosts, learnedprereqs, branch/target/zone semantics",
+      "exact learned intro/outro for everyrole andtermination",
+      "twoinherents perrole: source meaning selectedlanding excludedalternatives acquisition",
+      "each sourcechain disposition",
+      "early2active choices andfullmid/latecore cards",
+      "milestonelevels andreplacement budget",
+      "decklists per25rosters/growth plus freelybuiltboundaries",
+      "equipment choices fromsharedprofiles",
+      "all retain/draw/discard/exhaust/deploy sourcecostlimits",
+      "separate materialstructuraldifference andfalsification",
+      "identity compression ledger linking retainedchoice+omittedstates+tests",
+      "five signature matching profiles withactual trigger andconsume witness, finiteinstancecounter, generic-off andwrong-role controls; mustnotdisable allmatching"
+    ],
+    "allowed_variables": [
+      "privatepool scale andeconomy within2dimensions",
+      "skillcard organization andconditionalbranches",
+      "prepared/deployment versus hand-based delivery withsame explicitcostaccounting",
+      "role-specific milestone choices andfinite source-owned cardflow",
+      "how phase commitments resolve andwhich sourcefragments omitted"
+    ],
+    "fixed_across_candidates": [
+      "bodyidentity/gearownership",
+      "collection/deck/runtime separation",
+      "freebuild/zeroattack",
+      "3baseenergy5newdraw10hand baseline",
+      "no mode rewards/noCD",
+      "concerto threshold6 andactualsourcequalification",
+      "source contribution dedup andthreshold",
+      "skill1–10andbreakthrough",
+      "transaction/damage/status eventsemantics",
+      "6enemycatalogues andgrowthfixtures",
+      "qualitygates andseedmanifest",
+      "five fresh intrinsic A/D mappings and their first-acquisition scope; advanced candidate rules may replace only via declared learned milestones"
+    ],
+    "no_engine_guess": "missing required field rejects candidate atstage5; engine cannot pick oneofsource conflicts or silentlyfilldefaults except explicitlycommondefault"
+  },
+  "role_contracts": [
+    {
+      "role_id": "aemeath",
+      "name": "爱弥斯",
+      "minimum_decision_witness": "花同步强化与保留同步等待终结；有率缺同步与有同步缺率均可出现",
+      "must_preserve": "E/H/R1/R2分工、响应H补准备非R2许可证、双满直接R2合法；R1阶段内不可重开套利；人/机改变至少一个合法行动用途；震谐/聚爆事件不同",
+      "recommended_pool_slots": [
+        "sync",
+        "resonance_rate"
+      ],
+      "compression_guard": "人形/机兵和过载必须压成明示有限状态机；多余星屑/轨迹保留计数不同时加入",
+      "inherents": [
+        {
+          "name": "于万籁之前",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        },
+        {
+          "name": "星与星之间",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        }
+      ],
+      "witness_required": [
+        "solo at least2legalplans withdifferent irrecoverable opportunitycost",
+        "same registeredcontext onefeatureflip changesnondominated/riskappropriate choice",
+        "synergy partner removal changesactualevent/costsequence",
+        "supporter witness withoutaemeath"
+      ],
+      "no_claim": "F0 obligation; not gameplay pass",
+      "first_acquisition_override": "首得内在通用A/D映射见fresh_mode_mapping；两后学固有、独立主动和高级循环仍需取得。"
+    },
+    {
+      "role_id": "lynae",
+      "name": "琳奈",
+      "minimum_decision_witness": "花色能机动与兑现本色；即时终结与留下有限颜料",
+      "must_preserve": "至少一项机动防护和一次兑现路线具有机会成本；颜料不是无来源周期伤害；取样流光合并为色能可行但账本不得三池",
+      "recommended_pool_slots": [
+        "color_energy",
+        "true_color"
+      ],
+      "compression_guard": "不再另加心之彩/预调色/摩托能量战斗槽",
+      "inherents": [
+        {
+          "name": "永不褪色！",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        },
+        {
+          "name": "《自适应光学在生活中的实际应用》",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        }
+      ],
+      "witness_required": [
+        "solo at least2legalplans withdifferent irrecoverable opportunitycost",
+        "same registeredcontext onefeatureflip changesnondominated/riskappropriate choice",
+        "synergy partner removal changesactualevent/costsequence",
+        "supporter witness withoutaemeath"
+      ],
+      "no_claim": "F0 obligation; not gameplay pass",
+      "first_acquisition_override": "首得内在通用A/D映射见fresh_mode_mapping；两后学固有、独立主动和高级循环仍需取得。"
+    },
+    {
+      "role_id": "mornye",
+      "name": "莫宁",
+      "minimum_decision_witness": "当前招架应对重击与提前支付持续场域；治疗与目标观测推进竞争",
+      "must_preserve": "至少一项实际保护和一次可选择的观测/破坏支援；治疗场存在不等于发生震谐贡献",
+      "recommended_pool_slots": [
+        "relative_motion",
+        "wide_field_progress"
+      ],
+      "compression_guard": "普通/强场合为一个可升级部署；证明只一身体有限token，不能套模板复制",
+      "inherents": [
+        {
+          "name": "蓝图",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        },
+        {
+          "name": "有界",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        }
+      ],
+      "witness_required": [
+        "solo at least2legalplans withdifferent irrecoverable opportunitycost",
+        "same registeredcontext onefeatureflip changesnondominated/riskappropriate choice",
+        "synergy partner removal changesactualevent/costsequence",
+        "supporter witness withoutaemeath"
+      ],
+      "no_claim": "F0 obligation; not gameplay pass",
+      "first_acquisition_override": "首得内在通用A/D映射见fresh_mode_mapping；两后学固有、独立主动和高级循环仍需取得。"
+    },
+    {
+      "role_id": "denia",
+      "name": "达妮娅",
+      "minimum_decision_witness": "继续自己消耗转换与现在留下有限蚀域；选择聚爆或集谐目标投入",
+      "must_preserve": "黯核虚质共形不得三池并存；候选必须将其中一项明确折成阶段条件/另一池互斥编码并证守恒，保留尚可消费与提前终景差异",
+      "recommended_pool_slots": [
+        "reserve",
+        "conversion_progress"
+      ],
+      "compression_guard": "不得用隐藏累计恢复第三池；蚀域创建时快照来源，有次数，切出不改源",
+      "inherents": [
+        {
+          "name": "伪物弥留",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        },
+        {
+          "name": "蚀刻繁彩",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        }
+      ],
+      "witness_required": [
+        "solo at least2legalplans withdifferent irrecoverable opportunitycost",
+        "same registeredcontext onefeatureflip changesnondominated/riskappropriate choice",
+        "synergy partner removal changesactualevent/costsequence",
+        "supporter witness withoutaemeath"
+      ],
+      "no_claim": "F0 obligation; not gameplay pass",
+      "first_acquisition_override": "首得内在通用A/D映射见fresh_mode_mapping；两后学固有、独立主动和高级循环仍需取得。"
+    },
+    {
+      "role_id": "chisa",
+      "name": "千咲",
+      "minimum_decision_witness": "继续消耗锯环提高终结与提前收束拿盾；追加伤害与较早剪出治疗",
+      "must_preserve": "剩余锯环和实际已花分开；终结伤害随已花，盾不默认随已花提高；扩异常上限不是施加异常",
+      "recommended_pool_slots": [
+        "saw_remaining",
+        "saw_spent"
+      ],
+      "compression_guard": "热力按承诺机会成本删除，本流空间资源当前不实现；尾段不无来源免费生成终结",
+      "inherents": [
+        {
+          "name": "无解的命途",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        },
+        {
+          "name": "终点在此处",
+          "acquisition": "单独LEARN_ABILITY凭证，已学对应coreprereq；首次模态不赠；mid/latefixture分别明确取得1/2",
+          "manifestation": "第五步每固有恰选一个保留原意的具体落点；不得把第三步所有候选相加"
+        }
+      ],
+      "witness_required": [
+        "solo at least2legalplans withdifferent irrecoverable opportunitycost",
+        "same registeredcontext onefeatureflip changesnondominated/riskappropriate choice",
+        "synergy partner removal changesactualevent/costsequence",
+        "supporter witness withoutaemeath"
+      ],
+      "no_claim": "F0 obligation; not gameplay pass",
+      "first_acquisition_override": "首得内在通用A/D映射见fresh_mode_mapping；两后学固有、独立主动和高级循环仍需取得。"
+    }
+  ],
+  "test_rosters": [
+    [
+      "aemeath"
+    ],
+    [
+      "lynae"
+    ],
+    [
+      "mornye"
+    ],
+    [
+      "denia"
+    ],
+    [
+      "chisa"
+    ],
+    [
+      "aemeath",
+      "lynae"
+    ],
+    [
+      "aemeath",
+      "mornye"
+    ],
+    [
+      "aemeath",
+      "denia"
+    ],
+    [
+      "aemeath",
+      "chisa"
+    ],
+    [
+      "lynae",
+      "mornye"
+    ],
+    [
+      "lynae",
+      "denia"
+    ],
+    [
+      "lynae",
+      "chisa"
+    ],
+    [
+      "mornye",
+      "denia"
+    ],
+    [
+      "mornye",
+      "chisa"
+    ],
+    [
+      "denia",
+      "chisa"
+    ],
+    [
+      "aemeath",
+      "lynae",
+      "mornye"
+    ],
+    [
+      "aemeath",
+      "lynae",
+      "denia"
+    ],
+    [
+      "aemeath",
+      "lynae",
+      "chisa"
+    ],
+    [
+      "aemeath",
+      "mornye",
+      "denia"
+    ],
+    [
+      "aemeath",
+      "mornye",
+      "chisa"
+    ],
+    [
+      "aemeath",
+      "denia",
+      "chisa"
+    ],
+    [
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    [
+      "lynae",
+      "mornye",
+      "chisa"
+    ],
+    [
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    [
+      "mornye",
+      "denia",
+      "chisa"
+    ]
+  ],
+  "enemy_catalogues": [
+    {
+      "id": "T1_SINGLE",
+      "name": "即时单击",
+      "entities": 1,
+      "base_hp": [
+        96
+      ],
+      "abilities": {
+        "cut": {
+          "damage": 12,
+          "hits": 1,
+          "target": "player",
+          "interruptible": false
+        },
+        "heavy_cut": {
+          "damage": 18,
+          "hits": 1,
+          "target": "player",
+          "interruptible": true
+        }
+      },
+      "policy": "cycle cut,cut,heavy_cut",
+      "intent_scope": "exactnextability beforeplayerphase"
+    },
+    {
+      "id": "T2_MULTI",
+      "name": "多段或群体",
+      "entities": 2,
+      "base_hp": [
+        48,
+        48
+      ],
+      "abilities": {
+        "double": {
+          "damage": 3,
+          "hits": 2,
+          "target": "all_allied_bodies",
+          "interruptible": false
+        }
+      },
+      "policy": "each living enemy double everyround; killed enemy losesremainingprimaryability",
+      "intent_scope": "hits andalltargets visible; no clonedplayer templates as targets"
+    },
+    {
+      "id": "T3_CHARGE",
+      "name": "延后蓄力",
+      "entities": 1,
+      "base_hp": [
+        108
+      ],
+      "abilities": {
+        "charge": {
+          "damage": 0,
+          "hits": 0,
+          "target": "self",
+          "interruptible": false
+        },
+        "slam": {
+          "damage": 30,
+          "hits": 1,
+          "target": "player",
+          "interruptible": true
+        },
+        "poke": {
+          "damage": 8,
+          "hits": 1,
+          "target": "player",
+          "interruptible": false
+        }
+      },
+      "policy": "cycle charge,slam,poke; interruptslam skipsit, nextpolicy poke; delay shifts sameintentonceround",
+      "intent_scope": "charge openly announces nextslam"
+    },
+    {
+      "id": "T4_SCALE",
+      "name": "持续强化",
+      "entities": 1,
+      "base_hp": [
+        88
+      ],
+      "abilities": {
+        "rally": {
+          "damage": 0,
+          "effect": "permanent battle power+=2 baseunits",
+          "target": "self",
+          "interruptible": true
+        },
+        "strike": {
+          "damage": "10+power",
+          "hits": 1,
+          "target": "player",
+          "interruptible": false
+        }
+      },
+      "policy": "cycle rally,strike,strike; powerstarts0; no regen/newabilities",
+      "intent_scope": "currentpower+nextintent exact"
+    },
+    {
+      "id": "T5_HAND",
+      "name": "手牌干扰",
+      "entities": 1,
+      "base_hp": [
+        88
+      ],
+      "abilities": {
+        "jam": {
+          "damage": 0,
+          "effect": "insert1 generated unplayableethereal burden into draw top",
+          "target": "player",
+          "interruptible": true
+        },
+        "jab": {
+          "damage": 10,
+          "hits": 1,
+          "target": "player",
+          "interruptible": false
+        }
+      },
+      "policy": "cycle jam,jab,jab; burden drawoccupieshand andnaturallyexhausts atturnend, notpermanentdeckmutation",
+      "intent_scope": "showsplacement andcount beforeplayerphase"
+    },
+    {
+      "id": "T6_OBJECTIVE",
+      "name": "阶段或非歼灭",
+      "entities": 1,
+      "base_hp": [
+        140
+      ],
+      "abilities": {
+        "harass": {
+          "damage": 8,
+          "hits": 1,
+          "target": "player",
+          "interruptible": false
+        },
+        "barrage": {
+          "damage": 8,
+          "hits": 2,
+          "target": "player",
+          "interruptible": false
+        },
+        "guard": {
+          "damage": 6,
+          "hits": 1,
+          "effect": "enemyblock8",
+          "target": "player",
+          "interruptible": true
+        }
+      },
+      "policy": "round1..3 cycleharass,guard,harass; round4..6cyclebarrage,guard,barrage",
+      "objective": "victory ifplayeraliveafterround6 OR all enemiesdead; playerdeath priority; optionalzeroattack canwinbyobjective butnotguaranteed",
+      "intent_scope": "phasechangeround4 declaredfrombattleentry"
+    }
+  ],
+  "equipment": {
+    "appendix": "parts/equipment_profiles.json",
+    "text": "parts/equipment_profiles.txt",
+    "mandatory_ownership": "1 body, 1 weapon slot, 5 Echo slots; cost<=12; null slots legal unequipped control; no auto ownership",
+    "thresholds": "only thresholds actually in profile: LongRoad2/5,RejuvenatingGlow2/5,StringOfTheExiled3. No fabricated3-piecebonus on2/5sets. Distinctdefinitioncount andphysicalinstanceownership bothchecked",
+    "stat_snapshots": "weaponflat2/3/4 requiresactualrecordedupgradedweapon; no body-level autofill",
+    "signature_match_bonus": "本轮实现与验证5角色有限匹配profile，沿3武器骨架；实际武器实例只绑定1项matching_profile_id或null。对应模板实际激活且真实事件合格才授予/消费，+1000bp单次、最多2次/战，切模板不刷新。null通用配置保留全部已学基础循环。精确条件见装备附录。",
+    "active_echo": "not implemented in common benchmark; futureexplicitcard/skill declaration only",
+    "authoritative_events": "use common names includingSTATUS_APPLIED aliases, root_action dedup, finite bodygrants asappendix",
+    "scope_guard": "appendix3weapons3sets are alternatives, not3loadouts/contributors; its numbers areprojectadaptation notnewsourcefacts",
+    "matching_profiles": [
+      {
+        "id": "M_AEMEATH_POLAR",
+        "role_id": "aemeath",
+        "archetype_id": "W_COMMON_POLAR",
+        "amount_bp": 1000,
+        "max_per_battle": 2
+      },
+      {
+        "id": "M_LYNAE_SPECTRUM",
+        "role_id": "lynae",
+        "archetype_id": "W_COMMON_EMERALD",
+        "amount_bp": 1000,
+        "max_per_battle": 2
+      },
+      {
+        "id": "M_MORNYE_CALIBRATOR",
+        "role_id": "mornye",
+        "archetype_id": "W_COMMON_CALIBRATOR",
+        "amount_bp": 1000,
+        "max_per_battle": 2
+      },
+      {
+        "id": "M_DENIA_DWARF",
+        "role_id": "denia",
+        "archetype_id": "W_COMMON_POLAR",
+        "amount_bp": 1000,
+        "max_per_battle": 2
+      },
+      {
+        "id": "M_CHISA_KUMOKIRI",
+        "role_id": "chisa",
+        "archetype_id": "W_COMMON_POLAR",
+        "amount_bp": 1000,
+        "max_per_battle": 2
+      }
+    ],
+    "archetype_source_boundary": "3种武器骨架借原通用被动，5个专武匹配效果另从对应角色专武启发；拼接后的项目实例不冒称原作某件武器真实具备全部效果。"
+  },
+  "revised_at_utc": "2026-10-04T19:18:00Z",
+  "base_card_definitions": [
+    {
+      "id": "COMMON_A",
+      "type": "action",
+      "skill_id": "COMMON_A",
+      "cost_energy": 1,
+      "target": "one_enemy",
+      "effects": [
+        {
+          "kind": "direct_damage",
+          "coefficient_bp": 10000
+        }
+      ],
+      "keywords": [],
+      "owner": "common",
+      "mode_mapping": "neutral baseline; learned active template mapping registered before battle"
+    },
+    {
+      "id": "COMMON_D",
+      "type": "action",
+      "skill_id": "COMMON_D",
+      "cost_energy": 1,
+      "target": "self_body",
+      "effects": [
+        {
+          "kind": "block",
+          "coefficient_bp": 8000
+        }
+      ],
+      "keywords": [],
+      "owner": "common",
+      "mode_mapping": "neutral baseline; learned active template mapping registered before battle"
+    },
+    {
+      "id": "MODE_ROLE",
+      "type": "mode",
+      "skill_id": null,
+      "cost_energy": 0,
+      "target": "one owned selected template",
+      "effects": [
+        "activate or repeat-current no-op under common switch contract"
+      ],
+      "keywords": [],
+      "owner": "target template",
+      "copies": "one per first acquisition receipt; up to3 only if extra owned copies acquired"
+    },
+    {
+      "id": "ENEMY_BURDEN",
+      "type": "action",
+      "skill_id": null,
+      "cost_energy": 0,
+      "target": "none",
+      "play_condition": "false",
+      "effects": [],
+      "keywords": [
+        "ethereal"
+      ],
+      "owner": "none",
+      "origin": "generated; no collection entry; created in draw top; exhaust when unplayed in hand at end_player"
+    }
+  ],
+  "fresh_mode_mapping": {
+    "common": {
+      "all_branches_cost_energy": 1,
+      "skill_records": "COMMON_A or COMMON_D, not extra exclusive cards",
+      "scale": "coefficients multiply current common skill scale; private generation amounts do not scale with level",
+      "intrinsic": true,
+      "not_granted": [
+        "exclusive_E",
+        "exclusive_H",
+        "exclusive_R",
+        "intro",
+        "outro",
+        "inherent_1",
+        "inherent_2",
+        "full_advanced_circuit"
+      ],
+      "no_mode_refill": true,
+      "status_expiry": "next_player_start means next owning body turn start; next_player_end means its next turn end",
+      "saturation": "cap2 and overflow discarded; costs validated first; no cross-role spending",
+      "core_default_D": "where not overridden, 0.8ATK block",
+      "source_notice": "These are project starting mappings inspired by verified identity choices, not verbatim source abilities or advanced source skills given free."
+    },
+    "roles": [
+      {
+        "role_id": "aemeath",
+        "resource": {
+          "id": "sync",
+          "initial": 0,
+          "cap": 2
+        },
+        "axes": {
+          "form": [
+            "human",
+            "mech"
+          ],
+          "initial": "human"
+        },
+        "A_branches": [
+          {
+            "id": "prepare_human",
+            "condition": "always",
+            "damage_bp": 8000,
+            "gain_sync": 1,
+            "set_form": "human"
+          },
+          {
+            "id": "commit_mech",
+            "condition": "sync>=2",
+            "spend_sync": 2,
+            "damage_bp": 18000,
+            "set_form": "mech"
+          }
+        ],
+        "D_branches": [
+          {
+            "id": "human_guard",
+            "condition": "form=human",
+            "block_bp": 8000
+          },
+          {
+            "id": "return_guard",
+            "condition": "form=mech",
+            "block_bp": 10000,
+            "set_form": "human"
+          }
+        ],
+        "fresh_choice": "两次准备后的机兵兑现与当前保护竞争；机兵态下一次准备A回人，D可收势取格挡，不授予H/R、共鸣率终结或两个固有。",
+        "extension": "advanced learning may add resonance_rate secondpool andoverload/route; must preserve these basic mapping meanings or explicitly replace them in milestoneledger",
+        "element": "fusion",
+        "A_damage_tags": [
+          "direct",
+          "basic"
+        ]
+      },
+      {
+        "role_id": "lynae",
+        "resource": {
+          "id": "color_energy",
+          "initial": 0,
+          "cap": 2
+        },
+        "A_branches": [
+          {
+            "id": "sample",
+            "damage_bp": 7000,
+            "gain_color_energy": 1
+          },
+          {
+            "id": "spend_color",
+            "condition": "color_energy>=1",
+            "spend_color_energy": 1,
+            "damage_bp": 13000
+          }
+        ],
+        "D_branches": [
+          {
+            "id": "ordinary_guard",
+            "block_bp": 8000
+          },
+          {
+            "id": "color_dodge",
+            "condition": "color_energy>=1",
+            "spend_color_energy": 1,
+            "grant_conditional_shield_bp": 14000,
+            "eligible": "next enemy ability with hit_count==1; first qualifying damage packet only",
+            "uses": 1,
+            "expires": "next_player_start",
+            "normal_block_bp": 0
+          }
+        ],
+        "fresh_choice": "同一色能可用于输出兑现或只克制单击的规避，多段敌意图会改变选择；不授予视觉冲击/颜料/两固有",
+        "element": "spectro",
+        "A_damage_tags": [
+          "direct",
+          "basic"
+        ]
+      },
+      {
+        "role_id": "mornye",
+        "resource": {
+          "id": "relative_motion",
+          "initial": 0,
+          "cap": 2
+        },
+        "A_branches": [
+          {
+            "id": "observe_strike",
+            "damage_bp": 7000,
+            "gain_relative_motion": 1
+          }
+        ],
+        "D_branches": [
+          {
+            "id": "immediate_parry",
+            "block_bp": 8000
+          },
+          {
+            "id": "bank_protection",
+            "condition": "relative_motion>=1",
+            "spend_relative_motion": 1,
+            "grant_shield_bp": 6000,
+            "stacking_key": "mornye_fresh_guard",
+            "stack_policy": "replace not add",
+            "expires": "player_start at created_round+2",
+            "block_bp": 0
+          }
+        ],
+        "fresh_choice": "当前更厚格挡与可跨一个额外敌阶段保留的较薄盾竞争；不赠完整场域、治疗、证明或两固有",
+        "element": "fusion",
+        "A_damage_tags": [
+          "direct",
+          "basic"
+        ]
+      },
+      {
+        "role_id": "denia",
+        "resource": {
+          "id": "reserve",
+          "initial": 0,
+          "cap": 2
+        },
+        "A_branches": [
+          {
+            "id": "build_reserve",
+            "damage_bp": 8000,
+            "gain_reserve": 1
+          },
+          {
+            "id": "cash_all",
+            "condition": "reserve>=1",
+            "spend": "all reserve",
+            "damage_bp_formula": "8000+5000*actual_reserve_spent"
+          },
+          {
+            "id": "leave_one_followup",
+            "condition": "reserve>=1",
+            "spend": "all reserve",
+            "damage_bp": 8000,
+            "grant": "one later COMMON_A direct action damage modifier +4000bp per actual reserve spent",
+            "beneficiary": "same body, any actually active template",
+            "grant_source": "denia original owner",
+            "uses": 1,
+            "expires": "next_player_end",
+            "not_current_action": true,
+            "stacking_key": "denia_fresh_followup",
+            "stack_policy": "replace with lost old remainder, no refund"
+          }
+        ],
+        "D_branches": [
+          {
+            "id": "ordinary_guard",
+            "block_bp": 8000
+          }
+        ],
+        "fresh_choice": "储备现在全耗兑现，或牺牲当前爆发留一次有限后继接力；不是完整蚀域或R，不附异常来源也不赠两固有",
+        "element": "fusion",
+        "A_damage_tags": [
+          "direct",
+          "basic"
+        ]
+      },
+      {
+        "role_id": "chisa",
+        "resource": {
+          "id": "saw_remaining",
+          "initial": 0,
+          "cap": 2
+        },
+        "A_branches": [
+          {
+            "id": "prepare_shear",
+            "damage_bp": 8000,
+            "gain_saw_remaining": 1
+          },
+          {
+            "id": "spend_one_shear",
+            "condition": "saw_remaining>=1",
+            "spend_saw_remaining": 1,
+            "damage_bp": 12000
+          }
+        ],
+        "D_branches": [
+          {
+            "id": "ordinary_guard",
+            "block_bp": 8000
+          },
+          {
+            "id": "fold_early",
+            "condition": "saw_remaining>=1",
+            "spend": "all saw_remaining",
+            "block_bp": 10000
+          }
+        ],
+        "fresh_choice": "准备可逐份用于后续剪击，或放弃所有余量提前收势得到有限格挡；不赠电锯终结、治疗、虚湮或两固有，护盾不按已花环数增长",
+        "extension": "advanced circuit may add saw_spent as second history dimension and realfinisher/shield; firstmappingdoesnot award fulladvancedfinisher",
+        "element": "havoc",
+        "A_damage_tags": [
+          "direct",
+          "basic"
+        ]
+      }
+    ]
+  }
+}

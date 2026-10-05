@@ -36,7 +36,7 @@ macOS / Linux：在解压目录运行 `sh start.sh`。也可运行 `python app.p
 
 - 运行后端测试：`python -m unittest discover -s tests -v`
 - 具体已执行的验收与未覆盖平台见 `TEST_STATUS.md`，不将 Linux 检查冒称 Windows 实机验收
-- 规则与运行时来源、原始和发布内容的校验值见 `SOURCE_MANIFEST.json`
+- 规则与运行时分发文件的校验值见 `SOURCE_MANIFEST.json`
 - 默认视觉素材来源见 `web/assets/SOURCES.md`；不捆绑官方角色立绘或第三方图片
 - 包结构和接口说明见 `API_CONTRACT.md`；版本化纯数据位于 `combat-data/`
 

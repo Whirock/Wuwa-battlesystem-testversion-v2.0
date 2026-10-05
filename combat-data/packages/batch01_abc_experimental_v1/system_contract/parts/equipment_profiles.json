@@ -1,0 +1,1283 @@
+{
+  "schema_version": "wuwa.stage4.equipment_profiles.v1",
+  "stage": 4,
+  "status": "common_testing_contract_for_integration",
+  "artifact_title": "共享身体装备接口与三武器三声骸套测试档",
+  "evidence_level": "F0_contract_only",
+  "language": "zh-CN",
+  "scope": {
+    "weapon_profile_count": 3,
+    "echo_set_profile_count": 3,
+    "automatic_loadouts_granted": 0,
+    "cards_created": 0,
+    "combat_engine_created": false,
+    "gameplay_tests_run": 0,
+    "no_balance_pass_claim": true,
+    "matching_profile_count": 5,
+    "matching_revision": "root review 2026-10-04: enable finite extra matching benefit for all five roles"
+  },
+  "authority_and_numeric_boundary": {
+    "original_facts": "只摘已有批准来源包；原作摘要和新测试值分栏。",
+    "adaptation": "所有bonus bp、次数、期限、作用域和武器+2/+3/+4都是本项目测试口径，不是原作逐项复现。",
+    "source_unknowns": "原版本未知保持null；未知触发冷却、满血治疗、快照不补0，改编明确另立规则。",
+    "critical_conflict_quarantine": "辛吉勒姆首位20%/25%异文与所有主声骸技能均未导入，不影响三个套装门槛。",
+    "matching_adaptation": "新增5个匹配收益均为来源启发的+1000bp有限项目参数，不是原作新增特效；每实例1种匹配，最多2次/战，不另给武器。"
+  },
+  "body_loadout_contract": {
+    "owner_entity": "one_player_body_id",
+    "weapon_slots": 1,
+    "echo_slots": 5,
+    "echo_cost_allowed": [
+      1,
+      3,
+      4
+    ],
+    "echo_total_cost_max": 12,
+    "gear_presets_are_inventory": "没有库存来源就不能装备，三个测试档不是自动取得的三套。",
+    "template_count_range": [
+      1,
+      3
+    ],
+    "active_template_count": 1,
+    "same_instance_across_templates": "所有模板引用同一loadout_id、weapon_instance_id、5个echo_instance_id；切模板不重装、不克隆、不重置计数，不额外触发装备效果。",
+    "echo_instance_rules": [
+      "一个instance_id不能占多个槽",
+      "每个物理Echo实例只选定一个set_id计件，不能同时计入多个套装",
+      "本共同测试档每套按不同echo_definition_id计件，重复定义的独立实例不重复推进套装；这是测试限制，不冒称本来源包已证明原作重复规则",
+      "主声骸槽至多1个，主位技能与套装是不同效果源；本档没有开放主声骸主动",
+      "装备COST与每回合3点出牌能量为不同计量"
+    ],
+    "empty_control": "槽位仍为1+5；无装备对照允许null，但不产生flat、套装或被动，不制造免费默认装备。完整装备测试使用5个实物实例。",
+    "set_activation": "count>=threshold时只启用该set明列threshold一次；2/5套有4件只生效2件；命理4/5件仍仅3件；单个Echo不贡献多个套装。",
+    "in_combat_reequip": "本批关闭，只能战前由库存选定；模板与模态切换不等于换装。",
+    "ownership_ledger_lanes": [
+      "body_base_stats",
+      "learned_skill_coefficient",
+      "weapon_flat_stats",
+      "weapon_adapted_passive",
+      "optional_matching_bonus",
+      "echo_set_threshold",
+      "main_echo_effect_disabled_here"
+    ],
+    "real_npc_rule": "NPC是独立真实body；不得共享玩家装备实例。仅明确party_body_snapshot效果可把一次增益发给真实友方NPC。",
+    "matching_metadata": "每件实际武器至多一个战前冻结matching_profile_id；同一状态兑现骨架的爱弥斯、达妮娅、千咲匹配互斥，不因为带3模板取得3个匹配标记。"
+  },
+  "math_hooks": {
+    "damage_reference": "主合同 attack * coefficient_bp / 10000；本档attack先加唯一weapon_flat，然后将equipment_damage_bonus_bp合计作为(10000+sum_bp)/10000因子。取整只遵主合同，不逐条modifier取整。",
+    "healing_reference": "基础治疗进入主合同前仅计算equipment_heal_bonus_bp因子；actual_heal由缺血截断后记录。",
+    "basis_point_unit": "100 bp=1%；1000 bp=10%",
+    "stacking": "不同effect_id在对应装备bonus lane相加；相同stacking_key最多1份。一个根行动多个命中/目标不重复发放或消费。",
+    "not_imported": [
+      "原作90级ATK",
+      "原作暴击和暴伤",
+      "原作防御和抗性无视",
+      "共鸣效率百分比直接折算协奏",
+      "原作秒数转回合"
+    ],
+    "matching_lane": "匹配额外收益也进equipment_damage_bonus_bp，连同通用武器和套装受主合同该lane的+5000bp上限；到上限时记录截断，不转资源。"
+  },
+  "events_and_attribution": {
+    "required_events": [
+      "ACTION_COMMITTED",
+      "DAMAGE_APPLIED",
+      "HEAL_APPLIED",
+      "STATUS_APPLIED",
+      "FUSION_APPLIED",
+      "CONCERTO_GAINED",
+      "MODE_SWITCHED"
+    ],
+    "STATUS_APPLIED_extension": "主合同已提供STATUS_APPLIED；shock_offset=震谐偏移、tune_offset=集谐偏移、havoc_bane=有限虚湮标记；FUSION_APPLIED继续使用同一event_id特化去重。",
+    "FUSION_APPLIED_alias": "fusion_burst状态实际附加的特化视图；不可对通用与特化各发一次。",
+    "trigger_before_damage_boundary": "读取旧令牌；本根行动获得的新令牌不能增强本根行动任何后续分段或派生效果。",
+    "equipment_not_contribution": "装备发增益或协奏不是角色贡献，不新增参与源；状态附加也不自动改为伤害。",
+    "healing_boundary": "HEAL_APPLIED.actual_heal>0。满血0、护盾增加不是治疗；选择这一严格口径是项目规则。",
+    "status_boundary": "只有实际接受层/偏移的来源事件合格；仅命中、增上限、读取状态、拒绝附加0、重放或技术重发都不合格。",
+    "background_boundary": "明确归属于玩家身体的角色部署/状态可触发对应status/heal被动；gear/NPC/enemy归因不偷用玩家武器。后台保留原source_template_id，不追随当前模板改署名。",
+    "dedup": "每effect每root_action最多触发1次，满足owner_turn上限；同动作多目标/多hit不加层。"
+  },
+  "finite_grant_contract": {
+    "created_fields": [
+      "grant_id",
+      "owner_body_id",
+      "equipment_instance_id",
+      "effect_id",
+      "trigger_event_id",
+      "trigger_root_action_id",
+      "trigger_source_template_id",
+      "recipient_body_id",
+      "uses_remaining",
+      "created_owner_turn_id",
+      "expiry_turn_id",
+      "stacking_key"
+    ],
+    "body_self": "受益对象是唯一身体，故模板切换后仍可能用掉同一份；这是共享身体改编，不是假装每模板各有一件原武器。",
+    "party_body_snapshot": "创建时去重存活真实友方身体并固定接收者，不给之后入场者补发；玩家3模板仍仅1份。各接收者独立1次。",
+    "next_template_reserved": "本6档没有采用此scope。如后续使用，只能在有效交接事件创建时绑定该次to_template_id；不延迟猜下一次current，不向后续模板迁移。",
+    "consumption": "在后续一个合格根行动开始时快照所有可用令牌，作用于该根行动符合过滤器的所有直接伤害分段/目标；本根行动结束若任一符合部分hp_lost+block_lost>0，每令牌扣1次。完全免疫或无合法命中的根行动不扣，但原过期时点不延。",
+    "non_consuming": [
+      "mode_switch",
+      "无关元素或伤害标签",
+      "dot或异常伤害",
+      "interference_damage",
+      "装备派生攻击",
+      "无伤害的技能",
+      "别的真实body攻击"
+    ],
+    "expiry_definition": "默认在授予后接收者下一个开始的回合结束时过期；若在自身回合授予，跨到下次自己的回合末。固定写入expiry_turn_id，切模板不延长。",
+    "retrigger": "同名live令牌未消费前忽略新授予，不叠层、不延时；本回合最多尝试授予一次。party中某接收者已消费而另一者未消费时，只有新的回合合法触发才可给前者补一份，后者仍不刷新。",
+    "combat_end": "清空全部临时令牌与本战上限；装备实例归库存保留。",
+    "matching_exception": "matching_active_template_only不采用body_self可跨模板消费规则；创建及消费都要求匹配模板实际激活，切出仅保留原角色和固定期限，不迁移、不重置。"
+  },
+  "weapon_profiles": [
+    {
+      "id": "W_COMMON_EMERALD",
+      "name_zh": "千古洑流 共用测试档",
+      "source_weapon_id": 21020015,
+      "original_weapon_type": "迅刀",
+      "source_refs": [
+        "GEAR_SRC_EMERALD"
+      ],
+      "owner_scope": "body",
+      "equipped_instance_count": 1,
+      "weapon_flat_attack_by_equipment_snapshot": {
+        "early": 2,
+        "middle": 3,
+        "late": 4
+      },
+      "flat_attack_growth_rule": "由实际取得的武器成长快照选择；本体升级或切模板不能自动切档；不占出牌能量。",
+      "weapon_type_gate": "本测试档不禁止跨模板使用；原作迅刀/长刃身份仍保留为来源字段，适配外形不复制实例。",
+      "matching_bonus": {
+        "supported": true,
+        "enabled_when": "weapon_instance.matching_profile_id is valid and active role matches its profile",
+        "required_for_engine": false,
+        "allowed_profile_ids": [
+          "M_LYNAE_SPECTRUM"
+        ],
+        "max_selected_on_actual_instance": 1,
+        "effects_reference": "matching_profiles",
+        "rule": "按单一实际武器实例及原战斗计数；通用被动/flat仍只结算一次；没有匹配时基础循环完整。"
+      },
+      "in_combat_reequip": false,
+      "original_mechanics_r1": "共鸣效率+12.8%；施放共鸣技能后攻击+6%，最多2层，持续10秒。",
+      "project_translation": "舍弃充能百分比、实时10秒及2层，保留E后为后续动作准备收益。数值改为一次直接伤害+10%；不抽牌、不发技能、不改资源池。",
+      "effects": [
+        {
+          "effect_id": "W_EMERALD_READY",
+          "owner_scope": "body",
+          "effect_scope": "body_self",
+          "trigger": {
+            "event": "ACTION_COMMITTED",
+            "conditions": [
+              "actor_body_id == equipment.owner_body_id",
+              "action_kind in [action,deploy]",
+              "ability_tags contains resonance_skill",
+              "is_root_player_action == true",
+              "is_valid_and_paid == true"
+            ],
+            "excluded": [
+              "mode",
+              "subevent",
+              "equipment_proc",
+              "NPC_action"
+            ]
+          },
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 1000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "damage_tags": "any"
+          },
+          "uses": 1,
+          "use_unit": "one_root_action",
+          "max_grants_per_owner_turn": 1,
+          "expiry": "end_of_owner_turn_started_after_grant",
+          "retrigger_while_live": "ignore_without_refresh",
+          "stacking_key": "owner_body_id + equipped_instance_id + effect_id + recipient_body_id",
+          "grant_timing": "本根行动结算后才对后续根行动可用；不可反向增强触发它的行动",
+          "source_metadata": "保留equipment_instance_id、effect_id、trigger_event_id、trigger_root_action_id及trigger_source_template_id；不是新角色贡献来源",
+          "max_live_tokens_per_owner": 1
+        }
+      ]
+    },
+    {
+      "id": "W_COMMON_POLAR",
+      "name_zh": "永远的启明星 共用测试档",
+      "source_weapon_id": 21020076,
+      "original_weapon_type": "迅刀",
+      "source_refs": [
+        "GEAR_SRC_POLAR"
+      ],
+      "owner_scope": "body",
+      "equipped_instance_count": 1,
+      "weapon_flat_attack_by_equipment_snapshot": {
+        "early": 2,
+        "middle": 3,
+        "late": 4
+      },
+      "flat_attack_growth_rule": "由实际取得的武器成长快照选择；本体升级或切模板不能自动切档；不占出牌能量。",
+      "weapon_type_gate": "本测试档不禁止跨模板使用；原作迅刀/长刃身份仍保留为来源字段，适配外形不复制实例。",
+      "matching_bonus": {
+        "supported": true,
+        "enabled_when": "weapon_instance.matching_profile_id is valid and active role matches its profile",
+        "required_for_engine": false,
+        "allowed_profile_ids": [
+          "M_AEMEATH_POLAR",
+          "M_DENIA_DWARF",
+          "M_CHISA_KUMOKIRI"
+        ],
+        "max_selected_on_actual_instance": 1,
+        "effects_reference": "matching_profiles",
+        "rule": "按单一实际武器实例及原战斗计数；通用被动/flat仍只结算一次；没有匹配时基础循环完整。"
+      },
+      "in_combat_reequip": false,
+      "original_mechanics_r1": "全属性伤害+12%；持有者附加震谐偏移或聚爆后，解放伤害无视32%防御和10%热熔抗性，持续8秒。",
+      "project_translation": "不引入全属性常驻12%、暴击、防御或抗性无视公式；保留指定状态先准备、以后解放兑现，改为下一次本人直接解放伤害+20%。不将异常或干涉自动改标解放。",
+      "effects": [
+        {
+          "effect_id": "W_POLAR_RELEASE",
+          "owner_scope": "body",
+          "effect_scope": "body_self",
+          "trigger": {
+            "event": "STATUS_APPLIED",
+            "conditions": [
+              "credited_source_body_id == equipment.owner_body_id",
+              "accepted_stacks > 0",
+              "origin_kind in [character_action, character_deployment, character_status]",
+              "status_id in [fusion_burst, shock_offset]"
+            ],
+            "fusion_alias": "FUSION_APPLIED is STATUS_APPLIED(status_id=fusion_burst); same event_id, not an extra trigger"
+          },
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 2000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "required_damage_tag": "liberation"
+          },
+          "uses": 1,
+          "use_unit": "one_root_action",
+          "max_grants_per_owner_turn": 1,
+          "expiry": "end_of_owner_turn_started_after_grant",
+          "retrigger_while_live": "ignore_without_refresh",
+          "stacking_key": "owner_body_id + equipped_instance_id + effect_id + recipient_body_id",
+          "grant_timing": "本根行动结算后才对后续根行动可用；不可反向增强触发它的行动",
+          "source_metadata": "保留equipment_instance_id、effect_id、trigger_event_id、trigger_root_action_id及trigger_source_template_id；不是新角色贡献来源",
+          "max_live_tokens_per_owner": 1
+        }
+      ]
+    },
+    {
+      "id": "W_COMMON_CALIBRATOR",
+      "name_zh": "宙算仪轨 共用测试档",
+      "source_weapon_id": 21010066,
+      "original_weapon_type": "长刃",
+      "source_refs": [
+        "GEAR_SRC_CALIBRATOR"
+      ],
+      "owner_scope": "body",
+      "equipped_instance_count": 1,
+      "weapon_flat_attack_by_equipment_snapshot": {
+        "early": 2,
+        "middle": 3,
+        "late": 4
+      },
+      "flat_attack_growth_rule": "由实际取得的武器成长快照选择；本体升级或切模板不能自动切档；不占出牌能量。",
+      "weapon_type_gate": "本测试档不禁止跨模板使用；原作迅刀/长刃身份仍保留为来源字段，适配外形不复制实例。",
+      "matching_bonus": {
+        "supported": true,
+        "enabled_when": "weapon_instance.matching_profile_id is valid and active role matches its profile",
+        "required_for_engine": false,
+        "allowed_profile_ids": [
+          "M_MORNYE_CALIBRATOR"
+        ],
+        "max_selected_on_actual_instance": 1,
+        "effects_reference": "matching_profiles",
+        "rule": "按单一实际武器实例及原战斗计数；通用被动/flat仍只结算一次；没有匹配时基础循环完整。"
+      },
+      "in_combat_reequip": false,
+      "original_mechanics_r1": "防御+16%；施放共鸣技能回复8协奏，每20秒一次；造成治疗后附近全队暴伤+20%，持续4秒。",
+      "project_translation": "不导入防御16%与暴击20%；E回复改为共享协奏+1，整场最多2次且每身体回合最多1次；真实治疗改为实际友方身体各一次直接伤害+10%，不复制给备用模板。",
+      "effects": [
+        {
+          "effect_id": "W_CALIBRATOR_CONCERTO",
+          "owner_scope": "body",
+          "effect_scope": "shared_body_concerto",
+          "trigger": {
+            "event": "ACTION_COMMITTED",
+            "conditions": [
+              "actor_body_id == equipment.owner_body_id",
+              "action_kind in [action,deploy]",
+              "ability_tags contains resonance_skill",
+              "is_root_player_action == true",
+              "is_valid_and_paid == true"
+            ],
+            "excluded": [
+              "mode",
+              "subevent",
+              "equipment_proc",
+              "NPC_action"
+            ]
+          },
+          "value_kind": "project_adaptation",
+          "resource": "concerto",
+          "delta": 1,
+          "cap_ref": "shared_concerto_threshold_6",
+          "max_procs_per_combat": 2,
+          "max_procs_per_owner_turn": 1,
+          "dedup_key": "equipment_instance_id + root_action_id + effect_id",
+          "at_cap": "实际增量为0时不扣整场次数，但本回合已尝试标记仍置真",
+          "overflow": "discard",
+          "timing": "ACTION_COMMITTED成本成功支付后；它本身不触发切换或变奏延奏",
+          "reset": "仅新战斗重置；模板/形态切换不重置",
+          "does_not_grant": [
+            "action_energy",
+            "private_template_resource",
+            "contribution_source"
+          ]
+        },
+        {
+          "effect_id": "W_CALIBRATOR_HEAL_TEAM",
+          "owner_scope": "body",
+          "effect_scope": "party_body_snapshot",
+          "trigger": {
+            "event": "HEAL_APPLIED",
+            "conditions": [
+              "credited_source_body_id == equipment.owner_body_id",
+              "actual_heal > 0",
+              "target_body_id is owner body or a real allied body",
+              "origin_kind in [character_action, character_deployment, character_status]"
+            ],
+            "excluded": [
+              "overheal_with_actual_heal_0",
+              "shield_gain",
+              "equipment_heal",
+              "template_activation",
+              "uncontrolled_enemy_heal"
+            ]
+          },
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 1000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "damage_tags": "any"
+          },
+          "uses": 1,
+          "use_unit": "one_root_action",
+          "max_grants_per_owner_turn": 1,
+          "expiry": "end_of_recipient_turn_started_after_grant",
+          "retrigger_while_live": "ignore_without_refresh",
+          "stacking_key": "owner_body_id + equipped_instance_id + effect_id + recipient_body_id",
+          "grant_timing": "本根行动结算后才对后续根行动可用；不可反向增强触发它的行动",
+          "source_metadata": "保留equipment_instance_id、effect_id、trigger_event_id、trigger_root_action_id及trigger_source_template_id；不是新角色贡献来源",
+          "recipient_selection": "触发时存活真实友方body_id去重，包含玩家身体一次；每个实际身体各发1次，不为1至3备用模板各发一次",
+          "recipient_limit": "实际友方身体数；不是模板数",
+          "max_live_tokens_per_recipient": 1
+        }
+      ]
+    }
+  ],
+  "echo_set_profiles": [
+    {
+      "id": "S_COMMON_STAR",
+      "name_zh": "长路启航之星 共用测试档",
+      "source_refs": [
+        "GEAR_SRC_STAR"
+      ],
+      "original_thresholds": [
+        2,
+        5
+      ],
+      "original_mechanics": "2件热熔伤害10%；5件本人附加聚爆或震谐偏移后暴击20%、热熔20%/8秒。",
+      "project_translation": "2件重新选用+10%热熔直接伤害；5件替换为同条件后下一次热熔直接伤害额外+10%，不导入暴击。不是原作秒数转换。",
+      "thresholds": [
+        {
+          "pieces": 2,
+          "effect_id": "S_STAR_2",
+          "owner_scope": "body",
+          "effect_scope": "body_self",
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 1000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "element": "fusion"
+          },
+          "trigger": "满足装备门槛时常驻；每次伤害读取一次，不创建层数",
+          "uses": null,
+          "expiry": "unequip_or_combat_end",
+          "stacking_key": "owner_body_id + set_id + threshold"
+        },
+        {
+          "pieces": 5,
+          "effect_id": "S_STAR_5",
+          "owner_scope": "body",
+          "effect_scope": "body_self",
+          "trigger": {
+            "event": "STATUS_APPLIED",
+            "conditions": [
+              "credited_source_body_id == equipment.owner_body_id",
+              "accepted_stacks > 0",
+              "origin_kind in [character_action, character_deployment, character_status]",
+              "status_id in [fusion_burst, shock_offset]"
+            ],
+            "fusion_alias": "FUSION_APPLIED is STATUS_APPLIED(status_id=fusion_burst); same event_id, not an extra trigger"
+          },
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 1000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "element": "fusion"
+          },
+          "uses": 1,
+          "use_unit": "one_root_action",
+          "max_grants_per_owner_turn": 1,
+          "expiry": "end_of_owner_turn_started_after_grant",
+          "retrigger_while_live": "ignore_without_refresh",
+          "stacking_key": "owner_body_id + equipped_instance_id + effect_id + recipient_body_id",
+          "grant_timing": "本根行动结算后才对后续根行动可用；不可反向增强触发它的行动",
+          "source_metadata": "保留equipment_instance_id、effect_id、trigger_event_id、trigger_root_action_id及trigger_source_template_id；不是新角色贡献来源",
+          "max_live_tokens_per_owner": 1
+        }
+      ]
+    },
+    {
+      "id": "S_COMMON_FATE",
+      "name_zh": "命理崩毁之弦 共用测试档",
+      "source_refs": [
+        "GEAR_SRC_FATE"
+      ],
+      "original_thresholds": [
+        3
+      ],
+      "original_mechanics": "仅3件：本人附加虚湮后，自身攻击20%、共鸣解放伤害30%，持续5秒。",
+      "project_translation": "把两类原乘区合为一次直接解放+20%；仅实际附加虚湮触发。扩容、现有虚湮读数、湮灭元素命中都不够。没有2件或5件奖励。",
+      "thresholds": [
+        {
+          "pieces": 3,
+          "effect_id": "S_FATE_3",
+          "owner_scope": "body",
+          "effect_scope": "body_self",
+          "trigger": {
+            "event": "STATUS_APPLIED",
+            "conditions": [
+              "credited_source_body_id == equipment.owner_body_id",
+              "accepted_stacks > 0",
+              "origin_kind in [character_action, character_deployment, character_status]",
+              "status_id == havoc_bane"
+            ]
+          },
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 2000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "required_damage_tag": "liberation"
+          },
+          "uses": 1,
+          "use_unit": "one_root_action",
+          "max_grants_per_owner_turn": 1,
+          "expiry": "end_of_owner_turn_started_after_grant",
+          "retrigger_while_live": "ignore_without_refresh",
+          "stacking_key": "owner_body_id + equipped_instance_id + effect_id + recipient_body_id",
+          "grant_timing": "本根行动结算后才对后续根行动可用；不可反向增强触发它的行动",
+          "source_metadata": "保留equipment_instance_id、effect_id、trigger_event_id、trigger_root_action_id及trigger_source_template_id；不是新角色贡献来源",
+          "max_live_tokens_per_owner": 1
+        }
+      ]
+    },
+    {
+      "id": "S_COMMON_GLOW",
+      "name_zh": "隐世回光 共用测试档",
+      "source_refs": [
+        "GEAR_SRC_GLOW"
+      ],
+      "original_thresholds": [
+        2,
+        5
+      ],
+      "original_mechanics": "2件治疗10%；5件本人为友方治疗后全队攻击15%，持续30秒。",
+      "project_translation": "2件重新选用治疗+10%；5件保留真实治疗给队伍收益，但改为实际友方身体各一次直接伤害+10%。不把30秒换固定回合，也不把伤害加成冒称原作攻击提升。",
+      "thresholds": [
+        {
+          "pieces": 2,
+          "effect_id": "S_GLOW_2",
+          "owner_scope": "body",
+          "effect_scope": "outgoing_heal_of_body",
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_heal_bonus_bp",
+          "amount_bp": 1000,
+          "eligible_heal_filter": {
+            "origin_kind": [
+              "character_action",
+              "character_deployment",
+              "character_status"
+            ]
+          },
+          "trigger": "满足装备门槛时常驻，治疗量确定后进入主合同治疗流程",
+          "uses": null,
+          "expiry": "unequip_or_combat_end",
+          "stacking_key": "owner_body_id + set_id + threshold"
+        },
+        {
+          "pieces": 5,
+          "effect_id": "S_GLOW_5",
+          "owner_scope": "body",
+          "effect_scope": "party_body_snapshot",
+          "trigger": {
+            "event": "HEAL_APPLIED",
+            "conditions": [
+              "credited_source_body_id == equipment.owner_body_id",
+              "actual_heal > 0",
+              "target_body_id is owner body or a real allied body",
+              "origin_kind in [character_action, character_deployment, character_status]"
+            ],
+            "excluded": [
+              "overheal_with_actual_heal_0",
+              "shield_gain",
+              "equipment_heal",
+              "template_activation",
+              "uncontrolled_enemy_heal"
+            ]
+          },
+          "value_kind": "project_adaptation",
+          "bonus_lane": "equipment_damage_bonus_bp",
+          "amount_bp": 1000,
+          "eligible_damage_filter": {
+            "damage_origin": "direct_character",
+            "damage_tags": "any"
+          },
+          "uses": 1,
+          "use_unit": "one_root_action",
+          "max_grants_per_owner_turn": 1,
+          "expiry": "end_of_recipient_turn_started_after_grant",
+          "retrigger_while_live": "ignore_without_refresh",
+          "stacking_key": "owner_body_id + equipped_instance_id + effect_id + recipient_body_id",
+          "grant_timing": "本根行动结算后才对后续根行动可用；不可反向增强触发它的行动",
+          "source_metadata": "保留equipment_instance_id、effect_id、trigger_event_id、trigger_root_action_id及trigger_source_template_id；不是新角色贡献来源",
+          "recipient_selection": "触发时存活真实友方body_id去重；玩家身体只有1份；每个身体各1次",
+          "max_live_tokens_per_recipient": 1
+        }
+      ]
+    }
+  ],
+  "loadout_shape_examples": [
+    {
+      "label": "满5件形状A",
+      "costs": [
+        4,
+        3,
+        3,
+        1,
+        1
+      ],
+      "sum_cost": 12,
+      "valid": true,
+      "note": "须另证库存及套装归属，不臆造具体怪物名称。"
+    },
+    {
+      "label": "满5件形状B",
+      "costs": [
+        4,
+        4,
+        1,
+        1,
+        1
+      ],
+      "sum_cost": 11,
+      "valid": true,
+      "note": "合法COST不自动激活任何套装；主位仍至多1。"
+    },
+    {
+      "label": "2加3混搭",
+      "costs": [
+        4,
+        3,
+        3,
+        1,
+        1
+      ],
+      "sum_cost": 12,
+      "set_ids": [
+        "S_COMMON_FATE",
+        "S_COMMON_FATE",
+        "S_COMMON_FATE",
+        "S_COMMON_GLOW",
+        "S_COMMON_GLOW"
+      ],
+      "active_thresholds": [
+        "S_FATE_3",
+        "S_GLOW_2"
+      ],
+      "valid": true
+    },
+    {
+      "label": "超COST反例",
+      "costs": [
+        4,
+        3,
+        3,
+        3,
+        1
+      ],
+      "sum_cost": 14,
+      "valid": false
+    }
+  ],
+  "role_interpretation": [
+    {
+      "role_id": "aemeath",
+      "finding": "可自行满足聚爆/震谐条件并兑现解放；换通用武器或无条件5件奖励时基础私池和终结仍必须合法。",
+      "stage3_pointer": "/roles/0/equipment_boundary"
+    },
+    {
+      "role_id": "lynae",
+      "finding": "其自身偏移只有status_id=shock_offset才满足启明星/长路；集谐偏移不得混同。无治疗不能靠宙算白得治疗触发。常规技能仍可用千古。溢彩荧辉的普攻中施加偏移机制保留在来源，不额外塞进这三个档。",
+      "stage3_pointer": "/roles/1/equipment_boundary"
+    },
+    {
+      "role_id": "mornye",
+      "finding": "真实治疗使宙算与隐世有效；部署归因仍属原模板。宙算不给免费场、治疗、私池或主动技能。星构套不额外叠入隐世。",
+      "stage3_pointer": "/roles/2/equipment_boundary"
+    },
+    {
+      "role_id": "denia",
+      "finding": "本人角色部署的聚爆可准备启明星/长路；集谐分支不冒充震谐。武器不赋予其没有的原生治疗。赝作的矮星队伍加攻不作为本档第三武器外的免费被动。",
+      "stage3_pointer": "/roles/3/equipment_boundary"
+    },
+    {
+      "role_id": "chisa",
+      "finding": "真正附加虚湮才触发命理，扩容或队友攻击本身不够；真实治疗可选隐世5件方向。3件命理+2件隐世与5件隐世是同5槽的取舍，不能同时得两套最高档。",
+      "stage3_pointer": "/roles/4/equipment_boundary"
+    }
+  ],
+  "acceptance_witnesses": [
+    {
+      "id": "EQ01",
+      "setup": "同一身体以同一武器切A→B→C→A",
+      "expected": "flat只+一次，令牌/次数不重置，始终1weapon_instance+5echo_instance"
+    },
+    {
+      "id": "EQ02",
+      "setup": "千古技能根行动命中3目标共5hit",
+      "expected": "最多1枚ready；触发行动不能用；下一根直接伤害行动整次受益且仅消费1次"
+    },
+    {
+      "id": "EQ03",
+      "setup": "同聚爆事件同时发STATUS_APPLIED与FUSION_APPLIED视图",
+      "expected": "用相同event_id去重，启明星和长路分别至多1枚，不把来源计两角色"
+    },
+    {
+      "id": "EQ04",
+      "setup": "仅异常上限+3、仅读取聚爆、状态附加被拒绝accepted_stacks=0",
+      "expected": "启明星/长路/命理均不触发"
+    },
+    {
+      "id": "EQ05",
+      "setup": "命理2、3、4、5件逐一计件",
+      "expected": "2件无效果；3/4/5件均仅一份S_FATE_3"
+    },
+    {
+      "id": "EQ06",
+      "setup": "玩家3模板加1真实友方NPC；隐世5件合格治疗",
+      "expected": "仅2个真实body各得1枚；不是4枚；NPC不能复制玩家装备被动"
+    },
+    {
+      "id": "EQ07",
+      "setup": "宙算E时协奏5/6；再切出；本战第三次申请",
+      "expected": "首个合格E只+1到6；仍需合法切换才花6；切模板不归零计数；全战最多2次实际+1"
+    },
+    {
+      "id": "EQ08",
+      "setup": "满血治疗0与只有护盾；对比实际治疗1",
+      "expected": "前两者不触发治疗被动；后者合格；没学治疗不能只装备就产生治疗"
+    },
+    {
+      "id": "EQ09",
+      "setup": "令牌授予、普通切换、合格伤害后还有多hit；同回合再触发",
+      "expected": "身体令牌切换不复制；根行动扣1；达到本回合授予上限不补发；逾期未消费也消失"
+    },
+    {
+      "id": "EQ10",
+      "setup": "1weapon槽5Echo槽；5+3套想同时生效或同Echo重复计件",
+      "expected": "8件需求无法由5槽满足；单个实例不得多占/多计；成本14拒绝"
+    },
+    {
+      "id": "EQ11",
+      "setup": "武器early快照，本体成长至middle；以及无武器null对照",
+      "expected": "前者flat仍+2，后者+0；更高装备档不自动发放；匹配有具体额外收益但五角色基础循环不要求匹配。"
+    },
+    {
+      "id": "EQ12",
+      "setup": "启明星准备后攻击为异常/干涉伤害，或普通热熔直接伤害",
+      "expected": "均不能冒称解放消费W_POLAR；长路仅其实际匹配的热熔直接伤害可消费"
+    },
+    {
+      "id": "EQ13",
+      "setup": "切出千咲后原虚无绞痕产生有归属的实际虚湮，或真实NPC自身附加虚湮",
+      "expected": "前者仍按原千咲source_template_id并归玩家身体触发一次；后者不触发玩家命理"
+    },
+    {
+      "id": "EQ14",
+      "setup": "治疗武器和隐世5件同根治疗；随后直接伤害；再无治疗等待",
+      "expected": "两个不同来源可各给+1000bp并在同一合格行动各消费一次；不能刷新成永久光环"
+    },
+    {
+      "id": "EQ15",
+      "setup": "同一W_COMMON_POLAR实例尝试填爱弥斯、达妮娅、千咲三个matching_profile_id",
+      "expected": "拒绝；一个真实实例至多一个匹配标记；三武器骨架数量不变"
+    },
+    {
+      "id": "EQ16",
+      "setup": "爱弥斯匹配令牌生成后切到达妮娅并打解放，再切回爱弥斯",
+      "expected": "达妮娅可消费通用身体令牌但不能用爱弥斯匹配令牌；回来只剩原次数与期限，战斗上限不重置"
+    },
+    {
+      "id": "EQ17",
+      "setup": "每名角色合格生成与消费两次匹配收益，再产生第三次合格事件",
+      "expected": "第三次不创建；最多2次成功授予/战，模板、模态、形态切换均不重置"
+    },
+    {
+      "id": "EQ18",
+      "setup": "琳奈普通命中但无偏移；对照普攻实际附加shock_offset或tune_offset",
+      "expected": "前者不触发；后者可给一次仅本人后续普攻+1000bp，E或解放不消费"
+    },
+    {
+      "id": "EQ19",
+      "setup": "莫宁只给盾或满血0治疗；对照激活期间有效治疗；切出后场治疗",
+      "expected": "前两者不触发匹配；激活期间有效治疗触发；切出后的治疗仍可按通用武器规则触发团队被动，但不生成莫宁匹配奖励"
+    },
+    {
+      "id": "EQ20",
+      "setup": "达妮娅激活时实际附加tune_offset；随后自己直接解放",
+      "expected": "可触发并消费达妮娅匹配+1000bp；不能把tune_offset算作通用启明星的shock_offset"
+    },
+    {
+      "id": "EQ21",
+      "setup": "千咲仅异常扩容或虚湮已存在accepted_stacks=0；对照实际新附加havoc_bane",
+      "expected": "前者不触发匹配；后者合格，下一次本人直接解放最多消费一份"
+    },
+    {
+      "id": "EQ22",
+      "setup": "匹配开启／null通用实例，在相同flat和已学能力下逐一跑五角色基础循环",
+      "expected": "两者循环均合法；开启仅在对应有限事件产生额外收益，不授牌或资源门票"
+    },
+    {
+      "id": "EQ23",
+      "setup": "同一行动同时符合通用武器、套装与匹配奖励且多hit，随后兑现",
+      "expected": "每effect最多1份，匹配不增强同根；后续根行动各消费一次；同lane总计受+5000bp上限且来源账本可分辨"
+    }
+  ],
+  "source_registry": [
+    {
+      "id": "GEAR_SRC_EMERALD",
+      "sha256": "f284c259f2a67f4b8a03aa56ab9837901b084c5c9d0b7ce5ac1a9c77577ba48f",
+      "json_pointer": "/equipment/alternative_passives/0",
+      "original_urls": [
+        "https://encore.moe/weapon/21020015?lang=zh-Hans"
+      ],
+      "evidence_scope": "既有Encore快照；R1共鸣效率12.8%，施放共鸣技能后攻击6%，最多2层，10秒；不将秒换算为回合。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "id": "EMERALD",
+        "bytes": 7561,
+        "sha256": "88433cd55a22ce1c139866c3b3a298a1161d55dc691e7324800db3f5aea71f3c",
+        "source_kind": "third_party_database_dom_snapshot",
+        "retrieved_on_utc": "2026-10-04",
+        "url": "https://encore.moe/weapon/21020015?lang=zh-Hans",
+        "snapshot_observed_at_utc": "2026-10-04T08:23:41.455Z"
+      }
+    },
+    {
+      "id": "GEAR_SRC_POLAR",
+      "sha256": "f284c259f2a67f4b8a03aa56ab9837901b084c5c9d0b7ce5ac1a9c77577ba48f",
+      "json_pointer": "/equipment/signature",
+      "original_urls": [
+        "https://encore.moe/weapon/21020076?lang=zh-Hans"
+      ],
+      "evidence_scope": "既有Encore快照；R1全属性伤害12%，本人附加震谐偏移或聚爆后解放伤害无视32%防御及10%热熔抗性，8秒。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "id": "WEAPON",
+        "bytes": 9247,
+        "sha256": "8f6eb8c98a7a3a262fc43053f85717312ec41826f8a7505af944abe5d8abb145",
+        "source_kind": "third_party_database_dom_snapshot",
+        "retrieved_on_utc": "2026-10-04",
+        "url": "https://encore.moe/weapon/21020076?lang=zh-Hans",
+        "snapshot_observed_at_utc": "2026-10-04T08:23:56.202Z"
+      }
+    },
+    {
+      "id": "GEAR_SRC_CALIBRATOR",
+      "sha256": "02210179815f9bf53b406ede8d4ed5e2fc66b7c8a381e5a9a41458449bbbdbf3",
+      "json_pointer": "/weapons/1",
+      "original_urls": [
+        "https://api-v2.encore.moe/api/zh-Hans/weapon/21010066",
+        "https://www.bilibili.com/opus/1150147651539304472"
+      ],
+      "evidence_scope": "武器原API效果为主；R1防御16%，E回复协奏8点且20秒一次，造成治疗后全队暴伤20%/4秒。官方3.0公告仅核名称类别，不证明全部被动。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "source_id": "EQUIP_WEAPON_MORNYE",
+        "title": "宙算仪轨原始API JSON",
+        "source_type": "provided_dataset_primary",
+        "url": "https://api-v2.encore.moe/api/zh-Hans/weapon/21010066",
+        "source_version": null,
+        "source_versions": null,
+        "publication_or_updated_date": "2026-10-04",
+        "accessed_at": "2026-10-04T18:21:39.113480+00:00",
+        "locator": "ItemId, WeaponName, WeaponTypeName, QualityId, ResonName, ResonLevelLimit, Desc, DescParams, Properties",
+        "note": null,
+        "sha256": "0f8690673c1982736e6c197626d3c64c319cf8c7af1c1ac2b1e8feadc85aeed2"
+      }
+    },
+    {
+      "id": "GEAR_SRC_STAR",
+      "sha256": "f284c259f2a67f4b8a03aa56ab9837901b084c5c9d0b7ce5ac1a9c77577ba48f",
+      "json_pointer": "/equipment/echo_set",
+      "original_urls": [
+        "https://encore.moe/echo/6000191?lang=zh-Hans",
+        "https://wiki.kurobbs.com/mc/item/1463260295867838464"
+      ],
+      "evidence_scope": "套装2件热熔10%；5件本人附加聚爆或震谐偏移后暴击20%、热熔20%/8秒。辛吉勒姆主位20/25异文不导入套装。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "id": "ECHO_DOM",
+        "url": "https://encore.moe/echo/6000191?lang=zh-Hans",
+        "title": "辛吉勒姆 6000191",
+        "source_kind": "third_party_database_live_visible_dom",
+        "verified_at_utc": "2026-10-04T18:18:20Z",
+        "method": "dot云浏览器真实声骸列表搜索并打开详情，读取可见正文",
+        "use": "声骸及长路启航之星套装；首位25.00%与攻略20%差异保留",
+        "game_version": null
+      }
+    },
+    {
+      "id": "GEAR_SRC_FATE",
+      "sha256": "3d45bee0cb495a24f1dcc15afca6e5af9f9ec2123d4464e674a7124783ff1875",
+      "json_pointer": "/echoes_and_sonata_sets/3",
+      "original_urls": [
+        "https://wuthering.gg/zh-Hans/echos/reminiscence-threnodian---leviathan"
+      ],
+      "evidence_scope": "命理崩毁之弦仅3件效果：本人附加虚湮后自身攻击20%、解放伤害30%/5秒；主声骸利维亚坦技能另列。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "source_id": "WGG-LEVIATHAN",
+        "url": "https://wuthering.gg/zh-Hans/echos/reminiscence-threnodian---leviathan",
+        "source_type": "community_game_database",
+        "checked_at": "2026-10-04T18:27:01.403352+00:00",
+        "page_updated_at": null,
+        "declared_context": null,
+        "limits": "技能区阶级5；合鸣效果明确标注命理崩毁之弦3件套。"
+      }
+    },
+    {
+      "id": "GEAR_SRC_GLOW",
+      "sha256": "3d45bee0cb495a24f1dcc15afca6e5af9f9ec2123d4464e674a7124783ff1875",
+      "json_pointer": "/echoes_and_sonata_sets/5",
+      "original_urls": [
+        "https://wuthering.gg/zh-Hans/echos/fallacy-of-no-return"
+      ],
+      "evidence_scope": "隐世回光2件治疗10%；5件本人为友方治疗后全队攻击15%/30秒；无归的谬误技能另列。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "source_id": "WGG-FALLACY",
+        "url": "https://wuthering.gg/zh-Hans/echos/fallacy-of-no-return",
+        "source_type": "community_game_database",
+        "checked_at": "2026-10-04T18:27:01.403352+00:00",
+        "page_updated_at": null,
+        "declared_context": null,
+        "limits": "技能区阶级5；同时核对隐世回光2/5件套。"
+      }
+    },
+    {
+      "id": "GEAR_SRC_SPECTRUM",
+      "sha256": "02210179815f9bf53b406ede8d4ed5e2fc66b7c8a381e5a9a41458449bbbdbf3",
+      "json_pointer": "/weapons/0",
+      "original_urls": [
+        "https://api-v2.encore.moe/api/zh-Hans/weapon/21030046"
+      ],
+      "evidence_scope": "R1自身攻击12%；变奏或普攻命中使普攻36%/4秒；普攻中本人附加震谐或集谐偏移才给全队伤害8%每层、最多3层/30秒。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "source_id": "EQUIP_WEAPON_LYNAE",
+        "title": "溢彩荧辉原始API JSON",
+        "source_type": "provided_dataset_primary",
+        "url": "https://api-v2.encore.moe/api/zh-Hans/weapon/21030046",
+        "source_version": null,
+        "source_versions": null,
+        "publication_or_updated_date": "2026-10-04",
+        "accessed_at": "2026-10-04T18:21:39.113480+00:00",
+        "locator": "ItemId, WeaponName, WeaponTypeName, QualityId, ResonName, ResonLevelLimit, Desc, DescParams, Properties",
+        "note": null,
+        "sha256": "af57ca2080cfc57dff75a5339c8666ed575c3cffe08abe65ac4a0d137bde0e8c"
+      }
+    },
+    {
+      "id": "GEAR_SRC_DWARF",
+      "sha256": "3d45bee0cb495a24f1dcc15afca6e5af9f9ec2123d4464e674a7124783ff1875",
+      "json_pointer": "/roles/0/signature_weapon",
+      "original_urls": [
+        "https://encore.moe/weapon/21050076?lang=zh-Hans"
+      ],
+      "evidence_scope": "R1攻击12%；本人附加聚爆或集谐偏移后解放36%/5秒；该状态中队伍角色自行附加对应状态后该角色攻击24%/15秒。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "source_id": "ENCORE-WEAPON-21050076",
+        "source_type": "user_provided_local_archive_of_community_game_database",
+        "url": "https://encore.moe/weapon/21050076?lang=zh-Hans",
+        "captured_at": "2026-10-04T08:29:29.610Z",
+        "sha256": "4ce93a864be4e8e32c3f80566a67c46420231c97e139fa8d101febdc4a5ce8ee",
+        "declared_game_version": null,
+        "limits": "浏览器资料快照；基础属性来自明确的90级显示，精炼序列为原页面R1至R5。"
+      }
+    },
+    {
+      "id": "GEAR_SRC_KUMOKIRI",
+      "sha256": "3d45bee0cb495a24f1dcc15afca6e5af9f9ec2123d4464e674a7124783ff1875",
+      "json_pointer": "/roles/1/signature_weapon",
+      "original_urls": [
+        "https://encore.moe/weapon/21010056?lang=zh-Hans"
+      ],
+      "evidence_scope": "R1攻击12%；变奏或实际异常附加后自身解放8%每层，最多3层/15秒；满层后队伍角色自行附加异常才获得全属性24%/15秒。",
+      "original_game_version": null,
+      "new_web_verification_in_this_appendix": false,
+      "original_source_record": {
+        "source_id": "ENCORE-WEAPON-21010056",
+        "source_type": "user_provided_local_archive_of_community_game_database",
+        "url": "https://encore.moe/weapon/21010056?lang=zh-Hans",
+        "captured_at": "2026-10-04T08:22:51.838Z",
+        "sha256": "34f06e1be776ab5a008713dfb0ddd80e4e7242881b4bb6b3a456d0b4832058b9",
+        "declared_game_version": null,
+        "limits": "浏览器资料快照；基础属性来自明确的90级显示，精炼序列为原页面R1至R5。"
+      }
+    }
+  ],
+  "validation_status": {
+    "json_parse": "passed",
+    "profile_counts": "passed",
+    "source_pointers": "passed",
+    "engine_gate": "not_run",
+    "combat_balance": "not_run",
+    "gameplay_witnesses_executed": false,
+    "matching_profile_coverage": "passed_5_roles_3_archetypes_1_binding_per_instance",
+    "matching_runtime_tests": "not_run"
+  },
+  "matching_profiles": [
+    {
+      "id": "M_AEMEATH_POLAR",
+      "effect_id": "MATCH_AEMEATH_RELEASE",
+      "match_role_id": "aemeath",
+      "archetype_id": "W_COMMON_POLAR",
+      "signature_inspiration": "永远的启明星 21020076",
+      "source_refs": [
+        "GEAR_SRC_POLAR"
+      ],
+      "original_mechanic_anchor": "本人先附加震谐偏移/聚爆再奖励解放",
+      "trigger": {
+        "event": "STATUS_APPLIED",
+        "conditions": [
+          "status_id in [fusion_burst,shock_offset]",
+          "accepted_stacks > 0",
+          "credited_source_body_id == owner_body_id",
+          "source_template_id resolves to aemeath",
+          "active_template.role_id == aemeath",
+          "origin_kind in [player_skill,deployment]"
+        ]
+      },
+      "damage_filter": {
+        "tag": "direct",
+        "required_damage_tag": "liberation",
+        "ability_role_id": "aemeath"
+      },
+      "tradeoff": "同一状态兑现骨架只能绑定爱弥斯、达妮娅或千咲之一；必须给爱弥斯留后续解放与行动预算，改用另一模板则匹配令牌暂时不能兑现。",
+      "project_translation": "额外解放+1000bp，独立于通用武器+2000bp；原作防御/抗性无视未恢复。",
+      "owner_scope": "actual_equipped_weapon_instance",
+      "effect_scope": "matching_active_template_only",
+      "enabled_when": "实际已取得武器实例存有本matching_profile_id，且触发及消费时active_template.role_id均等于match_role_id",
+      "value_kind": "source_inspired_project_adaptation",
+      "bonus_lane": "equipment_damage_bonus_bp",
+      "amount_bp": 1000,
+      "uses_per_grant": 1,
+      "use_unit": "one_root_action",
+      "max_live_grants": 1,
+      "max_grants_per_owner_turn": 1,
+      "max_successful_grants_per_combat": 2,
+      "battle_counter_key": "battle_id + weapon_instance_id + matching_profile_id",
+      "reset": "仅新战斗；切模板、形态、模态、牌式或绑定对象重新显示都不重置",
+      "expiry": "end_of_owner_turn_started_after_grant",
+      "on_switch_away": "令牌保留原match_role_id和固定到期轮；其他模板不能消费，也不能刷新；回来只有原剩余期限可用",
+      "retrigger_while_live": "ignore_without_refresh_and_without_consuming_combat_quota; still mark this owner-turn attempt",
+      "grant_timing": "触发根行动之后有效，不能增强同根行动；成功创建令牌才扣1次整战配额",
+      "consumption": "符合角色与damage_filter的后续根行动按共同有限令牌规则消费1次；不是每hit/目标各扣一次",
+      "stacking_key": "owner_body_id + weapon_instance_id + matching_profile_id + effect_id",
+      "adds_contribution_source": false,
+      "cost_common": "不另收能量；须先实际取得并战前装备有该单一匹配标记的武器，完成已学能力的合格事件，并在期限内用同模板的另一根行动兑现。专属标记槽不能同时匹配其他角色。",
+      "no_gate": [
+        "不授予主动技能或固有",
+        "不解锁私池或解放",
+        "不改变基础抽牌",
+        "不要求匹配装备才允许循环"
+      ]
+    },
+    {
+      "id": "M_LYNAE_SPECTRUM",
+      "effect_id": "MATCH_LYNAE_BASIC",
+      "match_role_id": "lynae",
+      "archetype_id": "W_COMMON_EMERALD",
+      "signature_inspiration": "溢彩荧辉 21030046",
+      "source_refs": [
+        "GEAR_SRC_SPECTRUM"
+      ],
+      "original_mechanic_anchor": "普攻中本人附加指定偏移有独立条件，不能把普通命中当成偏移",
+      "trigger": {
+        "event": "STATUS_APPLIED",
+        "conditions": [
+          "status_id in [shock_offset,tune_offset]",
+          "accepted_stacks > 0",
+          "credited_source_body_id == owner_body_id",
+          "source_template_id resolves to lynae",
+          "active_template.role_id == lynae",
+          "root_action.ability_tags contains basic",
+          "origin_kind == player_skill"
+        ]
+      },
+      "damage_filter": {
+        "tag": "direct",
+        "required_damage_tag": "basic",
+        "ability_role_id": "lynae"
+      },
+      "tradeoff": "要用已经学会且可实际附加偏移的普攻根行动准备，再用琳奈自己的后续普攻消费；立刻改用E、解放或别的模板不能消费这份匹配额外收益。",
+      "project_translation": "普攻偏移条件换下一次本人普攻+1000bp；原作36%、8%三层与全队30秒没有额外照搬。",
+      "owner_scope": "actual_equipped_weapon_instance",
+      "effect_scope": "matching_active_template_only",
+      "enabled_when": "实际已取得武器实例存有本matching_profile_id，且触发及消费时active_template.role_id均等于match_role_id",
+      "value_kind": "source_inspired_project_adaptation",
+      "bonus_lane": "equipment_damage_bonus_bp",
+      "amount_bp": 1000,
+      "uses_per_grant": 1,
+      "use_unit": "one_root_action",
+      "max_live_grants": 1,
+      "max_grants_per_owner_turn": 1,
+      "max_successful_grants_per_combat": 2,
+      "battle_counter_key": "battle_id + weapon_instance_id + matching_profile_id",
+      "reset": "仅新战斗；切模板、形态、模态、牌式或绑定对象重新显示都不重置",
+      "expiry": "end_of_owner_turn_started_after_grant",
+      "on_switch_away": "令牌保留原match_role_id和固定到期轮；其他模板不能消费，也不能刷新；回来只有原剩余期限可用",
+      "retrigger_while_live": "ignore_without_refresh_and_without_consuming_combat_quota; still mark this owner-turn attempt",
+      "grant_timing": "触发根行动之后有效，不能增强同根行动；成功创建令牌才扣1次整战配额",
+      "consumption": "符合角色与damage_filter的后续根行动按共同有限令牌规则消费1次；不是每hit/目标各扣一次",
+      "stacking_key": "owner_body_id + weapon_instance_id + matching_profile_id + effect_id",
+      "adds_contribution_source": false,
+      "cost_common": "不另收能量；须先实际取得并战前装备有该单一匹配标记的武器，完成已学能力的合格事件，并在期限内用同模板的另一根行动兑现。专属标记槽不能同时匹配其他角色。",
+      "no_gate": [
+        "不授予主动技能或固有",
+        "不解锁私池或解放",
+        "不改变基础抽牌",
+        "不要求匹配装备才允许循环"
+      ]
+    },
+    {
+      "id": "M_MORNYE_CALIBRATOR",
+      "effect_id": "MATCH_MORNYE_HEAL_FOLLOWUP",
+      "match_role_id": "mornye",
+      "archetype_id": "W_COMMON_CALIBRATOR",
+      "signature_inspiration": "宙算仪轨 21010066",
+      "source_refs": [
+        "GEAR_SRC_CALIBRATOR"
+      ],
+      "original_mechanic_anchor": "实际治疗转换为伤害收益；协奏与暴伤原本是不同被动",
+      "trigger": {
+        "event": "HEAL_APPLIED",
+        "conditions": [
+          "actual_heal > 0",
+          "credited_source_body_id == owner_body_id",
+          "source_template_id resolves to mornye",
+          "active_template.role_id == mornye",
+          "target_body_id is owner or real allied body",
+          "origin_kind in [player_skill,deployment]"
+        ]
+      },
+      "damage_filter": {
+        "tag": "direct",
+        "ability_role_id": "mornye"
+      },
+      "tradeoff": "只有莫宁在实际激活期间完成有效治疗才准备；满血或只给盾无效，切出去等别人输出不能消费莫宁这份额外收益；继续防守可能让令牌到期。",
+      "project_translation": "治疗后额外给本人下一次直接伤害+1000bp；不再额外给协奏、不引入暴击，通用全队一次增益另计。",
+      "owner_scope": "actual_equipped_weapon_instance",
+      "effect_scope": "matching_active_template_only",
+      "enabled_when": "实际已取得武器实例存有本matching_profile_id，且触发及消费时active_template.role_id均等于match_role_id",
+      "value_kind": "source_inspired_project_adaptation",
+      "bonus_lane": "equipment_damage_bonus_bp",
+      "amount_bp": 1000,
+      "uses_per_grant": 1,
+      "use_unit": "one_root_action",
+      "max_live_grants": 1,
+      "max_grants_per_owner_turn": 1,
+      "max_successful_grants_per_combat": 2,
+      "battle_counter_key": "battle_id + weapon_instance_id + matching_profile_id",
+      "reset": "仅新战斗；切模板、形态、模态、牌式或绑定对象重新显示都不重置",
+      "expiry": "end_of_owner_turn_started_after_grant",
+      "on_switch_away": "令牌保留原match_role_id和固定到期轮；其他模板不能消费，也不能刷新；回来只有原剩余期限可用",
+      "retrigger_while_live": "ignore_without_refresh_and_without_consuming_combat_quota; still mark this owner-turn attempt",
+      "grant_timing": "触发根行动之后有效，不能增强同根行动；成功创建令牌才扣1次整战配额",
+      "consumption": "符合角色与damage_filter的后续根行动按共同有限令牌规则消费1次；不是每hit/目标各扣一次",
+      "stacking_key": "owner_body_id + weapon_instance_id + matching_profile_id + effect_id",
+      "adds_contribution_source": false,
+      "cost_common": "不另收能量；须先实际取得并战前装备有该单一匹配标记的武器，完成已学能力的合格事件，并在期限内用同模板的另一根行动兑现。专属标记槽不能同时匹配其他角色。",
+      "no_gate": [
+        "不授予主动技能或固有",
+        "不解锁私池或解放",
+        "不改变基础抽牌",
+        "不要求匹配装备才允许循环"
+      ]
+    },
+    {
+      "id": "M_DENIA_DWARF",
+      "effect_id": "MATCH_DENIA_RELEASE",
+      "match_role_id": "denia",
+      "archetype_id": "W_COMMON_POLAR",
+      "signature_inspiration": "赝作的矮星 21050076",
+      "source_refs": [
+        "GEAR_SRC_DWARF"
+      ],
+      "original_mechanic_anchor": "聚爆或集谐偏移后个人解放收益",
+      "trigger": {
+        "event": "STATUS_APPLIED",
+        "conditions": [
+          "status_id in [fusion_burst,tune_offset]",
+          "accepted_stacks > 0",
+          "credited_source_body_id == owner_body_id",
+          "source_template_id resolves to denia",
+          "active_template.role_id == denia",
+          "origin_kind in [player_skill,deployment]"
+        ]
+      },
+      "damage_filter": {
+        "tag": "direct",
+        "required_damage_tag": "liberation",
+        "ability_role_id": "denia"
+      },
+      "tradeoff": "与爱弥斯／千咲共用状态兑现骨架但武器实例只选一种匹配；集谐能触发本额外收益，不因此冒称触发要求震谐的通用启明星被动。要留下本人后续解放预算。",
+      "project_translation": "下一次本人直接解放额外+1000bp；没有把原作全队自行动作加攻段免费叠入。",
+      "owner_scope": "actual_equipped_weapon_instance",
+      "effect_scope": "matching_active_template_only",
+      "enabled_when": "实际已取得武器实例存有本matching_profile_id，且触发及消费时active_template.role_id均等于match_role_id",
+      "value_kind": "source_inspired_project_adaptation",
+      "bonus_lane": "equipment_damage_bonus_bp",
+      "amount_bp": 1000,
+      "uses_per_grant": 1,
+      "use_unit": "one_root_action",
+      "max_live_grants": 1,
+      "max_grants_per_owner_turn": 1,
+      "max_successful_grants_per_combat": 2,
+      "battle_counter_key": "battle_id + weapon_instance_id + matching_profile_id",
+      "reset": "仅新战斗；切模板、形态、模态、牌式或绑定对象重新显示都不重置",
+      "expiry": "end_of_owner_turn_started_after_grant",
+      "on_switch_away": "令牌保留原match_role_id和固定到期轮；其他模板不能消费，也不能刷新；回来只有原剩余期限可用",
+      "retrigger_while_live": "ignore_without_refresh_and_without_consuming_combat_quota; still mark this owner-turn attempt",
+      "grant_timing": "触发根行动之后有效，不能增强同根行动；成功创建令牌才扣1次整战配额",
+      "consumption": "符合角色与damage_filter的后续根行动按共同有限令牌规则消费1次；不是每hit/目标各扣一次",
+      "stacking_key": "owner_body_id + weapon_instance_id + matching_profile_id + effect_id",
+      "adds_contribution_source": false,
+      "cost_common": "不另收能量；须先实际取得并战前装备有该单一匹配标记的武器，完成已学能力的合格事件，并在期限内用同模板的另一根行动兑现。专属标记槽不能同时匹配其他角色。",
+      "no_gate": [
+        "不授予主动技能或固有",
+        "不解锁私池或解放",
+        "不改变基础抽牌",
+        "不要求匹配装备才允许循环"
+      ]
+    },
+    {
+      "id": "M_CHISA_KUMOKIRI",
+      "effect_id": "MATCH_CHISA_RELEASE",
+      "match_role_id": "chisa",
+      "archetype_id": "W_COMMON_POLAR",
+      "signature_inspiration": "昙切 21010056",
+      "source_refs": [
+        "GEAR_SRC_KUMOKIRI"
+      ],
+      "original_mechanic_anchor": "真正附加异常准备自己的解放收益；只有扩容不算附加",
+      "trigger": {
+        "event": "STATUS_APPLIED",
+        "conditions": [
+          "status_id == havoc_bane",
+          "accepted_stacks > 0",
+          "credited_source_body_id == owner_body_id",
+          "source_template_id resolves to chisa",
+          "active_template.role_id == chisa",
+          "origin_kind in [player_skill,deployment]"
+        ]
+      },
+      "damage_filter": {
+        "tag": "direct",
+        "required_damage_tag": "liberation",
+        "ability_role_id": "chisa"
+      },
+      "tradeoff": "武器只能在三个状态兑现匹配中选其一；必须实际附加虚湮并以本人后续直接解放兑现，扩容或仅让队友攻击不够；提前换模板会放弃当前消费机会。",
+      "project_translation": "将原作异常后叠层压成下一次本人直接解放额外+1000bp；不实现免费3层、变奏入口或全队24%。",
+      "owner_scope": "actual_equipped_weapon_instance",
+      "effect_scope": "matching_active_template_only",
+      "enabled_when": "实际已取得武器实例存有本matching_profile_id，且触发及消费时active_template.role_id均等于match_role_id",
+      "value_kind": "source_inspired_project_adaptation",
+      "bonus_lane": "equipment_damage_bonus_bp",
+      "amount_bp": 1000,
+      "uses_per_grant": 1,
+      "use_unit": "one_root_action",
+      "max_live_grants": 1,
+      "max_grants_per_owner_turn": 1,
+      "max_successful_grants_per_combat": 2,
+      "battle_counter_key": "battle_id + weapon_instance_id + matching_profile_id",
+      "reset": "仅新战斗；切模板、形态、模态、牌式或绑定对象重新显示都不重置",
+      "expiry": "end_of_owner_turn_started_after_grant",
+      "on_switch_away": "令牌保留原match_role_id和固定到期轮；其他模板不能消费，也不能刷新；回来只有原剩余期限可用",
+      "retrigger_while_live": "ignore_without_refresh_and_without_consuming_combat_quota; still mark this owner-turn attempt",
+      "grant_timing": "触发根行动之后有效，不能增强同根行动；成功创建令牌才扣1次整战配额",
+      "consumption": "符合角色与damage_filter的后续根行动按共同有限令牌规则消费1次；不是每hit/目标各扣一次",
+      "stacking_key": "owner_body_id + weapon_instance_id + matching_profile_id + effect_id",
+      "adds_contribution_source": false,
+      "cost_common": "不另收能量；须先实际取得并战前装备有该单一匹配标记的武器，完成已学能力的合格事件，并在期限内用同模板的另一根行动兑现。专属标记槽不能同时匹配其他角色。",
+      "no_gate": [
+        "不授予主动技能或固有",
+        "不解锁私池或解放",
+        "不改变基础抽牌",
+        "不要求匹配装备才允许循环"
+      ]
+    }
+  ],
+  "matching_system_contract": {
+    "status": "enabled_finite_extra_benefits",
+    "required_role_coverage": [
+      "aemeath",
+      "lynae",
+      "mornye",
+      "denia",
+      "chisa"
+    ],
+    "profiles_count": 5,
+    "archetypes_count_unchanged": 3,
+    "weapon_instance_fields": {
+      "archetype_id": "exactly one of existing 3",
+      "matching_profile_id": "null for generic, else exactly one allowed profile id",
+      "binding_origin": "actual acquired weapon instance metadata, not automatic grant from owning a template",
+      "binding_frozen": "before battle; no free mid-battle retagging",
+      "matching_counter": "battle-scoped on this actual weapon instance"
+    },
+    "interpretation": "三档是共同测试武器骨架。原命名仅指通用被动参考，角色匹配来源另列；不能把拼接后的测试实例冒称某件原作武器真实具备所有效果。",
+    "eligibility": "通用flat和被动始终一次；匹配在持有有效单一标记并激活对应实际模板时额外生效。其他模板仍可正常使用同件武器的flat与通用被动。",
+    "generic_viability": "matching_profile_id=null是合法通用配置，所有已学技能、私池、主循环与终结保持可用；匹配只提供至多2次小额额外收益。",
+    "no_auto_unlock": "具有匹配武器但尚未学习对应触发/兑现能力时，无匹配收益；不能装备即授牌。",
+    "candidate_obligation": "每个角色候选须登记其相应匹配profile、实例取得前提、触发见证和匹配关闭的基础循环对照，不得把5个匹配收益全部关闭或留作无限期扩展。",
+    "event_field_mapping": "actor_entity_id在装备owner为玩家时对应owner_body_id；ability_role_id与source_template_id映射保留原始角色归属；此映射不能使用当前模板代替后台原归属。"
+  }
+}

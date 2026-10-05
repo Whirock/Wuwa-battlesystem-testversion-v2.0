@@ -1,0 +1,654 @@
+{
+  "schema_version": "wuwa.interface_compatibility_closure.v1.0",
+  "status": "APPROVED_FROZEN_PREENGINE_SHARED_COMPATIBILITY",
+  "base_contract_sha256": "8f0954c82f96cd6843a6f87cf9e389869befbdc6b7fcf315d8a917c2c12bd837",
+  "prior_dsl_sha256": "d02d2be6ee353c246389cf76b4b688d1519652e966229a54f9625a95e393464d",
+  "purpose": "A/B/C完整声明静态审阅后的单次兼容关闭；优先把本地语法糖降为已有AST/ops。新增0战斗操作、0回调、0任意查询。",
+  "inputs": [
+    {
+      "candidate": "A",
+      "path": "batch_01/A/CANDIDATE.json",
+      "sha256_at_collection": "4cac107f7b0e67a931bdc8cd0e725feca9d45dc29de8e75128caa85a6dd35589"
+    },
+    {
+      "candidate": "B",
+      "path": "batch_01/B/CANDIDATE.json",
+      "sha256_at_collection": "d8be90e3182cbadc1d358950128b3d3ae1c37637e21d7210c779d05aadbf1068"
+    },
+    {
+      "candidate": "C",
+      "path": "batch_01/C/CANDIDATE.json",
+      "sha256_at_collection": "61992da716d753dfee8e6c7be18465e8e045f637f10469e7a18946ea90ec5a5d"
+    }
+  ],
+  "operation_count_unchanged": 37,
+  "engine_implemented": false,
+  "runtime_tests_run": 0,
+  "sections": {
+    "branch_lifecycle_and_limits": {
+      "Branch_keywords": {
+        "type": "unique array fromallowlist[exhaust]",
+        "default": [],
+        "normalization": "effectivekeywords=base unionselectedbranch BEFOREpayment; cannotremovebaseexhaust, no clientkeywordinput, no aftereffectsdisposalchoice",
+        "physical_card_only": "activation/passive have no extra card; useclose_deployment destination for their existingdeployedinstance",
+        "disposal": "effectiveaction ends inexactlydiscardorexhaust; effectivedeploy stayssameinstance deployed thenmoves once atclose accordingfrozenexhaust_on_leave; no simultaneouszone"
+      },
+      "Branch_usage_limit": {
+        "type": "existing Limit",
+        "combination": "base AND branch, neverreplacebase; eachmusthavecapacity",
+        "scope": "stable learnedskill+branch across allentitycardcopies, recoveries, alternateprintings andtemplate switches inonebattle",
+        "key": [
+          "battle_id",
+          "owner_body_id",
+          "owner_role_id",
+          "skill_id",
+          "branch_id",
+          "declared_limit_id",
+          "round_token_if_per_round"
+        ],
+        "charge_point": "reserve beforepayment; consume one use on successful rootcommit evenif effectlater0; whole-rootrollback/invalidrequest/retryconsumes0; atomicwithcost/receipt",
+        "not_resource": "limitcounter ispermissionbudget, notthirdspendableprivatepool",
+        "legal_preview": "blocked selectedbranch isnotlegal; otherlegalbranches remain available"
+      }
+    },
+    "typed_values_and_aliases": {
+      "ValueExpr": "integer arithmetic stays IntExpr; finite strings/enums/booleans and registered typed read-only refs may participate in Predicate. cmp in accepts a literal array OR registeredtypedarrayref withmatchingelementtype. No wildcard/pathcode/generalquery.",
+      "allowed_array_kinds": [
+        "staticability/damage tags",
+        "validatedselectedentitytuple",
+        "frozen deployment/boundtargettuple",
+        "deathsnapshotstatusIDtuple"
+      ],
+      "immutability": "Arrayrefs are read-only boundedtuples; creation snapshots deep-copy. Membership doesnot grantnew targets or permitretarget.",
+      "scope_errors": "Out-of-scope requiredref is compile/preflighterror, never guessed0/current. Only knownoptional existence=false/count0 andexplicitnullablefields maydefault.",
+      "aliases": {
+        "owner.contribution.<route>.count": "owner.contributors.<route>.count",
+        "owner.contributions.<route>.count": "owner.contributors.<route>.count",
+        "context.damage.role_id": "context.damage.ability_role_id",
+        "context.event.hit_count": "context.damage.ability_hit_count (incoming enemydamage/guard scope)",
+        "context.event.ability_hit_count": "context.damage.ability_hit_count (same scope)",
+        "context.event.incoming.ability.hit_count": "context.damage.ability_hit_count (same scope)",
+        "context.deployment.payload.<field>": "context.deployment.paid_snapshot.<registered_field>",
+        "context.token.bound_role_id": "context.token.beneficiary_role_id",
+        "bound_token.<registered_token_id>.count": "context.status.bound_token_count onlywhenid equals thatstatusdeclaredboundtoken",
+        "target.resonance_progress": "target.status.resonance.progress",
+        "target.status.resonance_progress.stacks": "target.status.resonance.progress",
+        "context.event.pre_root_havoc_bane.source_role_id": "context.event.pre_root_status.havoc_bane.source_role_id"
+      },
+      "must_lower_locally": [
+        "event.is_direct/basic/liberation booleans -> tag membership plusactualorigin_kind where needed",
+        "event.is_creation_root -> event.root_action_id equals status.origin_root_action_id",
+        "event.target_alive_after -> currenttarget.alive guard ifthatistheintendedcondition",
+        "token.exists -> Predicate.has token",
+        "one-battle learnedproof/recoverypermission -> Branch.usage_limit, notcustomcounter",
+        "same-side/bound-beneficiary helpers -> typedsource entity/role equality anddeclaredfactionrelation",
+        "no observation pseudoINTERFERENCE_DAMAGE; use realresonance_break or alreadydeclaredordinarymodifier"
+      ],
+      "standard_typed_field_families": {
+        "actor/target": "entity_id,body_id,hp,max_hp,attack,defense,alive,faction_id; actualresolvedentity only",
+        "owner": "role_id,template_id,body_id; private.<declared_spendable_id>, history.<declared_history_id>, phase.<declared_axis>; nohistory masqueradingasspendableprivate",
+        "active.role_id": "role_id|null, null while neutral",
+        "skill.level": "integer1..10 fromfrozenbattle skillrecord",
+        "battle.round": "nonnegativeinteger roundindex",
+        "context.event": "event_id,root_action_id,actor_entity_id,ability_role_id,character_ability_source,origin_kind,target_entity_id,tags,amount_requested,amount_applied plusapplicable typedfields inregistry",
+        "context.payment": "energy plusprivate.<declared_id> actualalready-paidamounts; neverremainingpool",
+        "context.switch": "readonlyfull_handoff,from_template_id,to_template_id plusderivedto_role_id",
+        "context.status": "instance_id,target_entity_id,origin_root_action_id,payload.<registeredfield>,bound_token_count,bound_template_id andsourcecreationmetadata",
+        "context.deployment": "remaining_uses,paid_snapshot.<registeredfield> including frozenIDtuples; fixed_target.alive requiresexactlyone originalboundtarget",
+        "root_snapshot prefix": "readsamevalidpath onimmutableprepayment snapshot; cannot makeunknownpath legal",
+        "owner.contributors.<route>.count": "route onlyshock/fusion_burst; readexistingactualsource setsize, never aresource",
+        "array membership": "cmp in rightmayberegisteredtypedtuple(fieldref) withsameelementtype; tagsboundeddeclaredstrings, IDtuplesboundedencounter, noiterator/wildcard/query"
+      },
+      "rejected_implicit_helpers": [
+        "Candidate prose-only derived views do not authorize new runtime functions; reduce to canonical fields and AST or compiler rejects",
+        "No context.current_template substitution for source fields",
+        "No inference that effect_only field owns a card",
+        "No arbitrary context_current selection among extant deployments"
+      ]
+    },
+    "read_only_registry": {
+      "context.damage.kind": {
+        "type": "enum direct|anomaly|resonance_break|interference|other",
+        "semantics": "Actualcurrentdamagepacket semanticoperationclass, notcaller-chosencosmetictag.",
+        "scope": "damage/modifier/shield filter",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.element": {
+        "type": "element enum",
+        "semantics": "Actualpacket element.",
+        "scope": "damage/modifier/shield filter",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.ability_role_id": {
+        "type": "role_id|null",
+        "semantics": "Originalpacket abilityowner, including backgroundsource; nevercurrenttemplate.",
+        "scope": "damage/modifier/shield filter",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.branch_id": {
+        "type": "registeredbranch_id|null",
+        "semantics": "Branchofactualsourceability producingthispacket; astatuspacket usesitsoriginalcreatingabilitysnapshot ornull, not unrelatedtriggerrootbranch.",
+        "scope": "damage/modifier/shield filter",
+        "missing": "null for source with no branch",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.tags": {
+        "type": "finite string tuple",
+        "semantics": "Validated actualpacket tags; noclientinjection.",
+        "scope": "damage/modifier/shield filter",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.offset_route": {
+        "type": "shock|tune|null",
+        "semantics": "Offset consumed bycurrentresonance_break copiedbefore removal; also carriedbyitsinterferencepacket.",
+        "scope": "damage/modifier filter",
+        "missing": "null for nooffset/nonbreak",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.interference_kind": {
+        "type": "shock|tune|null",
+        "semantics": "Actualinterferencepath generated byresonance_break; cannot beforgedby damage_tags.",
+        "scope": "damage/modifier filter",
+        "missing": "null outside actualinterference",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.damage.ability_hit_count": {
+        "type": "integer>=0",
+        "semantics": "Declared totalincoming enemyability hit_count, notcountofhitsthatlanded;0fornondamaging publicintent.",
+        "scope": "incomingdamage/shield filter",
+        "missing": "required damagecatalogue metadata; notguessed from currentHP",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.heal.ability_role_id": {
+        "type": "role_id|null",
+        "semantics": "Actualheal source owner from healpacket, notcurrenttemplate orunrelatedroot.",
+        "scope": "healing filter",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.action.ability_role_id": {
+        "type": "role_id|null",
+        "semantics": "Immutable rootabilityowner; deliberatelydistinctfrom actualdamage/healsource.",
+        "scope": "rootaction context",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.action.branch_id": {
+        "type": "branch_id|null",
+        "semantics": "Immutable selectedrootbranch.",
+        "scope": "rootaction context",
+        "missing": "null when no branch",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.skill_id": {
+        "type": "skill_id|null",
+        "semantics": "Causalroot skill ID forRESOURCE_SPENT/action events; nofakeextra root forintro/outro.",
+        "scope": "typed event",
+        "missing": "null for no-skill event",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.resource_id": {
+        "type": "registeredresource_id",
+        "semantics": "RESOURCE_SPENT orGAINED actualresource.",
+        "scope": "resourceevent only",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.actual_heal": {
+        "type": "integer>=0",
+        "semantics": "HEAL_APPLIED actualamount; ACTION_COMMITTED sumsactualdeduplicatedheal ledger ofthatroot, each realbody/effectonce, no overheal.",
+        "scope": "heal event oractioncommitted",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.ability_id": {
+        "type": "ability_id|null",
+        "semantics": "Committedroot ability ID onACTION_COMMITTED; nested actualemitter remainsorigin_ability_id.",
+        "scope": "typed event",
+        "missing": "null for system-onlyevent",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.origin_ability_id": {
+        "type": "ability_id|null",
+        "semantics": "Actualregisteredability that emitted event, preservesintro/outro/backgroundsource.",
+        "scope": "typed event",
+        "missing": "null for system-onlyevent",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.branch_id": {
+        "type": "branch_id|null",
+        "semantics": "Rootselectedbranchsnapshot.",
+        "scope": "typed event",
+        "missing": "null if no branch",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.pre_death_status_ids": {
+        "type": "finitestatus_idtuple",
+        "semantics": "IDs ondying target immediatelybeforedeathcleanup; stableorder, captureonce.",
+        "scope": "TARGET_DIED",
+        "missing": "empty tuple ifnone",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.killer_side": {
+        "type": "allied|enemy|none",
+        "semantics": "Factionoforiginalcausal damageactor relative tolistener-owner team; ownbody isallied, no equipped-template counting.",
+        "scope": "TARGET_DIED",
+        "missing": "none if no causalcreditedactor",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.event.status_instance_id": {
+        "type": "instance_id",
+        "semantics": "Theexactstatusinstance actuallycreated/accepted bySTATUS_APPLIED; an ignoredfullcap attempt hasnullinstance ifnonecreated.",
+        "scope": "STATUS_APPLIED",
+        "missing": "null when no acceptedinstance",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.status.instance_id": {
+        "type": "instance_id",
+        "semantics": "Exactlive listenerstatus instance, notdefinitionID.",
+        "scope": "status hook",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.status.origin_root_action_id": {
+        "type": "action_id",
+        "semantics": "Root thatcreatedthisstatus, immutableacrossswitching.",
+        "scope": "status hook",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.status.target_entity_id": {
+        "type": "entity_id",
+        "semantics": "Exacthost body/enemy ofthisstatusinstance.",
+        "scope": "status hook",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.status.payload.<registered_field>": {
+        "type": "declared finite scalar/enum",
+        "semantics": "Typedpayload captured/deepcopiedatacceptedcreation; nofree newfields orcode.",
+        "scope": "status hook",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.status.bound_template_id": {
+        "type": "template_id|null",
+        "semantics": "Actualbeneficiary capturedbyapprovedbinding, notcurrent.",
+        "scope": "status hook",
+        "missing": "null when no templatebound",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.status.bound_token_count": {
+        "type": "integer0..3",
+        "semantics": "Currentcount ofonespecificallydeclaredtoken boundto thisstatusinstance; afterprecedingconsume reads updatedcount. No secondstatususescounter.",
+        "scope": "status hook",
+        "missing": "0 if its boundtoken exhausted/removed; mismatching binding iserror",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.token.beneficiary_body_id": {
+        "type": "body_id",
+        "semantics": "Exactactualbody fixedatgrant.",
+        "scope": "token hook",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.token.beneficiary_role_id": {
+        "type": "role_id|null",
+        "semantics": "Role ofactualboundtemplate fixedatfullhandoff, notcurrent.",
+        "scope": "token hook",
+        "missing": "null ifbody-onlygrant",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.token.payload.<registered_field>": {
+        "type": "declaredfinite scalar/enum",
+        "semantics": "Immutabletypedgrantpayload, e.g.route; noarbitraryquery.",
+        "scope": "token hook",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.switch.to_role_id": {
+        "type": "role_id|null",
+        "semantics": "Registrylookup ofcanonical to_template_id inauthoritativeswitch snapshot.",
+        "scope": "switch context",
+        "missing": "null only no-targetswitch",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "target.intent.hit_count": {
+        "type": "integer>=0",
+        "semantics": "Currentlylocked publicenemyintent declared totalhits;0fornondamage.",
+        "scope": "selectedenemy withpublicintent",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.selected_target_entity_ids": {
+        "type": "immutableentity_idtuple",
+        "semantics": "Currentroot validated chosen targettuple, deepcopied when storedbydeploy; cannotre-select afterpayment.",
+        "scope": "rootcreation context",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.deployment.paid_snapshot.<registered_field>": {
+        "type": "typedcreationpayload",
+        "semantics": "Immutabledeepcopy from validatedcreationvalues. target_entity_ids tuple androute registered; no currenttemplate substitution.",
+        "scope": "deployment hook/activation",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.deployment.fixed_target.alive": {
+        "type": "boolean",
+        "semantics": "Aliveflagofexactone frozenfixed target; no newtargetinference.",
+        "scope": "deployment withsingleboundtarget",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.deployment.locked_target_dead": {
+        "type": "boolean",
+        "semantics": "NOT context.deployment.fixed_target.alive, same frozenone-targetscope.",
+        "scope": "deployment withsingleboundtarget",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "root_snapshot.actor.deployment.<registered_key>.on_leave_destination": {
+        "type": "discard|exhaust|null",
+        "semantics": "Effective printed sourcecard exit zone capturedbefore action, includingfrozenbranch exhaust; effect_onlyhasnull, mustnotpretendacardexists.",
+        "scope": "root snapshot uniqueownedregisteredfield",
+        "missing": "null if absent/effect_only; useexists/has_source_card guard",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.selected_deployment.definition_id": {
+        "type": "registereddefinitionID",
+        "semantics": "IDofexactvalidated request-selectedinstance.",
+        "scope": "explicitdeploymentselection",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.selected_deployment.remaining_uses": {
+        "type": "integer0..3",
+        "semantics": "Samevalidatedliveinstance currentquota beforepayment; immutable root_snapshot available.",
+        "scope": "explicitdeploymentselection",
+        "missing": "error outside scope",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "context.last_created_deployment_instance_id": {
+        "type": "instance_id",
+        "semantics": "Resultofspecified preceding successfuldeploy inTHIS root only. Mustbeuniquelyboundbycompiled effectsequence, notarbitrarylastfieldguess.",
+        "scope": "postdeploy same root",
+        "missing": "error ifmissing/ambiguous/wrongdefinition",
+        "storage": "read-only projection orimmutable existingevent/creation snapshot; no additional gameplay resource"
+      },
+      "battle.encounter.grouping_enabled": {
+        "type": "boolean",
+        "semantics": "Authoritativefixtureflag true onlywhen approvedspatialaddendum active; no abilitypermission granted.",
+        "scope": "encounter snapshot",
+        "missing": "false whenexplicitcorefixture disables grouping",
+        "storage": "read-only fixturevalue"
+      },
+      "context.event.pre_root_status.<registered_status_id>.source_role_id": {
+        "type": "role_id|null",
+        "semantics": "Originalownerrole ofthisregisteredstatus ontheeventtarget inrootprepayment snapshot. Notpost-hit/notcurrentactive.",
+        "scope": "event withcausalroot andknownregisteredstatus",
+        "missing": "null whenabsentatrootstart",
+        "storage": "read-only rootsnapshot projection"
+      }
+    },
+    "deployment_selection_and_settlement": {
+      "explicitinstance": "Exact request.choices.deployment_instance_id; preflight validates actualowner, requiredregisteredstackingkey/definition, liveinstance andtargetconditions. NoIDprovided isillegal beforecost.",
+      "by_stacking_key": "Existingtypedselector allowedforclose,spend_uses,retarget consistently; mustresolveuniqueownedliveinstance; no selectinganotherrolefield.",
+      "context_current": "Insideactivation/hook equals immutablecontext deploymentinstanceID. Insidecardroot onlyallowedwhenstaticallyboundtoone preceding successfuldeploy effectresult inTHIS root; otherwisecompilefail. Candidate mustnameexpecteddefinition/creator effectbinding, cannotpickoldfield.",
+      "activation_auto_use": "Forconsume_use_on_activation=true, validateandreserve1use beforeeffects; applyonce aspartofrootpayment, preservepre_uses snapshot. At0 deferautocloseuntilactivationeffectsfinish. Ifeffect explicitlycloses oldinstance, finalizerdetectssameoldIDalreadyclosed anddoesnothing; nevertouch newreplacementwithsamestackingkey.",
+      "manual_use": "Ifusingexplicitdeployment_spend_uses, activationmustsetconsume_use_on_activation=false asalreadyrequired; neverbothdeduct.",
+      "atomicity": "rollbackrestoresuseandcardzone withothercosts; retryreturnsoriginalreceipt. Eacholdcard movesonce, effect_only movesnone.",
+      "selector_forms": [
+        {
+          "kind": "request_choice",
+          "choice_id": "deployment_instance_id",
+          "expected_owner_role": "registeredrole",
+          "expected_stacking_key": "registeredkey"
+        },
+        {
+          "kind": "by_stacking_key",
+          "stacking_key": "registeredkey",
+          "owner": "actor|owner_template"
+        },
+        {
+          "kind": "created_by_effect",
+          "creator_effect_id": "priorfixeddeployeffectID",
+          "expected_definition_id": "registereddefinition"
+        }
+      ],
+      "legacy_normalization": "literalexplicitinstance normalizesonlyto request_choice deployment_instance_id withdefinitiondeclaredowner/keyfilters; context_current outsideactivationrequires declaredcreated_by_effectbinding. Missing/ambiguous binding compilefail, notruntimeguess."
+    },
+    "status_token_and_modifier_lowering": {
+      "no_callbacks": "on_apply/on_expire/on_remove codecallbacks notsupported. Finite declarative Hook+existingops only.",
+      "accepted_creation_hook": {
+        "event": "STATUS_APPLIED",
+        "allow_origin_event": true,
+        "required_predicate": "accepted_stacks>0 AND event.status_instance_id==context.status.instance_id",
+        "scope": "Initialization onlyfornew acceptedinstance, notsame-name status elsewhere. Initialization effects limitedto declaredboundtoken grant; no damage/heal/draw/self-reapplication. Normalfollowup neveruses this exception to harvestcreationroot."
+      },
+      "bound_token_identity": "Token key=(battle,status_instance_id,registeredtokenid), 0..3 count; one storedcounter, statusremaining_uses UIderivesit. Grantregistration mustmatchactualnewstatus andequalabsoluteexpiry; neverbindreplacementinstancebyname.",
+      "consume_order": "Explicitconsume_token onceBEFOREderivedbenefit. Noadditional consume_before_hook/automaticstatus-use decrement. Readbound_token_count thenremove_status when0.",
+      "cleanup": "remove/replace/expiry/death cleanup marksstatusexpired andremoves exactboundtoken anditslisteners. New replacement getsnewID; stalequeuedlistenerchecksID+liveness andskips. No cashback ordefaultremoveheal.",
+      "source_snapshot": "Skill-ownedstatus anditsderiveddamage use originalcreatingactor/role,sourceATK/skilllevel snapshot andfrozenpayload; targetmitigation reads currenttarget. Derivedpassivedamage staysnon-direct unless separatelyapproved asactualdirectskill; cannot borrowtriggeringroot/currenttemplate source.",
+      "modifier_backing": "grant_modifier usesregistered finitegrant representedbyone statusinstance, notdouble state. Registeredmodifier_id removablebyremove_status with sameowner+instance lookup, uses/expiry sharedwiththatonegrant. Noexternalfunction/callback.",
+      "existing_declaration_limits": "Everypayload/token/modifier/sourceview mustexistinfinitecandidate registry, counttrueindependentstate dimensions; do not approve unknownarbitraryfields justbecausecalledderived.",
+      "initialization_hook_example": {
+        "id": "example.seed_uses",
+        "event": "STATUS_APPLIED",
+        "allow_origin_event": true,
+        "condition": {
+          "all": [
+            {
+              "cmp": "gt",
+              "left": {
+                "ref": "context.event.accepted_stacks"
+              },
+              "right": 0
+            },
+            {
+              "cmp": "eq",
+              "left": {
+                "ref": "context.event.status_instance_id"
+              },
+              "right": {
+                "ref": "context.status.instance_id"
+              }
+            }
+          ]
+        },
+        "effects": "only registered grant_token for exactnewinstance, finitecount1..3 andidenticalabsoluteexpiry",
+        "limit": {
+          "per_root_action": 1
+        }
+      },
+      "effect_only_close": "When source_card_policy=effect_only, closing removesfield butmoves nocard regardlesssyntacticallysupplieddiscard/exhaust sentinel. on_leave_destination viewisnull, notinventedprinteddiscard. Candidatesmaylowerconditionalzonevia mutuallyexclusive when effects."
+    },
+    "interference_authority": {
+      "generation": "Onlyresonance_break with actualconsumedshock/tune offset creates INTERFERENCE_DAMAGE, carrying interference_kind. Ordinarydamageoperation cannotforge bytags or emit_tagged_event.",
+      "source": "Originalbreakabilityowner istheinterferencedamage source; observed/markedtarget presence alone no contribution.",
+      "shock_contribution": "Aemeath shock source set requires eventINTERFERENCE_DAMAGE, interference_kind=shock andhp_lost>0. Tune interference remainsdistinct anddoesnot masqueradeasshock.",
+      "local_lowering": "C alreadychangedobservation to finitefollowupmodifier andactualownbreak forMornyecontribution; no new observation damagekind isapproved.",
+      "filter_metadata": "resonance_break damage maycarry consumedoffset_route beforeclear soexistingtune-break modifierscanreadit; this doesnot convertitintointerference ordoublecount."
+    }
+  },
+  "normative_cases": [
+    {
+      "id": "IC01",
+      "setup": "samecard two branches, one exhaust",
+      "expected": "selectedexhaust branch finalzoneexhaust; otherbranchdiscard; noaftereffectchoice",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC02",
+      "setup": "baseexhaust plusbranchkeywordsempty",
+      "expected": "still exhaust; cannotnegatebase",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC03",
+      "setup": "two copies same learnedskill/branch perbattle1",
+      "expected": "firstcommitconsumesquota; secondbranchillegal evenafterrecover/switch",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC04",
+      "setup": "baseperbattle1 branchperbattle2",
+      "expected": "effectiveallowed1; base notoverridden",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC05",
+      "setup": "invalidcost orsameactionretry",
+      "expected": "quotaandcostcharged0 additional; rollback restoresreservation",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC06",
+      "setup": "conditionaldeploy+exhaust branch",
+      "expected": "sameinstance deployed, thenoneexhaust disposal; neverdiscardplusdeploy",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC07",
+      "setup": "typed tagarray membership",
+      "expected": "cmp in readsfinitepacket tags; wildcard/query/code rejected",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC08",
+      "setup": "status sourceChisa while Aemeathactive",
+      "expected": "damage role remainsChisa, filterscannotuseswitchedcurrent",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC09",
+      "setup": "deathofmarkedtarget",
+      "expected": "pre_deathstatusIDs capturedonce beforecleanup; ally/enemykillermatchesactualsource",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC10",
+      "setup": "explicitinstance omitted/wrongowner",
+      "expected": "rootrejectbeforecost, no guessedfield",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC11",
+      "setup": "carddeploythencontext_current",
+      "expected": "onlythatroot namedcreatedinstance selected; noearlierdeploycompilefail",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC12",
+      "setup": "autoactivation1use thenexplicitclose",
+      "expected": "oneusecharge, oneoldcardmove, finalizer no-op; newreplacementunaffected",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC13",
+      "setup": "manualuse+autouse bothrequested",
+      "expected": "rejectcandidate ambiguousdoublecharge unlessauto=false",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC14",
+      "setup": "newstatusaccepted1 emitsSTATUS_APPLIED",
+      "expected": "matchingexactinstance initializationgrantsonefiniteboundtoken once",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC15",
+      "setup": "samestatusID onanotherenemy",
+      "expected": "oldstatuscannotreseeditsquota",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC16",
+      "setup": "applyignored atmarkcap orwhilelive",
+      "expected": "accepted0 meansnoinitialize/refund/contribution",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC17",
+      "setup": "statusconsume1 thenbenefit thenremove",
+      "expected": "onecounter decrementedonce; bound_token_count0; oldlistener/tokenremoved",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC18",
+      "setup": "replace or expire status",
+      "expected": "oldtokennevercarries tonewstatus andstalequeuedlistenercannotfire",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC19",
+      "setup": "statusstat snapshot creatorATK10 current20",
+      "expected": "derivedeffect uses10 andoriginalskilllevel; currenttargetmitigationstillapplies",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC20",
+      "setup": "grant_modifier thenremove_status",
+      "expected": "onefinitegrantremoved, nohiddenmodifier stillactive",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC21",
+      "setup": "damage taginterference withoutbreak",
+      "expected": "cannotemitINTERFERENCE_DAMAGE orcredit contributor",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC22",
+      "setup": "shock versus tune actualbreak",
+      "expected": "bothcarry distinctkind; onlyshock positiveHP credits shockset",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC23",
+      "setup": "fullblock/immune interference",
+      "expected": "hp_lost0 doesnotcreditshocksource",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC24",
+      "setup": "proof branch afterseveralrounds",
+      "expected": "perbattlequota remainsavailable untilused; noaccidental3roundexpiry token",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC25",
+      "setup": "effect_only deploymentclose",
+      "expected": "no sourcecardmove; no syntheticdiscardcard",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC26",
+      "setup": "frozenfixedtargetdies",
+      "expected": "alive false/fizzle, no newtargetlookup; copiedarrayunchanged",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC27",
+      "setup": "incomingkill markwasremoved earlierin same root",
+      "expected": "pre_root_status reads originalrootsnapshot; pre_death_status_ids reads immediatelybeforedeathcleanup; they remain distinctviews",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC28",
+      "setup": "normalobserver attemptsallow_origin_event=true todealdamage",
+      "expected": "rejectstatusinitialization lowering; exception onlyseeds exactboundfinite token, neverdamage/refund/XP/newroot",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "IC29",
+      "setup": "unknownref declared only by prose",
+      "expected": "compiler rejects; declaration requires closedtyped canonicalregistry/AST lowering, notnewcallback",
+      "status": "NOT_RUN"
+    }
+  ]
+}

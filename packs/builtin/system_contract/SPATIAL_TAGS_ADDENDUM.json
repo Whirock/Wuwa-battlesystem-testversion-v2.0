@@ -1,0 +1,495 @@
+{
+  "schema_version": "wuwa.spatial_tags_addendum.v1.0",
+  "addendum_id": "WUWA-SC-SPATIAL-20261004-01",
+  "base_contract_id": "WUWA-SC-20261004-01",
+  "base_contract_sha256": "8f0954c82f96cd6843a6f87cf9e389869befbdc6b7fcf315d8a917c2c12bd837",
+  "status": "FROZEN_PROVISIONAL_PRETEST_COMMON_ADDENDUM",
+  "evidence_level": "F0_contract_only",
+  "engine_implemented": false,
+  "tests_executed": false,
+  "human_fun_verified": false,
+  "scope": {
+    "purpose": "给候选中实际后学的聚怪、飞行提供同一有限语义和补充夹具；不是给所有角色新增能力。",
+    "core_450": "原25队伍×3成长×6敌人=450格及其敌人、费用、种子、成长和结果口径完全不改。补充结果单列，不能混入450的分母或补足其缺失格。",
+    "activation": "仅在候选声明采用同一版本附录后启用；所有候选使用相同附录版本、夹具和断言。",
+    "metadata_is_not_permission": "MOVABLE、IMMOVABLE、elevation和hit_mask只是状态/适用性数据；不能据此解锁聚怪、飞行、伤害、取消意图、额外攻击或免费防御。",
+    "non_goals": [
+      "无3D引擎、坐标、距离或路径",
+      "无高度数槽、浮空能量或第三共享资源",
+      "不将聚怪等同眩晕、延迟、打断、易伤或ATK增长",
+      "不将飞行等同无敌或无限闪避",
+      "不重解释冻结首得A/D映射"
+    ]
+  },
+  "finite_state": {
+    "body_elevation": {
+      "owner": "body_id; not template_id",
+      "enum": [
+        "GROUND",
+        "AERIAL"
+      ],
+      "initial": "GROUND",
+      "slots_per_body": 1,
+      "duration_rounds_max": 3,
+      "fields": [
+        "elevation",
+        "expires_at_end_round_or_null",
+        "source_record_or_null"
+      ],
+      "switching": "切模板不复制、清除或续期此身体状态；本体死亡或终战清理。"
+    },
+    "enemy_mobility": {
+      "enum": [
+        "MOVABLE",
+        "IMMOVABLE"
+      ],
+      "immutable_during_fixture": true,
+      "meaning": "只有MOVABLE能进入聚怪成员集合；IMMOVABLE可被普通合法伤害命中，但不被移动或编入此聚怪关系。"
+    },
+    "gather_relation": {
+      "slots_per_battle": 1,
+      "allowed_group_ids": [
+        "SPATIAL_GROUP_01"
+      ],
+      "members_max": 3,
+      "member_reference": "canonical enemy entity_id, sorted, unique, living MOVABLE only",
+      "duration_rounds_max": 3,
+      "fields": [
+        "group_id",
+        "member_entity_ids",
+        "expires_at_end_round",
+        "source_record"
+      ],
+      "representation": "有限集合关系，不是可支付、累计或转移的资源；每敌仅0/1个成员位。无任意新group_id。"
+    },
+    "complexity_accounting": "公开计入1个共享身体二态分类轴、每敌1个布尔成员位及1个全场有限期限关系。期限是有界生命周期信息，不是隐藏资源或无限历史量。不得隐藏其维度，也不得占用后偷偷超出原额外标记配额；此共同附录显式登记独立位置关系例外。",
+    "target_cap_exception": {
+      "base_target_count_benchmark_max": 3,
+      "supplement_fixture_enemy_count": 4,
+      "applies_only_to": "SPATIAL_FIXTURE_4E_V1及其列明的独立变体",
+      "review_required": true,
+      "not_a_global_increase": true
+    },
+    "cleanup": "battle_end/retreat/player死亡清理全部位置临时状态；敌人死亡立即移出成员集合；最后成员消失则删除关系。"
+  },
+  "operations": {
+    "gather": {
+      "signature": "gather(targetlist, args={group_id, duration_rounds})",
+      "targetlist": "1..4个已提交的活敌稳定ID；候选卡可声明更低的max_targets但不能超过4。重复ID、未知ID、出牌时已死ID或敌我类型错误按原事务规则整次拒绝且不付费。",
+      "args_schema": {
+        "group_id": {
+          "const": "SPATIAL_GROUP_01"
+        },
+        "duration_rounds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      },
+      "permission": "必须来自此候选已经冻结的真实已学技能/卡式，并满足归属、手牌区、激活条件及全部印制费用；无全局gather命令。",
+      "admission_vs_resolution": "IMMOVABLE是效果抵抗而不是非法目标。合法技能对全Boss列表也能付费尝试，但不建立关系、无退款；混合列表先按稳定ID逐个记录，再仅把MOVABLE的成功子集编入组。",
+      "capacity": "成员成功数最多3。若定义或请求可能接纳超过3个MOVABLE，预览/验证拒绝TARGET_CAPACITY_EXCEEDED；不由引擎擅选前三个。此4敌夹具恰有3个MOVABLE。",
+      "replace": "至少1个成功成员时，新组完整替换旧组，旧组不在新集合中的活成员当场释放；不是并集或追加。没有成功成员时旧组保持原成员和原到期时点，不续期。",
+      "duration": "在轮r生效、d=duration_rounds，则expires_at_end_round=r+d-1；本轮后续玩家行动及本轮敌方阶段均在有效期，约定end_round清理后消失。",
+      "death_during_action": "若同一根行动较早效果已杀死已提交目标，轮到gather时该目标fizzle并记录TARGET_DIED_BEFORE_EFFECT，不自动替补；余下MOVABLE可正常成功。",
+      "reapply": "另一次新合法付费施放可以替换并设置新有限期限；技术重发同action_id、模板切换、重复模态、读状态均不能刷新。",
+      "no_implicit_effects": [
+        "无伤害或ATK加成",
+        "无stun/delay/interrupt",
+        "不改变敌人意图、行动次数或伤害",
+        "不自动扩展所有攻击的目标",
+        "不免费产生energy/concerto/私池/技能经验或协作来源贡献"
+      ]
+    },
+    "set_elevation": {
+      "signature": "set_elevation(target, args={elevation, duration_rounds})",
+      "target": "self_body；当前补充夹具仅玩家一身体，无模板独立高度、无让Boss起飞分支。",
+      "args_schema": {
+        "AERIAL": {
+          "duration_rounds_min": 1,
+          "duration_rounds_max": 3
+        },
+        "GROUND": {
+          "duration_rounds_const": 0
+        }
+      },
+      "permission": "仅真实后学卡式/节点中显式列出的效果可调用；其energy、私池、牌位、阶段及持续时限由第五步候选冻结，元数据不代付。首得模态或COMMON_A/D不得无凭证获得此操作。",
+      "enter": "AERIAL把唯一共享身体轴置AERIAL，设置expires_at_end_round=r+d-1；不增加HP/ATK/护盾/格挡，不产生额外实体。",
+      "refresh": "同一有效付费技能可以按声明重新设置有限期限；技术重发和模态切换不可刷新；只能有一个当前状态及一个来源记录，不能叠加高度。",
+      "release": "到期时系统自动恢复GROUND且无费用或奖励；实际已学效果显式set_elevation(self_body,{elevation:GROUND,duration_rounds:0})可提前着陆。不存在人人可免费点击的着陆/飞行操作。",
+      "duration": "同gather的end_round期限约定。",
+      "death": "玩家死亡立即清理；不能借到期或着陆复活。",
+      "outgoing": "飞行本身不改变自身攻击系数、敌目标集合、能否出牌或命中数；仅候选真实已学分支能额外声明这些效果。"
+    },
+    "damage_enemy_group": {
+      "operation_name": "damage",
+      "selector_name": "enemy_group",
+      "anchor": "提交本次牌的primary_target稳定ID；不是最近、最强或实现者临时选择的敌人。",
+      "selector_semantics": "在该damage效果开始时解析：若primary_target仍活且属于当前有效SPATIAL_GROUP_01，则命中其所有当前活成员（包括primary_target）各一次；若primary_target仍活但不在组内，则仅命中primary_target；若primary_target已死则整个该次选择器fizzle，不沿残存组另找目标。",
+      "snapshot": "每个damage效果开始时固化并按entity_id排序该次目标集合。同一效果中不会因死亡而新找目标；多击若候选显式声明，后续击遵循固定目标死亡fizzle规则。",
+      "declaration_required": "必须由候选真实已学伤害分支明确target_selector=enemy_group；one_enemy仍只打一名；all_enemies仍按自身声明处理且不由聚怪放大。",
+      "damage_budget": "每目标系数、次数及费用取该已学伤害卡的冻结声明。gather自身贡献0额外系数，群体收益只来自目标集合变化；默认不附赠损伤、眩晕或异常。",
+      "source": "伤害来源永远为damage效果的真实owner与character_ability_source，不复制gather来源、不按成员数复制来源。",
+      "boss": "IMMOVABLE Boss不会通过组关系成为附带目标；若Boss作为primary_target且未入组，则按单体回退合法命中Boss。"
+    }
+  },
+  "enemy_hit_compatibility": {
+    "ability_field": "hit_mask",
+    "enum": [
+      "GROUND_ONLY",
+      "AERIAL_ONLY",
+      "UNIVERSAL"
+    ],
+    "truth_table": [
+      {
+        "hit_mask": "GROUND_ONLY",
+        "GROUND": true,
+        "AERIAL": false
+      },
+      {
+        "hit_mask": "AERIAL_ONLY",
+        "GROUND": false,
+        "AERIAL": true
+      },
+      {
+        "hit_mask": "UNIVERSAL",
+        "GROUND": true,
+        "AERIAL": true
+      }
+    ],
+    "check_timing": "每个敌方damage原子击读取目标当时的body elevation，在冻结combat_math的tag immunity阶段之前作命中适用性门；之后符合者照原护盾/格挡/减伤/死亡规则结算。",
+    "miss": "不匹配则该击hp_lost/shield_lost/block_lost=0，不触发命中或实际伤害监听；记录HIT_INCOMPATIBLE结果。敌人本次已宣告主行动仍消耗，策略正常推进，不等于取消、眩晕或延迟。",
+    "universal": "AERIAL不会规避UNIVERSAL。AERIAL_ONLY只命中飞行身体，这一反向代价必须测试。",
+    "no_silent_core_rewrite": "hit_mask只用于本补充敌人定义；不得因此改写六个核心敌人或改变原450结果。补充定义不得省略此字段。",
+    "nondamage": "此掩码只控制它所在的damage效果。其他同能力状态/抽牌干扰须有各自显式适用条件，不能借飞行自动全免。"
+  },
+  "event_and_source_ledger": {
+    "extends_required_base_event_fields": true,
+    "required_resolution_rows": [
+      "root_action_id",
+      "effect_definition_id",
+      "actor_entity_id",
+      "character_ability_source",
+      "origin_kind",
+      "requested_target_ids",
+      "accepted_target_ids",
+      "rejected_target_ids_with_reason",
+      "group_id_or_null",
+      "elevation_before_after_or_null",
+      "expires_at_end_round_or_null",
+      "actual_cost_ledger_ref",
+      "pre_state_hash",
+      "post_state_hash"
+    ],
+    "event_names": [
+      "GATHER_RESOLVED",
+      "GROUP_RELEASED",
+      "ELEVATION_CHANGED",
+      "HIT_INCOMPATIBLE"
+    ],
+    "per_target_reasons": [
+      "IMMOVABLE",
+      "TARGET_DIED_BEFORE_EFFECT",
+      "EXPIRED",
+      "REPLACED",
+      "TARGET_DIED",
+      "BATTLE_ENDED"
+    ],
+    "qualification": "这些位置事件本身从不满足INTERFERENCE_DAMAGE或FUSION_APPLIED；是否产生协作贡献仍只依赖冻结主契约规定的实际伤害/实际异常接受事件。",
+    "equality": "同role_id的本人、人形机兵、NPC stub、部署和多成员命中仍共用同一character_ability_source。聚怪施放者与后续伤害施放者分别记录；组关系不能洗换所有权或复制模板装备。",
+    "serialization": "位置轴、有限组成员、期限、原始来源和本次action_id回执纳入保存/重放及哈希；同ID重试事件数和费用均不得增加。"
+  },
+  "supplemental_fixture": {
+    "fixture_id": "SPATIAL_FIXTURE_4E_V1",
+    "status": "SPECIFIED_NOT_EXECUTED",
+    "rng": "deterministic; no random enemy policy",
+    "player": {
+      "entity_id": "PLAYER_BODY_01",
+      "body_count": 1,
+      "npc_body_count": 0,
+      "initial_elevation": "GROUND",
+      "initial_group": null,
+      "initial_hp": 100,
+      "max_hp": 100,
+      "ATK": 10,
+      "DEF": 0,
+      "equipment": "none",
+      "energy_each_player_turn": 3,
+      "new_draw_each_turn": 5,
+      "hand_cap": 10,
+      "initial_active_template": null
+    },
+    "profile_scope": "此数值是补充机制隔离夹具，不是假装自然成长记录；实际已学/未学凭证及私池初值来自各候选冻结manifest，不可由夹具免费添加资源。成熟学习对照保持相同身体面板。",
+    "entities": [
+      {
+        "entity_id": "ENEMY_MOVABLE_01",
+        "archetype_id": "SPATIAL_SMALL_GROUND",
+        "mobility": "MOVABLE",
+        "hp": 30,
+        "DEF": 0,
+        "initiative": 1,
+        "policy_cycle": [
+          "SPATIAL_GROUND_5"
+        ]
+      },
+      {
+        "entity_id": "ENEMY_MOVABLE_02",
+        "archetype_id": "SPATIAL_SMALL_MIXED",
+        "mobility": "MOVABLE",
+        "hp": 30,
+        "DEF": 0,
+        "initiative": 2,
+        "policy_cycle": [
+          "SPATIAL_GROUND_6",
+          "SPATIAL_AERIAL_6"
+        ]
+      },
+      {
+        "entity_id": "ENEMY_MOVABLE_03",
+        "archetype_id": "SPATIAL_SMALL_AERIAL",
+        "mobility": "MOVABLE",
+        "hp": 30,
+        "DEF": 0,
+        "initiative": 3,
+        "policy_cycle": [
+          "SPATIAL_AERIAL_7",
+          "SPATIAL_UNIVERSAL_7"
+        ]
+      },
+      {
+        "entity_id": "ENEMY_IMMOVABLE_BOSS_01",
+        "archetype_id": "SPATIAL_FIXED_BOSS",
+        "mobility": "IMMOVABLE",
+        "hp": 120,
+        "DEF": 0,
+        "initiative": 4,
+        "policy_cycle": [
+          "SPATIAL_UNIVERSAL_8"
+        ]
+      }
+    ],
+    "ability_catalogue": {
+      "SPATIAL_GROUND_5": {
+        "damage": 5,
+        "hits": 1,
+        "hit_mask": "GROUND_ONLY",
+        "target": "PLAYER_BODY_01",
+        "interruptible": false
+      },
+      "SPATIAL_GROUND_6": {
+        "damage": 6,
+        "hits": 1,
+        "hit_mask": "GROUND_ONLY",
+        "target": "PLAYER_BODY_01",
+        "interruptible": false
+      },
+      "SPATIAL_AERIAL_6": {
+        "damage": 6,
+        "hits": 1,
+        "hit_mask": "AERIAL_ONLY",
+        "target": "PLAYER_BODY_01",
+        "interruptible": false
+      },
+      "SPATIAL_AERIAL_7": {
+        "damage": 7,
+        "hits": 1,
+        "hit_mask": "AERIAL_ONLY",
+        "target": "PLAYER_BODY_01",
+        "interruptible": false
+      },
+      "SPATIAL_UNIVERSAL_7": {
+        "damage": 7,
+        "hits": 1,
+        "hit_mask": "UNIVERSAL",
+        "target": "PLAYER_BODY_01",
+        "interruptible": false
+      },
+      "SPATIAL_UNIVERSAL_8": {
+        "damage": 8,
+        "hits": 1,
+        "hit_mask": "UNIVERSAL",
+        "target": "PLAYER_BODY_01",
+        "interruptible": false
+      }
+    },
+    "intent": "按固定周期从round1第一招开始；每轮玩家行动前公开ability_id、稳定目标ID、hit_mask、伤害与次数。不得读手牌变招。",
+    "terminal": "沿用主契约：玩家死亡优先败；全敌死亡胜；round50仍未结束仅记stalemate。机制单元断言可在一个明确前/后状态停止，不以此冒充整战通关。",
+    "variants": "所有变体固定使用上述4个稳定敌ID；死亡、剩1成员、到期、多目标部分成功等前状态逐案声明，不增殖敌人或更换有利敌人。",
+    "candidate_adapter_required": [
+      "真实gather_card_definition_id及skill_id、学习凭证、printed_cost、目标上限、期限",
+      "真实flight_card_definition_id及skill_id、学习凭证、printed_cost、期限",
+      "真实group_damage_card_definition_id及skill_id、费用、每目标系数/击数、selector",
+      "可合法同时获得且装入的template_ids、owned_copy_ids、decklist和开场资源来源",
+      "若角色/候选没有某能力，明确NOT_PROVIDED，不以测试专用卡当该角色已经保留身份"
+    ],
+    "source_equality_subfixture": "只在来源单元检查中可使用已冻结NPC能力目录stub，role_id与玩家模板完全相同；不在本4敌战斗中增送NPC行动或改主450。"
+  },
+  "required_cases": [
+    {
+      "case_id": "S01_LEARNED_GATHER",
+      "setup_or_action": "真实已学聚怪合法支付后选3个小怪",
+      "normative_expected": "三者精确进入SPATIAL_GROUP_01；Boss不变；无HP/ATK/意图变动",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S02_UNLEARNED_GATHER",
+      "setup_or_action": "仅移除该聚怪学习凭证",
+      "normative_expected": "技能不可用/非法行动整次拒绝；费用、区域、状态不变",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S03_BOSS_ONLY",
+      "setup_or_action": "真实已学聚怪合法选择Boss一名",
+      "normative_expected": "原价支付；IMMOVABLE拒绝移动；不建新组、不刷新已有组、不退款、不眩晕",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S04_PARTIAL_FOUR",
+      "setup_or_action": "聚怪targetlist=[ENEMY_MOVABLE_01,ENEMY_MOVABLE_02,ENEMY_MOVABLE_03,ENEMY_IMMOVABLE_BOSS_01]；卡声明max_targets>=4",
+      "normative_expected": "三小怪成功、Boss逐目标失败；整行动不回滚；费用只付一份",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S05_SUBSET_REPLACE",
+      "setup_or_action": "已存在三成员组；新合法聚怪选择ENEMY_MOVABLE_01与ENEMY_MOVABLE_02",
+      "normative_expected": "新组仅2名；ENEMY_MOVABLE_03释放；新期限有限",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S06_DECLARED_GROUP_AOE",
+      "setup_or_action": "实际已学enemy_group伤害以组内ENEMY_MOVABLE_01为primary_target",
+      "normative_expected": "当前三活成员各按伤害卡系数命中；Boss零附带伤害；伤害来源为伤害卡owner",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S07_SINGLE_UNCHANGED",
+      "setup_or_action": "已聚怪后使用one_enemy普通攻击",
+      "normative_expected": "只命中提交的一个敌人；聚怪不改目标声明",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S08_BOSS_ANCHOR",
+      "setup_or_action": "已有小怪组；enemy_group伤害以Boss为primary_target",
+      "normative_expected": "仅命中Boss；不跨组带到小怪",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S09_EXPIRY",
+      "setup_or_action": "round r聚怪d=1；在本轮与下一轮分别读取/攻击",
+      "normative_expected": "本轮敌方阶段仍有效；end_round r释放；下一轮enemy_group回退单体",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S10_DEATH_AND_LAST_MEMBER",
+      "setup_or_action": "分别令一个、两个、最后一个成员死亡；以及同根前段先杀primary_target",
+      "normative_expected": "立即去除死成员；单成员组不增加命中；空组删除；死主目标不自动换锚",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S11_INVALID_TARGETS",
+      "setup_or_action": "未知ID/重复ID/出牌前死ID/错阵营/超卡目标上限/超组容量",
+      "normative_expected": "整行动预检查拒绝；资源与卡区不变",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S12_FLIGHT_LEARNED_COST",
+      "setup_or_action": "真实后学飞行满足条件并合法支付",
+      "normative_expected": "共享PLAYER_BODY_01变AERIAL且期限准确；只有1个身体高度状态",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S13_FLIGHT_UNLEARNED_AND_SHORT_COST",
+      "setup_or_action": "缺飞行学习凭证或分别缺energy/私池",
+      "normative_expected": "拒绝；首得模态、未学A/D及状态元数据不能代替许可或费用",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S14_HIT_MATRIX",
+      "setup_or_action": "GROUND/AERIAL各对GROUND_ONLY/AERIAL_ONLY/UNIVERSAL的六组伤害",
+      "normative_expected": "符合真值表；不匹配不消耗盾/格挡、不触发实际命中；敌人仍花掉该主行动",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S15_FLIGHT_RELEASE",
+      "setup_or_action": "duration1跨本轮敌阶段至end_round；另使用已声明着陆效果",
+      "normative_expected": "本轮按AERIAL受击，到期恢复GROUND；提前着陆按其真实卡式触发；无全局免费按钮",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S16_SWITCH_AND_RETRY",
+      "setup_or_action": "AERIAL且有组时切出切回；重复当前模态；同action_id重试；保存重放",
+      "normative_expected": "期限、来源及成员不免费刷新；不复制；技术重试不再付费或触发；重放哈希一致",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S17_SOURCE_EQUALITY",
+      "setup_or_action": "一个源聚怪，另一源群攻；同role的人形/机兵/部署/NPC能力stub及多目标事件",
+      "normative_expected": "位置事件本身贡献0；合格协作事件只按原role_id去重；多目标/同源实体数不放大来源数",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S18_NO_FREE_CONTROL",
+      "setup_or_action": "聚怪后四敌执行原公开意图；飞行仅改变各击适用性",
+      "normative_expected": "聚怪不取消任何意图；飞行不是stun或全伤免疫；UNIVERSAL仍正常结算",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S19_PAID_REFRESH_BOUND",
+      "setup_or_action": "新合法付费gather/flight重施；duration0或4的非法AERIAL/gather",
+      "normative_expected": "合法新行动可重设有限期且付完整费用；非法期限拒绝；无状态堆叠",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S20_TERMINAL_CLEANUP",
+      "setup_or_action": "死亡/终战/撤退发生时有group和AERIAL",
+      "normative_expected": "临时组与高度清理；无离场返费、伤害、复活或尾随触发",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S21_ACTUAL_CARD_INTEGRATION",
+      "setup_or_action": "各候选提供实际已学聚怪→明确群攻及飞行→不同掩码的完整合法牌路，配未学对照",
+      "normative_expected": "有真实技能/收藏/到手/费用及状态轨迹；找不到合法组合须报NOT_PROVIDED或不可达，不能靠原始effect注入证明",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "case_id": "S22_FINITE_COMPLEXITY",
+      "setup_or_action": "最多3组成员、4敌、1身体高度，重复施放及重放",
+      "normative_expected": "活group槽<=1，组成员<=3，高度轴2态，期限<=3轮；状态维数公开且无新增可支付空间池",
+      "execution_status": "NOT_RUN"
+    }
+  ],
+  "acceptance_reporting": {
+    "comparison": "每候选同夹具、同断言ID、同敌人、同身体面板和同种子层配对；候选实际牌费/条件差异如实列账，不人为统一成免费。",
+    "learned_unlearned": "同候选同预算对照中仅切换相关学习凭证/合法收藏；未学不得出技能，不能以未经学习的测试卡、首得模态映射或元数据替代。",
+    "cost_witness": "集成见证必须包含实际合法到手、出牌及支付轨迹，并记录为准备/聚怪/飞行放弃的伤害、防御或其它分支；仅注入状态的接口单测不能证明可达、可玩性或身份保留。",
+    "reachability": "确定性手排机制见证明确标为手排。自然牌流证据另按原种子分层提交，不把手排结果当自然到达率。",
+    "required_result_fields": [
+      "candidate_id",
+      "addendum_hash",
+      "fixture_id",
+      "case_id",
+      "evidence_level",
+      "actual_source_card_ids",
+      "learning_record_ids",
+      "cost_ledger",
+      "target_ids_before_after",
+      "expiry_before_after",
+      "source_count_before_after",
+      "event_receipt_ids",
+      "state_hashes",
+      "PASS_FAIL_NOT_RUN_NOT_PROVIDED"
+    ],
+    "hard_failures": [
+      "未学能用或元数据授予能力",
+      "付费不足仍执行",
+      "Boss进入聚怪组或聚怪免费取消意图",
+      "无限组/高度/期限",
+      "普通单体攻击自动变群攻",
+      "飞行闪避UNIVERSAL或地面命中错误",
+      "同源因目标数/实体形态被重复计数",
+      "技术重试刷新、返费或重复结算"
+    ],
+    "claims": "本文件只建立F0可审阅接口和夹具；没有执行引擎、没有PASS结果、没有概率或胜率结论。未覆盖/未提供须明列，不能用高胜率冲抵身份或合法性失败。"
+  },
+  "change_control": "No semantic expansion during candidate authoring except bounded shared compiler/interface extension reviewed by root; no engine implemented."
+}
