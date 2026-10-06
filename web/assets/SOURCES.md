@@ -6,3 +6,5 @@
 GIF registry为空。错误资源回退静态轮廓并显示加载失败，不把静态轮廓或CSS状态称为完整身体动画。未来接入原图前须核验来源/许可，私人素材备份与公开程序分别处理。
 
 私人运行副本可从已有私人备份恢复63图和B待机技术候选。恢复后完整出处/Library身份/当前hash/历史hash证据在被排除的private-research/SOURCE_MANIFEST.json。公共asset-catalog.js仅含非敏感来源元数据；实际图像与只读含图HTML均不得随公共checkpoint发布。B样片是待验技术素材，不代表正式GIF已齐备。
+
+D v2三GIF与B旧三GIF仅在TechnicalPreview独立模块使用；来源与hash在私有TECHNICAL_SOURCE_MANIFEST。公共technical-assets.js只有时长、尺寸、锚点、hash和可选文件名，不含二进制。离线重播只加入GIF注释元数据，已验证不改变任何帧像素或时长。

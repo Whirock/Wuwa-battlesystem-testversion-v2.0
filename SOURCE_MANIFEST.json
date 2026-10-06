@@ -1,9 +1,9 @@
 {
   "schema": "wuwa-source-manifest-v2",
   "app_version": "0.3.1",
-  "ui_checkpoint": "0.4-private-assets-hooks-technical-preview",
+  "ui_checkpoint": "0.4-isolated-BD-technical-playback",
   "qualification": "experimental_unqualified",
-  "note": "公共源码检查点，仅资源元数据/接入钩子，不含第三方图片或技术GIF；渲染与完整动画未验收。",
+  "note": "公共源码不含角色GIF、原game图或私有HTML；D v2只属阶段技术预览，正式战斗registry为空；真实浏览器播放未验。",
   "files": [
     {
       "path": ".gitattributes",
@@ -57,8 +57,8 @@
     },
     {
       "path": "RECOVERY_CHECKPOINT.md",
-      "size": 3181,
-      "sha256": "9dda733a30ac7ca090ba8e537a63007dede25710718e2fd70a8570739db46a07"
+      "size": 4301,
+      "sha256": "e1014ba6f1489a2d6ebd0fe4c90f36b119a1518fc82f5c40871442552de74eef"
     },
     {
       "path": "TEST_STATUS.md",
@@ -277,8 +277,8 @@
     },
     {
       "path": "tools/export_readonly_preview.cjs",
-      "size": 4604,
-      "sha256": "aa5373640861b7456daf7365fde810da8081437ad17731b8554ff9a94bf26df1"
+      "size": 5462,
+      "sha256": "d330f70c227accbe66072d9a5c8b9b8ed4090249b9045c1a8294edb0c2e3b417"
     },
     {
       "path": "tools/prepare_release.py",
@@ -292,13 +292,13 @@
     },
     {
       "path": "tools/verify_private_assets.py",
-      "size": 889,
-      "sha256": "478399b5e050547a247979e27c74ef8b0cb511c01340653325e160e9daca3a72"
+      "size": 1175,
+      "sha256": "66568188e079b725be28ae86588a8bd4e77936a9684dd862323cea26f5ce4f5c"
     },
     {
       "path": "web/assets/SOURCES.md",
-      "size": 1132,
-      "sha256": "51562bf96720a7271c24f5260d44b595f91c9c36d15da4b4ec7db9df5a4d381b"
+      "size": 1438,
+      "sha256": "1a04ad4cb0dcd9ac752ebb25f0244f6dc62a27da4f786baaf5a4f8108bab809d"
     },
     {
       "path": "web/assets/app.js",
@@ -317,18 +317,28 @@
     },
     {
       "path": "web/assets/style.css",
-      "size": 21819,
-      "sha256": "e6720f9695674a2f3690a7a05cf09fc1fad0f5f04ddb49305cae2f777a624570"
+      "size": 22175,
+      "sha256": "e5514dcfb5640bd884f29a4798e016bf0507e9bb3b94540f91d95868b6a7e914"
+    },
+    {
+      "path": "web/assets/technical-assets.js",
+      "size": 2490,
+      "sha256": "9aeb2d9c34e972137821b2e14d04c9e0290f49dbd5b8ad2f348072478eb342e2"
+    },
+    {
+      "path": "web/assets/technical-preview.js",
+      "size": 4461,
+      "sha256": "8a444fc0d790cb140fce12e8c76b87d947cec81a8268f6826cf63262ce40f0b8"
     },
     {
       "path": "web/assets/visual-ui.js",
-      "size": 16480,
-      "sha256": "c4117cdd84f95fd6e2d838d528a3b97bc5271211702a1ef5597013630def7fe2"
+      "size": 15566,
+      "sha256": "76ad99d348b9f49b114cd3ec624ce12748970499fb20929fb25e9ab35820ce89"
     },
     {
       "path": "web/index.html",
-      "size": 1335,
-      "sha256": "c63c5abb7004dcb29e65e4a6f5c86929b000f9be3a36e39e366dfd1c13d57624"
+      "size": 1440,
+      "sha256": "d93d45bd8946a4723941388f390986701efd2fde99a02fbbb36fc07cd41beec9"
     },
     {
       "path": "web/tests/asset-catalog.cjs",
@@ -337,23 +347,28 @@
     },
     {
       "path": "web/tests/dom-flow.cjs",
-      "size": 11720,
-      "sha256": "0b428b614a0536a71fad05fe657ce99230f500168cac5acf2f7cbdd284d0bc85"
+      "size": 11888,
+      "sha256": "72d6758905c80642c00c1e552161c3b1ac86d883cfac7de56af6e120d12989a8"
     },
     {
       "path": "web/tests/live-dom-flow.cjs",
-      "size": 10817,
-      "sha256": "b448934c4e7e761b534ba214c9581709828159e76c47e26200f2ee578ecb6484"
+      "size": 10985,
+      "sha256": "0af52e51d72f5149d1923f3c3fff554d4a73520f629a9f80967a826a69a4a098"
+    },
+    {
+      "path": "web/tests/offline-technical.cjs",
+      "size": 2506,
+      "sha256": "4fe400f58e0e500c2717d1e18e46ed68b23e49c9acde19dbfb133f4765a1ceb4"
     },
     {
       "path": "web/tests/render-contract.cjs",
-      "size": 6395,
-      "sha256": "0a99861d8722491230f4102cd4e76f18fcef3a05e6adc45ad6be7b561910512e"
+      "size": 6563,
+      "sha256": "79810a02a3016e75f5032d126ea2a02bc0137b1423f6dc04aeeb3b744cfd656b"
     },
     {
       "path": "web/tests/route-labels.cjs",
-      "size": 6580,
-      "sha256": "3b19c9969557b07b30c66e204c80bb5ffa653eb82c96835893a64b5949778085"
+      "size": 6748,
+      "sha256": "9086baf5cf2cf1db6e0629830f9afc9d4df9975b38e38371203d5405870b8dbd"
     },
     {
       "path": "web/tests/rule-text.cjs",
@@ -366,9 +381,14 @@
       "sha256": "a6d0420929ecbf00944bc27b3b368353fe3570c200bcaa5446c3ee39856c9735"
     },
     {
+      "path": "web/tests/technical-preview.cjs",
+      "size": 3275,
+      "sha256": "137e1043f41cfed0313a5e060947611bf60afbc39cf993aa543d13ae51aaef5f"
+    },
+    {
       "path": "web/tests/visual-feedback.cjs",
-      "size": 4166,
-      "sha256": "45954cdcd55d00221252e3016ee9fc7c275f203948a4413b71120c89ef648128"
+      "size": 4334,
+      "sha256": "f9ead5a8b8a7f0ebad2ddbacbd2161d778fa0593135731436e205465bfb1a7dc"
     }
   ]
 }
