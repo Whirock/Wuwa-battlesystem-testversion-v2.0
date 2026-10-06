@@ -10,3 +10,4 @@ web/tests/*.png
 web/assets/private-research/
 qa_ui/
 private-deliverables/
+qa_enemy_runtime/

@@ -1,9 +1,9 @@
 {
   "schema": "wuwa-source-manifest-v2",
   "app_version": "0.3.1",
-  "ui_checkpoint": "0.4-isolated-BD-technical-playback",
+  "ui_checkpoint": "private-four-existing-enemies-grounded-guard",
   "qualification": "experimental_unqualified",
-  "note": "公共源码不含角色GIF、原game图或私有HTML；D v2只属阶段技术预览，正式战斗registry为空；真实浏览器播放未验。",
+  "note": "Source-only inventory; private images, personal state and raw QA logs excluded. Not a public release or browser acceptance.",
   "files": [
     {
       "path": ".gitattributes",
@@ -12,13 +12,18 @@
     },
     {
       "path": ".gitignore",
-      "size": 222,
-      "sha256": "46231706d2371333d8dc75395a484f80aa0d3f285c842bcc374ed3019519f005"
+      "size": 240,
+      "sha256": "08c726f53bc966c31a43a0f1bdadd6622788f2d26430376f049d6f3ce3c1133c"
     },
     {
       "path": "API_CONTRACT.md",
       "size": 3927,
       "sha256": "9c7f24c4220643f33dfdce1c3bcd7928ef944d3193aaa6ea8011494f56227786"
+    },
+    {
+      "path": "BACKEND_BYTE_COMPARISON.json",
+      "size": 1852,
+      "sha256": "15a1eebee0ad92e33824f96a575b8cbe73ad3d62f50b5a7d86c92cd1cbc6ea6e"
     },
     {
       "path": "CHANGELOG_v0_2_0.md",
@@ -39,6 +44,16 @@
       "path": "CHANGELOG_v0_3_1_zh_CN.md",
       "size": 1067,
       "sha256": "6c4e6b36c27fd8165ee5aa20cf323ff0a101bcc07fa37ed661905db1fdd59236"
+    },
+    {
+      "path": "ENEMY_PRIVATE_UI_CHECKPOINT_ZH.md",
+      "size": 1276,
+      "sha256": "1bd2a66c9e42feb33da86751a8e16cb810ce2fa9736a74de8abae83cdaa5fd8b"
+    },
+    {
+      "path": "GUARD_RUNTIME_PIXEL_CHECK.json",
+      "size": 748,
+      "sha256": "2cd5347fbc64d249be775f89404e258ecf16931e07c5f0394e7f3b4e0f08f0b9"
     },
     {
       "path": "LIVE_API_CONTRACT.md",
@@ -311,14 +326,19 @@
       "sha256": "9e93eaa00bbd68fdb97a67f51eadf5cbb065142b9074fdbd256122ba21e2c599"
     },
     {
+      "path": "web/assets/enemy-visual-assets.js",
+      "size": 9768,
+      "sha256": "177e3d21d7a9ea22adc078f593ef631ac8b7d3d59320e1678a15389e36d9be14"
+    },
+    {
       "path": "web/assets/rule-text.js",
       "size": 45828,
       "sha256": "66c91d5338f6557837abbee8638bcd6d9ed231f5a98b90ec5936769b0fd2fc2c"
     },
     {
       "path": "web/assets/style.css",
-      "size": 22175,
-      "sha256": "e5514dcfb5640bd884f29a4798e016bf0507e9bb3b94540f91d95868b6a7e914"
+      "size": 22623,
+      "sha256": "f4c7e3dfdd60481217f691db3dcc1bb86044c6b7c0abed6d01d74b2c87cbcd6a"
     },
     {
       "path": "web/assets/technical-assets.js",
@@ -332,28 +352,43 @@
     },
     {
       "path": "web/assets/visual-ui.js",
-      "size": 15566,
-      "sha256": "76ad99d348b9f49b114cd3ec624ce12748970499fb20929fb25e9ab35820ce89"
+      "size": 18711,
+      "sha256": "9dfd70b6e0f6de2755c28e26a5eb45572bac01a6a70a40320386f5afb9d66037"
     },
     {
       "path": "web/index.html",
-      "size": 1440,
-      "sha256": "d93d45bd8946a4723941388f390986701efd2fde99a02fbbb36fc07cd41beec9"
+      "size": 1495,
+      "sha256": "5a8515bda763e216a8fd78d0699efbd8e8d3e8d1b99c2d8784b3cf5832607624"
     },
     {
       "path": "web/tests/asset-catalog.cjs",
-      "size": 1118,
-      "sha256": "dba16a9637c681e691ea4b5ca0bf357beabc217fbe0d58c4953ac9c392c3523d"
+      "size": 1143,
+      "sha256": "04e6527931d6dd6c1fec69f65f7efd7f660e437d523e1ad85451d96ac9207695"
     },
     {
       "path": "web/tests/dom-flow.cjs",
-      "size": 11888,
-      "sha256": "72d6758905c80642c00c1e552161c3b1ac86d883cfac7de56af6e120d12989a8"
+      "size": 11913,
+      "sha256": "935cbc7903dcdfcba663a9525b0c8db13958a17e1c52ca86c523010a4ce90449"
+    },
+    {
+      "path": "web/tests/enemy-real-engine.cjs",
+      "size": 6878,
+      "sha256": "1325e3af0c37a93072675b4bba9aef07316d18ec44b92bb6c409592162ecb820"
+    },
+    {
+      "path": "web/tests/enemy-visual.cjs",
+      "size": 3429,
+      "sha256": "52e3178a829618342d9454987299a443bdfee305856dd2699e000421f9b7b133"
+    },
+    {
+      "path": "web/tests/guard-fullshield.cjs",
+      "size": 4462,
+      "sha256": "cbaefe00fa1d14a6c89a8cae352a2d50f1bacddc55c2320bce721f7a2c05ec36"
     },
     {
       "path": "web/tests/live-dom-flow.cjs",
-      "size": 10985,
-      "sha256": "0af52e51d72f5149d1923f3c3fff554d4a73520f629a9f80967a826a69a4a098"
+      "size": 11010,
+      "sha256": "d3dcfe223600c51bbb806ec355e18a3852023a2a9121a12a9c71135c562eac6e"
     },
     {
       "path": "web/tests/offline-technical.cjs",
@@ -362,13 +397,13 @@
     },
     {
       "path": "web/tests/render-contract.cjs",
-      "size": 6563,
-      "sha256": "79810a02a3016e75f5032d126ea2a02bc0137b1423f6dc04aeeb3b744cfd656b"
+      "size": 6588,
+      "sha256": "565b11a293a782caa22a7b561d322fc7a6349d4312ae5cddf2e7dc12d741b8d3"
     },
     {
       "path": "web/tests/route-labels.cjs",
-      "size": 6748,
-      "sha256": "9086baf5cf2cf1db6e0629830f9afc9d4df9975b38e38371203d5405870b8dbd"
+      "size": 6773,
+      "sha256": "498847d03bda62c4e82560cc3778ab8be1442928519edbc43e4b7e0126700ced"
     },
     {
       "path": "web/tests/rule-text.cjs",
@@ -387,8 +422,8 @@
     },
     {
       "path": "web/tests/visual-feedback.cjs",
-      "size": 4334,
-      "sha256": "f9ead5a8b8a7f0ebad2ddbacbd2161d778fa0593135731436e205465bfb1a7dc"
+      "size": 4359,
+      "sha256": "7c87fc6af56ab7242885a3d1eaae849d4803a38e0269d7d06d1c4941664ab26a"
     }
   ]
 }

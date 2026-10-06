@@ -1,0 +1,30 @@
+[
+  {
+    "style": "B",
+    "firstAndLastRGBAExact": true,
+    "files": [
+      {
+        "name": "proto_bulwark_B_idle.png",
+        "sha256": "c0303f989babc00e385dec82807a5993ce29101085b97b99e453407e29b52de9"
+      },
+      {
+        "name": "proto_bulwark_B_hit.gif",
+        "sha256": "f3b64b57ff08d9837eb4a802743375c660327e48d683595a079e575300a4852a"
+      }
+    ]
+  },
+  {
+    "style": "D",
+    "firstAndLastRGBAExact": true,
+    "files": [
+      {
+        "name": "proto_bulwark_D_idle.png",
+        "sha256": "2c436e517619c50e9000e2a198a78947ace42f5f3c6579aa64d4fc7ed6132ab4"
+      },
+      {
+        "name": "proto_bulwark_D_hit.gif",
+        "sha256": "05013feece1cb1618c8cc1382742ae6e4456cb9d8bb2e4b1e37071787512f00d"
+      }
+    ]
+  }
+]
