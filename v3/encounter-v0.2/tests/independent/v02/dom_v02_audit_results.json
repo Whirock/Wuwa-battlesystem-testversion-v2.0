@@ -1,0 +1,271 @@
+{
+  "evidenceClass": "DOM/event integration: actual HTML/JS, fake IndexedDB, controlled timers and stub Canvas/Image/Audio; NOT real browser",
+  "timestamp": "2026-10-09T07:58:57.000Z",
+  "hashes": {
+    "app.js": "6e5cba4b3a006abcb1c38cd93b9d924515aba63c4b1171bd5e9d6bb44bd1085e",
+    "engine.js": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+    "parameters.js": "5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70",
+    "storage.js": "c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217",
+    "index.html": "80507ff10d1272bd389aa92b2bc8ce6fdef77773d8cefae9e9b2275a03aa8e93",
+    "style.css": "da0da94f6f6e67d1778c3997b34722c710c5e7ca75c2cc5fdec6c5ceca3254de"
+  },
+  "sourceUnchanged": true,
+  "results": [
+    {
+      "name": "Six roots live inside stage; no old bottom command panel",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "All six categories have real actions or precise disabled reasons",
+      "pass": true,
+      "detail": [
+        {
+          "category": "battle",
+          "actions": [
+            "basic",
+            "pry",
+            "wait"
+          ]
+        },
+        {
+          "category": "skills",
+          "actions": [
+            "survey",
+            "skate",
+            "spectrum",
+            "__concerto:ally:0:amy",
+            "__concerto:ally:1:lynae",
+            "__concerto:ally:2:mornye",
+            "__concerto:ally:3:denia"
+          ]
+        },
+        {
+          "category": "defense",
+          "selection": "guard"
+        },
+        {
+          "category": "items",
+          "actions": [
+            "item_repair",
+            "item_cleanse"
+          ]
+        },
+        {
+          "category": "negotiate",
+          "actions": [
+            "encourage",
+            "taunt",
+            "negotiate"
+          ]
+        },
+        {
+          "category": "escape",
+          "selection": "retreat"
+        }
+      ]
+    },
+    {
+      "name": "Hover, focus, category browsing and cancel are read-only; disabled actions remain focusable",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Action description matches current parameters, target, cost, gain and duration",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Current, remaining and predicted queues use only canvas portraits and exact IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Wait updates current/remaining once and portraits never duplicate a normal token",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Keyboard focus/arrows do not act; Enter on non-confirm focus does not execute old choice",
+      "pass": true,
+      "detail": "Synthetic DOM keyboard events; native Tab/Enter default behavior requires real browser"
+    },
+    {
+      "name": "Repeated confirmation resolves exactly once",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Restart during animation discards stale completion and resets menu/resources",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Difficulty editing/cancel does not alter active battle; chosen new difficulty persists on restart/load",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Manual defense, finite item and retreat execute via their distinct menus",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Full manual menu→target→confirm fight normal",
+      "pass": true,
+      "detail": {
+        "steps": 10,
+        "readyWindows": 0,
+        "manualCount": 0,
+        "seenCharges": 2,
+        "outcome": "win",
+        "rounds": 3
+      }
+    },
+    {
+      "name": "Full manual menu→target→confirm fight elite_humanoid",
+      "pass": true,
+      "detail": {
+        "steps": 25,
+        "readyWindows": 4,
+        "manualCount": 4,
+        "seenCharges": 4,
+        "outcome": "win",
+        "rounds": 7
+      }
+    },
+    {
+      "name": "Full manual menu→target→confirm fight elite_nonhumanoid",
+      "pass": true,
+      "detail": {
+        "steps": 19,
+        "readyWindows": 4,
+        "manualCount": 4,
+        "seenCharges": 4,
+        "outcome": "win",
+        "rounds": 5
+      }
+    },
+    {
+      "name": "Full manual menu→target→confirm fight boss",
+      "pass": true,
+      "detail": {
+        "steps": 46,
+        "readyWindows": 9,
+        "manualCount": 9,
+        "seenCharges": 8,
+        "outcome": "win",
+        "rounds": 12
+      }
+    },
+    {
+      "name": "Speed 1x versus 4x produces identical chosen actions and combat result",
+      "pass": true,
+      "detail": {
+        "steps": 46
+      }
+    },
+    {
+      "name": "Full manual Boss run without concerto keeps naturally earned 100 until explicit release",
+      "pass": true,
+      "detail": {
+        "readyWindows": 35,
+        "finalConcerto": [
+          {
+            "key": "amy",
+            "value": 100
+          },
+          {
+            "key": "lynae",
+            "value": 100
+          },
+          {
+            "key": "mornye",
+            "value": 100
+          },
+          {
+            "key": "denia",
+            "value": 100
+          }
+        ]
+      }
+    },
+    {
+      "name": "KO enemies no longer appear in target/queue/final canvas draw dispatch",
+      "pass": true,
+      "detail": "Canvas call dispatch only, not visual fade/pixel evidence"
+    },
+    {
+      "name": "IndexedDB reload restores exact active v0.2 state and selected difficulty",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Legacy saved records retain custom media/calibration and preserve old battle backup",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Legacy project import retains media and announces incompatible battle rather than silently restoring",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Current project roundtrip restores embedded media, portrait crop, difficulty and exact battle",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Malformed/current corrupt imports leave both project and battle unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "File cancel/bad image/oversize and audio assignment do not mutate combat",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Sprite import retains original target despite slot switch while async reading",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Focused Enter opens categories and confirms one action only; modal Enter cannot act",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Read battle clears stale action/category/detail and returns to current actor root",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Each concerto detail exposes exact special channel and duration from engine",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Natural Amy and Denia form changes update persistent portrait source without preview mutation",
+      "pass": true,
+      "detail": {
+        "drawDispatchOnly": [
+          {
+            "who": "amy",
+            "form": "mech",
+            "steps": 2,
+            "source": "amy_mecha_M01.png"
+          },
+          {
+            "who": "denia",
+            "form": "blue",
+            "steps": 4,
+            "source": "denia_blue_DB01.png"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 29,
+  "failed": 0
+}

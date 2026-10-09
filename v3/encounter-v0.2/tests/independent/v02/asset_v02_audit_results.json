@@ -1,0 +1,45 @@
+{
+  "evidenceClass": "STATIC ASSET AND MAPPING: no rendered pixels",
+  "timestamp": "2026-10-09T07:21:58.511Z",
+  "assetsSHA256": "65a6390a6b0f688d1061facbd096d1b9329a6947b12222f87cfb9c47e7e9d731",
+  "checks": [
+    {
+      "name": "89 sprite slots preserve registered bytes and frozen v0.1 source PNGs",
+      "pass": true,
+      "detail": {
+        "slots": 89
+      }
+    },
+    {
+      "name": "Every form idle, action, sequence and transition resolves to an owned slot",
+      "pass": true,
+      "detail": {
+        "actions": 244,
+        "sequences": 18
+      }
+    },
+    {
+      "name": "Reference screenshot bytes are not inside runtime source or assets",
+      "pass": true,
+      "detail": {
+        "examinedFiles": 115
+      }
+    },
+    {
+      "name": "Amy mech alias and 1.7-scale reference survive; all five enemy bodies exist",
+      "pass": true,
+      "detail": {
+        "enemyKeys": [
+          "snip",
+          "predator",
+          "bracer",
+          "carapace",
+          "crownless"
+        ]
+      }
+    }
+  ],
+  "passed": 4,
+  "failed": 0,
+  "evidence_scope": "Historical pre-publication asset audit; assets.js metadata subsequently sanitized for public release. Current public checks are in public_asset_audit_results.json."
+}

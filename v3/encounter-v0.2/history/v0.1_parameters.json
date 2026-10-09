@@ -1,0 +1,1305 @@
+{
+  "schema_version": "0.1.2-candidate",
+  "date": "2026-10-09",
+  "status": "独立推荐方案，未代表用户已确认；非生产游戏",
+  "reference_level": 20,
+  "level_range": [
+    1,
+    60
+  ],
+  "formula": {
+    "damage": "floor(ATK_or_DEF * coefficient * (120+4*attacker_level)/(120+4*attacker_level+target_DEF) * element_multiplier * (1.5 if already_broken else 1) * (1+min(0.5,damage_amp)) * mitigation)",
+    "element_default": 1.0,
+    "element_resistant": 0.8,
+    "weakness_damage_bonus": 0.0,
+    "break_damage_multiplier": 1.5,
+    "critical_rate": 0.0,
+    "hit_rate": 1.0,
+    "hp_level_multiplier": "0.5 + 0.025 * L",
+    "atk_def_level_multiplier": "0.6 + 0.02 * L",
+    "speed_growth": 0,
+    "rounding": "floor each target damage packet; animation hits collapse to one direct packet, separate status packets; all packets use action-start broken snapshot; round_half_up positive stats"
+  },
+  "rules": {
+    "party_size_max": 4,
+    "enemy_size_max": 4,
+    "normal_actions_per_round": 1,
+    "wait_per_round": 1,
+    "wait_destination": "tail FIFO; token unchanged",
+    "shield_match": "element OR weapon, not sum",
+    "break_per_action_target_cap": 3,
+    "break_duration": "through end of round r+1; restore at start r+2",
+    "elite_boss_recovery_lock": "shield floor 1 until first normal enemy action completes after recovery",
+    "concerto_cap": 100,
+    "concerto_start": 0,
+    "concerto_per_actor_per_round": 1,
+    "concerto_grant_events": [
+      "own_normal_action_effective"
+    ],
+    "concerto_hard_gain_cap_per_normal_action": 25,
+    "concerto_intros_grant_concerto": false,
+    "concerto_damage_amp_stack": "strongest only",
+    "concerto_buff_expiry": "next eligible normal action, no later than end next round",
+    "intro_resource_gain_cap_per_recipient_round": 20,
+    "resource_start": "all 0",
+    "resource_persistence": "reset each encounter; HP persists by scenario, no automatic full heal",
+    "status_damage_triggers_resources": false,
+    "no_extra_actions": true,
+    "guard_multiplier": 0.5,
+    "non_guard_mitigation_floor": 0.65,
+    "barrier_cap_fraction": 0.25,
+    "resurrection_baseline": false,
+    "cosmetics_change_stats": false,
+    "break_attack_gets_break_bonus": false,
+    "weakness_visibility": "Balance tests know all enemy weaknesses. Recommended initial UI shows all weaknesses in this test package. survey reveal is implemented but discovery gameplay remains outside performance claims.",
+    "status_amp": "Status packets do not inherit field/ordinary outro damage amp; cutline and special status outro add 0.25 each, capped together at +0.50.",
+    "phase_queue": "At phase announcement, replace next ordinary boss action with wingpulse; never insert a new action. Pending break delays that action.",
+    "recovery_policy": "No enrage clock in this candidate. A slow tank/healer team may stalemate; timeout in experiment is inconclusive, never forced defeat.",
+    "pry": "Always exactly one shield point per target; tune can add damage but never extra shield reduction to pry.",
+    "battlefield_orientation": "Enemies on screen left face right; allies on screen right face left. Screen orientation is not anatomical left/right; do not mirror asymmetrical assets.",
+    "outro_channels": "Take strongest direct amp and strongest liberation-extra independently; the two count toward direct +50% cap with field. Status-outro has a separate one-use token until end of grant round+2 and is consumed by the next qualifying status damage from its recipient, including a previously placed marker; no direct attack consumes that token. Intro gain stays <=20 per recipient per round. Solo self-concerto grants half direct amp only; no intro or special channel."
+  },
+  "characters": {
+    "amy": {
+      "name": "爱弥斯",
+      "element": "fusion",
+      "weapon": "sword",
+      "hp": 1800,
+      "atk": 240,
+      "def": 125,
+      "speed": 110,
+      "primary": "sync",
+      "resources": {
+        "sync": 200,
+        "resonance": 4
+      },
+      "form_start": "human",
+      "mode_options": [
+        "tune",
+        "fusion"
+      ],
+      "mode_default": "tune",
+      "outro": {
+        "amp": 0.2,
+        "special": "none"
+      },
+      "skills": {
+        "basic": {
+          "name": "人形/机兵 普通攻击",
+          "coef": 1,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "sync": 50
+          },
+          "concerto": 20,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "basic",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "overdrive": {
+          "name": "星辉启动",
+          "coef": 1.5,
+          "break_points": 1,
+          "cost": {
+            "sync": 50
+          },
+          "gain": {
+            "resonance": 2
+          },
+          "concerto": 20,
+          "effect": "amy_overdrive",
+          "requires": "not overdrive; resonance==0",
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "enhanced": {
+          "name": "双相强化E",
+          "coef": 2.5,
+          "break_points": 2,
+          "cost": {
+            "sync": 100
+          },
+          "gain": {
+            "resonance": 2
+          },
+          "concerto": 20,
+          "effect": "amy_swap",
+          "applies_mode": true,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "heavy": {
+          "name": "满谐重击",
+          "coef": 0.8,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "sync": 200
+          },
+          "concerto": 20,
+          "requires": "resonance==4",
+          "effect": "amy_heavy",
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "heavy",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "finale": {
+          "name": "星辉终结",
+          "coef": 6.5,
+          "break_points": 3,
+          "cost": {
+            "sync": 200,
+            "resonance": 4
+          },
+          "gain": {},
+          "concerto": 25,
+          "requires": "sync==200 and resonance==4",
+          "effect": "amy_finale",
+          "applies_mode": true,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        }
+      },
+      "intro": {
+        "primary_gain": 20
+      },
+      "asset_notes": "机兵跨行动持续、双池共享HP与行动；重伤不强制返形；退场返形/停机只改表现，不自动复活。E切形和伤害同一次行动。",
+      "baseline_weapon_contribution": {
+        "atk": 40
+      },
+      "reference_level": 20,
+      "recommended_entry_level": 24,
+      "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+      "passives": {
+        "kept": [
+          "two form shared HP/action",
+          "sync-resonance two-pool cycle"
+        ],
+        "merged": [
+          "short liberation-mode gating into resource skill actions"
+        ],
+        "not_adopted": [
+          "original crit damage/heavy-attack passive multipliers",
+          "exploration Starflux",
+          "resonance-chain bonuses",
+          "original separate liberation energy pool"
+        ]
+      }
+    },
+    "lynae": {
+      "name": "琳奈",
+      "element": "spectro",
+      "weapon": "pistols",
+      "hp": 1650,
+      "atk": 210,
+      "def": 105,
+      "speed": 120,
+      "primary": "color",
+      "resources": {
+        "color": 100
+      },
+      "form_start": "normal",
+      "outro": {
+        "amp": 0.25,
+        "special": "liberation_extra_0.1_within_global_cap"
+      },
+      "intro": {
+        "primary_gain": 20
+      },
+      "skills": {
+        "basic": {
+          "name": "定线射击",
+          "coef": 1,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "color": 35
+          },
+          "concerto": 20,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "basic",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "survey": {
+          "name": "留彩校准",
+          "coef": 1.15,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "color": 20
+          },
+          "concerto": 20,
+          "effect": "reveal",
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "skate": {
+          "name": "绚色轮迹",
+          "coef": 1.8,
+          "break_points": 2,
+          "cost": {
+            "color": 60
+          },
+          "gain": {},
+          "concerto": 20,
+          "effect": "tune",
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "spectrum": {
+          "name": "虹谱迸发",
+          "coef": 2.7,
+          "break_points": 3,
+          "cost": {
+            "color": 100
+          },
+          "gain": {},
+          "concerto": 25,
+          "effect": "tune",
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        }
+      },
+      "asset_notes": "常服/夏装同参数；无每轮免费插枪，无空手通用施法。",
+      "baseline_weapon_contribution": {
+        "atk": 40
+      },
+      "reference_level": 20,
+      "recommended_entry_level": 22,
+      "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+      "passives": {
+        "kept": [
+          "spectro pistol identity",
+          "skating break setup and targeted outro"
+        ],
+        "merged": [
+          "Overflow/Radiance/True Color three-stage short rotation into color100"
+        ],
+        "not_adopted": [
+          "original passive damage/stat enhancements",
+          "original free aerial movement or repeated hits",
+          "resonance-chain bonuses"
+        ]
+      }
+    },
+    "mornye": {
+      "name": "莫宁",
+      "element": "fusion",
+      "weapon": "broadblade",
+      "hp": 2100,
+      "atk": 165,
+      "def": 180,
+      "speed": 90,
+      "primary": "calibration",
+      "resources": {
+        "calibration": 100
+      },
+      "form_start": "normal",
+      "damage_stat": "def",
+      "outro": {
+        "amp": 0.2,
+        "special": "next_received_hit_x0.85"
+      },
+      "intro": {
+        "primary_gain": 20
+      },
+      "skills": {
+        "basic": {
+          "name": "定轨悬刃",
+          "coef": 1.05,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "calibration": 30
+          },
+          "concerto": 20,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "basic",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "heal": {
+          "name": "校准修复",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {
+            "calibration": 30
+          },
+          "gain": {},
+          "concerto": 15,
+          "target": "ally",
+          "heal_scale": 2.0,
+          "heal_flat": 100,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "field": {
+          "name": "星界定标",
+          "coef": 1.2,
+          "break_points": 1,
+          "cost": {
+            "calibration": 60
+          },
+          "gain": {},
+          "concerto": 20,
+          "aoe": true,
+          "effect": "field",
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "restore": {
+          "name": "定标回响",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {
+            "calibration": 60
+          },
+          "gain": {},
+          "concerto": 15,
+          "target": "all_allies",
+          "heal_scale": 1.2,
+          "heal_flat": 80,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        }
+      },
+      "asset_notes": "DEF同时参与伤害与治疗；悬浮不代表无敌；冬装不更改功能。",
+      "baseline_weapon_contribution": {
+        "def": 30
+      },
+      "reference_level": 20,
+      "recommended_entry_level": 24,
+      "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+      "passives": {
+        "kept": [
+          "DEF-oriented support",
+          "normal-action healing and field decisions"
+        ],
+        "merged": [
+          "Rest Mass/Relative Momentum into calibration100"
+        ],
+        "not_adopted": [
+          "original lethal-hit protection passive",
+          "real-time periodic free healing",
+          "original separate liberation energy pool",
+          "resonance-chain bonuses"
+        ]
+      }
+    },
+    "denia": {
+      "name": "达妮娅",
+      "element": "fusion",
+      "weapon": "rectifier",
+      "hp": 1700,
+      "atk": 215,
+      "def": 110,
+      "speed": 105,
+      "primary": "expectation",
+      "resources": {
+        "expectation": 100
+      },
+      "form_start": "red",
+      "mode_options": [
+        "fusion",
+        "strain"
+      ],
+      "mode_default": "fusion",
+      "outro": {
+        "amp": 0.2,
+        "special": "next_mode_status_damage_x1.25"
+      },
+      "intro": {
+        "primary_gain": 20
+      },
+      "skills": {
+        "basic": {
+          "name": "布景泡沫/幻灭爪击",
+          "coef": 1,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "expectation": 30
+          },
+          "concerto": 20,
+          "applies_mode": true,
+          "form_overrides": {
+            "blue": {
+              "coef": 1.45,
+              "cost": {
+                "expectation": 20
+              },
+              "gain": {}
+            }
+          },
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "basic",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "stage": {
+          "name": "布景牵引",
+          "coef": 0.75,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "expectation": 35
+          },
+          "concerto": 20,
+          "aoe": true,
+          "requires": "red",
+          "applies_mode": true,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "breakdown": {
+          "name": "开幕幻灭",
+          "coef": 1.6,
+          "break_points": 1,
+          "cost": {
+            "expectation": 80
+          },
+          "gain": {
+            "expectation": 80
+          },
+          "concerto": 20,
+          "aoe": true,
+          "requires": "red",
+          "effect": "denia_blue",
+          "applies_mode": true,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "blue": {
+          "name": "幻灭扼流",
+          "coef": 2.35,
+          "break_points": 2,
+          "cost": {
+            "expectation": 40
+          },
+          "gain": {},
+          "concerto": 20,
+          "requires": "blue",
+          "applies_mode": true,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "curtain": {
+          "name": "闭幕回场",
+          "coef": 2.8,
+          "break_points": 2,
+          "cost": {
+            "expectation": 40
+          },
+          "gain": {},
+          "concerto": 20,
+          "requires": "blue",
+          "effect": "denia_red",
+          "applies_mode": true,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        }
+      },
+      "asset_notes": "开幕的80点转为形态储能而非返还可循环开幕；切换需行动。蓝普通攻击系数1.45、消耗20、不产生期待；蓝储能不足20自动返红且清余量，不回复资源。红蓝非皮肤。",
+      "form_exit": "After an action, blue resource <20 automatically returns red and clears residue. No free attack, heal, concerto, or resource on return.",
+      "baseline_weapon_contribution": {
+        "atk": 40
+      },
+      "reference_level": 20,
+      "recommended_entry_level": 24,
+      "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+      "passives": {
+        "kept": [
+          "Stagecraft/Breakdown forms separate from Fusion/Strain mode",
+          "status-focused followup"
+        ],
+        "merged": [
+          "Dark Star/Particle/Conformal pools into typed phase resource100"
+        ],
+        "not_adopted": [
+          "original 30-second field and all real-time interval procs",
+          "original passive stat bonuses",
+          "resonance-chain bonuses"
+        ]
+      }
+    },
+    "chisa": {
+      "name": "千咲",
+      "element": "havoc",
+      "weapon": "broadblade",
+      "hp": 2050,
+      "atk": 190,
+      "def": 150,
+      "speed": 100,
+      "primary": "thread",
+      "resources": {
+        "thread": 100
+      },
+      "form_start": "normal",
+      "outro": {
+        "amp": 0.15,
+        "special": "next_mode_status_damage_x1.25"
+      },
+      "intro": {
+        "primary_gain": 20
+      },
+      "skills": {
+        "basic": {
+          "name": "闭剪裁击",
+          "coef": 1.05,
+          "break_points": 1,
+          "cost": {},
+          "gain": {
+            "thread": 30
+          },
+          "concerto": 20,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "basic",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "cut": {
+          "name": "切开结点",
+          "coef": 1.4,
+          "break_points": 2,
+          "cost": {
+            "thread": 30
+          },
+          "gain": {},
+          "concerto": 20,
+          "effect": "cutline",
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "chainsaw": {
+          "name": "沿线断流",
+          "coef": 2.2,
+          "break_points": 2,
+          "cost": {
+            "thread": 60
+          },
+          "gain": {},
+          "concerto": 20,
+          "aoe": true,
+          "effect": "cutline",
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "mend": {
+          "name": "缝合界线",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {
+            "thread": 60
+          },
+          "gain": {},
+          "concerto": 15,
+          "target": "ally",
+          "heal_scale": 2.5,
+          "heal_flat": 130,
+          "barrier": 150,
+          "action_cost": 1,
+          "mastery_reference": 4,
+          "mastery_initial": 4,
+          "damage_class": "skill",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        },
+        "release": {
+          "name": "终线回响",
+          "coef": 2.8,
+          "break_points": 2,
+          "cost": {
+            "thread": 100
+          },
+          "gain": {},
+          "concerto": 25,
+          "aoe": true,
+          "team_heal_scale": 1.0,
+          "team_heal_flat": 80,
+          "action_cost": 1,
+          "mastery_reference": 3,
+          "mastery_initial": 3,
+          "damage_class": "liberation",
+          "cooldown_actions": 0,
+          "source_class": "original_project_adaptation"
+        }
+      },
+      "asset_notes": "电锯只在本行动；Pocky/饮料仅协奏视觉，不附加物品治疗；托手不生盾。",
+      "baseline_weapon_contribution": {
+        "atk": 40
+      },
+      "reference_level": 20,
+      "recommended_entry_level": 23,
+      "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+      "passives": {
+        "kept": [
+          "Havoc broadblade",
+          "scissors/chainsaw motif",
+          "healing/shield/status support via explicit skills"
+        ],
+        "merged": [
+          "chainsaw duration into one committed action",
+          "status-cap expansion/DEF ignore into bounded status amplifier"
+        ],
+        "not_adopted": [
+          "movement Line100",
+          "heat sustain simulation",
+          "unlisted automatic healing or survival passives",
+          "resonance-chain bonuses"
+        ]
+      }
+    }
+  },
+  "enemies": {
+    "snip": {
+      "name": "咔嚓嚓",
+      "original_english": "Snip Snap",
+      "rank": "common",
+      "element": "fusion",
+      "hp": 640,
+      "atk": 230,
+      "def": 70,
+      "speed": 95,
+      "shield": 2,
+      "weak_elements": [
+        "spectro",
+        "havoc"
+      ],
+      "weak_weapons": [
+        "sword",
+        "rectifier"
+      ],
+      "resist": {
+        "fusion": 0.8
+      },
+      "pattern": [
+        "bite",
+        "spit"
+      ],
+      "skills": {
+        "bite": {
+          "name": "扑咬",
+          "coef": 1.0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        },
+        "spit": {
+          "name": "热团喷吐",
+          "coef": 1.35,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        }
+      },
+      "taunt": "next single target locked; next damage x1.15",
+      "negotiation": false
+    },
+    "predator": {
+      "name": "惊蛰猎手",
+      "original_english": "Electro Predator",
+      "rank": "common",
+      "element": "electro",
+      "hp": 560,
+      "atk": 240,
+      "def": 65,
+      "speed": 115,
+      "shield": 3,
+      "weak_elements": [
+        "fusion",
+        "havoc"
+      ],
+      "weak_weapons": [
+        "broadblade"
+      ],
+      "resist": {
+        "electro": 0.8
+      },
+      "pattern": [
+        "shot",
+        "aim",
+        "aimed"
+      ],
+      "skills": {
+        "shot": {
+          "name": "雷矢",
+          "coef": 1.0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        },
+        "aim": {
+          "name": "引弦瞄准",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "effect": "aim"
+        },
+        "aimed": {
+          "name": "惊蛰贯射",
+          "coef": 2.2,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        }
+      },
+      "taunt": "redirect next shot, including committed aim; next damage x1.15",
+      "negotiation": false
+    },
+    "bracer": {
+      "name": "坚岩斗士",
+      "original_english": "Stonewall Bracer",
+      "rank": "elite",
+      "element": "physical",
+      "hp": 2850,
+      "atk": 350,
+      "def": 180,
+      "speed": 80,
+      "shield": 6,
+      "weak_elements": [
+        "fusion",
+        "spectro"
+      ],
+      "weak_weapons": [
+        "rectifier"
+      ],
+      "resist": {
+        "physical": 0.8
+      },
+      "pattern": [
+        "smash",
+        "brace",
+        "charge",
+        "rush"
+      ],
+      "skills": {
+        "smash": {
+          "name": "岩拳",
+          "coef": 1.25,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        },
+        "brace": {
+          "name": "架岩",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "effect": "brace"
+        },
+        "charge": {
+          "name": "沉肩蓄力",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "effect": "charge"
+        },
+        "rush": {
+          "name": "岩躯冲压",
+          "coef": 2.5,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        }
+      },
+      "taunt": "next single target locked, next damage x1.15; does not remove brace",
+      "negotiation": false
+    },
+    "carapace": {
+      "name": "车刃镰",
+      "original_english": "Carapace (旧英名 Chaserazor)",
+      "rank": "elite",
+      "element": "aero",
+      "hp": 2500,
+      "atk": 330,
+      "def": 115,
+      "speed": 112,
+      "shield": 5,
+      "weak_elements": [
+        "fusion",
+        "havoc"
+      ],
+      "weak_weapons": [
+        "pistols"
+      ],
+      "resist": {
+        "aero": 0.8
+      },
+      "pattern": [
+        "slash",
+        "charge",
+        "spin"
+      ],
+      "skills": {
+        "slash": {
+          "name": "镰爪挥击",
+          "coef": 1.25,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        },
+        "charge": {
+          "name": "收刃蓄转",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "effect": "charge"
+        },
+        "spin": {
+          "name": "轮刃回旋",
+          "coef": 1.5,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "aoe": true
+        }
+      },
+      "taunt": "single slash can redirect x1.15; spin stays AOE, no taunt effect displayed",
+      "negotiation": false
+    },
+    "crownless": {
+      "name": "无冠者",
+      "original_english": "Crownless",
+      "rank": "boss",
+      "element": "havoc",
+      "hp": 7200,
+      "atk": 440,
+      "def": 160,
+      "speed": 108,
+      "shield": 8,
+      "weak_elements": [
+        "spectro",
+        "fusion"
+      ],
+      "weak_weapons": [
+        "sword",
+        "pistols"
+      ],
+      "resist": {
+        "havoc": 0.8
+      },
+      "phase_hp_fraction": 0.6,
+      "phase2_shield": 10,
+      "phase2_attack_multiplier": 1.2,
+      "pattern": [
+        "spear",
+        "sweep",
+        "charge",
+        "descent"
+      ],
+      "skills": {
+        "spear": {
+          "name": "无冠连槊",
+          "coef": 1.5,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20
+        },
+        "sweep": {
+          "name": "羽锋横扫",
+          "coef": 1.1,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "aoe": true
+        },
+        "wingpulse": {
+          "name": "展翼震荡",
+          "coef": 1.6,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "aoe": true
+        },
+        "charge": {
+          "name": "升空蓄势",
+          "coef": 0,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "effect": "charge"
+        },
+        "descent": {
+          "name": "坠空裁决",
+          "coef": 2.15,
+          "break_points": 0,
+          "cost": {},
+          "gain": {},
+          "concerto": 20,
+          "aoe": true
+        }
+      },
+      "phase_rule": "phase transition queues wingpulse for next ordinary enemy slot, no extra action; cross threshold marks pending; after break recovery or next round start, preserve HP/shield progress; new shield max used on next natural recovery; no extra action, no cleanse, no HP gate",
+      "taunt": "next single target locked x1.15; AOE unaffected",
+      "negotiation": false
+    }
+  },
+  "encounters": {
+    "normal": [
+      "snip",
+      "snip",
+      "predator"
+    ],
+    "elite_humanoid": [
+      "bracer",
+      "snip"
+    ],
+    "elite_nonhumanoid": [
+      "carapace",
+      "predator"
+    ],
+    "boss": [
+      "crownless"
+    ]
+  },
+  "statuses": {
+    "tune": {
+      "name": "战术谐标",
+      "max_stacks": 1,
+      "expires": "end next round",
+      "trigger": "next direct weakness hit by another living ally",
+      "effect": "one bonus shield point within action cap and status damage coef 0.5 from marker owner; cannot recurse",
+      "original_conversion": "Aemeath Tune Rupture and Denia Strain are intentionally merged into this one-slot project marker; original mechanisms remain distinct in source notes."
+    },
+    "fusion": {
+      "name": "聚爆",
+      "max_stacks": 3,
+      "expires": "end 3rd round after last application",
+      "trigger": "reach 3 stacks",
+      "effect": "consume 3, status damage coef 0.9 from triggering actor; no shield/concerto/resource generation"
+    },
+    "cutline": {
+      "name": "裁线",
+      "max_stacks": 1,
+      "expires": "after target next 2 completed normal actions OR end of application round +3, whichever first",
+      "effect": "status damage x1.25; target attack x0.85; refresh not stack"
+    },
+    "barrier": {
+      "max_total": "25% recipient max HP",
+      "expires": "end next round",
+      "stack": "keep max(existing,new), no additive refresh"
+    },
+    "field": {
+      "name": "定标场",
+      "expires": "end next round",
+      "damage_amp": 0.15,
+      "damage_taken_multiplier": 0.9,
+      "stack": "strongest only",
+      "damage_amp_scope": "direct normal-action damage packets only"
+    },
+    "encourage": {
+      "name": "鼓舞",
+      "expires": "next damaging normal action, no later than end next round",
+      "damage_amp": 0.25,
+      "stack": "same channel as concerto, strongest only",
+      "resource_gain": 0,
+      "concerto_gain": 0
+    },
+    "guard": {
+      "expires": "start of owner next normal-action opportunity before any command, including wait; or end next round",
+      "damage_taken_multiplier": 0.5,
+      "gain": 0
+    },
+    "aim": {
+      "name": "瞄准",
+      "expires": "until hunter next normal action",
+      "effect": "next 2.2x shot; break cancels; dead target selects lowest slot alive; taunt may redirect before shot"
+    },
+    "brace": {
+      "name": "岩架",
+      "expires": "start of bracer next normal action",
+      "damage_taken_multiplier": 0.7,
+      "effect": "one retaliation 0.8x against first non-weakness direct attack, no recursion"
+    },
+    "charge": {
+      "name": "蓄势",
+      "expires": "until next normal action",
+      "effect": "telegraphed strong attack; break cancels; no repeated free charging"
+    },
+    "status_outro": {
+      "max_stacks": 1,
+      "damage_amp": 0.25,
+      "expires": "next qualifying status damage by recipient OR end of grant round+2",
+      "stack": "strongest only; direct attacks never consume it"
+    }
+  },
+  "generic_skills": {
+    "pry": {
+      "name": "撬防",
+      "coef": 0.7,
+      "break_points": 1,
+      "cost": {},
+      "gain": {
+        "primary": 25
+      },
+      "concerto": 10,
+      "universal_break": true
+    },
+    "guard": {
+      "name": "防御",
+      "coef": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "effect": "guard",
+      "target": "self"
+    },
+    "encourage": {
+      "name": "鼓舞",
+      "coef": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "target": "other_ally",
+      "effect": "encourage"
+    },
+    "taunt": {
+      "name": "挑衅",
+      "coef": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "target": "enemy",
+      "effect": "enemy_specific"
+    },
+    "retreat": {
+      "name": "撤离",
+      "coef": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "target": "self",
+      "effect": "retreat"
+    },
+    "wait": {
+      "name": "等待",
+      "normal_action_consumed": false,
+      "max_per_round": 1,
+      "queue": "tail_fifo"
+    },
+    "negotiate": {
+      "name": "协商",
+      "enabled_for_selected_enemies": false,
+      "invalid_precheck_consumes_action": false
+    }
+  },
+  "growth": {
+    "status": "推荐；此批战斗基线已启用完整技能，无声骸/传统装备选择预设",
+    "level_formula": "HP=round(HP20*(0.5+0.025*L)); intrinsic ATK/DEF=round(base20*(0.6+0.02*L)); speed fixed",
+    "baseline_weapon": "Every character except Mornye includes ATK40 at weapon level20; Mornye includes DEF30. Final stat=round((stat20-W20)*(0.6+0.02*L)+W20*(0.6+0.02*weapon_level)); round only once after summing. Simulation matched-level uses same-level standardized weapon.",
+    "mastery": {
+      "per_skill_range": [
+        0,
+        5
+      ],
+      "damage_and_heal_multiplier": "(1+0.02*current_mastery)/(1+0.02*skill_mastery_reference)",
+      "max_novice_to_master_gain": 0.1,
+      "no_change": [
+        "resource_gain",
+        "cost",
+        "shield_points",
+        "speed",
+        "duration",
+        "concerto",
+        "barrier"
+      ],
+      "baseline": "per skill 3 or 4, not uniformly 0; listed coefficient already includes this reference mastery",
+      "progress": "effective use in a meaningful encounter +1 XP per skill, at most once per encounter; story-confirmed training +5 per unique session; meaningful stage completion with that skill +3 once per encounter; thresholds total 0/10/30/60/100/150. Repeated trivial fights alone do not authorize mastery promotion; training or significant experience flag also required. New learned skills may start at 0; no automatic signature-skill amnesia."
+    },
+    "optional_weapon_upgrade_limit": "Current branch supports weapon stat only. Grade/affixes/equipment system unresolved; any future extra combat-stat contribution beyond standardized weapon must stay within +15% primary stat until separately retested.",
+    "new_skills": "No untested new skill is promised. Story-unlock schedule and experience economy are outside this balance batch; baseline20 roster is treated as fully learned. Level1/10/40/60 tests are matched-level arithmetic stress tests with same unlocked kit, not validated progression pacing."
+  },
+  "passive_conversion": {
+    "amy": {
+      "kept": [
+        "two form shared HP/action",
+        "sync-resonance two-pool cycle"
+      ],
+      "merged": [
+        "short liberation-mode gating into resource skill actions"
+      ],
+      "not_adopted": [
+        "original crit damage/heavy-attack passive multipliers",
+        "exploration Starflux",
+        "resonance-chain bonuses",
+        "original separate liberation energy pool"
+      ]
+    },
+    "lynae": {
+      "kept": [
+        "spectro pistol identity",
+        "skating break setup and targeted outro"
+      ],
+      "merged": [
+        "Overflow/Radiance/True Color three-stage short rotation into color100"
+      ],
+      "not_adopted": [
+        "original passive damage/stat enhancements",
+        "original free aerial movement or repeated hits",
+        "resonance-chain bonuses"
+      ]
+    },
+    "mornye": {
+      "kept": [
+        "DEF-oriented support",
+        "normal-action healing and field decisions"
+      ],
+      "merged": [
+        "Rest Mass/Relative Momentum into calibration100"
+      ],
+      "not_adopted": [
+        "original lethal-hit protection passive",
+        "real-time periodic free healing",
+        "original separate liberation energy pool",
+        "resonance-chain bonuses"
+      ]
+    },
+    "denia": {
+      "kept": [
+        "Stagecraft/Breakdown forms separate from Fusion/Strain mode",
+        "status-focused followup"
+      ],
+      "merged": [
+        "Dark Star/Particle/Conformal pools into typed phase resource100"
+      ],
+      "not_adopted": [
+        "original 30-second field and all real-time interval procs",
+        "original passive stat bonuses",
+        "resonance-chain bonuses"
+      ]
+    },
+    "chisa": {
+      "kept": [
+        "Havoc broadblade",
+        "scissors/chainsaw motif",
+        "healing/shield/status support via explicit skills"
+      ],
+      "merged": [
+        "chainsaw duration into one committed action",
+        "status-cap expansion/DEF ignore into bounded status amplifier"
+      ],
+      "not_adopted": [
+        "movement Line100",
+        "heat sustain simulation",
+        "unlisted automatic healing or survival passives",
+        "resonance-chain bonuses"
+      ]
+    }
+  },
+  "damage_packet_order": [
+    "validate actor/target/form/cost before mutation",
+    "snapshot broken state per target; spend resource",
+    "direct aggregated packet for each target",
+    "shield reduction with per-action per-target budget",
+    "one tune response and/or bounded fusion status packet using same pre-action broken snapshot",
+    "apply new marks and explicit skill effects",
+    "grant resource/concerto at most once if effective",
+    "resolve form return, KO cleanup and result; no status packet recursively starts another action"
+  ],
+  "metadata": {
+    "primary_design_status": "candidate_for_review",
+    "simulation_scope": "rules surrogate only, no game UI or SillyTavern integration",
+    "live_game_source_version": "mixed release-specific official pages plus unversioned community databases accessed 2026-10-09; not certified latest game build",
+    "test_core": "fixed speeds, known weaknesses, no crit or misses, zero battle resources, normal HP scenarios separately labeled"
+  }
+}

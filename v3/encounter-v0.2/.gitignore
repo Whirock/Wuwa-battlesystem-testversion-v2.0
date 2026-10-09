@@ -1,0 +1,4 @@
+node_modules/
+tests/independent/v02/fixtures/qa_oversize.png
+__pycache__/
+*.pyc

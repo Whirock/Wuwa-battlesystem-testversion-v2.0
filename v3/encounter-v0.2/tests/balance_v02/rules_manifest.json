@@ -1,0 +1,23 @@
+{
+  "parameter_version": "0.2.0-candidate",
+  "verification": "63 unit/stress tests; 144 deterministic matrix cases; natural charge counterplay branches; supplemental reactive challenge policy. Not a human or real-browser playtest.",
+  "files": {
+    "engine.js": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+    "parameters.json": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873",
+    "parameters.js": "5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70",
+    "tests/engine.test.cjs": "1ab9f855389e20e20f074a848972229065d6ccd0bd1f99a5fe939325d4c9cce0",
+    "tests/balance_v02/baseline_regression.txt": "fc0a026b32fbe9f9aa845beb8a1d2d17bef9781b75694366906208eefa50eb1c",
+    "tests/balance_v02/baseline_results.json": "4b6843e1b115cb12c5a8ed6f6fc7d76c5b412056415da8fd6c0138a4e3c78555",
+    "tests/balance_v02/benchmark_v02.cjs": "bf3f991ed8653613618c678a175443d1fa4df047b04268679245fdd72462823c",
+    "tests/balance_v02/benchmark_v02_boss_logs.json": "696cdd6c10905dc03f1f8efbf024c8bdc19f6c74ed2991d41dabac69808fd191",
+    "tests/balance_v02/benchmark_v02_results.json": "3f8088618096c963dbde77851c190595db6265196f635d44d94ab70d2c7d5cb9",
+    "tests/balance_v02/charge_choice_results.json": "d8031b3e17df639472150fde88c7d9577e530ac60558347998265e8cae0a40b9",
+    "tests/balance_v02/charge_choices.cjs": "1614b10534f4097f56b480ebc4f553dc185c73eb6cc934c027e9ca7f263355cf",
+    "tests/balance_v02/charge_counterplay.cjs": "61453ee033e21c0abf1e7739d7eff86cd900909f9468eabd68ba5a4a09b16201",
+    "tests/balance_v02/charge_counterplay_results.json": "91596585ccbd243d0bff355b9b3cd6025004cf485fd98f84c703c1ec7424f2de",
+    "tests/balance_v02/reactive_policy.cjs": "321532fed7e8b35bc828d07448aaee99483265f53ae16fc4e635fa138e7e5223",
+    "tests/balance_v02/reactive_policy_results.json": "2aeece6022277752c651869a68c0ff426a6962ebde9450b21eab08c0e5b6c963",
+    "tests/balance_v02/regression_v02.txt": "978955d964b0161502ff0893382a0b6466abb2cf3c5aba42b7ebb8058bccf282",
+    "tests/balance_v02/战斗设计与数值验证_v0.2.0.md": "5559460bdf8ca84798551fd860c62325bed7ba95f8191dee74683fdda8fbffe9"
+  }
+}

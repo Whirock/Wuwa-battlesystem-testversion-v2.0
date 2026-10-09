@@ -1,0 +1,66 @@
+{
+  "verified_at": "2026-10-09T08:00:01.744376+00:00",
+  "scope": "Public GitHub source snapshot after presentation metadata sanitization",
+  "runtime_preserved": {
+    "files": [
+      "index.html",
+      "style.css",
+      "app.js",
+      "engine.js",
+      "storage.js",
+      "parameters.js"
+    ],
+    "count": 6,
+    "parameter_json": true,
+    "png_files": 89,
+    "all_match_original_delivery": true
+  },
+  "presentation_metadata_sanitized": [
+    "release-notes.js",
+    "assets.js"
+  ],
+  "tests_rerun": {
+    "rule_unit_tests": {
+      "passed": 63,
+      "failed": 0
+    },
+    "independent_rule_groups": {
+      "passed": 12,
+      "failed": 0
+    },
+    "dom_event_integration": {
+      "passed": 29,
+      "failed": 0,
+      "environment": "jsdom; simulated Canvas/media/clock/IndexedDB"
+    },
+    "metadata_and_queue": {
+      "passed": 3,
+      "failed": 0
+    },
+    "public_assets_and_mapping": {
+      "passed": 4,
+      "failed": 0
+    },
+    "roster_matrix": {
+      "cases": 360,
+      "per_action_restores": 11825,
+      "outcomes": {
+        "win": 263,
+        "loss": 94,
+        "inconclusive": 3
+      }
+    },
+    "bounded_progress": "Rerun; legal progress/retreat confirmed, original 60-round results unchanged"
+  },
+  "public_scan": "No absolute private paths, private feedback/Library/deployment IDs, private preview URLs, credentials or hosting configuration included.",
+  "historical_evidence": "Original delivered ZIP passed 7/7 packaging checks before this public-source adaptation. Its ZIP hash is provenance only, not a hash of this public snapshot.",
+  "not_verified": [
+    "Real browser visual rendering and responsive layout",
+    "Actual image/audio codec and playback behavior",
+    "Windows double-click launch"
+  ],
+  "tools": {
+    "node": "24.19.0",
+    "python": "3.12.14"
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "schema": "encounter-release-log-v1",
+  "project": "鸣潮回合制遭遇演算",
+  "entries": [
+    {
+      "version": "0.1.0-candidate",
+      "stage": "v0.1已交付",
+      "time": "2026-10-09T05:18:29Z",
+      "summary": "可运行离线测试候选及仅本人私有网页；1–4友方，89张图像，完整战斗与本地素材工作台。",
+      "evidence": {
+        "selfTests": "40/40",
+        "independentRules": "48/48",
+        "domEventIntegration": "20/20",
+        "restores": 9178,
+        "zipSHA256": "11c8c44dc5d66083097ecfe51084daa1986bbb7c371b144430b8c9c7d0f8cd03"
+      },
+      "limitations": [
+        "未验证真实浏览器视觉/音频播放/Windows双击",
+        "DB03原图中间Alpha保留",
+        "所有锚点为可调视觉候选"
+      ],
+      "stageKey": "delivered"
+    },
+    {
+      "version": "0.2.0-candidate",
+      "stage": "收到反馈并冻结基线",
+      "time": "2026-10-09T07:05:00Z",
+      "requested": [
+        "移除底部技能栏，行动者旁浮动六项菜单：战斗、技能、防御、道具、交涉、逃跑",
+        "选中/焦点/悬停显示具体效果",
+        "当前、本轮、下轮头像行动条，条上不展示名字和速度",
+        "难度选择；精英1–2特殊技，头目2–3特殊技及蓄力预警/对策",
+        "改善队伍联动、增益差异与协奏可达性",
+        "每次交付、后续反馈及实现验证持续记录"
+      ],
+      "decisions": [
+        "保留敌左朝右、友右朝左和禁镜像",
+        "保留素材工作台、本地导入不外传、完整离线运行",
+        "UI布局重写；规则通过公共行动API对接；不加入完整经济系统",
+        "同一私有试玩网页更新，同交付记录离线包更新版本"
+      ],
+      "implementation": {
+        "status": "in_progress",
+        "baselineVerified": true,
+        "filesPlanned": [
+          "index.html",
+          "style.css",
+          "app.js",
+          "engine.js",
+          "parameters.json",
+          "parameters.js",
+          "tests/",
+          "版本记录.json"
+        ]
+      },
+      "validation": {
+        "baselineCoreFiles": "与已交付试玩网页七核心文件字节一致"
+      },
+      "remaining": [
+        "UI与规则方案待集成",
+        "新版本测试待执行",
+        "真实浏览器能力重新检查，若仍不支持将保留验证边界"
+      ],
+      "stageKey": "feedback_received_and_baseline_frozen"
+    },
+    {
+      "version": "0.2.0-candidate",
+      "stage": "界面与规则接口集成",
+      "time": "2026-10-09T07:16:00Z",
+      "analysisEvidence": [
+        "已实际查看用户1366×768参考图；当前大头像、本轮/下轮小头像、角色旁竖菜单、右侧资源栏互相独立。",
+        "旧版266px常驻指令区压缩720p舞台，当前已删除该底栏节点。",
+        "旧版默认队伍对头目自动战实测7轮、约99.49%剩余生命，仅普通单体/横扫/蓄力各1次，特殊动作暴露不足。",
+        "旧版协奏第5轮可满，但自动行动会立即代为消耗，不利于观察满条与手动交接。"
+      ],
+      "decisions": [
+        "改为角色身体接地锚点旁六菜单；子菜单替换父层，确认前不耗费。",
+        "统一悬停/键盘焦点/选中说明；不可用技能可聚焦阅读禁用原因。",
+        "采用显式头像裁切候选，不以武器/翼展外框缩略；仍不修改源PNG。",
+        "加入轻松/标准/挑战三难度及有限测试道具，不加入经济。",
+        "旧v0.1战局不沿用新平衡；导入仍保留背景/动作/音频/校准与编队，明确提示新开场。"
+      ],
+      "implementation": {
+        "status": "in_progress",
+        "files": [
+          "index.html",
+          "style.css",
+          "app.js",
+          "engine.js",
+          "parameters.json",
+          "parameters.js",
+          "release-notes.js"
+        ],
+        "completed": [
+          "底部技能栏移除",
+          "六分类浮动菜单、确认/取消流程",
+          "hover/focus/selection详情",
+          "头像当前/本轮/下轮预计结构",
+          "难度选择与预警API接入",
+          "道具库存与手动协奏入口",
+          "版本记录次级入口",
+          "旧素材兼容与旧战局提示"
+        ],
+        "notYetFinal": [
+          "战斗数值仍在独立试算迭代",
+          "新版独立QA未结束",
+          "最终包与试玩网页尚未更新"
+        ]
+      },
+      "validation": {
+        "localSmoke": "真实HTML/JS在jsdom启动无异常；六菜单顺序、难度选择、聚焦不足资源技能、道具库存显示已实际执行。非真实浏览器。",
+        "browserCapability": "本轮新环境重查，Chromium启动仍因socket EPERM失败；网页预览受支持预览设施不可用。"
+      },
+      "remaining": [
+        "确认最终规则与量化结果",
+        "完成v0.2独立DOM/引擎回归",
+        "真实浏览器视觉、音频、Windows启动仍未验证"
+      ],
+      "stageKey": "ui_and_rule_api_integrated"
+    },
+    {
+      "version": "0.2.0-candidate",
+      "stageKey": "verified_ready_for_release",
+      "stage": "实现完成，验证通过，等待发布回执",
+      "time": "2026-10-09T07:27:00Z",
+      "summary": "本次六项反馈均有对应实现与验证记录。程序核心已冻结；真实浏览器视觉/音频/Windows启动仍待验。",
+      "feedbackTrace": [
+        {
+          "request": "移除底栏，角色旁固定六项菜单",
+          "implemented": "删除底部命令节点；角色接地/身体锚点跟随浮层，子菜单、目标、确认、逐级返回",
+          "files": [
+            "index.html",
+            "app.js:renderActions/positionOverlays",
+            "style.css:.actor-command"
+          ],
+          "verified": "DOM六菜单顺序、重复确认、键盘、菜单清理、四遭遇手动通关；视觉/碰撞待实机"
+        },
+        {
+          "request": "hover/focus/选中详细效果",
+          "implemented": "同一说明面板显示目标/资源/协奏/持续/冷却/禁用原因；用引擎healingPreview显示当前等级治疗",
+          "files": [
+            "app.js:inspectAction",
+            "engine.js:availableActions/availableConcertos"
+          ],
+          "verified": "禁用技能可聚焦、每人协奏具体通道、不同等级元数据；真实焦点观感待验"
+        },
+        {
+          "request": "头像行动条",
+          "implemented": "当前大头像、本轮剩余、下轮预计；明确裁切rect与本地覆盖图一致；可调头像框",
+          "files": [
+            "app.js:renderQueue/drawPortraits",
+            "style.css:.portrait-token"
+          ],
+          "verified": "queuePreview纯读/等待后移/自然形态头像映射；头像像素观感待验"
+        },
+        {
+          "request": "难度、精英/Boss特殊技与蓄力",
+          "implemented": "轻松/标准/挑战；攻击/盾/HP及轮转/目标策略；预警/反制详情；蓄力确实兑现或被打断",
+          "files": [
+            "parameters.json:difficulties/enemies",
+            "engine.js:enemyIntent/stepEnemy",
+            "app.js:renderTacticalNotice"
+          ],
+          "verified": "360阵容×遭遇×难度格、合法guard暴露特殊技、自然蓄力反制分支；真人手感待验"
+        },
+        {
+          "request": "队伍联动、增益差异、协奏可达",
+          "implemented": "改进标记接力与支援收益；各角色延奏通道分离；满100默认不自动消费；新增有限修复/净化测试物品",
+          "files": [
+            "parameters.json:characters/statuses/generic_skills",
+            "engine.js:concerto",
+            "app.js:skills菜单"
+          ],
+          "verified": "标准Boss第4轮自然满条、DOM12轮9次手动协奏；有/无协奏对照与资源/减伤/异常收益记录"
+        },
+        {
+          "request": "每次交付/反馈/实现/验证持续总结",
+          "implemented": "冻结v0.1，保留历史参数/说明/证据；版本JSON、可读总结、UI分析与数值报告、次级版本入口",
+          "files": [
+            "版本记录.json",
+            "版本变更总结.txt",
+            "docs/",
+            "history/",
+            "release-notes.js"
+          ],
+          "verified": "交付记录记录已分阶段保存，最终包附源与结果；后续同记录续写"
+        }
+      ],
+      "validation": {
+        "ruleSelfTests": "63/63",
+        "independentRuleGroups": "12/12",
+        "rosterCases": 360,
+        "rosterOutcomes": {
+          "win": 263,
+          "loss": 94,
+          "inconclusive": 3
+        },
+        "perActionRestores": 11825,
+        "domEventTests": "29/29",
+        "assetTests": "4/4",
+        "metadataQueueChecks": "3/3",
+        "sourceUnchanged": true,
+        "appSHA256": "6e5cba4b3a006abcb1c38cd93b9d924515aba63c4b1171bd5e9d6bb44bd1085e",
+        "engineSHA256": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26"
+      },
+      "limitations": [
+        "上述DOM为jsdom/fake-indexeddb及媒体Canvas模拟，不是实机浏览器",
+        "本轮Chromium启动实探仍socket EPERM，受支持网页预览预览设施不可用",
+        "无真实截图；用户参考图不属于本程序截图/素材",
+        "3个矩阵未决格未强行判为胜败",
+        "头像/接地锚点/描边及小屏布局需要实际设备复核",
+        "旧v0.1战局不迁移新数值，素材项目兼容并明确提示"
+      ]
+    },
+    {
+      "version": "0.2.0-candidate",
+      "stageKey": "private_site_published_and_offline_bound",
+      "stage": "原私有站点已更新，离线核心字节一致",
+      "time": "2026-10-09T07:32:05.697195+00:00",
+      "verified": {
+        "runtime_files": 8,
+        "png_assets": 89,
+        "match_site_dist": true
+      },
+      "pending": "交付记录离线包/报告/可读总结同ID替换在本条之后完成，以交付记录版本记录为准",
+      "limitations": [
+        "网页成功发布不等于浏览器验收",
+        "release-notes.js保留发布前的已验快照；本JSON追加实际发布回执"
+      ]
+    }
+  ]
+}

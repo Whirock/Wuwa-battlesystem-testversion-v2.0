@@ -1,0 +1,46 @@
+{
+  "core": [
+    {
+      "path": "index.html",
+      "size": 8455,
+      "sha256": "c615bba1b118f4d20b4fa45eb1fed86f74a2f2bf2af87ce8f053f3e03159ab62"
+    },
+    {
+      "path": "style.css",
+      "size": 19221,
+      "sha256": "15f404faf491cb7c158313e6a41f0a9d72e8146159fbfb197c0d86b58c83e0c7"
+    },
+    {
+      "path": "app.js",
+      "size": 54682,
+      "sha256": "8562af6d0f0606efcd9e7ce2b55eddebd6068072f27bc3e9bc43b01038dbd1e4"
+    },
+    {
+      "path": "engine.js",
+      "size": 41272,
+      "sha256": "c84e2061b75ff9956a10b85a1b8ecba4019d081f0711ebef2d92423d7ae482c9"
+    },
+    {
+      "path": "storage.js",
+      "size": 1789,
+      "sha256": "c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217"
+    },
+    {
+      "path": "parameters.js",
+      "size": 27147,
+      "sha256": "192b6317aeeb3d1cf716e7df762dc4c719f776a86840be6688d601ec3c2f27df"
+    },
+    {
+      "path": "parameters.json",
+      "size": 39355,
+      "sha256": "de8fbf2be81ac78568813832626b5791a4b06186a932866be57fe93eed3f05f0"
+    },
+    {
+      "path": "assets.js",
+      "size": 218728,
+      "sha256": "65a6390a6b0f688d1061facbd096d1b9329a6947b12222f87cfb9c47e7e9d731"
+    }
+  ],
+  "assetCount": 89,
+  "externalRuntimeDependencies": []
+}

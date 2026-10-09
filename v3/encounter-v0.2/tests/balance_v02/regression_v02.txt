@@ -1,0 +1,389 @@
+TAP version 13
+# Seeded stress: 1000 battles, 46834 legal normal actions, all five characters.
+# Subtest: CommonJS and browser export the same constructor API
+ok 1 - CommonJS and browser export the same constructor API
+  ---
+  duration_ms: 21.286765
+  type: 'test'
+  ...
+# Subtest: constructor enforces 1–4 unique allies, encounter and level; params stay unmodified
+ok 2 - constructor enforces 1–4 unique allies, encounter and level; params stay unmodified
+  ---
+  duration_ms: 54.19678
+  type: 'test'
+  ...
+# Subtest: start is idempotent; constructor does not execute actions; inspect methods have no side effects
+ok 3 - start is idempotent; constructor does not execute actions; inspect methods have no side effects
+  ---
+  duration_ms: 18.465499
+  type: 'test'
+  ...
+# Subtest: fixed speed order, ally tie priority, and FIFO wait retain exactly one token
+ok 4 - fixed speed order, ally tie priority, and FIFO wait retain exactly one token
+  ---
+  duration_ms: 42.354861
+  type: 'test'
+  ...
+# Subtest: normal actions cannot run an ally twice or execute enemy attacks implicitly
+ok 5 - normal actions cannot run an ally twice or execute enemy attacks implicitly
+  ---
+  duration_ms: 9.499942
+  type: 'test'
+  ...
+# Subtest: every invalid action is atomic and includes Chinese disabled reasons
+ok 6 - every invalid action is atomic and includes Chinese disabled reasons
+  ---
+  duration_ms: 31.599609
+  type: 'test'
+  ...
+# Subtest: legal targets respect ally, other ally, self, enemy, KO and retreat
+ok 7 - legal targets respect ally, other ally, self, enemy, KO and retreat
+  ---
+  duration_ms: 6.704515
+  type: 'test'
+  ...
+# Subtest: effective action gains once per AOE, overheal grants nothing, resources capped
+ok 8 - effective action gains once per AOE, overheal grants nothing, resources capped
+  ---
+  duration_ms: 9.702178
+  type: 'test'
+  ...
+# Subtest: healing cannot resurrect and rejected KO-target heals are mutation free
+ok 9 - healing cannot resurrect and rejected KO-target heals are mutation free
+  ---
+  duration_ms: 15.658173
+  type: 'test'
+  ...
+# Subtest: KO clears resources, form, buffs, concerto, and owner-dependent enemy markers
+ok 10 - KO clears resources, form, buffs, concerto, and owner-dependent enemy markers
+  ---
+  duration_ms: 5.623064
+  type: 'test'
+  ...
+# Subtest: weakness is element OR weapon; repeated shield packets share a 3 point action budget
+ok 11 - weakness is element OR weapon; repeated shield packets share a 3 point action budget
+  ---
+  duration_ms: 5.106194
+  type: 'test'
+  ...
+# Subtest: pry plus tune remains exactly one shield, with separate status damage
+ok 12 - pry plus tune remains exactly one shield, with separate status damage
+  ---
+  duration_ms: 5.154873
+  type: 'test'
+  ...
+# Subtest: breaking packet and same-action status use action-start multiplier, following action gets 1.5x
+ok 13 - breaking packet and same-action status use action-start multiplier, following action gets 1.5x
+  ---
+  duration_ms: 6.440554
+  type: 'test'
+  ...
+# Subtest: break lasts through r+1, skips enemy, restores r+2 and protects elite until real action
+ok 14 - break lasts through r+1, skips enemy, restores r+2 and protects elite until real action
+  ---
+  duration_ms: 9.839247
+  type: 'test'
+  ...
+# Subtest: Amy alternate route reaches finisher and form/resource pools remain shared
+ok 15 - Amy alternate route reaches finisher and form/resource pools remain shared
+  ---
+  duration_ms: 17.8512
+  type: 'test'
+  ...
+# Subtest: Denia blue entries 80/90/100 have legal exits; blue basic uses override cost/gain
+ok 16 - Denia blue entries 80/90/100 have legal exits; blue basic uses override cost/gain
+  ---
+  duration_ms: 12.025882
+  type: 'test'
+  ...
+# Subtest: concerto paid, personal, once per round, no turn used, intro capped per recipient
+ok 17 - concerto paid, personal, once per round, no turn used, intro capped per recipient
+  ---
+  duration_ms: 9.354251
+  type: 'test'
+  ...
+# Subtest: concerto rejects self in multi-party and rejects enemy, KO, retreat, enemy-window targets
+ok 18 - concerto rejects self in multi-party and rejects enemy, KO, retreat, enemy-window targets
+  ---
+  duration_ms: 9.475067
+  type: 'test'
+  ...
+# Subtest: solo concerto grants half direct amp, with no intro or special channel
+ok 19 - solo concerto grants half direct amp, with no intro or special channel
+  ---
+  duration_ms: 1.890283
+  type: 'test'
+  ...
+# Subtest: strongest direct/extra channels preserved independently; field plus max direct/encourage
+ok 20 - strongest direct/extra channels preserved independently; field plus max direct/encourage
+  ---
+  duration_ms: 5.771377
+  type: 'test'
+  ...
+# Subtest: status-outro survives nonproc direct action, applies to delayed fusion, then consumes
+ok 21 - status-outro survives nonproc direct action, applies to delayed fusion, then consumes
+  ---
+  duration_ms: 9.955554
+  type: 'test'
+  ...
+# Subtest: recipient-owned tune can consume status-outro on later ally trigger
+ok 22 - recipient-owned tune can consume status-outro on later ally trigger
+  ---
+  duration_ms: 4.942393
+  type: 'test'
+  ...
+# Subtest: derived status packets generate no resources or concerto; cap status amp at +50%
+ok 23 - derived status packets generate no resources or concerto; cap status amp at +50%
+  ---
+  duration_ms: 1.639929
+  type: 'test'
+  ...
+# Subtest: guard halves damage, support mitigation bounded, barriers absorb without extra actions
+ok 24 - guard halves damage, support mitigation bounded, barriers absorb without extra actions
+  ---
+  duration_ms: 2.973954
+  type: 'test'
+  ...
+# Subtest: guard expires at next opportunity even when waiting, rather than lasting through wait
+ok 25 - guard expires at next opportunity even when waiting, rather than lasting through wait
+  ---
+  duration_ms: 2.128797
+  type: 'test'
+  ...
+# Subtest: braced enemy retaliation cancels when the same attack breaks it
+ok 26 - braced enemy retaliation cancels when the same attack breaks it
+  ---
+  duration_ms: 3.679953
+  type: 'test'
+  ...
+# Subtest: aim retains target; explicit taunt redirects committed single shot
+ok 27 - aim retains target; explicit taunt redirects committed single shot
+  ---
+  duration_ms: 4.795874
+  type: 'test'
+  ...
+# Subtest: breaking cancels charge or aim; missing charge never silently upgrades next hit
+ok 28 - breaking cancels charge or aim; missing charge never silently upgrades next hit
+  ---
+  duration_ms: 3.56887
+  type: 'test'
+  ...
+# Subtest: boss threshold marks pending only; announcement replaces a normal slot, no extra action
+ok 29 - boss threshold marks pending only; announcement replaces a normal slot, no extra action
+  ---
+  duration_ms: 5.839431
+  type: 'test'
+  ...
+# Subtest: survey reveals weaknesses; all explicit attack metadata suitable for UI animation
+ok 30 - survey reveals weaknesses; all explicit attack metadata suitable for UI animation
+  ---
+  duration_ms: 1.813328
+  type: 'test'
+  ...
+# Subtest: mastery ratio is applied once relative to nonzero reference
+ok 31 - mastery ratio is applied once relative to nonzero reference
+  ---
+  duration_ms: 3.112557
+  type: 'test'
+  ...
+# Subtest: retreat preserves HP, clears resource/marker/form, removes token, and is not victory/death
+ok 32 - retreat preserves HP, clears resource/marker/form, removes token, and is not victory/death
+  ---
+  duration_ms: 4.185319
+  type: 'test'
+  ...
+# Subtest: win, loss, partial escape and inconclusive are distinct; no timeout forced defeat
+ok 33 - win, loss, partial escape and inconclusive are distinct; no timeout forced defeat
+  ---
+  duration_ms: 21.850095
+  type: 'test'
+  ...
+# Subtest: snapshot restores exactly, random continuation is reproducible and snapshots detached
+ok 34 - snapshot restores exactly, random continuation is reproducible and snapshots detached
+  ---
+  duration_ms: 193.642703
+  type: 'test'
+  ...
+# Subtest: 16 v0.2 deterministic JS goldens retain explicit difficulty and automatic-concerto settings
+ok 35 - 16 v0.2 deterministic JS goldens retain explicit difficulty and automatic-concerto settings
+  ---
+  duration_ms: 116.681354
+  type: 'test'
+  ...
+# Subtest: 120 roster/encounter combinations and levels 1/10/20/40/60 finish or remain honestly inconclusive
+ok 36 - 120 roster/encounter combinations and levels 1/10/20/40/60 finish or remain honestly inconclusive
+  ---
+  duration_ms: 701.005763
+  type: 'test'
+  ...
+# Subtest: 1000 seeded random-legal traces exercise all characters/encounters without invalid actions or state violations
+ok 37 - 1000 seeded random-legal traces exercise all characters/encounters without invalid actions or state violations
+  ---
+  duration_ms: 12342.706266
+  type: 'test'
+  ...
+# Subtest: restore rejects malformed definitions, resource keys, forms, status channels and token ownership
+ok 38 - restore rejects malformed definitions, resource keys, forms, status channels and token ownership
+  ---
+  duration_ms: 32.843387
+  type: 'test'
+  ...
+# Subtest: initial HP inheritance has no automatic heal and always resets all battle resources
+ok 39 - initial HP inheritance has no automatic heal and always resets all battle resources
+  ---
+  duration_ms: 7.618717
+  type: 'test'
+  ...
+# Subtest: all legal status combinations survive snapshot restoration at every decision window
+ok 40 - all legal status combinations survive snapshot restoration at every decision window
+  ---
+  duration_ms: 13027.104678
+  type: 'test'
+  ...
+# Subtest: v0.2 difficulties alter shield, target selection and rotation as well as stats
+ok 41 - v0.2 difficulties alter shield, target selection and rotation as well as stats
+  ---
+  duration_ms: 8.383237
+  type: 'test'
+  ...
+# Subtest: old parameter saves are rejected clearly without changing supplied snapshot
+ok 42 - old parameter saves are rejected clearly without changing supplied snapshot
+  ---
+  duration_ms: 4.857664
+  type: 'test'
+  ...
+# Subtest: ordinary and single-step autoAction never silently release a full concerto by default
+ok 43 - ordinary and single-step autoAction never silently release a full concerto by default
+  ---
+  duration_ms: 3.901751
+  type: 'test'
+  ...
+# Subtest: natural zero-resource manual concerto reaches ready, records manual trigger and keeps the ordinary token
+ok 44 - natural zero-resource manual concerto reaches ready, records manual trigger and keeps the ordinary token
+  ---
+  duration_ms: 6.08423
+  type: 'test'
+  ...
+# Subtest: explicit automatic-concerto option records every automatic release
+ok 45 - explicit automatic-concerto option records every automatic release
+  ---
+  duration_ms: 25.357997
+  type: 'test'
+  ...
+# Subtest: all action cards have useful category, description, target and exact dynamic resource metadata
+ok 46 - all action cards have useful category, description, target and exact dynamic resource metadata
+  ---
+  duration_ms: 15.657152
+  type: 'test'
+  ...
+# Subtest: queue and enemy previews are mutation-free and RNG-free including pending charge and KO
+ok 47 - queue and enemy previews are mutation-free and RNG-free including pending charge and KO
+  ---
+  duration_ms: 27.858085
+  type: 'test'
+  ...
+# Subtest: phase replacement preserves rotation index and committed charge resolves before phase attack
+ok 48 - phase replacement preserves rotation index and committed charge resolves before phase attack
+  ---
+  duration_ms: 4.872309
+  type: 'test'
+  ...
+# Subtest: repeated charge interrupts skip only the pending heavy and future cycles can still charge
+ok 49 - repeated charge interrupts skip only the pending heavy and future cycles can still charge
+  ---
+  duration_ms: 3.129093
+  type: 'test'
+  ...
+# Subtest: bracer charge locks a living target and taunt redirects that single heavy
+ok 50 - bracer charge locks a living target and taunt redirects that single heavy
+  ---
+  duration_ms: 5.139785
+  type: 'test'
+  ...
+# Subtest: boss all-target attacks are unaffected by taunt targeting
+ok 51 - boss all-target attacks are unaffected by taunt targeting
+  ---
+  duration_ms: 7.156675
+  type: 'test'
+  ...
+# Subtest: tune supply is bounded to ten primary per whole AOE and status packets grant no additional concerto
+ok 52 - tune supply is bounded to ten primary per whole AOE and status packets grant no additional concerto
+  ---
+  duration_ms: 3.834107
+  type: 'test'
+  ...
+# Subtest: survey has a functional support mark and records real resource supply on allied weak hit
+ok 53 - survey has a functional support mark and records real resource supply on allied weak hit
+  ---
+  duration_ms: 4.48805
+  type: 'test'
+  ...
+# Subtest: field mitigation and direct buff have separately visible bounded benefit logs
+ok 54 - field mitigation and direct buff have separately visible bounded benefit logs
+  ---
+  duration_ms: 5.460241
+  type: 'test'
+  ...
+# Subtest: rend reduces healing until cleansed, exposed consumes once and remains guardable
+ok 55 - rend reduces healing until cleansed, exposed consumes once and remains guardable
+  ---
+  duration_ms: 1.548297
+  type: 'test'
+  ...
+# Subtest: test items use isolated finite inventory, consume an action, never revive or grant concerto
+ok 56 - test items use isolated finite inventory, consume an action, never revive or grant concerto
+  ---
+  duration_ms: 11.100076
+  type: 'test'
+  ...
+# Subtest: cleanse item removes only negative statuses and preserves beneficial shields
+ok 57 - cleanse item removes only negative statuses and preserves beneficial shields
+  ---
+  duration_ms: 4.699703
+  type: 'test'
+  ...
+# Subtest: effective utility gives bounded concerto but repeating an unconsumed identical buff grants nothing
+ok 58 - effective utility gives bounded concerto but repeating an unconsumed identical buff grants nothing
+  ---
+  duration_ms: 3.541827
+  type: 'test'
+  ...
+# Subtest: new inventory and debuff states strictly restore; overfull inventory is rejected
+ok 59 - new inventory and debuff states strictly restore; overfull inventory is rejected
+  ---
+  duration_ms: 39.297215
+  type: 'test'
+  ...
+# Subtest: difficulty defaults only when absent, rejecting malformed explicit selections
+ok 60 - difficulty defaults only when absent, rejecting malformed explicit selections
+  ---
+  duration_ms: 16.250555
+  type: 'test'
+  ...
+# Subtest: AOE does not consume a pending single-target taunt
+ok 61 - AOE does not consume a pending single-target taunt
+  ---
+  duration_ms: 2.953523
+  type: 'test'
+  ...
+# Subtest: enemy KO during charge has an explicit cancellation event
+ok 62 - enemy KO during charge has an explicit cancellation event
+  ---
+  duration_ms: 1.006746
+  type: 'test'
+  ...
+# Subtest: healing tooltips expose current level/mastery values and full status duration
+ok 63 - healing tooltips expose current level/mastery values and full status duration
+  ---
+  duration_ms: 3.839297
+  type: 'test'
+  ...
+1..63
+# tests 63
+# suites 0
+# pass 63
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 27638.449853

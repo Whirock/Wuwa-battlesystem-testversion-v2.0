@@ -1,0 +1,721 @@
+{
+  "evidenceClass": "NODE: actual JS engine, no DOM/browser",
+  "timestamp": "2026-10-09T07:46:00.290Z",
+  "root": ".",
+  "hashes": {
+    "engine.js": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+    "parameters.json": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873",
+    "parameters.js": "5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70"
+  },
+  "sourceUnchanged": true,
+  "parameterVersion": "0.2.0-candidate",
+  "results": [
+    {
+      "name": "v0.2 parameter JS equals JSON and versions changed explicitly",
+      "pass": true,
+      "detail": "0.2.0-candidate"
+    },
+    {
+      "name": "Difficulty values and invalid inputs are validated; each setting changes enemy strength",
+      "pass": true,
+      "detail": [
+        {
+          "difficulty": "easy",
+          "stats": [
+            {
+              "hp": 8320,
+              "atk": 349,
+              "shield": 10,
+              "pattern": [
+                "spear",
+                "sweep",
+                "charge",
+                "descent",
+                "spear"
+              ]
+            }
+          ]
+        },
+        {
+          "difficulty": "standard",
+          "stats": [
+            {
+              "hp": 10400,
+              "atk": 465,
+              "shield": 12,
+              "pattern": [
+                "spear",
+                "charge",
+                "descent",
+                "sweep"
+              ]
+            }
+          ]
+        },
+        {
+          "difficulty": "challenge",
+          "stats": [
+            {
+              "hp": 11960,
+              "atk": 535,
+              "shield": 13,
+              "pattern": [
+                "charge",
+                "descent",
+                "sweep",
+                "spear"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Constructor retains zero-resource zero-concerto openings for every difficulty",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Caller config mutation cannot silently change ongoing difficulty or stored stats",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Old parameter-version save is explicitly rejected",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Read-only action, concerto, intent and inspect calls do not mutate battle",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Invalid commands and prototype names are mutation-free with visible reasons",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Default autoAction never releases a player-earned concerto",
+      "pass": true,
+      "detail": {
+        "readyWindows": 35,
+        "summary": {
+          "difficulty": "standard",
+          "first_concerto_ready_round": 4,
+          "min_hp_fraction": {
+            "amy": 0.1517,
+            "lynae": 0.2248,
+            "mornye": 0.3781,
+            "denia": 0.3371
+          },
+          "inventory": {
+            "repair": 2,
+            "cleanse": 1
+          },
+          "outcome": "win",
+          "rounds": 12,
+          "ally_hp_fraction": 0.2979,
+          "survivors": 4,
+          "escaped_count": 0,
+          "ko_count": 0,
+          "counts": {
+            "damage_ally": 10400,
+            "shield_removed": 45,
+            "teamwork_resource": 110,
+            "tune_procs": 11,
+            "damage_enemy": 8084,
+            "charge_warnings": 2,
+            "heal": 2994,
+            "charge_interrupts": 1,
+            "breaks": 3,
+            "skipped_enemy_actions": 4,
+            "fusion_procs": 5,
+            "concerto_ready": 4,
+            "exposed_hits": 1,
+            "finales": 1,
+            "phase_changes": 1,
+            "charge_releases": 1,
+            "ko_enemy": 1
+          },
+          "skills": {
+            "survey": 6,
+            "basic": 24,
+            "overdrive": 2,
+            "heal": 4,
+            "breakdown": 2,
+            "enhanced": 2,
+            "blue": 3,
+            "restore": 1,
+            "spectrum": 2,
+            "heavy": 1,
+            "finale": 1
+          },
+          "enemy_skills": {
+            "spear": 2,
+            "charge": 2,
+            "sweep": 2,
+            "wingpulse": 1,
+            "descent": 1
+          },
+          "final_resources": {
+            "amy": {
+              "sync": 40,
+              "resonance": 4
+            },
+            "lynae": {
+              "color": 0
+            },
+            "mornye": {
+              "calibration": 30
+            },
+            "denia": {
+              "expectation": 60
+            }
+          },
+          "final_concerto": {
+            "amy": 100,
+            "lynae": 100,
+            "mornye": 100,
+            "denia": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "Natural manual concerto is reachable and releases without granting ordinary turns",
+      "pass": true,
+      "detail": {
+        "team": [
+          "amy",
+          "lynae",
+          "mornye",
+          "denia"
+        ],
+        "encounter": "boss",
+        "difficulty": "standard",
+        "steps": 52,
+        "first_concerto_ready_round": 4,
+        "min_hp_fraction": {
+          "amy": 0.7428,
+          "lynae": 0.7012,
+          "mornye": 0.8114,
+          "denia": 0.6959
+        },
+        "inventory": {
+          "repair": 2,
+          "cleanse": 1
+        },
+        "outcome": "win",
+        "rounds": 12,
+        "ally_hp_fraction": 0.88,
+        "survivors": 4,
+        "escaped_count": 0,
+        "ko_count": 0,
+        "counts": {
+          "damage_ally": 10400,
+          "shield_removed": 39,
+          "teamwork_resource": 100,
+          "tune_procs": 10,
+          "damage_enemy": 3821,
+          "charge_warnings": 2,
+          "heal": 2951,
+          "charge_interrupts": 2,
+          "breaks": 3,
+          "skipped_enemy_actions": 5,
+          "fusion_procs": 4,
+          "concerto_ready": 10,
+          "concerto": 9,
+          "manual_concertos": 9,
+          "buff_bonus_damage": 733,
+          "mitigation_prevented": 40,
+          "finales": 2,
+          "exposed_hits": 1,
+          "phase_changes": 1,
+          "ko_enemy": 1
+        },
+        "skills": {
+          "survey": 6,
+          "basic": 20,
+          "overdrive": 2,
+          "heal": 4,
+          "enhanced": 2,
+          "breakdown": 2,
+          "heavy": 2,
+          "blue": 2,
+          "restore": 1,
+          "spectrum": 2,
+          "finale": 2,
+          "curtain": 1
+        },
+        "enemy_skills": {
+          "spear": 2,
+          "charge": 2,
+          "sweep": 1,
+          "wingpulse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sync": 0,
+            "resonance": 0
+          },
+          "lynae": {
+            "color": 0
+          },
+          "mornye": {
+            "calibration": 40
+          },
+          "denia": {
+            "expectation": 0
+          }
+        },
+        "final_concerto": {
+          "amy": 100,
+          "lynae": 0,
+          "mornye": 75,
+          "denia": 85
+        },
+        "restores": 52,
+        "firstReady": {
+          "round": 4,
+          "actor": "ally:1:lynae",
+          "normalCounts": [
+            {
+              "key": "amy",
+              "count": 3,
+              "concerto": 80
+            },
+            {
+              "key": "lynae",
+              "count": 4,
+              "concerto": 100
+            },
+            {
+              "key": "mornye",
+              "count": 3,
+              "concerto": 75
+            },
+            {
+              "key": "denia",
+              "count": 3,
+              "concerto": 75
+            }
+          ]
+        },
+        "releases": [
+          {
+            "id": 109,
+            "round": 4,
+            "event": "concerto",
+            "message": "琳奈向爱弥斯发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:1:lynae",
+            "target": "ally:0:amy",
+            "amp": 0.25,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 121,
+            "round": 4,
+            "event": "concerto",
+            "message": "爱弥斯向达妮娅发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:0:amy",
+            "target": "ally:3:denia",
+            "amp": 0.2,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 135,
+            "round": 4,
+            "event": "concerto",
+            "message": "达妮娅向莫宁发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:3:denia",
+            "target": "ally:2:mornye",
+            "amp": 0.2,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 147,
+            "round": 5,
+            "event": "concerto",
+            "message": "莫宁向爱弥斯发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:2:mornye",
+            "target": "ally:0:amy",
+            "amp": 0.2,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 269,
+            "round": 8,
+            "event": "concerto",
+            "message": "琳奈向爱弥斯发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:1:lynae",
+            "target": "ally:0:amy",
+            "amp": 0.25,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 289,
+            "round": 8,
+            "event": "concerto",
+            "message": "爱弥斯向达妮娅发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:0:amy",
+            "target": "ally:3:denia",
+            "amp": 0.2,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 301,
+            "round": 8,
+            "event": "concerto",
+            "message": "达妮娅向莫宁发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:3:denia",
+            "target": "ally:2:mornye",
+            "amp": 0.2,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 311,
+            "round": 9,
+            "event": "concerto",
+            "message": "莫宁向爱弥斯发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:2:mornye",
+            "target": "ally:0:amy",
+            "amp": 0.2,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          },
+          {
+            "id": 416,
+            "round": 12,
+            "event": "concerto",
+            "message": "琳奈向爱弥斯发动协奏，变奏资源 +20，不消耗普通行动",
+            "actor": "ally:1:lynae",
+            "target": "ally:0:amy",
+            "amp": 0.25,
+            "intro_gain": 20,
+            "solo": false,
+            "trigger": "manual"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Elite/Boss special attacks execute real events under legal guard-only exposure",
+      "pass": true,
+      "detail": [
+        {
+          "team": [
+            "amy",
+            "lynae",
+            "mornye",
+            "denia"
+          ],
+          "encounter": "elite_humanoid",
+          "difficulty": "standard",
+          "steps": 105,
+          "first_concerto_ready_round": null,
+          "min_hp_fraction": {
+            "amy": 0.4356,
+            "lynae": 0,
+            "mornye": 0.7352,
+            "denia": 0.4235
+          },
+          "inventory": {
+            "repair": 2,
+            "cleanse": 1
+          },
+          "outcome": "inconclusive",
+          "rounds": 19,
+          "ally_hp_fraction": 0.4204,
+          "survivors": 3,
+          "escaped_count": 0,
+          "ko_count": 1,
+          "counts": {
+            "damage_enemy": 4202,
+            "mitigation_prevented": 4357,
+            "charge_warnings": 5,
+            "charge_releases": 4,
+            "ko_ally": 1
+          },
+          "skills": {
+            "guard": 69
+          },
+          "enemy_skills": {
+            "bite": 9,
+            "brace": 5,
+            "spit": 9,
+            "charge": 5,
+            "rush": 4,
+            "smash": 4
+          },
+          "final_resources": {
+            "amy": {
+              "sync": 0,
+              "resonance": 0
+            },
+            "lynae": {
+              "color": 0
+            },
+            "mornye": {
+              "calibration": 0
+            },
+            "denia": {
+              "expectation": 0
+            }
+          },
+          "final_concerto": {
+            "amy": 0,
+            "lynae": 0,
+            "mornye": 0,
+            "denia": 0
+          },
+          "restores": 105,
+          "firstReady": null,
+          "releases": [],
+          "byEnemy": {
+            "bracer": [
+              "brace",
+              "charge",
+              "rush",
+              "smash",
+              "brace",
+              "charge",
+              "rush",
+              "smash",
+              "brace",
+              "charge",
+              "rush",
+              "smash",
+              "brace",
+              "charge",
+              "rush",
+              "smash",
+              "brace",
+              "charge"
+            ]
+          }
+        },
+        {
+          "team": [
+            "amy",
+            "lynae",
+            "mornye",
+            "denia"
+          ],
+          "encounter": "elite_nonhumanoid",
+          "difficulty": "standard",
+          "steps": 102,
+          "first_concerto_ready_round": null,
+          "min_hp_fraction": {
+            "amy": 0,
+            "lynae": 0,
+            "mornye": 0.2471,
+            "denia": 0
+          },
+          "inventory": {
+            "repair": 2,
+            "cleanse": 1
+          },
+          "outcome": "inconclusive",
+          "rounds": 19,
+          "ally_hp_fraction": 0.0716,
+          "survivors": 1,
+          "escaped_count": 0,
+          "ko_count": 3,
+          "counts": {
+            "damage_enemy": 6731,
+            "mitigation_prevented": 6648,
+            "charge_warnings": 12,
+            "charge_releases": 12,
+            "ko_ally": 3
+          },
+          "skills": {
+            "guard": 66
+          },
+          "enemy_skills": {
+            "shot": 6,
+            "slash": 6,
+            "aim": 6,
+            "charge": 6,
+            "aimed": 6,
+            "spin": 6
+          },
+          "final_resources": {
+            "amy": {
+              "sync": 0,
+              "resonance": 0
+            },
+            "lynae": {
+              "color": 0
+            },
+            "mornye": {
+              "calibration": 0
+            },
+            "denia": {
+              "expectation": 0
+            }
+          },
+          "final_concerto": {
+            "amy": 0,
+            "lynae": 0,
+            "mornye": 0,
+            "denia": 0
+          },
+          "restores": 102,
+          "firstReady": null,
+          "releases": [],
+          "byEnemy": {
+            "carapace": [
+              "slash",
+              "charge",
+              "spin",
+              "slash",
+              "charge",
+              "spin",
+              "slash",
+              "charge",
+              "spin",
+              "slash",
+              "charge",
+              "spin",
+              "slash",
+              "charge",
+              "spin",
+              "slash",
+              "charge",
+              "spin"
+            ]
+          }
+        },
+        {
+          "team": [
+            "amy",
+            "lynae",
+            "mornye",
+            "denia"
+          ],
+          "encounter": "boss",
+          "difficulty": "standard",
+          "steps": 74,
+          "first_concerto_ready_round": null,
+          "min_hp_fraction": {
+            "amy": 0,
+            "lynae": 0,
+            "mornye": 0.1776,
+            "denia": 0
+          },
+          "inventory": {
+            "repair": 2,
+            "cleanse": 1
+          },
+          "outcome": "inconclusive",
+          "rounds": 19,
+          "ally_hp_fraction": 0.0514,
+          "survivors": 1,
+          "escaped_count": 0,
+          "ko_count": 3,
+          "counts": {
+            "damage_enemy": 6877,
+            "mitigation_prevented": 6784,
+            "charge_warnings": 5,
+            "charge_releases": 4,
+            "exposed_hits": 4,
+            "ko_ally": 3
+          },
+          "skills": {
+            "guard": 56
+          },
+          "enemy_skills": {
+            "spear": 5,
+            "charge": 5,
+            "descent": 4,
+            "sweep": 4
+          },
+          "final_resources": {
+            "amy": {
+              "sync": 0,
+              "resonance": 0
+            },
+            "lynae": {
+              "color": 0
+            },
+            "mornye": {
+              "calibration": 0
+            },
+            "denia": {
+              "expectation": 0
+            }
+          },
+          "final_concerto": {
+            "amy": 0,
+            "lynae": 0,
+            "mornye": 0,
+            "denia": 0
+          },
+          "restores": 74,
+          "firstReady": null,
+          "releases": [],
+          "byEnemy": {
+            "crownless": [
+              "spear",
+              "charge",
+              "descent",
+              "sweep",
+              "spear",
+              "charge",
+              "descent",
+              "sweep",
+              "spear",
+              "charge",
+              "descent",
+              "sweep",
+              "spear",
+              "charge",
+              "descent",
+              "sweep",
+              "spear",
+              "charge"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "All 30 legal rosters × 4 encounters × 3 difficulties restore after every real action",
+      "pass": true,
+      "detail": {
+        "cases": 360,
+        "restored": 11825,
+        "outcomes": {
+          "win": 263,
+          "loss": 94,
+          "inconclusive": 3
+        }
+      }
+    },
+    {
+      "name": "Same seeded stochastic state restores to identical full continuation",
+      "pass": true,
+      "detail": {
+        "actions": 133
+      }
+    }
+  ],
+  "passed": 12,
+  "failed": 0
+}

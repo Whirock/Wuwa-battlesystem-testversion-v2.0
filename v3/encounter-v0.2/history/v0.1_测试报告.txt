@@ -1,0 +1,78 @@
+历史文档：下文记录v0.1当时的结果与限制，不代表当前v0.2规则。旧QA源码未随本公开副本分发；当前tests中的脚本只复现v0.2。
+
+鸣潮回合制 · 遭遇演算 / 测试报告
+2026-10-09 / 可运行测试候选
+
+结论
+战斗引擎与DOM事件集成测试通过。尚未完成真实浏览器视觉、真实音频播放及Windows双击启动验收，不能称为全部验收完成。
+私有网页版已部署成功，保持仅本人访问；部署成功不作为浏览器测试证据。
+
+已完成测试
+1. 引擎自测：40/40。
+2. 独立引擎断言：48/48，包括非法指令、原型键、错误目标、资源/形态门槛、队列、等待、协奏、破盾、状态与坏档。
+3. 引擎压力测试：1000 seeded 随机合法战斗、49,758次普通行动；120种编队/遭遇及多个等级。
+4. 独立120种编队/遭遇：96胜、24败、0未决。不是所有阵容强行必赢。
+5. 独立逐行动存读档：9,178次恢复/继续无失败。
+6. 原Python120格全统计对照：119格完全一致；爱弥斯+达妮娅对头目一格削盾累计15→14，胜负/回合/生命及其他字段一致。修正原因：清理已倒下角色所属标记，避免死人继续附送削盾。
+7. 原图校验：89/89文件SHA256与登记/源PNG一致；84友方动作+5敌图原样拷贝，无镜像或模糊改写。
+8. DOM事件集成：20/20。运行真实HTML/JS于jsdom，使用fake-indexeddb、可控时钟，图片/音频/Canvas为stub。它验证按钮事件和状态流，不验证像素、浏览器渲染、解码、自动播放权限或操作系统文件选择器。
+
+DOM手动按钮流程（不是自动战替代）
+通过UI事件选择行动、选择合法目标、点击确认，逐步跑完：
+• 普通遭遇：3回合胜利
+• 人形精英：6回合胜利
+• 异形精英：4回合胜利
+• 无冠者：11回合胜利
+1×和4×对相同41次头目行动产生相同战斗结果。
+
+20项DOM检查
+1. Initial app controls render with 89 slots and no script exceptions：通过
+2. Party 0/5 invalid setup preserves current battle; 1 and 4 accepted：通过
+3. Choose/cancel does not act; disabled insufficient-resource skill cannot select：通过
+4. Repeated confirm click commits exactly once：通过
+5. Restart during animation cancels stale callbacks and resets round resources：通过
+6. DOM button-driven full fight normal：通过
+7. DOM button-driven full fight elite_humanoid：通过
+8. DOM button-driven full fight elite_nonhumanoid：通过
+9. DOM button-driven full fight boss：通过
+10. 1x and 4x animation speed produces identical chosen-action combat result：通过
+11. KO enemies removed from final canvas draw dispatch; allies remain：通过
+12. Escape JS handler cancels selection and Enter JS handler commits once：通过
+13. Modal Enter cannot submit preselected battle action：通过
+14. IndexedDB saved battle resumes on simulated page refresh：通过
+15. Image cancel, bad file, oversized file preserve state; valid background imports：通过
+16. Sprite import captures original slot when selection changes while reading：通过
+17. Audio cancel and unrecognized header reject; valid file assigned without battle mutation：通过
+18. Project export/import restores embedded media/calibration and exact battle：通过
+19. Malformed JSON, schema, corrupt battle import preserve exact current state：通过
+20. Asset appearance, anchors and scale never alter battle snapshot：通过
+
+已修复的集成问题
+• 初始化读取变量早于声明。
+• 机兵mech/mecha别名与1.7身体尺度没有接入。
+• 页面刷新时新战局覆盖旧存档。
+• 素材导入中切槽造成异步串写。
+• 机兵虚拟接地锚点在画布外导致自己的导出无法导入。
+• 序列帧/变形帧未使用，现按映射顺序切换。
+• 重开取消旧定时器、重复确认锁定、四敌标签底部边界。
+
+未完成、需实际设备复核
+• 1366×768、1920×1080及手机的真实布局、滚动、目标与确认按钮可见性。
+• 每动作真实图像显示、比例、身体/武器/翼/悬浮锚点与描边观感。
+• 浏览器真实图像/音频解码、静音与播放权限、音量。
+• Windows Edge/Chrome/Firefox从完整解压目录双击index.html。
+• 文件选择器取消、容量上限、无痕模式、真实IndexedDB不可用情况的浏览器行为。
+• 截图：没有获得真实界面截图，因此未提供伪造或静态拼接截图。
+
+环境限制记录
+本地Chromium启动的进程socket被执行环境拒绝；批准升级后仍EPERM。
+云浏览器拒绝file://且不与开发容器共享localhost；受支持网页预览预览设施不可用。
+已尊重这些限制，没有改安全设置或通过不支持的路径绕过。
+
+美术限制
+当前美术是已交付候选，不代表每张最终获用户通过。
+DB03原图有中间Alpha值，保持原文件且已标记。其余83友方源图为二值Alpha。
+锚点为可编辑视觉校准候选；屏幕描边仅补缩放后轮廓，不能恢复缩小丢失的内部1px线条。
+
+历史复现说明
+原v0.1包曾附独立QA与DOM源码；本公开版本只保留这份历史报告。当前tests/engine.test.cjs与tests/independent/v02/验证的是v0.2，不复现本报告计数。

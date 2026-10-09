@@ -1,0 +1,124 @@
+{
+  "version": "0.2.0-candidate",
+  "timestamp": "2026-10-09T07:26:45.524400+00:00",
+  "scope": "独立规则/DOM/素材核验；不发布，不替代真实浏览器/设备验收",
+  "tested_core_hashes": {
+    "app.js": "6e5cba4b3a006abcb1c38cd93b9d924515aba63c4b1171bd5e9d6bb44bd1085e",
+    "engine.js": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+    "parameters.js": "5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70",
+    "storage.js": "c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217",
+    "index.html": "80507ff10d1272bd389aa92b2bc8ce6fdef77773d8cefae9e9b2275a03aa8e93",
+    "style.css": "da0da94f6f6e67d1778c3997b34722c710c5e7ca75c2cc5fdec6c5ceca3254de",
+    "parameters.json": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873"
+  },
+  "source_unchanged_during_final_runs": true,
+  "feedback": [
+    {
+      "id": "F1",
+      "feedback": "移除底部技能条，改为当前角色旁竖排战斗/技能/防御/道具/交涉/逃跑",
+      "implementation": "已实现",
+      "verification": "DOM交互通过；真实布局待验",
+      "evidence": [
+        "六根菜单位于战场内，旧底部command-panel节点不存在",
+        "防御、隔离测试有限道具、鼓舞/挑衅与单角色撤离真实执行",
+        "剧情协商明确禁用，不伪装成功功能"
+      ],
+      "remaining": [
+        "角色旁视觉距离、Boss避让、小屏边界未获真实渲染证据"
+      ]
+    },
+    {
+      "id": "F2",
+      "feedback": "选择、hover、focus显示详细行动效果",
+      "implementation": "已实现",
+      "verification": "DOM与参数/公式核对通过",
+      "evidence": [
+        "效果、目标、成本/收益、协奏、持续、冷却与禁用原因可读",
+        "不可用动作仍可键盘focus；仅查看/取消不行动",
+        "个人协奏逐角色附加通道和持续时间来自引擎",
+        "1/20/60级四种治疗，共12例预览与实际公式一致"
+      ],
+      "remaining": [
+        "真实浏览器Tab默认行为及文本可读性待验"
+      ]
+    },
+    {
+      "id": "F3",
+      "feedback": "头像行动条分当前、本轮、下轮",
+      "implementation": "已实现",
+      "verification": "DOM与绘制调用映射通过；真实辨识待验",
+      "evidence": [
+        "独立当前头像、本轮剩余、下轮预计三段，不用常驻姓名/速度文字替代头像",
+        "本轮不重复当前者；等待保持唯一普通行动令牌",
+        "下一轮标预计，预测函数无状态/RNG副作用",
+        "自然Amy人形→机兵及Denia红→蓝，头像来源同步改变；KO敌不再入队/被选/最终绘制"
+      ],
+      "remaining": [
+        "32/44/64像素头像实际辨识、眼部裁切、全视口同屏效果待验"
+      ]
+    },
+    {
+      "id": "F4",
+      "feedback": "增加难度，精英与Boss特殊技/蓄力有真实威胁",
+      "implementation": "已实现",
+      "verification": "规则与DOM通过；预警视觉待验",
+      "evidence": [
+        "轻松/标准/挑战变更敌方属性、盾、轮转/目标策略",
+        "难度取消不改正在进行战局；保存/重开/导入保持选择；坏难度不静默默认",
+        "精英不同招式与Boss蓄力/兑现记录为实际事件",
+        "蓄力预警/反制文本在DOM出现；手动与破盾中断可执行",
+        "旧v0.1战局明确不兼容；素材/校准保留，本机旧battle另存备份"
+      ],
+      "remaining": [
+        "Windows端旧档升级与真实预警视觉需设备验收"
+      ]
+    },
+    {
+      "id": "F5",
+      "feedback": "增强buff、协奏可达与队伍差异",
+      "implementation": "已实现",
+      "verification": "自然合法开局演算和手动DOM通过",
+      "evidence": [
+        "所有初始角色资源/协奏从零开始",
+        "默认自动单步不代放协奏；标准Boss第4轮首次自然就绪",
+        "手动协奏9次完成Boss，不新增普通行动；未点击则保留满条",
+        "360组难度/编队结果与同条件协奏对照已记录"
+      ],
+      "remaining": [
+        "当前为候选平衡，不是最优策略穷举或最终用户体验通过"
+      ]
+    }
+  ],
+  "checks": {
+    "independent_engine_groups": {
+      "passed": 12,
+      "failed": 0
+    },
+    "dom_integration": {
+      "passed": 29,
+      "failed": 0
+    },
+    "static_assets": {
+      "passed": 4,
+      "failed": 0
+    },
+    "metadata_and_queue": {
+      "passed": 3,
+      "failed": 0
+    },
+    "roster_matrix": {
+      "cases": 360,
+      "restored_actions": 11825,
+      "win": 263,
+      "loss": 94,
+      "inconclusive_at_60_rounds": 3
+    }
+  },
+  "not_run": [
+    "真实浏览器布局/像素与多视口",
+    "真实图像/音频解码、播放许可",
+    "Windows完整解压后双击离线启动"
+  ],
+  "known_failure": "本轮Chromium启动仍因socket Operation not permitted失败；未绕过运行权限限制。",
+  "reference_artwork": "用户参考截图仅供分析，未进入运行文件/素材包。"
+}

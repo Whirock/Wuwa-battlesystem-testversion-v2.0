@@ -1,0 +1,4659 @@
+[
+  {
+    "id": 1,
+    "round": 0,
+    "event": "start",
+    "message": "遭遇开始，所有资源从零开始",
+    "team": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "enemies": [
+      "enemy:0:crownless"
+    ]
+  },
+  {
+    "id": 2,
+    "round": 1,
+    "event": "round",
+    "message": "第 1 回合",
+    "number": 1
+  },
+  {
+    "id": 3,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 4,
+    "round": 1,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 5,
+    "round": 1,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 6,
+    "round": 1,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 7,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 8,
+    "round": 1,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 9,
+    "round": 1,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 10,
+    "round": 1,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 11,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 12,
+    "round": 1,
+    "event": "enemy_action",
+    "message": "无冠者使用「无冠连槊」 → 爱弥斯",
+    "actor": "enemy:0:crownless",
+    "skill": "spear",
+    "skill_name": "无冠连槊",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 13,
+    "round": 1,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 215 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 215
+  },
+  {
+    "id": 14,
+    "round": 1,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 214 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 214,
+    "absorbed": 0,
+    "coefficient": 1.5,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1800,
+    "hp_after": 1586,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 215
+  },
+  {
+    "id": 15,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 16,
+    "round": 1,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 17,
+    "round": 1,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 18,
+    "round": 1,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 19,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 20,
+    "round": 1,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 21,
+    "round": 1,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 22,
+    "round": 1,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 23,
+    "round": 2,
+    "event": "round",
+    "message": "第 2 回合",
+    "number": 2
+  },
+  {
+    "id": 24,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 25,
+    "round": 2,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 26,
+    "round": 2,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 27,
+    "round": 2,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 28,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 29,
+    "round": 2,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 30,
+    "round": 2,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 31,
+    "round": 2,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 32,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 33,
+    "round": 2,
+    "event": "enemy_action",
+    "message": "无冠者使用「升空蓄势」 → 琳奈",
+    "actor": "enemy:0:crownless",
+    "skill": "charge",
+    "skill_name": "升空蓄势",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 34,
+    "round": 2,
+    "event": "status",
+    "message": "无冠者获得蓄力",
+    "target": "enemy:0:crownless",
+    "status": "charge",
+    "value": {
+      "expires": 4,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 35,
+    "round": 2,
+    "event": "charge_started",
+    "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "descent",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 36,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 37,
+    "round": 2,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 38,
+    "round": 2,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 39,
+    "round": 2,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 40,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 41,
+    "round": 2,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 42,
+    "round": 2,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 43,
+    "round": 2,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 44,
+    "round": 3,
+    "event": "round",
+    "message": "第 3 回合",
+    "number": 3
+  },
+  {
+    "id": 45,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 46,
+    "round": 3,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 47,
+    "round": 3,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 48,
+    "round": 3,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 49,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 50,
+    "round": 3,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 51,
+    "round": 3,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 52,
+    "round": 3,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 53,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 54,
+    "round": 3,
+    "event": "enemy_action",
+    "message": "无冠者使用「坠空裁决」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "skill_name": "坠空裁决",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 55,
+    "round": 3,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 308 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 308
+  },
+  {
+    "id": 56,
+    "round": 3,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 307 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 307,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1586,
+    "hp_after": 1279,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 308
+  },
+  {
+    "id": 57,
+    "round": 3,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 328 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 328
+  },
+  {
+    "id": 58,
+    "round": 3,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 327 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 327,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1650,
+    "hp_after": 1323,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 328
+  },
+  {
+    "id": 59,
+    "round": 3,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 263
+  },
+  {
+    "id": 60,
+    "round": 3,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 263,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 2100,
+    "hp_after": 1837,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 263
+  },
+  {
+    "id": 61,
+    "round": 3,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 323 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 323
+  },
+  {
+    "id": 62,
+    "round": 3,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 322 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 322,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1700,
+    "hp_after": 1378,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 323
+  },
+  {
+    "id": 63,
+    "round": 3,
+    "event": "charge_released",
+    "message": "无冠者的蓄力兑现为「坠空裁决」",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 64,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 65,
+    "round": 3,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 66,
+    "round": 3,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 67,
+    "round": 3,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 68,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 69,
+    "round": 3,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 70,
+    "round": 3,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 71,
+    "round": 3,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 72,
+    "round": 4,
+    "event": "round",
+    "message": "第 4 回合",
+    "number": 4
+  },
+  {
+    "id": 73,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 74,
+    "round": 4,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 75,
+    "round": 4,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 76,
+    "round": 4,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 77,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 78,
+    "round": 4,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 79,
+    "round": 4,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 80,
+    "round": 4,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 81,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 82,
+    "round": 4,
+    "event": "enemy_action",
+    "message": "无冠者使用「羽锋横扫」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "sweep",
+    "skill_name": "羽锋横扫",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 83,
+    "round": 4,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 136 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 136
+  },
+  {
+    "id": 84,
+    "round": 4,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 135 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 135,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1279,
+    "hp_after": 1144,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 136
+  },
+  {
+    "id": 85,
+    "round": 4,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 145 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 145
+  },
+  {
+    "id": 86,
+    "round": 4,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 144 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 144,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1323,
+    "hp_after": 1179,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 145
+  },
+  {
+    "id": 87,
+    "round": 4,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 116
+  },
+  {
+    "id": 88,
+    "round": 4,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 116,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1837,
+    "hp_after": 1721,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 116
+  },
+  {
+    "id": 89,
+    "round": 4,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 143 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 143
+  },
+  {
+    "id": 90,
+    "round": 4,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 142 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 142,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1378,
+    "hp_after": 1236,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 143
+  },
+  {
+    "id": 91,
+    "round": 4,
+    "event": "status",
+    "message": "爱弥斯获得暴露",
+    "target": "ally:0:amy",
+    "status": "exposed",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 92,
+    "round": 4,
+    "event": "status",
+    "message": "琳奈获得暴露",
+    "target": "ally:1:lynae",
+    "status": "exposed",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 93,
+    "round": 4,
+    "event": "status",
+    "message": "莫宁获得暴露",
+    "target": "ally:2:mornye",
+    "status": "exposed",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 94,
+    "round": 4,
+    "event": "status",
+    "message": "达妮娅获得暴露",
+    "target": "ally:3:denia",
+    "status": "exposed",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 95,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 96,
+    "round": 4,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 97,
+    "round": 4,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 98,
+    "round": 4,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 99,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 100,
+    "round": 4,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 101,
+    "round": 4,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 102,
+    "round": 4,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 103,
+    "round": 5,
+    "event": "round",
+    "message": "第 5 回合",
+    "number": 5
+  },
+  {
+    "id": 104,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 105,
+    "round": 5,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 106,
+    "round": 5,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 107,
+    "round": 5,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 108,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 109,
+    "round": 5,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 110,
+    "round": 5,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 111,
+    "round": 5,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 112,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 113,
+    "round": 5,
+    "event": "enemy_action",
+    "message": "无冠者使用「无冠连槊」 → 爱弥斯",
+    "actor": "enemy:0:crownless",
+    "skill": "spear",
+    "skill_name": "无冠连槊",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 114,
+    "round": 5,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 183 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 183
+  },
+  {
+    "id": 115,
+    "round": 5,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 246 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 246,
+    "absorbed": 0,
+    "coefficient": 1.5,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1144,
+    "hp_after": 898,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.575,
+    "buff_bonus": 0,
+    "prevented": 183
+  },
+  {
+    "id": 116,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 117,
+    "round": 5,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 118,
+    "round": 5,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 119,
+    "round": 5,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 120,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 121,
+    "round": 5,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 122,
+    "round": 5,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 123,
+    "round": 5,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 124,
+    "round": 6,
+    "event": "round",
+    "message": "第 6 回合",
+    "number": 6
+  },
+  {
+    "id": 125,
+    "round": 6,
+    "event": "status_expired",
+    "message": "琳奈的暴露结束",
+    "target": "ally:1:lynae",
+    "status": "exposed"
+  },
+  {
+    "id": 126,
+    "round": 6,
+    "event": "status_expired",
+    "message": "莫宁的暴露结束",
+    "target": "ally:2:mornye",
+    "status": "exposed"
+  },
+  {
+    "id": 127,
+    "round": 6,
+    "event": "status_expired",
+    "message": "达妮娅的暴露结束",
+    "target": "ally:3:denia",
+    "status": "exposed"
+  },
+  {
+    "id": 128,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 129,
+    "round": 6,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 130,
+    "round": 6,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 131,
+    "round": 6,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 132,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 133,
+    "round": 6,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 134,
+    "round": 6,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 135,
+    "round": 6,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 136,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 137,
+    "round": 6,
+    "event": "enemy_action",
+    "message": "无冠者使用「升空蓄势」 → 琳奈",
+    "actor": "enemy:0:crownless",
+    "skill": "charge",
+    "skill_name": "升空蓄势",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 138,
+    "round": 6,
+    "event": "status",
+    "message": "无冠者获得蓄力",
+    "target": "enemy:0:crownless",
+    "status": "charge",
+    "value": {
+      "expires": 8,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 139,
+    "round": 6,
+    "event": "charge_started",
+    "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "descent",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 140,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 141,
+    "round": 6,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 142,
+    "round": 6,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 143,
+    "round": 6,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 144,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 145,
+    "round": 6,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 146,
+    "round": 6,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 147,
+    "round": 6,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 148,
+    "round": 7,
+    "event": "round",
+    "message": "第 7 回合",
+    "number": 7
+  },
+  {
+    "id": 149,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 150,
+    "round": 7,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 151,
+    "round": 7,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 152,
+    "round": 7,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 153,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 154,
+    "round": 7,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 155,
+    "round": 7,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 156,
+    "round": 7,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 157,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 158,
+    "round": 7,
+    "event": "enemy_action",
+    "message": "无冠者使用「坠空裁决」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "skill_name": "坠空裁决",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 159,
+    "round": 7,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 308 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 308
+  },
+  {
+    "id": 160,
+    "round": 7,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 307 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 307,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 898,
+    "hp_after": 591,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 308
+  },
+  {
+    "id": 161,
+    "round": 7,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 328 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 328
+  },
+  {
+    "id": 162,
+    "round": 7,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 327 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 327,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1179,
+    "hp_after": 852,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 328
+  },
+  {
+    "id": 163,
+    "round": 7,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 263
+  },
+  {
+    "id": 164,
+    "round": 7,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 263,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1721,
+    "hp_after": 1458,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 263
+  },
+  {
+    "id": 165,
+    "round": 7,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 323 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 323
+  },
+  {
+    "id": 166,
+    "round": 7,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 322 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 322,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1236,
+    "hp_after": 914,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 323
+  },
+  {
+    "id": 167,
+    "round": 7,
+    "event": "charge_released",
+    "message": "无冠者的蓄力兑现为「坠空裁决」",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 168,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 169,
+    "round": 7,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 170,
+    "round": 7,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 171,
+    "round": 7,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 172,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 173,
+    "round": 7,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 174,
+    "round": 7,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 175,
+    "round": 7,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 176,
+    "round": 8,
+    "event": "round",
+    "message": "第 8 回合",
+    "number": 8
+  },
+  {
+    "id": 177,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 178,
+    "round": 8,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 179,
+    "round": 8,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 180,
+    "round": 8,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 181,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 182,
+    "round": 8,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 183,
+    "round": 8,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 184,
+    "round": 8,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 185,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 186,
+    "round": 8,
+    "event": "enemy_action",
+    "message": "无冠者使用「羽锋横扫」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "sweep",
+    "skill_name": "羽锋横扫",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 187,
+    "round": 8,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 136 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 136
+  },
+  {
+    "id": 188,
+    "round": 8,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 135 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 135,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 591,
+    "hp_after": 456,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 136
+  },
+  {
+    "id": 189,
+    "round": 8,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 145 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 145
+  },
+  {
+    "id": 190,
+    "round": 8,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 144 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 144,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 852,
+    "hp_after": 708,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 145
+  },
+  {
+    "id": 191,
+    "round": 8,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 116
+  },
+  {
+    "id": 192,
+    "round": 8,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 116,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1458,
+    "hp_after": 1342,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 116
+  },
+  {
+    "id": 193,
+    "round": 8,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 143 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 143
+  },
+  {
+    "id": 194,
+    "round": 8,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 142 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 142,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 914,
+    "hp_after": 772,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 143
+  },
+  {
+    "id": 195,
+    "round": 8,
+    "event": "status",
+    "message": "爱弥斯获得暴露",
+    "target": "ally:0:amy",
+    "status": "exposed",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 196,
+    "round": 8,
+    "event": "status",
+    "message": "琳奈获得暴露",
+    "target": "ally:1:lynae",
+    "status": "exposed",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 197,
+    "round": 8,
+    "event": "status",
+    "message": "莫宁获得暴露",
+    "target": "ally:2:mornye",
+    "status": "exposed",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 198,
+    "round": 8,
+    "event": "status",
+    "message": "达妮娅获得暴露",
+    "target": "ally:3:denia",
+    "status": "exposed",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 199,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 200,
+    "round": 8,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 201,
+    "round": 8,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 202,
+    "round": 8,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 203,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 204,
+    "round": 8,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 205,
+    "round": 8,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 206,
+    "round": 8,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 207,
+    "round": 9,
+    "event": "round",
+    "message": "第 9 回合",
+    "number": 9
+  },
+  {
+    "id": 208,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 209,
+    "round": 9,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 210,
+    "round": 9,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 211,
+    "round": 9,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 212,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 213,
+    "round": 9,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 214,
+    "round": 9,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 215,
+    "round": 9,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 216,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 217,
+    "round": 9,
+    "event": "enemy_action",
+    "message": "无冠者使用「无冠连槊」 → 爱弥斯",
+    "actor": "enemy:0:crownless",
+    "skill": "spear",
+    "skill_name": "无冠连槊",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 218,
+    "round": 9,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 183 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 183
+  },
+  {
+    "id": 219,
+    "round": 9,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 246 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 246,
+    "absorbed": 0,
+    "coefficient": 1.5,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 456,
+    "hp_after": 210,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.575,
+    "buff_bonus": 0,
+    "prevented": 183
+  },
+  {
+    "id": 220,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 221,
+    "round": 9,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 222,
+    "round": 9,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 223,
+    "round": 9,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 224,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 225,
+    "round": 9,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 226,
+    "round": 9,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 227,
+    "round": 9,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 228,
+    "round": 10,
+    "event": "round",
+    "message": "第 10 回合",
+    "number": 10
+  },
+  {
+    "id": 229,
+    "round": 10,
+    "event": "status_expired",
+    "message": "琳奈的暴露结束",
+    "target": "ally:1:lynae",
+    "status": "exposed"
+  },
+  {
+    "id": 230,
+    "round": 10,
+    "event": "status_expired",
+    "message": "莫宁的暴露结束",
+    "target": "ally:2:mornye",
+    "status": "exposed"
+  },
+  {
+    "id": 231,
+    "round": 10,
+    "event": "status_expired",
+    "message": "达妮娅的暴露结束",
+    "target": "ally:3:denia",
+    "status": "exposed"
+  },
+  {
+    "id": 232,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 233,
+    "round": 10,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 234,
+    "round": 10,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 235,
+    "round": 10,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 236,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 237,
+    "round": 10,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 238,
+    "round": 10,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 239,
+    "round": 10,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 240,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 241,
+    "round": 10,
+    "event": "enemy_action",
+    "message": "无冠者使用「升空蓄势」 → 琳奈",
+    "actor": "enemy:0:crownless",
+    "skill": "charge",
+    "skill_name": "升空蓄势",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 242,
+    "round": 10,
+    "event": "status",
+    "message": "无冠者获得蓄力",
+    "target": "enemy:0:crownless",
+    "status": "charge",
+    "value": {
+      "expires": 12,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 243,
+    "round": 10,
+    "event": "charge_started",
+    "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "descent",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 244,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 245,
+    "round": 10,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 246,
+    "round": 10,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 247,
+    "round": 10,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 248,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 249,
+    "round": 10,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 250,
+    "round": 10,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 251,
+    "round": 10,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 252,
+    "round": 11,
+    "event": "round",
+    "message": "第 11 回合",
+    "number": 11
+  },
+  {
+    "id": 253,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 254,
+    "round": 11,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 255,
+    "round": 11,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 256,
+    "round": 11,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 257,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 258,
+    "round": 11,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 259,
+    "round": 11,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 260,
+    "round": 11,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 261,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 262,
+    "round": 11,
+    "event": "enemy_action",
+    "message": "无冠者使用「坠空裁决」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "skill_name": "坠空裁决",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 263,
+    "round": 11,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 308 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 308
+  },
+  {
+    "id": 264,
+    "round": 11,
+    "event": "damage",
+    "message": "无冠者对爱弥斯造成 210 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:0:amy",
+    "amount": 210,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 210,
+    "hp_after": 0,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 308
+  },
+  {
+    "id": 265,
+    "round": 11,
+    "event": "incapacitated",
+    "message": "爱弥斯失去战斗能力",
+    "unit": "ally:0:amy",
+    "target": "ally:0:amy"
+  },
+  {
+    "id": 266,
+    "round": 11,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 328 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 328
+  },
+  {
+    "id": 267,
+    "round": 11,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 327 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 327,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 708,
+    "hp_after": 381,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 328
+  },
+  {
+    "id": 268,
+    "round": 11,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 263
+  },
+  {
+    "id": 269,
+    "round": 11,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 263,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1342,
+    "hp_after": 1079,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 263
+  },
+  {
+    "id": 270,
+    "round": 11,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 323 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 323
+  },
+  {
+    "id": 271,
+    "round": 11,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 322 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 322,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 772,
+    "hp_after": 450,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 323
+  },
+  {
+    "id": 272,
+    "round": 11,
+    "event": "charge_released",
+    "message": "无冠者的蓄力兑现为「坠空裁决」",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 273,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 274,
+    "round": 11,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 275,
+    "round": 11,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 276,
+    "round": 11,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 277,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 278,
+    "round": 11,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 279,
+    "round": 11,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 280,
+    "round": 11,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 281,
+    "round": 12,
+    "event": "round",
+    "message": "第 12 回合",
+    "number": 12
+  },
+  {
+    "id": 282,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 283,
+    "round": 12,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 284,
+    "round": 12,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 285,
+    "round": 12,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 286,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 287,
+    "round": 12,
+    "event": "enemy_action",
+    "message": "无冠者使用「羽锋横扫」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "sweep",
+    "skill_name": "羽锋横扫",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 288,
+    "round": 12,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 145 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 145
+  },
+  {
+    "id": 289,
+    "round": 12,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 144 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 144,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 381,
+    "hp_after": 237,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 145
+  },
+  {
+    "id": 290,
+    "round": 12,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 116
+  },
+  {
+    "id": 291,
+    "round": 12,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 116,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1079,
+    "hp_after": 963,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 116
+  },
+  {
+    "id": 292,
+    "round": 12,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 143 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 143
+  },
+  {
+    "id": 293,
+    "round": 12,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 142 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 142,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 450,
+    "hp_after": 308,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 143
+  },
+  {
+    "id": 294,
+    "round": 12,
+    "event": "status",
+    "message": "琳奈获得暴露",
+    "target": "ally:1:lynae",
+    "status": "exposed",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 295,
+    "round": 12,
+    "event": "status",
+    "message": "莫宁获得暴露",
+    "target": "ally:2:mornye",
+    "status": "exposed",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 296,
+    "round": 12,
+    "event": "status",
+    "message": "达妮娅获得暴露",
+    "target": "ally:3:denia",
+    "status": "exposed",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 297,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 298,
+    "round": 12,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 299,
+    "round": 12,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 300,
+    "round": 12,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 301,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 302,
+    "round": 12,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 303,
+    "round": 12,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 304,
+    "round": 12,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 305,
+    "round": 13,
+    "event": "round",
+    "message": "第 13 回合",
+    "number": 13
+  },
+  {
+    "id": 306,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 307,
+    "round": 13,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 308,
+    "round": 13,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 309,
+    "round": 13,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 310,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 311,
+    "round": 13,
+    "event": "enemy_action",
+    "message": "无冠者使用「无冠连槊」 → 琳奈",
+    "actor": "enemy:0:crownless",
+    "skill": "spear",
+    "skill_name": "无冠连槊",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 312,
+    "round": 13,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 195 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 195
+  },
+  {
+    "id": 313,
+    "round": 13,
+    "event": "damage",
+    "message": "无冠者对琳奈造成 237 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:1:lynae",
+    "amount": 237,
+    "absorbed": 0,
+    "coefficient": 1.5,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 237,
+    "hp_after": 0,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.575,
+    "buff_bonus": 0,
+    "prevented": 195
+  },
+  {
+    "id": 314,
+    "round": 13,
+    "event": "incapacitated",
+    "message": "琳奈失去战斗能力",
+    "unit": "ally:1:lynae",
+    "target": "ally:1:lynae"
+  },
+  {
+    "id": 315,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 316,
+    "round": 13,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 317,
+    "round": 13,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 318,
+    "round": 13,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 319,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 320,
+    "round": 13,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 321,
+    "round": 13,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 322,
+    "round": 13,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 323,
+    "round": 14,
+    "event": "round",
+    "message": "第 14 回合",
+    "number": 14
+  },
+  {
+    "id": 324,
+    "round": 14,
+    "event": "status_expired",
+    "message": "莫宁的暴露结束",
+    "target": "ally:2:mornye",
+    "status": "exposed"
+  },
+  {
+    "id": 325,
+    "round": 14,
+    "event": "status_expired",
+    "message": "达妮娅的暴露结束",
+    "target": "ally:3:denia",
+    "status": "exposed"
+  },
+  {
+    "id": 326,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 327,
+    "round": 14,
+    "event": "enemy_action",
+    "message": "无冠者使用「升空蓄势」 → 达妮娅",
+    "actor": "enemy:0:crownless",
+    "skill": "charge",
+    "skill_name": "升空蓄势",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 328,
+    "round": 14,
+    "event": "status",
+    "message": "无冠者获得蓄力",
+    "target": "enemy:0:crownless",
+    "status": "charge",
+    "value": {
+      "expires": 16,
+      "target": "ally:3:denia"
+    }
+  },
+  {
+    "id": 329,
+    "round": 14,
+    "event": "charge_started",
+    "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "descent",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 330,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 331,
+    "round": 14,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 332,
+    "round": 14,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 333,
+    "round": 14,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 334,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 335,
+    "round": 14,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 336,
+    "round": 14,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 337,
+    "round": 14,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 338,
+    "round": 15,
+    "event": "round",
+    "message": "第 15 回合",
+    "number": 15
+  },
+  {
+    "id": 339,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 340,
+    "round": 15,
+    "event": "enemy_action",
+    "message": "无冠者使用「坠空裁决」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "skill_name": "坠空裁决",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 341,
+    "round": 15,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 263
+  },
+  {
+    "id": 342,
+    "round": 15,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 263 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 263,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 963,
+    "hp_after": 700,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 263
+  },
+  {
+    "id": 343,
+    "round": 15,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 323 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 323
+  },
+  {
+    "id": 344,
+    "round": 15,
+    "event": "damage",
+    "message": "无冠者对达妮娅造成 308 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:3:denia",
+    "amount": 308,
+    "absorbed": 0,
+    "coefficient": 2.15,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 308,
+    "hp_after": 0,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 323
+  },
+  {
+    "id": 345,
+    "round": 15,
+    "event": "incapacitated",
+    "message": "达妮娅失去战斗能力",
+    "unit": "ally:3:denia",
+    "target": "ally:3:denia"
+  },
+  {
+    "id": 346,
+    "round": 15,
+    "event": "charge_released",
+    "message": "无冠者的蓄力兑现为「坠空裁决」",
+    "actor": "enemy:0:crownless",
+    "skill": "descent",
+    "targets": [
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 347,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 348,
+    "round": 15,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 349,
+    "round": 15,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 350,
+    "round": 15,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 351,
+    "round": 16,
+    "event": "round",
+    "message": "第 16 回合",
+    "number": 16
+  },
+  {
+    "id": 352,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 353,
+    "round": 16,
+    "event": "enemy_action",
+    "message": "无冠者使用「羽锋横扫」（全体）",
+    "actor": "enemy:0:crownless",
+    "skill": "sweep",
+    "skill_name": "羽锋横扫",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 354,
+    "round": 16,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 116
+  },
+  {
+    "id": 355,
+    "round": 16,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 116 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 116,
+    "absorbed": 0,
+    "coefficient": 0.95,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 700,
+    "hp_after": 584,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 116
+  },
+  {
+    "id": 356,
+    "round": 16,
+    "event": "status",
+    "message": "莫宁获得暴露",
+    "target": "ally:2:mornye",
+    "status": "exposed",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 357,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 358,
+    "round": 16,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 359,
+    "round": 16,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 360,
+    "round": 16,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 361,
+    "round": 17,
+    "event": "round",
+    "message": "第 17 回合",
+    "number": 17
+  },
+  {
+    "id": 362,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 363,
+    "round": 17,
+    "event": "enemy_action",
+    "message": "无冠者使用「无冠连槊」 → 莫宁",
+    "actor": "enemy:0:crownless",
+    "skill": "spear",
+    "skill_name": "无冠连槊",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 364,
+    "round": 17,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 156 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 156
+  },
+  {
+    "id": 365,
+    "round": 17,
+    "event": "damage",
+    "message": "无冠者对莫宁造成 211 点伤害",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "amount": 211,
+    "absorbed": 0,
+    "coefficient": 1.5,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 584,
+    "hp_after": 373,
+    "element": "havoc",
+    "amp_applied": 0,
+    "mitigation": 0.575,
+    "buff_bonus": 0,
+    "prevented": 156
+  },
+  {
+    "id": 366,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 367,
+    "round": 17,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 368,
+    "round": 17,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 18
+    }
+  },
+  {
+    "id": 369,
+    "round": 17,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 370,
+    "round": 18,
+    "event": "round",
+    "message": "第 18 回合",
+    "number": 18
+  },
+  {
+    "id": 371,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  },
+  {
+    "id": 372,
+    "round": 18,
+    "event": "enemy_action",
+    "message": "无冠者使用「升空蓄势」 → 莫宁",
+    "actor": "enemy:0:crownless",
+    "skill": "charge",
+    "skill_name": "升空蓄势",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 373,
+    "round": 18,
+    "event": "status",
+    "message": "无冠者获得蓄力",
+    "target": "enemy:0:crownless",
+    "status": "charge",
+    "value": {
+      "expires": 20,
+      "target": "ally:2:mornye"
+    }
+  },
+  {
+    "id": 374,
+    "round": 18,
+    "event": "charge_started",
+    "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:crownless",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "skill": "descent",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 375,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 376,
+    "round": 18,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 377,
+    "round": 18,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 19
+    }
+  },
+  {
+    "id": 378,
+    "round": 18,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 379,
+    "round": 19,
+    "event": "round",
+    "message": "第 19 回合",
+    "number": 19
+  },
+  {
+    "id": 380,
+    "round": 19,
+    "event": "turn",
+    "message": "轮到无冠者行动",
+    "actor": "enemy:0:crownless",
+    "side": "enemy"
+  }
+]

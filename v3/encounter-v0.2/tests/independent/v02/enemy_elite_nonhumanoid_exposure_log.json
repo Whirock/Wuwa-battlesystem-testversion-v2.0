@@ -1,0 +1,5936 @@
+[
+  {
+    "id": 1,
+    "round": 0,
+    "event": "start",
+    "message": "遭遇开始，所有资源从零开始",
+    "team": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "enemies": [
+      "enemy:0:carapace",
+      "enemy:1:predator"
+    ]
+  },
+  {
+    "id": 2,
+    "round": 1,
+    "event": "round",
+    "message": "第 1 回合",
+    "number": 1
+  },
+  {
+    "id": 3,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 4,
+    "round": 1,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 5,
+    "round": 1,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 6,
+    "round": 1,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 7,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 8,
+    "round": 1,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「雷矢」 → 琳奈",
+    "actor": "enemy:1:predator",
+    "skill": "shot",
+    "skill_name": "雷矢",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 9,
+    "round": 1,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 95 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 95
+  },
+  {
+    "id": 10,
+    "round": 1,
+    "event": "damage",
+    "message": "惊蛰猎手对琳奈造成 95 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "amount": 95,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1650,
+    "hp_after": 1555,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 95
+  },
+  {
+    "id": 11,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 12,
+    "round": 1,
+    "event": "enemy_action",
+    "message": "车刃镰使用「镰爪挥击」 → 爱弥斯",
+    "actor": "enemy:0:carapace",
+    "skill": "slash",
+    "skill_name": "镰爪挥击",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 13,
+    "round": 1,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 284 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 284,
+    "absorbed": 0,
+    "coefficient": 1.25,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1800,
+    "hp_after": 1516,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 1,
+    "buff_bonus": 0,
+    "prevented": 0
+  },
+  {
+    "id": 14,
+    "round": 1,
+    "event": "status",
+    "message": "爱弥斯获得裂伤",
+    "target": "ally:0:amy",
+    "status": "rend",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 15,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 16,
+    "round": 1,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 17,
+    "round": 1,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 18,
+    "round": 1,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 19,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 20,
+    "round": 1,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 21,
+    "round": 1,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 22,
+    "round": 1,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 23,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 24,
+    "round": 1,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 25,
+    "round": 1,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 26,
+    "round": 1,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 27,
+    "round": 2,
+    "event": "round",
+    "message": "第 2 回合",
+    "number": 2
+  },
+  {
+    "id": 28,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 29,
+    "round": 2,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 30,
+    "round": 2,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 31,
+    "round": 2,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 32,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 33,
+    "round": 2,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「引弦瞄准」 → 莫宁",
+    "actor": "enemy:1:predator",
+    "skill": "aim",
+    "skill_name": "引弦瞄准",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 34,
+    "round": 2,
+    "event": "status",
+    "message": "惊蛰猎手获得瞄准",
+    "target": "enemy:1:predator",
+    "status": "aim",
+    "value": {
+      "expires": 4,
+      "target": "ally:2:mornye"
+    }
+  },
+  {
+    "id": 35,
+    "round": 2,
+    "event": "charge_started",
+    "message": "惊蛰猎手预告「惊蛰贯射」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "skill": "aimed",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 36,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 37,
+    "round": 2,
+    "event": "enemy_action",
+    "message": "车刃镰使用「收刃蓄转」 → 琳奈",
+    "actor": "enemy:0:carapace",
+    "skill": "charge",
+    "skill_name": "收刃蓄转",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 38,
+    "round": 2,
+    "event": "status",
+    "message": "车刃镰获得蓄力",
+    "target": "enemy:0:carapace",
+    "status": "charge",
+    "value": {
+      "expires": 4,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 39,
+    "round": 2,
+    "event": "charge_started",
+    "message": "车刃镰预告「轮刃回旋」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "spin",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 40,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 41,
+    "round": 2,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 42,
+    "round": 2,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 43,
+    "round": 2,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 44,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 45,
+    "round": 2,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 46,
+    "round": 2,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 47,
+    "round": 2,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 48,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 49,
+    "round": 2,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 50,
+    "round": 2,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 51,
+    "round": 2,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 52,
+    "round": 3,
+    "event": "round",
+    "message": "第 3 回合",
+    "number": 3
+  },
+  {
+    "id": 53,
+    "round": 3,
+    "event": "status_expired",
+    "message": "爱弥斯的裂伤结束",
+    "target": "ally:0:amy",
+    "status": "rend"
+  },
+  {
+    "id": 54,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 55,
+    "round": 3,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 56,
+    "round": 3,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 57,
+    "round": 3,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 58,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 59,
+    "round": 3,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「惊蛰贯射」 → 莫宁",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "skill_name": "惊蛰贯射",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 60,
+    "round": 3,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 168 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 168
+  },
+  {
+    "id": 61,
+    "round": 3,
+    "event": "damage",
+    "message": "惊蛰猎手对莫宁造成 167 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "amount": 167,
+    "absorbed": 0,
+    "coefficient": 2.2,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 2100,
+    "hp_after": 1933,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 168
+  },
+  {
+    "id": 62,
+    "round": 3,
+    "event": "charge_released",
+    "message": "惊蛰猎手的蓄力兑现为「惊蛰贯射」",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 63,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 64,
+    "round": 3,
+    "event": "enemy_action",
+    "message": "车刃镰使用「轮刃回旋」（全体）",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "skill_name": "轮刃回旋",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 65,
+    "round": 3,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 205 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 205
+  },
+  {
+    "id": 66,
+    "round": 3,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 204 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 204,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1516,
+    "hp_after": 1312,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 205
+  },
+  {
+    "id": 67,
+    "round": 3,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 218
+  },
+  {
+    "id": 68,
+    "round": 3,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 218,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1555,
+    "hp_after": 1337,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 218
+  },
+  {
+    "id": 69,
+    "round": 3,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 175
+  },
+  {
+    "id": 70,
+    "round": 3,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 175,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1933,
+    "hp_after": 1758,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 175
+  },
+  {
+    "id": 71,
+    "round": 3,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 215 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 215
+  },
+  {
+    "id": 72,
+    "round": 3,
+    "event": "damage",
+    "message": "车刃镰对达妮娅造成 214 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "amount": 214,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1700,
+    "hp_after": 1486,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 215
+  },
+  {
+    "id": 73,
+    "round": 3,
+    "event": "charge_released",
+    "message": "车刃镰的蓄力兑现为「轮刃回旋」",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 74,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 75,
+    "round": 3,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 76,
+    "round": 3,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 77,
+    "round": 3,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 78,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 79,
+    "round": 3,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 80,
+    "round": 3,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 81,
+    "round": 3,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 82,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 83,
+    "round": 3,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 84,
+    "round": 3,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 85,
+    "round": 3,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 86,
+    "round": 4,
+    "event": "round",
+    "message": "第 4 回合",
+    "number": 4
+  },
+  {
+    "id": 87,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 88,
+    "round": 4,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 89,
+    "round": 4,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 90,
+    "round": 4,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 91,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 92,
+    "round": 4,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「雷矢」 → 爱弥斯",
+    "actor": "enemy:1:predator",
+    "skill": "shot",
+    "skill_name": "雷矢",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 93,
+    "round": 4,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 89 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 89
+  },
+  {
+    "id": 94,
+    "round": 4,
+    "event": "damage",
+    "message": "惊蛰猎手对爱弥斯造成 89 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "amount": 89,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1312,
+    "hp_after": 1223,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 89
+  },
+  {
+    "id": 95,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 96,
+    "round": 4,
+    "event": "enemy_action",
+    "message": "车刃镰使用「镰爪挥击」 → 达妮娅",
+    "actor": "enemy:0:carapace",
+    "skill": "slash",
+    "skill_name": "镰爪挥击",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 97,
+    "round": 4,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 149 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 149
+  },
+  {
+    "id": 98,
+    "round": 4,
+    "event": "damage",
+    "message": "车刃镰对达妮娅造成 149 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "amount": 149,
+    "absorbed": 0,
+    "coefficient": 1.25,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1486,
+    "hp_after": 1337,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 149
+  },
+  {
+    "id": 99,
+    "round": 4,
+    "event": "status",
+    "message": "达妮娅获得裂伤",
+    "target": "ally:3:denia",
+    "status": "rend",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 100,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 101,
+    "round": 4,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 102,
+    "round": 4,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 103,
+    "round": 4,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 104,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 105,
+    "round": 4,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 106,
+    "round": 4,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 107,
+    "round": 4,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 108,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 109,
+    "round": 4,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 110,
+    "round": 4,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 111,
+    "round": 4,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 112,
+    "round": 5,
+    "event": "round",
+    "message": "第 5 回合",
+    "number": 5
+  },
+  {
+    "id": 113,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 114,
+    "round": 5,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 115,
+    "round": 5,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 116,
+    "round": 5,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 117,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 118,
+    "round": 5,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「引弦瞄准」 → 琳奈",
+    "actor": "enemy:1:predator",
+    "skill": "aim",
+    "skill_name": "引弦瞄准",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 119,
+    "round": 5,
+    "event": "status",
+    "message": "惊蛰猎手获得瞄准",
+    "target": "enemy:1:predator",
+    "status": "aim",
+    "value": {
+      "expires": 7,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 120,
+    "round": 5,
+    "event": "charge_started",
+    "message": "惊蛰猎手预告「惊蛰贯射」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "skill": "aimed",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 121,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 122,
+    "round": 5,
+    "event": "enemy_action",
+    "message": "车刃镰使用「收刃蓄转」 → 爱弥斯",
+    "actor": "enemy:0:carapace",
+    "skill": "charge",
+    "skill_name": "收刃蓄转",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 123,
+    "round": 5,
+    "event": "status",
+    "message": "车刃镰获得蓄力",
+    "target": "enemy:0:carapace",
+    "status": "charge",
+    "value": {
+      "expires": 7,
+      "target": "ally:0:amy"
+    }
+  },
+  {
+    "id": 124,
+    "round": 5,
+    "event": "charge_started",
+    "message": "车刃镰预告「轮刃回旋」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "spin",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 125,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 126,
+    "round": 5,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 127,
+    "round": 5,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 128,
+    "round": 5,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 129,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 130,
+    "round": 5,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 131,
+    "round": 5,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 132,
+    "round": 5,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 133,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 134,
+    "round": 5,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 135,
+    "round": 5,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 136,
+    "round": 5,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 137,
+    "round": 6,
+    "event": "round",
+    "message": "第 6 回合",
+    "number": 6
+  },
+  {
+    "id": 138,
+    "round": 6,
+    "event": "status_expired",
+    "message": "达妮娅的裂伤结束",
+    "target": "ally:3:denia",
+    "status": "rend"
+  },
+  {
+    "id": 139,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 140,
+    "round": 6,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 141,
+    "round": 6,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 142,
+    "round": 6,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 143,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 144,
+    "round": 6,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「惊蛰贯射」 → 琳奈",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "skill_name": "惊蛰贯射",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 145,
+    "round": 6,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 209 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 209
+  },
+  {
+    "id": 146,
+    "round": 6,
+    "event": "damage",
+    "message": "惊蛰猎手对琳奈造成 209 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "amount": 209,
+    "absorbed": 0,
+    "coefficient": 2.2,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1337,
+    "hp_after": 1128,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 209
+  },
+  {
+    "id": 147,
+    "round": 6,
+    "event": "charge_released",
+    "message": "惊蛰猎手的蓄力兑现为「惊蛰贯射」",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 148,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 149,
+    "round": 6,
+    "event": "enemy_action",
+    "message": "车刃镰使用「轮刃回旋」（全体）",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "skill_name": "轮刃回旋",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 150,
+    "round": 6,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 205 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 205
+  },
+  {
+    "id": 151,
+    "round": 6,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 204 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 204,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1223,
+    "hp_after": 1019,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 205
+  },
+  {
+    "id": 152,
+    "round": 6,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 218
+  },
+  {
+    "id": 153,
+    "round": 6,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 218,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1128,
+    "hp_after": 910,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 218
+  },
+  {
+    "id": 154,
+    "round": 6,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 175
+  },
+  {
+    "id": 155,
+    "round": 6,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 175,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1758,
+    "hp_after": 1583,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 175
+  },
+  {
+    "id": 156,
+    "round": 6,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 215 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 215
+  },
+  {
+    "id": 157,
+    "round": 6,
+    "event": "damage",
+    "message": "车刃镰对达妮娅造成 214 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "amount": 214,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1337,
+    "hp_after": 1123,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 215
+  },
+  {
+    "id": 158,
+    "round": 6,
+    "event": "charge_released",
+    "message": "车刃镰的蓄力兑现为「轮刃回旋」",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 159,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 160,
+    "round": 6,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 161,
+    "round": 6,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 162,
+    "round": 6,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 163,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 164,
+    "round": 6,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 165,
+    "round": 6,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 166,
+    "round": 6,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 167,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 168,
+    "round": 6,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 169,
+    "round": 6,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 170,
+    "round": 6,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 171,
+    "round": 7,
+    "event": "round",
+    "message": "第 7 回合",
+    "number": 7
+  },
+  {
+    "id": 172,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 173,
+    "round": 7,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 174,
+    "round": 7,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 175,
+    "round": 7,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 176,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 177,
+    "round": 7,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「雷矢」 → 达妮娅",
+    "actor": "enemy:1:predator",
+    "skill": "shot",
+    "skill_name": "雷矢",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 178,
+    "round": 7,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 94 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 94
+  },
+  {
+    "id": 179,
+    "round": 7,
+    "event": "damage",
+    "message": "惊蛰猎手对达妮娅造成 93 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "amount": 93,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1123,
+    "hp_after": 1030,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 94
+  },
+  {
+    "id": 180,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 181,
+    "round": 7,
+    "event": "enemy_action",
+    "message": "车刃镰使用「镰爪挥击」 → 莫宁",
+    "actor": "enemy:0:carapace",
+    "skill": "slash",
+    "skill_name": "镰爪挥击",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 182,
+    "round": 7,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 122 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 122
+  },
+  {
+    "id": 183,
+    "round": 7,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 121 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 121,
+    "absorbed": 0,
+    "coefficient": 1.25,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1583,
+    "hp_after": 1462,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 122
+  },
+  {
+    "id": 184,
+    "round": 7,
+    "event": "status",
+    "message": "莫宁获得裂伤",
+    "target": "ally:2:mornye",
+    "status": "rend",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 185,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 186,
+    "round": 7,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 187,
+    "round": 7,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 188,
+    "round": 7,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 189,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 190,
+    "round": 7,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 191,
+    "round": 7,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 192,
+    "round": 7,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 193,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 194,
+    "round": 7,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 195,
+    "round": 7,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 196,
+    "round": 7,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 197,
+    "round": 8,
+    "event": "round",
+    "message": "第 8 回合",
+    "number": 8
+  },
+  {
+    "id": 198,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 199,
+    "round": 8,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 200,
+    "round": 8,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 201,
+    "round": 8,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 202,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 203,
+    "round": 8,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「引弦瞄准」 → 爱弥斯",
+    "actor": "enemy:1:predator",
+    "skill": "aim",
+    "skill_name": "引弦瞄准",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 204,
+    "round": 8,
+    "event": "status",
+    "message": "惊蛰猎手获得瞄准",
+    "target": "enemy:1:predator",
+    "status": "aim",
+    "value": {
+      "expires": 10,
+      "target": "ally:0:amy"
+    }
+  },
+  {
+    "id": 205,
+    "round": 8,
+    "event": "charge_started",
+    "message": "惊蛰猎手预告「惊蛰贯射」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "skill": "aimed",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 206,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 207,
+    "round": 8,
+    "event": "enemy_action",
+    "message": "车刃镰使用「收刃蓄转」 → 达妮娅",
+    "actor": "enemy:0:carapace",
+    "skill": "charge",
+    "skill_name": "收刃蓄转",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 208,
+    "round": 8,
+    "event": "status",
+    "message": "车刃镰获得蓄力",
+    "target": "enemy:0:carapace",
+    "status": "charge",
+    "value": {
+      "expires": 10,
+      "target": "ally:3:denia"
+    }
+  },
+  {
+    "id": 209,
+    "round": 8,
+    "event": "charge_started",
+    "message": "车刃镰预告「轮刃回旋」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "spin",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 210,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 211,
+    "round": 8,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 212,
+    "round": 8,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 213,
+    "round": 8,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 214,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 215,
+    "round": 8,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 216,
+    "round": 8,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 217,
+    "round": 8,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 218,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 219,
+    "round": 8,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 220,
+    "round": 8,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 221,
+    "round": 8,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 222,
+    "round": 9,
+    "event": "round",
+    "message": "第 9 回合",
+    "number": 9
+  },
+  {
+    "id": 223,
+    "round": 9,
+    "event": "status_expired",
+    "message": "莫宁的裂伤结束",
+    "target": "ally:2:mornye",
+    "status": "rend"
+  },
+  {
+    "id": 224,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 225,
+    "round": 9,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 226,
+    "round": 9,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 227,
+    "round": 9,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 228,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 229,
+    "round": 9,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「惊蛰贯射」 → 爱弥斯",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "skill_name": "惊蛰贯射",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 230,
+    "round": 9,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 196 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 196
+  },
+  {
+    "id": 231,
+    "round": 9,
+    "event": "damage",
+    "message": "惊蛰猎手对爱弥斯造成 196 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "amount": 196,
+    "absorbed": 0,
+    "coefficient": 2.2,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1019,
+    "hp_after": 823,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 196
+  },
+  {
+    "id": 232,
+    "round": 9,
+    "event": "charge_released",
+    "message": "惊蛰猎手的蓄力兑现为「惊蛰贯射」",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 233,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 234,
+    "round": 9,
+    "event": "enemy_action",
+    "message": "车刃镰使用「轮刃回旋」（全体）",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "skill_name": "轮刃回旋",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 235,
+    "round": 9,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 205 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 205
+  },
+  {
+    "id": 236,
+    "round": 9,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 204 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 204,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 823,
+    "hp_after": 619,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 205
+  },
+  {
+    "id": 237,
+    "round": 9,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 218
+  },
+  {
+    "id": 238,
+    "round": 9,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 218,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 910,
+    "hp_after": 692,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 218
+  },
+  {
+    "id": 239,
+    "round": 9,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 175
+  },
+  {
+    "id": 240,
+    "round": 9,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 175,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1462,
+    "hp_after": 1287,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 175
+  },
+  {
+    "id": 241,
+    "round": 9,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 215 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 215
+  },
+  {
+    "id": 242,
+    "round": 9,
+    "event": "damage",
+    "message": "车刃镰对达妮娅造成 214 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "amount": 214,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1030,
+    "hp_after": 816,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 215
+  },
+  {
+    "id": 243,
+    "round": 9,
+    "event": "charge_released",
+    "message": "车刃镰的蓄力兑现为「轮刃回旋」",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 244,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 245,
+    "round": 9,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 246,
+    "round": 9,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 247,
+    "round": 9,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 248,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 249,
+    "round": 9,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 250,
+    "round": 9,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 251,
+    "round": 9,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 252,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 253,
+    "round": 9,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 254,
+    "round": 9,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 255,
+    "round": 9,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 256,
+    "round": 10,
+    "event": "round",
+    "message": "第 10 回合",
+    "number": 10
+  },
+  {
+    "id": 257,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 258,
+    "round": 10,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 259,
+    "round": 10,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 260,
+    "round": 10,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 261,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 262,
+    "round": 10,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「雷矢」 → 莫宁",
+    "actor": "enemy:1:predator",
+    "skill": "shot",
+    "skill_name": "雷矢",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 263,
+    "round": 10,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 76 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 76
+  },
+  {
+    "id": 264,
+    "round": 10,
+    "event": "damage",
+    "message": "惊蛰猎手对莫宁造成 76 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "amount": 76,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1287,
+    "hp_after": 1211,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 76
+  },
+  {
+    "id": 265,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 266,
+    "round": 10,
+    "event": "enemy_action",
+    "message": "车刃镰使用「镰爪挥击」 → 琳奈",
+    "actor": "enemy:0:carapace",
+    "skill": "slash",
+    "skill_name": "镰爪挥击",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 267,
+    "round": 10,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 152 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 152
+  },
+  {
+    "id": 268,
+    "round": 10,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 151 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 151,
+    "absorbed": 0,
+    "coefficient": 1.25,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 692,
+    "hp_after": 541,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 152
+  },
+  {
+    "id": 269,
+    "round": 10,
+    "event": "status",
+    "message": "琳奈获得裂伤",
+    "target": "ally:1:lynae",
+    "status": "rend",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 270,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 271,
+    "round": 10,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 272,
+    "round": 10,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 273,
+    "round": 10,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 274,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 275,
+    "round": 10,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 276,
+    "round": 10,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 277,
+    "round": 10,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 278,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 279,
+    "round": 10,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 280,
+    "round": 10,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 281,
+    "round": 10,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 282,
+    "round": 11,
+    "event": "round",
+    "message": "第 11 回合",
+    "number": 11
+  },
+  {
+    "id": 283,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 284,
+    "round": 11,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 285,
+    "round": 11,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 286,
+    "round": 11,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 287,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 288,
+    "round": 11,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「引弦瞄准」 → 达妮娅",
+    "actor": "enemy:1:predator",
+    "skill": "aim",
+    "skill_name": "引弦瞄准",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 289,
+    "round": 11,
+    "event": "status",
+    "message": "惊蛰猎手获得瞄准",
+    "target": "enemy:1:predator",
+    "status": "aim",
+    "value": {
+      "expires": 13,
+      "target": "ally:3:denia"
+    }
+  },
+  {
+    "id": 290,
+    "round": 11,
+    "event": "charge_started",
+    "message": "惊蛰猎手预告「惊蛰贯射」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "skill": "aimed",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 291,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 292,
+    "round": 11,
+    "event": "enemy_action",
+    "message": "车刃镰使用「收刃蓄转」 → 莫宁",
+    "actor": "enemy:0:carapace",
+    "skill": "charge",
+    "skill_name": "收刃蓄转",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 293,
+    "round": 11,
+    "event": "status",
+    "message": "车刃镰获得蓄力",
+    "target": "enemy:0:carapace",
+    "status": "charge",
+    "value": {
+      "expires": 13,
+      "target": "ally:2:mornye"
+    }
+  },
+  {
+    "id": 294,
+    "round": 11,
+    "event": "charge_started",
+    "message": "车刃镰预告「轮刃回旋」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "spin",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 295,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 296,
+    "round": 11,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 297,
+    "round": 11,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 298,
+    "round": 11,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 299,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 300,
+    "round": 11,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 301,
+    "round": 11,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 302,
+    "round": 11,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 303,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 304,
+    "round": 11,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 305,
+    "round": 11,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 306,
+    "round": 11,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 307,
+    "round": 12,
+    "event": "round",
+    "message": "第 12 回合",
+    "number": 12
+  },
+  {
+    "id": 308,
+    "round": 12,
+    "event": "status_expired",
+    "message": "琳奈的裂伤结束",
+    "target": "ally:1:lynae",
+    "status": "rend"
+  },
+  {
+    "id": 309,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 310,
+    "round": 12,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 311,
+    "round": 12,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 312,
+    "round": 12,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 313,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 314,
+    "round": 12,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「惊蛰贯射」 → 达妮娅",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "skill_name": "惊蛰贯射",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 315,
+    "round": 12,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 206 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 206
+  },
+  {
+    "id": 316,
+    "round": 12,
+    "event": "damage",
+    "message": "惊蛰猎手对达妮娅造成 205 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "amount": 205,
+    "absorbed": 0,
+    "coefficient": 2.2,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 816,
+    "hp_after": 611,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 206
+  },
+  {
+    "id": 317,
+    "round": 12,
+    "event": "charge_released",
+    "message": "惊蛰猎手的蓄力兑现为「惊蛰贯射」",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 318,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 319,
+    "round": 12,
+    "event": "enemy_action",
+    "message": "车刃镰使用「轮刃回旋」（全体）",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "skill_name": "轮刃回旋",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 320,
+    "round": 12,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 205 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 205
+  },
+  {
+    "id": 321,
+    "round": 12,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 204 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 204,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 619,
+    "hp_after": 415,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 205
+  },
+  {
+    "id": 322,
+    "round": 12,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 218
+  },
+  {
+    "id": 323,
+    "round": 12,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 218,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 541,
+    "hp_after": 323,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 218
+  },
+  {
+    "id": 324,
+    "round": 12,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 175
+  },
+  {
+    "id": 325,
+    "round": 12,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 175,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1211,
+    "hp_after": 1036,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 175
+  },
+  {
+    "id": 326,
+    "round": 12,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 215 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 215
+  },
+  {
+    "id": 327,
+    "round": 12,
+    "event": "damage",
+    "message": "车刃镰对达妮娅造成 214 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "amount": 214,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 611,
+    "hp_after": 397,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 215
+  },
+  {
+    "id": 328,
+    "round": 12,
+    "event": "charge_released",
+    "message": "车刃镰的蓄力兑现为「轮刃回旋」",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 329,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 330,
+    "round": 12,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 331,
+    "round": 12,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 332,
+    "round": 12,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 333,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 334,
+    "round": 12,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 335,
+    "round": 12,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 336,
+    "round": 12,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 337,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 338,
+    "round": 12,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 339,
+    "round": 12,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 340,
+    "round": 12,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 341,
+    "round": 13,
+    "event": "round",
+    "message": "第 13 回合",
+    "number": 13
+  },
+  {
+    "id": 342,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 343,
+    "round": 13,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 344,
+    "round": 13,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 345,
+    "round": 13,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 346,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 347,
+    "round": 13,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「雷矢」 → 琳奈",
+    "actor": "enemy:1:predator",
+    "skill": "shot",
+    "skill_name": "雷矢",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 348,
+    "round": 13,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 95 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 95
+  },
+  {
+    "id": 349,
+    "round": 13,
+    "event": "damage",
+    "message": "惊蛰猎手对琳奈造成 95 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:1:lynae",
+    "amount": 95,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 323,
+    "hp_after": 228,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 95
+  },
+  {
+    "id": 350,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 351,
+    "round": 13,
+    "event": "enemy_action",
+    "message": "车刃镰使用「镰爪挥击」 → 爱弥斯",
+    "actor": "enemy:0:carapace",
+    "skill": "slash",
+    "skill_name": "镰爪挥击",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 352,
+    "round": 13,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 142 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 142
+  },
+  {
+    "id": 353,
+    "round": 13,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 142 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 142,
+    "absorbed": 0,
+    "coefficient": 1.25,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 415,
+    "hp_after": 273,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 142
+  },
+  {
+    "id": 354,
+    "round": 13,
+    "event": "status",
+    "message": "爱弥斯获得裂伤",
+    "target": "ally:0:amy",
+    "status": "rend",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 355,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 356,
+    "round": 13,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 357,
+    "round": 13,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 358,
+    "round": 13,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 359,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 360,
+    "round": 13,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 361,
+    "round": 13,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 362,
+    "round": 13,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 363,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 364,
+    "round": 13,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 365,
+    "round": 13,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 366,
+    "round": 13,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 367,
+    "round": 14,
+    "event": "round",
+    "message": "第 14 回合",
+    "number": 14
+  },
+  {
+    "id": 368,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 369,
+    "round": 14,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 370,
+    "round": 14,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 371,
+    "round": 14,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 372,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 373,
+    "round": 14,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「引弦瞄准」 → 莫宁",
+    "actor": "enemy:1:predator",
+    "skill": "aim",
+    "skill_name": "引弦瞄准",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 374,
+    "round": 14,
+    "event": "status",
+    "message": "惊蛰猎手获得瞄准",
+    "target": "enemy:1:predator",
+    "status": "aim",
+    "value": {
+      "expires": 16,
+      "target": "ally:2:mornye"
+    }
+  },
+  {
+    "id": 375,
+    "round": 14,
+    "event": "charge_started",
+    "message": "惊蛰猎手预告「惊蛰贯射」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "skill": "aimed",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 376,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 377,
+    "round": 14,
+    "event": "enemy_action",
+    "message": "车刃镰使用「收刃蓄转」 → 琳奈",
+    "actor": "enemy:0:carapace",
+    "skill": "charge",
+    "skill_name": "收刃蓄转",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 378,
+    "round": 14,
+    "event": "status",
+    "message": "车刃镰获得蓄力",
+    "target": "enemy:0:carapace",
+    "status": "charge",
+    "value": {
+      "expires": 16,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 379,
+    "round": 14,
+    "event": "charge_started",
+    "message": "车刃镰预告「轮刃回旋」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "spin",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 380,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 381,
+    "round": 14,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 382,
+    "round": 14,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 383,
+    "round": 14,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 384,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 385,
+    "round": 14,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 386,
+    "round": 14,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 387,
+    "round": 14,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 388,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 389,
+    "round": 14,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 390,
+    "round": 14,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 391,
+    "round": 14,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 392,
+    "round": 15,
+    "event": "round",
+    "message": "第 15 回合",
+    "number": 15
+  },
+  {
+    "id": 393,
+    "round": 15,
+    "event": "status_expired",
+    "message": "爱弥斯的裂伤结束",
+    "target": "ally:0:amy",
+    "status": "rend"
+  },
+  {
+    "id": 394,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 395,
+    "round": 15,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 396,
+    "round": 15,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 397,
+    "round": 15,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 398,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 399,
+    "round": 15,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「惊蛰贯射」 → 莫宁",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "skill_name": "惊蛰贯射",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 400,
+    "round": 15,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 168 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 168
+  },
+  {
+    "id": 401,
+    "round": 15,
+    "event": "damage",
+    "message": "惊蛰猎手对莫宁造成 167 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:2:mornye",
+    "amount": 167,
+    "absorbed": 0,
+    "coefficient": 2.2,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1036,
+    "hp_after": 869,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 168
+  },
+  {
+    "id": 402,
+    "round": 15,
+    "event": "charge_released",
+    "message": "惊蛰猎手的蓄力兑现为「惊蛰贯射」",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 403,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 404,
+    "round": 15,
+    "event": "enemy_action",
+    "message": "车刃镰使用「轮刃回旋」（全体）",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "skill_name": "轮刃回旋",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 405,
+    "round": 15,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 205 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 205
+  },
+  {
+    "id": 406,
+    "round": 15,
+    "event": "damage",
+    "message": "车刃镰对爱弥斯造成 204 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:0:amy",
+    "amount": 204,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 273,
+    "hp_after": 69,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 205
+  },
+  {
+    "id": 407,
+    "round": 15,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 218
+  },
+  {
+    "id": 408,
+    "round": 15,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 218 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 218,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 228,
+    "hp_after": 10,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 218
+  },
+  {
+    "id": 409,
+    "round": 15,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 175
+  },
+  {
+    "id": 410,
+    "round": 15,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 175,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 869,
+    "hp_after": 694,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 175
+  },
+  {
+    "id": 411,
+    "round": 15,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 215 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 215
+  },
+  {
+    "id": 412,
+    "round": 15,
+    "event": "damage",
+    "message": "车刃镰对达妮娅造成 214 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:3:denia",
+    "amount": 214,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 397,
+    "hp_after": 183,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 215
+  },
+  {
+    "id": 413,
+    "round": 15,
+    "event": "charge_released",
+    "message": "车刃镰的蓄力兑现为「轮刃回旋」",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "targets": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 414,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 415,
+    "round": 15,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 416,
+    "round": 15,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 417,
+    "round": 15,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 418,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 419,
+    "round": 15,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 420,
+    "round": 15,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 421,
+    "round": 15,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 422,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 423,
+    "round": 15,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 424,
+    "round": 15,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 425,
+    "round": 15,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 426,
+    "round": 16,
+    "event": "round",
+    "message": "第 16 回合",
+    "number": 16
+  },
+  {
+    "id": 427,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 428,
+    "round": 16,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 429,
+    "round": 16,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 430,
+    "round": 16,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 431,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 432,
+    "round": 16,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「雷矢」 → 爱弥斯",
+    "actor": "enemy:1:predator",
+    "skill": "shot",
+    "skill_name": "雷矢",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 433,
+    "round": 16,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 89 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 89
+  },
+  {
+    "id": 434,
+    "round": 16,
+    "event": "damage",
+    "message": "惊蛰猎手对爱弥斯造成 69 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:0:amy",
+    "amount": 69,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 69,
+    "hp_after": 0,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 89
+  },
+  {
+    "id": 435,
+    "round": 16,
+    "event": "incapacitated",
+    "message": "爱弥斯失去战斗能力",
+    "unit": "ally:0:amy",
+    "target": "ally:0:amy"
+  },
+  {
+    "id": 436,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 437,
+    "round": 16,
+    "event": "enemy_action",
+    "message": "车刃镰使用「镰爪挥击」 → 琳奈",
+    "actor": "enemy:0:carapace",
+    "skill": "slash",
+    "skill_name": "镰爪挥击",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 438,
+    "round": 16,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 152 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 152
+  },
+  {
+    "id": 439,
+    "round": 16,
+    "event": "damage",
+    "message": "车刃镰对琳奈造成 10 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:1:lynae",
+    "amount": 10,
+    "absorbed": 0,
+    "coefficient": 1.25,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 10,
+    "hp_after": 0,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 152
+  },
+  {
+    "id": 440,
+    "round": 16,
+    "event": "incapacitated",
+    "message": "琳奈失去战斗能力",
+    "unit": "ally:1:lynae",
+    "target": "ally:1:lynae"
+  },
+  {
+    "id": 441,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 442,
+    "round": 16,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 443,
+    "round": 16,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 444,
+    "round": 16,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 445,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 446,
+    "round": 16,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 447,
+    "round": 16,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 448,
+    "round": 16,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 449,
+    "round": 17,
+    "event": "round",
+    "message": "第 17 回合",
+    "number": 17
+  },
+  {
+    "id": 450,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 451,
+    "round": 17,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「引弦瞄准」 → 达妮娅",
+    "actor": "enemy:1:predator",
+    "skill": "aim",
+    "skill_name": "引弦瞄准",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 452,
+    "round": 17,
+    "event": "status",
+    "message": "惊蛰猎手获得瞄准",
+    "target": "enemy:1:predator",
+    "status": "aim",
+    "value": {
+      "expires": 19,
+      "target": "ally:3:denia"
+    }
+  },
+  {
+    "id": 453,
+    "round": 17,
+    "event": "charge_started",
+    "message": "惊蛰猎手预告「惊蛰贯射」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "skill": "aimed",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 454,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 455,
+    "round": 17,
+    "event": "enemy_action",
+    "message": "车刃镰使用「收刃蓄转」 → 莫宁",
+    "actor": "enemy:0:carapace",
+    "skill": "charge",
+    "skill_name": "收刃蓄转",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 456,
+    "round": 17,
+    "event": "status",
+    "message": "车刃镰获得蓄力",
+    "target": "enemy:0:carapace",
+    "status": "charge",
+    "value": {
+      "expires": 19,
+      "target": "ally:2:mornye"
+    }
+  },
+  {
+    "id": 457,
+    "round": 17,
+    "event": "charge_started",
+    "message": "车刃镰预告「轮刃回旋」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "skill": "spin",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 458,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 459,
+    "round": 17,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 460,
+    "round": 17,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 18
+    }
+  },
+  {
+    "id": 461,
+    "round": 17,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 462,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 463,
+    "round": 17,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 464,
+    "round": 17,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 18
+    }
+  },
+  {
+    "id": 465,
+    "round": 17,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 466,
+    "round": 18,
+    "event": "round",
+    "message": "第 18 回合",
+    "number": 18
+  },
+  {
+    "id": 467,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  },
+  {
+    "id": 468,
+    "round": 18,
+    "event": "enemy_action",
+    "message": "惊蛰猎手使用「惊蛰贯射」 → 达妮娅",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "skill_name": "惊蛰贯射",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 469,
+    "round": 18,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 206 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 206
+  },
+  {
+    "id": 470,
+    "round": 18,
+    "event": "damage",
+    "message": "惊蛰猎手对达妮娅造成 183 点伤害",
+    "actor": "enemy:1:predator",
+    "target": "ally:3:denia",
+    "amount": 183,
+    "absorbed": 0,
+    "coefficient": 2.2,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 183,
+    "hp_after": 0,
+    "element": "electro",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 206
+  },
+  {
+    "id": 471,
+    "round": 18,
+    "event": "incapacitated",
+    "message": "达妮娅失去战斗能力",
+    "unit": "ally:3:denia",
+    "target": "ally:3:denia"
+  },
+  {
+    "id": 472,
+    "round": 18,
+    "event": "charge_released",
+    "message": "惊蛰猎手的蓄力兑现为「惊蛰贯射」",
+    "actor": "enemy:1:predator",
+    "skill": "aimed",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 473,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到车刃镰行动",
+    "actor": "enemy:0:carapace",
+    "side": "enemy"
+  },
+  {
+    "id": 474,
+    "round": 18,
+    "event": "enemy_action",
+    "message": "车刃镰使用「轮刃回旋」（全体）",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "skill_name": "轮刃回旋",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 475,
+    "round": 18,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 175
+  },
+  {
+    "id": 476,
+    "round": 18,
+    "event": "damage",
+    "message": "车刃镰对莫宁造成 175 点伤害",
+    "actor": "enemy:0:carapace",
+    "target": "ally:2:mornye",
+    "amount": 175,
+    "absorbed": 0,
+    "coefficient": 1.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 694,
+    "hp_after": 519,
+    "element": "aero",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 175
+  },
+  {
+    "id": 477,
+    "round": 18,
+    "event": "charge_released",
+    "message": "车刃镰的蓄力兑现为「轮刃回旋」",
+    "actor": "enemy:0:carapace",
+    "skill": "spin",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 478,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 479,
+    "round": 18,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 480,
+    "round": 18,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 19
+    }
+  },
+  {
+    "id": 481,
+    "round": 18,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 482,
+    "round": 19,
+    "event": "round",
+    "message": "第 19 回合",
+    "number": 19
+  },
+  {
+    "id": 483,
+    "round": 19,
+    "event": "turn",
+    "message": "轮到惊蛰猎手行动",
+    "actor": "enemy:1:predator",
+    "side": "enemy"
+  }
+]

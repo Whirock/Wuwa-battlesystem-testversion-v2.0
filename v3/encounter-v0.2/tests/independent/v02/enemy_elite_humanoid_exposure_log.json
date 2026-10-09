@@ -1,0 +1,5499 @@
+[
+  {
+    "id": 1,
+    "round": 0,
+    "event": "start",
+    "message": "遭遇开始，所有资源从零开始",
+    "team": [
+      "ally:0:amy",
+      "ally:1:lynae",
+      "ally:2:mornye",
+      "ally:3:denia"
+    ],
+    "enemies": [
+      "enemy:0:bracer",
+      "enemy:1:snip"
+    ]
+  },
+  {
+    "id": 2,
+    "round": 1,
+    "event": "round",
+    "message": "第 1 回合",
+    "number": 1
+  },
+  {
+    "id": 3,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 4,
+    "round": 1,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 5,
+    "round": 1,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 6,
+    "round": 1,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 7,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 8,
+    "round": 1,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 9,
+    "round": 1,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 10,
+    "round": 1,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 11,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 12,
+    "round": 1,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 13,
+    "round": 1,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 14,
+    "round": 1,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 15,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 16,
+    "round": 1,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 琳奈",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 17,
+    "round": 1,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 87 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 87
+  },
+  {
+    "id": 18,
+    "round": 1,
+    "event": "damage",
+    "message": "咔嚓嚓对琳奈造成 86 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "amount": 86,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1650,
+    "hp_after": 1564,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 87
+  },
+  {
+    "id": 19,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 20,
+    "round": 1,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 21,
+    "round": 1,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 2
+    }
+  },
+  {
+    "id": 22,
+    "round": 1,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 23,
+    "round": 1,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 24,
+    "round": 1,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「架岩」 → 爱弥斯",
+    "actor": "enemy:0:bracer",
+    "skill": "brace",
+    "skill_name": "架岩",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 25,
+    "round": 1,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 101 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 101
+  },
+  {
+    "id": 26,
+    "round": 1,
+    "event": "damage",
+    "message": "坚岩斗士对爱弥斯造成 100 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "amount": 100,
+    "absorbed": 0,
+    "coefficient": 0.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1800,
+    "hp_after": 1700,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 101
+  },
+  {
+    "id": 27,
+    "round": 1,
+    "event": "status",
+    "message": "坚岩斗士获得架岩",
+    "target": "enemy:0:bracer",
+    "status": "brace",
+    "value": {
+      "expires": 3,
+      "target": "ally:0:amy"
+    }
+  },
+  {
+    "id": 28,
+    "round": 2,
+    "event": "round",
+    "message": "第 2 回合",
+    "number": 2
+  },
+  {
+    "id": 29,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 30,
+    "round": 2,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 31,
+    "round": 2,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 32,
+    "round": 2,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 33,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 34,
+    "round": 2,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 35,
+    "round": 2,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 36,
+    "round": 2,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 37,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 38,
+    "round": 2,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 39,
+    "round": 2,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 40,
+    "round": 2,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 41,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 42,
+    "round": 2,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 莫宁",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 43,
+    "round": 2,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 94
+  },
+  {
+    "id": 44,
+    "round": 2,
+    "event": "damage",
+    "message": "咔嚓嚓对莫宁造成 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "amount": 94,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 2100,
+    "hp_after": 2006,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 94
+  },
+  {
+    "id": 45,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 46,
+    "round": 2,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 47,
+    "round": 2,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 3
+    }
+  },
+  {
+    "id": 48,
+    "round": 2,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 49,
+    "round": 2,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 50,
+    "round": 2,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「沉肩蓄力」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "charge",
+    "skill_name": "沉肩蓄力",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 51,
+    "round": 2,
+    "event": "status",
+    "message": "坚岩斗士获得蓄力",
+    "target": "enemy:0:bracer",
+    "status": "charge",
+    "value": {
+      "expires": 4,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 52,
+    "round": 2,
+    "event": "charge_started",
+    "message": "坚岩斗士预告「岩躯冲压」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "skill": "rush",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 53,
+    "round": 3,
+    "event": "round",
+    "message": "第 3 回合",
+    "number": 3
+  },
+  {
+    "id": 54,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 55,
+    "round": 3,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 56,
+    "round": 3,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 57,
+    "round": 3,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 58,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 59,
+    "round": 3,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 60,
+    "round": 3,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 61,
+    "round": 3,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 62,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 63,
+    "round": 3,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 64,
+    "round": 3,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 65,
+    "round": 3,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 66,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 67,
+    "round": 3,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 达妮娅",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 68,
+    "round": 3,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 85
+  },
+  {
+    "id": 69,
+    "round": 3,
+    "event": "damage",
+    "message": "咔嚓嚓对达妮娅造成 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "amount": 85,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1700,
+    "hp_after": 1615,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 85
+  },
+  {
+    "id": 70,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 71,
+    "round": 3,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 72,
+    "round": 3,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 4
+    }
+  },
+  {
+    "id": 73,
+    "round": 3,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 74,
+    "round": 3,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 75,
+    "round": 3,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩躯冲压」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "skill_name": "岩躯冲压",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 76,
+    "round": 3,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 363 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 363
+  },
+  {
+    "id": 77,
+    "round": 3,
+    "event": "damage",
+    "message": "坚岩斗士对琳奈造成 362 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "amount": 362,
+    "absorbed": 0,
+    "coefficient": 2.7,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1564,
+    "hp_after": 1202,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 363
+  },
+  {
+    "id": 78,
+    "round": 3,
+    "event": "charge_released",
+    "message": "坚岩斗士的蓄力兑现为「岩躯冲压」",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 79,
+    "round": 4,
+    "event": "round",
+    "message": "第 4 回合",
+    "number": 4
+  },
+  {
+    "id": 80,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 81,
+    "round": 4,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 82,
+    "round": 4,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 83,
+    "round": 4,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 84,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 85,
+    "round": 4,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 86,
+    "round": 4,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 87,
+    "round": 4,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 88,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 89,
+    "round": 4,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 90,
+    "round": 4,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 91,
+    "round": 4,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 92,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 93,
+    "round": 4,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 爱弥斯",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 94,
+    "round": 4,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 110
+  },
+  {
+    "id": 95,
+    "round": 4,
+    "event": "damage",
+    "message": "咔嚓嚓对爱弥斯造成 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "amount": 110,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1700,
+    "hp_after": 1590,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 110
+  },
+  {
+    "id": 96,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 97,
+    "round": 4,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 98,
+    "round": 4,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 5
+    }
+  },
+  {
+    "id": 99,
+    "round": 4,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 100,
+    "round": 4,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 101,
+    "round": 4,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩拳」 → 达妮娅",
+    "actor": "enemy:0:bracer",
+    "skill": "smash",
+    "skill_name": "岩拳",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 102,
+    "round": 4,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 185 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 185
+  },
+  {
+    "id": 103,
+    "round": 4,
+    "event": "damage",
+    "message": "坚岩斗士对达妮娅造成 185 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "amount": 185,
+    "absorbed": 0,
+    "coefficient": 1.4,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1615,
+    "hp_after": 1430,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 185
+  },
+  {
+    "id": 104,
+    "round": 5,
+    "event": "round",
+    "message": "第 5 回合",
+    "number": 5
+  },
+  {
+    "id": 105,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 106,
+    "round": 5,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 107,
+    "round": 5,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 108,
+    "round": 5,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 109,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 110,
+    "round": 5,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 111,
+    "round": 5,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 112,
+    "round": 5,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 113,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 114,
+    "round": 5,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 115,
+    "round": 5,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 116,
+    "round": 5,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 117,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 118,
+    "round": 5,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 琳奈",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 119,
+    "round": 5,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 87 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 87
+  },
+  {
+    "id": 120,
+    "round": 5,
+    "event": "damage",
+    "message": "咔嚓嚓对琳奈造成 86 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "amount": 86,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1202,
+    "hp_after": 1116,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 87
+  },
+  {
+    "id": 121,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 122,
+    "round": 5,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 123,
+    "round": 5,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 6
+    }
+  },
+  {
+    "id": 124,
+    "round": 5,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 125,
+    "round": 5,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 126,
+    "round": 5,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「架岩」 → 爱弥斯",
+    "actor": "enemy:0:bracer",
+    "skill": "brace",
+    "skill_name": "架岩",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 127,
+    "round": 5,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 101 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 101
+  },
+  {
+    "id": 128,
+    "round": 5,
+    "event": "damage",
+    "message": "坚岩斗士对爱弥斯造成 100 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "amount": 100,
+    "absorbed": 0,
+    "coefficient": 0.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1590,
+    "hp_after": 1490,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 101
+  },
+  {
+    "id": 129,
+    "round": 5,
+    "event": "status",
+    "message": "坚岩斗士获得架岩",
+    "target": "enemy:0:bracer",
+    "status": "brace",
+    "value": {
+      "expires": 7,
+      "target": "ally:0:amy"
+    }
+  },
+  {
+    "id": 130,
+    "round": 6,
+    "event": "round",
+    "message": "第 6 回合",
+    "number": 6
+  },
+  {
+    "id": 131,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 132,
+    "round": 6,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 133,
+    "round": 6,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 134,
+    "round": 6,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 135,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 136,
+    "round": 6,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 137,
+    "round": 6,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 138,
+    "round": 6,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 139,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 140,
+    "round": 6,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 141,
+    "round": 6,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 142,
+    "round": 6,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 143,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 144,
+    "round": 6,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 莫宁",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 145,
+    "round": 6,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 94
+  },
+  {
+    "id": 146,
+    "round": 6,
+    "event": "damage",
+    "message": "咔嚓嚓对莫宁造成 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "amount": 94,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 2006,
+    "hp_after": 1912,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 94
+  },
+  {
+    "id": 147,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 148,
+    "round": 6,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 149,
+    "round": 6,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 7
+    }
+  },
+  {
+    "id": 150,
+    "round": 6,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 151,
+    "round": 6,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 152,
+    "round": 6,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「沉肩蓄力」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "charge",
+    "skill_name": "沉肩蓄力",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 153,
+    "round": 6,
+    "event": "status",
+    "message": "坚岩斗士获得蓄力",
+    "target": "enemy:0:bracer",
+    "status": "charge",
+    "value": {
+      "expires": 8,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 154,
+    "round": 6,
+    "event": "charge_started",
+    "message": "坚岩斗士预告「岩躯冲压」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "skill": "rush",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 155,
+    "round": 7,
+    "event": "round",
+    "message": "第 7 回合",
+    "number": 7
+  },
+  {
+    "id": 156,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 157,
+    "round": 7,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 158,
+    "round": 7,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 159,
+    "round": 7,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 160,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 161,
+    "round": 7,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 162,
+    "round": 7,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 163,
+    "round": 7,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 164,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 165,
+    "round": 7,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 166,
+    "round": 7,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 167,
+    "round": 7,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 168,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 169,
+    "round": 7,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 达妮娅",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 170,
+    "round": 7,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 85
+  },
+  {
+    "id": 171,
+    "round": 7,
+    "event": "damage",
+    "message": "咔嚓嚓对达妮娅造成 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "amount": 85,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1430,
+    "hp_after": 1345,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 85
+  },
+  {
+    "id": 172,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 173,
+    "round": 7,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 174,
+    "round": 7,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 8
+    }
+  },
+  {
+    "id": 175,
+    "round": 7,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 176,
+    "round": 7,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 177,
+    "round": 7,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩躯冲压」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "skill_name": "岩躯冲压",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 178,
+    "round": 7,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 363 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 363
+  },
+  {
+    "id": 179,
+    "round": 7,
+    "event": "damage",
+    "message": "坚岩斗士对琳奈造成 362 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "amount": 362,
+    "absorbed": 0,
+    "coefficient": 2.7,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1116,
+    "hp_after": 754,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 363
+  },
+  {
+    "id": 180,
+    "round": 7,
+    "event": "charge_released",
+    "message": "坚岩斗士的蓄力兑现为「岩躯冲压」",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 181,
+    "round": 8,
+    "event": "round",
+    "message": "第 8 回合",
+    "number": 8
+  },
+  {
+    "id": 182,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 183,
+    "round": 8,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 184,
+    "round": 8,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 185,
+    "round": 8,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 186,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 187,
+    "round": 8,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 188,
+    "round": 8,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 189,
+    "round": 8,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 190,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 191,
+    "round": 8,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 192,
+    "round": 8,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 193,
+    "round": 8,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 194,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 195,
+    "round": 8,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 爱弥斯",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 196,
+    "round": 8,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 110
+  },
+  {
+    "id": 197,
+    "round": 8,
+    "event": "damage",
+    "message": "咔嚓嚓对爱弥斯造成 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "amount": 110,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1490,
+    "hp_after": 1380,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 110
+  },
+  {
+    "id": 198,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 199,
+    "round": 8,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 200,
+    "round": 8,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 9
+    }
+  },
+  {
+    "id": 201,
+    "round": 8,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 202,
+    "round": 8,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 203,
+    "round": 8,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩拳」 → 达妮娅",
+    "actor": "enemy:0:bracer",
+    "skill": "smash",
+    "skill_name": "岩拳",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 204,
+    "round": 8,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 185 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 185
+  },
+  {
+    "id": 205,
+    "round": 8,
+    "event": "damage",
+    "message": "坚岩斗士对达妮娅造成 185 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "amount": 185,
+    "absorbed": 0,
+    "coefficient": 1.4,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1345,
+    "hp_after": 1160,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 185
+  },
+  {
+    "id": 206,
+    "round": 9,
+    "event": "round",
+    "message": "第 9 回合",
+    "number": 9
+  },
+  {
+    "id": 207,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 208,
+    "round": 9,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 209,
+    "round": 9,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 210,
+    "round": 9,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 211,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 212,
+    "round": 9,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 213,
+    "round": 9,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 214,
+    "round": 9,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 215,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 216,
+    "round": 9,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 217,
+    "round": 9,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 218,
+    "round": 9,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 219,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 220,
+    "round": 9,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 琳奈",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 221,
+    "round": 9,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 87 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 87
+  },
+  {
+    "id": 222,
+    "round": 9,
+    "event": "damage",
+    "message": "咔嚓嚓对琳奈造成 86 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "amount": 86,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 754,
+    "hp_after": 668,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 87
+  },
+  {
+    "id": 223,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 224,
+    "round": 9,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 225,
+    "round": 9,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 10
+    }
+  },
+  {
+    "id": 226,
+    "round": 9,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 227,
+    "round": 9,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 228,
+    "round": 9,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「架岩」 → 爱弥斯",
+    "actor": "enemy:0:bracer",
+    "skill": "brace",
+    "skill_name": "架岩",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 229,
+    "round": 9,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 101 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 101
+  },
+  {
+    "id": 230,
+    "round": 9,
+    "event": "damage",
+    "message": "坚岩斗士对爱弥斯造成 100 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "amount": 100,
+    "absorbed": 0,
+    "coefficient": 0.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1380,
+    "hp_after": 1280,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 101
+  },
+  {
+    "id": 231,
+    "round": 9,
+    "event": "status",
+    "message": "坚岩斗士获得架岩",
+    "target": "enemy:0:bracer",
+    "status": "brace",
+    "value": {
+      "expires": 11,
+      "target": "ally:0:amy"
+    }
+  },
+  {
+    "id": 232,
+    "round": 10,
+    "event": "round",
+    "message": "第 10 回合",
+    "number": 10
+  },
+  {
+    "id": 233,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 234,
+    "round": 10,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 235,
+    "round": 10,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 236,
+    "round": 10,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 237,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 238,
+    "round": 10,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 239,
+    "round": 10,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 240,
+    "round": 10,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 241,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 242,
+    "round": 10,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 243,
+    "round": 10,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 244,
+    "round": 10,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 245,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 246,
+    "round": 10,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 莫宁",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 247,
+    "round": 10,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 94
+  },
+  {
+    "id": 248,
+    "round": 10,
+    "event": "damage",
+    "message": "咔嚓嚓对莫宁造成 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "amount": 94,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1912,
+    "hp_after": 1818,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 94
+  },
+  {
+    "id": 249,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 250,
+    "round": 10,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 251,
+    "round": 10,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 11
+    }
+  },
+  {
+    "id": 252,
+    "round": 10,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 253,
+    "round": 10,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 254,
+    "round": 10,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「沉肩蓄力」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "charge",
+    "skill_name": "沉肩蓄力",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 255,
+    "round": 10,
+    "event": "status",
+    "message": "坚岩斗士获得蓄力",
+    "target": "enemy:0:bracer",
+    "status": "charge",
+    "value": {
+      "expires": 12,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 256,
+    "round": 10,
+    "event": "charge_started",
+    "message": "坚岩斗士预告「岩躯冲压」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "skill": "rush",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 257,
+    "round": 11,
+    "event": "round",
+    "message": "第 11 回合",
+    "number": 11
+  },
+  {
+    "id": 258,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 259,
+    "round": 11,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 260,
+    "round": 11,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 261,
+    "round": 11,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 262,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 263,
+    "round": 11,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 264,
+    "round": 11,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 265,
+    "round": 11,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 266,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 267,
+    "round": 11,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 268,
+    "round": 11,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 269,
+    "round": 11,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 270,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 271,
+    "round": 11,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 达妮娅",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 272,
+    "round": 11,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 85
+  },
+  {
+    "id": 273,
+    "round": 11,
+    "event": "damage",
+    "message": "咔嚓嚓对达妮娅造成 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "amount": 85,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1160,
+    "hp_after": 1075,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 85
+  },
+  {
+    "id": 274,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 275,
+    "round": 11,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 276,
+    "round": 11,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 12
+    }
+  },
+  {
+    "id": 277,
+    "round": 11,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 278,
+    "round": 11,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 279,
+    "round": 11,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩躯冲压」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "skill_name": "岩躯冲压",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 280,
+    "round": 11,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 363 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 363
+  },
+  {
+    "id": 281,
+    "round": 11,
+    "event": "damage",
+    "message": "坚岩斗士对琳奈造成 362 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "amount": 362,
+    "absorbed": 0,
+    "coefficient": 2.7,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 668,
+    "hp_after": 306,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 363
+  },
+  {
+    "id": 282,
+    "round": 11,
+    "event": "charge_released",
+    "message": "坚岩斗士的蓄力兑现为「岩躯冲压」",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 283,
+    "round": 12,
+    "event": "round",
+    "message": "第 12 回合",
+    "number": 12
+  },
+  {
+    "id": 284,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 285,
+    "round": 12,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 286,
+    "round": 12,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 287,
+    "round": 12,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 288,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 289,
+    "round": 12,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 290,
+    "round": 12,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 291,
+    "round": 12,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 292,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 293,
+    "round": 12,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 294,
+    "round": 12,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 295,
+    "round": 12,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 296,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 297,
+    "round": 12,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 爱弥斯",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 298,
+    "round": 12,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 110
+  },
+  {
+    "id": 299,
+    "round": 12,
+    "event": "damage",
+    "message": "咔嚓嚓对爱弥斯造成 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "amount": 110,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1280,
+    "hp_after": 1170,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 110
+  },
+  {
+    "id": 300,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 301,
+    "round": 12,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 302,
+    "round": 12,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 13
+    }
+  },
+  {
+    "id": 303,
+    "round": 12,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 304,
+    "round": 12,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 305,
+    "round": 12,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩拳」 → 达妮娅",
+    "actor": "enemy:0:bracer",
+    "skill": "smash",
+    "skill_name": "岩拳",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 306,
+    "round": 12,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 185 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 185
+  },
+  {
+    "id": 307,
+    "round": 12,
+    "event": "damage",
+    "message": "坚岩斗士对达妮娅造成 185 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "amount": 185,
+    "absorbed": 0,
+    "coefficient": 1.4,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1075,
+    "hp_after": 890,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 185
+  },
+  {
+    "id": 308,
+    "round": 13,
+    "event": "round",
+    "message": "第 13 回合",
+    "number": 13
+  },
+  {
+    "id": 309,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 310,
+    "round": 13,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 311,
+    "round": 13,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 312,
+    "round": 13,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 313,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 314,
+    "round": 13,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 315,
+    "round": 13,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 316,
+    "round": 13,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 317,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 318,
+    "round": 13,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 319,
+    "round": 13,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 320,
+    "round": 13,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 321,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 322,
+    "round": 13,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 琳奈",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 323,
+    "round": 13,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 87 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 87
+  },
+  {
+    "id": 324,
+    "round": 13,
+    "event": "damage",
+    "message": "咔嚓嚓对琳奈造成 86 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:1:lynae",
+    "amount": 86,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 306,
+    "hp_after": 220,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 87
+  },
+  {
+    "id": 325,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 326,
+    "round": 13,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 327,
+    "round": 13,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 14
+    }
+  },
+  {
+    "id": 328,
+    "round": 13,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 329,
+    "round": 13,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 330,
+    "round": 13,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「架岩」 → 爱弥斯",
+    "actor": "enemy:0:bracer",
+    "skill": "brace",
+    "skill_name": "架岩",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 331,
+    "round": 13,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 101 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 101
+  },
+  {
+    "id": 332,
+    "round": 13,
+    "event": "damage",
+    "message": "坚岩斗士对爱弥斯造成 100 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "amount": 100,
+    "absorbed": 0,
+    "coefficient": 0.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1170,
+    "hp_after": 1070,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 101
+  },
+  {
+    "id": 333,
+    "round": 13,
+    "event": "status",
+    "message": "坚岩斗士获得架岩",
+    "target": "enemy:0:bracer",
+    "status": "brace",
+    "value": {
+      "expires": 15,
+      "target": "ally:0:amy"
+    }
+  },
+  {
+    "id": 334,
+    "round": 14,
+    "event": "round",
+    "message": "第 14 回合",
+    "number": 14
+  },
+  {
+    "id": 335,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 336,
+    "round": 14,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 337,
+    "round": 14,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 338,
+    "round": 14,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 339,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 340,
+    "round": 14,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 341,
+    "round": 14,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 342,
+    "round": 14,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 343,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 344,
+    "round": 14,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 345,
+    "round": 14,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 346,
+    "round": 14,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 347,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 348,
+    "round": 14,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 莫宁",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 349,
+    "round": 14,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 94
+  },
+  {
+    "id": 350,
+    "round": 14,
+    "event": "damage",
+    "message": "咔嚓嚓对莫宁造成 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "amount": 94,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1818,
+    "hp_after": 1724,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 94
+  },
+  {
+    "id": 351,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 352,
+    "round": 14,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 353,
+    "round": 14,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 15
+    }
+  },
+  {
+    "id": 354,
+    "round": 14,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 355,
+    "round": 14,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 356,
+    "round": 14,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「沉肩蓄力」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "charge",
+    "skill_name": "沉肩蓄力",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 357,
+    "round": 14,
+    "event": "status",
+    "message": "坚岩斗士获得蓄力",
+    "target": "enemy:0:bracer",
+    "status": "charge",
+    "value": {
+      "expires": 16,
+      "target": "ally:1:lynae"
+    }
+  },
+  {
+    "id": 358,
+    "round": 14,
+    "event": "charge_started",
+    "message": "坚岩斗士预告「岩躯冲压」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "skill": "rush",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 359,
+    "round": 15,
+    "event": "round",
+    "message": "第 15 回合",
+    "number": 15
+  },
+  {
+    "id": 360,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到琳奈行动",
+    "actor": "ally:1:lynae",
+    "side": "ally"
+  },
+  {
+    "id": 361,
+    "round": 15,
+    "event": "action",
+    "message": "琳奈使用「防御」 → 琳奈",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ],
+    "resources_before": {
+      "color": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 362,
+    "round": 15,
+    "event": "status",
+    "message": "琳奈获得防御",
+    "target": "ally:1:lynae",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 363,
+    "round": 15,
+    "event": "action_end",
+    "message": "琳奈行动结束",
+    "actor": "ally:1:lynae",
+    "skill": "guard",
+    "resources_after": {
+      "color": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 364,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 365,
+    "round": 15,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 366,
+    "round": 15,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 367,
+    "round": 15,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 368,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 369,
+    "round": 15,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 370,
+    "round": 15,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 371,
+    "round": 15,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 372,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 373,
+    "round": 15,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 达妮娅",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 374,
+    "round": 15,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 85
+  },
+  {
+    "id": 375,
+    "round": 15,
+    "event": "damage",
+    "message": "咔嚓嚓对达妮娅造成 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "amount": 85,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 890,
+    "hp_after": 805,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 85
+  },
+  {
+    "id": 376,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 377,
+    "round": 15,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 378,
+    "round": 15,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 16
+    }
+  },
+  {
+    "id": 379,
+    "round": 15,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 380,
+    "round": 15,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 381,
+    "round": 15,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩躯冲压」 → 琳奈",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "skill_name": "岩躯冲压",
+    "target": "ally:1:lynae",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 382,
+    "round": 15,
+    "event": "buff_used",
+    "message": "琳奈的防护避免约 363 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "kind": "mitigation",
+    "amount": 363
+  },
+  {
+    "id": 383,
+    "round": 15,
+    "event": "damage",
+    "message": "坚岩斗士对琳奈造成 220 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:1:lynae",
+    "amount": 220,
+    "absorbed": 0,
+    "coefficient": 2.7,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 220,
+    "hp_after": 0,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 363
+  },
+  {
+    "id": 384,
+    "round": 15,
+    "event": "incapacitated",
+    "message": "琳奈失去战斗能力",
+    "unit": "ally:1:lynae",
+    "target": "ally:1:lynae"
+  },
+  {
+    "id": 385,
+    "round": 15,
+    "event": "charge_released",
+    "message": "坚岩斗士的蓄力兑现为「岩躯冲压」",
+    "actor": "enemy:0:bracer",
+    "skill": "rush",
+    "targets": [
+      "ally:1:lynae"
+    ]
+  },
+  {
+    "id": 386,
+    "round": 16,
+    "event": "round",
+    "message": "第 16 回合",
+    "number": 16
+  },
+  {
+    "id": 387,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 388,
+    "round": 16,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 389,
+    "round": 16,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 390,
+    "round": 16,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 391,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 392,
+    "round": 16,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 393,
+    "round": 16,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 394,
+    "round": 16,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 395,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 396,
+    "round": 16,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 莫宁",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 397,
+    "round": 16,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 94
+  },
+  {
+    "id": 398,
+    "round": 16,
+    "event": "damage",
+    "message": "咔嚓嚓对莫宁造成 94 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:2:mornye",
+    "amount": 94,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1724,
+    "hp_after": 1630,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 94
+  },
+  {
+    "id": 399,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 400,
+    "round": 16,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 401,
+    "round": 16,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 17
+    }
+  },
+  {
+    "id": 402,
+    "round": 16,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 403,
+    "round": 16,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 404,
+    "round": 16,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「岩拳」 → 爱弥斯",
+    "actor": "enemy:0:bracer",
+    "skill": "smash",
+    "skill_name": "岩拳",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 405,
+    "round": 16,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 177 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 177
+  },
+  {
+    "id": 406,
+    "round": 16,
+    "event": "damage",
+    "message": "坚岩斗士对爱弥斯造成 176 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:0:amy",
+    "amount": 176,
+    "absorbed": 0,
+    "coefficient": 1.4,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1070,
+    "hp_after": 894,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 177
+  },
+  {
+    "id": 407,
+    "round": 17,
+    "event": "round",
+    "message": "第 17 回合",
+    "number": 17
+  },
+  {
+    "id": 408,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 409,
+    "round": 17,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 410,
+    "round": 17,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 18
+    }
+  },
+  {
+    "id": 411,
+    "round": 17,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 412,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 413,
+    "round": 17,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 414,
+    "round": 17,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 18
+    }
+  },
+  {
+    "id": 415,
+    "round": 17,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 416,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 417,
+    "round": 17,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「扑咬」 → 达妮娅",
+    "actor": "enemy:1:snip",
+    "skill": "bite",
+    "skill_name": "扑咬",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 418,
+    "round": 17,
+    "event": "buff_used",
+    "message": "达妮娅的防护避免约 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "kind": "mitigation",
+    "amount": 85
+  },
+  {
+    "id": 419,
+    "round": 17,
+    "event": "damage",
+    "message": "咔嚓嚓对达妮娅造成 85 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:3:denia",
+    "amount": 85,
+    "absorbed": 0,
+    "coefficient": 1,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 805,
+    "hp_after": 720,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 85
+  },
+  {
+    "id": 420,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 421,
+    "round": 17,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 422,
+    "round": 17,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 18
+    }
+  },
+  {
+    "id": 423,
+    "round": 17,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 424,
+    "round": 17,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 425,
+    "round": 17,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「架岩」 → 莫宁",
+    "actor": "enemy:0:bracer",
+    "skill": "brace",
+    "skill_name": "架岩",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ]
+  },
+  {
+    "id": 426,
+    "round": 17,
+    "event": "buff_used",
+    "message": "莫宁的防护避免约 86 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:2:mornye",
+    "kind": "mitigation",
+    "amount": 86
+  },
+  {
+    "id": 427,
+    "round": 17,
+    "event": "damage",
+    "message": "坚岩斗士对莫宁造成 86 点伤害",
+    "actor": "enemy:0:bracer",
+    "target": "ally:2:mornye",
+    "amount": 86,
+    "absorbed": 0,
+    "coefficient": 0.8,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 1630,
+    "hp_after": 1544,
+    "element": "physical",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 86
+  },
+  {
+    "id": 428,
+    "round": 17,
+    "event": "status",
+    "message": "坚岩斗士获得架岩",
+    "target": "enemy:0:bracer",
+    "status": "brace",
+    "value": {
+      "expires": 19,
+      "target": "ally:2:mornye"
+    }
+  },
+  {
+    "id": 429,
+    "round": 18,
+    "event": "round",
+    "message": "第 18 回合",
+    "number": 18
+  },
+  {
+    "id": 430,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  },
+  {
+    "id": 431,
+    "round": 18,
+    "event": "action",
+    "message": "爱弥斯使用「防御」 → 爱弥斯",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ],
+    "resources_before": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "form": "human"
+  },
+  {
+    "id": 432,
+    "round": 18,
+    "event": "status",
+    "message": "爱弥斯获得防御",
+    "target": "ally:0:amy",
+    "status": "guard",
+    "value": {
+      "expires": 19
+    }
+  },
+  {
+    "id": 433,
+    "round": 18,
+    "event": "action_end",
+    "message": "爱弥斯行动结束",
+    "actor": "ally:0:amy",
+    "skill": "guard",
+    "resources_after": {
+      "sync": 0,
+      "resonance": 0
+    },
+    "concerto": 0,
+    "form": "human"
+  },
+  {
+    "id": 434,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到达妮娅行动",
+    "actor": "ally:3:denia",
+    "side": "ally"
+  },
+  {
+    "id": 435,
+    "round": 18,
+    "event": "action",
+    "message": "达妮娅使用「防御」 → 达妮娅",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "resources_before": {
+      "expectation": 0
+    },
+    "form": "red"
+  },
+  {
+    "id": 436,
+    "round": 18,
+    "event": "status",
+    "message": "达妮娅获得防御",
+    "target": "ally:3:denia",
+    "status": "guard",
+    "value": {
+      "expires": 19
+    }
+  },
+  {
+    "id": 437,
+    "round": 18,
+    "event": "action_end",
+    "message": "达妮娅行动结束",
+    "actor": "ally:3:denia",
+    "skill": "guard",
+    "resources_after": {
+      "expectation": 0
+    },
+    "concerto": 0,
+    "form": "red"
+  },
+  {
+    "id": 438,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到咔嚓嚓行动",
+    "actor": "enemy:1:snip",
+    "side": "enemy"
+  },
+  {
+    "id": 439,
+    "round": 18,
+    "event": "enemy_action",
+    "message": "咔嚓嚓使用「热团喷吐」 → 爱弥斯",
+    "actor": "enemy:1:snip",
+    "skill": "spit",
+    "skill_name": "热团喷吐",
+    "target": "ally:0:amy",
+    "targets": [
+      "ally:0:amy"
+    ]
+  },
+  {
+    "id": 440,
+    "round": 18,
+    "event": "buff_used",
+    "message": "爱弥斯的防护避免约 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "kind": "mitigation",
+    "amount": 110
+  },
+  {
+    "id": 441,
+    "round": 18,
+    "event": "damage",
+    "message": "咔嚓嚓对爱弥斯造成 110 点伤害",
+    "actor": "enemy:1:snip",
+    "target": "ally:0:amy",
+    "amount": 110,
+    "absorbed": 0,
+    "coefficient": 1.35,
+    "status_damage": false,
+    "broken_bonus": false,
+    "hp_before": 894,
+    "hp_after": 784,
+    "element": "fusion",
+    "amp_applied": 0,
+    "mitigation": 0.5,
+    "buff_bonus": 0,
+    "prevented": 110
+  },
+  {
+    "id": 442,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到莫宁行动",
+    "actor": "ally:2:mornye",
+    "side": "ally"
+  },
+  {
+    "id": 443,
+    "round": 18,
+    "event": "action",
+    "message": "莫宁使用「防御」 → 莫宁",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "skill_name": "防御",
+    "target": "ally:2:mornye",
+    "targets": [
+      "ally:2:mornye"
+    ],
+    "resources_before": {
+      "calibration": 0
+    },
+    "form": "normal"
+  },
+  {
+    "id": 444,
+    "round": 18,
+    "event": "status",
+    "message": "莫宁获得防御",
+    "target": "ally:2:mornye",
+    "status": "guard",
+    "value": {
+      "expires": 19
+    }
+  },
+  {
+    "id": 445,
+    "round": 18,
+    "event": "action_end",
+    "message": "莫宁行动结束",
+    "actor": "ally:2:mornye",
+    "skill": "guard",
+    "resources_after": {
+      "calibration": 0
+    },
+    "concerto": 0,
+    "form": "normal"
+  },
+  {
+    "id": 446,
+    "round": 18,
+    "event": "turn",
+    "message": "轮到坚岩斗士行动",
+    "actor": "enemy:0:bracer",
+    "side": "enemy"
+  },
+  {
+    "id": 447,
+    "round": 18,
+    "event": "enemy_action",
+    "message": "坚岩斗士使用「沉肩蓄力」 → 达妮娅",
+    "actor": "enemy:0:bracer",
+    "skill": "charge",
+    "skill_name": "沉肩蓄力",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ]
+  },
+  {
+    "id": 448,
+    "round": 18,
+    "event": "status",
+    "message": "坚岩斗士获得蓄力",
+    "target": "enemy:0:bracer",
+    "status": "charge",
+    "value": {
+      "expires": 20,
+      "target": "ally:3:denia"
+    }
+  },
+  {
+    "id": 449,
+    "round": 18,
+    "event": "charge_started",
+    "message": "坚岩斗士预告「岩躯冲压」：下次行动兑现，破防可打断，防御可减半",
+    "actor": "enemy:0:bracer",
+    "target": "ally:3:denia",
+    "targets": [
+      "ally:3:denia"
+    ],
+    "skill": "rush",
+    "resolve_after_enemy_actions": 1
+  },
+  {
+    "id": 450,
+    "round": 19,
+    "event": "round",
+    "message": "第 19 回合",
+    "number": 19
+  },
+  {
+    "id": 451,
+    "round": 19,
+    "event": "turn",
+    "message": "轮到爱弥斯行动",
+    "actor": "ally:0:amy",
+    "side": "ally"
+  }
+]

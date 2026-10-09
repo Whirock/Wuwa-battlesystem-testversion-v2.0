@@ -1,0 +1,1075 @@
+{
+  "count": 89,
+  "allSourceBytesMatch": true,
+  "sourceRasterMutation": false,
+  "items": [
+    {
+      "key": "lynae.normal.L01",
+      "src": "assets/lynae_normal_L01.png",
+      "sha256": "39972e6fa7b7fb4eaba52d8d0108a0b9aee13cf711c0861d3c64025f32f264b2",
+      "bytes": 105092,
+      "dimensions": [
+        299,
+        390
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.normal.L02",
+      "src": "assets/lynae_normal_L02.png",
+      "sha256": "0b07908eaddec41b12efbc3bb44ece69a29415f02b328411514f507fde7e9f6f",
+      "bytes": 137520,
+      "dimensions": [
+        538,
+        362
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.normal.L03",
+      "src": "assets/lynae_normal_L03.png",
+      "sha256": "85a829fb14fb2f6643227d12741b76eac7fdaecbba8b52342539c7bbc271ee3d",
+      "bytes": 113819,
+      "dimensions": [
+        432,
+        291
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.normal.L04",
+      "src": "assets/lynae_normal_L04.png",
+      "sha256": "ac96002395a26daa79c21883db9bd8d6d6343e7c16305d4431c1ad272ee8ada5",
+      "bytes": 117562,
+      "dimensions": [
+        471,
+        317
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.normal.L05",
+      "src": "assets/lynae_normal_L05.png",
+      "sha256": "7bab76cd69a712205f176a62273e18450007e64f6e9facc3686774e0778d4cd2",
+      "bytes": 99524,
+      "dimensions": [
+        287,
+        379
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.normal.L06",
+      "src": "assets/lynae_normal_L06.png",
+      "sha256": "322b6e1253c3ec7ab6e56534804f0118ab90f4aa23a267e9ea9a6440c16cd05f",
+      "bytes": 120463,
+      "dimensions": [
+        354,
+        388
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.normal.L07",
+      "src": "assets/lynae_normal_L07.png",
+      "sha256": "bf720953adfd9bc41f37334336d24d937e4e5a38c61f511ba0b65b24cd98c410",
+      "bytes": 88590,
+      "dimensions": [
+        461,
+        266
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP01",
+      "src": "assets/lynae_peppermint_LP01.png",
+      "sha256": "c023c41436147ae38fe611f57a5a5b9a92cb9ce3c7b5302a453d5fdaf2e897d4",
+      "bytes": 99732,
+      "dimensions": [
+        297,
+        392
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP02",
+      "src": "assets/lynae_peppermint_LP02.png",
+      "sha256": "8433e8311d3fe4bd151ab3238aebb9e9968bf41f8f89d6ffa24533a1392cb0c8",
+      "bytes": 108873,
+      "dimensions": [
+        421,
+        311
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP03",
+      "src": "assets/lynae_peppermint_LP03.png",
+      "sha256": "43c9f78ce433950de8c8b21f41bf229b861c5519252b1f6d4655333dc4639a9a",
+      "bytes": 114066,
+      "dimensions": [
+        361,
+        331
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP04",
+      "src": "assets/lynae_peppermint_LP04.png",
+      "sha256": "4c97172f00e7b6824884ebdfd6d333d153cabea1d9fa93346d6dacfa5b25a47f",
+      "bytes": 120743,
+      "dimensions": [
+        451,
+        413
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP05",
+      "src": "assets/lynae_peppermint_LP05.png",
+      "sha256": "457401b28e1435439309d5d4a742747320c6c2989d141e6c8d26b61d154e3246",
+      "bytes": 99710,
+      "dimensions": [
+        305,
+        402
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP06",
+      "src": "assets/lynae_peppermint_LP06.png",
+      "sha256": "3b403d1024ca14e8251953d6db2847843522ff6788be15a580ec9bc79764329c",
+      "bytes": 112350,
+      "dimensions": [
+        393,
+        361
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "lynae.peppermint.LP07",
+      "src": "assets/lynae_peppermint_LP07.png",
+      "sha256": "5c04d6942463c8629fbcb33e2747ec2b49ff948c365caecfec09b3a2302ab595",
+      "bytes": 73802,
+      "dimensions": [
+        429,
+        324
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M01",
+      "src": "assets/mornye_normal_M01.png",
+      "sha256": "1f6c7eb49a1b29672b11373e5c76896deefb7a4591282fb3cde6f6eba0ce5cd2",
+      "bytes": 104741,
+      "dimensions": [
+        427,
+        427
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M02",
+      "src": "assets/mornye_normal_M02.png",
+      "sha256": "f2e73c4040b8b8be33b446d87c696cb7e632151c9f0117cc3dbcb8394e00034d",
+      "bytes": 134974,
+      "dimensions": [
+        646,
+        431
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M03",
+      "src": "assets/mornye_normal_M03.png",
+      "sha256": "09aeabcbed9cb3663d1b2dc6863fb76e0610e4b796b12dbb400524d43b4ccc0b",
+      "bytes": 96564,
+      "dimensions": [
+        432,
+        288
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M04",
+      "src": "assets/mornye_normal_M04.png",
+      "sha256": "f7f9b7dac0451dcafcd6b6ca7d52105ab15370e5edaedd78640b5ef2293173af",
+      "bytes": 124891,
+      "dimensions": [
+        433,
+        433
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M05",
+      "src": "assets/mornye_normal_M05.png",
+      "sha256": "8fcc8335a670175025206370376452c17e14b3539fe335874c13ba6422219939",
+      "bytes": 102454,
+      "dimensions": [
+        443,
+        443
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M06",
+      "src": "assets/mornye_normal_M06.png",
+      "sha256": "2b41ddff63d24ece0f65eef2983cdcd64ca4c54e4af7d852be3509e5ec7bb2d6",
+      "bytes": 116974,
+      "dimensions": [
+        406,
+        406
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.normal.M07",
+      "src": "assets/mornye_normal_M07.png",
+      "sha256": "88aea23f6ca615e8e3c347d99f8237b5cff422325990db9c9f38cd8070ebc106",
+      "bytes": 70781,
+      "dimensions": [
+        453,
+        227
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP01",
+      "src": "assets/mornye_winter_MP01.png",
+      "sha256": "ad2cf1f55371427f535589bf3310d83d5e10874f9dd1ffa7238a37dff1bc651c",
+      "bytes": 100907,
+      "dimensions": [
+        428,
+        428
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP02",
+      "src": "assets/mornye_winter_MP02.png",
+      "sha256": "73275d90d9183109717c49a9ab3e450422ca58687bfb99f7ccc262af772a1371",
+      "bytes": 169760,
+      "dimensions": [
+        670,
+        447
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP03",
+      "src": "assets/mornye_winter_MP03.png",
+      "sha256": "7d2e5e5799b84031d8dc1876d15f1efa9ae94b16b696e367afa66b05129dbae4",
+      "bytes": 126045,
+      "dimensions": [
+        516,
+        345
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP04",
+      "src": "assets/mornye_winter_MP04.png",
+      "sha256": "0dd2ded04ed9ecb1b63b59e6be5b324c2621147ed384159f1198a375142b1903",
+      "bytes": 125984,
+      "dimensions": [
+        438,
+        438
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP05",
+      "src": "assets/mornye_winter_MP05.png",
+      "sha256": "9138ba61a44dc45c663c3d14e46c42165fd4903fc07d44122476e6206b637676",
+      "bytes": 111821,
+      "dimensions": [
+        438,
+        438
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP06",
+      "src": "assets/mornye_winter_MP06.png",
+      "sha256": "8031f61d16e8101ff4b6c66c1eeccac3b764ae40b18659c31d0ebbb7e209ccbb",
+      "bytes": 114253,
+      "dimensions": [
+        418,
+        418
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "mornye.winter.MP07",
+      "src": "assets/mornye_winter_MP07.png",
+      "sha256": "e84da3f0f17579c78908b9ec4bf2f858a61c5820dee873b8ec26a64e51e45462",
+      "bytes": 91127,
+      "dimensions": [
+        516,
+        273
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR01",
+      "src": "assets/denia_red_DR01.png",
+      "sha256": "5ed32594fb9b17de8d41db3b53447c57e30e95c0b5b2898557faf38be6b1be1f",
+      "bytes": 107773,
+      "dimensions": [
+        325,
+        387
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR02",
+      "src": "assets/denia_red_DR02.png",
+      "sha256": "7e4484e085a5af43a675be6ee31392ddf99ebdc3114a341fea22860c7cfa2fbc",
+      "bytes": 141650,
+      "dimensions": [
+        538,
+        365
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR03",
+      "src": "assets/denia_red_DR03.png",
+      "sha256": "30410be017c1c66cba9b7125de2a59e0e3f5aad712edef5c0727d6ba51869bf4",
+      "bytes": 105778,
+      "dimensions": [
+        465,
+        316
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR04",
+      "src": "assets/denia_red_DR04.png",
+      "sha256": "b7911ee69cf2b46d8bd50acbdfed6dc94814eccf93302f37341ba2f66f22ccbc",
+      "bytes": 121787,
+      "dimensions": [
+        411,
+        377
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR05",
+      "src": "assets/denia_red_DR05.png",
+      "sha256": "af8afc78c59caec0b404a5240ddb043020f91749fc59a4b760c2e65f9abb6938",
+      "bytes": 114817,
+      "dimensions": [
+        413,
+        379
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR06",
+      "src": "assets/denia_red_DR06.png",
+      "sha256": "399a394b53335208347407d796feb9f822aad160f007060f68fcf7d6885b7973",
+      "bytes": 126408,
+      "dimensions": [
+        421,
+        386
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR07",
+      "src": "assets/denia_red_DR07.png",
+      "sha256": "6dec7f4aedaab6b9e5079fd817913ef57412d0539293d90338ce752913f013ae",
+      "bytes": 74827,
+      "dimensions": [
+        464,
+        184
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.red.DR08",
+      "src": "assets/denia_red_DR08.png",
+      "sha256": "f96f43f807f36c5d8d45382e43ff846dea15a02de383df80066d015028798e86",
+      "bytes": 114796,
+      "dimensions": [
+        452,
+        375
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB01",
+      "src": "assets/denia_blue_DB01.png",
+      "sha256": "8a86ebe570876e8b4dbef65f96cbf33c1dafd6ebf61a99427bcfa8db007ddf81",
+      "bytes": 85940,
+      "dimensions": [
+        320,
+        327
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB02",
+      "src": "assets/denia_blue_DB02.png",
+      "sha256": "02fd39c34400f72bc547546d490e2d31516db612628bfb07836c6ec4499ca121",
+      "bytes": 77777,
+      "dimensions": [
+        414,
+        282
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB03",
+      "src": "assets/denia_blue_DB03.png",
+      "sha256": "fa123c9b05891f1f75bc7cb0ec53b1fe9062753dad19067c6b5303c27e046916",
+      "bytes": 117853,
+      "dimensions": [
+        458,
+        311
+      ],
+      "alphaBinary": false,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB04",
+      "src": "assets/denia_blue_DB04.png",
+      "sha256": "81a74e30a839d88e2527d2c92c36a81f5a1e0f61b77a1aed08788b12551598c0",
+      "bytes": 98554,
+      "dimensions": [
+        375,
+        345
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB05",
+      "src": "assets/denia_blue_DB05.png",
+      "sha256": "e1e31f91e7505e10f60f90a29d7cecda318e6fdd9e03a424734002eb9acae90a",
+      "bytes": 91647,
+      "dimensions": [
+        376,
+        345
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB06",
+      "src": "assets/denia_blue_DB06.png",
+      "sha256": "cee2e4cb94426e540d01fa2091f8b10a0dbab8ece7fc1f55c7a12ae666ea5a12",
+      "bytes": 94159,
+      "dimensions": [
+        348,
+        320
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB07",
+      "src": "assets/denia_blue_DB07.png",
+      "sha256": "14b6cba0a6861d64ec8e9d06a6c6d3b483522f1cc09a0906d8c2ba14bfad8bcd",
+      "bytes": 50444,
+      "dimensions": [
+        387,
+        156
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "denia.blue.DB08",
+      "src": "assets/denia_blue_DB08.png",
+      "sha256": "89676a0bddf6d439dd8ca903d4a63b74463a4b0e0ee878c4db842b632e231116",
+      "bytes": 94453,
+      "dimensions": [
+        380,
+        348
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD01",
+      "src": "assets/chisa_normal_CD01.png",
+      "sha256": "7c95ed4619fa695b0dccd2a96d48c1a485f85bcd950b6444269cf74a9882b635",
+      "bytes": 121796,
+      "dimensions": [
+        693,
+        468
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD02",
+      "src": "assets/chisa_normal_CD02.png",
+      "sha256": "4a4c1bc4bb44467008ee36243e25149292291bb5cc8897101b2fe21be6c915da",
+      "bytes": 120135,
+      "dimensions": [
+        582,
+        439
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD03",
+      "src": "assets/chisa_normal_CD03.png",
+      "sha256": "8478cd7c7fd4b13a33a47ee19c9e5f16fdd95cd71d4633309a600dcfc81e18be",
+      "bytes": 124044,
+      "dimensions": [
+        737,
+        440
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD04",
+      "src": "assets/chisa_normal_CD04.png",
+      "sha256": "cfbba6ceccf8761111e35971b0077af6d6926caa097a6be98f9ee222e1184bbd",
+      "bytes": 120030,
+      "dimensions": [
+        631,
+        427
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD05",
+      "src": "assets/chisa_normal_CD05.png",
+      "sha256": "3972136305f9e974c41d6fb370474ced207b23a338b7e4e214eacc768b26b58a",
+      "bytes": 113326,
+      "dimensions": [
+        604,
+        409
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD06",
+      "src": "assets/chisa_normal_CD06.png",
+      "sha256": "445e9e7f738e4d4e985d18ee91212a0361ee4412b4e236c33b59619cbb169d4a",
+      "bytes": 120970,
+      "dimensions": [
+        536,
+        480
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD07",
+      "src": "assets/chisa_normal_CD07.png",
+      "sha256": "6adf91fa95f920bf9c412100f44525c0563dde3834563e0301275bdcbefa5785",
+      "bytes": 129219,
+      "dimensions": [
+        496,
+        496
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.normal.CD08",
+      "src": "assets/chisa_normal_CD08.png",
+      "sha256": "3aff08cee7dc6dbe87b12baf0425a3b7c407ccc455aa72552af36f4c82536711",
+      "bytes": 86318,
+      "dimensions": [
+        513,
+        265
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP01",
+      "src": "assets/chisa_peach_CP01.png",
+      "sha256": "ec36595e40a9bb4d3e71981585f527699ce352ab47bd1ec6ab29ec5ea518c8d0",
+      "bytes": 136701,
+      "dimensions": [
+        736,
+        497
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP02",
+      "src": "assets/chisa_peach_CP02.png",
+      "sha256": "a2c4817a1eac7e3d2518d7b24506e297cb9e6098207f583c891aa59394f9c302",
+      "bytes": 135017,
+      "dimensions": [
+        703,
+        475
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP03",
+      "src": "assets/chisa_peach_CP03.png",
+      "sha256": "133af92f931839e6d37bd7452547280bc9d0d0744588f43fa730a5678af090da",
+      "bytes": 111696,
+      "dimensions": [
+        612,
+        414
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP04",
+      "src": "assets/chisa_peach_CP04.png",
+      "sha256": "b08bd9fd782933188f506603277a641563f7dbfe27565e3bbc7c863eff9053c1",
+      "bytes": 143237,
+      "dimensions": [
+        721,
+        487
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP05",
+      "src": "assets/chisa_peach_CP05.png",
+      "sha256": "9bc6910f3832c23cf4cd32b028e8f4a80956a0198af588af4c45cc18cc468cd2",
+      "bytes": 161756,
+      "dimensions": [
+        740,
+        500
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP06",
+      "src": "assets/chisa_peach_CP06.png",
+      "sha256": "d7eafbd63bf4965ce55acc1d9d2c16b19012c0acbf840e1fc900752e51f71aa7",
+      "bytes": 137831,
+      "dimensions": [
+        689,
+        466
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP07",
+      "src": "assets/chisa_peach_CP07.png",
+      "sha256": "0a2e1eee40f46901ed02cf317fd086f1b0a29e68fc79e4d596a1613d6800b222",
+      "bytes": 142064,
+      "dimensions": [
+        700,
+        473
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "chisa.peach.CP08",
+      "src": "assets/chisa_peach_CP08.png",
+      "sha256": "0832e1dd41787d6aa33e0a7b106c8a9f5119c182ee4c74fc43adf05efbc818c9",
+      "bytes": 109799,
+      "dimensions": [
+        675,
+        346
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A01",
+      "src": "assets/amy_human_A01.png",
+      "sha256": "75c78183a209cee807de6ed42721fa5578390aaea629821bc88783b7367c22c0",
+      "bytes": 88387,
+      "dimensions": [
+        418,
+        418
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A02",
+      "src": "assets/amy_human_A02.png",
+      "sha256": "f8cdbc40863dde08dffc08e496103d50ac1da03293de79061187711028c0f28e",
+      "bytes": 75621,
+      "dimensions": [
+        503,
+        348
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A03",
+      "src": "assets/amy_human_A03.png",
+      "sha256": "8f260d641960ffb8a7edebe21e986d59a7cef6a5d1993206d361c54e5ba4aae2",
+      "bytes": 111380,
+      "dimensions": [
+        424,
+        424
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A04a",
+      "src": "assets/amy_human_A04a.png",
+      "sha256": "d18ba46609e6c135e5d8f27cd5d13e9f7ff8f3dbbaf0412ed1db051919f00273",
+      "bytes": 103119,
+      "dimensions": [
+        340,
+        402
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A04b",
+      "src": "assets/amy_human_A04b.png",
+      "sha256": "ee68b5c2aa9ceabd9a420473e97baa457a7f39de367f561dd7bc9e01d1aa57db",
+      "bytes": 116777,
+      "dimensions": [
+        431,
+        431
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A05",
+      "src": "assets/amy_human_A05.png",
+      "sha256": "0f39c0ad75b2819b674ef9af9b33450b7f19239bd755789a930b7f4a071c38ca",
+      "bytes": 119237,
+      "dimensions": [
+        384,
+        428
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A06",
+      "src": "assets/amy_human_A06.png",
+      "sha256": "16a1bbaf764ff2b4f9752bfdf14186b1245023fb4bbd57415c7c4b90fc63b593",
+      "bytes": 125819,
+      "dimensions": [
+        575,
+        385
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A07",
+      "src": "assets/amy_human_A07.png",
+      "sha256": "7869d08e6697881aa32b9c12e9685999e90e557400eba0a9442e13860c50a24d",
+      "bytes": 98042,
+      "dimensions": [
+        581,
+        236
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A08",
+      "src": "assets/amy_human_A08.png",
+      "sha256": "93d01fe5bb4474d2e543ab1b8261d646ca53d5f81b866a6b6679d28d88e5aaea",
+      "bytes": 109221,
+      "dimensions": [
+        600,
+        402
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A09",
+      "src": "assets/amy_human_A09.png",
+      "sha256": "5347401b8814b2617264e7c727cead983070f3267c7d5d430f77e82dce33c79e",
+      "bytes": 135783,
+      "dimensions": [
+        500,
+        500
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A10",
+      "src": "assets/amy_human_A10.png",
+      "sha256": "6a375ec4876c87d36d627777f956134e98e7312a2baa5771a1594b22f55c9fa9",
+      "bytes": 109772,
+      "dimensions": [
+        541,
+        362
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.human.A11",
+      "src": "assets/amy_human_A11.png",
+      "sha256": "68815568f0d5551b842781d690f0a5a585383cd438321564548409bdc1f6b7d6",
+      "bytes": 117756,
+      "dimensions": [
+        441,
+        441
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M01",
+      "src": "assets/amy_mecha_M01.png",
+      "sha256": "10d931ce3fe939e5795755907d647aa2962c9fad880a9b9706e373b13aca6f96",
+      "bytes": 159824,
+      "dimensions": [
+        466,
+        520
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M02",
+      "src": "assets/amy_mecha_M02.png",
+      "sha256": "9a6b54cb8eb012b54a41b5ccb47547453f89eae93c0d5bfd530265bfcbc83628",
+      "bytes": 157546,
+      "dimensions": [
+        678,
+        458
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M03",
+      "src": "assets/amy_mecha_M03.png",
+      "sha256": "8a18004a4b8f85939a63593ca70f720ee7962b842c0a0d2fc1de8c6829228e1d",
+      "bytes": 153013,
+      "dimensions": [
+        490,
+        548
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M04",
+      "src": "assets/amy_mecha_M04.png",
+      "sha256": "635bc1b7e54cb4c1f30bbe4f0e86373289bff6eaa4b35a7c842285ccf8132b88",
+      "bytes": 138573,
+      "dimensions": [
+        606,
+        410
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M05",
+      "src": "assets/amy_mecha_M05.png",
+      "sha256": "98a2c11f9d18035928e06ac9f4fd8806ac85783b9c446fd3f6126db7b64a307c",
+      "bytes": 167537,
+      "dimensions": [
+        490,
+        548
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M06",
+      "src": "assets/amy_mecha_M06.png",
+      "sha256": "640cb04757b8508a8c5e4844589eb221c89d1709edb3f2193c80d32b2c60bbfa",
+      "bytes": 162457,
+      "dimensions": [
+        450,
+        591
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M07",
+      "src": "assets/amy_mecha_M07.png",
+      "sha256": "679ee50e0b20417460f3fb9895b0850e2f1c19ec28349ffd0e195c8815c2364d",
+      "bytes": 165775,
+      "dimensions": [
+        666,
+        450
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M08",
+      "src": "assets/amy_mecha_M08.png",
+      "sha256": "cac90c17e86f7952f48c0f1b836340e01061523810313cb10ae2b82d72493b11",
+      "bytes": 189535,
+      "dimensions": [
+        580,
+        649
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M09",
+      "src": "assets/amy_mecha_M09.png",
+      "sha256": "a03e183ab80489c66862e168a74f37f6b3c2c1e37f1da59abca0464d55629b12",
+      "bytes": 173465,
+      "dimensions": [
+        825,
+        495
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M10",
+      "src": "assets/amy_mecha_M10.png",
+      "sha256": "97028f50b2110d4fd390f07a412542143b461218cfba3c6f98ab244eb4f79754",
+      "bytes": 174378,
+      "dimensions": [
+        521,
+        478
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M11",
+      "src": "assets/amy_mecha_M11.png",
+      "sha256": "9c959b6c120cdb567c614eb2219bf34513f5e7405b9e0e86ea3e906641da1f75",
+      "bytes": 146681,
+      "dimensions": [
+        442,
+        494
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "amy.mecha.M12",
+      "src": "assets/amy_mecha_M12.png",
+      "sha256": "000eac33b04a33ce174607901da78c36ab323cba76db8ac77d02d7126859dc8e",
+      "bytes": 128653,
+      "dimensions": [
+        597,
+        404
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "enemy.snip.idle",
+      "src": "assets/snip_ENEMY_001_v003.png",
+      "sha256": "5884a15b5ba86962cac255e7f75ec02490ea2b300f7e633ff4529a0d8c02763d",
+      "bytes": 74652,
+      "dimensions": [
+        292,
+        453
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "enemy.predator.idle",
+      "src": "assets/predator_ENEMY_002_v003.png",
+      "sha256": "96ba39181e0f49f1829d7eefc063cca27b742510ebc4736f3b94ea29ed56b152",
+      "bytes": 115470,
+      "dimensions": [
+        373,
+        526
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "enemy.bracer.idle",
+      "src": "assets/bracer_ENEMY_003_v003.png",
+      "sha256": "037dd6efbce1e54b4f83f4f5592bfc92c105247783db00b91624346f2b8b848b",
+      "bytes": 488985,
+      "dimensions": [
+        870,
+        824
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "enemy.carapace.idle",
+      "src": "assets/carapace_ENEMY_004_v004.png",
+      "sha256": "5fdd398821306209bcbdb079035f193224632470d88a6f1cc263cc4a133b53f2",
+      "bytes": 467505,
+      "dimensions": [
+        916,
+        817
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    },
+    {
+      "key": "enemy.crownless.idle",
+      "src": "assets/crownless_ENEMY_005_v001.png",
+      "sha256": "e79a2e5c8489f856c245f7eec90af2d222172227df72f5e0120730fa8afcfe48",
+      "bytes": 956505,
+      "dimensions": [
+        2191,
+        1485
+      ],
+      "alphaBinary": true,
+      "sourceByteMatch": true
+    }
+  ]
+}

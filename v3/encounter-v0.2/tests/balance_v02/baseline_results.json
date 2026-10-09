@@ -1,0 +1,6852 @@
+[
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "normal",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 4,
+    "ally_hp_fraction": 0.8955,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 6,
+      "damage_enemy": 580,
+      "breaks": 2,
+      "skipped_enemy_actions": 1,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 8,
+      "overdrive": 1,
+      "skate": 1,
+      "field": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 2,
+      "aim": 1,
+      "spit": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 100,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 45
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 80,
+      "mornye": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "spit",
+        "actor": "enemy:1:snip",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 0.9216666666666666,
+      "lynae": 0.9090909090909091,
+      "mornye": 0.8623809523809524
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "normal",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 4,
+    "ally_hp_fraction": 0.8955,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 6,
+      "damage_enemy": 580,
+      "breaks": 2,
+      "skipped_enemy_actions": 1,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 8,
+      "overdrive": 1,
+      "skate": 1,
+      "field": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 2,
+      "aim": 1,
+      "spit": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 100,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 45
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 80,
+      "mornye": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "spit",
+        "actor": "enemy:1:snip",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 0.9216666666666666,
+      "lynae": 0.9090909090909091,
+      "mornye": 0.8623809523809524
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "normal",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.8371,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 6,
+      "damage_enemy": 904,
+      "breaks": 2,
+      "skipped_enemy_actions": 2,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 13
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 2,
+      "aim": 1,
+      "spit": 1,
+      "aimed": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 100,
+      "mornye": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "spit",
+        "actor": "enemy:1:snip",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "aimed",
+        "actor": "enemy:2:predator",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 0.7416666666666667,
+      "lynae": 0.9090909090909091,
+      "mornye": 0.8623809523809524
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.9146,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 11,
+      "breaks": 2,
+      "skipped_enemy_actions": 3,
+      "damage_enemy": 474,
+      "ko_enemy": 2,
+      "tune_procs": 2,
+      "concerto": 3
+    },
+    "skills": {
+      "basic": 13,
+      "overdrive": 1,
+      "field": 2,
+      "spectrum": 1,
+      "enhanced": 1,
+      "heavy": 1
+    },
+    "enemy_skills": {
+      "smash": 2,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 20
+      }
+    },
+    "final_concerto": {
+      "amy": 20,
+      "lynae": 40,
+      "mornye": 20
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.7366666666666667,
+      "lynae": 1,
+      "mornye": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.9079,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 12,
+      "breaks": 2,
+      "skipped_enemy_actions": 3,
+      "damage_enemy": 511,
+      "ko_enemy": 2,
+      "tune_procs": 2,
+      "finales": 1
+    },
+    "skills": {
+      "basic": 13,
+      "overdrive": 1,
+      "field": 2,
+      "spectrum": 1,
+      "enhanced": 1,
+      "heavy": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "smash": 2,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "mornye": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.7161111111111111,
+      "lynae": 1,
+      "mornye": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 9,
+    "ally_hp_fraction": 0.9105,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 15,
+      "breaks": 3,
+      "skipped_enemy_actions": 5,
+      "damage_enemy": 497,
+      "ko_enemy": 2,
+      "concerto": 3
+    },
+    "skills": {
+      "basic": 26
+    },
+    "enemy_skills": {
+      "smash": 2,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 80,
+      "mornye": 60
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 8,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 9,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      }
+    ],
+    "minHp": {
+      "amy": 0.7238888888888889,
+      "lynae": 1,
+      "mornye": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 6,
+    "ally_hp_fraction": 0.9196,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 1298,
+      "shield_removed": 7,
+      "ko_enemy": 2,
+      "heal": 852,
+      "breaks": 1,
+      "skipped_enemy_actions": 2,
+      "tune_procs": 2,
+      "concerto": 1
+    },
+    "skills": {
+      "basic": 11,
+      "pry": 1,
+      "overdrive": 1,
+      "restore": 1,
+      "skate": 1,
+      "enhanced": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 1,
+      "charge": 1,
+      "spin": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 80
+      }
+    },
+    "final_concerto": {
+      "amy": 0,
+      "lynae": 100,
+      "mornye": 95
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "spin",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.6905555555555556,
+      "lynae": 0.7084848484848485,
+      "mornye": 0.8761904761904762
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 6,
+    "ally_hp_fraction": 0.9196,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 1298,
+      "shield_removed": 7,
+      "ko_enemy": 2,
+      "heal": 852,
+      "breaks": 1,
+      "skipped_enemy_actions": 2,
+      "tune_procs": 2
+    },
+    "skills": {
+      "basic": 11,
+      "pry": 1,
+      "overdrive": 1,
+      "restore": 1,
+      "skate": 1,
+      "enhanced": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 1,
+      "charge": 1,
+      "spin": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "mornye": 95
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "spin",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.6905555555555556,
+      "lynae": 0.7084848484848485,
+      "mornye": 0.8761904761904762
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.7205,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 1551,
+      "shield_removed": 12,
+      "ko_enemy": 2,
+      "breaks": 2,
+      "skipped_enemy_actions": 2,
+      "concerto": 3
+    },
+    "skills": {
+      "basic": 20
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 2,
+      "spin": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 40,
+      "lynae": 40,
+      "mornye": 20
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "spin",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.55,
+      "lynae": 0.7084848484848485,
+      "mornye": 0.8761904761904762
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "boss",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 12,
+    "ally_hp_fraction": 0.5705,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 7200,
+      "shield_removed": 26,
+      "damage_enemy": 5070,
+      "heal": 2686,
+      "breaks": 3,
+      "tune_procs": 5,
+      "skipped_enemy_actions": 3,
+      "concerto": 5,
+      "phase_changes": 1,
+      "finales": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 21,
+      "overdrive": 2,
+      "heal": 4,
+      "spectrum": 2,
+      "enhanced": 2,
+      "restore": 1,
+      "heavy": 1,
+      "skate": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 4,
+      "sweep": 2,
+      "charge": 1,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 20,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 35
+      },
+      "mornye": {
+        "calibration": 40
+      }
+    },
+    "final_concerto": {
+      "amy": 40,
+      "lynae": 45,
+      "mornye": 85
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 11,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 11,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      }
+    ],
+    "minHp": {
+      "amy": 0.33555555555555555,
+      "lynae": 0.42424242424242425,
+      "mornye": 0.6676190476190477
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "boss",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 12,
+    "ally_hp_fraction": 0.664,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 7200,
+      "shield_removed": 24,
+      "damage_enemy": 4551,
+      "heal": 2686,
+      "breaks": 3,
+      "tune_procs": 6,
+      "skipped_enemy_actions": 5,
+      "finales": 1,
+      "phase_changes": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 22,
+      "overdrive": 2,
+      "heal": 4,
+      "spectrum": 2,
+      "enhanced": 2,
+      "restore": 1,
+      "heavy": 1,
+      "skate": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 3,
+      "sweep": 2,
+      "charge": 1,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 35
+      },
+      "mornye": {
+        "calibration": 30
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "mornye": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 11,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 12,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      }
+    ],
+    "minHp": {
+      "amy": 0.33555555555555555,
+      "lynae": 0.46,
+      "mornye": 0.6676190476190477
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye"
+    ],
+    "encounter": "boss",
+    "policy": "basic_only",
+    "outcome": "loss",
+    "rounds": 14,
+    "ally_hp_fraction": 0,
+    "survivors": 0,
+    "escaped_count": 0,
+    "ko_count": 3,
+    "counts": {
+      "damage_ally": 4491,
+      "shield_removed": 24,
+      "damage_enemy": 5550,
+      "breaks": 3,
+      "skipped_enemy_actions": 5,
+      "concerto": 5,
+      "phase_changes": 1,
+      "ko_ally": 3
+    },
+    "skills": {
+      "basic": 33
+    },
+    "enemy_skills": {
+      "spear": 2,
+      "sweep": 2,
+      "charge": 2,
+      "descent": 2,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 0
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "amy": 0,
+      "lynae": 0,
+      "mornye": 0
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 11,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 11,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 12,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 12,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 13,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 14,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 14,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      }
+    ],
+    "minHp": {
+      "amy": 0,
+      "lynae": 0,
+      "mornye": 0
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "normal",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.9619,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "damage_enemy": 276,
+      "breaks": 3,
+      "skipped_enemy_actions": 2,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 8,
+      "stage": 2,
+      "overdrive": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 1,
+      "aim": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 50,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 60
+      },
+      "denia": {
+        "expectation": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 60,
+      "lynae": 60,
+      "mornye": 40,
+      "denia": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:denia"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:3:denia",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:3:denia",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 1,
+      "lynae": 0.9090909090909091,
+      "mornye": 0.94,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "normal",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.9619,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "damage_enemy": 276,
+      "breaks": 3,
+      "skipped_enemy_actions": 2,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 8,
+      "stage": 2,
+      "overdrive": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 1,
+      "aim": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 50,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 60
+      },
+      "denia": {
+        "expectation": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 60,
+      "lynae": 60,
+      "mornye": 40,
+      "denia": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:denia"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:3:denia",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:3:denia",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 1,
+      "lynae": 0.9090909090909091,
+      "mornye": 0.94,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "normal",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.915,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 6,
+      "damage_enemy": 616,
+      "breaks": 2,
+      "skipped_enemy_actions": 2,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 12
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 1,
+      "aim": 1,
+      "aimed": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 150,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 90
+      },
+      "denia": {
+        "expectation": 90
+      }
+    },
+    "final_concerto": {
+      "amy": 60,
+      "lynae": 60,
+      "mornye": 60,
+      "denia": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:denia"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "aimed",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:denia"
+      }
+    ],
+    "minHp": {
+      "amy": 1,
+      "lynae": 0.9090909090909091,
+      "mornye": 0.94,
+      "denia": 0.8
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.9629,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 11,
+      "breaks": 2,
+      "skipped_enemy_actions": 3,
+      "damage_enemy": 269,
+      "ko_enemy": 2,
+      "tune_procs": 1,
+      "fusion_procs": 1,
+      "concerto": 2
+    },
+    "skills": {
+      "basic": 12,
+      "stage": 1,
+      "overdrive": 1,
+      "skate": 1,
+      "field": 1,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1
+    },
+    "enemy_skills": {
+      "smash": 1,
+      "brace": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 20,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 80
+      },
+      "mornye": {
+        "calibration": 30
+      },
+      "denia": {
+        "expectation": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 0,
+      "lynae": 0,
+      "mornye": 80,
+      "denia": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:3:denia"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8505555555555555,
+      "lynae": 1,
+      "mornye": 1,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.9629,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 11,
+      "breaks": 2,
+      "skipped_enemy_actions": 3,
+      "damage_enemy": 269,
+      "ko_enemy": 2,
+      "tune_procs": 1,
+      "fusion_procs": 1
+    },
+    "skills": {
+      "basic": 12,
+      "stage": 1,
+      "overdrive": 1,
+      "skate": 1,
+      "field": 1,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1
+    },
+    "enemy_skills": {
+      "smash": 1,
+      "brace": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 80
+      },
+      "mornye": {
+        "calibration": 30
+      },
+      "denia": {
+        "expectation": 55
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "mornye": 80,
+      "denia": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8505555555555555,
+      "lynae": 1,
+      "mornye": 1,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 6,
+    "ally_hp_fraction": 0.9629,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 14,
+      "breaks": 3,
+      "skipped_enemy_actions": 3,
+      "ko_enemy": 2,
+      "damage_enemy": 269,
+      "fusion_procs": 1,
+      "concerto": 4
+    },
+    "skills": {
+      "basic": 24
+    },
+    "enemy_skills": {
+      "smash": 1,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 100
+      },
+      "denia": {
+        "expectation": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 20,
+      "lynae": 20,
+      "mornye": 20,
+      "denia": 20
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:3:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:3:denia",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:bracer"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8505555555555555,
+      "lynae": 1,
+      "mornye": 1,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 4,
+    "ally_hp_fraction": 0.9166,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 605,
+      "shield_removed": 12,
+      "ko_enemy": 2,
+      "breaks": 2,
+      "skipped_enemy_actions": 1,
+      "fusion_procs": 1,
+      "tune_procs": 1
+    },
+    "skills": {
+      "basic": 10,
+      "stage": 1,
+      "overdrive": 1,
+      "field": 1,
+      "spectrum": 1,
+      "breakdown": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 100,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 0
+      },
+      "mornye": {
+        "calibration": 0
+      },
+      "denia": {
+        "expectation": 95
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 85,
+      "mornye": 60,
+      "denia": 80
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8594444444444445,
+      "lynae": 0.9048484848484849,
+      "mornye": 0.9071428571428571,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 4,
+    "ally_hp_fraction": 0.9166,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 605,
+      "shield_removed": 12,
+      "ko_enemy": 2,
+      "breaks": 2,
+      "skipped_enemy_actions": 1,
+      "fusion_procs": 1,
+      "tune_procs": 1
+    },
+    "skills": {
+      "basic": 10,
+      "stage": 1,
+      "overdrive": 1,
+      "field": 1,
+      "spectrum": 1,
+      "breakdown": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 100,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 0
+      },
+      "mornye": {
+        "calibration": 0
+      },
+      "denia": {
+        "expectation": 95
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 85,
+      "mornye": 60,
+      "denia": 80
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8594444444444445,
+      "lynae": 0.9048484848484849,
+      "mornye": 0.9071428571428571,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.9135,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 627,
+      "shield_removed": 8,
+      "ko_enemy": 2,
+      "breaks": 1,
+      "skipped_enemy_actions": 2,
+      "fusion_procs": 1,
+      "concerto": 1
+    },
+    "skills": {
+      "basic": 18
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 100
+      },
+      "denia": {
+        "expectation": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 0,
+      "mornye": 80,
+      "denia": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8594444444444445,
+      "lynae": 0.9048484848484849,
+      "mornye": 0.8966666666666666,
+      "denia": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "boss",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.9949,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 7200,
+      "shield_removed": 16,
+      "damage_enemy": 1586,
+      "heal": 1549,
+      "breaks": 2,
+      "tune_procs": 4,
+      "skipped_enemy_actions": 4,
+      "fusion_procs": 3,
+      "concerto": 4,
+      "phase_changes": 1,
+      "finales": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 17,
+      "overdrive": 1,
+      "heal": 1,
+      "skate": 2,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1,
+      "restore": 1,
+      "heavy": 1,
+      "curtain": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 1,
+      "sweep": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 55
+      },
+      "mornye": {
+        "calibration": 80
+      },
+      "denia": {
+        "expectation": 30
+      }
+    },
+    "final_concerto": {
+      "amy": 45,
+      "lynae": 40,
+      "mornye": 20,
+      "denia": 40
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:3:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:3:denia",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      }
+    ],
+    "minHp": {
+      "amy": 0.6094444444444445,
+      "lynae": 0.8078787878787879,
+      "mornye": 0.8790476190476191,
+      "denia": 0.8164705882352942
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "boss",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 9,
+    "ally_hp_fraction": 0.8739,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 7200,
+      "shield_removed": 19,
+      "damage_enemy": 3647,
+      "heal": 2733,
+      "breaks": 2,
+      "tune_procs": 4,
+      "skipped_enemy_actions": 4,
+      "fusion_procs": 3,
+      "phase_changes": 1,
+      "finales": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 21,
+      "overdrive": 1,
+      "heal": 1,
+      "skate": 2,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1,
+      "restore": 2,
+      "heavy": 1,
+      "curtain": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 1,
+      "sweep": 1,
+      "charge": 1,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 50,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "mornye": {
+        "calibration": 0
+      },
+      "denia": {
+        "expectation": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "mornye": 100,
+      "denia": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.6094444444444445,
+      "lynae": 0.6521212121212121,
+      "mornye": 0.7885714285714286,
+      "denia": 0.67
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "mornye",
+      "denia"
+    ],
+    "encounter": "boss",
+    "policy": "basic_only",
+    "outcome": "loss",
+    "rounds": 12,
+    "ally_hp_fraction": 0,
+    "survivors": 0,
+    "escaped_count": 0,
+    "ko_count": 4,
+    "counts": {
+      "damage_ally": 4958,
+      "shield_removed": 25,
+      "damage_enemy": 7250,
+      "breaks": 3,
+      "skipped_enemy_actions": 3,
+      "fusion_procs": 2,
+      "concerto": 5,
+      "phase_changes": 1,
+      "ko_ally": 4
+    },
+    "skills": {
+      "basic": 34
+    },
+    "enemy_skills": {
+      "spear": 2,
+      "sweep": 3,
+      "charge": 2,
+      "descent": 1,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 0
+      },
+      "mornye": {
+        "calibration": 0
+      },
+      "denia": {
+        "expectation": 0
+      }
+    },
+    "final_concerto": {
+      "amy": 0,
+      "lynae": 0,
+      "mornye": 0,
+      "denia": 0
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:3:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:3:denia",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 9,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 10,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 11,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 12,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      }
+    ],
+    "minHp": {
+      "amy": 0,
+      "lynae": 0,
+      "mornye": 0,
+      "denia": 0
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "normal",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.9308,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 405,
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "breaks": 3,
+      "skipped_enemy_actions": 3,
+      "ko_enemy": 3,
+      "fusion_procs": 1
+    },
+    "skills": {
+      "stage": 3,
+      "basic": 5
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 2
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 90
+      },
+      "mornye": {
+        "calibration": 60
+      }
+    },
+    "final_concerto": {
+      "denia": 60,
+      "chisa": 60,
+      "mornye": 40
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:0:snip",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "denia": 0.9129411764705883,
+      "chisa": 0.9360975609756098,
+      "mornye": 0.94
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "normal",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.9308,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 405,
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "breaks": 3,
+      "skipped_enemy_actions": 3,
+      "ko_enemy": 3,
+      "fusion_procs": 1
+    },
+    "skills": {
+      "stage": 3,
+      "basic": 5
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 2
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 90
+      },
+      "mornye": {
+        "calibration": 60
+      }
+    },
+    "final_concerto": {
+      "denia": 60,
+      "chisa": 60,
+      "mornye": 40
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:0:snip",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "denia": 0.9129411764705883,
+      "chisa": 0.9360975609756098,
+      "mornye": 0.94
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "normal",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.8474,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 893,
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "breaks": 3,
+      "skipped_enemy_actions": 3,
+      "ko_enemy": 3,
+      "concerto": 1
+    },
+    "skills": {
+      "basic": 14
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 3,
+      "spit": 2
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 100
+      },
+      "mornye": {
+        "calibration": 100
+      }
+    },
+    "final_concerto": {
+      "denia": 0,
+      "chisa": 100,
+      "mornye": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:0:snip",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "spit",
+        "actor": "enemy:0:snip",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "spit",
+        "actor": "enemy:1:snip",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:snip"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      }
+    ],
+    "minHp": {
+      "denia": 0.8258823529411765,
+      "chisa": 0.8497560975609756,
+      "mornye": 0.8623809523809524
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.9667,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 11,
+      "breaks": 2,
+      "skipped_enemy_actions": 3,
+      "damage_enemy": 601,
+      "ko_enemy": 2,
+      "fusion_procs": 2,
+      "retaliations": 1,
+      "concerto": 3,
+      "heal": 406
+    },
+    "skills": {
+      "stage": 2,
+      "basic": 12,
+      "cut": 1,
+      "field": 2,
+      "breakdown": 1,
+      "curtain": 1,
+      "release": 1
+    },
+    "enemy_skills": {
+      "smash": 2,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 80
+      },
+      "chisa": {
+        "thread": 30
+      },
+      "mornye": {
+        "calibration": 20
+      }
+    },
+    "final_concerto": {
+      "denia": 40,
+      "chisa": 45,
+      "mornye": 20
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:chisa",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:denia"
+      }
+    ],
+    "minHp": {
+      "denia": 0.8341176470588235,
+      "chisa": 0.9336585365853659,
+      "mornye": 1
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.9612,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 11,
+      "breaks": 2,
+      "skipped_enemy_actions": 3,
+      "damage_enemy": 633,
+      "ko_enemy": 2,
+      "fusion_procs": 2,
+      "retaliations": 1,
+      "heal": 406
+    },
+    "skills": {
+      "stage": 2,
+      "basic": 12,
+      "cut": 1,
+      "field": 2,
+      "breakdown": 1,
+      "curtain": 1,
+      "release": 1
+    },
+    "enemy_skills": {
+      "smash": 2,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 60
+      },
+      "chisa": {
+        "thread": 0
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "denia": 100,
+      "chisa": 100,
+      "mornye": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:denia"
+      }
+    ],
+    "minHp": {
+      "denia": 0.7076470588235294,
+      "chisa": 0.9336585365853659,
+      "mornye": 1
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 10,
+    "ally_hp_fraction": 0.7579,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 14,
+      "breaks": 3,
+      "skipped_enemy_actions": 4,
+      "damage_enemy": 1416,
+      "ko_enemy": 2,
+      "retaliations": 2,
+      "fusion_procs": 2,
+      "concerto": 4
+    },
+    "skills": {
+      "basic": 29
+    },
+    "enemy_skills": {
+      "smash": 2,
+      "brace": 2,
+      "charge": 1,
+      "rush": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 100
+      },
+      "mornye": {
+        "calibration": 100
+      }
+    },
+    "final_concerto": {
+      "denia": 0,
+      "chisa": 100,
+      "mornye": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "rush",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 5,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:chisa",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 7,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 7,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 9,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 9,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 10,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      }
+    ],
+    "minHp": {
+      "denia": 0.5023529411764706,
+      "chisa": 0.7219512195121951,
+      "mornye": 1
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 6,
+    "ally_hp_fraction": 0.9101,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 1530,
+      "damage_ally": 3060,
+      "shield_removed": 12,
+      "breaks": 2,
+      "skipped_enemy_actions": 2,
+      "ko_enemy": 2,
+      "fusion_procs": 2,
+      "heal": 1004,
+      "concerto": 1
+    },
+    "skills": {
+      "stage": 2,
+      "basic": 8,
+      "mend": 1,
+      "heal": 1,
+      "breakdown": 1,
+      "blue": 2,
+      "field": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 2,
+      "spin": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 20
+      },
+      "chisa": {
+        "thread": 80
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "denia": 20,
+      "chisa": 95,
+      "mornye": 95
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:1:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:predator"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "spin",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:chisa"
+      }
+    ],
+    "minHp": {
+      "denia": 0.6558823529411765,
+      "chisa": 0.795609756097561,
+      "mornye": 0.8761904761904762
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 6,
+    "ally_hp_fraction": 0.9101,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 1530,
+      "damage_ally": 3060,
+      "shield_removed": 13,
+      "breaks": 3,
+      "skipped_enemy_actions": 2,
+      "ko_enemy": 2,
+      "fusion_procs": 2,
+      "heal": 1004
+    },
+    "skills": {
+      "stage": 2,
+      "basic": 9,
+      "mend": 1,
+      "heal": 1,
+      "breakdown": 1,
+      "blue": 2,
+      "field": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 2,
+      "spin": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 20
+      },
+      "chisa": {
+        "thread": 90
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "denia": 100,
+      "chisa": 100,
+      "mornye": 95
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:1:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:predator"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "spin",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "denia": 0.6558823529411765,
+      "chisa": 0.795609756097561,
+      "mornye": 0.8761904761904762
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.7385,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 1530,
+      "damage_ally": 3060,
+      "shield_removed": 13,
+      "breaks": 3,
+      "skipped_enemy_actions": 3,
+      "ko_enemy": 2,
+      "fusion_procs": 1,
+      "concerto": 3
+    },
+    "skills": {
+      "basic": 20
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 2,
+      "spin": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 100
+      },
+      "mornye": {
+        "calibration": 100
+      }
+    },
+    "final_concerto": {
+      "denia": 40,
+      "chisa": 40,
+      "mornye": 20
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:1:predator"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:predator"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "spin",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:chisa",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "denia": 0.49941176470588233,
+      "chisa": 0.795609756097561,
+      "mornye": 0.8761904761904762
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "boss",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 17,
+    "ally_hp_fraction": 0.2398,
+    "survivors": 3,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_enemy": 9337,
+      "damage_ally": 7200,
+      "shield_removed": 26,
+      "heal": 4890,
+      "fusion_procs": 7,
+      "breaks": 3,
+      "concerto": 7,
+      "skipped_enemy_actions": 3,
+      "phase_changes": 1,
+      "absorbed": 300,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 24,
+      "cut": 5,
+      "heal": 8,
+      "breakdown": 3,
+      "blue": 3,
+      "curtain": 3,
+      "mend": 2,
+      "pry": 2
+    },
+    "enemy_skills": {
+      "spear": 5,
+      "sweep": 4,
+      "charge": 2,
+      "descent": 2,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 30
+      },
+      "chisa": {
+        "thread": 80
+      },
+      "mornye": {
+        "calibration": 40
+      }
+    },
+    "final_concerto": {
+      "denia": 40,
+      "chisa": 100,
+      "mornye": 70
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:chisa",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 7,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 8,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 10,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 10,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "concerto",
+        "actor": "ally:1:chisa",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 12,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 12,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 13,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 13,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 14,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 15,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 15,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 16,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 16,
+        "event": "break",
+        "actor": "ally:1:chisa",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 17,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      }
+    ],
+    "minHp": {
+      "denia": 0.06529411764705882,
+      "chisa": 0.26878048780487807,
+      "mornye": 0.28523809523809524
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "boss",
+    "policy": "no_concerto",
+    "outcome": "loss",
+    "rounds": 22,
+    "ally_hp_fraction": 0,
+    "survivors": 0,
+    "escaped_count": 0,
+    "ko_count": 3,
+    "counts": {
+      "damage_enemy": 11660,
+      "damage_ally": 6327,
+      "shield_removed": 22,
+      "heal": 5810,
+      "fusion_procs": 5,
+      "breaks": 2,
+      "skipped_enemy_actions": 2,
+      "phase_changes": 1,
+      "absorbed": 300,
+      "ko_ally": 3
+    },
+    "skills": {
+      "basic": 27,
+      "cut": 5,
+      "heal": 10,
+      "breakdown": 2,
+      "blue": 2,
+      "curtain": 2,
+      "mend": 2,
+      "pry": 1
+    },
+    "enemy_skills": {
+      "spear": 6,
+      "sweep": 5,
+      "charge": 4,
+      "descent": 4,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 0
+      },
+      "chisa": {
+        "thread": 0
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "denia": 0,
+      "chisa": 0,
+      "mornye": 0
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 8,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 11,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 11,
+        "event": "break",
+        "actor": "ally:0:denia",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 12,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 13,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 13,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 14,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 15,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 16,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 17,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 18,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 19,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 20,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 21,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 22,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      }
+    ],
+    "minHp": {
+      "denia": 0,
+      "chisa": 0,
+      "mornye": 0
+    }
+  },
+  {
+    "team": [
+      "denia",
+      "chisa",
+      "mornye"
+    ],
+    "encounter": "boss",
+    "policy": "basic_only",
+    "outcome": "loss",
+    "rounds": 14,
+    "ally_hp_fraction": 0,
+    "survivors": 0,
+    "escaped_count": 0,
+    "ko_count": 3,
+    "counts": {
+      "damage_enemy": 5850,
+      "damage_ally": 3622,
+      "shield_removed": 18,
+      "fusion_procs": 2,
+      "breaks": 2,
+      "skipped_enemy_actions": 2,
+      "concerto": 4,
+      "phase_changes": 1,
+      "ko_ally": 3
+    },
+    "skills": {
+      "basic": 30
+    },
+    "enemy_skills": {
+      "spear": 4,
+      "sweep": 2,
+      "charge": 3,
+      "descent": 2,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "denia": {
+        "expectation": 0
+      },
+      "chisa": {
+        "thread": 0
+      },
+      "mornye": {
+        "calibration": 0
+      }
+    },
+    "final_concerto": {
+      "denia": 0,
+      "chisa": 0,
+      "mornye": 0
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:denia",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:chisa",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 6,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 7,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 9,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:denia"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:chisa"
+      },
+      {
+        "round": 10,
+        "event": "break",
+        "actor": "ally:2:mornye",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 11,
+        "event": "concerto",
+        "actor": "ally:2:mornye",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 12,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 12,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 13,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      },
+      {
+        "round": 14,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:mornye"
+      }
+    ],
+    "minHp": {
+      "denia": 0,
+      "chisa": 0,
+      "mornye": 0
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "normal",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.9578,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "damage_enemy": 304,
+      "breaks": 3,
+      "ko_enemy": 3,
+      "skipped_enemy_actions": 1
+    },
+    "skills": {
+      "basic": 5,
+      "stage": 2,
+      "pry": 1,
+      "overdrive": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 1,
+      "aim": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 95
+      },
+      "denia": {
+        "expectation": 70
+      },
+      "chisa": {
+        "thread": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 40,
+      "lynae": 50,
+      "denia": 40,
+      "chisa": 40
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:2:denia",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 1,
+      "lynae": 0.9090909090909091,
+      "denia": 0.9094117647058824,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "normal",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.9578,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 7,
+      "damage_enemy": 304,
+      "breaks": 3,
+      "ko_enemy": 3,
+      "skipped_enemy_actions": 1
+    },
+    "skills": {
+      "basic": 5,
+      "stage": 2,
+      "pry": 1,
+      "overdrive": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 1,
+      "aim": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 95
+      },
+      "denia": {
+        "expectation": 70
+      },
+      "chisa": {
+        "thread": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 40,
+      "lynae": 50,
+      "denia": 40,
+      "chisa": 40
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:2:predator"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:2:denia",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 2,
+        "event": "skip",
+        "actor": "enemy:1:snip"
+      }
+    ],
+    "minHp": {
+      "amy": 1,
+      "lynae": 0.9090909090909091,
+      "denia": 0.9094117647058824,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "normal",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 3,
+    "ally_hp_fraction": 0.916,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 1840,
+      "shield_removed": 6,
+      "damage_enemy": 605,
+      "breaks": 2,
+      "ko_enemy": 3
+    },
+    "skills": {
+      "basic": 12
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "bite": 1,
+      "aim": 1,
+      "aimed": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 150,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "denia": {
+        "expectation": 90
+      },
+      "chisa": {
+        "thread": 90
+      }
+    },
+    "final_concerto": {
+      "amy": 60,
+      "lynae": 60,
+      "denia": 60,
+      "chisa": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:2:predator",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "bite",
+        "actor": "enemy:1:snip",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "aim",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 3,
+        "event": "enemy_action",
+        "skill": "aimed",
+        "actor": "enemy:2:predator",
+        "target": "ally:3:chisa"
+      }
+    ],
+    "minHp": {
+      "amy": 1,
+      "lynae": 0.9090909090909091,
+      "denia": 0.9094117647058824,
+      "chisa": 0.853170731707317
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.9626,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 9,
+      "breaks": 2,
+      "ko_enemy": 2,
+      "damage_enemy": 269,
+      "tune_procs": 1,
+      "fusion_procs": 1,
+      "skipped_enemy_actions": 2,
+      "concerto": 1
+    },
+    "skills": {
+      "basic": 12,
+      "stage": 1,
+      "overdrive": 1,
+      "cut": 1,
+      "skate": 1,
+      "breakdown": 1,
+      "enhanced": 1
+    },
+    "enemy_skills": {
+      "smash": 1,
+      "brace": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 20,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 80
+      },
+      "denia": {
+        "expectation": 95
+      },
+      "chisa": {
+        "thread": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 0,
+      "denia": 80,
+      "chisa": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8505555555555555,
+      "lynae": 1,
+      "denia": 1,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.9626,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 11,
+      "breaks": 2,
+      "ko_enemy": 2,
+      "damage_enemy": 269,
+      "tune_procs": 1,
+      "fusion_procs": 1,
+      "skipped_enemy_actions": 2
+    },
+    "skills": {
+      "basic": 12,
+      "stage": 1,
+      "overdrive": 1,
+      "cut": 1,
+      "skate": 1,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1
+    },
+    "enemy_skills": {
+      "smash": 1,
+      "brace": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 4
+      },
+      "lynae": {
+        "color": 80
+      },
+      "denia": {
+        "expectation": 55
+      },
+      "chisa": {
+        "thread": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "denia": 100,
+      "chisa": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8505555555555555,
+      "lynae": 1,
+      "denia": 1,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "elite_humanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.9626,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3490,
+      "shield_removed": 14,
+      "breaks": 3,
+      "ko_enemy": 2,
+      "damage_enemy": 269,
+      "skipped_enemy_actions": 3,
+      "fusion_procs": 1,
+      "concerto": 4
+    },
+    "skills": {
+      "basic": 25
+    },
+    "enemy_skills": {
+      "smash": 1,
+      "brace": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 20,
+      "lynae": 40,
+      "denia": 20,
+      "chisa": 20
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:1:snip"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "smash",
+        "actor": "enemy:0:bracer",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "brace",
+        "actor": "enemy:0:bracer",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:2:denia",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:2:denia",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:bracer",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:3:chisa",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:2:denia",
+        "target": "enemy:0:bracer"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:bracer"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8505555555555555,
+      "lynae": 1,
+      "denia": 1,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 4,
+    "ally_hp_fraction": 0.9117,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 636,
+      "shield_removed": 12,
+      "ko_enemy": 2,
+      "breaks": 2,
+      "skipped_enemy_actions": 1,
+      "fusion_procs": 1,
+      "tune_procs": 1
+    },
+    "skills": {
+      "basic": 10,
+      "stage": 1,
+      "overdrive": 1,
+      "cut": 1,
+      "spectrum": 1,
+      "breakdown": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 100,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 0
+      },
+      "denia": {
+        "expectation": 95
+      },
+      "chisa": {
+        "thread": 30
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 85,
+      "denia": 80,
+      "chisa": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:3:chisa",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8594444444444445,
+      "lynae": 0.9048484848484849,
+      "denia": 0.8670588235294118,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 4,
+    "ally_hp_fraction": 0.9117,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 636,
+      "shield_removed": 12,
+      "ko_enemy": 2,
+      "breaks": 2,
+      "skipped_enemy_actions": 1,
+      "fusion_procs": 1,
+      "tune_procs": 1
+    },
+    "skills": {
+      "basic": 10,
+      "stage": 1,
+      "overdrive": 1,
+      "cut": 1,
+      "spectrum": 1,
+      "breakdown": 1
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 100,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 0
+      },
+      "denia": {
+        "expectation": 95
+      },
+      "chisa": {
+        "thread": 30
+      }
+    },
+    "final_concerto": {
+      "amy": 80,
+      "lynae": 85,
+      "denia": 80,
+      "chisa": 60
+    },
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 2,
+        "event": "break",
+        "actor": "ally:3:chisa",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 4,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:carapace"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8594444444444445,
+      "lynae": 0.9048484848484849,
+      "denia": 0.8670588235294118,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "elite_nonhumanoid",
+    "policy": "basic_only",
+    "outcome": "win",
+    "rounds": 5,
+    "ally_hp_fraction": 0.9061,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 3060,
+      "damage_enemy": 676,
+      "shield_removed": 8,
+      "ko_enemy": 2,
+      "breaks": 1,
+      "skipped_enemy_actions": 2,
+      "fusion_procs": 1,
+      "concerto": 1
+    },
+    "skills": {
+      "basic": 18
+    },
+    "enemy_skills": {
+      "shot": 1,
+      "slash": 2,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 200,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 100
+      },
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 100
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 0,
+      "denia": 80,
+      "chisa": 80
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "shot",
+        "actor": "enemy:1:predator",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:carapace",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:carapace"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "slash",
+        "actor": "enemy:0:carapace",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.8594444444444445,
+      "lynae": 0.9048484848484849,
+      "denia": 0.8435294117647059,
+      "chisa": 1
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "boss",
+    "policy": "tactical",
+    "outcome": "win",
+    "rounds": 7,
+    "ally_hp_fraction": 0.8607,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 7200,
+      "shield_removed": 16,
+      "damage_enemy": 1608,
+      "breaks": 2,
+      "tune_procs": 4,
+      "skipped_enemy_actions": 4,
+      "fusion_procs": 3,
+      "concerto": 4,
+      "heal": 605,
+      "phase_changes": 1,
+      "finales": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 16,
+      "overdrive": 1,
+      "cut": 1,
+      "skate": 2,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1,
+      "mend": 1,
+      "heavy": 1,
+      "curtain": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 1,
+      "sweep": 1,
+      "charge": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 55
+      },
+      "denia": {
+        "expectation": 30
+      },
+      "chisa": {
+        "thread": 50
+      }
+    },
+    "final_concerto": {
+      "amy": 45,
+      "lynae": 40,
+      "denia": 40,
+      "chisa": 0
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:2:denia",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 6,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "concerto",
+        "actor": "ally:3:chisa",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      }
+    ],
+    "minHp": {
+      "amy": 0.6094444444444445,
+      "lynae": 0.8078787878787879,
+      "denia": 0.8164705882352942,
+      "chisa": 0.8653658536585366
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "boss",
+    "policy": "no_concerto",
+    "outcome": "win",
+    "rounds": 8,
+    "ally_hp_fraction": 0.5692,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "damage_ally": 7200,
+      "shield_removed": 18,
+      "damage_enemy": 3707,
+      "breaks": 2,
+      "tune_procs": 4,
+      "skipped_enemy_actions": 4,
+      "fusion_procs": 3,
+      "heal": 605,
+      "phase_changes": 1,
+      "finales": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "basic": 20,
+      "overdrive": 1,
+      "cut": 1,
+      "skate": 2,
+      "breakdown": 1,
+      "enhanced": 1,
+      "blue": 1,
+      "mend": 1,
+      "heavy": 1,
+      "curtain": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 1,
+      "sweep": 1,
+      "charge": 1,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 50,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 90
+      },
+      "denia": {
+        "expectation": 60
+      },
+      "chisa": {
+        "thread": 60
+      }
+    },
+    "final_concerto": {
+      "amy": 100,
+      "lynae": 100,
+      "denia": 100,
+      "chisa": 100
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 6,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "break",
+        "actor": "ally:1:lynae",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 6,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      }
+    ],
+    "minHp": {
+      "amy": 0.6094444444444445,
+      "lynae": 0.4727272727272727,
+      "denia": 0.4958823529411765,
+      "chisa": 0.6302439024390244
+    }
+  },
+  {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "boss",
+    "policy": "basic_only",
+    "outcome": "loss",
+    "rounds": 12,
+    "ally_hp_fraction": 0,
+    "survivors": 0,
+    "escaped_count": 0,
+    "ko_count": 4,
+    "counts": {
+      "damage_ally": 5545,
+      "shield_removed": 20,
+      "damage_enemy": 7200,
+      "breaks": 2,
+      "skipped_enemy_actions": 4,
+      "fusion_procs": 3,
+      "concerto": 5,
+      "phase_changes": 1,
+      "ko_ally": 4
+    },
+    "skills": {
+      "basic": 39
+    },
+    "enemy_skills": {
+      "spear": 1,
+      "sweep": 2,
+      "charge": 2,
+      "descent": 2,
+      "wingpulse": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "lynae": {
+        "color": 0
+      },
+      "denia": {
+        "expectation": 0
+      },
+      "chisa": {
+        "thread": 0
+      }
+    },
+    "final_concerto": {
+      "amy": 0,
+      "lynae": 0,
+      "denia": 0,
+      "chisa": 0
+    },
+    "firstFull": 5,
+    "enemyLog": [
+      {
+        "round": 1,
+        "event": "enemy_action",
+        "skill": "spear",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 2,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 3,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 3,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 4,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:1:lynae",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 5,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:0:amy",
+        "target": "ally:2:denia"
+      },
+      {
+        "round": 5,
+        "event": "concerto",
+        "actor": "ally:2:denia",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 6,
+        "event": "concerto",
+        "actor": "ally:3:chisa",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 6,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 7,
+        "event": "phase",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "break",
+        "actor": "ally:0:amy",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 7,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 8,
+        "event": "skip",
+        "actor": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "recover",
+        "target": "enemy:0:crownless"
+      },
+      {
+        "round": 9,
+        "event": "enemy_action",
+        "skill": "wingpulse",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:amy"
+      },
+      {
+        "round": 10,
+        "event": "enemy_action",
+        "skill": "sweep",
+        "actor": "enemy:0:crownless",
+        "target": "ally:1:lynae"
+      },
+      {
+        "round": 11,
+        "event": "enemy_action",
+        "skill": "charge",
+        "actor": "enemy:0:crownless",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 11,
+        "event": "concerto",
+        "actor": "ally:3:chisa",
+        "target": "ally:3:chisa"
+      },
+      {
+        "round": 12,
+        "event": "enemy_action",
+        "skill": "descent",
+        "actor": "enemy:0:crownless",
+        "target": "ally:3:chisa"
+      }
+    ],
+    "minHp": {
+      "amy": 0,
+      "lynae": 0,
+      "denia": 0,
+      "chisa": 0
+    }
+  }
+]

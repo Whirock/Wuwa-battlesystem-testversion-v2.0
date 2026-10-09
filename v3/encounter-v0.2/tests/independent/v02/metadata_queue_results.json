@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-09T07:46:41.208Z",
+  "evidenceClass": "NODE: metadata/formula and queue purity",
+  "engineSHA256": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+  "results": [
+    {
+      "name": "Healing preview equals actual pre-debuff healing at levels 1/20/60 for four healing skills",
+      "pass": true,
+      "detail": {
+        "cases": 12,
+        "method": "Isolated resource/HP fixtures for formula verification only, not balance evidence"
+      }
+    },
+    {
+      "name": "Queue previews are pure, detached and conditional for future rounds",
+      "pass": true,
+      "detail": "No RNG, queue, resource or log changes"
+    },
+    {
+      "name": "Taunt and mend duration metadata describes persistent expiry rather than immediate-only",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "passed": 3,
+  "failed": 0
+}

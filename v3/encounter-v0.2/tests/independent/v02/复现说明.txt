@@ -1,0 +1,13 @@
+v0.2独立验证复现
+
+实际引擎：node engine_v02_audit.cjs
+DOM事件：本目录 npm ci，然后 node dom_v02_audit.cjs。使用jsdom/fake-indexeddb、媒体/Canvas/时钟模拟，绝非实机浏览器。
+默认根目录已改为本程序；也可用QA_ROOT指定根目录。比如PowerShell：$env:QA_ROOT=(Resolve-Path ../../..).Path
+fixture的30MiB超限占位图由harness生成；完成后可删。测试音仅用于模拟导入，未接入游戏播放。
+素材字节报告在原备份/原图环境实际执行；此包不复制第二套89图或用户参考图，仅附结果和哈希。
+history/ 中保留 v0.1 参数与说明；本版只随附当前 v0.2 可复现测试，不复用旧计数。
+
+补充复现：node metadata_queue_audit.cjs；node bounded_progress_audit.cjs。各脚本默认定位本包根目录，QA_ROOT可覆盖。
+qa_evidence_manifest.json是重新打包后的实际文件清单（相对本程序根目录），tested_core_hashes保留独立QA冻结值。脚本仅做包内路径适配，验证逻辑未变；说明、脚本哈希据此重算。原图对照审计依赖上游冻结资产及参考图，其原始脚本不随包，仅保留真实结果；独立QA完整说明见 docs/独立QA报告_v0.2.txt。
+
+公开版本已移除私有发布与会话标识；运行时仅 release-notes.js 展示日志与 assets.js 素材来源字段经过元数据净化，其余六个运行文件、参数和89张图保持原字节。公开校验值见 SHA256SUMS.txt。

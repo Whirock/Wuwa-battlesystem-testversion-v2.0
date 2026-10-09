@@ -1,0 +1,49 @@
+Seeded stress: 1000 battles, 49758 legal normal actions, all five characters.
+✔ CommonJS and browser export the same constructor API (4.034936ms)
+✔ constructor enforces 1–4 unique allies, encounter and level; params stay unmodified (6.367816ms)
+✔ start is idempotent; constructor does not execute actions; inspect methods have no side effects (2.447275ms)
+✔ fixed speed order, ally tie priority, and FIFO wait retain exactly one token (3.873185ms)
+✔ normal actions cannot run an ally twice or execute enemy attacks implicitly (0.908646ms)
+✔ every invalid action is atomic and includes Chinese disabled reasons (3.459065ms)
+✔ legal targets respect ally, other ally, self, enemy, KO and retreat (1.376188ms)
+✔ effective action gains once per AOE, overheal grants nothing, resources capped (1.913155ms)
+✔ healing cannot resurrect and rejected KO-target heals are mutation free (1.184774ms)
+✔ KO clears resources, form, buffs, concerto, and owner-dependent enemy markers (0.859937ms)
+✔ weakness is element OR weapon; repeated shield packets share a 3 point action budget (0.864289ms)
+✔ pry plus tune remains exactly one shield, with separate status damage (1.093844ms)
+✔ breaking packet and same-action status use action-start multiplier, following action gets 1.5x (0.687983ms)
+✔ break lasts through r+1, skips enemy, restores r+2 and protects elite until real action (0.68924ms)
+✔ Amy alternate route reaches finisher and form/resource pools remain shared (1.085905ms)
+✔ Denia blue entries 80/90/100 have legal exits; blue basic uses override cost/gain (1.72702ms)
+✔ concerto paid, personal, once per round, no turn used, intro capped per recipient (1.052556ms)
+✔ concerto rejects self in multi-party and rejects enemy, KO, retreat, enemy-window targets (1.779054ms)
+✔ solo concerto grants half direct amp, with no intro or special channel (0.682375ms)
+✔ strongest direct/extra channels preserved independently; field plus max direct/encourage (1.206159ms)
+✔ status-outro survives nonproc direct action, applies to delayed fusion, then consumes (0.865747ms)
+✔ recipient-owned tune can consume status-outro on later ally trigger (1.024053ms)
+✔ derived status packets generate no resources or concerto; cap status amp at +50% (0.594057ms)
+✔ guard halves damage, support mitigation bounded, barriers absorb without extra actions (0.56404ms)
+✔ guard expires at next opportunity even when waiting, rather than lasting through wait (0.697953ms)
+✔ braced enemy retaliation cancels when the same attack breaks it (0.91507ms)
+✔ aim retains target; explicit taunt redirects committed single shot (0.695702ms)
+✔ breaking cancels charge or aim; missing charge never silently upgrades next hit (0.406763ms)
+✔ boss threshold marks pending only; announcement replaces a normal slot, no extra action (0.773996ms)
+✔ survey reveals weaknesses; all explicit attack metadata suitable for UI animation (0.541464ms)
+✔ mastery ratio is applied once relative to nonzero reference (0.517736ms)
+✔ retreat preserves HP, clears resource/marker/form, removes token, and is not victory/death (0.622337ms)
+✔ win, loss, partial escape and inconclusive are distinct; no timeout forced defeat (2.022941ms)
+✔ snapshot restores exactly, random continuation is reproducible and snapshots detached (48.052651ms)
+✔ all 16 deterministic reference encounters match v0.1r2 Python outcomes, rounds, HP and breaks (20.012446ms)
+✔ 120 roster/encounter combinations and levels 1/10/20/40/60 finish or remain honestly inconclusive (117.228973ms)
+✔ 1000 seeded random-legal traces exercise all characters/encounters without invalid actions or state violations (2466.907764ms)
+✔ restore rejects malformed definitions, resource keys, forms, status channels and token ownership (7.695167ms)
+✔ initial HP inheritance has no automatic heal and always resets all battle resources (1.668355ms)
+✔ all legal status combinations survive snapshot restoration at every decision window (1854.598997ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4572.144021

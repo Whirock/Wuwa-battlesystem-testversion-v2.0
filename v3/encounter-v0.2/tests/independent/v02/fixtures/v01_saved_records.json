@@ -1,0 +1,1152 @@
+{
+  "battle": {
+    "schema": "battle-engine-v1",
+    "parameter_version": "0.1.2-candidate",
+    "state": {
+      "options": {
+        "team": [
+          "amy",
+          "lynae",
+          "mornye",
+          "denia"
+        ],
+        "encounter": "normal",
+        "level": 20,
+        "hp_fraction": 1,
+        "mode": {
+          "amy": "tune",
+          "denia": "fusion"
+        }
+      },
+      "allies": [
+        {
+          "name": "爱弥斯",
+          "element": "fusion",
+          "weapon": "sword",
+          "hp": 1800,
+          "atk": 240,
+          "def": 125,
+          "speed": 110,
+          "primary": "sync",
+          "resources": {
+            "sync": 200,
+            "resonance": 4
+          },
+          "form_start": "human",
+          "mode_options": [
+            "tune",
+            "fusion"
+          ],
+          "mode_default": "tune",
+          "outro": {
+            "amp": 0.2,
+            "special": "none"
+          },
+          "skills": {
+            "basic": {
+              "name": "人形/机兵 普通攻击",
+              "coef": 1,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "sync": 50
+              },
+              "concerto": 20,
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "basic",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "overdrive": {
+              "name": "星辉启动",
+              "coef": 1.5,
+              "break_points": 1,
+              "cost": {
+                "sync": 50
+              },
+              "gain": {
+                "resonance": 2
+              },
+              "concerto": 20,
+              "effect": "amy_overdrive",
+              "requires": "not overdrive; resonance==0",
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "liberation",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "enhanced": {
+              "name": "双相强化E",
+              "coef": 2.5,
+              "break_points": 2,
+              "cost": {
+                "sync": 100
+              },
+              "gain": {
+                "resonance": 2
+              },
+              "concerto": 20,
+              "effect": "amy_swap",
+              "applies_mode": true,
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "liberation",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "heavy": {
+              "name": "满谐重击",
+              "coef": 0.8,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "sync": 200
+              },
+              "concerto": 20,
+              "requires": "resonance==4",
+              "effect": "amy_heavy",
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "heavy",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "finale": {
+              "name": "星辉终结",
+              "coef": 6.5,
+              "break_points": 3,
+              "cost": {
+                "sync": 200,
+                "resonance": 4
+              },
+              "gain": {},
+              "concerto": 25,
+              "requires": "sync==200 and resonance==4",
+              "effect": "amy_finale",
+              "applies_mode": true,
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "liberation",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            }
+          },
+          "intro": {
+            "primary_gain": 20
+          },
+          "asset_notes": "机兵跨行动持续、双池共享HP与行动；重伤不强制返形；退场返形/停机只改表现，不自动复活。E切形和伤害同一次行动。",
+          "baseline_weapon_contribution": {
+            "atk": 40
+          },
+          "reference_level": 20,
+          "recommended_entry_level": 24,
+          "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+          "passives": {
+            "kept": [
+              "two form shared HP/action",
+              "sync-resonance two-pool cycle"
+            ],
+            "merged": [
+              "short liberation-mode gating into resource skill actions"
+            ],
+            "not_adopted": [
+              "original crit damage/heavy-attack passive multipliers",
+              "exploration Starflux",
+              "resonance-chain bonuses",
+              "original separate liberation energy pool"
+            ]
+          },
+          "key": "amy",
+          "side": "ally",
+          "slot": 0,
+          "id": "ally:0:amy",
+          "level": 20,
+          "maxhp": 1800,
+          "rsc": {
+            "sync": 0,
+            "resonance": 0
+          },
+          "concerto": 0,
+          "form": "human",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 0,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 0,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 0,
+          "maxshield": 0,
+          "mastery": {
+            "basic": 4,
+            "overdrive": 3,
+            "enhanced": 4,
+            "heavy": 3,
+            "finale": 3
+          },
+          "mode": "tune"
+        },
+        {
+          "name": "琳奈",
+          "element": "spectro",
+          "weapon": "pistols",
+          "hp": 1650,
+          "atk": 210,
+          "def": 105,
+          "speed": 120,
+          "primary": "color",
+          "resources": {
+            "color": 100
+          },
+          "form_start": "normal",
+          "outro": {
+            "amp": 0.25,
+            "special": "liberation_extra_0.1_within_global_cap"
+          },
+          "intro": {
+            "primary_gain": 20
+          },
+          "skills": {
+            "basic": {
+              "name": "定线射击",
+              "coef": 1,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "color": 35
+              },
+              "concerto": 20,
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "basic",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "survey": {
+              "name": "留彩校准",
+              "coef": 1.15,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "color": 20
+              },
+              "concerto": 20,
+              "effect": "reveal",
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "skate": {
+              "name": "绚色轮迹",
+              "coef": 1.8,
+              "break_points": 2,
+              "cost": {
+                "color": 60
+              },
+              "gain": {},
+              "concerto": 20,
+              "effect": "tune",
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "spectrum": {
+              "name": "虹谱迸发",
+              "coef": 2.7,
+              "break_points": 3,
+              "cost": {
+                "color": 100
+              },
+              "gain": {},
+              "concerto": 25,
+              "effect": "tune",
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "liberation",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            }
+          },
+          "asset_notes": "常服/夏装同参数；无每轮免费插枪，无空手通用施法。",
+          "baseline_weapon_contribution": {
+            "atk": 40
+          },
+          "reference_level": 20,
+          "recommended_entry_level": 22,
+          "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+          "passives": {
+            "kept": [
+              "spectro pistol identity",
+              "skating break setup and targeted outro"
+            ],
+            "merged": [
+              "Overflow/Radiance/True Color three-stage short rotation into color100"
+            ],
+            "not_adopted": [
+              "original passive damage/stat enhancements",
+              "original free aerial movement or repeated hits",
+              "resonance-chain bonuses"
+            ]
+          },
+          "key": "lynae",
+          "side": "ally",
+          "slot": 1,
+          "id": "ally:1:lynae",
+          "level": 20,
+          "maxhp": 1650,
+          "rsc": {
+            "color": 35
+          },
+          "concerto": 20,
+          "form": "normal",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 0,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 1,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 1,
+          "maxshield": 0,
+          "mastery": {
+            "basic": 4,
+            "survey": 3,
+            "skate": 4,
+            "spectrum": 3
+          },
+          "mode": null
+        },
+        {
+          "name": "莫宁",
+          "element": "fusion",
+          "weapon": "broadblade",
+          "hp": 1974,
+          "atk": 165,
+          "def": 180,
+          "speed": 90,
+          "primary": "calibration",
+          "resources": {
+            "calibration": 100
+          },
+          "form_start": "normal",
+          "damage_stat": "def",
+          "outro": {
+            "amp": 0.2,
+            "special": "next_received_hit_x0.85"
+          },
+          "intro": {
+            "primary_gain": 20
+          },
+          "skills": {
+            "basic": {
+              "name": "定轨悬刃",
+              "coef": 1.05,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "calibration": 30
+              },
+              "concerto": 20,
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "basic",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "heal": {
+              "name": "校准修复",
+              "coef": 0,
+              "break_points": 0,
+              "cost": {
+                "calibration": 30
+              },
+              "gain": {},
+              "concerto": 15,
+              "target": "ally",
+              "heal_scale": 2,
+              "heal_flat": 100,
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "field": {
+              "name": "星界定标",
+              "coef": 1.2,
+              "break_points": 1,
+              "cost": {
+                "calibration": 60
+              },
+              "gain": {},
+              "concerto": 20,
+              "aoe": true,
+              "effect": "field",
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "restore": {
+              "name": "定标回响",
+              "coef": 0,
+              "break_points": 0,
+              "cost": {
+                "calibration": 60
+              },
+              "gain": {},
+              "concerto": 15,
+              "target": "all_allies",
+              "heal_scale": 1.2,
+              "heal_flat": 80,
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            }
+          },
+          "asset_notes": "DEF同时参与伤害与治疗；悬浮不代表无敌；冬装不更改功能。",
+          "baseline_weapon_contribution": {
+            "def": 30
+          },
+          "reference_level": 20,
+          "recommended_entry_level": 24,
+          "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+          "passives": {
+            "kept": [
+              "DEF-oriented support",
+              "normal-action healing and field decisions"
+            ],
+            "merged": [
+              "Rest Mass/Relative Momentum into calibration100"
+            ],
+            "not_adopted": [
+              "original lethal-hit protection passive",
+              "real-time periodic free healing",
+              "original separate liberation energy pool",
+              "resonance-chain bonuses"
+            ]
+          },
+          "key": "mornye",
+          "side": "ally",
+          "slot": 2,
+          "id": "ally:2:mornye",
+          "level": 20,
+          "maxhp": 2100,
+          "rsc": {
+            "calibration": 0
+          },
+          "concerto": 0,
+          "form": "normal",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 0,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 0,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 0,
+          "maxshield": 0,
+          "mastery": {
+            "basic": 3,
+            "heal": 4,
+            "field": 4,
+            "restore": 3
+          },
+          "mode": null
+        },
+        {
+          "name": "达妮娅",
+          "element": "fusion",
+          "weapon": "rectifier",
+          "hp": 1700,
+          "atk": 215,
+          "def": 110,
+          "speed": 105,
+          "primary": "expectation",
+          "resources": {
+            "expectation": 100
+          },
+          "form_start": "red",
+          "mode_options": [
+            "fusion",
+            "strain"
+          ],
+          "mode_default": "fusion",
+          "outro": {
+            "amp": 0.2,
+            "special": "next_mode_status_damage_x1.25"
+          },
+          "intro": {
+            "primary_gain": 20
+          },
+          "skills": {
+            "basic": {
+              "name": "布景泡沫/幻灭爪击",
+              "coef": 1,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "expectation": 30
+              },
+              "concerto": 20,
+              "applies_mode": true,
+              "form_overrides": {
+                "blue": {
+                  "coef": 1.45,
+                  "cost": {
+                    "expectation": 20
+                  },
+                  "gain": {}
+                }
+              },
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "basic",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "stage": {
+              "name": "布景牵引",
+              "coef": 0.75,
+              "break_points": 1,
+              "cost": {},
+              "gain": {
+                "expectation": 35
+              },
+              "concerto": 20,
+              "aoe": true,
+              "requires": "red",
+              "applies_mode": true,
+              "action_cost": 1,
+              "mastery_reference": 4,
+              "mastery_initial": 4,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "breakdown": {
+              "name": "开幕幻灭",
+              "coef": 1.6,
+              "break_points": 1,
+              "cost": {
+                "expectation": 80
+              },
+              "gain": {
+                "expectation": 80
+              },
+              "concerto": 20,
+              "aoe": true,
+              "requires": "red",
+              "effect": "denia_blue",
+              "applies_mode": true,
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "liberation",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "blue": {
+              "name": "幻灭扼流",
+              "coef": 2.35,
+              "break_points": 2,
+              "cost": {
+                "expectation": 40
+              },
+              "gain": {},
+              "concerto": 20,
+              "requires": "blue",
+              "applies_mode": true,
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "skill",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            },
+            "curtain": {
+              "name": "闭幕回场",
+              "coef": 2.8,
+              "break_points": 2,
+              "cost": {
+                "expectation": 40
+              },
+              "gain": {},
+              "concerto": 20,
+              "requires": "blue",
+              "effect": "denia_red",
+              "applies_mode": true,
+              "action_cost": 1,
+              "mastery_reference": 3,
+              "mastery_initial": 3,
+              "damage_class": "liberation",
+              "cooldown_actions": 0,
+              "source_class": "original_project_adaptation"
+            }
+          },
+          "asset_notes": "开幕的80点转为形态储能而非返还可循环开幕；切换需行动。蓝普通攻击系数1.45、消耗20、不产生期待；蓝储能不足20自动返红且清余量，不回复资源。红蓝非皮肤。",
+          "form_exit": "After an action, blue resource <20 automatically returns red and clears residue. No free attack, heal, concerto, or resource on return.",
+          "baseline_weapon_contribution": {
+            "atk": 40
+          },
+          "reference_level": 20,
+          "recommended_entry_level": 24,
+          "entry_level_note": "project starting-save recommendation only; not canonical power ranking; baseline tests normalize to 20",
+          "passives": {
+            "kept": [
+              "Stagecraft/Breakdown forms separate from Fusion/Strain mode",
+              "status-focused followup"
+            ],
+            "merged": [
+              "Dark Star/Particle/Conformal pools into typed phase resource100"
+            ],
+            "not_adopted": [
+              "original 30-second field and all real-time interval procs",
+              "original passive stat bonuses",
+              "resonance-chain bonuses"
+            ]
+          },
+          "key": "denia",
+          "side": "ally",
+          "slot": 3,
+          "id": "ally:3:denia",
+          "level": 20,
+          "maxhp": 1700,
+          "rsc": {
+            "expectation": 0
+          },
+          "concerto": 0,
+          "form": "red",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 0,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 0,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 0,
+          "maxshield": 0,
+          "mastery": {
+            "basic": 4,
+            "stage": 4,
+            "breakdown": 3,
+            "blue": 3,
+            "curtain": 3
+          },
+          "mode": "fusion"
+        }
+      ],
+      "enemies": [
+        {
+          "name": "咔嚓嚓",
+          "original_english": "Snip Snap",
+          "rank": "common",
+          "element": "fusion",
+          "hp": 485,
+          "atk": 230,
+          "def": 70,
+          "speed": 95,
+          "shield": 1,
+          "weak_elements": [
+            "spectro",
+            "havoc"
+          ],
+          "weak_weapons": [
+            "sword",
+            "rectifier"
+          ],
+          "resist": {
+            "fusion": 0.8
+          },
+          "pattern": [
+            "bite",
+            "spit"
+          ],
+          "skills": {
+            "bite": {
+              "name": "扑咬",
+              "coef": 1,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20
+            },
+            "spit": {
+              "name": "热团喷吐",
+              "coef": 1.35,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20
+            }
+          },
+          "taunt": "next single target locked; next damage x1.15",
+          "negotiation": false,
+          "key": "snip",
+          "side": "enemy",
+          "slot": 0,
+          "id": "enemy:0:snip",
+          "level": 20,
+          "maxhp": 640,
+          "rsc": {},
+          "concerto": 0,
+          "form": "normal",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 0,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 0,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 0,
+          "maxshield": 2,
+          "mastery": {
+            "bite": 0,
+            "spit": 0
+          }
+        },
+        {
+          "name": "咔嚓嚓",
+          "original_english": "Snip Snap",
+          "rank": "common",
+          "element": "fusion",
+          "hp": 640,
+          "atk": 230,
+          "def": 70,
+          "speed": 95,
+          "shield": 2,
+          "weak_elements": [
+            "spectro",
+            "havoc"
+          ],
+          "weak_weapons": [
+            "sword",
+            "rectifier"
+          ],
+          "resist": {
+            "fusion": 0.8
+          },
+          "pattern": [
+            "bite",
+            "spit"
+          ],
+          "skills": {
+            "bite": {
+              "name": "扑咬",
+              "coef": 1,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20
+            },
+            "spit": {
+              "name": "热团喷吐",
+              "coef": 1.35,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20
+            }
+          },
+          "taunt": "next single target locked; next damage x1.15",
+          "negotiation": false,
+          "key": "snip",
+          "side": "enemy",
+          "slot": 1,
+          "id": "enemy:1:snip",
+          "level": 20,
+          "maxhp": 640,
+          "rsc": {},
+          "concerto": 0,
+          "form": "normal",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 0,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 0,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 0,
+          "maxshield": 2,
+          "mastery": {
+            "bite": 0,
+            "spit": 0
+          }
+        },
+        {
+          "name": "惊蛰猎手",
+          "original_english": "Electro Predator",
+          "rank": "common",
+          "element": "electro",
+          "hp": 560,
+          "atk": 240,
+          "def": 65,
+          "speed": 115,
+          "shield": 3,
+          "weak_elements": [
+            "fusion",
+            "havoc"
+          ],
+          "weak_weapons": [
+            "broadblade"
+          ],
+          "resist": {
+            "electro": 0.8
+          },
+          "pattern": [
+            "shot",
+            "aim",
+            "aimed"
+          ],
+          "skills": {
+            "shot": {
+              "name": "雷矢",
+              "coef": 1,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20
+            },
+            "aim": {
+              "name": "引弦瞄准",
+              "coef": 0,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20,
+              "effect": "aim"
+            },
+            "aimed": {
+              "name": "惊蛰贯射",
+              "coef": 2.2,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 20
+            }
+          },
+          "taunt": "redirect next shot, including committed aim; next damage x1.15",
+          "negotiation": false,
+          "key": "predator",
+          "side": "enemy",
+          "slot": 2,
+          "id": "enemy:2:predator",
+          "level": 20,
+          "maxhp": 560,
+          "rsc": {},
+          "concerto": 0,
+          "form": "normal",
+          "overdrive": false,
+          "broken_until": 0,
+          "recovery_lock": false,
+          "status": {},
+          "pattern_i": 1,
+          "phase": 1,
+          "phase_pending": false,
+          "normal_count": 1,
+          "concerto_round": 0,
+          "intro_round": 0,
+          "intro_received": 0,
+          "dead": false,
+          "retreated": false,
+          "wait_round": 0,
+          "revealed": false,
+          "phase_attack_pending": false,
+          "acted_round": 1,
+          "maxshield": 3,
+          "mastery": {
+            "shot": 0,
+            "aim": 0,
+            "aimed": 0
+          }
+        }
+      ],
+      "round": 1,
+      "queue": [
+        "ally:3:denia",
+        "enemy:0:snip",
+        "enemy:1:snip",
+        "ally:2:mornye"
+      ],
+      "_currentId": "ally:0:amy",
+      "result": null,
+      "log": [
+        {
+          "id": 1,
+          "round": 0,
+          "event": "start",
+          "message": "遭遇开始，所有资源从零开始",
+          "team": [
+            "ally:0:amy",
+            "ally:1:lynae",
+            "ally:2:mornye",
+            "ally:3:denia"
+          ],
+          "enemies": [
+            "enemy:0:snip",
+            "enemy:1:snip",
+            "enemy:2:predator"
+          ]
+        },
+        {
+          "id": 2,
+          "round": 1,
+          "event": "round",
+          "message": "第 1 回合",
+          "number": 1
+        },
+        {
+          "id": 3,
+          "round": 1,
+          "event": "turn",
+          "message": "轮到琳奈行动",
+          "actor": "ally:1:lynae",
+          "side": "ally"
+        },
+        {
+          "id": 4,
+          "round": 1,
+          "event": "action",
+          "message": "琳奈使用「定线射击」 → 咔嚓嚓",
+          "actor": "ally:1:lynae",
+          "skill": "basic",
+          "skill_name": "定线射击",
+          "target": "enemy:0:snip",
+          "targets": [
+            "enemy:0:snip"
+          ],
+          "resources_before": {
+            "color": 0
+          },
+          "form": "normal"
+        },
+        {
+          "id": 5,
+          "round": 1,
+          "event": "damage",
+          "message": "琳奈对咔嚓嚓造成 155 点伤害",
+          "actor": "ally:1:lynae",
+          "target": "enemy:0:snip",
+          "amount": 155,
+          "absorbed": 0,
+          "coefficient": 1,
+          "status_damage": false,
+          "broken_bonus": false,
+          "hp_before": 640,
+          "hp_after": 485,
+          "element": "spectro"
+        },
+        {
+          "id": 6,
+          "round": 1,
+          "event": "shield",
+          "message": "咔嚓嚓韧性 −1",
+          "actor": "ally:1:lynae",
+          "target": "enemy:0:snip",
+          "amount": 1,
+          "shield_before": 2,
+          "shield_after": 1
+        },
+        {
+          "id": 7,
+          "round": 1,
+          "event": "action_end",
+          "message": "琳奈行动结束",
+          "actor": "ally:1:lynae",
+          "skill": "basic",
+          "resources_after": {
+            "color": 35
+          },
+          "concerto": 20,
+          "form": "normal"
+        },
+        {
+          "id": 8,
+          "round": 1,
+          "event": "turn",
+          "message": "轮到惊蛰猎手行动",
+          "actor": "enemy:2:predator",
+          "side": "enemy"
+        },
+        {
+          "id": 9,
+          "round": 1,
+          "event": "enemy_action",
+          "message": "惊蛰猎手使用「雷矢」 → 莫宁",
+          "actor": "enemy:2:predator",
+          "skill": "shot",
+          "skill_name": "雷矢",
+          "target": "ally:2:mornye",
+          "targets": [
+            "ally:2:mornye"
+          ]
+        },
+        {
+          "id": 10,
+          "round": 1,
+          "event": "damage",
+          "message": "惊蛰猎手对莫宁造成 126 点伤害",
+          "actor": "enemy:2:predator",
+          "target": "ally:2:mornye",
+          "amount": 126,
+          "absorbed": 0,
+          "coefficient": 1,
+          "status_damage": false,
+          "broken_bonus": false,
+          "hp_before": 2100,
+          "hp_after": 1974,
+          "element": "electro"
+        },
+        {
+          "id": 11,
+          "round": 1,
+          "event": "turn",
+          "message": "轮到爱弥斯行动",
+          "actor": "ally:0:amy",
+          "side": "ally"
+        }
+      ],
+      "field_until": 0,
+      "count": {
+        "damage_ally": 155,
+        "shield_removed": 1,
+        "damage_enemy": 126
+      },
+      "actions": {
+        "basic": 1
+      },
+      "enemy_actions": {
+        "shot": 1
+      },
+      "action_id": 2,
+      "shield_budgets": {
+        "1|enemy:0:snip": 1
+      },
+      "active_action": false,
+      "action_break_snapshot": {},
+      "started": true,
+      "policy": "tactical",
+      "stochastic": false,
+      "rngState": 1831565813,
+      "start_hp": 7250
+    }
+  },
+  "project": {
+    "schema": "resonant-project-v1",
+    "version": 1,
+    "assetSet": "20261009-v1",
+    "overrides": {},
+    "calibration": {},
+    "appearance": {},
+    "background": {
+      "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABrElEQVR4nO3aMRGAMBBFQeQgB2EIiyvAww2T4m1xbTbFK/9xXvczuTU8/l7/2P0BvgD4AuALgC8AvgD4AuALgC8AvgD4AuALgC8AvgD4AuD/E8D6HhrcGh5/ry+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuC+AuG8QEvcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcFEPcNQuK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+AOK+QUjcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcF0DcNwiJ+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wKI+wYhcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8AcV8Acd8gJO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO4LIO6/7lrJjvJW6HoAAAAASUVORK5CYII=",
+      "name": "qa_checkerboard.png",
+      "fit": "cover",
+      "opacity": 1,
+      "mime": "image/png",
+      "width": 128,
+      "height": 128
+    },
+    "audio": {},
+    "settings": {
+      "master": 0.7,
+      "sfx": 0.8,
+      "bgm": 0.5,
+      "outline": 1,
+      "showAnchors": false,
+      "reducedMotion": false
+    },
+    "battleConfig": {
+      "team": [
+        "amy",
+        "lynae",
+        "mornye",
+        "denia"
+      ],
+      "encounter": "normal",
+      "level": 20,
+      "hp_fraction": 1,
+      "mode": {
+        "amy": "tune",
+        "denia": "fusion"
+      }
+    }
+  }
+}

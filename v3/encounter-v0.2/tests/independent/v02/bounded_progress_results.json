@@ -1,0 +1,202 @@
+{
+  "timestamp": "2026-10-09T07:46:41.451Z",
+  "evidenceClass": "NODE: bounded legal continuation, no forced victory or result",
+  "engineSHA256": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+  "rows": [
+    {
+      "difficulty": "easy",
+      "encounter": "elite_humanoid",
+      "result": "win",
+      "round": 70,
+      "steps": 142,
+      "normalCount": 70,
+      "logEvents": 828,
+      "summary": {
+        "difficulty": "easy",
+        "first_concerto_ready_round": 6,
+        "min_hp_fraction": {
+          "mornye": 0.2719
+        },
+        "inventory": {
+          "repair": 2,
+          "cleanse": 1
+        },
+        "outcome": "win",
+        "rounds": 70,
+        "ally_hp_fraction": 0.9386,
+        "survivors": 1,
+        "escaped_count": 0,
+        "ko_count": 0,
+        "counts": {
+          "damage_enemy": 12883,
+          "damage_ally": 4064,
+          "shield_removed": 39,
+          "breaks": 8,
+          "charge_warnings": 13,
+          "skipped_enemy_actions": 12,
+          "heal": 12754,
+          "charge_releases": 11,
+          "concerto_ready": 16,
+          "concerto": 16,
+          "manual_concertos": 16,
+          "buff_bonus_damage": 203,
+          "ko_enemy": 2,
+          "mitigation_prevented": 354,
+          "charge_interrupts": 1,
+          "charge_cancelled_ko": 1
+        },
+        "skills": {
+          "pry": 9,
+          "heal": 27,
+          "basic": 30,
+          "field": 4
+        },
+        "enemy_skills": {
+          "bite": 6,
+          "brace": 13,
+          "spit": 5,
+          "charge": 13,
+          "rush": 11,
+          "smash": 24
+        },
+        "final_resources": {
+          "mornye": {
+            "calibration": 75
+          }
+        },
+        "final_concerto": {
+          "mornye": 25
+        }
+      }
+    },
+    {
+      "difficulty": "easy",
+      "encounter": "boss",
+      "result": "inconclusive",
+      "round": 91,
+      "steps": 176,
+      "normalCount": 90,
+      "logEvents": 1027,
+      "summary": {
+        "difficulty": "easy",
+        "first_concerto_ready_round": 4,
+        "min_hp_fraction": {
+          "mornye": 0.53
+        },
+        "inventory": {
+          "repair": 2,
+          "cleanse": 1
+        },
+        "outcome": "inconclusive",
+        "rounds": 91,
+        "ally_hp_fraction": 0.8057,
+        "survivors": 1,
+        "escaped_count": 0,
+        "ko_count": 0,
+        "counts": {
+          "damage_enemy": 20422,
+          "damage_ally": 5403,
+          "shield_removed": 46,
+          "heal": 20014,
+          "charge_warnings": 17,
+          "charge_releases": 15,
+          "concerto_ready": 22,
+          "concerto": 22,
+          "manual_concertos": 22,
+          "buff_bonus_damage": 221,
+          "charge_interrupts": 2,
+          "breaks": 4,
+          "skipped_enemy_actions": 4,
+          "mitigation_prevented": 110,
+          "phase_changes": 1
+        },
+        "skills": {
+          "basic": 46,
+          "heal": 42,
+          "field": 2
+        },
+        "enemy_skills": {
+          "spear": 35,
+          "sweep": 18,
+          "charge": 17,
+          "descent": 15,
+          "wingpulse": 1
+        },
+        "final_resources": {
+          "mornye": {
+            "calibration": 0
+          }
+        },
+        "final_concerto": {
+          "mornye": 50
+        }
+      },
+      "voluntaryRetreat": "escaped"
+    },
+    {
+      "difficulty": "standard",
+      "encounter": "elite_nonhumanoid",
+      "result": "win",
+      "round": 68,
+      "steps": 141,
+      "normalCount": 68,
+      "logEvents": 841,
+      "summary": {
+        "difficulty": "standard",
+        "first_concerto_ready_round": 4,
+        "min_hp_fraction": {
+          "mornye": 0.2686
+        },
+        "inventory": {
+          "repair": 2,
+          "cleanse": 1
+        },
+        "outcome": "win",
+        "rounds": 68,
+        "ally_hp_fraction": 0.7662,
+        "survivors": 1,
+        "escaped_count": 0,
+        "ko_count": 0,
+        "counts": {
+          "damage_enemy": 13752,
+          "damage_ally": 4600,
+          "shield_removed": 34,
+          "charge_warnings": 25,
+          "heal": 13261,
+          "charge_releases": 23,
+          "concerto_ready": 17,
+          "concerto": 16,
+          "manual_concertos": 16,
+          "buff_bonus_damage": 215,
+          "charge_interrupts": 1,
+          "breaks": 4,
+          "skipped_enemy_actions": 4,
+          "ko_enemy": 2,
+          "mitigation_prevented": 70,
+          "charge_cancelled_ko": 1
+        },
+        "skills": {
+          "basic": 35,
+          "heal": 32,
+          "field": 1
+        },
+        "enemy_skills": {
+          "shot": 3,
+          "slash": 22,
+          "aim": 3,
+          "charge": 22,
+          "aimed": 2,
+          "spin": 21
+        },
+        "final_resources": {
+          "mornye": {
+            "calibration": 30
+          }
+        },
+        "final_concerto": {
+          "mornye": 100
+        }
+      }
+    }
+  ]
+}
