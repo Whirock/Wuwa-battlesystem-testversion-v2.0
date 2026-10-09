@@ -1,0 +1,27 @@
+[
+  {
+    "difficulty": "easy",
+    "encounter": "elite_humanoid",
+    "result": "win",
+    "round": 70,
+    "steps": 142,
+    "normalCount": 70
+  },
+  {
+    "difficulty": "easy",
+    "encounter": "boss",
+    "result": "inconclusive",
+    "round": 91,
+    "steps": 176,
+    "normalCount": 90,
+    "voluntaryRetreat": "escaped"
+  },
+  {
+    "difficulty": "standard",
+    "encounter": "elite_nonhumanoid",
+    "result": "win",
+    "round": 68,
+    "steps": 141,
+    "normalCount": 68
+  }
+]

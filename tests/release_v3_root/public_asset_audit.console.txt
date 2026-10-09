@@ -1,0 +1,38 @@
+{
+  "evidenceClass": "STATIC PACKAGE ASSETS: no rendered pixels",
+  "timestamp": "2026-10-09T09:53:32.585Z",
+  "assetsSHA256": "fa45767143261f25efecf39be34a2a1e555ed9cc3ba0bdd9d3ab389032518319",
+  "checks": [
+    {
+      "name": "89 package-local PNGs match SHA and disallow mirroring",
+      "pass": true,
+      "detail": {
+        "slots": 89
+      }
+    },
+    {
+      "name": "All actions, sequences and transitions resolve",
+      "pass": true,
+      "detail": {
+        "actions": 244,
+        "sequences": 18
+      }
+    },
+    {
+      "name": "Readable manifest equals runtime manifest and excludes upstream identifiers",
+      "pass": true,
+      "detail": {
+        "equal": true
+      }
+    },
+    {
+      "name": "Mecha scale and all five enemy bodies preserved",
+      "pass": true,
+      "detail": {
+        "enemies": 5
+      }
+    }
+  ],
+  "passed": 4,
+  "failed": 0
+}

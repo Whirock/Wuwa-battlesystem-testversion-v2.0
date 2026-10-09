@@ -1,0 +1,17 @@
+PASS v0.2 parameter JS equals JSON and versions changed explicitly
+PASS Difficulty values and invalid inputs are validated; each setting changes enemy strength
+PASS Constructor retains zero-resource zero-concerto openings for every difficulty
+PASS Caller config mutation cannot silently change ongoing difficulty or stored stats
+PASS Old parameter-version save is explicitly rejected
+PASS Read-only action, concerto, intent and inspect calls do not mutate battle
+PASS Invalid commands and prototype names are mutation-free with visible reasons
+PASS Default autoAction never releases a player-earned concerto
+PASS Natural manual concerto is reachable and releases without granting ordinary turns
+PASS Elite/Boss special attacks execute real events under legal guard-only exposure
+PASS All 30 legal rosters × 4 encounters × 3 difficulties restore after every real action
+PASS Same seeded stochastic state restores to identical full continuation
+{
+  "passed": 12,
+  "failed": 0,
+  "failures": []
+}

@@ -1,7 +1,6 @@
-user_data/
-__pycache__/
-*.py[cod]
-.DS_Store
 node_modules/
-.pytest_cache/
-web/tests/*.png
+__pycache__/
+*.pyc
+user_data/
+.DS_Store
+tests/independent/v02/fixtures/qa_oversize.png

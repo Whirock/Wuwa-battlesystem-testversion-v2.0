@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-09",
+  "release_tag": "v3.0.0-test.2",
+  "program_root": ".",
+  "source_commit": "961883bba647c1f5114786c7e48ab84927fc69b2",
+  "scope": "Root-directory migration and packaging only; no runtime logic or parameter changes",
+  "runtime_byte_identical_files": [
+    "index.html",
+    "style.css",
+    "app.js",
+    "engine.js",
+    "storage.js",
+    "parameters.js",
+    "assets.js",
+    "release-notes.js",
+    "parameters.json"
+  ],
+  "runtime_pngs_byte_identical": 89,
+  "legacy_files_preserved_byte_identical": 44,
+  "legacy_mapping": "archive/MIGRATION.json (repository only)",
+  "checks_rerun_in_isolated_copy": {
+    "rule_unit_tests": {
+      "passed": 63,
+      "failed": 0
+    },
+    "independent_rule_groups": {
+      "passed": 12,
+      "failed": 0
+    },
+    "dom_event_integration": {
+      "passed": 29,
+      "failed": 0,
+      "environment": "jsdom with simulated Canvas/media/clock/IndexedDB"
+    },
+    "public_asset_checks": {
+      "passed": 4,
+      "failed": 0
+    },
+    "metadata_queue_checks": {
+      "passed": 3,
+      "failed": 0
+    },
+    "bounded_progress_cases": 3,
+    "roster_cases": 360,
+    "per_action_restores": 11825,
+    "roster_outcomes": {
+      "win": 263,
+      "loss": 94,
+      "inconclusive": 3
+    }
+  },
+  "console_evidence": [
+    {
+      "path": "tests/release_v3_root/bounded_progress_audit.console.txt",
+      "sha256": "e3da84fce7418c513ed289b066fba9c78b3d8009f8326f29dd7a429d6faa6044"
+    },
+    {
+      "path": "tests/release_v3_root/dom_v02_audit.console.txt",
+      "sha256": "9c388a3ed15b607a9ad7cd2fd2e7910a1adb02c296c9bb8b168060df1f9580fa"
+    },
+    {
+      "path": "tests/release_v3_root/engine.test.console.txt",
+      "sha256": "f1bcb8c1c5abf1e04b9368780878f2b90094f259d7cc668e78e28d298660a7ff"
+    },
+    {
+      "path": "tests/release_v3_root/engine_v02_audit.console.txt",
+      "sha256": "bdd75572795b8120a67af19e5f5cafef9a4906c988683f9019ce93a12d7cab8e"
+    },
+    {
+      "path": "tests/release_v3_root/metadata_queue_audit.console.txt",
+      "sha256": "c514a0421d18881eb090c2fe600efe80b1ac4b19a089207d2e44639cbdc45c3e"
+    },
+    {
+      "path": "tests/release_v3_root/public_asset_audit.console.txt",
+      "sha256": "04f42c3912d5a5c64dd570842932a34f1988388d4b16aaba8471f5ba2f855143"
+    }
+  ],
+  "not_verified": [
+    "Real browser rendering and responsive layout",
+    "Actual audio decoding and playback",
+    "Windows double-click launch",
+    "Final balance and human playtesting"
+  ],
+  "ci_claim": "Local checks only; no assertion that GitHub CI passed"
+}

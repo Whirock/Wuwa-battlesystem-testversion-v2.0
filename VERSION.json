@@ -3,7 +3,7 @@
   "date": "2026-10-09",
   "rule_family": "3.0 encounter prototype",
   "parameter_version": "0.2.0-candidate",
-  "publication_variant": "GitHub public source; presentation metadata sanitized",
+  "publication_variant": "GitHub public 3.0 main-root distribution; presentation metadata sanitized",
   "source_delivery_zip_sha256": "9451629fe0552e980e337c741a0780e6be9a228256ab1c2bf546c9bac2f61044",
   "verification": "63/63 rule unit tests; 12/12 independent rule groups; 29/29 jsdom DOM tests; 4/4 assets; 3/3 metadata. Browser visual/audio/Windows launch NOT verified.",
   "byte_preservation": {
@@ -38,5 +38,8 @@
     "assets.js": "fa45767143261f25efecf39be34a2a1e555ed9cc3ba0bdd9d3ab389032518319",
     "release-notes.js": "19781f0e7dd8cbe494a4298319fb804891398e3189b9ed0538eb1cc3f599de62"
   },
-  "parameter_json_sha256": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873"
+  "parameter_json_sha256": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873",
+  "release_tag": "v3.0.0-test.2",
+  "display_version": "3.0 · encounter prototype v0.2",
+  "repository_program_root": "."
 }
