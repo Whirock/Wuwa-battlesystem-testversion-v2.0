@@ -1,26 +1,32 @@
 {
-  "version": "0.2.0-candidate",
-  "scope": "Current public GitHub source snapshot; no private deployment metadata",
+  "version": "0.3.0-candidate",
+  "scope": "Current frozen local runtime; checksums do not certify gameplay or visuals.",
+  "runtime_png_count": 158,
   "core": [
     {
       "path": "index.html",
-      "size": 9816,
-      "sha256": "80507ff10d1272bd389aa92b2bc8ce6fdef77773d8cefae9e9b2275a03aa8e93"
-    },
-    {
-      "path": "style.css",
-      "size": 30768,
-      "sha256": "da0da94f6f6e67d1778c3997b34722c710c5e7ca75c2cc5fdec6c5ceca3254de"
+      "size": 10625,
+      "sha256": "fc79e4b119aba2bf0640af88ef08c6346d19e084fb877f337d1e19358f12e0b4"
     },
     {
       "path": "app.js",
-      "size": 69624,
-      "sha256": "6e5cba4b3a006abcb1c38cd93b9d924515aba63c4b1171bd5e9d6bb44bd1085e"
+      "size": 82609,
+      "sha256": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65"
     },
     {
       "path": "engine.js",
-      "size": 52271,
-      "sha256": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26"
+      "size": 65706,
+      "sha256": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67"
+    },
+    {
+      "path": "parameters.js",
+      "size": 81302,
+      "sha256": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1"
+    },
+    {
+      "path": "assets.js",
+      "size": 312461,
+      "sha256": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8"
     },
     {
       "path": "storage.js",
@@ -28,27 +34,347 @@
       "sha256": "c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217"
     },
     {
-      "path": "parameters.js",
-      "size": 51691,
-      "sha256": "5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70"
-    },
-    {
-      "path": "assets.js",
-      "size": 199450,
-      "sha256": "fa45767143261f25efecf39be34a2a1e555ed9cc3ba0bdd9d3ab389032518319"
+      "path": "style.css",
+      "size": 37893,
+      "sha256": "a2d94eb2090cff9e5f904eb7d7814470e9efb548892363c8241757e4545b5f38"
     },
     {
       "path": "release-notes.js",
-      "size": 7634,
-      "sha256": "19781f0e7dd8cbe494a4298319fb804891398e3189b9ed0538eb1cc3f599de62"
+      "size": 9638,
+      "sha256": "21a23b095867821b9c30bd25cc07678f3c42ad07b60e677e84dbab739573a46d"
     }
   ],
   "parameter_json": {
     "path": "parameters.json",
-    "size": 68677,
-    "sha256": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873"
+    "size": 110724,
+    "sha256": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105"
   },
   "assets": [
+    {
+      "path": "assets/RVF-D-01-CM_v004.png",
+      "size": 72989,
+      "sha256": "f96daad173812dff5d345cee6357ec8ab6b6729e439d88d778f1693606b6c226"
+    },
+    {
+      "path": "assets/RVF-D-02-CM_v001_work1px.png",
+      "size": 93682,
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05"
+    },
+    {
+      "path": "assets/RVF-D-03-CM_v002_work1px.png",
+      "size": 69988,
+      "sha256": "460e9b6c391911326940d3afa7da6c54d5e50b3821959ede45178be3ade7e211"
+    },
+    {
+      "path": "assets/RVF-D-04-AE-a_v004_work1px.png",
+      "size": 111544,
+      "sha256": "d8520b18641dad6bcaabf4939fb20ef32f2baa09f244d05b2c71d9cdd999bb42"
+    },
+    {
+      "path": "assets/RVF-D-04-EL-a_v003_work1px.png",
+      "size": 78482,
+      "sha256": "767a4d40648f9068aa7dcb60e6ff5eae22f6e78c2838cf165f8e6c84b4c43a35"
+    },
+    {
+      "path": "assets/RVF-D-04-HV-a_v001_work1px.png",
+      "size": 92116,
+      "sha256": "1a6c4e0de142ca111e978abd93b5ba17c19dd31f35bdb052e1df3bc37c7c0a60"
+    },
+    {
+      "path": "assets/RVF-D-04-HV-b_v003_work1px.png",
+      "size": 95206,
+      "sha256": "6768764abb22f2275984fdb9c45da75f12567a0198cd62c7a7f04603e0330b02"
+    },
+    {
+      "path": "assets/RVF-D-04-SP-a_v002_work1px.png",
+      "size": 97886,
+      "sha256": "085c4a5e8fbccae0bdc52e2fca1f27646062cc2b2a30a833478c52dd79352af0"
+    },
+    {
+      "path": "assets/RVF-D-04-SP-b_v005_work1px.png",
+      "size": 88267,
+      "sha256": "afd453fb96537bdc5308a4fee588e499f69ce03e19822a6dc02c1b374ddbf56f"
+    },
+    {
+      "path": "assets/RVF-D-06-CM_v001_work1px.png",
+      "size": 73376,
+      "sha256": "0e7a856d1c55753399f92007460054a850957cf3feff5065f0f088cca58a9f20"
+    },
+    {
+      "path": "assets/RVF-D-07-CM_v001_work1px.png",
+      "size": 68369,
+      "sha256": "f018af66cd8e2bec176b17dc112e17f9b59876f4cfe7eccaa46c6e05b2ccb351"
+    },
+    {
+      "path": "assets/RVF-D-09-CM_v002_work1px.png",
+      "size": 81114,
+      "sha256": "047268e6aa62b9b06e14948b9172f60f629da5caddf92f209f1c5f1d14d24d21"
+    },
+    {
+      "path": "assets/RVF-D-10-AE_v001_work1px.png",
+      "size": 81103,
+      "sha256": "4ac063e228946005066bc3594269cafa4298385e53cf191c4120c8b2d1f5ff26"
+    },
+    {
+      "path": "assets/RVF-D-10-EL_v001_work1px.png",
+      "size": 84322,
+      "sha256": "42d15f51b8f390b17cbe4ea5c48bc245bfa423b8590812aab475da36dead39b7"
+    },
+    {
+      "path": "assets/RVF-D-10-HV_v001_work1px.png",
+      "size": 73933,
+      "sha256": "19fcee943a49b2dbb2f890210398275c4a9f37dddeebf0799be7b966d33c71e7"
+    },
+    {
+      "path": "assets/RVF-D-10-SP_v002_work1px.png",
+      "size": 93725,
+      "sha256": "8dac3bc6fb3a5dbf57e003782171c6b592397c63acecee763fcce77bdcb85059"
+    },
+    {
+      "path": "assets/RVF-S-01-CM_v002.png",
+      "size": 73213,
+      "sha256": "9db0dbbf5fdba4c17df343412be530c6198f0481bdbcc3010795b885d02e84d6"
+    },
+    {
+      "path": "assets/RVF-S-02-CM_v001_work1px.png",
+      "size": 89373,
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f"
+    },
+    {
+      "path": "assets/RVF-S-03-CM_v004_work1px.png",
+      "size": 67480,
+      "sha256": "d27db0c12ee915aa61a900f06689d08ce2807814a7e8c7568266c65cda67b3fc"
+    },
+    {
+      "path": "assets/RVF-S-04-AE-a_v003_work1px.png",
+      "size": 112542,
+      "sha256": "02056eb2a3c70b3bc184179a29460ff28c6fe06902e0d4789ce1654c1e319fd1"
+    },
+    {
+      "path": "assets/RVF-S-04-EL-a_v003_work1px.png",
+      "size": 79838,
+      "sha256": "ba9927ab2177de8bc1393434b177ca9eacea3b1871ae1c8e21aefa1d1403fa72"
+    },
+    {
+      "path": "assets/RVF-S-04-HV-a_v001_work1px.png",
+      "size": 89014,
+      "sha256": "6376eb40b65b6c91a93ad8a010110830e0f19c9418fd0b29d3c44bebc3549446"
+    },
+    {
+      "path": "assets/RVF-S-04-HV-b_v004_work1px.png",
+      "size": 87366,
+      "sha256": "1ffe9d6f9b5f904fe9e5ecedd70050d718dce33ed7062513ff5071db5334f8ea"
+    },
+    {
+      "path": "assets/RVF-S-04-SP-a_v004_work1px.png",
+      "size": 89936,
+      "sha256": "fa89ea8569a6a8678cd27c4a75bf773c02b02bfc84ffb90cdc424603f651b7c8"
+    },
+    {
+      "path": "assets/RVF-S-04-SP-b_v002_work1px.png",
+      "size": 80861,
+      "sha256": "d890693ee0232bfea91b7ab1a6922d891dd0b3adb607d7fe8430b0479b08d85a"
+    },
+    {
+      "path": "assets/RVF-S-06-CM_v001_work1px.png",
+      "size": 73586,
+      "sha256": "508568f532737a5b25afe74b105914c31a6490730a678b360cab1e3959eb11ce"
+    },
+    {
+      "path": "assets/RVF-S-07-CM_v002_work1px.png",
+      "size": 75267,
+      "sha256": "b63ed057811966c64ea4e912c560f49de944170c04a8b15f1af3d773d7c81509"
+    },
+    {
+      "path": "assets/RVF-S-09-CM_v002_work1px.png",
+      "size": 83797,
+      "sha256": "096dd8487a54db5001563dc3ada6a296dea8a714de143cb4f02bb8093e64bda9"
+    },
+    {
+      "path": "assets/RVF-S-10-AE_v001_work1px.png",
+      "size": 78840,
+      "sha256": "6b523d50a52bed1c353bf58601bf47744f716bdef9d8cea48dc8315d531376ce"
+    },
+    {
+      "path": "assets/RVF-S-10-EL_v001_work1px.png",
+      "size": 75954,
+      "sha256": "256af88133d8c2039630caae32a28ee7ab0984803432d57a8f1ef294a3472bb8"
+    },
+    {
+      "path": "assets/RVF-S-10-HV_v001_work1px.png",
+      "size": 74661,
+      "sha256": "9621894f3bd724cfea7f712de2e2366b3cf9a7c3a4a115d3e567ecf8074d7741"
+    },
+    {
+      "path": "assets/RVF-S-10-SP_v002_work1px.png",
+      "size": 87545,
+      "sha256": "57399c1d8c38836dde89b88e003d0ccfa06023e10de331a61ccaccffdb8ec72b"
+    },
+    {
+      "path": "assets/RVM-D-01-CM_v001.png",
+      "size": 71086,
+      "sha256": "a81b8267ee61e9ffbc18d698b9c37610ae282a8c3129a19d778e5f5b5a023c0b"
+    },
+    {
+      "path": "assets/RVM-D-02-CM_v001_work1px.png",
+      "size": 92650,
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb"
+    },
+    {
+      "path": "assets/RVM-D-03-CM_v001_work1px.png",
+      "size": 71238,
+      "sha256": "7aa210156773c5111a9945602d904201ac966ddaef8e6252c79941fedf11e9bf"
+    },
+    {
+      "path": "assets/RVM-D-04-AE-a_v002_work1px.png",
+      "size": 102601,
+      "sha256": "b4dee887fe06cd749a2e6bce7ec02807f5d133fc2f79c41b84b0828908577b2a"
+    },
+    {
+      "path": "assets/RVM-D-04-EL-a_v005_work1px.png",
+      "size": 95950,
+      "sha256": "fc65f15e33688cb40ead9b77db5af58c98e9a065a46b24f4764f126d3ecc2c6d"
+    },
+    {
+      "path": "assets/RVM-D-04-HV-a_v003_work1px.png",
+      "size": 91744,
+      "sha256": "1e3aa59a2bbf32e35ca5ff447ec653683c724d4d9ec4f222f35aa735a24b84bb"
+    },
+    {
+      "path": "assets/RVM-D-04-HV-b_v001_work1px.png",
+      "size": 87290,
+      "sha256": "74e31d88c32197507147a0011ebfe0325fc1a64d0d1d7ca5f8c440189d349abd"
+    },
+    {
+      "path": "assets/RVM-D-04-SP-a_v004_work1px.png",
+      "size": 93097,
+      "sha256": "875f35cce897418583ec802fe5e40592e029146b4e8c633e898142733137acbf"
+    },
+    {
+      "path": "assets/RVM-D-04-SP-b_v001_work1px.png",
+      "size": 87557,
+      "sha256": "9ead37d2adf6046d450209aa3d9f2ebebb1b6d30271ef74ba8c89801d95326e8"
+    },
+    {
+      "path": "assets/RVM-D-06-CM_v002_work1px.png",
+      "size": 81103,
+      "sha256": "b70e40b34b0dc08a219bff7c0869efa030934bc42db8ea8ee7dfe95bf378253f"
+    },
+    {
+      "path": "assets/RVM-D-07-CM_v001_work1px.png",
+      "size": 73494,
+      "sha256": "752d0a95e16fa8f4e9a89cd5642aacca2a3a1e9e418ee186a8588643ce747df8"
+    },
+    {
+      "path": "assets/RVM-D-09-CM_v002_work1px.png",
+      "size": 91511,
+      "sha256": "f858cde7a965659ab8cbb23677a9ec149aef19de55c6d1443157cb0601376048"
+    },
+    {
+      "path": "assets/RVM-D-10-AE_v002_work1px.png",
+      "size": 75731,
+      "sha256": "213f91261c99b85dd3ea878d31289dd28a6a0e419da580da04904722c9461539"
+    },
+    {
+      "path": "assets/RVM-D-10-EL_v002_work1px.png",
+      "size": 73619,
+      "sha256": "2611a9d8c7589b8b81f8710f911bda79cac9859566b0bd45c87c9a3f5828cb8e"
+    },
+    {
+      "path": "assets/RVM-D-10-HV_v002_work1px.png",
+      "size": 82665,
+      "sha256": "f7136651463941618a2e9646b58c7825b9dd9df158384a81510e80e21ed8850a"
+    },
+    {
+      "path": "assets/RVM-D-10-SP_v002_work1px.png",
+      "size": 72682,
+      "sha256": "6a362f69f475dc268966c8d2c05a8d0abd1e43b588724104beffaafb229c563f"
+    },
+    {
+      "path": "assets/RVM-S-01-CM_v002.png",
+      "size": 69231,
+      "sha256": "9ac29e4a6f6aed8245872ddb944124ad8105c7cbdc8dffafe8aa6bad2bb35683"
+    },
+    {
+      "path": "assets/RVM-S-02-CM_v002_work1px.png",
+      "size": 92793,
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603"
+    },
+    {
+      "path": "assets/RVM-S-03-CM_v001_work1px.png",
+      "size": 73490,
+      "sha256": "4bf047a9775c667f14b597fa2320b2f73c78e538081d18c9b56d349d64f3c830"
+    },
+    {
+      "path": "assets/RVM-S-04-AE-a_v002_work1px.png",
+      "size": 93469,
+      "sha256": "c70a475b5cca4ec5d72797453233d184c527824bbed3d2b8e8d4f53aaa1fdb0e"
+    },
+    {
+      "path": "assets/RVM-S-04-EL-a_v001_work1px.png",
+      "size": 97612,
+      "sha256": "d080387dc34748bf647eaae3af1c13b576f5912ed11ef86ed3d59fab5444b305"
+    },
+    {
+      "path": "assets/RVM-S-04-HV-a_v002_work1px.png",
+      "size": 91330,
+      "sha256": "59260a827ad9f2251ba0ef3fa96a811c76c9505b49e63bed2162632291ff403d"
+    },
+    {
+      "path": "assets/RVM-S-04-HV-b_v001_work1px.png",
+      "size": 93818,
+      "sha256": "f60ef437a20aeb67116c18f6275926be20f4605f411edf7dc2002fb078343b44"
+    },
+    {
+      "path": "assets/RVM-S-04-SP-a_v004_work1px.png",
+      "size": 83422,
+      "sha256": "44d5e7297a29694f0f0fdf2defc0a37ae471699efbc71ad297241edd17ed0780"
+    },
+    {
+      "path": "assets/RVM-S-04-SP-b_v002_work1px.png",
+      "size": 92264,
+      "sha256": "9c1be89f43d4b77f892a3b49706ff4d600e84989c290d83b31975ff07cfd93f5"
+    },
+    {
+      "path": "assets/RVM-S-06-CM_v001_work1px.png",
+      "size": 80926,
+      "sha256": "9f3a0f1a95e4c48e3909e8dda6e2fd5a34cb5f1ca76b22693ceb57cfba7986ee"
+    },
+    {
+      "path": "assets/RVM-S-07-CM_v002_work1px.png",
+      "size": 74252,
+      "sha256": "3720378111a6d446983a9dead6703754f613190ee6991d5ef7bab383fa39674d"
+    },
+    {
+      "path": "assets/RVM-S-09-CM_v002_work1px.png",
+      "size": 91135,
+      "sha256": "430e835f40e49f9b1b3dc1d5fbfbceba6b923f855b5ff113136a2a1032ccd5b1"
+    },
+    {
+      "path": "assets/RVM-S-10-AE_v001_work1px.png",
+      "size": 75932,
+      "sha256": "44f3f2254d9f0e9ea894d20e0c6cb4bb4a432f764422fcf17fe300c214509af8"
+    },
+    {
+      "path": "assets/RVM-S-10-EL_v001_work1px.png",
+      "size": 74477,
+      "sha256": "9319b316a5139ddad14e703f2c901cd1ba32d86d69443d4251930b7f6affba01"
+    },
+    {
+      "path": "assets/RVM-S-10-HV_v001_work1px.png",
+      "size": 82828,
+      "sha256": "d3c19fa6007e6b1a601b5361e19c9851b9fe8fc8a660c5bffd25d3c2d47b44db"
+    },
+    {
+      "path": "assets/RVM-S-10-SP_v002_work1px.png",
+      "size": 72701,
+      "sha256": "e434f6567895378ba94d137607bc8548072868181dc5c79e8ea779430b4b7cf3"
+    },
+    {
+      "path": "assets/aero_prism_v001_work1px.png",
+      "size": 118687,
+      "sha256": "f39c68262117ce958648520b158d2b065acb58bc337802ed4332efa93748073a"
+    },
     {
       "path": "assets/amy_human_A01.png",
       "size": 88387,
@@ -345,6 +671,21 @@
       "sha256": "f96f43f807f36c5d8d45382e43ff846dea15a02de383df80066d015028798e86"
     },
     {
+      "path": "assets/fusion_prism_v001_work1px.png",
+      "size": 131436,
+      "sha256": "5be8f20d59b987c5e0bb540ac64f189eab21aeec007be9844d8e2e1cbc5d8f4a"
+    },
+    {
+      "path": "assets/glacio_prism_v001_work1px.png",
+      "size": 153112,
+      "sha256": "d2168a138db22998b4733c9e20f1bcc5ee44d288bf5dbff2a9c5aa8de7d180ae"
+    },
+    {
+      "path": "assets/havoc_prism_v001_work1px.png",
+      "size": 136748,
+      "sha256": "fa1dce2e8eec57849363c46c2d752973eb80a102ada5e2e2cb9c0beaed7d31c4"
+    },
+    {
       "path": "assets/lynae_normal_L01.png",
       "size": 105092,
       "sha256": "39972e6fa7b7fb4eaba52d8d0108a0b9aee13cf711c0861d3c64025f32f264b2"
@@ -493,6 +834,11 @@
       "path": "assets/snip_ENEMY_001_v003.png",
       "size": 74652,
       "sha256": "5884a15b5ba86962cac255e7f75ec02490ea2b300f7e633ff4529a0d8c02763d"
+    },
+    {
+      "path": "assets/spectro_prism_v001_work1px.png",
+      "size": 130021,
+      "sha256": "144368f0f89f8da0fa3ca2c4ea4c312ab4f072dacc4b5a0ffd68291f311bbb63"
     }
   ]
 }

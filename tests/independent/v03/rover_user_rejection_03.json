@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-10T06:22:00Z",
+  "slot": "rover.female_school.03-CM",
+  "id": "RVF-S-03-CM",
+  "version": "v002",
+  "sha256": "abab60be588e154b9a0ad98157979053b22fd12121a9071201d96b9e5c7943ed",
+  "staticReviewStatus": "user_rejected_needs_revision",
+  "priorApprovalWithdrawn": true,
+  "reason": "User reported incompatible front/back leg anatomy. Earlier independent review recognized the one-foot/one-knee silhouette but did not adequately trace separate skirt-covered hip origins, hip-knee-ankle chains and near/far occlusion. Rereview cannot establish two unambiguous independent leg chains at the skirt/thigh overlap. Preserve historical file; require redrawn version and renewed joint-by-joint review.",
+  "notAffected": "Down pose 07 is distinct; this correction concerns critical pose03 only."
+}

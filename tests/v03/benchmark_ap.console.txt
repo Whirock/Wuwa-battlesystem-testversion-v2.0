@@ -1,0 +1,17 @@
+{"battles":556,"restoreChecks":3754,"outcomes":{"win":426,"loss":121,"inconclusive":9}}
+{"label":"boss_amy_lynae_mornye_chisa_basic_only","rounds":9,"outcome":"loss","breaks":1,"firstBreak":4,"enemyActions":6,"danger":2,"healAP":0,"joint":66,"hp":0}
+{"label":"boss_amy_lynae_mornye_chisa_tactical","rounds":7,"outcome":"win","breaks":1,"firstBreak":3,"enemyActions":4,"danger":1,"healAP":10,"joint":66,"hp":0.3679}
+{"label":"boss_amy_lynae_mornye_chisa_break_focus","rounds":7,"outcome":"win","breaks":2,"firstBreak":3,"enemyActions":3,"danger":0,"healAP":8,"joint":132,"hp":0.7968}
+{"label":"boss_amy_lynae_mornye_chisa_no_healing","rounds":6,"outcome":"win","breaks":1,"firstBreak":3,"enemyActions":4,"danger":1,"healAP":0,"joint":66,"hp":0.2667}
+{"label":"boss_amy_lynae_denia_chisa_basic_only","rounds":7,"outcome":"loss","breaks":1,"firstBreak":4,"enemyActions":5,"danger":1,"healAP":0,"joint":69,"hp":0}
+{"label":"boss_amy_lynae_denia_chisa_tactical","rounds":6,"outcome":"win","breaks":1,"firstBreak":4,"enemyActions":3,"danger":1,"healAP":0,"joint":69,"hp":0.1788}
+{"label":"boss_amy_lynae_denia_chisa_break_focus","rounds":6,"outcome":"win","breaks":2,"firstBreak":3,"enemyActions":3,"danger":0,"healAP":0,"joint":138,"hp":0.5149}
+{"label":"boss_amy_lynae_denia_chisa_no_healing","rounds":6,"outcome":"win","breaks":1,"firstBreak":4,"enemyActions":3,"danger":1,"healAP":0,"joint":69,"hp":0.1788}
+{"label":"boss_rover_lynae_mornye_chisa_basic_only","rounds":9,"outcome":"loss","breaks":1,"firstBreak":4,"enemyActions":6,"danger":2,"healAP":0,"joint":64,"hp":0}
+{"label":"boss_rover_lynae_mornye_chisa_tactical","rounds":7,"outcome":"win","breaks":1,"firstBreak":3,"enemyActions":4,"danger":1,"healAP":10,"joint":64,"hp":0.4071}
+{"label":"boss_rover_lynae_mornye_chisa_break_focus","rounds":8,"outcome":"win","breaks":2,"firstBreak":3,"enemyActions":4,"danger":0,"healAP":10,"joint":128,"hp":0.7908}
+{"label":"boss_rover_lynae_mornye_chisa_no_healing","rounds":7,"outcome":"win","breaks":1,"firstBreak":3,"enemyActions":4,"danger":1,"healAP":0,"joint":64,"hp":0.3}
+{"label":"rover_spectro_challenge","rounds":9,"outcome":"loss","breaks":1,"firstBreak":4,"enemyActions":6,"danger":2,"healAP":10,"joint":62,"hp":0}
+{"label":"rover_havoc_challenge","rounds":10,"outcome":"loss","breaks":1,"firstBreak":5,"enemyActions":7,"danger":2,"healAP":12,"joint":58,"hp":0}
+{"label":"rover_aero_challenge","rounds":9,"outcome":"win","breaks":2,"firstBreak":4,"enemyActions":5,"danger":2,"healAP":12,"joint":128,"hp":0.2748}
+{"label":"rover_electro_challenge","rounds":12,"outcome":"loss","breaks":1,"firstBreak":4,"enemyActions":8,"danger":3,"healAP":16,"joint":62,"hp":0}

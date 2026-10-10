@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "created": "2026-10-10",
+  "status": "independent_static_art_pass_runtime_pending",
+  "slots": {
+    "enemy.glacio_prism.idle": {
+      "key": "enemy.glacio_prism.idle",
+      "entity": "glacio_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "冷凝棱镜",
+      "src": "assets/glacio_prism_v001_work1px.png",
+      "width": 391,
+      "height": 417,
+      "naturalWidth": 391,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        372,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "d2168a138db22998b4733c9e20f1bcc5ee44d288bf5dbff2a9c5aa8de7d180ae",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 195,
+          "y": 410
+        },
+        "ground": {
+          "x": 195,
+          "y": 410
+        },
+        "pivot": {
+          "x": 195,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 195.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 195,
+        "y": 410
+      },
+      "groundAnchor": [
+        195,
+        410
+      ],
+      "pivot": [
+        195,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        353,
+        379
+      ]
+    },
+    "enemy.fusion_prism.idle": {
+      "key": "enemy.fusion_prism.idle",
+      "entity": "fusion_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "热熔棱镜",
+      "src": "assets/fusion_prism_v001_work1px.png",
+      "width": 367,
+      "height": 417,
+      "naturalWidth": 367,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        348,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "5be8f20d59b987c5e0bb540ac64f189eab21aeec007be9844d8e2e1cbc5d8f4a",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 183,
+          "y": 410
+        },
+        "ground": {
+          "x": 183,
+          "y": 410
+        },
+        "pivot": {
+          "x": 183,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 183.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 183,
+        "y": 410
+      },
+      "groundAnchor": [
+        183,
+        410
+      ],
+      "pivot": [
+        183,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        329,
+        379
+      ]
+    },
+    "enemy.aero_prism.idle": {
+      "key": "enemy.aero_prism.idle",
+      "entity": "aero_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "气动棱镜",
+      "src": "assets/aero_prism_v001_work1px.png",
+      "width": 294,
+      "height": 417,
+      "naturalWidth": 294,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        275,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "f39c68262117ce958648520b158d2b065acb58bc337802ed4332efa93748073a",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 147,
+          "y": 410
+        },
+        "ground": {
+          "x": 147,
+          "y": 410
+        },
+        "pivot": {
+          "x": 147,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 147.0,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 147,
+        "y": 410
+      },
+      "groundAnchor": [
+        147,
+        410
+      ],
+      "pivot": [
+        147,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        256,
+        379
+      ]
+    },
+    "enemy.spectro_prism.idle": {
+      "key": "enemy.spectro_prism.idle",
+      "entity": "spectro_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "衍射棱镜",
+      "src": "assets/spectro_prism_v001_work1px.png",
+      "width": 407,
+      "height": 417,
+      "naturalWidth": 407,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        388,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "144368f0f89f8da0fa3ca2c4ea4c312ab4f072dacc4b5a0ffd68291f311bbb63",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 203,
+          "y": 410
+        },
+        "ground": {
+          "x": 203,
+          "y": 410
+        },
+        "pivot": {
+          "x": 203,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 203.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 203,
+        "y": 410
+      },
+      "groundAnchor": [
+        203,
+        410
+      ],
+      "pivot": [
+        203,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        369,
+        379
+      ]
+    },
+    "enemy.havoc_prism.idle": {
+      "key": "enemy.havoc_prism.idle",
+      "entity": "havoc_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "湮灭棱镜",
+      "src": "assets/havoc_prism_v001_work1px.png",
+      "width": 405,
+      "height": 417,
+      "naturalWidth": 405,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        386,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "fa1dce2e8eec57849363c46c2d752973eb80a102ada5e2e2cb9c0beaed7d31c4",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 202,
+          "y": 410
+        },
+        "ground": {
+          "x": 202,
+          "y": 410
+        },
+        "pivot": {
+          "x": 202,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 202.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 202,
+        "y": 410
+      },
+      "groundAnchor": [
+        202,
+        410
+      ],
+      "pivot": [
+        202,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        367,
+        379
+      ]
+    }
+  }
+}

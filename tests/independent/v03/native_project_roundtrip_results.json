@@ -1,0 +1,27 @@
+{
+  "actualBrowser": true,
+  "keysIdentical": {
+    "overrides": true,
+    "calibration": true,
+    "appearance": true,
+    "background": true,
+    "audio": true,
+    "settings": true,
+    "battleConfig": true,
+    "battle": true
+  },
+  "audioFixtureSHA256": "720aa040d5f0d65f710ab82af1114952d3bbbaa4f53c5d6e3eb9006fdcd3cf24",
+  "audioBytesEqualOriginal": true,
+  "audiblePlaybackVerified": false,
+  "malformedImportRejectedWithParseMessage": true,
+  "malformedImportPreservesKeys": {
+    "overrides": true,
+    "calibration": true,
+    "appearance": true,
+    "background": true,
+    "audio": true,
+    "settings": true,
+    "battleConfig": true,
+    "battle": true
+  }
+}

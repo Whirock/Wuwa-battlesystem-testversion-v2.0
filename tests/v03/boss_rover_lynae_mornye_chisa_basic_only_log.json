@@ -1,0 +1,6237 @@
+{
+  "options": {
+    "team": [
+      "rover",
+      "lynae",
+      "mornye",
+      "chisa"
+    ],
+    "encounter": "boss",
+    "difficulty": "standard",
+    "auto_concerto": true,
+    "policy": "basic_only",
+    "seed": 261010
+  },
+  "summary": {
+    "label": "boss_rover_lynae_mornye_chisa_basic_only",
+    "options": {
+      "team": [
+        "rover",
+        "lynae",
+        "mornye",
+        "chisa"
+      ],
+      "encounter": "boss",
+      "difficulty": "standard",
+      "auto_concerto": true,
+      "policy": "basic_only",
+      "seed": 261010
+    },
+    "steps": 65,
+    "difficulty": "standard",
+    "first_concerto_ready_round": 2,
+    "min_hp_fraction": {
+      "rover": 0,
+      "lynae": 0,
+      "mornye": 0,
+      "chisa": 0
+    },
+    "inventory": {
+      "repair": 2,
+      "cleanse": 1
+    },
+    "outcome": "loss",
+    "rounds": 9,
+    "ally_hp_fraction": 0,
+    "survivors": 0,
+    "escaped_count": 0,
+    "ko_count": 4,
+    "counts": {
+      "ap_spent": 100,
+      "temp_ap_spent": 12,
+      "damage_ally": 4450,
+      "shield_removed": 352,
+      "damage_enemy": 7650,
+      "ap_recovery_overflow": 2,
+      "concerto_ready": 8,
+      "concerto": 7,
+      "automatic_concertos": 7,
+      "temp_ap_generated": 14,
+      "charge_warnings": 2,
+      "buff_bonus_damage": 246,
+      "mitigation_prevented": 188,
+      "charge_releases": 2,
+      "phase_changes": 1,
+      "breaks": 1,
+      "joint_attacks": 1,
+      "joint_damage": 64,
+      "skipped_enemy_actions": 1,
+      "ko_ally": 4,
+      "exposed_hits": 1
+    },
+    "skills": {
+      "basic": 50
+    },
+    "enemy_skills": {
+      "spear": 2,
+      "charge": 2,
+      "descent": 2,
+      "wingpulse": 1,
+      "sweep": 1
+    },
+    "final_resources": {
+      "rover": {
+        "dust": 0,
+        "energy": 0
+      },
+      "lynae": {
+        "color": 0
+      },
+      "mornye": {
+        "calibration": 0
+      },
+      "chisa": {
+        "thread": 0
+      }
+    },
+    "final_concerto": {
+      "rover": 0,
+      "lynae": 0,
+      "mornye": 0,
+      "chisa": 0
+    },
+    "final_ap": {
+      "rover": {
+        "normal": 0,
+        "temporary": 0
+      },
+      "lynae": {
+        "normal": 0,
+        "temporary": 0
+      },
+      "mornye": {
+        "normal": 0,
+        "temporary": 0
+      },
+      "chisa": {
+        "normal": 0,
+        "temporary": 0
+      }
+    },
+    "first_break_round": 4,
+    "enemy_effective_actions": 6,
+    "observation": "30 rounds; reaching limit is inconclusive, never forced loss"
+  },
+  "log": [
+    {
+      "id": 1,
+      "round": 0,
+      "event": "start",
+      "message": "遭遇开始：个人资源0，普通AP4，协奏20",
+      "team": [
+        "ally:0:rover",
+        "ally:1:lynae",
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ],
+      "enemies": [
+        "enemy:0:crownless"
+      ]
+    },
+    {
+      "id": 2,
+      "round": 1,
+      "event": "round",
+      "message": "第 1 回合",
+      "number": 1
+    },
+    {
+      "id": 3,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 4,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 5,
+      "round": 1,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 6,
+      "round": 1,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4800,
+      "hp_after": 4710,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 7,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 240,
+      "shield_after": 232
+    },
+    {
+      "id": 8,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 9,
+      "round": 1,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 30
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 10,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 11,
+      "round": 1,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 30
+      },
+      "form": "normal"
+    },
+    {
+      "id": 12,
+      "round": 1,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4710,
+      "hp_after": 4620,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 13,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 232,
+      "shield_after": 224
+    },
+    {
+      "id": 14,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 15,
+      "round": 1,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 60
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 16,
+      "round": 1,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 17,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 18,
+      "round": 1,
+      "event": "enemy_action",
+      "message": "无冠者使用「无冠连槊」 → 漂泊者",
+      "actor": "enemy:0:crownless",
+      "skill": "spear",
+      "skill_name": "无冠连槊",
+      "target": "ally:0:rover",
+      "targets": [
+        "ally:0:rover"
+      ]
+    },
+    {
+      "id": 19,
+      "round": 1,
+      "event": "damage",
+      "message": "无冠者对漂泊者造成 422 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:rover",
+      "amount": 422,
+      "absorbed": 0,
+      "coefficient": 1.5,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1850,
+      "hp_after": 1428,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 20,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到漂泊者行动",
+      "actor": "ally:0:rover",
+      "side": "ally"
+    },
+    {
+      "id": 21,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余2+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 22,
+      "round": 1,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 0,
+        "energy": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 23,
+      "round": 1,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 96 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 96,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4620,
+      "hp_after": 4524,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 24,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 224,
+      "shield_after": 216
+    },
+    {
+      "id": 25,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 26,
+      "round": 1,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 20,
+        "energy": 20
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 27,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余0+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 28,
+      "round": 1,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 20,
+        "energy": 20
+      },
+      "form": "normal"
+    },
+    {
+      "id": 29,
+      "round": 1,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 96 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 96,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4524,
+      "hp_after": 4428,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 30,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 216,
+      "shield_after": 208
+    },
+    {
+      "id": 31,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 32,
+      "round": 1,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 40,
+        "energy": 40
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 33,
+      "round": 1,
+      "event": "window_end",
+      "message": "漂泊者结束窗口，保留0普通AP",
+      "actor": "ally:0:rover",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 34,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 35,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 36,
+      "round": 1,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 37,
+      "round": 1,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4428,
+      "hp_after": 4368,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 38,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 208,
+      "shield_after": 200
+    },
+    {
+      "id": 39,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 40,
+      "round": 1,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 25
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 41,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 42,
+      "round": 1,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 25
+      },
+      "form": "normal"
+    },
+    {
+      "id": 43,
+      "round": 1,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4368,
+      "hp_after": 4308,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 44,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 200,
+      "shield_after": 192
+    },
+    {
+      "id": 45,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 46,
+      "round": 1,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 50
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 47,
+      "round": 1,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 48,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 49,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 50,
+      "round": 1,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 51,
+      "round": 1,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4308,
+      "hp_after": 4218,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 52,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 192,
+      "shield_after": 184
+    },
+    {
+      "id": 53,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 54,
+      "round": 1,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 25
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 55,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 56,
+      "round": 1,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 25
+      },
+      "form": "normal"
+    },
+    {
+      "id": 57,
+      "round": 1,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4218,
+      "hp_after": 4128,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 58,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 184,
+      "shield_after": 176
+    },
+    {
+      "id": 59,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 60,
+      "round": 1,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 50
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 61,
+      "round": 1,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 62,
+      "round": 2,
+      "event": "round",
+      "message": "第 2 回合",
+      "number": 2
+    },
+    {
+      "id": 63,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "漂泊者普通AP 0→4（+4，上限6）",
+      "actor": "ally:0:rover",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 64,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 65,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 66,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 67,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 68,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 69,
+      "round": 2,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 60
+      },
+      "form": "normal"
+    },
+    {
+      "id": 70,
+      "round": 2,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4128,
+      "hp_after": 4038,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 71,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 176,
+      "shield_after": 168
+    },
+    {
+      "id": 72,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 73,
+      "round": 2,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 90
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 74,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 75,
+      "round": 2,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 90
+      },
+      "form": "normal"
+    },
+    {
+      "id": 76,
+      "round": 2,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4038,
+      "hp_after": 3948,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 77,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 168,
+      "shield_after": 160
+    },
+    {
+      "id": 78,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 79,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "琳奈协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:1:lynae",
+      "amount": 100
+    },
+    {
+      "id": 80,
+      "round": 2,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 81,
+      "round": 2,
+      "event": "status",
+      "message": "漂泊者获得延奏增伤",
+      "target": "ally:0:rover",
+      "status": "outro",
+      "value": {
+        "amp": 0.25,
+        "liberation_extra": 0.1,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 82,
+      "round": 2,
+      "event": "concerto",
+      "message": "琳奈延奏给漂泊者：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:1:lynae",
+      "target": "ally:0:rover",
+      "amp": 0.25,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 83,
+      "round": 2,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 84,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 85,
+      "round": 2,
+      "event": "enemy_action",
+      "message": "无冠者使用「升空蓄势」 → 琳奈",
+      "actor": "enemy:0:crownless",
+      "skill": "charge",
+      "skill_name": "升空蓄势",
+      "target": "ally:1:lynae",
+      "targets": [
+        "ally:1:lynae"
+      ]
+    },
+    {
+      "id": 86,
+      "round": 2,
+      "event": "part_exposed",
+      "message": "无冠者暴露升空锚点（220HP），2AP攻击部件不伤主体/不产资源",
+      "actor": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "part": {
+        "name": "升空锚点",
+        "maxhp": 220,
+        "effect": "cancel",
+        "hp": 220,
+        "destroyed": false
+      }
+    },
+    {
+      "id": 87,
+      "round": 2,
+      "event": "status",
+      "message": "无冠者获得蓄力",
+      "target": "enemy:0:crownless",
+      "status": "charge",
+      "value": {
+        "expires": 4,
+        "target": "ally:1:lynae"
+      }
+    },
+    {
+      "id": 88,
+      "round": 2,
+      "event": "charge_started",
+      "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "targets": [
+        "ally:0:rover",
+        "ally:1:lynae",
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ],
+      "skill": "descent",
+      "resolve_after_enemy_actions": 1
+    },
+    {
+      "id": 89,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到漂泊者行动",
+      "actor": "ally:0:rover",
+      "side": "ally"
+    },
+    {
+      "id": 90,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时2），剩余4+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 91,
+      "round": 2,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 40,
+        "energy": 40
+      },
+      "form": "normal"
+    },
+    {
+      "id": 92,
+      "round": 2,
+      "event": "buff_used",
+      "message": "增益为漂泊者本段伤害提供约 25 点收益",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 25
+    },
+    {
+      "id": 93,
+      "round": 2,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 121 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 121,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3948,
+      "hp_after": 3827,
+      "element": "spectro",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 25,
+      "prevented": 0
+    },
+    {
+      "id": 94,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 160,
+      "shield_after": 152
+    },
+    {
+      "id": 95,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 96,
+      "round": 2,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 60,
+        "energy": 60
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 97,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余2+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 98,
+      "round": 2,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 60,
+        "energy": 60
+      },
+      "form": "normal"
+    },
+    {
+      "id": 99,
+      "round": 2,
+      "event": "buff_used",
+      "message": "增益为漂泊者本段伤害提供约 25 点收益",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 25
+    },
+    {
+      "id": 100,
+      "round": 2,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 121 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 121,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3827,
+      "hp_after": 3706,
+      "element": "spectro",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 25,
+      "prevented": 0
+    },
+    {
+      "id": 101,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 152,
+      "shield_after": 144
+    },
+    {
+      "id": 102,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 103,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "漂泊者协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:0:rover",
+      "amount": 100
+    },
+    {
+      "id": 104,
+      "round": 2,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 80,
+        "energy": 80
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 105,
+      "round": 2,
+      "event": "status",
+      "message": "琳奈获得延奏增伤",
+      "target": "ally:1:lynae",
+      "status": "outro",
+      "value": {
+        "amp": 0.15,
+        "liberation_extra": 0.1,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 106,
+      "round": 2,
+      "event": "concerto",
+      "message": "漂泊者延奏给琳奈：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:0:rover",
+      "target": "ally:1:lynae",
+      "amp": 0.15,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 107,
+      "round": 2,
+      "event": "window_end",
+      "message": "漂泊者结束窗口，保留2普通AP",
+      "actor": "ally:0:rover",
+      "ap": 2,
+      "paid_actions": 2
+    },
+    {
+      "id": 108,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 109,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 110,
+      "round": 2,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 50
+      },
+      "form": "normal"
+    },
+    {
+      "id": 111,
+      "round": 2,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3706,
+      "hp_after": 3646,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 112,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 144,
+      "shield_after": 136
+    },
+    {
+      "id": 113,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 114,
+      "round": 2,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 75
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 115,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 116,
+      "round": 2,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 75
+      },
+      "form": "normal"
+    },
+    {
+      "id": 117,
+      "round": 2,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3646,
+      "hp_after": 3586,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 118,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 136,
+      "shield_after": 128
+    },
+    {
+      "id": 119,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 120,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "千咲协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:3:chisa",
+      "amount": 100
+    },
+    {
+      "id": 121,
+      "round": 2,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 122,
+      "round": 2,
+      "event": "status",
+      "message": "漂泊者获得延奏增伤",
+      "target": "ally:0:rover",
+      "status": "outro",
+      "value": {
+        "amp": 0.15,
+        "liberation_extra": 0,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 123,
+      "round": 2,
+      "event": "status",
+      "message": "漂泊者获得异常增幅",
+      "target": "ally:0:rover",
+      "status": "status_outro",
+      "value": {
+        "amp": 0.25,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 124,
+      "round": 2,
+      "event": "concerto",
+      "message": "千咲延奏给漂泊者：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:3:chisa",
+      "target": "ally:0:rover",
+      "amp": 0.15,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 125,
+      "round": 2,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 126,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 127,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 128,
+      "round": 2,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 50
+      },
+      "form": "normal"
+    },
+    {
+      "id": 129,
+      "round": 2,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3586,
+      "hp_after": 3496,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 130,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 128,
+      "shield_after": 120
+    },
+    {
+      "id": 131,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 132,
+      "round": 2,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 75
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 133,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 134,
+      "round": 2,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 75
+      },
+      "form": "normal"
+    },
+    {
+      "id": 135,
+      "round": 2,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3496,
+      "hp_after": 3406,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 136,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 120,
+      "shield_after": 112
+    },
+    {
+      "id": 137,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 138,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "莫宁协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:2:mornye",
+      "amount": 100
+    },
+    {
+      "id": 139,
+      "round": 2,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 140,
+      "round": 2,
+      "event": "status",
+      "message": "千咲获得延奏增伤",
+      "target": "ally:3:chisa",
+      "status": "outro",
+      "value": {
+        "amp": 0.2,
+        "liberation_extra": 0,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 141,
+      "round": 2,
+      "event": "status",
+      "message": "千咲获得延奏减伤",
+      "target": "ally:3:chisa",
+      "status": "outro_guard",
+      "value": {
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 142,
+      "round": 2,
+      "event": "concerto",
+      "message": "莫宁延奏给千咲：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:2:mornye",
+      "target": "ally:3:chisa",
+      "amp": 0.2,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 143,
+      "round": 2,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 144,
+      "round": 3,
+      "event": "round",
+      "message": "第 3 回合",
+      "number": 3
+    },
+    {
+      "id": 145,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "漂泊者普通AP 2→6（+4，上限6）",
+      "actor": "ally:0:rover",
+      "before": 2,
+      "after": 6,
+      "amount": 4
+    },
+    {
+      "id": 146,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 147,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 148,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 149,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 150,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时2），剩余4+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 151,
+      "round": 3,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 152,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 13 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 13
+    },
+    {
+      "id": 153,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 103 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 103,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3406,
+      "hp_after": 3303,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 13,
+      "prevented": 0
+    },
+    {
+      "id": 154,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 112,
+      "shield_after": 104
+    },
+    {
+      "id": 155,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 156,
+      "round": 3,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 157,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 158,
+      "round": 3,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 159,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 13 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 13
+    },
+    {
+      "id": 160,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 103 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 103,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3303,
+      "hp_after": 3200,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 13,
+      "prevented": 0
+    },
+    {
+      "id": 161,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 104,
+      "shield_after": 96
+    },
+    {
+      "id": 162,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 163,
+      "round": 3,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 164,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 165,
+      "round": 3,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 166,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 13 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 13
+    },
+    {
+      "id": 167,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 103 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 103,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3200,
+      "hp_after": 3097,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 13,
+      "prevented": 0
+    },
+    {
+      "id": 168,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 96,
+      "shield_after": 88
+    },
+    {
+      "id": 169,
+      "round": 3,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 170,
+      "round": 3,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 3
+    },
+    {
+      "id": 171,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 172,
+      "round": 3,
+      "event": "enemy_action",
+      "message": "无冠者使用「坠空裁决」（全体）",
+      "actor": "enemy:0:crownless",
+      "skill": "descent",
+      "skill_name": "坠空裁决",
+      "target": "ally:0:rover",
+      "targets": [
+        "ally:0:rover",
+        "ally:1:lynae",
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 173,
+      "round": 3,
+      "event": "damage",
+      "message": "无冠者对漂泊者造成 1014 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:rover",
+      "amount": 1014,
+      "absorbed": 0,
+      "coefficient": 3.6,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1428,
+      "hp_after": 414,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 174,
+      "round": 3,
+      "event": "damage",
+      "message": "无冠者对琳奈造成 1097 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "amount": 1097,
+      "absorbed": 0,
+      "coefficient": 3.6,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1650,
+      "hp_after": 553,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 175,
+      "round": 3,
+      "event": "damage",
+      "message": "无冠者对莫宁造成 881 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:mornye",
+      "amount": 881,
+      "absorbed": 0,
+      "coefficient": 3.6,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2100,
+      "hp_after": 1219,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 176,
+      "round": 3,
+      "event": "buff_used",
+      "message": "千咲的防护避免约 143 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "kind": "mitigation",
+      "amount": 143
+    },
+    {
+      "id": 177,
+      "round": 3,
+      "event": "damage",
+      "message": "无冠者对千咲造成 813 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "amount": 813,
+      "absorbed": 0,
+      "coefficient": 3.6,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2050,
+      "hp_after": 1237,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 0.85,
+      "buff_bonus": 0,
+      "prevented": 143
+    },
+    {
+      "id": 178,
+      "round": 3,
+      "event": "charge_released",
+      "message": "无冠者的蓄力兑现为「坠空裁决」",
+      "actor": "enemy:0:crownless",
+      "skill": "descent",
+      "targets": [
+        "ally:0:rover",
+        "ally:1:lynae",
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 179,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到漂泊者行动",
+      "actor": "ally:0:rover",
+      "side": "ally"
+    },
+    {
+      "id": 180,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时2），剩余6+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 6,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 181,
+      "round": 3,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 80,
+        "energy": 80
+      },
+      "form": "normal"
+    },
+    {
+      "id": 182,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为漂泊者本段伤害提供约 15 点收益",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 15
+    },
+    {
+      "id": 183,
+      "round": 3,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 111 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 111,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3097,
+      "hp_after": 2986,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 15,
+      "prevented": 0
+    },
+    {
+      "id": 184,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 88,
+      "shield_after": 80
+    },
+    {
+      "id": 185,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 186,
+      "round": 3,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 100,
+        "energy": 100
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 187,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余4+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 188,
+      "round": 3,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 100,
+        "energy": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 189,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为漂泊者本段伤害提供约 15 点收益",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 15
+    },
+    {
+      "id": 190,
+      "round": 3,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 111 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 111,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2986,
+      "hp_after": 2875,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 15,
+      "prevented": 0
+    },
+    {
+      "id": 191,
+      "round": 3,
+      "event": "phase_pending",
+      "message": "无冠者准备展翼；下次阶段切换不会增加行动",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless"
+    },
+    {
+      "id": 192,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 80,
+      "shield_after": 72
+    },
+    {
+      "id": 193,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 194,
+      "round": 3,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 100,
+        "energy": 120
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 195,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余2+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 196,
+      "round": 3,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 100,
+        "energy": 120
+      },
+      "form": "normal"
+    },
+    {
+      "id": 197,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为漂泊者本段伤害提供约 15 点收益",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 15
+    },
+    {
+      "id": 198,
+      "round": 3,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 111 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 111,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2875,
+      "hp_after": 2764,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 15,
+      "prevented": 0
+    },
+    {
+      "id": 199,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 72,
+      "shield_after": 64
+    },
+    {
+      "id": 200,
+      "round": 3,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 100,
+        "energy": 125
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 201,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余0+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 202,
+      "round": 3,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 100,
+        "energy": 125
+      },
+      "form": "normal"
+    },
+    {
+      "id": 203,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为漂泊者本段伤害提供约 15 点收益",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 15
+    },
+    {
+      "id": 204,
+      "round": 3,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 111 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 111,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2764,
+      "hp_after": 2653,
+      "element": "spectro",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 15,
+      "prevented": 0
+    },
+    {
+      "id": 205,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 64,
+      "shield_after": 56
+    },
+    {
+      "id": 206,
+      "round": 3,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 100,
+        "energy": 125
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 207,
+      "round": 3,
+      "event": "window_end",
+      "message": "漂泊者结束窗口，保留0普通AP",
+      "actor": "ally:0:rover",
+      "ap": 0,
+      "paid_actions": 4
+    },
+    {
+      "id": 208,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 209,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时2），剩余4+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 210,
+      "round": 3,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 211,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 212,
+      "round": 3,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2653,
+      "hp_after": 2581,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 213,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 56,
+      "shield_after": 48
+    },
+    {
+      "id": 214,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 215,
+      "round": 3,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 216,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 217,
+      "round": 3,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 218,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 219,
+      "round": 3,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2581,
+      "hp_after": 2509,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 220,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 48,
+      "shield_after": 40
+    },
+    {
+      "id": 221,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 222,
+      "round": 3,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 223,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 224,
+      "round": 3,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 225,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 226,
+      "round": 3,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2509,
+      "hp_after": 2437,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 227,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 40,
+      "shield_after": 32
+    },
+    {
+      "id": 228,
+      "round": 3,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 229,
+      "round": 3,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 3
+    },
+    {
+      "id": 230,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 231,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 232,
+      "round": 3,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 233,
+      "round": 3,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2437,
+      "hp_after": 2347,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 234,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 32,
+      "shield_after": 24
+    },
+    {
+      "id": 235,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 236,
+      "round": 3,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 237,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 238,
+      "round": 3,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 239,
+      "round": 3,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2347,
+      "hp_after": 2257,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 240,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 24,
+      "shield_after": 16
+    },
+    {
+      "id": 241,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 242,
+      "round": 3,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 243,
+      "round": 3,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 244,
+      "round": 4,
+      "event": "round",
+      "message": "第 4 回合",
+      "number": 4
+    },
+    {
+      "id": 245,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "漂泊者普通AP 0→4（+4，上限6）",
+      "actor": "ally:0:rover",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 246,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 247,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 248,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 249,
+      "round": 4,
+      "event": "phase",
+      "message": "无冠者进入第二阶段；展翼震荡替换下一次普通行动",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "phase": 2
+    },
+    {
+      "id": 250,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 251,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 252,
+      "round": 4,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 253,
+      "round": 4,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2257,
+      "hp_after": 2167,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 254,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 16,
+      "shield_after": 8
+    },
+    {
+      "id": 255,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 256,
+      "round": 4,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 257,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 258,
+      "round": 4,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 259,
+      "round": 4,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2167,
+      "hp_after": 2077,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 260,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 8,
+      "shield_after": 0
+    },
+    {
+      "id": 261,
+      "round": 4,
+      "event": "break",
+      "message": "无冠者共振击破！取消准备并跳过第4轮的一个窗口，不附加易伤",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "until": 4,
+      "skip_round": 4
+    },
+    {
+      "id": 262,
+      "round": 4,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 19 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 19,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 2077,
+      "hp_after": 2058,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 263,
+      "round": 4,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 18 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 18,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 2058,
+      "hp_after": 2040,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 264,
+      "round": 4,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 16 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 16,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 2040,
+      "hp_after": 2024,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 265,
+      "round": 4,
+      "event": "damage",
+      "message": "千咲对无冠者造成 11 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 11,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 2024,
+      "hp_after": 2013,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 266,
+      "round": 4,
+      "event": "joint_attack",
+      "message": "联合攻击共造成64伤害；80为200主属性/目标160DEF/中性抗性的总参考预算，无额外资源",
+      "target": "enemy:0:crownless",
+      "actors": [
+        "ally:0:rover",
+        "ally:1:lynae",
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ],
+      "amount": 64,
+      "reference_budget": 80
+    },
+    {
+      "id": 267,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 268,
+      "round": 4,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 269,
+      "round": 4,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 270,
+      "round": 4,
+      "event": "skip",
+      "message": "无冠者共振击破，跳过本轮窗口",
+      "actor": "enemy:0:crownless",
+      "reason": "broken"
+    },
+    {
+      "id": 271,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到漂泊者行动",
+      "actor": "ally:0:rover",
+      "side": "ally"
+    },
+    {
+      "id": 272,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余2+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 273,
+      "round": 4,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 100,
+        "energy": 125
+      },
+      "form": "normal"
+    },
+    {
+      "id": 274,
+      "round": 4,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 96 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 96,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2013,
+      "hp_after": 1917,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 275,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 276,
+      "round": 4,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 100,
+        "energy": 125
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 277,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "漂泊者支付2AP（临时0），剩余0+0",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 278,
+      "round": 4,
+      "event": "action",
+      "message": "漂泊者使用「震声」 → 无冠者",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "skill_name": "震声",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "dust": 100,
+        "energy": 125
+      },
+      "form": "normal"
+    },
+    {
+      "id": 279,
+      "round": 4,
+      "event": "damage",
+      "message": "漂泊者对无冠者造成 96 点伤害",
+      "actor": "ally:0:rover",
+      "target": "enemy:0:crownless",
+      "amount": 96,
+      "absorbed": 0,
+      "coefficient": 0.88,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1917,
+      "hp_after": 1821,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 280,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "漂泊者个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:0:rover",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 281,
+      "round": 4,
+      "event": "action_end",
+      "message": "漂泊者行动结束",
+      "actor": "ally:0:rover",
+      "skill": "basic",
+      "resources_after": {
+        "dust": 100,
+        "energy": 125
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 282,
+      "round": 4,
+      "event": "window_end",
+      "message": "漂泊者结束窗口，保留0普通AP",
+      "actor": "ally:0:rover",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 283,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 284,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 285,
+      "round": 4,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 286,
+      "round": 4,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1821,
+      "hp_after": 1761,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 287,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 288,
+      "round": 4,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 289,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 290,
+      "round": 4,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 291,
+      "round": 4,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1761,
+      "hp_after": 1701,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 292,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 293,
+      "round": 4,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 294,
+      "round": 4,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 295,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 296,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 297,
+      "round": 4,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 298,
+      "round": 4,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1701,
+      "hp_after": 1611,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 299,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 300,
+      "round": 4,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 301,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 302,
+      "round": 4,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 303,
+      "round": 4,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1611,
+      "hp_after": 1521,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 304,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 305,
+      "round": 4,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 306,
+      "round": 4,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 307,
+      "round": 5,
+      "event": "round",
+      "message": "第 5 回合",
+      "number": 5
+    },
+    {
+      "id": 308,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "漂泊者普通AP 0→4（+4，上限6）",
+      "actor": "ally:0:rover",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 309,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 310,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 311,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 312,
+      "round": 5,
+      "event": "recover",
+      "message": "无冠者恢复 240 点共振，无恢复硬保护",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "shield": 240,
+      "recovery_lock": false
+    },
+    {
+      "id": 313,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 314,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 315,
+      "round": 5,
+      "event": "action",
+      "message": "琳奈使用「定线射击」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "skill_name": "定线射击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 316,
+      "round": 5,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 90 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 0.86,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1521,
+      "hp_after": 1431,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 317,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 240,
+      "shield_after": 232
+    },
+    {
+      "id": 318,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 319,
+      "round": 5,
+      "event": "concerto_ready",
+      "message": "琳奈协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:1:lynae",
+      "amount": 100
+    },
+    {
+      "id": 320,
+      "round": 5,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "basic",
+      "resources_after": {
+        "color": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 321,
+      "round": 5,
+      "event": "status",
+      "message": "漂泊者获得延奏增伤",
+      "target": "ally:0:rover",
+      "status": "outro",
+      "value": {
+        "amp": 0.25,
+        "liberation_extra": 0.1,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 322,
+      "round": 5,
+      "event": "concerto",
+      "message": "琳奈延奏给漂泊者：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:1:lynae",
+      "target": "ally:0:rover",
+      "amp": 0.25,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 323,
+      "round": 5,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留2普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 2,
+      "paid_actions": 1
+    },
+    {
+      "id": 324,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 325,
+      "round": 5,
+      "event": "enemy_action",
+      "message": "无冠者使用「展翼震荡」（全体）",
+      "actor": "enemy:0:crownless",
+      "skill": "wingpulse",
+      "skill_name": "展翼震荡",
+      "target": "ally:0:rover",
+      "targets": [
+        "ally:0:rover",
+        "ally:1:lynae",
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 326,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对漂泊者造成 414 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:rover",
+      "amount": 414,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 414,
+      "hp_after": 0,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 327,
+      "round": 5,
+      "event": "incapacitated",
+      "message": "漂泊者失去战斗能力",
+      "unit": "ally:0:rover",
+      "target": "ally:0:rover"
+    },
+    {
+      "id": 328,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对琳奈造成 553 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "amount": 553,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 553,
+      "hp_after": 0,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 329,
+      "round": 5,
+      "event": "incapacitated",
+      "message": "琳奈失去战斗能力",
+      "unit": "ally:1:lynae",
+      "target": "ally:1:lynae"
+    },
+    {
+      "id": 330,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对莫宁造成 484 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:mornye",
+      "amount": 484,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1219,
+      "hp_after": 735,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 331,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对千咲造成 526 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "amount": 526,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1237,
+      "hp_after": 711,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 332,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 333,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 334,
+      "round": 5,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 335,
+      "round": 5,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1431,
+      "hp_after": 1371,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 336,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 232,
+      "shield_after": 224
+    },
+    {
+      "id": 337,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 338,
+      "round": 5,
+      "event": "concerto_ready",
+      "message": "千咲协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:3:chisa",
+      "amount": 100
+    },
+    {
+      "id": 339,
+      "round": 5,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 340,
+      "round": 5,
+      "event": "status",
+      "message": "莫宁获得延奏增伤",
+      "target": "ally:2:mornye",
+      "status": "outro",
+      "value": {
+        "amp": 0.15,
+        "liberation_extra": 0,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 341,
+      "round": 5,
+      "event": "status",
+      "message": "莫宁获得异常增幅",
+      "target": "ally:2:mornye",
+      "status": "status_outro",
+      "value": {
+        "amp": 0.25,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 342,
+      "round": 5,
+      "event": "concerto",
+      "message": "千咲延奏给莫宁：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:3:chisa",
+      "target": "ally:2:mornye",
+      "amp": 0.15,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 343,
+      "round": 5,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留2普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 2,
+      "paid_actions": 1
+    },
+    {
+      "id": 344,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 345,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时2），剩余4+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 346,
+      "round": 5,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 347,
+      "round": 5,
+      "event": "buff_used",
+      "message": "增益为莫宁本段伤害提供约 13 点收益",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 13
+    },
+    {
+      "id": 348,
+      "round": 5,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 103 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 103,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1371,
+      "hp_after": 1268,
+      "element": "fusion",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 13,
+      "prevented": 0
+    },
+    {
+      "id": 349,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 224,
+      "shield_after": 216
+    },
+    {
+      "id": 350,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 351,
+      "round": 5,
+      "event": "concerto_ready",
+      "message": "莫宁协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:2:mornye",
+      "amount": 100
+    },
+    {
+      "id": 352,
+      "round": 5,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 353,
+      "round": 5,
+      "event": "status",
+      "message": "千咲获得延奏增伤",
+      "target": "ally:3:chisa",
+      "status": "outro",
+      "value": {
+        "amp": 0.2,
+        "liberation_extra": 0,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 354,
+      "round": 5,
+      "event": "status",
+      "message": "千咲获得延奏减伤",
+      "target": "ally:3:chisa",
+      "status": "outro_guard",
+      "value": {
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 355,
+      "round": 5,
+      "event": "concerto",
+      "message": "莫宁延奏给千咲：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:2:mornye",
+      "target": "ally:3:chisa",
+      "amp": 0.2,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 356,
+      "round": 5,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留4普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 4,
+      "paid_actions": 1
+    },
+    {
+      "id": 357,
+      "round": 6,
+      "event": "round",
+      "message": "第 6 回合",
+      "number": 6
+    },
+    {
+      "id": 358,
+      "round": 6,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 4→6（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 4,
+      "after": 6,
+      "amount": 2
+    },
+    {
+      "id": 359,
+      "round": 6,
+      "event": "ap_gain",
+      "message": "千咲普通AP 2→6（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 2,
+      "after": 6,
+      "amount": 4
+    },
+    {
+      "id": 360,
+      "round": 6,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 361,
+      "round": 6,
+      "event": "enemy_action",
+      "message": "无冠者使用「羽锋横扫」（全体）",
+      "actor": "enemy:0:crownless",
+      "skill": "sweep",
+      "skill_name": "羽锋横扫",
+      "target": "ally:2:mornye",
+      "targets": [
+        "ally:2:mornye",
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 362,
+      "round": 6,
+      "event": "damage",
+      "message": "无冠者对莫宁造成 279 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:mornye",
+      "amount": 279,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 735,
+      "hp_after": 456,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 363,
+      "round": 6,
+      "event": "buff_used",
+      "message": "千咲的防护避免约 45 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "kind": "mitigation",
+      "amount": 45
+    },
+    {
+      "id": 364,
+      "round": 6,
+      "event": "damage",
+      "message": "无冠者对千咲造成 257 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "amount": 257,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 711,
+      "hp_after": 454,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 0.85,
+      "buff_bonus": 0,
+      "prevented": 45
+    },
+    {
+      "id": 365,
+      "round": 6,
+      "event": "status",
+      "message": "莫宁获得暴露",
+      "target": "ally:2:mornye",
+      "status": "exposed",
+      "value": {
+        "expires": 7
+      }
+    },
+    {
+      "id": 366,
+      "round": 6,
+      "event": "status",
+      "message": "千咲获得暴露",
+      "target": "ally:3:chisa",
+      "status": "exposed",
+      "value": {
+        "expires": 7
+      }
+    },
+    {
+      "id": 367,
+      "round": 6,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 368,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时2），剩余6+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 6,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 369,
+      "round": 6,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 370,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 371,
+      "round": 6,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1268,
+      "hp_after": 1196,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 372,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 216,
+      "shield_after": 208
+    },
+    {
+      "id": 373,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 374,
+      "round": 6,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 375,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余4+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 376,
+      "round": 6,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 377,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 378,
+      "round": 6,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1196,
+      "hp_after": 1124,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 379,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 208,
+      "shield_after": 200
+    },
+    {
+      "id": 380,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 381,
+      "round": 6,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 382,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 383,
+      "round": 6,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 384,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 385,
+      "round": 6,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1124,
+      "hp_after": 1052,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 386,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 200,
+      "shield_after": 192
+    },
+    {
+      "id": 387,
+      "round": 6,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 388,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 389,
+      "round": 6,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 390,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为千咲本段伤害提供约 12 点收益",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 12
+    },
+    {
+      "id": 391,
+      "round": 6,
+      "event": "damage",
+      "message": "千咲对无冠者造成 72 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 72,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1052,
+      "hp_after": 980,
+      "element": "havoc",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 12,
+      "prevented": 0
+    },
+    {
+      "id": 392,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 192,
+      "shield_after": 184
+    },
+    {
+      "id": 393,
+      "round": 6,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 394,
+      "round": 6,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 4
+    },
+    {
+      "id": 395,
+      "round": 6,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 396,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余4+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 397,
+      "round": 6,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 398,
+      "round": 6,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 980,
+      "hp_after": 890,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 399,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 184,
+      "shield_after": 176
+    },
+    {
+      "id": 400,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 401,
+      "round": 6,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 402,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 403,
+      "round": 6,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 404,
+      "round": 6,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 890,
+      "hp_after": 800,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 405,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 176,
+      "shield_after": 168
+    },
+    {
+      "id": 406,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 407,
+      "round": 6,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 408,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 409,
+      "round": 6,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 410,
+      "round": 6,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 800,
+      "hp_after": 710,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 411,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 168,
+      "shield_after": 160
+    },
+    {
+      "id": 412,
+      "round": 6,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 413,
+      "round": 6,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 3
+    },
+    {
+      "id": 414,
+      "round": 7,
+      "event": "round",
+      "message": "第 7 回合",
+      "number": 7
+    },
+    {
+      "id": 415,
+      "round": 7,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 416,
+      "round": 7,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 417,
+      "round": 7,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 418,
+      "round": 7,
+      "event": "enemy_action",
+      "message": "无冠者使用「无冠连槊」 → 千咲",
+      "actor": "enemy:0:crownless",
+      "skill": "spear",
+      "skill_name": "无冠连槊",
+      "target": "ally:3:chisa",
+      "targets": [
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 419,
+      "round": 7,
+      "event": "damage",
+      "message": "无冠者对千咲造成 454 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "amount": 454,
+      "absorbed": 0,
+      "coefficient": 1.5,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 454,
+      "hp_after": 0,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1.15,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 420,
+      "round": 7,
+      "event": "incapacitated",
+      "message": "千咲失去战斗能力",
+      "unit": "ally:3:chisa",
+      "target": "ally:3:chisa"
+    },
+    {
+      "id": 421,
+      "round": 7,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 422,
+      "round": 7,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 423,
+      "round": 7,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 424,
+      "round": 7,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 710,
+      "hp_after": 620,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 425,
+      "round": 7,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 160,
+      "shield_after": 152
+    },
+    {
+      "id": 426,
+      "round": 7,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 427,
+      "round": 7,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 428,
+      "round": 7,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 429,
+      "round": 7,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 430,
+      "round": 7,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 620,
+      "hp_after": 530,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 431,
+      "round": 7,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 152,
+      "shield_after": 144
+    },
+    {
+      "id": 432,
+      "round": 7,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 433,
+      "round": 7,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 434,
+      "round": 7,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 435,
+      "round": 8,
+      "event": "round",
+      "message": "第 8 回合",
+      "number": 8
+    },
+    {
+      "id": 436,
+      "round": 8,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 437,
+      "round": 8,
+      "event": "status_expired",
+      "message": "莫宁的暴露结束",
+      "target": "ally:2:mornye",
+      "status": "exposed"
+    },
+    {
+      "id": 438,
+      "round": 8,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 439,
+      "round": 8,
+      "event": "enemy_action",
+      "message": "无冠者使用「升空蓄势」 → 莫宁",
+      "actor": "enemy:0:crownless",
+      "skill": "charge",
+      "skill_name": "升空蓄势",
+      "target": "ally:2:mornye",
+      "targets": [
+        "ally:2:mornye"
+      ]
+    },
+    {
+      "id": 440,
+      "round": 8,
+      "event": "part_exposed",
+      "message": "无冠者暴露升空锚点（220HP），2AP攻击部件不伤主体/不产资源",
+      "actor": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "part": {
+        "name": "升空锚点",
+        "maxhp": 220,
+        "effect": "cancel",
+        "hp": 220,
+        "destroyed": false
+      }
+    },
+    {
+      "id": 441,
+      "round": 8,
+      "event": "status",
+      "message": "无冠者获得蓄力",
+      "target": "enemy:0:crownless",
+      "status": "charge",
+      "value": {
+        "expires": 10,
+        "target": "ally:2:mornye"
+      }
+    },
+    {
+      "id": 442,
+      "round": 8,
+      "event": "charge_started",
+      "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:mornye",
+      "targets": [
+        "ally:2:mornye"
+      ],
+      "skill": "descent",
+      "resolve_after_enemy_actions": 1
+    },
+    {
+      "id": 443,
+      "round": 8,
+      "event": "turn",
+      "message": "轮到莫宁行动",
+      "actor": "ally:2:mornye",
+      "side": "ally"
+    },
+    {
+      "id": 444,
+      "round": 8,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 445,
+      "round": 8,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 446,
+      "round": 8,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 530,
+      "hp_after": 440,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 447,
+      "round": 8,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 144,
+      "shield_after": 136
+    },
+    {
+      "id": 448,
+      "round": 8,
+      "event": "concerto_gain",
+      "message": "莫宁个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:2:mornye",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 449,
+      "round": 8,
+      "event": "concerto_ready",
+      "message": "莫宁协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:2:mornye",
+      "amount": 100
+    },
+    {
+      "id": 450,
+      "round": 8,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 451,
+      "round": 8,
+      "event": "ap_spent",
+      "message": "莫宁支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 452,
+      "round": 8,
+      "event": "action",
+      "message": "莫宁使用「定轨悬刃」 → 无冠者",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "skill_name": "定轨悬刃",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "calibration": 100
+      },
+      "form": "normal"
+    },
+    {
+      "id": 453,
+      "round": 8,
+      "event": "damage",
+      "message": "莫宁对无冠者造成 90 点伤害",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 90,
+      "absorbed": 0,
+      "coefficient": 1,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 440,
+      "hp_after": 350,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 454,
+      "round": 8,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:mornye",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 136,
+      "shield_after": 128
+    },
+    {
+      "id": 455,
+      "round": 8,
+      "event": "action_end",
+      "message": "莫宁行动结束",
+      "actor": "ally:2:mornye",
+      "skill": "basic",
+      "resources_after": {
+        "calibration": 100
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 456,
+      "round": 8,
+      "event": "window_end",
+      "message": "莫宁结束窗口，保留0普通AP",
+      "actor": "ally:2:mornye",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 457,
+      "round": 9,
+      "event": "round",
+      "message": "第 9 回合",
+      "number": 9
+    },
+    {
+      "id": 458,
+      "round": 9,
+      "event": "ap_gain",
+      "message": "莫宁普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:mornye",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 459,
+      "round": 9,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 460,
+      "round": 9,
+      "event": "enemy_action",
+      "message": "无冠者使用「坠空裁决」（全体）",
+      "actor": "enemy:0:crownless",
+      "skill": "descent",
+      "skill_name": "坠空裁决",
+      "target": "ally:2:mornye",
+      "targets": [
+        "ally:2:mornye"
+      ]
+    },
+    {
+      "id": 461,
+      "round": 9,
+      "event": "damage",
+      "message": "无冠者对莫宁造成 456 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:mornye",
+      "amount": 456,
+      "absorbed": 0,
+      "coefficient": 3.6,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 456,
+      "hp_after": 0,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 462,
+      "round": 9,
+      "event": "incapacitated",
+      "message": "莫宁失去战斗能力",
+      "unit": "ally:2:mornye",
+      "target": "ally:2:mornye"
+    },
+    {
+      "id": 463,
+      "round": 9,
+      "event": "charge_released",
+      "message": "无冠者的蓄力兑现为「坠空裁决」",
+      "actor": "enemy:0:crownless",
+      "skill": "descent",
+      "targets": [
+        "ally:2:mornye"
+      ]
+    },
+    {
+      "id": 464,
+      "round": 9,
+      "event": "result",
+      "message": "战斗失败",
+      "outcome": "loss"
+    }
+  ]
+}

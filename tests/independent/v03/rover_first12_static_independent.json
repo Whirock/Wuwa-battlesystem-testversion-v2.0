@@ -1,0 +1,318 @@
+{
+  "evidence": "Initial direct-view pass superseded for RVF-S-03-CM by user rejection. Other eleven records retain prior static review; actual renderer and final user acceptance remain pending.",
+  "assets": [
+    {
+      "id": "RVM-D-01-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        150,
+        55,
+        354,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "a81b8267ee61e9ffbc18d698b9c37610ae282a8c3129a19d778e5f5b5a023c0b"
+    },
+    {
+      "id": "RVM-S-01-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        150,
+        55,
+        354,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "9ac29e4a6f6aed8245872ddb944124ad8105c7cbdc8dffafe8aa6bad2bb35683"
+    },
+    {
+      "id": "RVF-D-01-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        145,
+        51,
+        310,
+        420
+      ],
+      "referenceBodyHeight": 349.977,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "f96daad173812dff5d345cee6357ec8ab6b6729e439d88d778f1693606b6c226"
+    },
+    {
+      "id": "RVF-S-01-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        146,
+        50,
+        303,
+        420
+      ],
+      "referenceBodyHeight": 352.22,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "9db0dbbf5fdba4c17df343412be530c6198f0481bdbcc3010795b885d02e84d6"
+    },
+    {
+      "id": "RVF-D-03-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        109,
+        136,
+        336,
+        419
+      ],
+      "referenceBodyHeight": 349.977,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "fb1d530b3264dcb22a4db486f4a56985b8bf1f58fb878e6d84f60e765b244a93"
+    },
+    {
+      "id": "RVF-S-03-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        91,
+        137,
+        339,
+        420
+      ],
+      "referenceBodyHeight": 352.22,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "abab60be588e154b9a0ad98157979053b22fd12121a9071201d96b9e5c7943ed",
+      "staticReviewStatus": "user_rejected_needs_revision",
+      "priorApprovalWithdrawn": true
+    },
+    {
+      "id": "RVF-D-06-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        137,
+        63,
+        320,
+        419
+      ],
+      "referenceBodyHeight": 349.977,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "0e7a856d1c55753399f92007460054a850957cf3feff5065f0f088cca58a9f20"
+    },
+    {
+      "id": "RVF-S-06-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        120,
+        75,
+        329,
+        419
+      ],
+      "referenceBodyHeight": 352.22,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "508568f532737a5b25afe74b105914c31a6490730a678b360cab1e3959eb11ce"
+    },
+    {
+      "id": "RVF-D-09-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        100,
+        46,
+        381,
+        419
+      ],
+      "referenceBodyHeight": 349.977,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "047268e6aa62b9b06e14948b9172f60f629da5caddf92f209f1c5f1d14d24d21"
+    },
+    {
+      "id": "RVF-S-09-CM",
+      "size": [
+        448,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        118,
+        37,
+        360,
+        418
+      ],
+      "referenceBodyHeight": 352.22,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "096dd8487a54db5001563dc3ada6a296dea8a714de143cb4f02bb8093e64bda9"
+    },
+    {
+      "id": "RVF-D-07-CM",
+      "size": [
+        576,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        55,
+        277,
+        521,
+        419
+      ],
+      "referenceBodyHeight": 349.977,
+      "ground": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "f018af66cd8e2bec176b17dc112e17f9b59876f4cfe7eccaa46c6e05b2ccb351"
+    },
+    {
+      "id": "RVF-S-07-CM",
+      "size": [
+        576,
+        448
+      ],
+      "size_match": true,
+      "sha_match": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        44,
+        266,
+        531,
+        419
+      ],
+      "referenceBodyHeight": 352.22,
+      "ground": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "d6dbf84617c2909a1aab2c7e63e81f3c55cfc7ab8a46e8d27f9503ff493fe72b"
+    }
+  ],
+  "correction": {
+    "at": "2026-10-10T06:22:00Z",
+    "slot": "rover.female_school.03-CM",
+    "id": "RVF-S-03-CM",
+    "version": "v002",
+    "sha256": "abab60be588e154b9a0ad98157979053b22fd12121a9071201d96b9e5c7943ed",
+    "staticReviewStatus": "user_rejected_needs_revision",
+    "priorApprovalWithdrawn": true,
+    "reason": "User reported incompatible front/back leg anatomy. Earlier independent review recognized the one-foot/one-knee silhouette but did not adequately trace separate skirt-covered hip origins, hip-knee-ankle chains and near/far occlusion. Rereview cannot establish two unambiguous independent leg chains at the skirt/thigh overlap. Preserve historical file; require redrawn version and renewed joint-by-joint review.",
+    "notAffected": "Down pose 07 is distinct; this correction concerns critical pose03 only."
+  }
+}

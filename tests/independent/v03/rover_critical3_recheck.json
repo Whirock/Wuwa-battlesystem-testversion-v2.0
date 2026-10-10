@@ -1,0 +1,24 @@
+{
+  "reviewedAt": "2026-10-10T06:24:00Z",
+  "scope": "Only the three alternate critical poses after user rejection of female-school03; no uniform-pose redraw requested.",
+  "assets": [
+    {
+      "slot": "rover.female_default.03-CM",
+      "sha256": "460e9b6c391911326940d3afa7da6c54d5e50b3821959ede45178be3ade7e211",
+      "verdict": "retain_static_candidate_user_acceptance_pending",
+      "specificReview": "Near leg skin at skirt right connects to raised knee below hand and forward black boot; far leg skin at skirt left connects to grounded knee and partially occluded rear-folded lower leg/foot. No equivalent unassigned skin island or mixed hip roots observed. Hidden segments remain conventional occlusion rather than separately certified internal anatomy."
+    },
+    {
+      "slot": "rover.male_default.03-CM",
+      "sha256": "7aa210156773c5111a9945602d904201ac966ddaef8e6252c79941fedf11e9bf",
+      "verdict": "retain_static_candidate_user_acceptance_pending",
+      "specificReview": "Each trouser leg traces separately from belt/pelvis through front planted knee/ankle/foot and rear kneeling knee/folded lower leg/foot. No orphan skin segment or swapped leg root observed."
+    },
+    {
+      "slot": "rover.male_school.03-CM",
+      "sha256": "4bf047a9775c667f14b597fa2320b2f73c78e538081d18c9b56d349d64f3c830",
+      "verdict": "retain_static_candidate_user_acceptance_pending",
+      "specificReview": "Each trouser leg traces separately from belt/pelvis through front planted knee/ankle/foot and rear kneeling knee/folded lower leg/foot. No orphan skin segment or swapped leg root observed."
+    }
+  ]
+}

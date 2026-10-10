@@ -1,0 +1,96 @@
+{
+  "reviewedAt": "2026-10-10T06:42:00Z",
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVF-D-04-AE-a",
+      "version": "v004",
+      "action": "skill",
+      "sha256": "d8520b18641dad6bcaabf4939fb20ef32f2baa09f244d05b2c71d9cdd999bb42",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        171,
+        34,
+        547,
+        589
+      ],
+      "minMargin": 34,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct full-image review: separate skirt/hip-to-knee-to-ankle chains with intentional lifted leg in Aero or supported low stance in Havoc; no orphan flesh segment observed. Outfit asymmetry, below-knee school sock lines and right-hand sword/free-palm gesture retained. No clipping. Actual runtime scale and ground relation pending."
+    },
+    {
+      "id": "RVF-S-04-AE-a",
+      "version": "v003",
+      "action": "skill",
+      "sha256": "02056eb2a3c70b3bc184179a29460ff28c6fe06902e0d4789ce1654c1e319fd1",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        158,
+        36,
+        556,
+        589
+      ],
+      "minMargin": 36,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct full-image review: separate skirt/hip-to-knee-to-ankle chains with intentional lifted leg in Aero or supported low stance in Havoc; no orphan flesh segment observed. Outfit asymmetry, below-knee school sock lines and right-hand sword/free-palm gesture retained. No clipping. Actual runtime scale and ground relation pending."
+    },
+    {
+      "id": "RVF-D-10-HV",
+      "version": "v001",
+      "action": "liberation",
+      "sha256": "19fcee943a49b2dbb2f890210398275c4a9f37dddeebf0799be7b966d33c71e7",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        71,
+        151,
+        367,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct full-image review: separate skirt/hip-to-knee-to-ankle chains with intentional lifted leg in Aero or supported low stance in Havoc; no orphan flesh segment observed. Outfit asymmetry, below-knee school sock lines and right-hand sword/free-palm gesture retained. No clipping. Actual runtime scale and ground relation pending."
+    },
+    {
+      "id": "RVF-S-10-HV",
+      "version": "v001",
+      "action": "liberation",
+      "sha256": "9621894f3bd724cfea7f712de2e2366b3cf9a7c3a4a115d3e567ecf8074d7741",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        79,
+        142,
+        373,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct full-image review: separate skirt/hip-to-knee-to-ankle chains with intentional lifted leg in Aero or supported low stance in Havoc; no orphan flesh segment observed. Outfit asymmetry, below-knee school sock lines and right-hand sword/free-palm gesture retained. No clipping. Actual runtime scale and ground relation pending."
+    }
+  ]
+}

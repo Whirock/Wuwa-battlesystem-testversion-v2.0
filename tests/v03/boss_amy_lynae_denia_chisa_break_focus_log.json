@@ -1,0 +1,6160 @@
+{
+  "options": {
+    "team": [
+      "amy",
+      "lynae",
+      "denia",
+      "chisa"
+    ],
+    "encounter": "boss",
+    "difficulty": "standard",
+    "auto_concerto": true,
+    "policy": "break_focus",
+    "seed": 261010
+  },
+  "summary": {
+    "label": "boss_amy_lynae_denia_chisa_break_focus",
+    "options": {
+      "team": [
+        "amy",
+        "lynae",
+        "denia",
+        "chisa"
+      ],
+      "encounter": "boss",
+      "difficulty": "standard",
+      "auto_concerto": true,
+      "policy": "break_focus",
+      "seed": 261010
+    },
+    "steps": 58,
+    "difficulty": "standard",
+    "first_concerto_ready_round": 2,
+    "min_hp_fraction": {
+      "amy": 0.3406,
+      "lynae": 0.5103,
+      "denia": 0.5329,
+      "chisa": 0.6566
+    },
+    "inventory": {
+      "repair": 2,
+      "cleanse": 1
+    },
+    "outcome": "win",
+    "rounds": 6,
+    "ally_hp_fraction": 0.5149,
+    "survivors": 4,
+    "escaped_count": 0,
+    "ko_count": 0,
+    "counts": {
+      "ap_spent": 97,
+      "temp_ap_spent": 14,
+      "damage_ally": 4800,
+      "shield_removed": 480,
+      "damage_enemy": 3493,
+      "ap_recovery_overflow": 0,
+      "concerto_ready": 7,
+      "concerto": 7,
+      "automatic_concertos": 7,
+      "temp_ap_generated": 14,
+      "buff_bonus_damage": 530,
+      "charge_warnings": 1,
+      "fusion_procs": 3,
+      "charge_interrupts": 1,
+      "breaks": 2,
+      "joint_attacks": 2,
+      "joint_damage": 138,
+      "skipped_enemy_actions": 1,
+      "teamwork_resource": 15,
+      "tune_procs": 3,
+      "phase_changes": 1,
+      "cutline_prevented": 536,
+      "finales": 1,
+      "ko_enemy": 1
+    },
+    "skills": {
+      "survey": 14,
+      "basic": 19,
+      "overdrive": 2,
+      "cut": 4,
+      "enhanced": 2,
+      "heavy": 2,
+      "breakdown": 1,
+      "curtain": 1,
+      "finale": 1
+    },
+    "enemy_skills": {
+      "spear": 1,
+      "charge": 1,
+      "wingpulse": 1,
+      "sweep": 1
+    },
+    "final_resources": {
+      "amy": {
+        "sync": 30,
+        "resonance": 2
+      },
+      "lynae": {
+        "color": 0
+      },
+      "denia": {
+        "expectation": 100
+      },
+      "chisa": {
+        "thread": 5
+      }
+    },
+    "final_concerto": {
+      "amy": 40,
+      "lynae": 40,
+      "denia": 80,
+      "chisa": 0
+    },
+    "final_ap": {
+      "amy": {
+        "normal": 3,
+        "temporary": 0
+      },
+      "lynae": {
+        "normal": 0,
+        "temporary": 0
+      },
+      "denia": {
+        "normal": 4,
+        "temporary": 0
+      },
+      "chisa": {
+        "normal": 6,
+        "temporary": 0
+      }
+    },
+    "first_break_round": 3,
+    "enemy_effective_actions": 3,
+    "observation": "30 rounds; reaching limit is inconclusive, never forced loss"
+  },
+  "log": [
+    {
+      "id": 1,
+      "round": 0,
+      "event": "start",
+      "message": "遭遇开始：个人资源0，普通AP4，协奏20",
+      "team": [
+        "ally:0:amy",
+        "ally:1:lynae",
+        "ally:2:denia",
+        "ally:3:chisa"
+      ],
+      "enemies": [
+        "enemy:0:crownless"
+      ]
+    },
+    {
+      "id": 2,
+      "round": 1,
+      "event": "round",
+      "message": "第 1 回合",
+      "number": 1
+    },
+    {
+      "id": 3,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 4,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 5,
+      "round": 1,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 6,
+      "round": 1,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4800,
+      "hp_after": 4755,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 7,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 240,
+      "shield_after": 216
+    },
+    {
+      "id": 8,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "survey"
+    },
+    {
+      "id": 9,
+      "round": 1,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 10,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 11,
+      "round": 1,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 12,
+      "round": 1,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4755,
+      "hp_after": 4710,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 13,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 216,
+      "shield_after": 192
+    },
+    {
+      "id": 14,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "survey"
+    },
+    {
+      "id": 15,
+      "round": 1,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 16,
+      "round": 1,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 17,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到爱弥斯行动",
+      "actor": "ally:0:amy",
+      "side": "ally"
+    },
+    {
+      "id": 18,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余2+0",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 19,
+      "round": 1,
+      "event": "action",
+      "message": "爱弥斯使用「人形/机兵 普通攻击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "skill_name": "人形/机兵 普通攻击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "form": "human"
+    },
+    {
+      "id": 20,
+      "round": 1,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 93 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 93,
+      "absorbed": 0,
+      "coefficient": 0.78,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4710,
+      "hp_after": 4617,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 21,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 192,
+      "shield_after": 184
+    },
+    {
+      "id": 22,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 23,
+      "round": 1,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "resources_after": {
+        "sync": 40,
+        "resonance": 0
+      },
+      "concerto": 40,
+      "form": "human"
+    },
+    {
+      "id": 24,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余0+0",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 25,
+      "round": 1,
+      "event": "action",
+      "message": "爱弥斯使用「人形/机兵 普通攻击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "skill_name": "人形/机兵 普通攻击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 40,
+        "resonance": 0
+      },
+      "form": "human"
+    },
+    {
+      "id": 26,
+      "round": 1,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 93 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 93,
+      "absorbed": 0,
+      "coefficient": 0.78,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4617,
+      "hp_after": 4524,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 27,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 184,
+      "shield_after": 176
+    },
+    {
+      "id": 28,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 29,
+      "round": 1,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "resources_after": {
+        "sync": 80,
+        "resonance": 0
+      },
+      "concerto": 60,
+      "form": "human"
+    },
+    {
+      "id": 30,
+      "round": 1,
+      "event": "window_end",
+      "message": "爱弥斯结束窗口，保留0普通AP",
+      "actor": "ally:0:amy",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 31,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 32,
+      "round": 1,
+      "event": "enemy_action",
+      "message": "无冠者使用「无冠连槊」 → 爱弥斯",
+      "actor": "enemy:0:crownless",
+      "skill": "spear",
+      "skill_name": "无冠连槊",
+      "target": "ally:0:amy",
+      "targets": [
+        "ally:0:amy"
+      ]
+    },
+    {
+      "id": 33,
+      "round": 1,
+      "event": "damage",
+      "message": "无冠者对爱弥斯造成 429 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:amy",
+      "amount": 429,
+      "absorbed": 0,
+      "coefficient": 1.5,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1800,
+      "hp_after": 1371,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 34,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到达妮娅行动",
+      "actor": "ally:2:denia",
+      "side": "ally"
+    },
+    {
+      "id": 35,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 36,
+      "round": 1,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 0
+      },
+      "form": "red"
+    },
+    {
+      "id": 37,
+      "round": 1,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4524,
+      "hp_after": 4436,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 38,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 176,
+      "shield_after": 168
+    },
+    {
+      "id": 39,
+      "round": 1,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 1,
+        "owner": "ally:2:denia",
+        "expires": 4
+      }
+    },
+    {
+      "id": 40,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 41,
+      "round": 1,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 25
+      },
+      "concerto": 40,
+      "form": "red"
+    },
+    {
+      "id": 42,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 43,
+      "round": 1,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 25
+      },
+      "form": "red"
+    },
+    {
+      "id": 44,
+      "round": 1,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4436,
+      "hp_after": 4348,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 45,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 168,
+      "shield_after": 160
+    },
+    {
+      "id": 46,
+      "round": 1,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 2,
+        "owner": "ally:2:denia",
+        "expires": 4
+      }
+    },
+    {
+      "id": 47,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 48,
+      "round": 1,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 50
+      },
+      "concerto": 60,
+      "form": "red"
+    },
+    {
+      "id": 49,
+      "round": 1,
+      "event": "window_end",
+      "message": "达妮娅结束窗口，保留0普通AP",
+      "actor": "ally:2:denia",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 50,
+      "round": 1,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 51,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 52,
+      "round": 1,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 53,
+      "round": 1,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4348,
+      "hp_after": 4288,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 54,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 160,
+      "shield_after": 152
+    },
+    {
+      "id": 55,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（40/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 56,
+      "round": 1,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 25
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 57,
+      "round": 1,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 58,
+      "round": 1,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 25
+      },
+      "form": "normal"
+    },
+    {
+      "id": 59,
+      "round": 1,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4288,
+      "hp_after": 4228,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 60,
+      "round": 1,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 152,
+      "shield_after": 144
+    },
+    {
+      "id": 61,
+      "round": 1,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（60/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 62,
+      "round": 1,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 50
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 63,
+      "round": 1,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 64,
+      "round": 2,
+      "event": "round",
+      "message": "第 2 回合",
+      "number": 2
+    },
+    {
+      "id": 65,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "爱弥斯普通AP 0→4（+4，上限6）",
+      "actor": "ally:0:amy",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 66,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 67,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "达妮娅普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:denia",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 68,
+      "round": 2,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 69,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 70,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 71,
+      "round": 2,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 72,
+      "round": 2,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4228,
+      "hp_after": 4183,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 73,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 144,
+      "shield_after": 120
+    },
+    {
+      "id": 74,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "survey"
+    },
+    {
+      "id": 75,
+      "round": 2,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 76,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 77,
+      "round": 2,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 78,
+      "round": 2,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4183,
+      "hp_after": 4138,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 79,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 120,
+      "shield_after": 96
+    },
+    {
+      "id": 80,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "survey"
+    },
+    {
+      "id": 81,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "琳奈协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:1:lynae",
+      "amount": 100
+    },
+    {
+      "id": 82,
+      "round": 2,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 83,
+      "round": 2,
+      "event": "status",
+      "message": "爱弥斯获得延奏增伤",
+      "target": "ally:0:amy",
+      "status": "outro",
+      "value": {
+        "amp": 0.25,
+        "liberation_extra": 0.1,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 84,
+      "round": 2,
+      "event": "concerto",
+      "message": "琳奈延奏给爱弥斯：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:1:lynae",
+      "target": "ally:0:amy",
+      "amp": 0.25,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 85,
+      "round": 2,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 86,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到爱弥斯行动",
+      "actor": "ally:0:amy",
+      "side": "ally"
+    },
+    {
+      "id": 87,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时2），剩余4+0",
+      "actor": "ally:0:amy",
+      "skill": "overdrive",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 88,
+      "round": 2,
+      "event": "action",
+      "message": "爱弥斯使用「星辉启动」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "overdrive",
+      "skill_name": "星辉启动",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 80,
+        "resonance": 0
+      },
+      "form": "human"
+    },
+    {
+      "id": 89,
+      "round": 2,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 44 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 44
+    },
+    {
+      "id": 90,
+      "round": 2,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 170 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 170,
+      "absorbed": 0,
+      "coefficient": 1.05,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 4138,
+      "hp_after": 3968,
+      "element": "fusion",
+      "amp_applied": 0.35,
+      "mitigation": 1,
+      "buff_bonus": 44,
+      "prevented": 0
+    },
+    {
+      "id": 91,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 96,
+      "shield_after": 88
+    },
+    {
+      "id": 92,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "overdrive"
+    },
+    {
+      "id": 93,
+      "round": 2,
+      "event": "form",
+      "message": "爱弥斯切换为机兵",
+      "actor": "ally:0:amy",
+      "from": "human",
+      "to": "mech"
+    },
+    {
+      "id": 94,
+      "round": 2,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "overdrive",
+      "resources_after": {
+        "sync": 30,
+        "resonance": 2
+      },
+      "concerto": 80,
+      "form": "mech"
+    },
+    {
+      "id": 95,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余2+0",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 96,
+      "round": 2,
+      "event": "action",
+      "message": "爱弥斯使用「人形/机兵 普通攻击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "skill_name": "人形/机兵 普通攻击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 30,
+        "resonance": 2
+      },
+      "form": "mech"
+    },
+    {
+      "id": 97,
+      "round": 2,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 24 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 24
+    },
+    {
+      "id": 98,
+      "round": 2,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 117 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 117,
+      "absorbed": 0,
+      "coefficient": 0.78,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3968,
+      "hp_after": 3851,
+      "element": "fusion",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 24,
+      "prevented": 0
+    },
+    {
+      "id": 99,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 88,
+      "shield_after": 80
+    },
+    {
+      "id": 100,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 101,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "爱弥斯协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:0:amy",
+      "amount": 100
+    },
+    {
+      "id": 102,
+      "round": 2,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "resources_after": {
+        "sync": 70,
+        "resonance": 2
+      },
+      "concerto": 100,
+      "form": "mech"
+    },
+    {
+      "id": 103,
+      "round": 2,
+      "event": "status",
+      "message": "琳奈获得延奏增伤",
+      "target": "ally:1:lynae",
+      "status": "outro",
+      "value": {
+        "amp": 0.2,
+        "liberation_extra": 0,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 104,
+      "round": 2,
+      "event": "concerto",
+      "message": "爱弥斯延奏给琳奈：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:0:amy",
+      "target": "ally:1:lynae",
+      "amp": 0.2,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 105,
+      "round": 2,
+      "event": "window_end",
+      "message": "爱弥斯结束窗口，保留2普通AP",
+      "actor": "ally:0:amy",
+      "ap": 2,
+      "paid_actions": 2
+    },
+    {
+      "id": 106,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 107,
+      "round": 2,
+      "event": "enemy_action",
+      "message": "无冠者使用「升空蓄势」 → 琳奈",
+      "actor": "enemy:0:crownless",
+      "skill": "charge",
+      "skill_name": "升空蓄势",
+      "target": "ally:1:lynae",
+      "targets": [
+        "ally:1:lynae"
+      ]
+    },
+    {
+      "id": 108,
+      "round": 2,
+      "event": "part_exposed",
+      "message": "无冠者暴露升空锚点（220HP），2AP攻击部件不伤主体/不产资源",
+      "actor": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "part": {
+        "name": "升空锚点",
+        "maxhp": 220,
+        "effect": "cancel",
+        "hp": 220,
+        "destroyed": false
+      }
+    },
+    {
+      "id": 109,
+      "round": 2,
+      "event": "status",
+      "message": "无冠者获得蓄力",
+      "target": "enemy:0:crownless",
+      "status": "charge",
+      "value": {
+        "expires": 4,
+        "target": "ally:1:lynae"
+      }
+    },
+    {
+      "id": 110,
+      "round": 2,
+      "event": "charge_started",
+      "message": "无冠者预告「坠空裁决」：下次行动兑现，破防可打断，防御可减半",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "targets": [
+        "ally:0:amy",
+        "ally:1:lynae",
+        "ally:2:denia",
+        "ally:3:chisa"
+      ],
+      "skill": "descent",
+      "resolve_after_enemy_actions": 1
+    },
+    {
+      "id": 111,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到达妮娅行动",
+      "actor": "ally:2:denia",
+      "side": "ally"
+    },
+    {
+      "id": 112,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 113,
+      "round": 2,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 50
+      },
+      "form": "red"
+    },
+    {
+      "id": 114,
+      "round": 2,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3851,
+      "hp_after": 3763,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 115,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 80,
+      "shield_after": 72
+    },
+    {
+      "id": 116,
+      "round": 2,
+      "event": "damage",
+      "message": "达妮娅的异常效果对无冠者造成 64 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 64,
+      "absorbed": 0,
+      "coefficient": 0.6,
+      "status_damage": true,
+      "damage_source": "status",
+      "broken_bonus": false,
+      "hp_before": 3763,
+      "hp_after": 3699,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 117,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 118,
+      "round": 2,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 75
+      },
+      "concerto": 80,
+      "form": "red"
+    },
+    {
+      "id": 119,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 120,
+      "round": 2,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 75
+      },
+      "form": "red"
+    },
+    {
+      "id": 121,
+      "round": 2,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3699,
+      "hp_after": 3611,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 122,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 72,
+      "shield_after": 64
+    },
+    {
+      "id": 123,
+      "round": 2,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 1,
+        "owner": "ally:2:denia",
+        "expires": 5
+      }
+    },
+    {
+      "id": 124,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 125,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "达妮娅协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:2:denia",
+      "amount": 100
+    },
+    {
+      "id": 126,
+      "round": 2,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 100
+      },
+      "concerto": 100,
+      "form": "red"
+    },
+    {
+      "id": 127,
+      "round": 2,
+      "event": "status",
+      "message": "爱弥斯获得延奏增伤",
+      "target": "ally:0:amy",
+      "status": "outro",
+      "value": {
+        "amp": 0.2,
+        "liberation_extra": 0,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 128,
+      "round": 2,
+      "event": "status",
+      "message": "爱弥斯获得异常增幅",
+      "target": "ally:0:amy",
+      "status": "status_outro",
+      "value": {
+        "amp": 0.25,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 129,
+      "round": 2,
+      "event": "concerto",
+      "message": "达妮娅延奏给爱弥斯：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:2:denia",
+      "target": "ally:0:amy",
+      "amp": 0.2,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 130,
+      "round": 2,
+      "event": "window_end",
+      "message": "达妮娅结束窗口，保留0普通AP",
+      "actor": "ally:2:denia",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 131,
+      "round": 2,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 132,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 133,
+      "round": 2,
+      "event": "action",
+      "message": "千咲使用「切开结点」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "skill_name": "切开结点",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 50
+      },
+      "form": "normal"
+    },
+    {
+      "id": 134,
+      "round": 2,
+      "event": "damage",
+      "message": "千咲对无冠者造成 39 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 39,
+      "absorbed": 0,
+      "coefficient": 0.62,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3611,
+      "hp_after": 3572,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 135,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −20",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 20,
+      "shield_before": 64,
+      "shield_after": 44
+    },
+    {
+      "id": 136,
+      "round": 2,
+      "event": "status",
+      "message": "无冠者获得切线",
+      "target": "enemy:0:crownless",
+      "status": "cutline",
+      "value": {
+        "actions": 2,
+        "expires": 5
+      }
+    },
+    {
+      "id": 137,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（80/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "cut"
+    },
+    {
+      "id": 138,
+      "round": 2,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "resources_after": {
+        "thread": 20
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 139,
+      "round": 2,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 140,
+      "round": 2,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 20
+      },
+      "form": "normal"
+    },
+    {
+      "id": 141,
+      "round": 2,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3572,
+      "hp_after": 3512,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 142,
+      "round": 2,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 44,
+      "shield_after": 36
+    },
+    {
+      "id": 143,
+      "round": 2,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（100/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 144,
+      "round": 2,
+      "event": "concerto_ready",
+      "message": "千咲协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:3:chisa",
+      "amount": 100
+    },
+    {
+      "id": 145,
+      "round": 2,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 45
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 146,
+      "round": 2,
+      "event": "status",
+      "message": "达妮娅获得延奏增伤",
+      "target": "ally:2:denia",
+      "status": "outro",
+      "value": {
+        "amp": 0.15,
+        "liberation_extra": 0,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 147,
+      "round": 2,
+      "event": "status",
+      "message": "达妮娅获得异常增幅",
+      "target": "ally:2:denia",
+      "status": "status_outro",
+      "value": {
+        "amp": 0.25,
+        "expires": 3,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 148,
+      "round": 2,
+      "event": "concerto",
+      "message": "千咲延奏给达妮娅：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:3:chisa",
+      "target": "ally:2:denia",
+      "amp": 0.15,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 149,
+      "round": 2,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 150,
+      "round": 3,
+      "event": "round",
+      "message": "第 3 回合",
+      "number": 3
+    },
+    {
+      "id": 151,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "爱弥斯普通AP 2→6（+4，上限6）",
+      "actor": "ally:0:amy",
+      "before": 2,
+      "after": 6,
+      "amount": 4
+    },
+    {
+      "id": 152,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 153,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "达妮娅普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:denia",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 154,
+      "round": 3,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 155,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 156,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时2），剩余4+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 157,
+      "round": 3,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 158,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 159,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3512,
+      "hp_after": 3458,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 160,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 36,
+      "shield_after": 12
+    },
+    {
+      "id": 161,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "survey"
+    },
+    {
+      "id": 162,
+      "round": 3,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 163,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 164,
+      "round": 3,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 165,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 166,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3458,
+      "hp_after": 3404,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 167,
+      "round": 3,
+      "event": "shield",
+      "message": "无冠者共振 −12",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 12,
+      "shield_before": 12,
+      "shield_after": 0
+    },
+    {
+      "id": 168,
+      "round": 3,
+      "event": "charge_interrupted",
+      "message": "无冠者准备的坠空裁决被共振击破取消",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "skill": "descent",
+      "reason": "共振击破"
+    },
+    {
+      "id": 169,
+      "round": 3,
+      "event": "break",
+      "message": "无冠者共振击破！取消准备并跳过第3轮的一个窗口，不附加易伤",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "until": 3,
+      "skip_round": 3
+    },
+    {
+      "id": 170,
+      "round": 3,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 21 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 21,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 3404,
+      "hp_after": 3383,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 171,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 18 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 18,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 3383,
+      "hp_after": 3365,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 172,
+      "round": 3,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 19 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 19,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 3365,
+      "hp_after": 3346,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 173,
+      "round": 3,
+      "event": "damage",
+      "message": "千咲对无冠者造成 11 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 11,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 3346,
+      "hp_after": 3335,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 174,
+      "round": 3,
+      "event": "joint_attack",
+      "message": "联合攻击共造成69伤害；80为200主属性/目标160DEF/中性抗性的总参考预算，无额外资源",
+      "target": "enemy:0:crownless",
+      "actors": [
+        "ally:0:amy",
+        "ally:1:lynae",
+        "ally:2:denia",
+        "ally:3:chisa"
+      ],
+      "amount": 69,
+      "reference_budget": 80
+    },
+    {
+      "id": 175,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "survey"
+    },
+    {
+      "id": 176,
+      "round": 3,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 177,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 178,
+      "round": 3,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 179,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 180,
+      "round": 3,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3335,
+      "hp_after": 3281,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 181,
+      "round": 3,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 182,
+      "round": 3,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 3
+    },
+    {
+      "id": 183,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到爱弥斯行动",
+      "actor": "ally:0:amy",
+      "side": "ally"
+    },
+    {
+      "id": 184,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时2），剩余6+0",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 6,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 185,
+      "round": 3,
+      "event": "action",
+      "message": "爱弥斯使用「人形/机兵 普通攻击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "skill_name": "人形/机兵 普通攻击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 70,
+        "resonance": 2
+      },
+      "form": "mech"
+    },
+    {
+      "id": 186,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 19 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 19
+    },
+    {
+      "id": 187,
+      "round": 3,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 112 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 112,
+      "absorbed": 0,
+      "coefficient": 0.78,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3281,
+      "hp_after": 3169,
+      "element": "fusion",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 19,
+      "prevented": 0
+    },
+    {
+      "id": 188,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 189,
+      "round": 3,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "resources_after": {
+        "sync": 110,
+        "resonance": 2
+      },
+      "concerto": 20,
+      "form": "mech"
+    },
+    {
+      "id": 190,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "爱弥斯支付3AP（临时0），剩余3+0",
+      "actor": "ally:0:amy",
+      "skill": "enhanced",
+      "amount": 3,
+      "temporary": 0,
+      "normal": 3,
+      "ap_after": 3,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 191,
+      "round": 3,
+      "event": "action",
+      "message": "爱弥斯使用「双相强化E」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "enhanced",
+      "skill_name": "双相强化E",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 110,
+        "resonance": 2
+      },
+      "form": "mech"
+    },
+    {
+      "id": 192,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 39 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 39
+    },
+    {
+      "id": 193,
+      "round": 3,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 237 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 237,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 3169,
+      "hp_after": 2932,
+      "element": "fusion",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 39,
+      "prevented": 0
+    },
+    {
+      "id": 194,
+      "round": 3,
+      "event": "status",
+      "message": "无冠者获得震谐标记",
+      "target": "enemy:0:crownless",
+      "status": "tune",
+      "value": {
+        "owner": "ally:0:amy",
+        "expires": 4
+      }
+    },
+    {
+      "id": 195,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "enhanced"
+    },
+    {
+      "id": 196,
+      "round": 3,
+      "event": "form",
+      "message": "爱弥斯切换为人形",
+      "actor": "ally:0:amy",
+      "from": "mech",
+      "to": "human"
+    },
+    {
+      "id": 197,
+      "round": 3,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "enhanced",
+      "resources_after": {
+        "sync": 10,
+        "resonance": 4
+      },
+      "concerto": 40,
+      "form": "human"
+    },
+    {
+      "id": 198,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余1+0",
+      "actor": "ally:0:amy",
+      "skill": "heavy",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 1,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 199,
+      "round": 3,
+      "event": "action",
+      "message": "爱弥斯使用「满谐重击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "heavy",
+      "skill_name": "满谐重击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 10,
+        "resonance": 4
+      },
+      "form": "human"
+    },
+    {
+      "id": 200,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 13 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 13
+    },
+    {
+      "id": 201,
+      "round": 3,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 79 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 79,
+      "absorbed": 0,
+      "coefficient": 0.55,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2932,
+      "hp_after": 2853,
+      "element": "fusion",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 13,
+      "prevented": 0
+    },
+    {
+      "id": 202,
+      "round": 3,
+      "event": "phase_pending",
+      "message": "无冠者准备展翼；下次阶段切换不会增加行动",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless"
+    },
+    {
+      "id": 203,
+      "round": 3,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "heavy",
+      "resources_after": {
+        "sync": 170,
+        "resonance": 4
+      },
+      "concerto": 40,
+      "form": "human"
+    },
+    {
+      "id": 204,
+      "round": 3,
+      "event": "window_end",
+      "message": "爱弥斯结束窗口，保留1普通AP",
+      "actor": "ally:0:amy",
+      "ap": 1,
+      "paid_actions": 3
+    },
+    {
+      "id": 205,
+      "round": 3,
+      "event": "skip",
+      "message": "无冠者共振击破，跳过本轮窗口",
+      "actor": "enemy:0:crownless",
+      "reason": "broken"
+    },
+    {
+      "id": 206,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到达妮娅行动",
+      "actor": "ally:2:denia",
+      "side": "ally"
+    },
+    {
+      "id": 207,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "达妮娅支付3AP（临时2），剩余3+0",
+      "actor": "ally:2:denia",
+      "skill": "breakdown",
+      "amount": 3,
+      "temporary": 2,
+      "normal": 1,
+      "ap_after": 3,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 208,
+      "round": 3,
+      "event": "action",
+      "message": "达妮娅使用「开幕幻灭」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "breakdown",
+      "skill_name": "开幕幻灭",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 100
+      },
+      "form": "red"
+    },
+    {
+      "id": 209,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为达妮娅本段伤害提供约 14 点收益",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 14
+    },
+    {
+      "id": 210,
+      "round": 3,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 105 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 105,
+      "absorbed": 0,
+      "coefficient": 0.85,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2853,
+      "hp_after": 2748,
+      "element": "fusion",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 14,
+      "prevented": 0
+    },
+    {
+      "id": 211,
+      "round": 3,
+      "event": "teamwork",
+      "message": "达妮娅接力震谐，期待 +5（每行动一次）",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "owner": "ally:0:amy",
+      "resource": "expectation",
+      "amount": 5
+    },
+    {
+      "id": 212,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 10 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "status_amplifier",
+      "amount": 10
+    },
+    {
+      "id": 213,
+      "round": 3,
+      "event": "damage",
+      "message": "爱弥斯的异常效果对无冠者造成 52 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 52,
+      "absorbed": 0,
+      "coefficient": 0.35,
+      "status_damage": true,
+      "damage_source": "status",
+      "broken_bonus": false,
+      "hp_before": 2748,
+      "hp_after": 2696,
+      "element": "fusion",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 10,
+      "prevented": 0
+    },
+    {
+      "id": 214,
+      "round": 3,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 2,
+        "owner": "ally:2:denia",
+        "expires": 6
+      }
+    },
+    {
+      "id": 215,
+      "round": 3,
+      "event": "form",
+      "message": "达妮娅切换为蓝形态",
+      "actor": "ally:2:denia",
+      "from": "red",
+      "to": "blue"
+    },
+    {
+      "id": 216,
+      "round": 3,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "breakdown",
+      "resources_after": {
+        "expectation": 100
+      },
+      "concerto": 0,
+      "form": "blue"
+    },
+    {
+      "id": 217,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "达妮娅支付3AP（临时0），剩余0+0",
+      "actor": "ally:2:denia",
+      "skill": "curtain",
+      "amount": 3,
+      "temporary": 0,
+      "normal": 3,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 218,
+      "round": 3,
+      "event": "action",
+      "message": "达妮娅使用「闭幕回场」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "curtain",
+      "skill_name": "闭幕回场",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 100
+      },
+      "form": "blue"
+    },
+    {
+      "id": 219,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为达妮娅本段伤害提供约 29 点收益",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 29
+    },
+    {
+      "id": 220,
+      "round": 3,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 222 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 222,
+      "absorbed": 0,
+      "coefficient": 1.8,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2696,
+      "hp_after": 2474,
+      "element": "fusion",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 29,
+      "prevented": 0
+    },
+    {
+      "id": 221,
+      "round": 3,
+      "event": "buff_used",
+      "message": "增益为达妮娅本段伤害提供约 32 点收益",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "kind": "status_amplifier",
+      "amount": 32
+    },
+    {
+      "id": 222,
+      "round": 3,
+      "event": "damage",
+      "message": "达妮娅的异常效果对无冠者造成 96 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 96,
+      "absorbed": 0,
+      "coefficient": 0.6,
+      "status_damage": true,
+      "damage_source": "status",
+      "broken_bonus": false,
+      "hp_before": 2474,
+      "hp_after": 2378,
+      "element": "fusion",
+      "amp_applied": 0.5,
+      "mitigation": 1,
+      "buff_bonus": 32,
+      "prevented": 0
+    },
+    {
+      "id": 223,
+      "round": 3,
+      "event": "form",
+      "message": "达妮娅切换为红形态",
+      "actor": "ally:2:denia",
+      "from": "blue",
+      "to": "red"
+    },
+    {
+      "id": 224,
+      "round": 3,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "curtain",
+      "resources_after": {
+        "expectation": 0
+      },
+      "concerto": 0,
+      "form": "red"
+    },
+    {
+      "id": 225,
+      "round": 3,
+      "event": "window_end",
+      "message": "达妮娅结束窗口，保留0普通AP",
+      "actor": "ally:2:denia",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 226,
+      "round": 3,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 227,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 228,
+      "round": 3,
+      "event": "action",
+      "message": "千咲使用「切开结点」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "skill_name": "切开结点",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 45
+      },
+      "form": "normal"
+    },
+    {
+      "id": 229,
+      "round": 3,
+      "event": "damage",
+      "message": "千咲对无冠者造成 39 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 39,
+      "absorbed": 0,
+      "coefficient": 0.62,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2378,
+      "hp_after": 2339,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 230,
+      "round": 3,
+      "event": "status",
+      "message": "无冠者获得切线",
+      "target": "enemy:0:crownless",
+      "status": "cutline",
+      "value": {
+        "actions": 2,
+        "expires": 6
+      }
+    },
+    {
+      "id": 231,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "cut"
+    },
+    {
+      "id": 232,
+      "round": 3,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "resources_after": {
+        "thread": 15
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 233,
+      "round": 3,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 234,
+      "round": 3,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 15
+      },
+      "form": "normal"
+    },
+    {
+      "id": 235,
+      "round": 3,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2339,
+      "hp_after": 2279,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 236,
+      "round": 3,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 237,
+      "round": 3,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 40
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 238,
+      "round": 3,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 239,
+      "round": 4,
+      "event": "round",
+      "message": "第 4 回合",
+      "number": 4
+    },
+    {
+      "id": 240,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "爱弥斯普通AP 1→5（+4，上限6）",
+      "actor": "ally:0:amy",
+      "before": 1,
+      "after": 5,
+      "amount": 4
+    },
+    {
+      "id": 241,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 242,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "达妮娅普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:denia",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 243,
+      "round": 4,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 244,
+      "round": 4,
+      "event": "recover",
+      "message": "无冠者恢复 240 点共振，无恢复硬保护",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "shield": 240,
+      "recovery_lock": false
+    },
+    {
+      "id": 245,
+      "round": 4,
+      "event": "phase",
+      "message": "无冠者进入第二阶段；展翼震荡替换下一次普通行动",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless",
+      "phase": 2
+    },
+    {
+      "id": 246,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 247,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 248,
+      "round": 4,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 249,
+      "round": 4,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2279,
+      "hp_after": 2234,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 250,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 240,
+      "shield_after": 216
+    },
+    {
+      "id": 251,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "survey"
+    },
+    {
+      "id": 252,
+      "round": 4,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 253,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 254,
+      "round": 4,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 255,
+      "round": 4,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2234,
+      "hp_after": 2189,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 256,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 216,
+      "shield_after": 192
+    },
+    {
+      "id": 257,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "survey"
+    },
+    {
+      "id": 258,
+      "round": 4,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 259,
+      "round": 4,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 260,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到爱弥斯行动",
+      "actor": "ally:0:amy",
+      "side": "ally"
+    },
+    {
+      "id": 261,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "爱弥斯支付3AP（临时0），剩余2+0",
+      "actor": "ally:0:amy",
+      "skill": "enhanced",
+      "amount": 3,
+      "temporary": 0,
+      "normal": 3,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 262,
+      "round": 4,
+      "event": "action",
+      "message": "爱弥斯使用「双相强化E」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "enhanced",
+      "skill_name": "双相强化E",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 170,
+        "resonance": 4
+      },
+      "form": "human"
+    },
+    {
+      "id": 263,
+      "round": 4,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 198 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 198,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2189,
+      "hp_after": 1991,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 264,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −12",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 12,
+      "shield_before": 192,
+      "shield_after": 180
+    },
+    {
+      "id": 265,
+      "round": 4,
+      "event": "status",
+      "message": "无冠者获得震谐标记",
+      "target": "enemy:0:crownless",
+      "status": "tune",
+      "value": {
+        "owner": "ally:0:amy",
+        "expires": 5
+      }
+    },
+    {
+      "id": 266,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +30（70/100；本轮30/40）",
+      "actor": "ally:0:amy",
+      "amount": 30,
+      "before": 40,
+      "after": 70,
+      "source": "enhanced"
+    },
+    {
+      "id": 267,
+      "round": 4,
+      "event": "form",
+      "message": "爱弥斯切换为机兵",
+      "actor": "ally:0:amy",
+      "from": "human",
+      "to": "mech"
+    },
+    {
+      "id": 268,
+      "round": 4,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "enhanced",
+      "resources_after": {
+        "sync": 70,
+        "resonance": 4
+      },
+      "concerto": 70,
+      "form": "mech"
+    },
+    {
+      "id": 269,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余0+0",
+      "actor": "ally:0:amy",
+      "skill": "heavy",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 270,
+      "round": 4,
+      "event": "action",
+      "message": "爱弥斯使用「满谐重击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "heavy",
+      "skill_name": "满谐重击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 70,
+        "resonance": 4
+      },
+      "form": "mech"
+    },
+    {
+      "id": 271,
+      "round": 4,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 66 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 66,
+      "absorbed": 0,
+      "coefficient": 0.55,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1991,
+      "hp_after": 1925,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 272,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 180,
+      "shield_after": 172
+    },
+    {
+      "id": 273,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +10（80/100；本轮40/40）",
+      "actor": "ally:0:amy",
+      "amount": 10,
+      "before": 70,
+      "after": 80,
+      "source": "heavy"
+    },
+    {
+      "id": 274,
+      "round": 4,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "heavy",
+      "resources_after": {
+        "sync": 200,
+        "resonance": 4
+      },
+      "concerto": 80,
+      "form": "mech"
+    },
+    {
+      "id": 275,
+      "round": 4,
+      "event": "window_end",
+      "message": "爱弥斯结束窗口，保留0普通AP",
+      "actor": "ally:0:amy",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 276,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 277,
+      "round": 4,
+      "event": "enemy_action",
+      "message": "无冠者使用「展翼震荡」（全体）",
+      "actor": "enemy:0:crownless",
+      "skill": "wingpulse",
+      "skill_name": "展翼震荡",
+      "target": "ally:0:amy",
+      "targets": [
+        "ally:0:amy",
+        "ally:1:lynae",
+        "ally:2:denia",
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 278,
+      "round": 4,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 84 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:amy",
+      "kind": "cutline_attack_reduction",
+      "amount": 84
+    },
+    {
+      "id": 279,
+      "round": 4,
+      "event": "damage",
+      "message": "无冠者对爱弥斯造成 481 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:amy",
+      "amount": 481,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1371,
+      "hp_after": 890,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 280,
+      "round": 4,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 90 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "kind": "cutline_attack_reduction",
+      "amount": 90
+    },
+    {
+      "id": 281,
+      "round": 4,
+      "event": "damage",
+      "message": "无冠者对琳奈造成 513 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "amount": 513,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1650,
+      "hp_after": 1137,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 282,
+      "round": 4,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 88 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:denia",
+      "kind": "cutline_attack_reduction",
+      "amount": 88
+    },
+    {
+      "id": 283,
+      "round": 4,
+      "event": "damage",
+      "message": "无冠者对达妮娅造成 504 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:denia",
+      "amount": 504,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1700,
+      "hp_after": 1196,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 284,
+      "round": 4,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 78 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "kind": "cutline_attack_reduction",
+      "amount": 78
+    },
+    {
+      "id": 285,
+      "round": 4,
+      "event": "damage",
+      "message": "无冠者对千咲造成 447 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "amount": 447,
+      "absorbed": 0,
+      "coefficient": 1.65,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 2050,
+      "hp_after": 1603,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 286,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到达妮娅行动",
+      "actor": "ally:2:denia",
+      "side": "ally"
+    },
+    {
+      "id": 287,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 288,
+      "round": 4,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 0
+      },
+      "form": "red"
+    },
+    {
+      "id": 289,
+      "round": 4,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1925,
+      "hp_after": 1837,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 290,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 172,
+      "shield_after": 164
+    },
+    {
+      "id": 291,
+      "round": 4,
+      "event": "teamwork",
+      "message": "达妮娅接力震谐，期待 +5（每行动一次）",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "owner": "ally:0:amy",
+      "resource": "expectation",
+      "amount": 5
+    },
+    {
+      "id": 292,
+      "round": 4,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 10 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "status_amplifier",
+      "amount": 10
+    },
+    {
+      "id": 293,
+      "round": 4,
+      "event": "damage",
+      "message": "爱弥斯的异常效果对无冠者造成 52 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 52,
+      "absorbed": 0,
+      "coefficient": 0.35,
+      "status_damage": true,
+      "damage_source": "status",
+      "broken_bonus": false,
+      "hp_before": 1837,
+      "hp_after": 1785,
+      "element": "fusion",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 10,
+      "prevented": 0
+    },
+    {
+      "id": 294,
+      "round": 4,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 1,
+        "owner": "ally:2:denia",
+        "expires": 7
+      }
+    },
+    {
+      "id": 295,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 296,
+      "round": 4,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 30
+      },
+      "concerto": 20,
+      "form": "red"
+    },
+    {
+      "id": 297,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 298,
+      "round": 4,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 30
+      },
+      "form": "red"
+    },
+    {
+      "id": 299,
+      "round": 4,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1785,
+      "hp_after": 1697,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 300,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 164,
+      "shield_after": 156
+    },
+    {
+      "id": 301,
+      "round": 4,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 2,
+        "owner": "ally:2:denia",
+        "expires": 7
+      }
+    },
+    {
+      "id": 302,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "basic"
+    },
+    {
+      "id": 303,
+      "round": 4,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 55
+      },
+      "concerto": 40,
+      "form": "red"
+    },
+    {
+      "id": 304,
+      "round": 4,
+      "event": "window_end",
+      "message": "达妮娅结束窗口，保留0普通AP",
+      "actor": "ally:2:denia",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 305,
+      "round": 4,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 306,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 307,
+      "round": 4,
+      "event": "action",
+      "message": "千咲使用「切开结点」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "skill_name": "切开结点",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 40
+      },
+      "form": "normal"
+    },
+    {
+      "id": 308,
+      "round": 4,
+      "event": "damage",
+      "message": "千咲对无冠者造成 39 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 39,
+      "absorbed": 0,
+      "coefficient": 0.62,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1697,
+      "hp_after": 1658,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 309,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −20",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 20,
+      "shield_before": 156,
+      "shield_after": 136
+    },
+    {
+      "id": 310,
+      "round": 4,
+      "event": "status",
+      "message": "无冠者获得切线",
+      "target": "enemy:0:crownless",
+      "status": "cutline",
+      "value": {
+        "actions": 2,
+        "expires": 7
+      }
+    },
+    {
+      "id": 311,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "cut"
+    },
+    {
+      "id": 312,
+      "round": 4,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "resources_after": {
+        "thread": 10
+      },
+      "concerto": 60,
+      "form": "normal"
+    },
+    {
+      "id": 313,
+      "round": 4,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余0+0",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 314,
+      "round": 4,
+      "event": "action",
+      "message": "千咲使用「闭剪裁击」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "skill_name": "闭剪裁击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 10
+      },
+      "form": "normal"
+    },
+    {
+      "id": 315,
+      "round": 4,
+      "event": "damage",
+      "message": "千咲对无冠者造成 60 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 60,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1658,
+      "hp_after": 1598,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 316,
+      "round": 4,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 136,
+      "shield_after": 128
+    },
+    {
+      "id": 317,
+      "round": 4,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 318,
+      "round": 4,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "basic",
+      "resources_after": {
+        "thread": 35
+      },
+      "concerto": 80,
+      "form": "normal"
+    },
+    {
+      "id": 319,
+      "round": 4,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留0普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 320,
+      "round": 5,
+      "event": "round",
+      "message": "第 5 回合",
+      "number": 5
+    },
+    {
+      "id": 321,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "爱弥斯普通AP 0→4（+4，上限6）",
+      "actor": "ally:0:amy",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 322,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 0→4（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 323,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "达妮娅普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:denia",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 324,
+      "round": 5,
+      "event": "ap_gain",
+      "message": "千咲普通AP 0→4（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 325,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 326,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 327,
+      "round": 5,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 328,
+      "round": 5,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 45 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 45,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1598,
+      "hp_after": 1553,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 329,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 128,
+      "shield_after": 104
+    },
+    {
+      "id": 330,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "survey"
+    },
+    {
+      "id": 331,
+      "round": 5,
+      "event": "concerto_ready",
+      "message": "琳奈协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:1:lynae",
+      "amount": 100
+    },
+    {
+      "id": 332,
+      "round": 5,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 333,
+      "round": 5,
+      "event": "status",
+      "message": "爱弥斯获得延奏增伤",
+      "target": "ally:0:amy",
+      "status": "outro",
+      "value": {
+        "amp": 0.25,
+        "liberation_extra": 0.1,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 334,
+      "round": 5,
+      "event": "concerto",
+      "message": "琳奈延奏给爱弥斯：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:1:lynae",
+      "target": "ally:0:amy",
+      "amp": 0.25,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 335,
+      "round": 5,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留2普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 2,
+      "paid_actions": 1
+    },
+    {
+      "id": 336,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到爱弥斯行动",
+      "actor": "ally:0:amy",
+      "side": "ally"
+    },
+    {
+      "id": 337,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "爱弥斯支付3AP（临时2），剩余3+0",
+      "actor": "ally:0:amy",
+      "skill": "finale",
+      "amount": 3,
+      "temporary": 2,
+      "normal": 1,
+      "ap_after": 3,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 338,
+      "round": 5,
+      "event": "action",
+      "message": "爱弥斯使用「星辉终结」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "finale",
+      "skill_name": "星辉终结",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 200,
+        "resonance": 4
+      },
+      "form": "mech"
+    },
+    {
+      "id": 339,
+      "round": 5,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 151 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 151
+    },
+    {
+      "id": 340,
+      "round": 5,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 583 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 583,
+      "absorbed": 0,
+      "coefficient": 3.6,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1553,
+      "hp_after": 970,
+      "element": "fusion",
+      "amp_applied": 0.35,
+      "mitigation": 1,
+      "buff_bonus": 151,
+      "prevented": 0
+    },
+    {
+      "id": 341,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −16",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 16,
+      "shield_before": 104,
+      "shield_after": 88
+    },
+    {
+      "id": 342,
+      "round": 5,
+      "event": "status",
+      "message": "无冠者获得震谐标记",
+      "target": "enemy:0:crownless",
+      "status": "tune",
+      "value": {
+        "owner": "ally:0:amy",
+        "expires": 6
+      }
+    },
+    {
+      "id": 343,
+      "round": 5,
+      "event": "form",
+      "message": "爱弥斯切换为人形",
+      "actor": "ally:0:amy",
+      "from": "mech",
+      "to": "human"
+    },
+    {
+      "id": 344,
+      "round": 5,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "finale",
+      "resources_after": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "concerto": 80,
+      "form": "human"
+    },
+    {
+      "id": 345,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余1+0",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 1,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 346,
+      "round": 5,
+      "event": "action",
+      "message": "爱弥斯使用「人形/机兵 普通攻击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "skill_name": "人形/机兵 普通攻击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 0,
+        "resonance": 0
+      },
+      "form": "human"
+    },
+    {
+      "id": 347,
+      "round": 5,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 24 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 24
+    },
+    {
+      "id": 348,
+      "round": 5,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 117 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 117,
+      "absorbed": 0,
+      "coefficient": 0.78,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 970,
+      "hp_after": 853,
+      "element": "fusion",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 24,
+      "prevented": 0
+    },
+    {
+      "id": 349,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 88,
+      "shield_after": 80
+    },
+    {
+      "id": 350,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "basic"
+    },
+    {
+      "id": 351,
+      "round": 5,
+      "event": "concerto_ready",
+      "message": "爱弥斯协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:0:amy",
+      "amount": 100
+    },
+    {
+      "id": 352,
+      "round": 5,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "resources_after": {
+        "sync": 40,
+        "resonance": 0
+      },
+      "concerto": 100,
+      "form": "human"
+    },
+    {
+      "id": 353,
+      "round": 5,
+      "event": "status",
+      "message": "琳奈获得延奏增伤",
+      "target": "ally:1:lynae",
+      "status": "outro",
+      "value": {
+        "amp": 0.2,
+        "liberation_extra": 0,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 354,
+      "round": 5,
+      "event": "concerto",
+      "message": "爱弥斯延奏给琳奈：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:0:amy",
+      "target": "ally:1:lynae",
+      "amp": 0.2,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 355,
+      "round": 5,
+      "event": "window_end",
+      "message": "爱弥斯结束窗口，保留1普通AP",
+      "actor": "ally:0:amy",
+      "ap": 1,
+      "paid_actions": 2
+    },
+    {
+      "id": 356,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到无冠者行动",
+      "actor": "enemy:0:crownless",
+      "side": "enemy"
+    },
+    {
+      "id": 357,
+      "round": 5,
+      "event": "enemy_action",
+      "message": "无冠者使用「羽锋横扫」（全体）",
+      "actor": "enemy:0:crownless",
+      "skill": "sweep",
+      "skill_name": "羽锋横扫",
+      "target": "ally:0:amy",
+      "targets": [
+        "ally:0:amy",
+        "ally:1:lynae",
+        "ally:2:denia",
+        "ally:3:chisa"
+      ]
+    },
+    {
+      "id": 358,
+      "round": 5,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 48 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:amy",
+      "kind": "cutline_attack_reduction",
+      "amount": 48
+    },
+    {
+      "id": 359,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对爱弥斯造成 277 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:0:amy",
+      "amount": 277,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 890,
+      "hp_after": 613,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 360,
+      "round": 5,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 52 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "kind": "cutline_attack_reduction",
+      "amount": 52
+    },
+    {
+      "id": 361,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对琳奈造成 295 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:1:lynae",
+      "amount": 295,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1137,
+      "hp_after": 842,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 362,
+      "round": 5,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 51 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:denia",
+      "kind": "cutline_attack_reduction",
+      "amount": 51
+    },
+    {
+      "id": 363,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对达妮娅造成 290 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:2:denia",
+      "amount": 290,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1196,
+      "hp_after": 906,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 364,
+      "round": 5,
+      "event": "buff_used",
+      "message": "切线压低敌方伤害约 45 点",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "kind": "cutline_attack_reduction",
+      "amount": 45
+    },
+    {
+      "id": 365,
+      "round": 5,
+      "event": "damage",
+      "message": "无冠者对千咲造成 257 点伤害",
+      "actor": "enemy:0:crownless",
+      "target": "ally:3:chisa",
+      "amount": 257,
+      "absorbed": 0,
+      "coefficient": 0.95,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 1603,
+      "hp_after": 1346,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 366,
+      "round": 5,
+      "event": "status",
+      "message": "爱弥斯获得暴露",
+      "target": "ally:0:amy",
+      "status": "exposed",
+      "value": {
+        "expires": 6
+      }
+    },
+    {
+      "id": 367,
+      "round": 5,
+      "event": "status",
+      "message": "琳奈获得暴露",
+      "target": "ally:1:lynae",
+      "status": "exposed",
+      "value": {
+        "expires": 6
+      }
+    },
+    {
+      "id": 368,
+      "round": 5,
+      "event": "status",
+      "message": "达妮娅获得暴露",
+      "target": "ally:2:denia",
+      "status": "exposed",
+      "value": {
+        "expires": 6
+      }
+    },
+    {
+      "id": 369,
+      "round": 5,
+      "event": "status",
+      "message": "千咲获得暴露",
+      "target": "ally:3:chisa",
+      "status": "exposed",
+      "value": {
+        "expires": 6
+      }
+    },
+    {
+      "id": 370,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到达妮娅行动",
+      "actor": "ally:2:denia",
+      "side": "ally"
+    },
+    {
+      "id": 371,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余2+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 372,
+      "round": 5,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 55
+      },
+      "form": "red"
+    },
+    {
+      "id": 373,
+      "round": 5,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 853,
+      "hp_after": 765,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 374,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 80,
+      "shield_after": 72
+    },
+    {
+      "id": 375,
+      "round": 5,
+      "event": "teamwork",
+      "message": "达妮娅接力震谐，期待 +5（每行动一次）",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "owner": "ally:0:amy",
+      "resource": "expectation",
+      "amount": 5
+    },
+    {
+      "id": 376,
+      "round": 5,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 10 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "status_amplifier",
+      "amount": 10
+    },
+    {
+      "id": 377,
+      "round": 5,
+      "event": "damage",
+      "message": "爱弥斯的异常效果对无冠者造成 52 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 52,
+      "absorbed": 0,
+      "coefficient": 0.35,
+      "status_damage": true,
+      "damage_source": "status",
+      "broken_bonus": false,
+      "hp_before": 765,
+      "hp_after": 713,
+      "element": "fusion",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 10,
+      "prevented": 0
+    },
+    {
+      "id": 378,
+      "round": 5,
+      "event": "buff_used",
+      "message": "增益为达妮娅本段伤害提供约 16 点收益",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "kind": "status_amplifier",
+      "amount": 16
+    },
+    {
+      "id": 379,
+      "round": 5,
+      "event": "damage",
+      "message": "达妮娅的异常效果对无冠者造成 80 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 80,
+      "absorbed": 0,
+      "coefficient": 0.6,
+      "status_damage": true,
+      "damage_source": "status",
+      "broken_bonus": false,
+      "hp_before": 713,
+      "hp_after": 633,
+      "element": "fusion",
+      "amp_applied": 0.25,
+      "mitigation": 1,
+      "buff_bonus": 16,
+      "prevented": 0
+    },
+    {
+      "id": 380,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（60/100；本轮20/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 40,
+      "after": 60,
+      "source": "basic"
+    },
+    {
+      "id": 381,
+      "round": 5,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 85
+      },
+      "concerto": 60,
+      "form": "red"
+    },
+    {
+      "id": 382,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "达妮娅支付2AP（临时0），剩余0+0",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 383,
+      "round": 5,
+      "event": "action",
+      "message": "达妮娅使用「布景泡沫/幻灭爪击」 → 无冠者",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "skill_name": "布景泡沫/幻灭爪击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "expectation": 85
+      },
+      "form": "red"
+    },
+    {
+      "id": 384,
+      "round": 5,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 88 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 88,
+      "absorbed": 0,
+      "coefficient": 0.82,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 633,
+      "hp_after": 545,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 385,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −8",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 8,
+      "shield_before": 72,
+      "shield_after": 64
+    },
+    {
+      "id": 386,
+      "round": 5,
+      "event": "status",
+      "message": "无冠者获得聚爆",
+      "target": "enemy:0:crownless",
+      "status": "fusion",
+      "value": {
+        "n": 1,
+        "owner": "ally:2:denia",
+        "expires": 8
+      }
+    },
+    {
+      "id": 387,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "达妮娅个人协奏 +20（80/100；本轮40/40）",
+      "actor": "ally:2:denia",
+      "amount": 20,
+      "before": 60,
+      "after": 80,
+      "source": "basic"
+    },
+    {
+      "id": 388,
+      "round": 5,
+      "event": "action_end",
+      "message": "达妮娅行动结束",
+      "actor": "ally:2:denia",
+      "skill": "basic",
+      "resources_after": {
+        "expectation": 100
+      },
+      "concerto": 80,
+      "form": "red"
+    },
+    {
+      "id": 389,
+      "round": 5,
+      "event": "window_end",
+      "message": "达妮娅结束窗口，保留0普通AP",
+      "actor": "ally:2:denia",
+      "ap": 0,
+      "paid_actions": 2
+    },
+    {
+      "id": 390,
+      "round": 5,
+      "event": "turn",
+      "message": "轮到千咲行动",
+      "actor": "ally:3:chisa",
+      "side": "ally"
+    },
+    {
+      "id": 391,
+      "round": 5,
+      "event": "ap_spent",
+      "message": "千咲支付2AP（临时0），剩余2+0",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 392,
+      "round": 5,
+      "event": "action",
+      "message": "千咲使用「切开结点」 → 无冠者",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "skill_name": "切开结点",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "thread": 35
+      },
+      "form": "normal"
+    },
+    {
+      "id": 393,
+      "round": 5,
+      "event": "damage",
+      "message": "千咲对无冠者造成 39 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 39,
+      "absorbed": 0,
+      "coefficient": 0.62,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 545,
+      "hp_after": 506,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 394,
+      "round": 5,
+      "event": "shield",
+      "message": "无冠者共振 −20",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 20,
+      "shield_before": 64,
+      "shield_after": 44
+    },
+    {
+      "id": 395,
+      "round": 5,
+      "event": "status",
+      "message": "无冠者获得切线",
+      "target": "enemy:0:crownless",
+      "status": "cutline",
+      "value": {
+        "actions": 2,
+        "expires": 8
+      }
+    },
+    {
+      "id": 396,
+      "round": 5,
+      "event": "concerto_gain",
+      "message": "千咲个人协奏 +20（100/100；本轮20/40）",
+      "actor": "ally:3:chisa",
+      "amount": 20,
+      "before": 80,
+      "after": 100,
+      "source": "cut"
+    },
+    {
+      "id": 397,
+      "round": 5,
+      "event": "concerto_ready",
+      "message": "千咲协奏已满，可在本人付费动作后发动延奏并结束窗口",
+      "actor": "ally:3:chisa",
+      "amount": 100
+    },
+    {
+      "id": 398,
+      "round": 5,
+      "event": "action_end",
+      "message": "千咲行动结束",
+      "actor": "ally:3:chisa",
+      "skill": "cut",
+      "resources_after": {
+        "thread": 5
+      },
+      "concerto": 100,
+      "form": "normal"
+    },
+    {
+      "id": 399,
+      "round": 5,
+      "event": "status",
+      "message": "爱弥斯获得延奏增伤",
+      "target": "ally:0:amy",
+      "status": "outro",
+      "value": {
+        "amp": 0.15,
+        "liberation_extra": 0,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 400,
+      "round": 5,
+      "event": "status",
+      "message": "爱弥斯获得异常增幅",
+      "target": "ally:0:amy",
+      "status": "status_outro",
+      "value": {
+        "amp": 0.25,
+        "expires": 6,
+        "window_bound": true
+      }
+    },
+    {
+      "id": 401,
+      "round": 5,
+      "event": "concerto",
+      "message": "千咲延奏给爱弥斯：临时2AP及专属增益，来源窗口结束；不改变顺位",
+      "actor": "ally:3:chisa",
+      "target": "ally:0:amy",
+      "amp": 0.15,
+      "intro_gain": 0,
+      "temp_ap": 2,
+      "trigger": "automatic"
+    },
+    {
+      "id": 402,
+      "round": 5,
+      "event": "window_end",
+      "message": "千咲结束窗口，保留2普通AP",
+      "actor": "ally:3:chisa",
+      "ap": 2,
+      "paid_actions": 1
+    },
+    {
+      "id": 403,
+      "round": 6,
+      "event": "round",
+      "message": "第 6 回合",
+      "number": 6
+    },
+    {
+      "id": 404,
+      "round": 6,
+      "event": "ap_gain",
+      "message": "爱弥斯普通AP 1→5（+4，上限6）",
+      "actor": "ally:0:amy",
+      "before": 1,
+      "after": 5,
+      "amount": 4
+    },
+    {
+      "id": 405,
+      "round": 6,
+      "event": "ap_gain",
+      "message": "琳奈普通AP 2→6（+4，上限6）",
+      "actor": "ally:1:lynae",
+      "before": 2,
+      "after": 6,
+      "amount": 4
+    },
+    {
+      "id": 406,
+      "round": 6,
+      "event": "ap_gain",
+      "message": "达妮娅普通AP 0→4（+4，上限6）",
+      "actor": "ally:2:denia",
+      "before": 0,
+      "after": 4,
+      "amount": 4
+    },
+    {
+      "id": 407,
+      "round": 6,
+      "event": "ap_gain",
+      "message": "千咲普通AP 2→6（+4，上限6）",
+      "actor": "ally:3:chisa",
+      "before": 2,
+      "after": 6,
+      "amount": 4
+    },
+    {
+      "id": 408,
+      "round": 6,
+      "event": "turn",
+      "message": "轮到琳奈行动",
+      "actor": "ally:1:lynae",
+      "side": "ally"
+    },
+    {
+      "id": 409,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时2），剩余6+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 6,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 410,
+      "round": 6,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 411,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 412,
+      "round": 6,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 506,
+      "hp_after": 452,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 413,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −24",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 24,
+      "shield_before": 44,
+      "shield_after": 20
+    },
+    {
+      "id": 414,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "survey"
+    },
+    {
+      "id": 415,
+      "round": 6,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 20,
+      "form": "normal"
+    },
+    {
+      "id": 416,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余4+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 4,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 417,
+      "round": 6,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 418,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 419,
+      "round": 6,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 452,
+      "hp_after": 398,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 420,
+      "round": 6,
+      "event": "shield",
+      "message": "无冠者共振 −20",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 20,
+      "shield_before": 20,
+      "shield_after": 0
+    },
+    {
+      "id": 421,
+      "round": 6,
+      "event": "break",
+      "message": "无冠者共振击破！取消准备并跳过第6轮的一个窗口，不附加易伤",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "until": 6,
+      "skip_round": 6
+    },
+    {
+      "id": 422,
+      "round": 6,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 21 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 21,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 398,
+      "hp_after": 377,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 423,
+      "round": 6,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 18 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 18,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 377,
+      "hp_after": 359,
+      "element": "spectro",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 424,
+      "round": 6,
+      "event": "damage",
+      "message": "达妮娅对无冠者造成 19 点伤害",
+      "actor": "ally:2:denia",
+      "target": "enemy:0:crownless",
+      "amount": 19,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 359,
+      "hp_after": 340,
+      "element": "fusion",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 425,
+      "round": 6,
+      "event": "damage",
+      "message": "千咲对无冠者造成 11 点伤害",
+      "actor": "ally:3:chisa",
+      "target": "enemy:0:crownless",
+      "amount": 11,
+      "absorbed": 0,
+      "coefficient": 0.18,
+      "status_damage": false,
+      "damage_source": "joint",
+      "broken_bonus": false,
+      "hp_before": 340,
+      "hp_after": 329,
+      "element": "havoc",
+      "amp_applied": 0,
+      "mitigation": 1,
+      "buff_bonus": 0,
+      "prevented": 0
+    },
+    {
+      "id": 426,
+      "round": 6,
+      "event": "joint_attack",
+      "message": "联合攻击共造成69伤害；80为200主属性/目标160DEF/中性抗性的总参考预算，无额外资源",
+      "target": "enemy:0:crownless",
+      "actors": [
+        "ally:0:amy",
+        "ally:1:lynae",
+        "ally:2:denia",
+        "ally:3:chisa"
+      ],
+      "amount": 69,
+      "reference_budget": 80
+    },
+    {
+      "id": 427,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "琳奈个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:1:lynae",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "survey"
+    },
+    {
+      "id": 428,
+      "round": 6,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 429,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余2+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 2,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 430,
+      "round": 6,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 431,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 432,
+      "round": 6,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 329,
+      "hp_after": 275,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 433,
+      "round": 6,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 434,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "琳奈支付2AP（临时0），剩余0+0",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 0,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 435,
+      "round": 6,
+      "event": "action",
+      "message": "琳奈使用「留彩破势」 → 无冠者",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "skill_name": "留彩破势",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "color": 0
+      },
+      "form": "normal"
+    },
+    {
+      "id": 436,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为琳奈本段伤害提供约 9 点收益",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 9
+    },
+    {
+      "id": 437,
+      "round": 6,
+      "event": "damage",
+      "message": "琳奈对无冠者造成 54 点伤害",
+      "actor": "ally:1:lynae",
+      "target": "enemy:0:crownless",
+      "amount": 54,
+      "absorbed": 0,
+      "coefficient": 0.43,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 275,
+      "hp_after": 221,
+      "element": "spectro",
+      "amp_applied": 0.2,
+      "mitigation": 1,
+      "buff_bonus": 9,
+      "prevented": 0
+    },
+    {
+      "id": 438,
+      "round": 6,
+      "event": "action_end",
+      "message": "琳奈行动结束",
+      "actor": "ally:1:lynae",
+      "skill": "survey",
+      "resources_after": {
+        "color": 0
+      },
+      "concerto": 40,
+      "form": "normal"
+    },
+    {
+      "id": 439,
+      "round": 6,
+      "event": "window_end",
+      "message": "琳奈结束窗口，保留0普通AP",
+      "actor": "ally:1:lynae",
+      "ap": 0,
+      "paid_actions": 4
+    },
+    {
+      "id": 440,
+      "round": 6,
+      "event": "turn",
+      "message": "轮到爱弥斯行动",
+      "actor": "ally:0:amy",
+      "side": "ally"
+    },
+    {
+      "id": 441,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时2），剩余5+0",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "amount": 2,
+      "temporary": 2,
+      "normal": 0,
+      "ap_after": 5,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 442,
+      "round": 6,
+      "event": "action",
+      "message": "爱弥斯使用「人形/机兵 普通攻击」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "skill_name": "人形/机兵 普通攻击",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 40,
+        "resonance": 0
+      },
+      "form": "human"
+    },
+    {
+      "id": 443,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 14 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 14
+    },
+    {
+      "id": 444,
+      "round": 6,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 107 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 107,
+      "absorbed": 0,
+      "coefficient": 0.78,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 221,
+      "hp_after": 114,
+      "element": "fusion",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 14,
+      "prevented": 0
+    },
+    {
+      "id": 445,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（20/100；本轮20/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 0,
+      "after": 20,
+      "source": "basic"
+    },
+    {
+      "id": 446,
+      "round": 6,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "basic",
+      "resources_after": {
+        "sync": 80,
+        "resonance": 0
+      },
+      "concerto": 20,
+      "form": "human"
+    },
+    {
+      "id": 447,
+      "round": 6,
+      "event": "ap_spent",
+      "message": "爱弥斯支付2AP（临时0），剩余3+0",
+      "actor": "ally:0:amy",
+      "skill": "overdrive",
+      "amount": 2,
+      "temporary": 0,
+      "normal": 2,
+      "ap_after": 3,
+      "temp_ap_after": 0
+    },
+    {
+      "id": 448,
+      "round": 6,
+      "event": "action",
+      "message": "爱弥斯使用「星辉启动」 → 无冠者",
+      "actor": "ally:0:amy",
+      "skill": "overdrive",
+      "skill_name": "星辉启动",
+      "target": "enemy:0:crownless",
+      "targets": [
+        "enemy:0:crownless"
+      ],
+      "resources_before": {
+        "sync": 80,
+        "resonance": 0
+      },
+      "form": "human"
+    },
+    {
+      "id": 449,
+      "round": 6,
+      "event": "buff_used",
+      "message": "增益为爱弥斯本段伤害提供约 18 点收益",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "kind": "damage_amplifier",
+      "amount": 18
+    },
+    {
+      "id": 450,
+      "round": 6,
+      "event": "damage",
+      "message": "爱弥斯对无冠者造成 114 点伤害",
+      "actor": "ally:0:amy",
+      "target": "enemy:0:crownless",
+      "amount": 114,
+      "absorbed": 0,
+      "coefficient": 1.05,
+      "status_damage": false,
+      "damage_source": "direct",
+      "broken_bonus": false,
+      "hp_before": 114,
+      "hp_after": 0,
+      "element": "fusion",
+      "amp_applied": 0.15,
+      "mitigation": 1,
+      "buff_bonus": 18,
+      "prevented": 0
+    },
+    {
+      "id": 451,
+      "round": 6,
+      "event": "incapacitated",
+      "message": "无冠者失去战斗能力",
+      "unit": "enemy:0:crownless",
+      "target": "enemy:0:crownless"
+    },
+    {
+      "id": 452,
+      "round": 6,
+      "event": "concerto_gain",
+      "message": "爱弥斯个人协奏 +20（40/100；本轮40/40）",
+      "actor": "ally:0:amy",
+      "amount": 20,
+      "before": 20,
+      "after": 40,
+      "source": "overdrive"
+    },
+    {
+      "id": 453,
+      "round": 6,
+      "event": "form",
+      "message": "爱弥斯切换为机兵",
+      "actor": "ally:0:amy",
+      "from": "human",
+      "to": "mech"
+    },
+    {
+      "id": 454,
+      "round": 6,
+      "event": "action_end",
+      "message": "爱弥斯行动结束",
+      "actor": "ally:0:amy",
+      "skill": "overdrive",
+      "resources_after": {
+        "sync": 30,
+        "resonance": 2
+      },
+      "concerto": 40,
+      "form": "mech"
+    },
+    {
+      "id": 455,
+      "round": 6,
+      "event": "result",
+      "message": "战斗胜利",
+      "outcome": "win"
+    }
+  ]
+}

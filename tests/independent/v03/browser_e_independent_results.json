@@ -1,0 +1,58 @@
+{
+  "asOf": "2026-10-10T07:16:00Z",
+  "browser": "Cloud Chrome, real UI and screenshots",
+  "stages": {
+    "A": {
+      "app": "365b10f4a07073e2365f57aed474ebe634dd84c973ab7acd99a3849c23177dfb",
+      "assets": "ca80f3d5eca1e641b78cc1948fdfa83484134253d9425137993bd4141d4078f4"
+    },
+    "B": {
+      "app": "365b10f4a07073e2365f57aed474ebe634dd84c973ab7acd99a3849c23177dfb",
+      "assets": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8"
+    },
+    "C": {
+      "app": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+      "assets": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8"
+    }
+  },
+  "confirmedUnfixedCodeBlockers": [],
+  "boss": {
+    "difficulty": "standard",
+    "level": 20,
+    "result": "win",
+    "round": 7,
+    "manualPartAPCost": 6,
+    "partDamage": [
+      99,
+      81,
+      81
+    ],
+    "bodyHPUnchangedAtPartCounter": 3603,
+    "resonanceUnchangedAtPartCounter": 136,
+    "breakCountAtVictory": 1
+  },
+  "actualAppearanceEntries": 4,
+  "actualPrismSpeciesObserved": 5,
+  "nativeProjectRoundtrip": true,
+  "finalKeyboardFocusRegression": true,
+  "unisolatedObservation": "Fast batched locator mouse inputs twice selected a neighboring item. Stable DOM rectangles did not drift; observed stable selections accurate. Kept distinct from corrected RAF keyboard-focus defect.",
+  "cleanupBlocked": "Permission request dismissed during cleanup after core UI checks. Local test audio and anchors may remain.",
+  "notVerified": [
+    "Windows",
+    "offline file launch",
+    "all 64 action poses in actual continuous playback",
+    "audible playback quality",
+    "multiple real viewport sizes",
+    "user final art acceptance"
+  ],
+  "requirementAcceptance": {
+    "completeDiscussionScheme": false,
+    "currentScope": "E+C foundational mechanism candidate",
+    "unimplemented": [
+      "theme-team gameplay",
+      "further outro redesign"
+    ],
+    "testedOutroScope": "Existing implemented baseline concerto/outro mechanics only"
+  },
+  "knownLowRiskTextIssue": "charge_started legacy wording says defense break rather than resonance break"
+}

@@ -1,84 +1,61 @@
-鸣潮回合制离线遭遇测试：素材映射与接入记录
-日期：2026-10-09
+鸣潮回合制 3.0 · 遭遇测试 test.3 素材接入说明
+更新日期：2026-10-10
 
-交付范围
-- 84 张友方当前动作图、5 张敌方当前工作图。文件逐字节复制；SHA-256 与输入登记的 work hash 全部一致。
-- 无新增生图、无镜像、无负尺度、无重画、无像素阈值化、无再描边。审图 contact sheet 是另存的检查缩略拼图，不替代任何场上 PNG。
-- 仅导入本项目交付候选图。未包含模型、模型贴图、官方游戏原始美术或《八方旅人》专有素材。
-- 原登记的 user_confirmed=false、runtime_verified=false 被保留。用户授权将现有美术导入测试，不应被写成“84+5 图均由用户美术终审通过”。
+当前范围与完成状态
+- 原 test.2 的84张友方动作图与5张敌方主体原字节保留。旧接入说明完整归档至 history/ASSET_NOTES_test2.txt。
+- test.3 另接入5种棱镜新绘候选图，以及漂泊者四外观共64张动作本体。新增素材有图像生成与静态复核过程，不能沿用旧版“无新增生图”的结论。
+- 漂泊者首批制作范围为4外观×16个独立姿态，共64张；本次64张动作本体工作PNG已齐。图像齐备不等于完整效果、实机校准或用户美术终审通过。
+- 本次运行图总数158张＝原89张＋5张棱镜＋64张漂泊者，当前0个待绘槽位。
+- 当前真实PNG数量、待绘槽位数，读取 assets/manifest.json 的 audit.deliveredPNGCount / pendingSlotCount；每张PNG读取 slots[key].src 和 sha256。src非空才是实际运行图片，src:null且pending:true为明确待绘槽位。
+- 漂泊者本批完成数读取 assets/rover-manifest.json 的 deliveredImages / pendingImages / plannedUniqueImages；各外观完成数在 forms.*.readyUniquePoses / plannedUniquePoses。工作台与编队外观菜单也显示已有图数量。
+- 当前文件存在、静态检查通过、程序接入、真实浏览器验证、用户美术终审是不同结论。不要把候选图或已接入图写成全部终审通过。runtimeVerified / userConfirmed 等标记按实际证据保留。
 
-离线 API
-index.html 以普通 script 标签加载 assets.js。其声明 window.DEFAULT_ASSETS。
-- slots[slotKey]：89 个独立槽。key/entity/form/action/label/src、PNG 宽高、bodyHeight、bodyScale、anchors、SHA、公开版本等。公开副本移除了上游工作目录和内部复审编号，不影响动作映射。
-- forms[entity][form].idle：默认待战槽 key。
-- forms[entity][form].actions[command]：指令对应槽 key。
-- forms[entity][form].sequences[command]：同一次规则行动内部的多姿势演出；不能因此重复结算。
-- forms[entity][form].actionOrder：该形态全部独立动作槽 key。
-- enemies[参数敌人 key].slot / actions：该敌所有动作使用的当前单张主体。
-- transitions：amy.human_to_mecha、amy.mecha_to_human、denia.red_to_blue、denia.blue_to_red。
-- defaults、formAliases、rendering、audit：默认形态、皮肤别名、显示建议、审计边界。
-- assets/manifest.json 是相同内容的可读副本。实际运行不依赖 fetch JSON、模块服务器或外网。
+离线加载与清单
+- index.html 通过普通script标签加载 assets.js，声明 window.DEFAULT_ASSETS；assets/manifest.json为相同内容的可读副本。
+- 游戏不依赖fetch JSON、模块服务器、在线模型库或外网下载。请完整保留所有相对路径与PNG。
+- slots 包含实体、形态、动作、标签、src、原始尺寸、身体参考高、正倍率、接地/头顶锚点、哈希和验证状态。
+- forms[entity][form].idle 指向本外观待机；actions[command]指向动作槽；sequences[command]是同一次规则动作内的姿态序列，不新增AP支付或额外规则结算。
+- 敌方映射在 enemies[参数实体key]。transitions保留爱弥斯和达妮娅的实际跨形态演出。
+- 漂泊者增量见 assets/rover-manifest.json；棱镜增量见 assets/prism-manifest.json。文件级发行校验以同次构建的 RUNTIME_ASSETS.json / SHA256SUMS.txt 为准。
 
-实体和形态
-amy: human 12 / mecha 12
-lynae: normal 7 / peppermint 7
-mornye: normal 7 / winter 7
-denia: red 8 / blue 8
-chisa: normal 8 / peach 8
-参数实体名固定为 denia，即使历史源目录使用 dania。
-槽示例：amy.human.A01、mornye.normal.M01、amy.mecha.M01、enemy.crownless.idle。莫宁与机兵相同 M 编号不会冲突。
+实体、外观与属性
+- 原角色：amy 的 human/mecha，lynae 的 normal/peppermint，mornye 的 normal/winter，denia 的 red/blue，chisa 的 normal/peach。参数实体固定为denia，不受历史目录拼写影响。
+- 漂泊者是单个战斗实体 rover；male_default、male_school、female_default、female_school是四个独立外观，不互相冒充未绘图。
+- spectro/havoc/aero/electro是漂泊者四种开场属性机制，资源与技能由当前引擎决定，外观不改变数值。
+- 新棱镜为 glacio_prism、fusion_prism、aero_prism、spectro_prism、havoc_prism。未新增未经核实的导电棱镜。
+- 头像来自运行角色/敌人图片的技术裁切。没有将整套官方立绘、中性模型render、官方纹理或研究参考图直接塞入公开运行包。
 
-敌方版本与完整身体比例
-snip 咔嚓嚓：ENEMY_001 v003，身体高 413 工作像素，1.150418 倍。
-predator 惊蛰猎手：ENEMY_002 v003，身体高 485，1.350975 倍。
-bracer 坚岩斗士：ENEMY_003 v003，身体高 754，2.100279 倍。
-carapace 车刃镰：ENEMY_004 v004，身体高 610，1.699164 倍。
-crownless 无冠者：ENEMY_005 v001，身体高 1257，3.501393 倍。
-以上共同以爱弥斯 A01 主头顶 y41 至支撑鞋底 y400 的 359 像素身体高为 1 倍，不含武器、悬浮头饰、羽翼、白边或透明留白。
-若友方参考显示身体高设为 132px，敌方全部用同一正尺度 132/359。头目身体显示约462px，完整PNG约806×546px。不要把头目完整羽翼外框强塞进普通敌格子而缩成等高。
+动作映射、复用与待绘
+- 漂泊者每外观的动作分为通用状态、属性技能与解放。优先匹配mode_action，再匹配通用action；明确共用项及原因记录在rover manifest的aliasReasons。
+- 普攻可跨属性共用同一外观的普攻姿态；部分强化、纯增益、胜利/延奏展示可按已记录的语义复用本人姿态。不能把复用项算成另一张独立新画。
+- 导电技能的云隙索使用独立三色硬边Canvas像素折线，从已核rightPalm/cast锚点连接实际行动目标，短暂出现后自动清理；不烘焙进PNG，也不增加伤害段数或AP。
+- 导电反击可以是防御→攻击的两帧序列。这仍是单次引擎动作/触发，不按图片张数多次付费或多次结算。
+- 当前64个漂泊者独立本体槽已齐。若后续扩展出现尚未绘制的独立槽，必须保持src:null / pending:true，在运行时和工作台明确显示素材待绘。不得借另一角色或另一性别服装的动作假装完成。
+- 原有支援、形态转换和已有语义复用按保留映射使用。历史pry/encourage图片键可留作旧素材映射记录，但撬防/鼓舞不是新规则菜单动作。
+- 有独立hurt工作图时显示受击姿态；原角色若hurt仅指回健康idle，则保留受击前存活姿态并用短闪/位移表达，不能让濒危者跳回健康待机。
+- 失能/倒地不会被演出定时器恢复idle。敌方仍是单主体候选图，以短闪、淡出和移除表现失能；不虚构独立倒地图。
+- 爱弥斯/达妮娅形态取持久战斗状态。临时演出结束回到实际当前形态，不强制还原初始形态。
 
-友方身体尺度
-bodyHeight 是当前形态的站立参考身体高，用于维持动作间比例，不是每个蹲坐/倒下动作的外框高。
-显示尺度 = 参考友方显示身体高 × bodyScale / bodyHeight。
-有直接旧交付量尺的基准：Amy人形359、琳奈常服350、莫宁常服358、达妮娅红288。
-其他皮肤/蓝形态/千咲使用已查看 PNG 的粗量尺或同头网格参考，manifest 中标 provisional_calibration。
-机兵参考身体高暂取约414工作像素；1.7倍人形是既有项目试排，不是官方设定或用户新定值。保留正倍率，可在测试校准里调整。
-不按当前动作的 alphaBBox、PNG 高度或武器外框自动等高。反过来，用站立基准缩放后，跪坐/趴倒应该自然更低。
+尺度与锚点
+- 友方按站立身体参考高 referenceBodyHeight/bodyHeight 缩放，当前姿态的蹲坐、跪地、倒地或长武器外框不改变身体比例。倒地图应自然更低，不能按倒地bbox等高而放大。
+- 原5敌仍共用359工作像素的人形参考：咔嚓嚓413、惊蛰猎手485、坚岩斗士754、车刃镰610、无冠者1257的完整身体高。不得按羽翼/武器外框把头目缩成普通敌等高。
+- 棱镜身体高377，身体倍率约1.050139；它们悬浮，悬浮间隙与透明边距不计入身体高。
+- 接地、pivot、foot、weapon等锚点以manifest为准。没有证据的武器枢轴不能冒写为已核实。
+- 头顶三角使用sprite-local的anchors.head，不再使用整张透明画布顶边。新漂泊者采用已审查crown地标按实际整数缩放和位移转为工作图坐标，crown不含呆毛；既有待机采用头像头部区域的不透明上缘。缺独立头顶点时，使用Alpha bbox顶部作为明确的几何回退。
+- 所有这些仍是运行校准候选，不能把坐标存在写成真人/目标浏览器已验。工作台可调接地、身体尺度、头顶X/Y、武器点和头像裁切；粉色十字是头顶，青色是接地，金色是武器点。
 
-动作复用边界
-- wait / taunt / retreat：待战姿态；等待、嘲讽提示、撤离移动分别由程序表现。
-- pry：角色基本武器攻击姿态；削盾数仍由规则决定。
-- encourage / concerto / intro / outro：该形态支援姿态；独立辅助特效。
-- guard：该形态防御姿态。
-- hurt：短闪与后退优先保持受击前的当前活体姿态；actions.hurt 的待战 key 仅作无当前姿态时 fallback，不能让重伤者受击后跳回健康待战。
-- critical：活着时的重伤姿态；down / dead：该形态倒下或机兵停机姿态。
-- 死亡/失能不能由演出结束定时器恢复到 idle。敌方只有单张主体，以闪烁后淡出/移除表示倒下，不虚构独立倒下 PNG。
-- 琳奈 survey 复用枪击，skate/spectrum 复用专属轮滑峰值；没有通用空手施法。
-- 莫宁 heal 复用支援，field/restore 复用专属解析姿态；瞬时悬浮不自动变成常驻悬浮规则。
-- 千咲 cut/release 复用切结点，chainsaw 用电锯动作，mend 用支援；常服支援为递 Pocky，夏装为递饮料，已使用 14:44 修订后当前版本。
-- 爱弥斯 heavy、finale 有准备→释放序列；enhanced 的换形由真实状态决定，不能仅因播放图自动增加行动。
-- Amy、Denia 的跨行动形态必须读持久状态。切换结束落在新形态 idle，不能统一还原 human/red。
-- 默认人物姿态选择优先级建议：down > critical > 当前临时演出 > 持久形态 idle。
+朝向、像素与查看
+- 敌在屏幕左侧朝右，友方在右侧朝左。行动角色向左前移是正向平移，不是翻转图片。
+- 不使用scaleX(-1)、负宽高或任何整图镜像改变方向；角色自身左右饰品和服装保持来源方向。
+- 运行图采用最近邻显示，Canvas不做平滑缩放。最终屏幕上的可选轮廓效果不改写源PNG，不重复烘焙粗白边。
+- 正常战场下缩不能完整保留所有细饰，素材工作台提供原尺寸审图与滚动查看。静态审图不能代替真实战场的头部辨识、位置、遮挡、动作衔接或Windows双击验证。
 
-方向与查看范围
-敌在屏幕左、友在屏幕右。敌方当前五图和全部84动作 contact sheet已实际查看，攻击方向与左/右阵营设计相容；没有镜像处理。
-某些待战、支援或倒下图为正面/偏前方向，不能把静态接触图查看说成每一张精确三维解剖侧别全部复证。manifest 明确 left_or_front_left / right_or_front_right。
+已知限制与来源边界
+- 原 denia.blue.DB03 含中间Alpha值，alphaBinary=false；这项历史限制继续保留。它的原PNG未偷偷阈值化，也没有宣称全包硬Alpha已通过。
+- 原其它图的验证记录仅对当时对应字节成立；新增图按各自manifest与当批检查记录看待，不把旧89图的审计结论套给所有新增图。
+- 本公开运行包包含本项目候选工作图与新绘衍生图，不包含官方模型/纹理、研究参考截图、《八方旅人》专有素材、私有源目录或完整上游制作输入。
+- 当前测试包不是完整美术终审包；发布或部署成功不等于艺术、像素、Windows、声音或真人趣味性已验收。
 
-锚点与验证边界
-旧总表 anchor_px 以及敌方程序锚点为 null。本次 anchors.foot / ground / pivot 是实际图片目视后的校准候选；不是已在目标引擎验证的锚点。
-待战基准给出较明确鞋底点；其他动作采用 contact sheet身体中心横坐标估计及最低可见点附近纵坐标，武器尖端可能低于鞋底，需在校准界面逐张微调。
-机兵非倒下姿态区分足端与地面投影，ground低于foot；真实悬浮距离仍需校准。
-weaponAnchor全部为null，没有凭空填写未经观测的武器枢轴。程序可把远程命中特效落在目标处，避免用不可靠武器点。
-
-像素与白边
-角色保持 image-rendering: pixelated / crisp-edges；Canvas关闭imageSmoothingEnabled；贴图最近邻采样；静止显示位置尽量落整数屏幕像素。
-非整数下缩时，原图1像素白边会变成局部断细线。可选在最终显示分辨率上做一次非模糊1px alpha轮廓渲染，源PNG不变；不得再次给已有白边PNG烘焙粗外圈。
-不为方便转向使用scaleX(-1)、负宽高或其他整图镜像。可用正向平移、短闪、回位、独立残影和淡出，不让程序演出改变人物固有不对称侧别。
-
-明确发现的问题
-当前 denia.blue.DB03 当前候选 外边合绘图的 SHA 与 v1.3 总表一致，但含中间Alpha值，alphaBinary=false。其他83友方图和五敌工作图为二值Alpha。本包保留该原文件，未偷偷修正或冒充“全部二值通过”。它仍可用于重伤姿态测试；若正式像素验收要求硬Alpha，应另行授权并审查其来源修订。
-
-上游历史生成与复核
-原始素材制作工具依赖未公开的上游输入，不随本公开源码分发，也不是本包运行命令。
-assets/hash_audit.json：89槽逐项文件/哈希/尺寸/Alpha验证回执。
-RUNTIME_ASSETS.json：公开运行副本的包内相对路径、文件大小与SHA256。
+修订记录
+- 女校服重伤RVF-S-03由用户退回的v002替换为v004静态修订候选，旧版SHA与原因保留revisionHistory；待用户确认，远膝/近足约16.5工作px纵深差仍列Q42实机项。
+- 男手套局部一致性修订按同动作槽替换，不增加独立图计数。被替换的5张工作PNG保留history/rover-revisions，不在当前runtime映射中。

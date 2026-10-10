@@ -1,0 +1,23 @@
+{
+  "kind": "Simulated focus/keyboard timing regression; not pointer/browser geometry evidence",
+  "createdAt": "2026-10-10T07:11:27.961Z",
+  "passed": 4,
+  "checks": [
+    {
+      "name": "Opening-menu focus cannot overwrite a later user focus on End",
+      "pass": true
+    },
+    {
+      "name": "Enter after that frame selects End rather than the first action",
+      "pass": true
+    },
+    {
+      "name": "Opening-target focus cannot overwrite a later user focus on Cancel",
+      "pass": true
+    },
+    {
+      "name": "Enter on early-focused Cancel returns without AP or battle mutation",
+      "pass": true
+    }
+  ]
+}

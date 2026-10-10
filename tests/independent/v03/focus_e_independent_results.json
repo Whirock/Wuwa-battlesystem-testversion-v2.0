@@ -1,0 +1,17 @@
+{
+  "evidence": "Independent rapid-focus event sequence in multi-callback RAF simulator, not pointer or browser geometry proof.",
+  "appSHA256": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+  "unchanged": true,
+  "passed": 2,
+  "failed": 0,
+  "results": [
+    {
+      "case": "menu_choice",
+      "pass": true
+    },
+    {
+      "case": "cancel_target",
+      "pass": true
+    }
+  ]
+}

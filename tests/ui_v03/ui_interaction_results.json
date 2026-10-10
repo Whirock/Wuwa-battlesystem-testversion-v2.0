@@ -1,0 +1,109 @@
+{
+  "kind": "DOM/event integration only",
+  "browserVerified": false,
+  "pixelVerified": false,
+  "createdAt": "2026-10-10T07:11:29.313Z",
+  "passed": 23,
+  "checks": [
+    {
+      "name": "Default stage has no command panel; active actor has native accessible trigger",
+      "pass": true
+    },
+    {
+      "name": "Actor opens focus mode without spending AP",
+      "pass": true
+    },
+    {
+      "name": "Top menu contains battle, skill, outro, negotiate, escape only",
+      "pass": true
+    },
+    {
+      "name": "Guard and items nested under battle; removed pry and encourage absent",
+      "pass": true
+    },
+    {
+      "name": "Selecting action hides command and detail while showing target dock",
+      "pass": true
+    },
+    {
+      "name": "Enter on focused Cancel returns without confirmation or AP payment",
+      "pass": true
+    },
+    {
+      "name": "Arrow navigation selects another valid target",
+      "pass": true
+    },
+    {
+      "name": "Escape restores the originating battle submenu at no cost",
+      "pass": true
+    },
+    {
+      "name": "Confirmation pays once; duplicate click/repeat Enter/animation input cannot mutate again",
+      "pass": true
+    },
+    {
+      "name": "One action closes menu but retains the same actor window and 2 remaining AP",
+      "pass": true
+    },
+    {
+      "name": "Same actor can reopen after paid action",
+      "pass": true
+    },
+    {
+      "name": "Blank canvas click dismisses focus mode without consuming AP",
+      "pass": true
+    },
+    {
+      "name": "Keyboard Enter opens actor menu",
+      "pass": true
+    },
+    {
+      "name": "Escape from root fully closes command mode and returns focus to actor",
+      "pass": true
+    },
+    {
+      "name": "Guard ends actor window and status is an underlined focusable tooltip trigger",
+      "pass": true
+    },
+    {
+      "name": "Normal enemy cards have no resonance/shield or weaknesses displayed",
+      "pass": true
+    },
+    {
+      "name": "Each ally has exactly six regular and two temporary AP slots",
+      "pass": true
+    },
+    {
+      "name": "Formation coordinates are finite and inside nominal 1000x600 stage",
+      "pass": true
+    },
+    {
+      "name": "Formation coordinates are finite and inside nominal 600x500 stage",
+      "pass": true
+    },
+    {
+      "name": "Formation coordinates are finite and inside nominal 365x370 stage",
+      "pass": true
+    },
+    {
+      "name": "Asset workbench retains sprite replacement and original-size review",
+      "pass": true
+    },
+    {
+      "name": "Original-size image review preserves actual asset URL without mirroring",
+      "pass": true
+    },
+    {
+      "name": "At least four real-engine rounds or a terminal result run through DOM step controls without errors",
+      "pass": true
+    }
+  ],
+  "round": 3,
+  "steps": 19,
+  "errors": [],
+  "limits": [
+    "Canvas, timers, audio, viewport layout and IndexedDB mocked by jsdom harness.",
+    "Real Chromium launch blocked by sandbox Unix sockets; escalated launch blocked by bwrap infrastructure.",
+    "No Windows launch, audio codec or human gameplay certification."
+  ]
+}

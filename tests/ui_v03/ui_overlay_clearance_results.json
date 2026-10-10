@@ -1,0 +1,103 @@
+{
+  "kind": "Simulated canvas/DOM coordinate regression, not real browser layout",
+  "createdAt": "2026-10-10T07:11:32.517Z",
+  "passed": 16,
+  "checks": [
+    {
+      "name": "620x600 details clear ally:1:lynae",
+      "pass": true,
+      "detailRight": 325,
+      "actorLeft": 354
+    },
+    {
+      "name": "620x600 details clear ally:0:amy",
+      "pass": true,
+      "detailRight": 325,
+      "actorLeft": 344
+    },
+    {
+      "name": "620x600 details clear ally:3:denia",
+      "pass": true,
+      "detailRight": 325,
+      "actorLeft": 344
+    },
+    {
+      "name": "620x600 details clear ally:2:mornye",
+      "pass": true,
+      "detailRight": 325,
+      "actorLeft": 346
+    },
+    {
+      "name": "650x600 details clear ally:1:lynae",
+      "pass": true,
+      "detailRight": 359,
+      "actorLeft": 371
+    },
+    {
+      "name": "650x600 details clear ally:0:amy",
+      "pass": true,
+      "detailRight": 349,
+      "actorLeft": 361
+    },
+    {
+      "name": "650x600 details clear ally:3:denia",
+      "pass": true,
+      "detailRight": 349,
+      "actorLeft": 361
+    },
+    {
+      "name": "650x600 details clear ally:2:mornye",
+      "pass": true,
+      "detailRight": 351,
+      "actorLeft": 363
+    },
+    {
+      "name": "700x600 details clear ally:1:lynae",
+      "pass": true,
+      "detailRight": 388,
+      "actorLeft": 400
+    },
+    {
+      "name": "700x600 details clear ally:0:amy",
+      "pass": true,
+      "detailRight": 377,
+      "actorLeft": 389
+    },
+    {
+      "name": "700x600 details clear ally:3:denia",
+      "pass": true,
+      "detailRight": 376,
+      "actorLeft": 388
+    },
+    {
+      "name": "700x600 details clear ally:2:mornye",
+      "pass": true,
+      "detailRight": 379,
+      "actorLeft": 391
+    },
+    {
+      "name": "1000x600 details clear ally:1:lynae",
+      "pass": true,
+      "detailRight": 460,
+      "actorLeft": 573
+    },
+    {
+      "name": "1000x600 details clear ally:0:amy",
+      "pass": true,
+      "detailRight": 460,
+      "actorLeft": 558
+    },
+    {
+      "name": "1000x600 details clear ally:3:denia",
+      "pass": true,
+      "detailRight": 460,
+      "actorLeft": 557
+    },
+    {
+      "name": "1000x600 details clear ally:2:mornye",
+      "pass": true,
+      "detailRight": 460,
+      "actorLeft": 561
+    }
+  ]
+}

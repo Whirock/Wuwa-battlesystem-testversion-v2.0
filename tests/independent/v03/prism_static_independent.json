@@ -1,0 +1,110 @@
+{
+  "class": "Independent PNG byte/alpha/NN check plus visual inspection of full contact sheets; not browser rendering or final art approval",
+  "results": [
+    {
+      "slot": "enemy.glacio_prism.idle",
+      "size": [
+        391,
+        417
+      ],
+      "bbox": [
+        19,
+        19,
+        372,
+        398
+      ],
+      "margin_min": 19,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "manifest_sha_matches": true,
+      "nn3x_exact": true,
+      "sha256": "d2168a138db22998b4733c9e20f1bcc5ee44d288bf5dbff2a9c5aa8de7d180ae"
+    },
+    {
+      "slot": "enemy.fusion_prism.idle",
+      "size": [
+        367,
+        417
+      ],
+      "bbox": [
+        19,
+        19,
+        348,
+        398
+      ],
+      "margin_min": 19,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "manifest_sha_matches": true,
+      "nn3x_exact": true,
+      "sha256": "5be8f20d59b987c5e0bb540ac64f189eab21aeec007be9844d8e2e1cbc5d8f4a"
+    },
+    {
+      "slot": "enemy.aero_prism.idle",
+      "size": [
+        294,
+        417
+      ],
+      "bbox": [
+        19,
+        19,
+        275,
+        398
+      ],
+      "margin_min": 19,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "manifest_sha_matches": true,
+      "nn3x_exact": true,
+      "sha256": "f39c68262117ce958648520b158d2b065acb58bc337802ed4332efa93748073a"
+    },
+    {
+      "slot": "enemy.spectro_prism.idle",
+      "size": [
+        407,
+        417
+      ],
+      "bbox": [
+        19,
+        19,
+        388,
+        398
+      ],
+      "margin_min": 19,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "manifest_sha_matches": true,
+      "nn3x_exact": true,
+      "sha256": "144368f0f89f8da0fa3ca2c4ea4c312ab4f072dacc4b5a0ffd68291f311bbb63"
+    },
+    {
+      "slot": "enemy.havoc_prism.idle",
+      "size": [
+        405,
+        417
+      ],
+      "bbox": [
+        19,
+        19,
+        386,
+        398
+      ],
+      "margin_min": 19,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "manifest_sha_matches": true,
+      "nn3x_exact": true,
+      "sha256": "fa1dce2e8eec57849363c46c2d752973eb80a102ada5e2e2cb9c0beaed7d31c4"
+    }
+  ]
+}

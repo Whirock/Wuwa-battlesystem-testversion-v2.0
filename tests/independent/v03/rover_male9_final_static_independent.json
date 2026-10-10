@@ -1,0 +1,251 @@
+{
+  "reviewedAt": "2026-10-10T06:36:00Z",
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVM-D-10-SP",
+      "version": "v002",
+      "action": "spectro_liberation",
+      "sha256": "6a362f69f475dc268966c8d2c05a8d0abd1e43b588724104beffaafb229c563f",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        134,
+        56,
+        413,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 288,
+        "y": 418
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    },
+    {
+      "id": "RVM-S-10-SP",
+      "version": "v002",
+      "action": "spectro_liberation",
+      "sha256": "e434f6567895378ba94d137607bc8548072868181dc5c79e8ea779430b4b7cf3",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        125,
+        57,
+        408,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 288,
+        "y": 418
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    },
+    {
+      "id": "RVM-D-10-HV",
+      "version": "v002",
+      "action": "havoc_liberation",
+      "sha256": "f7136651463941618a2e9646b58c7825b9dd9df158384a81510e80e21ed8850a",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        119,
+        107,
+        490,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 418
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    },
+    {
+      "id": "RVM-S-10-HV",
+      "version": "v001",
+      "action": "havoc_liberation",
+      "sha256": "d3c19fa6007e6b1a601b5361e19c9851b9fe8fc8a660c5bffd25d3c2d47b44db",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        113,
+        105,
+        487,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 418
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    },
+    {
+      "id": "RVM-D-10-AE",
+      "version": "v002",
+      "action": "aero_liberation",
+      "sha256": "213f91261c99b85dd3ea878d31289dd28a6a0e419da580da04904722c9461539",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        201,
+        110,
+        445,
+        480
+      ],
+      "minMargin": 96,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 518
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    },
+    {
+      "id": "RVM-D-10-EL",
+      "version": "v002",
+      "action": "electro_liberation",
+      "sha256": "2611a9d8c7589b8b81f8710f911bda79cac9859566b0bd45c87c9a3f5828cb8e",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        144,
+        148,
+        456,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 418
+      },
+      "visualReview": "Each trouser leg separately traces hip to front lifted knee, vertical shin and planted boot, or hip to grounded rear knee, backward-folded shin, ankle and rear boot. Inner/outer contours do not swap. Supporting hand contacts the extended forearm; distinct kneeling release pose."
+    },
+    {
+      "id": "RVM-S-10-EL",
+      "version": "v001",
+      "action": "electro_liberation",
+      "sha256": "9319b316a5139ddad14e703f2c901cd1ba32d86d69443d4251930b7f6affba01",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        141,
+        145,
+        460,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 418
+      },
+      "visualReview": "Each trouser leg separately traces hip to front lifted knee, vertical shin and planted boot, or hip to grounded rear knee, backward-folded shin, ankle and rear boot. Inner/outer contours do not swap. Supporting hand contacts the extended forearm; distinct kneeling release pose."
+    },
+    {
+      "id": "RVM-D-04-SP-b",
+      "version": "v001",
+      "action": "spectro_enhanced",
+      "sha256": "9ead37d2adf6046d450209aa3d9f2ebebb1b6d30271ef74ba8c89801d95326e8",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        45,
+        69,
+        575,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 384,
+        "y": 418
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    },
+    {
+      "id": "RVM-D-04-HV-b",
+      "version": "v001",
+      "action": "havoc_enhanced",
+      "sha256": "74e31d88c32197507147a0011ebfe0325fc1a64d0d1d7ca5f8c440189d349abd",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        75,
+        137,
+        544,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 384,
+        "y": 418
+      },
+      "visualReview": "Distinct bodily action, model asymmetry and handedness retained. Proportions, grip or hand gesture, support/airborne intent checked; no clipping or obvious discontinuous anatomy."
+    }
+  ]
+}

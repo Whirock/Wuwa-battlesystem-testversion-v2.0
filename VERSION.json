@@ -1,45 +1,72 @@
 {
-  "version": "0.2.0-candidate",
-  "date": "2026-10-09",
+  "version": "0.3.0-candidate",
+  "date": "2026-10-10",
   "rule_family": "3.0 encounter prototype",
-  "parameter_version": "0.2.0-candidate",
-  "publication_variant": "GitHub public 3.0 main-root distribution; presentation metadata sanitized",
-  "source_delivery_zip_sha256": "9451629fe0552e980e337c741a0780e6be9a228256ab1c2bf546c9bac2f61044",
-  "verification": "63/63 rule unit tests; 12/12 independent rule groups; 29/29 jsdom DOM tests; 4/4 assets; 3/3 metadata. Browser visual/audio/Windows launch NOT verified.",
+  "parameter_version": "0.3.0-candidate",
+  "release_tag": "v3.0.0-test.3",
+  "display_version": "3.0 · AP encounter prototype v0.3",
+  "repository_program_root": ".",
+  "publication_variant": "test.3 E+C foundation pre-release; dedicated team designs remain discussion work",
+  "verification": {
+    "rule_self_tests": "54/54 actual-engine tests; source-KO interruption both sides, counter0.6 and initial incapacitated state",
+    "independent_qa": {
+      "engine_hash": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+      "parameter_hash": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105",
+      "matrix_battles": 1080,
+      "per_action_restore_checks": 48314,
+      "errors": 0,
+      "matrix_outcomes": {
+        "win": 748,
+        "loss": 332
+      },
+      "boss_independent_policy_runs": 160,
+      "directed_rules": "37/37 independent directed groups; distinct from developer54 tests."
+    },
+    "real_browser": "Actual cloud-browser commands/targets/save-load/restart, four appearances/five prisms, tether and S03, Boss victory, native media project roundtrip, final focus fix verified; see independent QA for exact coverage and remaining limits.",
+    "windows_double_click": "not verified",
+    "actual_audio": "not verified",
+    "engine_matrix": {
+      "battles": 556,
+      "wins": 426,
+      "losses": 121,
+      "inconclusive": 9,
+      "save_restore_checks": 3754
+    },
+    "boss_strategy": {
+      "battles": 2700,
+      "standard_basic_wins": "88/300",
+      "standard_part_route_wins": "300/300",
+      "standard_guard_route_wins": "297/300",
+      "easy_basic_wins": "300/300",
+      "claim": "actual engine seeded policies, not population/human win rates"
+    }
+  },
   "byte_preservation": {
-    "unchanged_runtime_files": [
-      "app.js",
-      "engine.js",
-      "index.html",
-      "parameters.js",
-      "storage.js",
-      "style.css"
-    ],
-    "unchanged_parameter_json": true,
     "unchanged_png_assets": 89,
-    "metadata_only_changed_runtime": [
-      "release-notes.js",
-      "assets.js"
-    ]
+    "runtime_code_changed": true,
+    "unchanged_parameter_json": false
   },
-  "compatibility": "Independent of legacy Python ABC runtime. v0.1 encounter battle saves are not resumed with v0.2 rules; custom asset projects can migrate.",
+  "compatibility": "battle-engine-v2-ap only for0.3.0-candidate. Old battles restart; supported asset projects migrate. No old release is overwritten.",
   "limits": [
-    "Real browser visual rendering, actual audio playback, Windows double-click launch remain unverified.",
-    "Candidate balancing; three 60-round observations remain inconclusive."
+    "Experimental balance and user art acceptance are not final; 64 Rover action images are present.",
+    "Rover four modes use project turn-based skill adaptations; full airborne chains are not implemented.",
+    "Five prism types use explicit same-element immunity; original species-specific support relationships not implemented.",
+    "Actual image counts and pending/reused slots are in RUNTIME_ASSETS.json.",
+    "The intended dedicated resonance team and grouping/expanded-stack/manual-detonation fusion team are not fully implemented; generic break joint attacks are not equivalent."
   ],
-  "publication_scope": "Runtime source, frozen required assets, parameters, version history, reproducible current tests and results. No upstream models, textures, user reference screenshots or hosted deployment configuration.",
+  "publication_scope": "Runtime code, necessary PNGs, candidate parameters and public-safe implementation/test documentation. No private design framework, PMX/models, reference images or private research packages.",
   "core_hashes": {
-    "index.html": "80507ff10d1272bd389aa92b2bc8ce6fdef77773d8cefae9e9b2275a03aa8e93",
-    "style.css": "da0da94f6f6e67d1778c3997b34722c710c5e7ca75c2cc5fdec6c5ceca3254de",
-    "app.js": "6e5cba4b3a006abcb1c38cd93b9d924515aba63c4b1171bd5e9d6bb44bd1085e",
-    "engine.js": "49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26",
+    "index.html": "fc79e4b119aba2bf0640af88ef08c6346d19e084fb877f337d1e19358f12e0b4",
+    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters.js": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1",
+    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
     "storage.js": "c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217",
-    "parameters.js": "5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70",
-    "assets.js": "fa45767143261f25efecf39be34a2a1e555ed9cc3ba0bdd9d3ab389032518319",
-    "release-notes.js": "19781f0e7dd8cbe494a4298319fb804891398e3189b9ed0538eb1cc3f599de62"
+    "style.css": "a2d94eb2090cff9e5f904eb7d7814470e9efb548892363c8241757e4545b5f38",
+    "release-notes.js": "21a23b095867821b9c30bd25cc07678f3c42ad07b60e677e84dbab739573a46d"
   },
-  "parameter_json_sha256": "348495fa0ffd95a949f479e9ac5871846c54b42b265c1834431f1ca81b684873",
-  "release_tag": "v3.0.0-test.2",
-  "display_version": "3.0 · encounter prototype v0.2",
-  "repository_program_root": "."
+  "parameter_json_sha256": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105",
+  "runtime_png_count": 158,
+  "pending_art_slot_count": 0,
+  "manifest_generated_at": "2026-10-10T07:26:23.429864+00:00"
 }

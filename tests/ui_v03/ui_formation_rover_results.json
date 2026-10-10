@@ -1,0 +1,95 @@
+{
+  "kind": "Simulated DOM and coordinate audit; no pixel verification",
+  "createdAt": "2026-10-10T07:11:29.989Z",
+  "passed": 22,
+  "checks": [
+    {
+      "name": "snip advances the current actor ahead of every idle ally",
+      "pass": true
+    },
+    {
+      "name": "snip centers enemy row on ally midpoint",
+      "pass": true
+    },
+    {
+      "name": "snip+predator advances the current actor ahead of every idle ally",
+      "pass": true
+    },
+    {
+      "name": "snip+predator centers enemy row on ally midpoint",
+      "pass": true
+    },
+    {
+      "name": "snip+predator places two enemies above/below the midpoint",
+      "pass": true
+    },
+    {
+      "name": "snip+snip+predator advances the current actor ahead of every idle ally",
+      "pass": true
+    },
+    {
+      "name": "snip+snip+predator centers enemy row on ally midpoint",
+      "pass": true
+    },
+    {
+      "name": "bracer+snip+predator advances the current actor ahead of every idle ally",
+      "pass": true
+    },
+    {
+      "name": "bracer+snip+predator centers enemy row on ally midpoint",
+      "pass": true
+    },
+    {
+      "name": "Single elite is front/center; two common enemies behind symmetrically",
+      "pass": true
+    },
+    {
+      "name": "bracer+carapace advances the current actor ahead of every idle ally",
+      "pass": true
+    },
+    {
+      "name": "bracer+carapace centers enemy row on ally midpoint",
+      "pass": true
+    },
+    {
+      "name": "bracer+carapace places two enemies above/below the midpoint",
+      "pass": true
+    },
+    {
+      "name": "crownless advances the current actor ahead of every idle ally",
+      "pass": true
+    },
+    {
+      "name": "crownless centers enemy row on ally midpoint",
+      "pass": true
+    },
+    {
+      "name": "Prism encounters exist in the setup menu",
+      "pass": true
+    },
+    {
+      "name": "Rover supports four elemental modes and four separate appearances",
+      "pass": true
+    },
+    {
+      "name": "Selected Rover mode uses dedicated electro resources and selected appearance persists",
+      "pass": true
+    },
+    {
+      "name": "Rover pending art is explicit and cannot be an old character alias",
+      "pass": true
+    },
+    {
+      "name": "Five prism species have their own new art URLs and no mirror permission",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion setting is persisted in the real project model",
+      "pass": true
+    },
+    {
+      "name": "No DOM runtime errors while testing six formations, Rover, prisms and reduced motion",
+      "pass": true
+    }
+  ]
+}

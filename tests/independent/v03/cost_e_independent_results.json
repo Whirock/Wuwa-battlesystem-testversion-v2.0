@@ -1,0 +1,585 @@
+{
+  "scope": "Independent actual engine, level20 standard Crownless, real Lynae color economy, deterministic. Same 6 AP and zero-to-zero 60 color cycle, across two personal windows. No artificial precharge, no enemy HP/DEF/resistance modification, no joint trigger in these short routes.",
+  "hashes": {
+    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters.json": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105"
+  },
+  "breakRoute": {
+    "route": [
+      "basic",
+      "basic",
+      "skate"
+    ],
+    "AP": 6,
+    "bodyDamage": 252,
+    "resonanceRemoved": 56,
+    "startResource": {
+      "color": 0
+    },
+    "endResource": {
+      "color": 0
+    },
+    "round": 2,
+    "actorNormalAPRemaining": 2,
+    "enemyWindows": 1,
+    "damageEvents": [
+      {
+        "id": 6,
+        "round": 1,
+        "event": "damage",
+        "message": "琳奈对无冠者造成 90 点伤害",
+        "actor": "ally:0:lynae",
+        "target": "enemy:0:crownless",
+        "amount": 90,
+        "absorbed": 0,
+        "coefficient": 0.86,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 4800,
+        "hp_after": 4710,
+        "element": "spectro",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      },
+      {
+        "id": 12,
+        "round": 1,
+        "event": "damage",
+        "message": "琳奈对无冠者造成 90 点伤害",
+        "actor": "ally:0:lynae",
+        "target": "enemy:0:crownless",
+        "amount": 90,
+        "absorbed": 0,
+        "coefficient": 0.86,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 4710,
+        "hp_after": 4620,
+        "element": "spectro",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      },
+      {
+        "id": 19,
+        "round": 1,
+        "event": "damage",
+        "message": "无冠者对琳奈造成 457 点伤害",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:lynae",
+        "amount": 457,
+        "absorbed": 0,
+        "coefficient": 1.5,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 1650,
+        "hp_after": 1193,
+        "element": "havoc",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      },
+      {
+        "id": 25,
+        "round": 2,
+        "event": "damage",
+        "message": "琳奈对无冠者造成 72 点伤害",
+        "actor": "ally:0:lynae",
+        "target": "enemy:0:crownless",
+        "amount": 72,
+        "absorbed": 0,
+        "coefficient": 0.69,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 4620,
+        "hp_after": 4548,
+        "element": "spectro",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      }
+    ],
+    "APEvents": [
+      {
+        "id": 4,
+        "round": 1,
+        "event": "ap_spent",
+        "message": "琳奈支付2AP（临时0），剩余2+0",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "amount": 2,
+        "temporary": 0,
+        "normal": 2,
+        "ap_after": 2,
+        "temp_ap_after": 0
+      },
+      {
+        "id": 10,
+        "round": 1,
+        "event": "ap_spent",
+        "message": "琳奈支付2AP（临时0），剩余0+0",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "amount": 2,
+        "temporary": 0,
+        "normal": 2,
+        "ap_after": 0,
+        "temp_ap_after": 0
+      },
+      {
+        "id": 23,
+        "round": 2,
+        "event": "ap_spent",
+        "message": "琳奈支付2AP（临时0），剩余2+0",
+        "actor": "ally:0:lynae",
+        "skill": "skate",
+        "amount": 2,
+        "temporary": 0,
+        "normal": 2,
+        "ap_after": 2,
+        "temp_ap_after": 0
+      }
+    ],
+    "resourceEvents": [
+      {
+        "id": 5,
+        "round": 1,
+        "event": "action",
+        "message": "琳奈使用「定线射击」 → 无冠者",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "skill_name": "定线射击",
+        "target": "enemy:0:crownless",
+        "targets": [
+          "enemy:0:crownless"
+        ],
+        "resources_before": {
+          "color": 0
+        },
+        "form": "normal"
+      },
+      {
+        "id": 9,
+        "round": 1,
+        "event": "action_end",
+        "message": "琳奈行动结束",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "resources_after": {
+          "color": 30
+        },
+        "concerto": 40,
+        "form": "normal"
+      },
+      {
+        "id": 11,
+        "round": 1,
+        "event": "action",
+        "message": "琳奈使用「定线射击」 → 无冠者",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "skill_name": "定线射击",
+        "target": "enemy:0:crownless",
+        "targets": [
+          "enemy:0:crownless"
+        ],
+        "resources_before": {
+          "color": 30
+        },
+        "form": "normal"
+      },
+      {
+        "id": 15,
+        "round": 1,
+        "event": "action_end",
+        "message": "琳奈行动结束",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "resources_after": {
+          "color": 60
+        },
+        "concerto": 60,
+        "form": "normal"
+      },
+      {
+        "id": 24,
+        "round": 2,
+        "event": "action",
+        "message": "琳奈使用「绚色轮迹」 → 无冠者",
+        "actor": "ally:0:lynae",
+        "skill": "skate",
+        "skill_name": "绚色轮迹",
+        "target": "enemy:0:crownless",
+        "targets": [
+          "enemy:0:crownless"
+        ],
+        "resources_before": {
+          "color": 60
+        },
+        "form": "normal"
+      },
+      {
+        "id": 28,
+        "round": 2,
+        "event": "action_end",
+        "message": "琳奈行动结束",
+        "actor": "ally:0:lynae",
+        "skill": "skate",
+        "resources_after": {
+          "color": 0
+        },
+        "concerto": 80,
+        "form": "normal"
+      }
+    ],
+    "summary": {
+      "difficulty": "standard",
+      "first_concerto_ready_round": null,
+      "min_hp_fraction": {
+        "lynae": 0.723
+      },
+      "inventory": {
+        "repair": 2,
+        "cleanse": 1
+      },
+      "outcome": "inconclusive",
+      "rounds": 2,
+      "ally_hp_fraction": 0.723,
+      "survivors": 1,
+      "escaped_count": 0,
+      "ko_count": 0,
+      "counts": {
+        "ap_spent": 6,
+        "temp_ap_spent": 0,
+        "damage_ally": 252,
+        "shield_removed": 56,
+        "damage_enemy": 457,
+        "ap_recovery_overflow": 0
+      },
+      "skills": {
+        "basic": 2,
+        "skate": 1
+      },
+      "enemy_skills": {
+        "spear": 1
+      },
+      "final_resources": {
+        "lynae": {
+          "color": 0
+        }
+      },
+      "final_concerto": {
+        "lynae": 80
+      },
+      "final_ap": {
+        "lynae": {
+          "normal": 2,
+          "temporary": 0
+        }
+      },
+      "first_break_round": null,
+      "enemy_effective_actions": 1
+    }
+  },
+  "damageRoute": {
+    "route": [
+      "basic",
+      "basic",
+      "spectrum"
+    ],
+    "AP": 6,
+    "bodyDamage": 324,
+    "resonanceRemoved": 24,
+    "startResource": {
+      "color": 0
+    },
+    "endResource": {
+      "color": 0
+    },
+    "round": 2,
+    "actorNormalAPRemaining": 2,
+    "enemyWindows": 1,
+    "damageEvents": [
+      {
+        "id": 6,
+        "round": 1,
+        "event": "damage",
+        "message": "琳奈对无冠者造成 90 点伤害",
+        "actor": "ally:0:lynae",
+        "target": "enemy:0:crownless",
+        "amount": 90,
+        "absorbed": 0,
+        "coefficient": 0.86,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 4800,
+        "hp_after": 4710,
+        "element": "spectro",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      },
+      {
+        "id": 12,
+        "round": 1,
+        "event": "damage",
+        "message": "琳奈对无冠者造成 90 点伤害",
+        "actor": "ally:0:lynae",
+        "target": "enemy:0:crownless",
+        "amount": 90,
+        "absorbed": 0,
+        "coefficient": 0.86,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 4710,
+        "hp_after": 4620,
+        "element": "spectro",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      },
+      {
+        "id": 19,
+        "round": 1,
+        "event": "damage",
+        "message": "无冠者对琳奈造成 457 点伤害",
+        "actor": "enemy:0:crownless",
+        "target": "ally:0:lynae",
+        "amount": 457,
+        "absorbed": 0,
+        "coefficient": 1.5,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 1650,
+        "hp_after": 1193,
+        "element": "havoc",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      },
+      {
+        "id": 25,
+        "round": 2,
+        "event": "damage",
+        "message": "琳奈对无冠者造成 144 点伤害",
+        "actor": "ally:0:lynae",
+        "target": "enemy:0:crownless",
+        "amount": 144,
+        "absorbed": 0,
+        "coefficient": 1.38,
+        "status_damage": false,
+        "damage_source": "direct",
+        "broken_bonus": false,
+        "hp_before": 4620,
+        "hp_after": 4476,
+        "element": "spectro",
+        "amp_applied": 0,
+        "mitigation": 1,
+        "buff_bonus": 0,
+        "prevented": 0
+      }
+    ],
+    "APEvents": [
+      {
+        "id": 4,
+        "round": 1,
+        "event": "ap_spent",
+        "message": "琳奈支付2AP（临时0），剩余2+0",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "amount": 2,
+        "temporary": 0,
+        "normal": 2,
+        "ap_after": 2,
+        "temp_ap_after": 0
+      },
+      {
+        "id": 10,
+        "round": 1,
+        "event": "ap_spent",
+        "message": "琳奈支付2AP（临时0），剩余0+0",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "amount": 2,
+        "temporary": 0,
+        "normal": 2,
+        "ap_after": 0,
+        "temp_ap_after": 0
+      },
+      {
+        "id": 23,
+        "round": 2,
+        "event": "ap_spent",
+        "message": "琳奈支付2AP（临时0），剩余2+0",
+        "actor": "ally:0:lynae",
+        "skill": "spectrum",
+        "amount": 2,
+        "temporary": 0,
+        "normal": 2,
+        "ap_after": 2,
+        "temp_ap_after": 0
+      }
+    ],
+    "resourceEvents": [
+      {
+        "id": 5,
+        "round": 1,
+        "event": "action",
+        "message": "琳奈使用「定线射击」 → 无冠者",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "skill_name": "定线射击",
+        "target": "enemy:0:crownless",
+        "targets": [
+          "enemy:0:crownless"
+        ],
+        "resources_before": {
+          "color": 0
+        },
+        "form": "normal"
+      },
+      {
+        "id": 9,
+        "round": 1,
+        "event": "action_end",
+        "message": "琳奈行动结束",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "resources_after": {
+          "color": 30
+        },
+        "concerto": 40,
+        "form": "normal"
+      },
+      {
+        "id": 11,
+        "round": 1,
+        "event": "action",
+        "message": "琳奈使用「定线射击」 → 无冠者",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "skill_name": "定线射击",
+        "target": "enemy:0:crownless",
+        "targets": [
+          "enemy:0:crownless"
+        ],
+        "resources_before": {
+          "color": 30
+        },
+        "form": "normal"
+      },
+      {
+        "id": 15,
+        "round": 1,
+        "event": "action_end",
+        "message": "琳奈行动结束",
+        "actor": "ally:0:lynae",
+        "skill": "basic",
+        "resources_after": {
+          "color": 60
+        },
+        "concerto": 60,
+        "form": "normal"
+      },
+      {
+        "id": 24,
+        "round": 2,
+        "event": "action",
+        "message": "琳奈使用「虹谱迸发」 → 无冠者",
+        "actor": "ally:0:lynae",
+        "skill": "spectrum",
+        "skill_name": "虹谱迸发",
+        "target": "enemy:0:crownless",
+        "targets": [
+          "enemy:0:crownless"
+        ],
+        "resources_before": {
+          "color": 60
+        },
+        "form": "normal"
+      },
+      {
+        "id": 28,
+        "round": 2,
+        "event": "action_end",
+        "message": "琳奈行动结束",
+        "actor": "ally:0:lynae",
+        "skill": "spectrum",
+        "resources_after": {
+          "color": 0
+        },
+        "concerto": 80,
+        "form": "normal"
+      }
+    ],
+    "summary": {
+      "difficulty": "standard",
+      "first_concerto_ready_round": null,
+      "min_hp_fraction": {
+        "lynae": 0.723
+      },
+      "inventory": {
+        "repair": 2,
+        "cleanse": 1
+      },
+      "outcome": "inconclusive",
+      "rounds": 2,
+      "ally_hp_fraction": 0.723,
+      "survivors": 1,
+      "escaped_count": 0,
+      "ko_count": 0,
+      "counts": {
+        "ap_spent": 6,
+        "temp_ap_spent": 0,
+        "damage_ally": 324,
+        "shield_removed": 24,
+        "damage_enemy": 457,
+        "ap_recovery_overflow": 0
+      },
+      "skills": {
+        "basic": 2,
+        "spectrum": 1
+      },
+      "enemy_skills": {
+        "spear": 1
+      },
+      "final_resources": {
+        "lynae": {
+          "color": 0
+        }
+      },
+      "final_concerto": {
+        "lynae": 80
+      },
+      "final_ap": {
+        "lynae": {
+          "normal": 2,
+          "temporary": 0
+        }
+      },
+      "first_break_round": null,
+      "enemy_effective_actions": 1
+    }
+  },
+  "tradeoff": {
+    "additionalResonance": 32,
+    "forgoneBodyDamage": 72,
+    "AP": 6,
+    "netColor": 0
+  }
+}

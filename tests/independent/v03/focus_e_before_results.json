@@ -1,0 +1,19 @@
+{
+  "evidence": "Independent rapid-focus event sequence in multi-callback RAF simulator, not pointer or browser geometry proof.",
+  "appSHA256": "365b10f4a07073e2365f57aed474ebe634dd84c973ab7acd99a3849c23177dfb",
+  "unchanged": true,
+  "passed": 0,
+  "failed": 2,
+  "results": [
+    {
+      "case": "menu_choice",
+      "pass": false,
+      "error": "late initial-menu focus overrode explicit user focus\n\n'basic' !== 'end'\n"
+    },
+    {
+      "case": "cancel_target",
+      "pass": false,
+      "error": "late target focus overrode Cancel\n\n'' !== 'cancelBtn'\n"
+    }
+  ]
+}

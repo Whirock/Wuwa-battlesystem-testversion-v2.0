@@ -1,0 +1,167 @@
+{
+  "runtimeVerified": false,
+  "assets": [
+    {
+      "id": "RVF-D-04-SP-a",
+      "version": "v002",
+      "action": "skill",
+      "sha256": "085c4a5e8fbccae0bdc52e2fca1f27646062cc2b2a30a833478c52dd79352af0",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        105,
+        107,
+        552,
+        546
+      ],
+      "minMargin": 30,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 349.977,
+      "groundAnchor": {
+        "x": 416,
+        "y": 546
+      },
+      "visualReview": "Independent direct-view static pass: character and outfit asymmetry, clear attribute action silhouettes, continuous sword grip or approved unarmed Electro tether keypose, supported or deliberately airborne anatomy, no clipping. Runtime and final user acceptance pending."
+    },
+    {
+      "id": "RVF-S-04-SP-a",
+      "version": "v004",
+      "action": "skill",
+      "sha256": "fa89ea8569a6a8678cd27c4a75bf773c02b02bfc84ffb90cdc424603f651b7c8",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        133,
+        137,
+        551,
+        548
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 352.22,
+      "groundAnchor": {
+        "x": 416,
+        "y": 546
+      },
+      "visualReview": "Independent direct-view static pass: character and outfit asymmetry, clear attribute action silhouettes, continuous sword grip or approved unarmed Electro tether keypose, supported or deliberately airborne anatomy, no clipping. Runtime and final user acceptance pending."
+    },
+    {
+      "id": "RVF-D-04-HV-a",
+      "version": "v001",
+      "action": "skill",
+      "sha256": "1a6c4e0de142ca111e978abd93b5ba17c19dd31f35bdb052e1df3bc37c7c0a60",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        33,
+        132,
+        554,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 349.977,
+      "groundAnchor": {
+        "x": 416,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass: character and outfit asymmetry, clear attribute action silhouettes, continuous sword grip or approved unarmed Electro tether keypose, supported or deliberately airborne anatomy, no clipping. Runtime and final user acceptance pending."
+    },
+    {
+      "id": "RVF-S-04-HV-a",
+      "version": "v001",
+      "action": "skill",
+      "sha256": "6376eb40b65b6c91a93ad8a010110830e0f19c9418fd0b29d3c44bebc3549446",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        56,
+        142,
+        558,
+        418
+      ],
+      "minMargin": 30,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 352.22,
+      "groundAnchor": {
+        "x": 416,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass: character and outfit asymmetry, clear attribute action silhouettes, continuous sword grip or approved unarmed Electro tether keypose, supported or deliberately airborne anatomy, no clipping. Runtime and final user acceptance pending."
+    },
+    {
+      "id": "RVF-D-04-EL-a",
+      "version": "v003",
+      "action": "skill",
+      "sha256": "767a4d40648f9068aa7dcb60e6ff5eae22f6e78c2838cf165f8e6c84b4c43a35",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        16,
+        76,
+        364,
+        400
+      ],
+      "minMargin": 16,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 349.977,
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass: character and outfit asymmetry, clear attribute action silhouettes, continuous sword grip or approved unarmed Electro tether keypose, supported or deliberately airborne anatomy, no clipping. Runtime and final user acceptance pending."
+    },
+    {
+      "id": "RVF-S-04-EL-a",
+      "version": "v003",
+      "action": "skill",
+      "sha256": "ba9927ab2177de8bc1393434b177ca9eacea3b1871ae1c8e21aefa1d1403fa72",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        41,
+        71,
+        376,
+        406
+      ],
+      "minMargin": 41,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 352.22,
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass: character and outfit asymmetry, clear attribute action silhouettes, continuous sword grip or approved unarmed Electro tether keypose, supported or deliberately airborne anatomy, no clipping. Runtime and final user acceptance pending."
+    }
+  ]
+}

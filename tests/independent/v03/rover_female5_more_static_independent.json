@@ -1,0 +1,117 @@
+{
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVF-D-10-AE",
+      "version": "v001",
+      "action": "liberation",
+      "sha256": "4ac063e228946005066bc3594269cafa4298385e53cf191c4120c8b2d1f5ff26",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        120,
+        55,
+        327,
+        462
+      ],
+      "minMargin": 50,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final working PNG review: distinct Aero airborne or Electro planted stance; each skirt hip-to-knee-to-ankle chain traces separately with coherent overlap and no orphan skin segment. School socks stay below knees and thigh pouch stays on proper side. Fingers/palm and right sword contact coherent. Spectro enhanced blade is slightly short-looking at the documented lower tolerance, no new clipping or blocking anatomy issue seen. Runtime scale/ground/FX pending."
+    },
+    {
+      "id": "RVF-S-10-AE",
+      "version": "v001",
+      "action": "liberation",
+      "sha256": "6b523d50a52bed1c353bf58601bf47744f716bdef9d8cea48dc8315d531376ce",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        110,
+        77,
+        318,
+        461
+      ],
+      "minMargin": 51,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final working PNG review: distinct Aero airborne or Electro planted stance; each skirt hip-to-knee-to-ankle chain traces separately with coherent overlap and no orphan skin segment. School socks stay below knees and thigh pouch stays on proper side. Fingers/palm and right sword contact coherent. Spectro enhanced blade is slightly short-looking at the documented lower tolerance, no new clipping or blocking anatomy issue seen. Runtime scale/ground/FX pending."
+    },
+    {
+      "id": "RVF-D-10-EL",
+      "version": "v001",
+      "action": "liberation",
+      "sha256": "42d15f51b8f390b17cbe4ea5c48bc245bfa423b8590812aab475da36dead39b7",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        50,
+        91,
+        390,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final working PNG review: distinct Aero airborne or Electro planted stance; each skirt hip-to-knee-to-ankle chain traces separately with coherent overlap and no orphan skin segment. School socks stay below knees and thigh pouch stays on proper side. Fingers/palm and right sword contact coherent. Spectro enhanced blade is slightly short-looking at the documented lower tolerance, no new clipping or blocking anatomy issue seen. Runtime scale/ground/FX pending."
+    },
+    {
+      "id": "RVF-S-10-EL",
+      "version": "v001",
+      "action": "liberation",
+      "sha256": "256af88133d8c2039630caae32a28ee7ab0984803432d57a8f1ef294a3472bb8",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        64,
+        108,
+        374,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final working PNG review: distinct Aero airborne or Electro planted stance; each skirt hip-to-knee-to-ankle chain traces separately with coherent overlap and no orphan skin segment. School socks stay below knees and thigh pouch stays on proper side. Fingers/palm and right sword contact coherent. Spectro enhanced blade is slightly short-looking at the documented lower tolerance, no new clipping or blocking anatomy issue seen. Runtime scale/ground/FX pending."
+    },
+    {
+      "id": "RVF-S-04-SP-b",
+      "version": "v002",
+      "action": "enhanced",
+      "sha256": "d890693ee0232bfea91b7ab1a6922d891dd0b3adb607d7fe8430b0479b08d85a",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        127,
+        124,
+        551,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final working PNG review: distinct Aero airborne or Electro planted stance; each skirt hip-to-knee-to-ankle chain traces separately with coherent overlap and no orphan skin segment. School socks stay below knees and thigh pouch stays on proper side. Fingers/palm and right sword contact coherent. Spectro enhanced blade is slightly short-looking at the documented lower tolerance, no new clipping or blocking anatomy issue seen. Runtime scale/ground/FX pending."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "evidence": "Independent real UI event pipeline and frame-effect records, with simulated canvas/media/clock/storage. Not visual browser acceptance.",
+  "hashes": {
+    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
+    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters.js": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1",
+    "tests/independent/v03/dom_harness_v03.cjs": "aafd7ada09cdc10d9f9092f06befeb94166dfe5d22a3cd5d60617a1a0fcc3862"
+  },
+  "unchanged": true,
+  "passed": 8,
+  "failed": 0,
+  "results": [
+    {
+      "form": "male_default",
+      "reducedMotion": false,
+      "cleanup": "timeout",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "male_default",
+      "reducedMotion": true,
+      "cleanup": "timeout",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "male_school",
+      "reducedMotion": false,
+      "cleanup": "restart",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "male_school",
+      "reducedMotion": true,
+      "cleanup": "restart",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "female_default",
+      "reducedMotion": false,
+      "cleanup": "load",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "female_default",
+      "reducedMotion": true,
+      "cleanup": "load",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "female_school",
+      "reducedMotion": false,
+      "cleanup": "import",
+      "target": "enemy:2:predator",
+      "pass": true
+    },
+    {
+      "form": "female_school",
+      "reducedMotion": true,
+      "cleanup": "import",
+      "target": "enemy:2:predator",
+      "pass": true
+    }
+  ]
+}

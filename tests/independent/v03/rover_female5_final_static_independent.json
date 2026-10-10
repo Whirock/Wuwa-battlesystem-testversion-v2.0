@@ -1,0 +1,112 @@
+{
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVF-D-10-SP",
+      "version": "v002",
+      "sha256": "8dac3bc6fb3a5dbf57e003782171c6b592397c63acecee763fcce77bdcb85059",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        77,
+        37,
+        372,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final work PNG review: Spectro open-palm liberations distinct from neutral idle; Havoc enhanced raised right sword and left wrist support have continuous arms and finger contact; both hip-to-knee-to-ankle chains coherent, school pouch/socks and default straps retain asymmetry. Spectro enhanced right grip meets hilt. No new blocking anatomy/clipping error found; scene scaling and animation not inferred."
+    },
+    {
+      "id": "RVF-S-10-SP",
+      "version": "v002",
+      "sha256": "57399c1d8c38836dde89b88e003d0ccfa06023e10de331a61ccaccffdb8ec72b",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        71,
+        41,
+        358,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final work PNG review: Spectro open-palm liberations distinct from neutral idle; Havoc enhanced raised right sword and left wrist support have continuous arms and finger contact; both hip-to-knee-to-ankle chains coherent, school pouch/socks and default straps retain asymmetry. Spectro enhanced right grip meets hilt. No new blocking anatomy/clipping error found; scene scaling and animation not inferred."
+    },
+    {
+      "id": "RVF-D-04-HV-b",
+      "version": "v003",
+      "sha256": "6768764abb22f2275984fdb9c45da75f12567a0198cd62c7a7f04603e0330b02",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        186,
+        45,
+        560,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final work PNG review: Spectro open-palm liberations distinct from neutral idle; Havoc enhanced raised right sword and left wrist support have continuous arms and finger contact; both hip-to-knee-to-ankle chains coherent, school pouch/socks and default straps retain asymmetry. Spectro enhanced right grip meets hilt. No new blocking anatomy/clipping error found; scene scaling and animation not inferred."
+    },
+    {
+      "id": "RVF-S-04-HV-b",
+      "version": "v004",
+      "sha256": "1ffe9d6f9b5f904fe9e5ecedd70050d718dce33ed7062513ff5071db5334f8ea",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        197,
+        62,
+        531,
+        418
+      ],
+      "minMargin": 30,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final work PNG review: Spectro open-palm liberations distinct from neutral idle; Havoc enhanced raised right sword and left wrist support have continuous arms and finger contact; both hip-to-knee-to-ankle chains coherent, school pouch/socks and default straps retain asymmetry. Spectro enhanced right grip meets hilt. No new blocking anatomy/clipping error found; scene scaling and animation not inferred."
+    },
+    {
+      "id": "RVF-D-04-SP-b",
+      "version": "v005",
+      "sha256": "afd453fb96537bdc5308a4fee588e499f69ce03e19822a6dc02c1b374ddbf56f",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        118,
+        101,
+        561,
+        419
+      ],
+      "minMargin": 29,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct final work PNG review: Spectro open-palm liberations distinct from neutral idle; Havoc enhanced raised right sword and left wrist support have continuous arms and finger contact; both hip-to-knee-to-ankle chains coherent, school pouch/socks and default straps retain asymmetry. Spectro enhanced right grip meets hilt. No new blocking anatomy/clipping error found; scene scaling and animation not inferred."
+    }
+  ]
+}

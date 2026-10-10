@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-10T05:52:30.175Z",
+  "scope": "initial state and round0/round1 save restore only",
+  "hashes": {
+    "engine": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105"
+  },
+  "passed": 24,
+  "cases": [
+    {
+      "actor": "amy",
+      "hp_fraction": 0,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "amy",
+      "hp_fraction": 0.00001,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "amy",
+      "hp_fraction": 0.5,
+      "hp": 900,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "amy",
+      "hp_fraction": 1,
+      "hp": 1800,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "lynae",
+      "hp_fraction": 0,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "lynae",
+      "hp_fraction": 0.00001,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "lynae",
+      "hp_fraction": 0.5,
+      "hp": 825,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "lynae",
+      "hp_fraction": 1,
+      "hp": 1650,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "mornye",
+      "hp_fraction": 0,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "mornye",
+      "hp_fraction": 0.00001,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "mornye",
+      "hp_fraction": 0.5,
+      "hp": 1050,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "mornye",
+      "hp_fraction": 1,
+      "hp": 2100,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "denia",
+      "hp_fraction": 0,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "denia",
+      "hp_fraction": 0.00001,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "denia",
+      "hp_fraction": 0.5,
+      "hp": 850,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "denia",
+      "hp_fraction": 1,
+      "hp": 1700,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "chisa",
+      "hp_fraction": 0,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "chisa",
+      "hp_fraction": 0.00001,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "chisa",
+      "hp_fraction": 0.5,
+      "hp": 1025,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "chisa",
+      "hp_fraction": 1,
+      "hp": 2050,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "rover",
+      "hp_fraction": 0,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "rover",
+      "hp_fraction": 0.00001,
+      "hp": 0,
+      "ap": 0,
+      "concerto": 0,
+      "outcome": "loss",
+      "passed": true
+    },
+    {
+      "actor": "rover",
+      "hp_fraction": 0.5,
+      "hp": 925,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    },
+    {
+      "actor": "rover",
+      "hp_fraction": 1,
+      "hp": 1850,
+      "ap": 4,
+      "concerto": 20,
+      "outcome": "ongoing",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVM-D-04-HV-a",
+      "version": "v003",
+      "sha256": "1e3aa59a2bbf32e35ca5ff447ec653683c724d4d9ec4f222f35aa735a24b84bb",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct working PNG review: default Havoc E trailing left fingers now fully covered gray; school down outstretched right fingers now visibly exposed peach, matching nearby left hand. Pose/weapon and separate limb chains retained. No additional confirmed glove error in all 32 male slots."
+    },
+    {
+      "id": "RVM-S-07-CM",
+      "version": "v002",
+      "sha256": "3720378111a6d446983a9dead6703754f613190ee6991d5ef7bab383fa39674d",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Direct working PNG review: default Havoc E trailing left fingers now fully covered gray; school down outstretched right fingers now visibly exposed peach, matching nearby left hand. Pose/weapon and separate limb chains retained. No additional confirmed glove error in all 32 male slots."
+    }
+  ]
+}

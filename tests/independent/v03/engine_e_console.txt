@@ -1,0 +1,45 @@
+✔ normal AP opens exactly four and start is idempotent (5.676234ms)
+✔ paid attack retains actor, repeat spends AP and then closes window (6.539208ms)
+✔ carry adds four instead of topping up, cap six and no transfer (4.21191ms)
+✔ eight budget supports four 2 AP attacks with no three-action cap (1.884099ms)
+✔ temporary AP paid before normal pool (1.456002ms)
+✔ insufficient AP, invalid target and removed generic actions reject atomically (2.990512ms)
+✔ outro cannot fire before a paid action and has no self target (3.201562ms)
+✔ outro gives recipient temporary two and ends source window (1.291192ms)
+✔ recipient buff and unspent temporary AP expire at recipient window end (1.638207ms)
+✔ already-acted recipient relay persists until next personal window (1.469492ms)
+✔ pending recipient cannot stack relay even after temporary points consumed (2.437115ms)
+✔ concerto real gain is bounded per actor per round (1.496463ms)
+✔ all six element resistances are explicit for every enemy (0.451292ms)
+✔ common enemies have no resonance, elite and boss do (3.066918ms)
+✔ basic resonance amount ignores DEF and elemental damage resistance (2.085203ms)
+✔ break before enemy acts skips current round and recovers next round (1.399987ms)
+✔ break after enemy acts skips next round exactly (1.434178ms)
+✔ break joint reward follows low coefficient reference budget and grants no recipient resource (3.502437ms)
+✔ ordinary enemy intent does not reveal skill/target and danger is distinct (2.619451ms)
+✔ normal action restore preserves every new field and deterministic next step (5.782795ms)
+✔ tampered AP and action state snapshots are rejected (9.6076ms)
+✔ parameter JS and JSON expose exact same current data (4.907101ms)
+✔ joint reward does not consume or amplify personal next-status buff (2.220168ms)
+✔ break adds no generic 1.5x vulnerability to following attacks (1.335179ms)
+✔ Bracer feint is a 1 AP costly alternative without body damage, resource or concerto (1.737908ms)
+✔ Crownless part cancellation costs actions but does not damage body or skip an extra window (1.917239ms)
+✔ Carapace part route costs 4 AP and reduces rather than cancels release (3.582698ms)
+✔ Committed target rejects post-lock taunt atomically (2.293058ms)
+✔ Danger break cancels pending action and its part with no immediate replacement attack (1.740432ms)
+✔ Rover marker ownership is removed on retreat and remains restorable (9.56164ms)
+✔ Prisms immune to own element but have no resonance, other element hurts (5.004969ms)
+✔ Lethal retaliation cannot recreate dead Rover effects in any mode (18.249697ms)
+✔ Current basic damage preview includes Havoc enhanced state (2.033596ms)
+✔ Enemy AOE stops remaining targets and debuffs when source is killed by counter (4.51653ms)
+✔ Counter applies stated 0.6 mitigation and matching status preview (1.463042ms)
+✔ Initially defeated allies have no AP/concerto and partial or full KO snapshots restore (5.505726ms)
+✔ Taunt redirects at 1 AP and amplifies only the next single-target hit by fifteen percent (6.562143ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 235.154555

@@ -1,0 +1,657 @@
+{
+  "evidence": "Independent actual battle/UI action-to-image mapping. Resource costs earned by ordinary paid basic actions against unmodified easy Boss, no artificial precharge. Simulated Canvas/Image/Audio/IDB/clock, not browser pixel or balance acceptance.",
+  "hashes": {
+    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
+    "assets/manifest.json": "ab1654190dc32862603c5210838607f385ec57ad3fd0c070f2a58b4aab8574fc",
+    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters.js": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1",
+    "tests/independent/v03/dom_harness_v03.cjs": "aafd7ada09cdc10d9f9092f06befeb94166dfe5d22a3cd5d60617a1a0fcc3862"
+  },
+  "unchanged": true,
+  "passed": 32,
+  "failed": 0,
+  "notRun": 0,
+  "results": [
+    {
+      "form": "male_default",
+      "mode": "spectro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_default.04-SP-b",
+      "src": "assets/RVM-D-04-SP-b_v001_work1px.png",
+      "sha256": "9ead37d2adf6046d450209aa3d9f2ebebb1b6d30271ef74ba8c89801d95326e8",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "dust": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "dust": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "spectro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_default.10-SP",
+      "src": "assets/RVM-D-10-SP_v002_work1px.png",
+      "sha256": "6a362f69f475dc268966c8d2c05a8d0abd1e43b588724104beffaafb229c563f",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "dust": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "dust": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "havoc",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_default.04-HV-b",
+      "src": "assets/RVM-D-04-HV-b_v001_work1px.png",
+      "sha256": "74e31d88c32197507147a0011ebfe0325fc1a64d0d1d7ca5f8c440189d349abd",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "umbra": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "havoc",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_default.10-HV",
+      "src": "assets/RVM-D-10-HV_v002_work1px.png",
+      "sha256": "f7136651463941618a2e9646b58c7825b9dd9df158384a81510e80e21ed8850a",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "umbra": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "aero",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_default.10-AE",
+      "src": "assets/RVM-D-10-AE_v002_work1px.png",
+      "sha256": "213f91261c99b85dd3ea878d31289dd28a6a0e419da580da04904722c9461539",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "wind": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "wind": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "aero",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_default.10-AE",
+      "src": "assets/RVM-D-10-AE_v002_work1px.png",
+      "sha256": "213f91261c99b85dd3ea878d31289dd28a6a0e419da580da04904722c9461539",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "wind": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "wind": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "electro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_default.02-CM",
+      "src": "assets/RVM-D-02-CM_v001_work1px.png",
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "surge": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_default",
+      "mode": "electro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_default.10-EL",
+      "src": "assets/RVM-D-10-EL_v002_work1px.png",
+      "sha256": "2611a9d8c7589b8b81f8710f911bda79cac9859566b0bd45c87c9a3f5828cb8e",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "surge": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "spectro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_school.04-SP-b",
+      "src": "assets/RVM-S-04-SP-b_v002_work1px.png",
+      "sha256": "9c1be89f43d4b77f892a3b49706ff4d600e84989c290d83b31975ff07cfd93f5",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "dust": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "dust": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "spectro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_school.10-SP",
+      "src": "assets/RVM-S-10-SP_v002_work1px.png",
+      "sha256": "e434f6567895378ba94d137607bc8548072868181dc5c79e8ea779430b4b7cf3",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "dust": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "dust": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "havoc",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_school.04-HV-b",
+      "src": "assets/RVM-S-04-HV-b_v001_work1px.png",
+      "sha256": "f60ef437a20aeb67116c18f6275926be20f4605f411edf7dc2002fb078343b44",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "umbra": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "havoc",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_school.10-HV",
+      "src": "assets/RVM-S-10-HV_v001_work1px.png",
+      "sha256": "d3c19fa6007e6b1a601b5361e19c9851b9fe8fc8a660c5bffd25d3c2d47b44db",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "umbra": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "aero",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_school.10-AE",
+      "src": "assets/RVM-S-10-AE_v001_work1px.png",
+      "sha256": "44f3f2254d9f0e9ea894d20e0c6cb4bb4a432f764422fcf17fe300c214509af8",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "wind": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "wind": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "aero",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_school.10-AE",
+      "src": "assets/RVM-S-10-AE_v001_work1px.png",
+      "sha256": "44f3f2254d9f0e9ea894d20e0c6cb4bb4a432f764422fcf17fe300c214509af8",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "wind": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "wind": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "electro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.male_school.02-CM",
+      "src": "assets/RVM-S-02-CM_v002_work1px.png",
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "surge": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "male_school",
+      "mode": "electro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.male_school.10-EL",
+      "src": "assets/RVM-S-10-EL_v001_work1px.png",
+      "sha256": "9319b316a5139ddad14e703f2c901cd1ba32d86d69443d4251930b7f6affba01",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "surge": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "spectro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_default.04-SP-b",
+      "src": "assets/RVF-D-04-SP-b_v005_work1px.png",
+      "sha256": "afd453fb96537bdc5308a4fee588e499f69ce03e19822a6dc02c1b374ddbf56f",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "dust": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "dust": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "spectro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_default.10-SP",
+      "src": "assets/RVF-D-10-SP_v002_work1px.png",
+      "sha256": "8dac3bc6fb3a5dbf57e003782171c6b592397c63acecee763fcce77bdcb85059",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "dust": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "dust": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "havoc",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_default.04-HV-b",
+      "src": "assets/RVF-D-04-HV-b_v003_work1px.png",
+      "sha256": "6768764abb22f2275984fdb9c45da75f12567a0198cd62c7a7f04603e0330b02",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "umbra": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "havoc",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_default.10-HV",
+      "src": "assets/RVF-D-10-HV_v001_work1px.png",
+      "sha256": "19fcee943a49b2dbb2f890210398275c4a9f37dddeebf0799be7b966d33c71e7",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "umbra": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "aero",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_default.10-AE",
+      "src": "assets/RVF-D-10-AE_v001_work1px.png",
+      "sha256": "4ac063e228946005066bc3594269cafa4298385e53cf191c4120c8b2d1f5ff26",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "wind": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "wind": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "aero",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_default.10-AE",
+      "src": "assets/RVF-D-10-AE_v001_work1px.png",
+      "sha256": "4ac063e228946005066bc3594269cafa4298385e53cf191c4120c8b2d1f5ff26",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "wind": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "wind": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "electro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_default.02-CM",
+      "src": "assets/RVF-D-02-CM_v001_work1px.png",
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "surge": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_default",
+      "mode": "electro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_default.10-EL",
+      "src": "assets/RVF-D-10-EL_v001_work1px.png",
+      "sha256": "42d15f51b8f390b17cbe4ea5c48bc245bfa423b8590812aab475da36dead39b7",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "surge": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "spectro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_school.04-SP-b",
+      "src": "assets/RVF-S-04-SP-b_v002_work1px.png",
+      "sha256": "d890693ee0232bfea91b7ab1a6922d891dd0b3adb607d7fe8430b0479b08d85a",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "dust": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "dust": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "spectro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_school.10-SP",
+      "src": "assets/RVF-S-10-SP_v002_work1px.png",
+      "sha256": "57399c1d8c38836dde89b88e003d0ccfa06023e10de331a61ccaccffdb8ec72b",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "dust": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "dust": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "havoc",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_school.04-HV-b",
+      "src": "assets/RVF-S-04-HV-b_v004_work1px.png",
+      "sha256": "1ffe9d6f9b5f904fe9e5ecedd70050d718dce33ed7062513ff5071db5334f8ea",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "umbra": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "havoc",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_school.10-HV",
+      "src": "assets/RVF-S-10-HV_v001_work1px.png",
+      "sha256": "9621894f3bd724cfea7f712de2e2366b3cf9a7c3a4a115d3e567ecf8074d7741",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "umbra": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "umbra": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "aero",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_school.10-AE",
+      "src": "assets/RVF-S-10-AE_v001_work1px.png",
+      "sha256": "6b523d50a52bed1c353bf58601bf47744f716bdef9d8cea48dc8315d531376ce",
+      "prepActions": 4,
+      "round": 3,
+      "resourceBefore": {
+        "wind": 80,
+        "energy": 80
+      },
+      "resourceAfter": {
+        "wind": 30,
+        "energy": 100
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "aero",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_school.10-AE",
+      "src": "assets/RVF-S-10-AE_v001_work1px.png",
+      "sha256": "6b523d50a52bed1c353bf58601bf47744f716bdef9d8cea48dc8315d531376ce",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "wind": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "wind": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "electro",
+      "action": "enhanced",
+      "pass": true,
+      "slot": "rover.female_school.02-CM",
+      "src": "assets/RVF-S-02-CM_v001_work1px.png",
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f",
+      "prepActions": 6,
+      "round": 4,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 120
+      },
+      "resourceAfter": {
+        "surge": 0,
+        "energy": 125
+      },
+      "apCost": 3
+    },
+    {
+      "form": "female_school",
+      "mode": "electro",
+      "action": "liberation",
+      "pass": true,
+      "slot": "rover.female_school.10-EL",
+      "src": "assets/RVF-S-10-EL_v001_work1px.png",
+      "sha256": "256af88133d8c2039630caae32a28ee7ab0984803432d57a8f1ef294a3472bb8",
+      "prepActions": 8,
+      "round": 5,
+      "resourceBefore": {
+        "surge": 100,
+        "energy": 125
+      },
+      "resourceAfter": {
+        "surge": 100,
+        "energy": 0
+      },
+      "apCost": 3
+    }
+  ]
+}

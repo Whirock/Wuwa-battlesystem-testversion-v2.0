@@ -1,0 +1,197 @@
+{
+  "evidence": "Both full-resolution same-work-scale sheets directly viewed, including guard wrist asymmetry and down-state body/head support. No critical static problem identified. Source PNG hashes/alpha independently checked. Runtime anchors and final user approval remain open.",
+  "assets": [
+    {
+      "id": "RVM-D-03-CM",
+      "size": [
+        448,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        126,
+        142,
+        350,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "7aa210156773c5111a9945602d904201ac966ddaef8e6252c79941fedf11e9bf"
+    },
+    {
+      "id": "RVM-S-03-CM",
+      "size": [
+        448,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        127,
+        140,
+        364,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "4bf047a9775c667f14b597fa2320b2f73c78e538081d18c9b56d349d64f3c830"
+    },
+    {
+      "id": "RVM-D-06-CM",
+      "size": [
+        448,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        95,
+        86,
+        380,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "b70e40b34b0dc08a219bff7c0869efa030934bc42db8ea8ee7dfe95bf378253f"
+    },
+    {
+      "id": "RVM-S-06-CM",
+      "size": [
+        448,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        96,
+        82,
+        381,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "9f3a0f1a95e4c48e3909e8dda6e2fd5a34cb5f1ca76b22693ceb57cfba7986ee"
+    },
+    {
+      "id": "RVM-D-07-CM",
+      "size": [
+        576,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        24,
+        266,
+        549,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "752d0a95e16fa8f4e9a89cd5642aacca2a3a1e9e418ee186a8588643ce747df8"
+    },
+    {
+      "id": "RVM-S-07-CM",
+      "size": [
+        576,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        23,
+        268,
+        552,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "01fb01bfb872a60dcbf8f7030832f29c911bd03399202326a90dcc54c9201310"
+    },
+    {
+      "id": "RVM-D-09-CM",
+      "size": [
+        448,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        143,
+        40,
+        435,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "f858cde7a965659ab8cbb23677a9ec149aef19de55c6d1443157cb0601376048"
+    },
+    {
+      "id": "RVM-S-09-CM",
+      "size": [
+        448,
+        448
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha_matches": true,
+      "bbox": [
+        142,
+        40,
+        437,
+        420
+      ],
+      "referenceBodyHeight": 353.495,
+      "ground": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "430e835f40e49f9b1b3dc1d5fbfbceba6b923f855b5ff113136a2a1032ccd5b1"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "evidence": "Exact reviewed S03v004 file and metadata plus low-HP real app draw dispatch, simulated Canvas only. Ground-depth/pixel appearance and user acceptance pending.",
+  "hashes": {
+    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
+    "assets/manifest.json": "ab1654190dc32862603c5210838607f385ec57ad3fd0c070f2a58b4aab8574fc"
+  },
+  "unchanged": true,
+  "passed": 1,
+  "failed": 0,
+  "slot": "rover.female_school.03-CM",
+  "sha256": "d27db0c12ee915aa61a900f06689d08ce2807814a7e8c7568266c65cda67b3fc",
+  "lowHP": 444,
+  "head": {
+    "id": "ally:0:rover",
+    "slot": "rover.female_school.03-CM",
+    "left": 558,
+    "top": 228,
+    "width": 84,
+    "height": 84,
+    "x": 600,
+    "y": 306,
+    "headX": 586.4776875,
+    "headY": 258.7160625,
+    "castX": null,
+    "castY": null
+  },
+  "priorUserRejectionPreserved": true
+}

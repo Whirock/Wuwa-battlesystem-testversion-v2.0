@@ -1,0 +1,48 @@
+{
+  "reviewedAt": "2026-10-10T06:43:00Z",
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVM-S-02-CM",
+      "version": "v002",
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        29,
+        100,
+        552,
+        420
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "v002 replaces prior gray-covered gripping fingertips with visible flesh-colored finger ends matching school fingerless glove. Grip still continuously wraps handle; weapon identity/length, pose, left/right limb identity and outfit asymmetry preserved. Prior review overlooked this small costume mismatch; this explicit version supersedes it."
+    },
+    {
+      "id": "RVM-S-04-HV-a",
+      "version": "v002",
+      "sha256": "59260a827ad9f2251ba0ef3fa96a811c76c9505b49e63bed2162632291ff403d",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        60,
+        134,
+        577,
+        420
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "v002 replaces prior gray-covered gripping fingertips with visible flesh-colored finger ends matching school fingerless glove. Grip still continuously wraps handle; weapon identity/length, pose, left/right limb identity and outfit asymmetry preserved. Prior review overlooked this small costume mismatch; this explicit version supersedes it."
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "runtimeVerified": false,
+  "assets": [
+    {
+      "id": "RVM-D-04-HV-a",
+      "version": "v002",
+      "action": "havoc_skill",
+      "sha256": "fd4267de67a3c8550ef0134d2c2a2a19dd6595f7cb655ccc37b11cbbb1a1da55",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        43,
+        126,
+        578,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 384,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    },
+    {
+      "id": "RVM-S-04-HV-a",
+      "version": "v001",
+      "action": "havoc_skill",
+      "sha256": "f25bd8a64c8da04b5692ac7c0076fabf46bb6a70c3f922c2d17ae40ca2ce69eb",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        60,
+        134,
+        577,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 384,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    },
+    {
+      "id": "RVM-D-04-AE-a",
+      "version": "v002",
+      "action": "aero_skill",
+      "sha256": "b4dee887fe06cd749a2e6bce7ec02807f5d133fc2f79c41b84b0828908577b2a",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        38,
+        30,
+        493,
+        480
+      ],
+      "minMargin": 30,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 518
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    },
+    {
+      "id": "RVM-S-04-AE-a",
+      "version": "v002",
+      "action": "aero_skill",
+      "sha256": "c70a475b5cca4ec5d72797453233d184c527824bbed3d2b8e8d4f53aaa1fdb0e",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        41,
+        69,
+        509,
+        480
+      ],
+      "minMargin": 41,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 518
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    },
+    {
+      "id": "RVM-D-04-EL-a",
+      "version": "v004",
+      "action": "electro_skill",
+      "sha256": "4f2fdc39797725f7d17a170d91a3812e1110723d5fb7119368f416d2fb861805",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        70,
+        79,
+        522,
+        396
+      ],
+      "minMargin": 52,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    },
+    {
+      "id": "RVM-S-04-EL-a",
+      "version": "v001",
+      "action": "electro_skill",
+      "sha256": "d080387dc34748bf647eaae3af1c13b576f5912ed11ef86ed3d59fab5444b305",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        78,
+        82,
+        551,
+        396
+      ],
+      "minMargin": 52,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 320,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    },
+    {
+      "id": "RVM-D-04-SP-a",
+      "version": "v004",
+      "action": "spectro_skill",
+      "sha256": "875f35cce897418583ec802fe5e40592e029146b4e8c633e898142733137acbf",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        9,
+        109,
+        546,
+        420
+      ],
+      "minMargin": 9,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 384,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": "Default male Spectro v004 blade near2.4 heads, slightly longer than reference, assessed as non-blocking variation."
+    },
+    {
+      "id": "RVM-S-04-SP-a",
+      "version": "v004",
+      "action": "spectro_skill",
+      "sha256": "44d5e7297a29694f0f0fdf2defc0a37ae471699efbc71ad297241edd17ed0780",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        37,
+        116,
+        546,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 353.495,
+      "groundAnchor": {
+        "x": 384,
+        "y": 418
+      },
+      "visualReview": "Independent direct-view static pass for distinct attribute body action, identity/asymmetry, supported or deliberately airborne pose, continuous grip or approved empty-hand Electro tether posture, no clipped content. Runtime orientation/scale and final user acceptance pending.",
+      "note": ""
+    }
+  ]
+}

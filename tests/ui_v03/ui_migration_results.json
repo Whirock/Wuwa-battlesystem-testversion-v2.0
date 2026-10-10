@@ -1,0 +1,23 @@
+{
+  "kind": "DOM project-validation integration only",
+  "passed": 4,
+  "createdAt": "2026-10-10T07:11:30.487Z",
+  "checks": [
+    {
+      "name": "0.1.2-candidate project preserves art and never resumes historical combat",
+      "pass": true
+    },
+    {
+      "name": "0.2.0-candidate project preserves art and never resumes historical combat",
+      "pass": true
+    },
+    {
+      "name": "Current AP-schema project can resume normally",
+      "pass": true
+    },
+    {
+      "name": "Unsupported battle versions reject instead of silently accepting runtime state",
+      "pass": true
+    }
+  ]
+}

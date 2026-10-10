@@ -1,0 +1,31 @@
+{
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVM-D-04-EL-a",
+      "version": "v005",
+      "sha256": "fc65f15e33688cb40ead9b77db5af58c98e9a065a46b24f4764f126d3ecc2c6d",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        70,
+        79,
+        522,
+        396
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "castAnchor": {
+        "x": 100.674,
+        "y": 184.098
+      },
+      "visualReview": "v005 independently viewed: trailing left fingertips are now fully covered dark gloves consistent with default outfit; forward right hand also fully covered; left forearm wrapping and opposite arm distinction retained. Original tether keypose/airborne limb chains/cast anchor unchanged. This replaces the earlier overlooked glove mismatch."
+    }
+  ]
+}

@@ -1,0 +1,646 @@
+{
+  "method": "Independent manifest action resolution, alpha edge measurements, canonical 350px body-height contact comparison. This is a static review collage, not a browser screenshot.",
+  "runtimeVerified": false,
+  "assets": [
+    {
+      "slot": "rover.male_default.01-CM",
+      "action": "idle",
+      "source": "assets/RVM-D-01-CM_v001.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 220.0,
+        "y": 55
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "a81b8267ee61e9ffbc18d698b9c37610ae282a8c3129a19d778e5f5b5a023c0b",
+      "bodyHeight": 353.495,
+      "bbox": [
+        150,
+        55,
+        354,
+        420
+      ],
+      "boundsMargins": [
+        150,
+        55,
+        94,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_school.01-CM",
+      "action": "idle",
+      "source": "assets/RVM-S-01-CM_v002.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 220.0,
+        "y": 55
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "9ac29e4a6f6aed8245872ddb944124ad8105c7cbdc8dffafe8aa6bad2bb35683",
+      "bodyHeight": 353.495,
+      "bbox": [
+        150,
+        55,
+        354,
+        420
+      ],
+      "boundsMargins": [
+        150,
+        55,
+        94,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_default.01-CM",
+      "action": "idle",
+      "source": "assets/RVF-D-01-CM_v004.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 221.0,
+        "y": 57
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "f96daad173812dff5d345cee6357ec8ab6b6729e439d88d778f1693606b6c226",
+      "bodyHeight": 349.977,
+      "bbox": [
+        145,
+        51,
+        310,
+        420
+      ],
+      "boundsMargins": [
+        145,
+        51,
+        138,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_school.01-CM",
+      "action": "idle",
+      "source": "assets/RVF-S-01-CM_v002.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 222.0,
+        "y": 56
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "9db0dbbf5fdba4c17df343412be530c6198f0481bdbcc3010795b885d02e84d6",
+      "bodyHeight": 352.22,
+      "bbox": [
+        146,
+        50,
+        303,
+        420
+      ],
+      "boundsMargins": [
+        146,
+        50,
+        145,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_default.03-CM",
+      "action": "critical",
+      "source": "assets/RVM-D-03-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 184.166,
+        "y": 151.311
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "7aa210156773c5111a9945602d904201ac966ddaef8e6252c79941fedf11e9bf",
+      "bodyHeight": 353.495,
+      "bbox": [
+        126,
+        142,
+        350,
+        420
+      ],
+      "boundsMargins": [
+        126,
+        142,
+        98,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_school.03-CM",
+      "action": "critical",
+      "source": "assets/RVM-S-03-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 185.073,
+        "y": 152.188
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "4bf047a9775c667f14b597fa2320b2f73c78e538081d18c9b56d349d64f3c830",
+      "bodyHeight": 353.495,
+      "bbox": [
+        127,
+        140,
+        364,
+        420
+      ],
+      "boundsMargins": [
+        127,
+        140,
+        84,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_default.03-CM",
+      "action": "critical",
+      "source": "assets/RVF-D-03-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 169.451,
+        "y": 150.467
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "460e9b6c391911326940d3afa7da6c54d5e50b3821959ede45178be3ade7e211",
+      "bodyHeight": 349.977,
+      "bbox": [
+        109,
+        136,
+        303,
+        420
+      ],
+      "boundsMargins": [
+        109,
+        136,
+        145,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_school.03-CM",
+      "action": "critical",
+      "source": "assets/RVF-S-03-CM_v004_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 151.881,
+        "y": 163.819
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "d27db0c12ee915aa61a900f06689d08ce2807814a7e8c7568266c65cda67b3fc",
+      "bodyHeight": 352.22,
+      "bbox": [
+        87,
+        147,
+        325,
+        420
+      ],
+      "boundsMargins": [
+        87,
+        147,
+        123,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_default.06-CM",
+      "action": "guard",
+      "source": "assets/RVM-D-06-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 171.727,
+        "y": 94.282
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "b70e40b34b0dc08a219bff7c0869efa030934bc42db8ea8ee7dfe95bf378253f",
+      "bodyHeight": 353.495,
+      "bbox": [
+        95,
+        86,
+        380,
+        420
+      ],
+      "boundsMargins": [
+        95,
+        86,
+        68,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_school.06-CM",
+      "action": "guard",
+      "source": "assets/RVM-S-06-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 171.727,
+        "y": 90.282
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "9f3a0f1a95e4c48e3909e8dda6e2fd5a34cb5f1ca76b22693ceb57cfba7986ee",
+      "bodyHeight": 353.495,
+      "bbox": [
+        96,
+        82,
+        381,
+        420
+      ],
+      "boundsMargins": [
+        96,
+        82,
+        67,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_default.06-CM",
+      "action": "guard",
+      "source": "assets/RVF-D-06-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 200.544,
+        "y": 81.206
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "0e7a856d1c55753399f92007460054a850957cf3feff5065f0f088cca58a9f20",
+      "bodyHeight": 349.977,
+      "bbox": [
+        137,
+        63,
+        320,
+        419
+      ],
+      "boundsMargins": [
+        137,
+        63,
+        128,
+        29
+      ]
+    },
+    {
+      "slot": "rover.female_school.06-CM",
+      "action": "guard",
+      "source": "assets/RVF-S-06-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 193.37,
+        "y": 88.489
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "508568f532737a5b25afe74b105914c31a6490730a678b360cab1e3959eb11ce",
+      "bodyHeight": 352.22,
+      "bbox": [
+        120,
+        75,
+        329,
+        419
+      ],
+      "boundsMargins": [
+        120,
+        75,
+        119,
+        29
+      ]
+    },
+    {
+      "slot": "rover.male_default.09-CM",
+      "action": "hurt",
+      "source": "assets/RVM-D-09-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 279.938,
+        "y": 57.053
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "f858cde7a965659ab8cbb23677a9ec149aef19de55c6d1443157cb0601376048",
+      "bodyHeight": 353.495,
+      "bbox": [
+        143,
+        40,
+        435,
+        420
+      ],
+      "boundsMargins": [
+        143,
+        40,
+        13,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_school.09-CM",
+      "action": "hurt",
+      "source": "assets/RVM-S-09-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 273.557,
+        "y": 58.576
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "430e835f40e49f9b1b3dc1d5fbfbceba6b923f855b5ff113136a2a1032ccd5b1",
+      "bodyHeight": 353.495,
+      "bbox": [
+        142,
+        40,
+        437,
+        420
+      ],
+      "boundsMargins": [
+        142,
+        40,
+        11,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_default.09-CM",
+      "action": "hurt",
+      "source": "assets/RVF-D-09-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 262.216,
+        "y": 65.095
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "047268e6aa62b9b06e14948b9172f60f629da5caddf92f209f1c5f1d14d24d21",
+      "bodyHeight": 349.977,
+      "bbox": [
+        100,
+        46,
+        381,
+        419
+      ],
+      "boundsMargins": [
+        100,
+        46,
+        67,
+        29
+      ]
+    },
+    {
+      "slot": "rover.female_school.09-CM",
+      "action": "hurt",
+      "source": "assets/RVF-S-09-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 277.333,
+        "y": 56.252
+      },
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "sha256": "096dd8487a54db5001563dc3ada6a296dea8a714de143cb4f02bb8093e64bda9",
+      "bodyHeight": 352.22,
+      "bbox": [
+        118,
+        37,
+        360,
+        418
+      ],
+      "boundsMargins": [
+        118,
+        37,
+        88,
+        30
+      ]
+    },
+    {
+      "slot": "rover.male_default.07-CM",
+      "action": "down",
+      "source": "assets/RVM-D-07-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 170.144,
+        "y": 276.107
+      },
+      "groundAnchor": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "752d0a95e16fa8f4e9a89cd5642aacca2a3a1e9e418ee186a8588643ce747df8",
+      "bodyHeight": 353.495,
+      "bbox": [
+        24,
+        266,
+        549,
+        420
+      ],
+      "boundsMargins": [
+        24,
+        266,
+        27,
+        28
+      ]
+    },
+    {
+      "slot": "rover.male_school.07-CM",
+      "action": "down",
+      "source": "assets/RVM-S-07-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 170.144,
+        "y": 278.107
+      },
+      "groundAnchor": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "01fb01bfb872a60dcbf8f7030832f29c911bd03399202326a90dcc54c9201310",
+      "bodyHeight": 353.495,
+      "bbox": [
+        23,
+        268,
+        552,
+        420
+      ],
+      "boundsMargins": [
+        23,
+        268,
+        24,
+        28
+      ]
+    },
+    {
+      "slot": "rover.female_default.07-CM",
+      "action": "down",
+      "source": "assets/RVF-D-07-CM_v001_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 108.427,
+        "y": 294.466
+      },
+      "groundAnchor": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "f018af66cd8e2bec176b17dc112e17f9b59876f4cfe7eccaa46c6e05b2ccb351",
+      "bodyHeight": 349.977,
+      "bbox": [
+        55,
+        277,
+        521,
+        419
+      ],
+      "boundsMargins": [
+        55,
+        277,
+        55,
+        29
+      ]
+    },
+    {
+      "slot": "rover.female_school.07-CM",
+      "action": "down",
+      "source": "assets/RVF-S-07-CM_v002_work1px.png",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "outsideOnePixelWhiteFraction": 1.0,
+      "headAnchor": {
+        "x": 103.457,
+        "y": 283.773
+      },
+      "groundAnchor": {
+        "x": 288,
+        "y": 418
+      },
+      "sha256": "b63ed057811966c64ea4e912c560f49de944170c04a8b15f1af3d773d7c81509",
+      "bodyHeight": 352.22,
+      "bbox": [
+        44,
+        266,
+        509,
+        420
+      ],
+      "boundsMargins": [
+        44,
+        266,
+        67,
+        28
+      ]
+    }
+  ]
+}

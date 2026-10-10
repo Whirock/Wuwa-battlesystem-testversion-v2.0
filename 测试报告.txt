@@ -1,81 +1,57 @@
-鸣潮遭遇演算 v0.2 · 验证范围与测试报告
-2026-10-09 / 当前参数 0.2.0-candidate
+鸣潮回合制3.0 · v3.0.0-test.3 / 0.3.0-candidate 测试报告
+状态：核心发布候选回归通过；真实浏览器与美术最终结果仍待合并。
 
-结论：可运行测试候选。下列Node与DOM事件验证通过；真实浏览器视觉、音频播放和Windows双击仍未完成。部署成功及用户参考图不算实机证据。
+一、测试对象
+本仓库当前真实 engine.js / parameters.json；无网络、时钟、DOM依赖。
+engine SHA256: a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67
+parameters.json SHA256: da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105
+美术与UI仍可继续集成；上列哈希仅对应本轮核心，不代表整包已冻结。
 
-一、同版证据
-规则作者自测：63/63。
-独立规则分组：12/12，覆盖30种合法1–4人编队×4遭遇×3难度，共360格。263胜、94败、3未决；未决没有伪装成失败或胜利。
-逐普通行动存读档恢复：11,825次；另有133次有种子随机继续完全一致。
-独立DOM事件：29/29。真实HTML/JS运行在jsdom，fake-indexeddb、可控时钟；Canvas/媒体使用模拟。
-素材审计：4/4，89张源图、无镜像、形态/动作与头像来源等静态检查。
-额外元数据/队列只读审计：3/3。
-开测和结束源码哈希一致。新计数来自v0.2重新执行，没有继承旧v0.1结果。
+二、开发者规则自测
+命令：node tests/engine.test.cjs
+结果：54/54通过，逐条见 tests/v03/engine_ap_results.json。
+范围：开4/轮补4/cap6、结转、6+2四动作、临时优先、晚延奏不插队、不叠加、窗口末过期、刚满100延奏、每轮协奏40、支援一次、空治疗、拒绝无突变、共振清零时序、无1.5易伤、联合属性/抗性/DEF和不偷异常增益、锁定目标、部件成本、五类棱镜免疫、漂泊者四属性、快照恶意字段/旧版本拒绝及逐步续演一致性。
+这些是明确合成规则场景，不冒充真实阵容平衡或真人操作。
 
-二、手动六菜单流程（DOM事件，不是自动战或真实浏览器）
-normal：3轮win；手动协奏0次；剩余总HP 95.52%。
-elite_humanoid：7轮win；手动协奏4次；剩余总HP 93.06%。
-elite_nonhumanoid：5轮win；手动协奏4次；剩余总HP 85.27%。
-boss：12轮win；手动协奏9次；剩余总HP 88.00%。
-Boss首次协奏在第4轮自然满条，玩家可手动选择提供者/接收者，不增加普通行动。
-相同指令下1×/4×演出速度产生一致战斗结果。
+三、实际引擎矩阵
+命令：node tests/v03/benchmark_ap.cjs
+范围：30选定编队×6遭遇×3难度=540场，另12组标准Boss策略对照与4种漂泊者挑战测试，共556场。
+使用实际引擎、实际角色/敌人参数、固定可复现种子；每五步及结局保存恢复，检查读API无突变。
+终版同哈希结果：556场，426胜、121败、9未决；3,754次保存恢复一致，观察API无状态突变。详见 benchmark_ap_results.json。先前核心版本初跑仅属中间证据，不作最终通过。
+30轮观察未决仍记inconclusive，不强行判败；同属性单一队遇免疫棱镜可撤离重组，不凭脚本死循环证明可通关。
 
-三、29项DOM检查
-1. Six roots live inside stage; no old bottom command panel：通过
-2. All six categories have real actions or precise disabled reasons：通过
-3. Hover, focus, category browsing and cancel are read-only; disabled actions remain focusable：通过
-4. Action description matches current parameters, target, cost, gain and duration：通过
-5. Current, remaining and predicted queues use only canvas portraits and exact IDs：通过
-6. Wait updates current/remaining once and portraits never duplicate a normal token：通过
-7. Keyboard focus/arrows do not act; Enter on non-confirm focus does not execute old choice：通过
-8. Repeated confirmation resolves exactly once：通过
-9. Restart during animation discards stale completion and resets menu/resources：通过
-10. Difficulty editing/cancel does not alter active battle; chosen new difficulty persists on restart/load：通过
-11. Manual defense, finite item and retreat execute via their distinct menus：通过
-12. Full manual menu→target→confirm fight normal：通过
-13. Full manual menu→target→confirm fight elite_humanoid：通过
-14. Full manual menu→target→confirm fight elite_nonhumanoid：通过
-15. Full manual menu→target→confirm fight boss：通过
-16. Speed 1x versus 4x produces identical chosen actions and combat result：通过
-17. Full manual Boss run without concerto keeps naturally earned 100 until explicit release：通过
-18. KO enemies no longer appear in target/queue/final canvas draw dispatch：通过
-19. IndexedDB reload restores exact active v0.2 state and selected difficulty：通过
-20. Legacy saved records retain custom media/calibration and preserve old battle backup：通过
-21. Legacy project import retains media and announces incompatible battle rather than silently restoring：通过
-22. Current project roundtrip restores embedded media, portrait crop, difficulty and exact battle：通过
-23. Malformed/current corrupt imports leave both project and battle unchanged：通过
-24. File cancel/bad image/oversize and audio assignment do not mutate combat：通过
-25. Sprite import retains original target despite slot switch while async reading：通过
-26. Focused Enter opens categories and confirms one action only; modal Enter cannot act：通过
-27. Read battle clears stale action/category/detail and returns to current actor root：通过
-28. Each concerto detail exposes exact special channel and duration from engine：通过
-29. Natural Amy and Denia form changes update persistent portrait source without preview mutation：通过
+四、Boss机制目标专项
+命令：node tests/v03/boss_strategy_acceptance.cjs
+15种四人编队×20种子×5种策略=1500标准Boss战；另300轻松纯普攻战与900非默认漂泊者属性战，共2700。
+不改4800HP/240共振，不给默认恢复保护，不增Boss窗口。
+候选危险招：预告坠击3.6系数、阶段展翼1.65系数；阶段阈值立即预告。
+比较：basic_only忽略治疗/防御/部件但仍获合法延奏辅助；tactical按资源治疗；mechanism付2AP攻击部件并在阶段预警防御；defensive见危险付1AP防御；break_focus投入有成本的高削条路线。
+验收：标准纯普攻多数失败，同时拆锚和防御等不止一条路线可赢，不强迫唯一角色。
+终版结果：标准全普攻88/300胜（29.33%，描述Wilson95%区间24.47–34.72%）；战术278/300，拆锚300/300，预防防御297/300，削条298/300。轻松全普攻300/300。其他三种漂泊者模式：全普攻48/300、拆锚300/300、防御291/300。
+成本：标准拆锚路线平均每战7.05AP攻击部件、1.77AP防御、6.21AP治疗；防御路线平均8.06AP防御、6.43AP治疗。不能把这些预算同时算成免费输出。
+详见 boss_strategy_results.json，15种四人队覆盖无琳奈阵容；并非依靠唯一专精角色。
+结果记录实际伤害窗口、危险技、首次击破、治疗AP、拆部件AP、防御AP、总AP、幸存数、资源结余。Wilson区间仅描述这些种子场景，不是独立真人样本或总体胜率承诺。
 
-四、本轮修复的实际问题
-旧版：底部266px命令区压缩舞台；缺下轮头像；菜单说明不完整；自动行为会立即消费满协奏。
-本轮：改成角色锚定六菜单和双队列、显式效果详情、禁用但可聚焦说明、难度/道具/交涉/手动协奏实际执行。
-基线v0.1战局不沿用v0.2参数；素材/音频/校准保留，明确提示并在本地保存旧战局备份。
-等级治疗预览读取引擎healingPreview，包含等级和熟练，不再把20级flat当所有等级固定值。
-储存、恢复、异步导入、重复确认、读档清菜单、Enter焦点、自然形态头像均有新用例。
+五、独立发现与修复
+独立随机合法操作找到：架岩反击击倒漂泊者后，本招末尾仍创建微光/风蚀/暗涌/临界，致使下一步存档校验拒绝。
+修复：来源阵亡后统一终止剩余目标、团队治疗、状态、形态和资源效果；追加4属性致死反击及达妮娅AOE中断回归。
+独立复现seed10367现已完整运行并恢复，不只针对一个标记放宽校验。
+原1080场初验有这1项失败，不能改写成全通过；修复后已按最终a23ce89a核心和da11b3bf参数独立重跑1080场，0异常；没有把初验失败删掉或换成旧哈希通过。
 
-五、尚未验证
-1. 真实1280×720、1366×768、1920×1080及手机的排版/菜单碰撞、头像清晰度、像素描边。
-2. 实际鼠标/触屏/键盘焦点观感、真实文件选择器、媒体解码、自动播放权限和音量。
-3. Windows完整解压后双击index.html。
-4. 非默认素材在各设备上的锚点与头像裁切，尤其长武器、翼展、浮空姿态。
-本轮环境已重新实际探测：Chromium启动仍报进程socket EPERM；无受支持网页预览预览设施。未绕过限制。
-没有伪造或拼接成实机截图；用户给的参考截图与我们的测试结果严格分开。
+六、验证边界
+- 当前规则测试与矩阵均实际执行程序引擎。合成时序场景、启发式策略矩阵和真实浏览器三者分开。
+- jsdom Canvas/音频/IndexedDB模拟通过不证明实际像素布局或音频。真实云浏览器已完成主要键鼠、目标、存读、四外观、五棱镜、索与S03、标准Boss胜利及原生项目往返；详见 docs/独立QA报告_v0.3.txt。不代表全部动作连续实机、不同真实视口或听感通过。
+- Windows双击、真实音频播放、真人乐趣/策略最优性仍未验证。
+- 原89张PNG应保持原字节；新增棱镜/漂泊者图以最终运行素材清单与逐槽美术记录为准。待绘、兼容复用和独立新图不混计。
+- 旧v0.2的63/63、360场、29/29DOM等只在历史报告保留，不拿来充新版计数。
+- 最终打包前需重生成并通过SHA256和素材路径/尺寸/hash校验。生成清单不是验证通过的替代。
 
-六、数值解释边界
-这次是基于v0.1r2的明确修订，当前JSON为0.2.0-candidate；旧文稿仅在history保留。
-对照保持队伍、等级和策略可比；脚本启发式不代表人类最优操作。
-单人/偏科队可能失败或形成长局；3个未决格保留在原始结果，不强行判败。
-默认自动演算不替玩家放协奏，保持满条可观察；没有新增BP或普通行动次数。
+补充定向修正：敌群攻被首位目标止戈反击击倒后，停止剩余后排伤害和附加状态；_damage统一拒绝死来源。止戈专用承伤下限0.6，普通非防御下限仍0.65；实际扣血和预测已断言相等。该次追加3条回归，随后再补3条初始倒地回归，共54条；556场矩阵已以最终a23ce89a核心重跑并通过，结果仍426胜/121败/9未决、3754次恢复；2700场也已同哈希完成，全部策略计数与前述一致；最终同哈希独立矩阵也已完成：1080场，48314次逐行动保存恢复/下一步一致，0异常，748胜332败；另160场由独立策略编写的Boss对照与同成本对照完成。详见tests/independent/v03。
 
-七、冻结哈希
-app.js：6e5cba4b3a006abcb1c38cd93b9d924515aba63c4b1171bd5e9d6bb44bd1085e
-engine.js：49779e0c79ed699324cef5d61532c8194e6353e5f5bf8df21f0939a7eccd2f26
-parameters.js：5fd0ecdcf50ffae19b5a05f7cb64eb0923a84eaa50035cafec7930b6bba7df70
-storage.js：c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217
-index.html：80507ff10d1272bd389aa92b2bc8ce6fdef77773d8cefae9e9b2275a03aa8e93
-style.css：da0da94f6f6e67d1778c3997b34722c710c5e7ca75c2cc5fdec6c5ceca3254de
+初始倒地边界修正：initialHP或HP比例导致入场HP0时，按倒地初态清空AP与协奏；部分存活队伍正常跳过倒地者，全队倒地在第0轮返回失败，可合法保存恢复。开发者正式回归现54项，另六角色×四HP比例24个构造/start/restore边界检查通过。
+
+独立成本实证：20级标准无冠者，琳奈从0流彩起手，2次普攻+绚色轮迹与2次普攻+虹谱迸发均花6AP、60流彩自产自耗净0，跨2窗口；前者252生命伤害/56共振，后者324伤害/24共振。提前多削32共振实际少72伤害，联合返还另记，不能当无成本。
+
+独立定向最终37/37通过，含真实挑衅+15%单体/群攻不加且不消费的对照；这37组与开发者54组分别记录，不合并冒充91项独立测试。
+
+需求边界：当前候选完成E+C底层；完整震谐队、归群/扩层/主动引爆聚爆链和进一步延奏差异化未完成，不能以代码测试通过替代全部设计要求验收。

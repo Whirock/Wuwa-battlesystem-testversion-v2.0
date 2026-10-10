@@ -1,0 +1,74 @@
+{
+  "reviewedAt": "2026-10-10T06:37:00Z",
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVM-S-04-HV-b",
+      "version": "v001",
+      "action": "havoc_enhanced",
+      "sha256": "f60ef437a20aeb67116c18f6275926be20f4605f411edf7dc2002fb078343b44",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        60,
+        117,
+        552,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Independent full-image comparison: right single-hand sword grip and fingerless gloves preserved; separate hip-knee-ankle chains and intentional airborne/support posture; equipment and asymmetric costume sides consistent; distinct action silhouette; no clipping."
+    },
+    {
+      "id": "RVM-S-10-AE",
+      "version": "v001",
+      "action": "aero_liberation",
+      "sha256": "44f3f2254d9f0e9ea894d20e0c6cb4bb4a432f764422fcf17fe300c214509af8",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        201,
+        108,
+        446,
+        480
+      ],
+      "minMargin": 96,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Independent full-image comparison: right single-hand sword grip and fingerless gloves preserved; separate hip-knee-ankle chains and intentional airborne/support posture; equipment and asymmetric costume sides consistent; distinct action silhouette; no clipping."
+    },
+    {
+      "id": "RVM-S-04-SP-b",
+      "version": "v002",
+      "action": "spectro_enhanced",
+      "sha256": "9c1be89f43d4b77f892a3b49706ff4d600e84989c290d83b31975ff07cfd93f5",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        36,
+        60,
+        578,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "visualReview": "Independent full-image comparison: right single-hand sword grip and fingerless gloves preserved; separate hip-knee-ankle chains and intentional airborne/support posture; equipment and asymmetric costume sides consistent; distinct action silhouette; no clipping."
+    }
+  ]
+}

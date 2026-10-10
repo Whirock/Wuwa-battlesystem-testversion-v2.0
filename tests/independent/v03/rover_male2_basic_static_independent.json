@@ -1,0 +1,45 @@
+{
+  "assets": [
+    {
+      "id": "RVM-D-02-CM",
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb",
+      "shaMatches": true,
+      "size": [
+        768,
+        448
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        35,
+        98,
+        542,
+        420
+      ],
+      "visualReview": "Independent direct-view pass for static project right-handed grip, continuous handle contact, long blade silhouette, distinct attacking pose and left-facing composition. Actual browser scale/orientation/anchors not verified."
+    },
+    {
+      "id": "RVM-S-02-CM",
+      "sha256": "22fa3b69defef06256e1cc36c2b2a468516cdc08414304a9f5053fa612831ec1",
+      "shaMatches": true,
+      "size": [
+        768,
+        448
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        29,
+        100,
+        552,
+        420
+      ],
+      "visualReview": "Independent direct-view pass for static project right-handed grip, continuous handle contact, long blade silhouette, distinct attacking pose and left-facing composition. Actual browser scale/orientation/anchors not verified."
+    }
+  ],
+  "runtimeVerified": false
+}

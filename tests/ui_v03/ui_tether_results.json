@@ -1,0 +1,235 @@
+{
+  "kind": "Simulated DOM/Canvas tether lifecycle and state regression",
+  "createdAt": "2026-10-10T07:11:34.532Z",
+  "passed": 57,
+  "checks": [
+    {
+      "name": "male_default motion cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "male_default motion rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "male_default motion graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "male_default motion resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "male_default motion restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "male_default motion rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "male_default motion no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "male_default reduced no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "male_school motion cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "male_school motion rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "male_school motion graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "male_school motion resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "male_school motion restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "male_school motion rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "male_school motion no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "male_school reduced no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "female_default motion cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "female_default motion rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "female_default motion graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "female_default motion resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "female_default motion restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "female_default motion rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "female_default motion no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "female_default reduced no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "female_school motion cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "female_school motion rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "female_school motion graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "female_school motion resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "female_school motion restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "female_school motion rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "female_school motion no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced cancel creates no rope and changes no battle state",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced rope uses the actual target and declared right-palm anchor",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced graphics and repeated confirmation do not mutate extra gameplay",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced resize recalculates both rope endpoints",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced restart clears the transient rope immediately",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced rope expires after the short animation without cleanup clicks",
+      "pass": true
+    },
+    {
+      "name": "female_school reduced no DOM runtime errors",
+      "pass": true
+    },
+    {
+      "name": "Revised female-school critical preserves rejection history and awaits user acceptance",
+      "pass": true
+    }
+  ]
+}

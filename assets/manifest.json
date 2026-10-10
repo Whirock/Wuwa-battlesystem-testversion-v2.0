@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "created": "2026-10-09",
+  "created": "2026-10-10",
   "slots": {
     "lynae.normal.L01": {
       "key": "lynae.normal.L01",
@@ -50,7 +50,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 114.5,
+          "y": 20
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 144,
@@ -512,7 +517,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 111.5,
+          "y": 15
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 136,
@@ -974,7 +984,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 214.5,
+          "y": 47
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 210,
@@ -1436,7 +1451,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 220.0,
+          "y": 45
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 218,
@@ -1898,7 +1918,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 191.0,
+          "y": 44
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 187,
@@ -2426,7 +2451,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 163.5,
+          "y": 16
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 164,
@@ -2957,7 +2987,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 396.0,
+          "y": 72
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 428,
@@ -3485,7 +3520,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 421.0,
+          "y": 54
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 439,
@@ -4013,7 +4053,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 239.5,
+          "y": 20
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 229,
@@ -4805,7 +4850,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual support estimate"
+        "method": "manual support estimate",
+        "head": {
+          "x": 217.0,
+          "y": 70
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 229,
@@ -5598,7 +5648,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual body/ground estimate; wing and weapon bbox not used for scale"
+        "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
+        "head": {
+          "x": 180.5,
+          "y": 169
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 142,
@@ -5663,7 +5718,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual body/ground estimate; wing and weapon bbox not used for scale"
+        "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
+        "head": {
+          "x": 185.0,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 153,
@@ -5728,7 +5788,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual body/ground estimate; wing and weapon bbox not used for scale"
+        "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
+        "head": {
+          "x": 416.5,
+          "y": 26
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 427,
@@ -5793,7 +5858,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual body/ground estimate; wing and weapon bbox not used for scale"
+        "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
+        "head": {
+          "x": 686.0,
+          "y": 298
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 475,
@@ -5858,7 +5928,12 @@
         "weapon": null,
         "status": "visual_calibration_candidate_not_runtime_verified",
         "coordinateSpace": "natural PNG pixels",
-        "method": "manual body/ground estimate; wing and weapon bbox not used for scale"
+        "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
+        "head": {
+          "x": 973.0,
+          "y": 100
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
       },
       "anchor": {
         "x": 825,
@@ -5873,6 +5948,3303 @@
         1463
       ],
       "weaponAnchor": null
+    },
+    "enemy.glacio_prism.idle": {
+      "key": "enemy.glacio_prism.idle",
+      "entity": "glacio_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "冷凝棱镜",
+      "src": "assets/glacio_prism_v001_work1px.png",
+      "width": 391,
+      "height": 417,
+      "naturalWidth": 391,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        372,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "d2168a138db22998b4733c9e20f1bcc5ee44d288bf5dbff2a9c5aa8de7d180ae",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 195,
+          "y": 410
+        },
+        "ground": {
+          "x": 195,
+          "y": 410
+        },
+        "pivot": {
+          "x": 195,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 195.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 195,
+        "y": 410
+      },
+      "groundAnchor": [
+        195,
+        410
+      ],
+      "pivot": [
+        195,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        353,
+        379
+      ]
+    },
+    "enemy.fusion_prism.idle": {
+      "key": "enemy.fusion_prism.idle",
+      "entity": "fusion_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "热熔棱镜",
+      "src": "assets/fusion_prism_v001_work1px.png",
+      "width": 367,
+      "height": 417,
+      "naturalWidth": 367,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        348,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "5be8f20d59b987c5e0bb540ac64f189eab21aeec007be9844d8e2e1cbc5d8f4a",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 183,
+          "y": 410
+        },
+        "ground": {
+          "x": 183,
+          "y": 410
+        },
+        "pivot": {
+          "x": 183,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 183.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 183,
+        "y": 410
+      },
+      "groundAnchor": [
+        183,
+        410
+      ],
+      "pivot": [
+        183,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        329,
+        379
+      ]
+    },
+    "enemy.aero_prism.idle": {
+      "key": "enemy.aero_prism.idle",
+      "entity": "aero_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "气动棱镜",
+      "src": "assets/aero_prism_v001_work1px.png",
+      "width": 294,
+      "height": 417,
+      "naturalWidth": 294,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        275,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "f39c68262117ce958648520b158d2b065acb58bc337802ed4332efa93748073a",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 147,
+          "y": 410
+        },
+        "ground": {
+          "x": 147,
+          "y": 410
+        },
+        "pivot": {
+          "x": 147,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 147.0,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 147,
+        "y": 410
+      },
+      "groundAnchor": [
+        147,
+        410
+      ],
+      "pivot": [
+        147,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        256,
+        379
+      ]
+    },
+    "enemy.spectro_prism.idle": {
+      "key": "enemy.spectro_prism.idle",
+      "entity": "spectro_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "衍射棱镜",
+      "src": "assets/spectro_prism_v001_work1px.png",
+      "width": 407,
+      "height": 417,
+      "naturalWidth": 407,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        388,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "144368f0f89f8da0fa3ca2c4ea4c312ab4f072dacc4b5a0ffd68291f311bbb63",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 203,
+          "y": 410
+        },
+        "ground": {
+          "x": 203,
+          "y": 410
+        },
+        "pivot": {
+          "x": 203,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 203.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 203,
+        "y": 410
+      },
+      "groundAnchor": [
+        203,
+        410
+      ],
+      "pivot": [
+        203,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        369,
+        379
+      ]
+    },
+    "enemy.havoc_prism.idle": {
+      "key": "enemy.havoc_prism.idle",
+      "entity": "havoc_prism",
+      "form": "default",
+      "action": "idle",
+      "label": "湮灭棱镜",
+      "src": "assets/havoc_prism_v001_work1px.png",
+      "width": 405,
+      "height": 417,
+      "naturalWidth": 405,
+      "naturalHeight": 417,
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "bodyHeightBasis": "mineral body complete top-to-bottom; floating gap and margin excluded; human head ratios inapplicable",
+      "alphaBBox": [
+        19,
+        19,
+        386,
+        398
+      ],
+      "alphaBinary": true,
+      "alphaValueCount": 2,
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "directionAudit": "newly constructed three-quarter right view; gold-seal front plane toward screen-right; no horizontal flip",
+      "mirrorAllowed": false,
+      "singlePose": true,
+      "rank": "common",
+      "airborne": true,
+      "sourceVersion": "0.3.0-candidate",
+      "sha256": "fa1dce2e8eec57849363c46c2d752973eb80a102ada5e2e2cb9c0beaed7d31c4",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "provenanceVerified": true,
+      "origin": "newly generated fan art informed by game screenshots and icons",
+      "anchors": {
+        "foot": {
+          "x": 202,
+          "y": 410
+        },
+        "ground": {
+          "x": 202,
+          "y": 410
+        },
+        "pivot": {
+          "x": 202,
+          "y": 410
+        },
+        "weapon": null,
+        "status": "visual_calibration_candidate_not_runtime_verified",
+        "coordinateSpace": "natural PNG pixels",
+        "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
+        "head": {
+          "x": 202.5,
+          "y": 19
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "anchor": {
+        "x": 202,
+        "y": 410
+      },
+      "groundAnchor": [
+        202,
+        410
+      ],
+      "pivot": [
+        202,
+        410
+      ],
+      "weaponAnchor": null,
+      "hoverGapPixels": 13,
+      "artReview": "independent_static_pass",
+      "portraitRect": [
+        19,
+        19,
+        367,
+        379
+      ]
+    },
+    "rover.male_default.01-CM": {
+      "key": "rover.male_default.01-CM",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "idle",
+      "label": "男漂泊者 · 默认 · 待机",
+      "src": "assets/RVM-D-01-CM_v001.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 220.0,
+          "y": 55
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "sha256": "a81b8267ee61e9ffbc18d698b9c37610ae282a8c3129a19d778e5f5b5a023c0b",
+      "portraitRect": [
+        170,
+        54,
+        100,
+        110
+      ],
+      "provenanceVerified": true,
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "alphaBBox": [
+        150,
+        55,
+        354,
+        420
+      ]
+    },
+    "rover.male_default.02-CM": {
+      "key": "rover.male_default.02-CM",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "basic",
+      "label": "男漂泊者 · 默认 · 普攻",
+      "src": "assets/RVM-D-02-CM_v001_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 335.915,
+          "y": 105.588
+        }
+      },
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed: anatomy, costume sides, sword grip, proportion and distinct attack; user acceptance pending",
+      "alphaBBox": [
+        35,
+        98,
+        542,
+        420
+      ]
+    },
+    "rover.male_default.03-CM": {
+      "key": "rover.male_default.03-CM",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "critical",
+      "label": "男漂泊者 · 默认 · 濒危",
+      "src": "assets/RVM-D-03-CM_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 184.166,
+          "y": 151.311
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "7aa210156773c5111a9945602d904201ac966ddaef8e6252c79941fedf11e9bf",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        126,
+        142,
+        350,
+        420
+      ]
+    },
+    "rover.male_default.06-CM": {
+      "key": "rover.male_default.06-CM",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "guard",
+      "label": "男漂泊者 · 默认 · 防御",
+      "src": "assets/RVM-D-06-CM_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 171.727,
+          "y": 94.282
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "b70e40b34b0dc08a219bff7c0869efa030934bc42db8ea8ee7dfe95bf378253f",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        95,
+        86,
+        380,
+        420
+      ]
+    },
+    "rover.male_default.07-CM": {
+      "key": "rover.male_default.07-CM",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "down",
+      "label": "男漂泊者 · 默认 · 倒地",
+      "src": "assets/RVM-D-07-CM_v001_work1px.png",
+      "width": 576,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 288,
+          "y": 418
+        },
+        "head": {
+          "x": 170.144,
+          "y": 276.107
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "752d0a95e16fa8f4e9a89cd5642aacca2a3a1e9e418ee186a8588643ce747df8",
+      "naturalWidth": 576,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        24,
+        266,
+        549,
+        420
+      ]
+    },
+    "rover.male_default.09-CM": {
+      "key": "rover.male_default.09-CM",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "hurt",
+      "label": "男漂泊者 · 默认 · 受击",
+      "src": "assets/RVM-D-09-CM_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 279.938,
+          "y": 57.053
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "f858cde7a965659ab8cbb23677a9ec149aef19de55c6d1443157cb0601376048",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        143,
+        40,
+        435,
+        420
+      ]
+    },
+    "rover.male_default.04-SP-a": {
+      "key": "rover.male_default.04-SP-a",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "skill",
+      "label": "男漂泊者 · 默认 · 衍射技能",
+      "src": "assets/RVM-D-04-SP-a_v004_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 330.184,
+          "y": 116.359
+        }
+      },
+      "sha256": "875f35cce897418583ec802fe5e40592e029146b4e8c633e898142733137acbf",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "minorArtNotes": "Projected blade approximately2.4 head-heights vs approved basic near2.0; independent QA rates this a minor consistency deviation, not a blocking short-weapon or grip defect. Kept visible for user artistic review.",
+      "alphaBinary": true,
+      "alphaBBox": [
+        9,
+        109,
+        546,
+        420
+      ]
+    },
+    "rover.male_default.04-HV-a": {
+      "key": "rover.male_default.04-HV-a",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "skill",
+      "label": "男漂泊者 · 默认 · 湮灭技能",
+      "src": "assets/RVM-D-04-HV-a_v003_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "static_revision_pass",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 309.436,
+          "y": 135.074
+        }
+      },
+      "sha256": "1e3aa59a2bbf32e35ca5ff447ec653683c724d4d9ec4f222f35aa735a24b84bb",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "alphaBinary": true,
+      "alphaBBox": [
+        44,
+        126,
+        578,
+        420
+      ],
+      "revisionReason": "Corrected default enclosed glove / school fingerless glove consistency with imagegen. Same action slot; pose, head, limb chains, weapon and anchor unchanged.",
+      "revisionHistory": [
+        {
+          "file": "RVM-D-04-HV-a_v002_work1px.png",
+          "sha256": "fd4267de67a3c8550ef0134d2c2a2a19dd6595f7cb655ccc37b11cbbb1a1da55",
+          "status": "superseded_costume_consistency",
+          "reason": "Corrected default enclosed glove / school fingerless glove consistency with imagegen. Same action slot; pose, head, limb chains, weapon and anchor unchanged."
+        }
+      ],
+      "acceptanceStatus": "user_acceptance_pending"
+    },
+    "rover.male_default.04-AE-a": {
+      "key": "rover.male_default.04-AE-a",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "skill",
+      "label": "男漂泊者 · 默认 · 气动技能",
+      "src": "assets/RVM-D-04-AE-a_v002_work1px.png",
+      "width": 640,
+      "height": 576,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 518
+        },
+        "head": {
+          "x": 300.956,
+          "y": 118.625
+        }
+      },
+      "sha256": "b4dee887fe06cd749a2e6bce7ec02807f5d133fc2f79c41b84b0828908577b2a",
+      "naturalWidth": 640,
+      "naturalHeight": 576,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual QA passed; user acceptance pending",
+      "attribute": "aero",
+      "alphaBinary": true,
+      "alphaBBox": [
+        38,
+        30,
+        493,
+        480
+      ]
+    },
+    "rover.male_default.04-EL-a": {
+      "key": "rover.male_default.04-EL-a",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "skill",
+      "label": "男漂泊者 · 默认 · 导电技能",
+      "src": "assets/RVM-D-04-EL-a_v005_work1px.png",
+      "width": 640,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "static_revision_pass",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 418
+        },
+        "head": {
+          "x": 236.367,
+          "y": 88.053
+        },
+        "cast": {
+          "x": 100.674,
+          "y": 184.098
+        }
+      },
+      "sha256": "fc65f15e33688cb40ead9b77db5af58c98e9a065a46b24f4764f126d3ecc2c6d",
+      "naturalWidth": 640,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "electro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        70,
+        79,
+        522,
+        396
+      ],
+      "runtimeEffectStatus": "canvas_tether_implemented_pending_browser",
+      "effectRendering": "Separate hard-edge three-color screen-pixel tether from rightPalm/cast to actual action target; no baked FX",
+      "revisionReason": "Fingerless school gloves / enclosed default gloves restored to outfit identity using imagegen only. Existing action slot replacement; not a new action.",
+      "revisionHistory": [
+        {
+          "file": "RVM-D-04-EL-a_v004_work1px.png",
+          "sha256": "4f2fdc39797725f7d17a170d91a3812e1110723d5fb7119368f416d2fb861805",
+          "status": "superseded_costume_consistency",
+          "reason": "Fingerless school gloves / enclosed default gloves restored to outfit identity using imagegen only. Existing action slot replacement; not a new action."
+        }
+      ],
+      "acceptanceStatus": "user_acceptance_pending"
+    },
+    "rover.male_default.10-SP": {
+      "key": "rover.male_default.10-SP",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "liberation",
+      "label": "男漂泊者 · 默认 · 衍射共鸣解放",
+      "src": "assets/RVM-D-10-SP_v002_work1px.png",
+      "width": 576,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 288,
+          "y": 418
+        },
+        "head": {
+          "x": 276.431,
+          "y": 64.847
+        },
+        "cast": {
+          "x": 149.707,
+          "y": 159.281
+        }
+      },
+      "sha256": "6a362f69f475dc268966c8d2c05a8d0abd1e43b588724104beffaafb229c563f",
+      "naturalWidth": 576,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "spectro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        134,
+        56,
+        413,
+        420
+      ]
+    },
+    "rover.male_default.10-HV": {
+      "key": "rover.male_default.10-HV",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "liberation",
+      "label": "男漂泊者 · 默认 · 湮灭共鸣解放",
+      "src": "assets/RVM-D-10-HV_v002_work1px.png",
+      "width": 640,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 418
+        },
+        "head": {
+          "x": 274.644,
+          "y": 117.299
+        },
+        "cast": {
+          "x": 148.978,
+          "y": 213.047
+        }
+      },
+      "sha256": "f7136651463941618a2e9646b58c7825b9dd9df158384a81510e80e21ed8850a",
+      "naturalWidth": 640,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "havoc",
+      "alphaBinary": true,
+      "alphaBBox": [
+        119,
+        107,
+        490,
+        420
+      ]
+    },
+    "rover.male_default.10-AE": {
+      "key": "rover.male_default.10-AE",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "liberation",
+      "label": "男漂泊者 · 默认 · 气动共鸣解放",
+      "src": "assets/RVM-D-10-AE_v002_work1px.png",
+      "width": 640,
+      "height": 576,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 518
+        },
+        "head": {
+          "x": 306.865,
+          "y": 117.378
+        },
+        "cast": {
+          "x": 217.834,
+          "y": 216.904
+        }
+      },
+      "sha256": "213f91261c99b85dd3ea878d31289dd28a6a0e419da580da04904722c9461539",
+      "naturalWidth": 640,
+      "naturalHeight": 576,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "aero",
+      "alphaBinary": true,
+      "alphaBBox": [
+        201,
+        110,
+        445,
+        480
+      ]
+    },
+    "rover.male_default.10-EL": {
+      "key": "rover.male_default.10-EL",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "liberation",
+      "label": "男漂泊者 · 默认 · 导电共鸣解放",
+      "src": "assets/RVM-D-10-EL_v002_work1px.png",
+      "width": 640,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 418
+        },
+        "head": {
+          "x": 308.434,
+          "y": 158.055
+        },
+        "cast": {
+          "x": 169.952,
+          "y": 244.01
+        }
+      },
+      "sha256": "2611a9d8c7589b8b81f8710f911bda79cac9859566b0bd45c87c9a3f5828cb8e",
+      "naturalWidth": 640,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "electro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        144,
+        148,
+        456,
+        420
+      ]
+    },
+    "rover.male_default.04-SP-b": {
+      "key": "rover.male_default.04-SP-b",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "enhanced",
+      "label": "男漂泊者 · 默认 · 衍射强化",
+      "src": "assets/RVM-D-04-SP-b_v001_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 343.112,
+          "y": 80.466
+        }
+      },
+      "sha256": "9ead37d2adf6046d450209aa3d9f2ebebb1b6d30271ef74ba8c89801d95326e8",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "spectro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        45,
+        69,
+        575,
+        420
+      ]
+    },
+    "rover.male_default.04-HV-b": {
+      "key": "rover.male_default.04-HV-b",
+      "entity": "rover",
+      "form": "male_default",
+      "action": "enhanced",
+      "label": "男漂泊者 · 默认 · 湮灭强化",
+      "src": "assets/RVM-D-04-HV-b_v001_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 308.859,
+          "y": 141.978
+        }
+      },
+      "sha256": "74e31d88c32197507147a0011ebfe0325fc1a64d0d1d7ca5f8c440189d349abd",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "havoc",
+      "alphaBinary": true,
+      "alphaBBox": [
+        75,
+        137,
+        544,
+        420
+      ]
+    },
+    "rover.male_school.01-CM": {
+      "key": "rover.male_school.01-CM",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "idle",
+      "label": "男漂泊者 · 校服 · 待机",
+      "src": "assets/RVM-S-01-CM_v002.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 220.0,
+          "y": 55
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "sha256": "9ac29e4a6f6aed8245872ddb944124ad8105c7cbdc8dffafe8aa6bad2bb35683",
+      "portraitRect": [
+        170,
+        54,
+        100,
+        110
+      ],
+      "provenanceVerified": true,
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "alphaBBox": [
+        150,
+        55,
+        354,
+        420
+      ]
+    },
+    "rover.male_school.02-CM": {
+      "key": "rover.male_school.02-CM",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "basic",
+      "label": "男漂泊者 · 校服 · 普攻",
+      "src": "assets/RVM-S-02-CM_v002_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "static_revision_pass",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 335.915,
+          "y": 107.588
+        }
+      },
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "alphaBBox": [
+        29,
+        100,
+        552,
+        420
+      ],
+      "revisionReason": "Fingerless school gloves / enclosed default gloves restored to outfit identity using imagegen only. Existing action slot replacement; not a new action.",
+      "alphaBinary": true,
+      "revisionHistory": [
+        {
+          "file": "RVM-S-02-CM_v001_work1px.png",
+          "sha256": "22fa3b69defef06256e1cc36c2b2a468516cdc08414304a9f5053fa612831ec1",
+          "status": "superseded_costume_consistency",
+          "reason": "Fingerless school gloves / enclosed default gloves restored to outfit identity using imagegen only. Existing action slot replacement; not a new action."
+        }
+      ],
+      "acceptanceStatus": "user_acceptance_pending"
+    },
+    "rover.male_school.03-CM": {
+      "key": "rover.male_school.03-CM",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "critical",
+      "label": "男漂泊者 · 校服 · 濒危",
+      "src": "assets/RVM-S-03-CM_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 185.073,
+          "y": 152.188
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "4bf047a9775c667f14b597fa2320b2f73c78e538081d18c9b56d349d64f3c830",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        127,
+        140,
+        364,
+        420
+      ]
+    },
+    "rover.male_school.06-CM": {
+      "key": "rover.male_school.06-CM",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "guard",
+      "label": "男漂泊者 · 校服 · 防御",
+      "src": "assets/RVM-S-06-CM_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 171.727,
+          "y": 90.282
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "9f3a0f1a95e4c48e3909e8dda6e2fd5a34cb5f1ca76b22693ceb57cfba7986ee",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        96,
+        82,
+        381,
+        420
+      ]
+    },
+    "rover.male_school.07-CM": {
+      "key": "rover.male_school.07-CM",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "down",
+      "label": "男漂泊者 · 校服 · 倒地",
+      "src": "assets/RVM-S-07-CM_v002_work1px.png",
+      "width": 576,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "static_revision_pass",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 288,
+          "y": 418
+        },
+        "head": {
+          "x": 170.144,
+          "y": 278.107
+        }
+      },
+      "sha256": "3720378111a6d446983a9dead6703754f613190ee6991d5ef7bab383fa39674d",
+      "naturalWidth": 576,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user acceptance pending",
+      "alphaBBox": [
+        24,
+        267,
+        552,
+        420
+      ],
+      "revisionReason": "Corrected default enclosed glove / school fingerless glove consistency with imagegen. Same action slot; pose, head, limb chains, weapon and anchor unchanged.",
+      "alphaBinary": true,
+      "revisionHistory": [
+        {
+          "file": "RVM-S-07-CM_v001_work1px.png",
+          "sha256": "01fb01bfb872a60dcbf8f7030832f29c911bd03399202326a90dcc54c9201310",
+          "status": "superseded_costume_consistency",
+          "reason": "Corrected default enclosed glove / school fingerless glove consistency with imagegen. Same action slot; pose, head, limb chains, weapon and anchor unchanged."
+        }
+      ],
+      "acceptanceStatus": "user_acceptance_pending"
+    },
+    "rover.male_school.09-CM": {
+      "key": "rover.male_school.09-CM",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "hurt",
+      "label": "男漂泊者 · 校服 · 受击",
+      "src": "assets/RVM-S-09-CM_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 273.557,
+          "y": 58.576
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "430e835f40e49f9b1b3dc1d5fbfbceba6b923f855b5ff113136a2a1032ccd5b1",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Visual same-work-scale review passed identity, costume sides, active/limp support and distinct states; user acceptance pending",
+      "alphaBBox": [
+        142,
+        40,
+        437,
+        420
+      ]
+    },
+    "rover.male_school.04-SP-a": {
+      "key": "rover.male_school.04-SP-a",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "skill",
+      "label": "男漂泊者 · 校服 · 衍射技能",
+      "src": "assets/RVM-S-04-SP-a_v004_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 337.408,
+          "y": 125.639
+        }
+      },
+      "sha256": "44d5e7297a29694f0f0fdf2defc0a37ae471699efbc71ad297241edd17ed0780",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        37,
+        116,
+        546,
+        420
+      ]
+    },
+    "rover.male_school.04-HV-a": {
+      "key": "rover.male_school.04-HV-a",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "skill",
+      "label": "男漂泊者 · 校服 · 湮灭技能",
+      "src": "assets/RVM-S-04-HV-a_v002_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "static_revision_pass",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 308.164,
+          "y": 142.598
+        }
+      },
+      "sha256": "59260a827ad9f2251ba0ef3fa96a811c76c9505b49e63bed2162632291ff403d",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "havoc",
+      "alphaBinary": true,
+      "alphaBBox": [
+        60,
+        134,
+        577,
+        420
+      ],
+      "revisionReason": "Fingerless school gloves / enclosed default gloves restored to outfit identity using imagegen only. Existing action slot replacement; not a new action.",
+      "revisionHistory": [
+        {
+          "file": "RVM-S-04-HV-a_v001_work1px.png",
+          "sha256": "f25bd8a64c8da04b5692ac7c0076fabf46bb6a70c3f922c2d17ae40ca2ce69eb",
+          "status": "superseded_costume_consistency",
+          "reason": "Fingerless school gloves / enclosed default gloves restored to outfit identity using imagegen only. Existing action slot replacement; not a new action."
+        }
+      ],
+      "acceptanceStatus": "user_acceptance_pending"
+    },
+    "rover.male_school.04-AE-a": {
+      "key": "rover.male_school.04-AE-a",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "skill",
+      "label": "男漂泊者 · 校服 · 气动技能",
+      "src": "assets/RVM-S-04-AE-a_v002_work1px.png",
+      "width": 640,
+      "height": 576,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 518
+        },
+        "head": {
+          "x": 317.17,
+          "y": 154.337
+        }
+      },
+      "sha256": "c70a475b5cca4ec5d72797453233d184c527824bbed3d2b8e8d4f53aaa1fdb0e",
+      "naturalWidth": 640,
+      "naturalHeight": 576,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual QA passed; user acceptance pending",
+      "attribute": "aero",
+      "alphaBinary": true,
+      "alphaBBox": [
+        41,
+        69,
+        509,
+        480
+      ]
+    },
+    "rover.male_school.04-EL-a": {
+      "key": "rover.male_school.04-EL-a",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "skill",
+      "label": "男漂泊者 · 校服 · 导电技能",
+      "src": "assets/RVM-S-04-EL-a_v001_work1px.png",
+      "width": 640,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 418
+        },
+        "head": {
+          "x": 234.87,
+          "y": 89.33
+        },
+        "cast": {
+          "x": 107.41276041666666,
+          "y": 181.0537109375
+        }
+      },
+      "sha256": "d080387dc34748bf647eaae3af1c13b576f5912ed11ef86ed3d59fab5444b305",
+      "naturalWidth": 640,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual QA passed; user acceptance pending",
+      "attribute": "electro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        78,
+        82,
+        551,
+        396
+      ],
+      "runtimeEffectStatus": "canvas_tether_implemented_pending_browser",
+      "effectRendering": "Separate hard-edge three-color screen-pixel tether from rightPalm/cast to actual action target; no baked FX"
+    },
+    "rover.male_school.10-SP": {
+      "key": "rover.male_school.10-SP",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "liberation",
+      "label": "男漂泊者 · 校服 · 衍射共鸣解放",
+      "src": "assets/RVM-S-10-SP_v002_work1px.png",
+      "width": 576,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 288,
+          "y": 418
+        },
+        "head": {
+          "x": 273.642,
+          "y": 67.063
+        },
+        "cast": {
+          "x": 143.682,
+          "y": 156.222
+        }
+      },
+      "sha256": "e434f6567895378ba94d137607bc8548072868181dc5c79e8ea779430b4b7cf3",
+      "naturalWidth": 576,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "spectro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        125,
+        57,
+        408,
+        420
+      ]
+    },
+    "rover.male_school.10-HV": {
+      "key": "rover.male_school.10-HV",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "liberation",
+      "label": "男漂泊者 · 校服 · 湮灭共鸣解放",
+      "src": "assets/RVM-S-10-HV_v001_work1px.png",
+      "width": 640,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 418
+        },
+        "head": {
+          "x": 269.511,
+          "y": 114.299
+        },
+        "cast": {
+          "x": 142.978,
+          "y": 210.047
+        }
+      },
+      "sha256": "d3c19fa6007e6b1a601b5361e19c9851b9fe8fc8a660c5bffd25d3c2d47b44db",
+      "naturalWidth": 640,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "havoc",
+      "alphaBinary": true,
+      "alphaBBox": [
+        113,
+        105,
+        487,
+        420
+      ]
+    },
+    "rover.male_school.10-AE": {
+      "key": "rover.male_school.10-AE",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "liberation",
+      "label": "男漂泊者 · 校服 · 气动共鸣解放",
+      "src": "assets/RVM-S-10-AE_v001_work1px.png",
+      "width": 640,
+      "height": 576,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 518
+        },
+        "head": {
+          "x": 307.285,
+          "y": 115.237
+        },
+        "cast": {
+          "x": 217.566,
+          "y": 214.005
+        }
+      },
+      "sha256": "44f3f2254d9f0e9ea894d20e0c6cb4bb4a432f764422fcf17fe300c214509af8",
+      "naturalWidth": 640,
+      "naturalHeight": 576,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "aero",
+      "alphaBinary": true,
+      "alphaBBox": [
+        201,
+        108,
+        446,
+        480
+      ]
+    },
+    "rover.male_school.10-EL": {
+      "key": "rover.male_school.10-EL",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "liberation",
+      "label": "男漂泊者 · 校服 · 导电共鸣解放",
+      "src": "assets/RVM-S-10-EL_v001_work1px.png",
+      "width": 640,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 320,
+          "y": 418
+        },
+        "head": {
+          "x": 310.211,
+          "y": 155.344
+        },
+        "cast": {
+          "x": 167.726,
+          "y": 244.048
+        }
+      },
+      "sha256": "9319b316a5139ddad14e703f2c901cd1ba32d86d69443d4251930b7f6affba01",
+      "naturalWidth": 640,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "electro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        141,
+        145,
+        460,
+        420
+      ]
+    },
+    "rover.male_school.04-SP-b": {
+      "key": "rover.male_school.04-SP-b",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "enhanced",
+      "label": "男漂泊者 · 校服 · 衍射强化",
+      "src": "assets/RVM-S-04-SP-b_v002_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 341.112,
+          "y": 71.304
+        }
+      },
+      "sha256": "9c1be89f43d4b77f892a3b49706ff4d600e84989c290d83b31975ff07cfd93f5",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "spectro",
+      "alphaBinary": true,
+      "alphaBBox": [
+        36,
+        60,
+        578,
+        420
+      ]
+    },
+    "rover.male_school.04-HV-b": {
+      "key": "rover.male_school.04-HV-b",
+      "entity": "rover",
+      "form": "male_school",
+      "action": "enhanced",
+      "label": "男漂泊者 · 校服 · 湮灭强化",
+      "src": "assets/RVM-S-04-HV-b_v001_work1px.png",
+      "width": 768,
+      "height": 448,
+      "referenceBodyHeight": 353.495,
+      "bodyHeight": 353.495,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 384,
+          "y": 418
+        },
+        "head": {
+          "x": 305.471,
+          "y": 125.304
+        }
+      },
+      "sha256": "f60ef437a20aeb67116c18f6275926be20f4605f411edf7dc2002fb078343b44",
+      "naturalWidth": 768,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static visual and binary QA passed; user art acceptance pending",
+      "attribute": "havoc",
+      "alphaBinary": true,
+      "alphaBBox": [
+        60,
+        117,
+        552,
+        420
+      ]
+    },
+    "rover.female_default.01-CM": {
+      "key": "rover.female_default.01-CM",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "idle",
+      "label": "女漂泊者 · 默认 · 待机",
+      "src": "assets/RVF-D-01-CM_v004.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 221.0,
+          "y": 57
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "sha256": "f96daad173812dff5d345cee6357ec8ab6b6729e439d88d778f1693606b6c226",
+      "portraitRect": [
+        171,
+        57,
+        100,
+        110
+      ],
+      "provenanceVerified": true,
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "alphaBBox": [
+        145,
+        51,
+        310,
+        420
+      ]
+    },
+    "rover.female_default.02-CM": {
+      "key": "rover.female_default.02-CM",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "basic",
+      "label": "女漂泊者 · 默认 · 普攻",
+      "src": "assets/RVF-D-02-CM_v001_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 342.267,
+          "y": 116.854
+        }
+      },
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed: anatomy, costume sides, right sword grip, proportion and distinct attack; user acceptance pending",
+      "alphaBBox": [
+        53,
+        98,
+        535,
+        420
+      ]
+    },
+    "rover.female_default.03-CM": {
+      "key": "rover.female_default.03-CM",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "critical",
+      "label": "女漂泊者 · 默认 · 濒危",
+      "src": "assets/RVF-D-03-CM_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 169.451,
+          "y": 150.467
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "460e9b6c391911326940d3afa7da6c54d5e50b3821959ede45178be3ade7e211",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        109,
+        136,
+        303,
+        420
+      ]
+    },
+    "rover.female_default.06-CM": {
+      "key": "rover.female_default.06-CM",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "guard",
+      "label": "女漂泊者 · 默认 · 防御",
+      "src": "assets/RVF-D-06-CM_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 200.544,
+          "y": 81.206
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "0e7a856d1c55753399f92007460054a850957cf3feff5065f0f088cca58a9f20",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        137,
+        63,
+        320,
+        419
+      ]
+    },
+    "rover.female_default.07-CM": {
+      "key": "rover.female_default.07-CM",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "down",
+      "label": "女漂泊者 · 默认 · 倒地",
+      "src": "assets/RVF-D-07-CM_v001_work1px.png",
+      "width": 576,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 288,
+          "y": 418
+        },
+        "head": {
+          "x": 108.427,
+          "y": 294.466
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "f018af66cd8e2bec176b17dc112e17f9b59876f4cfe7eccaa46c6e05b2ccb351",
+      "naturalWidth": 576,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        55,
+        277,
+        521,
+        419
+      ]
+    },
+    "rover.female_default.09-CM": {
+      "key": "rover.female_default.09-CM",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "hurt",
+      "label": "女漂泊者 · 默认 · 受击",
+      "src": "assets/RVF-D-09-CM_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 262.216,
+          "y": 65.095
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "047268e6aa62b9b06e14948b9172f60f629da5caddf92f209f1c5f1d14d24d21",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        100,
+        46,
+        381,
+        419
+      ]
+    },
+    "rover.female_default.04-SP-a": {
+      "key": "rover.female_default.04-SP-a",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "skill",
+      "label": "女漂泊者 · 默认 · 衍射技能",
+      "src": "assets/RVF-D-04-SP-a_v002_work1px.png",
+      "width": 832,
+      "height": 576,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 546
+        },
+        "head": {
+          "x": 354.414,
+          "y": 238.646
+        }
+      },
+      "sha256": "085c4a5e8fbccae0bdc52e2fca1f27646062cc2b2a30a833478c52dd79352af0",
+      "naturalWidth": 832,
+      "naturalHeight": 576,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "alphaBBox": [
+        105,
+        107,
+        552,
+        546
+      ]
+    },
+    "rover.female_default.04-HV-a": {
+      "key": "rover.female_default.04-HV-a",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "skill",
+      "label": "女漂泊者 · 默认 · 湮灭技能",
+      "src": "assets/RVF-D-04-HV-a_v001_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 331.752,
+          "y": 146.045
+        }
+      },
+      "sha256": "1a6c4e0de142ca111e978abd93b5ba17c19dd31f35bdb052e1df3bc37c7c0a60",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "alphaBBox": [
+        33,
+        132,
+        554,
+        420
+      ]
+    },
+    "rover.female_default.04-AE-a": {
+      "key": "rover.female_default.04-AE-a",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "skill",
+      "label": "女漂泊者 · 默认 · 气动技能",
+      "src": "assets/RVF-D-04-AE-a_v004_work1px.png",
+      "width": 832,
+      "height": 640,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 610
+        },
+        "head": {
+          "x": 433.699,
+          "y": 196.495
+        }
+      },
+      "sha256": "d8520b18641dad6bcaabf4939fb20ef32f2baa09f244d05b2c71d9cdd999bb42",
+      "naturalWidth": 832,
+      "naturalHeight": 640,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "aero",
+      "groundAnchorKind": "virtual_airborne_floor",
+      "alphaBBox": [
+        171,
+        34,
+        547,
+        589
+      ]
+    },
+    "rover.female_default.04-EL-a": {
+      "key": "rover.female_default.04-EL-a",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "skill",
+      "label": "女漂泊者 · 默认 · 导电技能",
+      "src": "assets/RVF-D-04-EL-a_v003_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 171.571,
+          "y": 93.315
+        },
+        "cast": {
+          "x": 46.604,
+          "y": 173.553
+        },
+        "rightPalm": {
+          "x": 46.604,
+          "y": 173.553
+        }
+      },
+      "sha256": "767a4d40648f9068aa7dcb60e6ff5eae22f6e78c2838cf165f8e6c84b4c43a35",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "electro",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "virtual_airborne_floor",
+      "effectRendering": "Separate hard-edge three-color screen-pixel tether from rightPalm/cast to actual action target; no baked FX",
+      "runtimeEffectStatus": "canvas_tether_implemented_pending_browser",
+      "alphaBBox": [
+        16,
+        76,
+        364,
+        400
+      ]
+    },
+    "rover.female_default.10-SP": {
+      "key": "rover.female_default.10-SP",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "liberation",
+      "label": "女漂泊者 · 默认 · 衍射共鸣解放",
+      "src": "assets/RVF-D-10-SP_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 230.013,
+          "y": 62.712
+        },
+        "cast": {
+          "x": 105.196,
+          "y": 115.563
+        },
+        "rightPalm": {
+          "x": 105.196,
+          "y": 115.563
+        }
+      },
+      "sha256": "8dac3bc6fb3a5dbf57e003782171c6b592397c63acecee763fcce77bdcb85059",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "grounded_floor",
+      "effectRendering": "Independent runtime attribute FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        77,
+        37,
+        372,
+        419
+      ]
+    },
+    "rover.female_default.10-HV": {
+      "key": "rover.female_default.10-HV",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "liberation",
+      "label": "女漂泊者 · 默认 · 湮灭共鸣解放",
+      "src": "assets/RVF-D-10-HV_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 183.176,
+          "y": 159.011
+        },
+        "cast": {
+          "x": 93.838,
+          "y": 283.919
+        },
+        "rightPalm": {
+          "x": 93.838,
+          "y": 283.919
+        }
+      },
+      "sha256": "19fcee943a49b2dbb2f890210398275c4a9f37dddeebf0799be7b966d33c71e7",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "grounded_floor",
+      "effectRendering": "Independent runtime Havoc liberation FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        71,
+        151,
+        367,
+        419
+      ]
+    },
+    "rover.female_default.10-AE": {
+      "key": "rover.female_default.10-AE",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "liberation",
+      "label": "女漂泊者 · 默认 · 气动共鸣解放",
+      "src": "assets/RVF-D-10-AE_v001_work1px.png",
+      "width": 448,
+      "height": 512,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 482
+        },
+        "head": {
+          "x": 216.838,
+          "y": 74.536
+        },
+        "cast": {
+          "x": 144.057,
+          "y": 168.507
+        },
+        "rightPalm": {
+          "x": 144.057,
+          "y": 168.507
+        }
+      },
+      "sha256": "4ac063e228946005066bc3594269cafa4298385e53cf191c4120c8b2d1f5ff26",
+      "naturalWidth": 448,
+      "naturalHeight": 512,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "aero",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "virtual_airborne_floor",
+      "effectRendering": "Independent runtime attribute FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        120,
+        55,
+        327,
+        462
+      ]
+    },
+    "rover.female_default.10-EL": {
+      "key": "rover.female_default.10-EL",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "liberation",
+      "label": "女漂泊者 · 默认 · 导电共鸣解放",
+      "src": "assets/RVF-D-10-EL_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 217.18,
+          "y": 109.351
+        },
+        "cast": {
+          "x": 70.97,
+          "y": 197.015
+        },
+        "rightPalm": {
+          "x": 70.97,
+          "y": 197.015
+        }
+      },
+      "sha256": "42d15f51b8f390b17cbe4ea5c48bc245bfa423b8590812aab475da36dead39b7",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "electro",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "grounded_floor",
+      "effectRendering": "Independent runtime attribute FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        50,
+        91,
+        390,
+        419
+      ]
+    },
+    "rover.female_default.04-SP-b": {
+      "key": "rover.female_default.04-SP-b",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "enhanced",
+      "label": "女漂泊者 · 默认 · 衍射强化",
+      "src": "assets/RVF-D-04-SP-b_v005_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 405.923,
+          "y": 115.42
+        }
+      },
+      "sha256": "afd453fb96537bdc5308a4fee588e499f69ce03e19822a6dc02c1b374ddbf56f",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "alphaBBox": [
+        118,
+        101,
+        561,
+        419
+      ]
+    },
+    "rover.female_default.04-HV-b": {
+      "key": "rover.female_default.04-HV-b",
+      "entity": "rover",
+      "form": "female_default",
+      "action": "enhanced",
+      "label": "女漂泊者 · 默认 · 湮灭强化",
+      "src": "assets/RVF-D-04-HV-b_v003_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 349.977,
+      "bodyHeight": 349.977,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 400.374,
+          "y": 97.827
+        }
+      },
+      "sha256": "6768764abb22f2275984fdb9c45da75f12567a0198cd62c7a7f04603e0330b02",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "alphaBBox": [
+        186,
+        45,
+        560,
+        419
+      ]
+    },
+    "rover.female_school.01-CM": {
+      "key": "rover.female_school.01-CM",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "idle",
+      "label": "女漂泊者 · 校服 · 待机",
+      "src": "assets/RVF-S-01-CM_v002.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 222.0,
+          "y": 56
+        },
+        "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
+      },
+      "sha256": "9db0dbbf5fdba4c17df343412be530c6198f0481bdbcc3010795b885d02e84d6",
+      "portraitRect": [
+        172,
+        56,
+        100,
+        110
+      ],
+      "provenanceVerified": true,
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "alphaBBox": [
+        146,
+        50,
+        303,
+        420
+      ]
+    },
+    "rover.female_school.02-CM": {
+      "key": "rover.female_school.02-CM",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "basic",
+      "label": "女漂泊者 · 校服 · 普攻",
+      "src": "assets/RVF-S-02-CM_v001_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 360.097,
+          "y": 129.044
+        }
+      },
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed: anatomy, costume sides, right sword grip, proportion and distinct attack; user acceptance pending",
+      "alphaBBox": [
+        55,
+        113,
+        548,
+        421
+      ]
+    },
+    "rover.female_school.03-CM": {
+      "key": "rover.female_school.03-CM",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "critical",
+      "label": "女漂泊者 · 校服 · 濒危 v004（待用户确认）",
+      "src": "assets/RVF-S-03-CM_v004_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "static_revision_pass",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 151.881,
+          "y": 163.819
+        }
+      },
+      "sha256": "d27db0c12ee915aa61a900f06689d08ce2807814a7e8c7568266c65cda67b3fc",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "static_revision_pass",
+      "alphaBinary": true,
+      "alphaBBox": [
+        87,
+        147,
+        325,
+        420
+      ],
+      "acceptanceStatus": "user_acceptance_pending",
+      "reviewNote": "v004已获静态修订复验；用户美术确认待定。远膝与近足纵深接地点约16.5工作px差异，列Q42实机核验。",
+      "revisionHistory": [
+        {
+          "file": "RVF-S-03-CM_v002_work1px.png",
+          "sha256": "abab60be588e154b9a0ad98157979053b22fd12121a9071201d96b9e5c7943ed",
+          "status": "user_rejected",
+          "reason": "用户退回：女校服重伤双腿前后骨骼不正确，保留旧图作临时运行占位，待重绘与独立复验。"
+        }
+      ]
+    },
+    "rover.female_school.06-CM": {
+      "key": "rover.female_school.06-CM",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "guard",
+      "label": "女漂泊者 · 校服 · 防御",
+      "src": "assets/RVF-S-06-CM_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 193.37,
+          "y": 88.489
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "508568f532737a5b25afe74b105914c31a6490730a678b360cab1e3959eb11ce",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        120,
+        75,
+        329,
+        419
+      ]
+    },
+    "rover.female_school.07-CM": {
+      "key": "rover.female_school.07-CM",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "down",
+      "label": "女漂泊者 · 校服 · 倒地",
+      "src": "assets/RVF-S-07-CM_v002_work1px.png",
+      "width": 576,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 288,
+          "y": 418
+        },
+        "head": {
+          "x": 103.457,
+          "y": 283.773
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "b63ed057811966c64ea4e912c560f49de944170c04a8b15f1af3d773d7c81509",
+      "naturalWidth": 576,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        44,
+        266,
+        509,
+        420
+      ]
+    },
+    "rover.female_school.09-CM": {
+      "key": "rover.female_school.09-CM",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "hurt",
+      "label": "女漂泊者 · 校服 · 受击",
+      "src": "assets/RVF-S-09-CM_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 277.333,
+          "y": 56.252
+        },
+        "headMethod": "Artist-reviewed crown landmark, uniformly transformed from source into work-image pixels; runtime candidate."
+      },
+      "sha256": "096dd8487a54db5001563dc3ada6a296dea8a714de143cb4f02bb8093e64bda9",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "independent static review passed; user acceptance pending",
+      "alphaBinary": true,
+      "alphaBBox": [
+        118,
+        37,
+        360,
+        418
+      ]
+    },
+    "rover.female_school.04-SP-a": {
+      "key": "rover.female_school.04-SP-a",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "skill",
+      "label": "女漂泊者 · 校服 · 衍射技能",
+      "src": "assets/RVF-S-04-SP-a_v004_work1px.png",
+      "width": 832,
+      "height": 576,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 546
+        },
+        "head": {
+          "x": 391.394,
+          "y": 260.471
+        }
+      },
+      "sha256": "fa89ea8569a6a8678cd27c4a75bf773c02b02bfc84ffb90cdc424603f651b7c8",
+      "naturalWidth": 832,
+      "naturalHeight": 576,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "measurementCaveat": "Observed blade approximately 1.91 heads; parent accepted this measured version. Not represented as exact 2.1 heads.",
+      "alphaBBox": [
+        133,
+        137,
+        551,
+        548
+      ]
+    },
+    "rover.female_school.04-HV-a": {
+      "key": "rover.female_school.04-HV-a",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "skill",
+      "label": "女漂泊者 · 校服 · 湮灭技能",
+      "src": "assets/RVF-S-04-HV-a_v001_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 364.211,
+          "y": 155.069
+        }
+      },
+      "sha256": "6376eb40b65b6c91a93ad8a010110830e0f19c9418fd0b29d3c44bebc3549446",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "alphaBBox": [
+        56,
+        142,
+        558,
+        418
+      ]
+    },
+    "rover.female_school.04-AE-a": {
+      "key": "rover.female_school.04-AE-a",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "skill",
+      "label": "女漂泊者 · 校服 · 气动技能",
+      "src": "assets/RVF-S-04-AE-a_v003_work1px.png",
+      "width": 832,
+      "height": 640,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 610
+        },
+        "head": {
+          "x": 427.205,
+          "y": 177.593
+        }
+      },
+      "sha256": "02056eb2a3c70b3bc184179a29460ff28c6fe06902e0d4789ce1654c1e319fd1",
+      "naturalWidth": 832,
+      "naturalHeight": 640,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "aero",
+      "groundAnchorKind": "virtual_airborne_floor",
+      "alphaBBox": [
+        158,
+        36,
+        556,
+        589
+      ]
+    },
+    "rover.female_school.04-EL-a": {
+      "key": "rover.female_school.04-EL-a",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "skill",
+      "label": "女漂泊者 · 校服 · 导电技能",
+      "src": "assets/RVF-S-04-EL-a_v003_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 190.777,
+          "y": 89.085
+        },
+        "cast": {
+          "x": 68.595,
+          "y": 174.48
+        },
+        "rightPalm": {
+          "x": 68.595,
+          "y": 174.48
+        }
+      },
+      "sha256": "ba9927ab2177de8bc1393434b177ca9eacea3b1871ae1c8e21aefa1d1403fa72",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "electro",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "virtual_airborne_floor",
+      "effectRendering": "Separate hard-edge three-color screen-pixel tether from rightPalm/cast to actual action target; no baked FX",
+      "runtimeEffectStatus": "canvas_tether_implemented_pending_browser",
+      "alphaBBox": [
+        41,
+        71,
+        376,
+        406
+      ]
+    },
+    "rover.female_school.10-SP": {
+      "key": "rover.female_school.10-SP",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "liberation",
+      "label": "女漂泊者 · 校服 · 衍射共鸣解放",
+      "src": "assets/RVF-S-10-SP_v002_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 221.65,
+          "y": 67.161
+        },
+        "cast": {
+          "x": 102.33,
+          "y": 126.64
+        },
+        "rightPalm": {
+          "x": 102.33,
+          "y": 126.64
+        }
+      },
+      "sha256": "57399c1d8c38836dde89b88e003d0ccfa06023e10de331a61ccaccffdb8ec72b",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "grounded_floor",
+      "effectRendering": "Independent runtime attribute FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        71,
+        41,
+        358,
+        419
+      ]
+    },
+    "rover.female_school.10-HV": {
+      "key": "rover.female_school.10-HV",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "liberation",
+      "label": "女漂泊者 · 校服 · 湮灭共鸣解放",
+      "src": "assets/RVF-S-10-HV_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 206.31,
+          "y": 159.432
+        },
+        "cast": {
+          "x": 101.09,
+          "y": 278.353
+        },
+        "rightPalm": {
+          "x": 101.09,
+          "y": 278.353
+        }
+      },
+      "sha256": "9621894f3bd724cfea7f712de2e2366b3cf9a7c3a4a115d3e567ecf8074d7741",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "grounded_floor",
+      "effectRendering": "Independent runtime Havoc liberation FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        79,
+        142,
+        373,
+        419
+      ]
+    },
+    "rover.female_school.10-AE": {
+      "key": "rover.female_school.10-AE",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "liberation",
+      "label": "女漂泊者 · 校服 · 气动共鸣解放",
+      "src": "assets/RVF-S-10-AE_v001_work1px.png",
+      "width": 448,
+      "height": 512,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 482
+        },
+        "head": {
+          "x": 226.06,
+          "y": 95.294
+        },
+        "cast": {
+          "x": 137.573,
+          "y": 189.385
+        },
+        "rightPalm": {
+          "x": 137.573,
+          "y": 189.385
+        }
+      },
+      "sha256": "6b523d50a52bed1c353bf58601bf47744f716bdef9d8cea48dc8315d531376ce",
+      "naturalWidth": 448,
+      "naturalHeight": 512,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "aero",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "virtual_airborne_floor",
+      "effectRendering": "Independent runtime attribute FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        110,
+        77,
+        318,
+        461
+      ]
+    },
+    "rover.female_school.10-EL": {
+      "key": "rover.female_school.10-EL",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "liberation",
+      "label": "女漂泊者 · 校服 · 导电共鸣解放",
+      "src": "assets/RVF-S-10-EL_v001_work1px.png",
+      "width": 448,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 224,
+          "y": 418
+        },
+        "head": {
+          "x": 214.544,
+          "y": 122.414
+        },
+        "cast": {
+          "x": 84.452,
+          "y": 208.055
+        },
+        "rightPalm": {
+          "x": 84.452,
+          "y": 208.055
+        }
+      },
+      "sha256": "256af88133d8c2039630caae32a28ee7ab0984803432d57a8f1ef294a3472bb8",
+      "naturalWidth": 448,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "electro",
+      "castAnchorName": "rightPalm",
+      "groundAnchorKind": "grounded_floor",
+      "effectRendering": "Independent runtime attribute FX, no baked effect",
+      "runtimeEffectStatus": "pending",
+      "alphaBBox": [
+        64,
+        108,
+        374,
+        419
+      ]
+    },
+    "rover.female_school.04-SP-b": {
+      "key": "rover.female_school.04-SP-b",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "enhanced",
+      "label": "女漂泊者 · 校服 · 衍射强化",
+      "src": "assets/RVF-S-04-SP-b_v002_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 398.22,
+          "y": 137.842
+        }
+      },
+      "sha256": "d890693ee0232bfea91b7ab1a6922d891dd0b3adb607d7fe8430b0479b08d85a",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "spectro",
+      "measurementCaveat": "Observed blade 1.879 heads; accepted at approximately 1.89H lower tolerance edge. Local endpoint reading tolerance 0.03H excludes full head-axis and perspective uncertainty; not represented as exact 2.1H.",
+      "alphaBBox": [
+        127,
+        124,
+        551,
+        419
+      ]
+    },
+    "rover.female_school.04-HV-b": {
+      "key": "rover.female_school.04-HV-b",
+      "entity": "rover",
+      "form": "female_school",
+      "action": "enhanced",
+      "label": "女漂泊者 · 校服 · 湮灭强化",
+      "src": "assets/RVF-S-04-HV-b_v004_work1px.png",
+      "width": 832,
+      "height": 448,
+      "referenceBodyHeight": 352.22,
+      "bodyHeight": 352.22,
+      "bodyScale": 1,
+      "side": "ally",
+      "facing": "left",
+      "mirrorAllowed": false,
+      "assetStatus": "art_candidate_user_acceptance_pending",
+      "runtimeVerified": false,
+      "userConfirmed": false,
+      "anchors": {
+        "ground": {
+          "x": 416,
+          "y": 418
+        },
+        "head": {
+          "x": 392.584,
+          "y": 98.137
+        }
+      },
+      "sha256": "1ffe9d6f9b5f904fe9e5ecedd70050d718dce33ed7062513ff5071db5334f8ea",
+      "naturalWidth": 832,
+      "naturalHeight": 448,
+      "provenanceVerified": true,
+      "artReview": "Independent static QA passed; user acceptance pending",
+      "attribute": "havoc",
+      "alphaBBox": [
+        197,
+        62,
+        531,
+        418
+      ]
     }
   },
   "forms": {
@@ -6461,6 +9833,204 @@
         "persistent": true,
         "sequences": {}
       }
+    },
+    "rover": {
+      "male_default": {
+        "idle": "rover.male_default.01-CM",
+        "actions": {
+          "spectro_basic": "rover.male_default.02-CM",
+          "havoc_basic": "rover.male_default.02-CM",
+          "aero_basic": "rover.male_default.02-CM",
+          "electro_basic": "rover.male_default.02-CM",
+          "spectro_skill": "rover.male_default.04-SP-a",
+          "havoc_skill": "rover.male_default.04-HV-a",
+          "aero_skill": "rover.male_default.04-AE-a",
+          "electro_skill": "rover.male_default.04-EL-a",
+          "spectro_enhanced": "rover.male_default.04-SP-b",
+          "havoc_enhanced": "rover.male_default.04-HV-b",
+          "aero_enhanced": "rover.male_default.10-AE",
+          "electro_enhanced": "rover.male_default.02-CM",
+          "spectro_liberation": "rover.male_default.10-SP",
+          "havoc_liberation": "rover.male_default.10-HV",
+          "aero_liberation": "rover.male_default.10-AE",
+          "electro_liberation": "rover.male_default.10-EL",
+          "electro_counter": "rover.male_default.06-CM",
+          "electro_overload": "rover.male_default.01-CM",
+          "idle": "rover.male_default.01-CM",
+          "basic": "rover.male_default.02-CM",
+          "critical": "rover.male_default.03-CM",
+          "guard": "rover.male_default.06-CM",
+          "down": "rover.male_default.07-CM",
+          "hurt": "rover.male_default.09-CM",
+          "victory": "rover.male_default.01-CM",
+          "outro": "rover.male_default.01-CM",
+          "concerto": "rover.male_default.01-CM"
+        },
+        "sequences": {
+          "electro_counter": [
+            "rover.male_default.06-CM",
+            "rover.male_default.02-CM"
+          ]
+        },
+        "assetStatus": "complete_first_release_body_art_candidate",
+        "plannedUniquePoses": 16,
+        "readyUniquePoses": 16,
+        "aliasReasons": {
+          "aero_enhanced": "Both selected as compatible wind healing-release static keypose; effect mechanics remain separate",
+          "electro_enhanced": "Critical-state entry uses the common attack keypose plus independent state effects",
+          "electro_counter": "Two-step defend then attack sequence, not a new pose falsely relabelled",
+          "electro_overload": "Pure team buff effect; idle body remains unchanged",
+          "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
+          "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        }
+      },
+      "male_school": {
+        "idle": "rover.male_school.01-CM",
+        "actions": {
+          "spectro_basic": "rover.male_school.02-CM",
+          "havoc_basic": "rover.male_school.02-CM",
+          "aero_basic": "rover.male_school.02-CM",
+          "electro_basic": "rover.male_school.02-CM",
+          "spectro_skill": "rover.male_school.04-SP-a",
+          "havoc_skill": "rover.male_school.04-HV-a",
+          "aero_skill": "rover.male_school.04-AE-a",
+          "electro_skill": "rover.male_school.04-EL-a",
+          "spectro_enhanced": "rover.male_school.04-SP-b",
+          "havoc_enhanced": "rover.male_school.04-HV-b",
+          "aero_enhanced": "rover.male_school.10-AE",
+          "electro_enhanced": "rover.male_school.02-CM",
+          "spectro_liberation": "rover.male_school.10-SP",
+          "havoc_liberation": "rover.male_school.10-HV",
+          "aero_liberation": "rover.male_school.10-AE",
+          "electro_liberation": "rover.male_school.10-EL",
+          "electro_counter": "rover.male_school.06-CM",
+          "electro_overload": "rover.male_school.01-CM",
+          "idle": "rover.male_school.01-CM",
+          "basic": "rover.male_school.02-CM",
+          "critical": "rover.male_school.03-CM",
+          "guard": "rover.male_school.06-CM",
+          "down": "rover.male_school.07-CM",
+          "hurt": "rover.male_school.09-CM",
+          "victory": "rover.male_school.01-CM",
+          "outro": "rover.male_school.01-CM",
+          "concerto": "rover.male_school.01-CM"
+        },
+        "sequences": {
+          "electro_counter": [
+            "rover.male_school.06-CM",
+            "rover.male_school.02-CM"
+          ]
+        },
+        "assetStatus": "complete_first_release_body_art_candidate",
+        "plannedUniquePoses": 16,
+        "readyUniquePoses": 16,
+        "aliasReasons": {
+          "aero_enhanced": "Both selected as compatible wind healing-release static keypose; effect mechanics remain separate",
+          "electro_enhanced": "Critical-state entry uses the common attack keypose plus independent state effects",
+          "electro_counter": "Two-step defend then attack sequence, not a new pose falsely relabelled",
+          "electro_overload": "Pure team buff effect; idle body remains unchanged",
+          "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
+          "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        }
+      },
+      "female_default": {
+        "idle": "rover.female_default.01-CM",
+        "actions": {
+          "spectro_basic": "rover.female_default.02-CM",
+          "havoc_basic": "rover.female_default.02-CM",
+          "aero_basic": "rover.female_default.02-CM",
+          "electro_basic": "rover.female_default.02-CM",
+          "spectro_skill": "rover.female_default.04-SP-a",
+          "havoc_skill": "rover.female_default.04-HV-a",
+          "aero_skill": "rover.female_default.04-AE-a",
+          "electro_skill": "rover.female_default.04-EL-a",
+          "spectro_enhanced": "rover.female_default.04-SP-b",
+          "havoc_enhanced": "rover.female_default.04-HV-b",
+          "aero_enhanced": "rover.female_default.10-AE",
+          "electro_enhanced": "rover.female_default.02-CM",
+          "spectro_liberation": "rover.female_default.10-SP",
+          "havoc_liberation": "rover.female_default.10-HV",
+          "aero_liberation": "rover.female_default.10-AE",
+          "electro_liberation": "rover.female_default.10-EL",
+          "electro_counter": "rover.female_default.06-CM",
+          "electro_overload": "rover.female_default.01-CM",
+          "idle": "rover.female_default.01-CM",
+          "basic": "rover.female_default.02-CM",
+          "critical": "rover.female_default.03-CM",
+          "guard": "rover.female_default.06-CM",
+          "down": "rover.female_default.07-CM",
+          "hurt": "rover.female_default.09-CM",
+          "victory": "rover.female_default.01-CM",
+          "outro": "rover.female_default.01-CM",
+          "concerto": "rover.female_default.01-CM"
+        },
+        "sequences": {
+          "electro_counter": [
+            "rover.female_default.06-CM",
+            "rover.female_default.02-CM"
+          ]
+        },
+        "assetStatus": "complete_first_release_body_art_candidate",
+        "plannedUniquePoses": 16,
+        "readyUniquePoses": 16,
+        "aliasReasons": {
+          "aero_enhanced": "Both selected as compatible wind healing-release static keypose; effect mechanics remain separate",
+          "electro_enhanced": "Critical-state entry uses the common attack keypose plus independent state effects",
+          "electro_counter": "Two-step defend then attack sequence, not a new pose falsely relabelled",
+          "electro_overload": "Pure team buff effect; idle body remains unchanged",
+          "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
+          "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        }
+      },
+      "female_school": {
+        "idle": "rover.female_school.01-CM",
+        "actions": {
+          "spectro_basic": "rover.female_school.02-CM",
+          "havoc_basic": "rover.female_school.02-CM",
+          "aero_basic": "rover.female_school.02-CM",
+          "electro_basic": "rover.female_school.02-CM",
+          "spectro_skill": "rover.female_school.04-SP-a",
+          "havoc_skill": "rover.female_school.04-HV-a",
+          "aero_skill": "rover.female_school.04-AE-a",
+          "electro_skill": "rover.female_school.04-EL-a",
+          "spectro_enhanced": "rover.female_school.04-SP-b",
+          "havoc_enhanced": "rover.female_school.04-HV-b",
+          "aero_enhanced": "rover.female_school.10-AE",
+          "electro_enhanced": "rover.female_school.02-CM",
+          "spectro_liberation": "rover.female_school.10-SP",
+          "havoc_liberation": "rover.female_school.10-HV",
+          "aero_liberation": "rover.female_school.10-AE",
+          "electro_liberation": "rover.female_school.10-EL",
+          "electro_counter": "rover.female_school.06-CM",
+          "electro_overload": "rover.female_school.01-CM",
+          "idle": "rover.female_school.01-CM",
+          "basic": "rover.female_school.02-CM",
+          "critical": "rover.female_school.03-CM",
+          "guard": "rover.female_school.06-CM",
+          "down": "rover.female_school.07-CM",
+          "hurt": "rover.female_school.09-CM",
+          "victory": "rover.female_school.01-CM",
+          "outro": "rover.female_school.01-CM",
+          "concerto": "rover.female_school.01-CM"
+        },
+        "sequences": {
+          "electro_counter": [
+            "rover.female_school.06-CM",
+            "rover.female_school.02-CM"
+          ]
+        },
+        "assetStatus": "complete_first_release_body_art_candidate",
+        "plannedUniquePoses": 16,
+        "readyUniquePoses": 16,
+        "aliasReasons": {
+          "aero_enhanced": "Both selected as compatible wind healing-release static keypose; effect mechanics remain separate",
+          "electro_enhanced": "Critical-state entry uses the common attack keypose plus independent state effects",
+          "electro_counter": "Two-step defend then attack sequence, not a new pose falsely relabelled",
+          "electro_overload": "Pure team buff effect; idle body remains unchanged",
+          "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
+          "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        }
+      }
     }
   },
   "enemies": {
@@ -6575,6 +10145,71 @@
       "bodyHeight": 1257,
       "rank": "boss",
       "mappingNotes": "Only one delivered enemy pose exists. Commands share that sprite with code-only motion/flash. Defeat uses flash+fade/removal; no invented defeat PNG; never restore defeated enemies to idle."
+    },
+    "glacio_prism": {
+      "slot": "enemy.glacio_prism.idle",
+      "idle": "enemy.glacio_prism.idle",
+      "actions": {
+        "basic": "enemy.glacio_prism.idle",
+        "attack": "enemy.glacio_prism.idle",
+        "hit": "enemy.glacio_prism.idle"
+      },
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "rank": "common",
+      "mappingNotes": "New fan-art single pose. Code-only action motion; full animation not yet drawn. Runtime calibration pending."
+    },
+    "fusion_prism": {
+      "slot": "enemy.fusion_prism.idle",
+      "idle": "enemy.fusion_prism.idle",
+      "actions": {
+        "basic": "enemy.fusion_prism.idle",
+        "attack": "enemy.fusion_prism.idle",
+        "hit": "enemy.fusion_prism.idle"
+      },
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "rank": "common",
+      "mappingNotes": "New fan-art single pose. Code-only action motion; full animation not yet drawn. Runtime calibration pending."
+    },
+    "aero_prism": {
+      "slot": "enemy.aero_prism.idle",
+      "idle": "enemy.aero_prism.idle",
+      "actions": {
+        "basic": "enemy.aero_prism.idle",
+        "attack": "enemy.aero_prism.idle",
+        "hit": "enemy.aero_prism.idle"
+      },
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "rank": "common",
+      "mappingNotes": "New fan-art single pose. Code-only action motion; full animation not yet drawn. Runtime calibration pending."
+    },
+    "spectro_prism": {
+      "slot": "enemy.spectro_prism.idle",
+      "idle": "enemy.spectro_prism.idle",
+      "actions": {
+        "basic": "enemy.spectro_prism.idle",
+        "attack": "enemy.spectro_prism.idle",
+        "hit": "enemy.spectro_prism.idle"
+      },
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "rank": "common",
+      "mappingNotes": "New fan-art single pose. Code-only action motion; full animation not yet drawn. Runtime calibration pending."
+    },
+    "havoc_prism": {
+      "slot": "enemy.havoc_prism.idle",
+      "idle": "enemy.havoc_prism.idle",
+      "actions": {
+        "basic": "enemy.havoc_prism.idle",
+        "attack": "enemy.havoc_prism.idle",
+        "hit": "enemy.havoc_prism.idle"
+      },
+      "bodyHeight": 377,
+      "bodyScale": 1.0501392757660166,
+      "rank": "common",
+      "mappingNotes": "New fan-art single pose. Code-only action motion; full animation not yet drawn. Runtime calibration pending."
     }
   },
   "transitions": {
@@ -6630,11 +10265,11 @@
     "fx": "Only independent translations, flashes, particles or positive-scale effects; never transform scaleX(-1) or mirror asymmetrical characters."
   },
   "audit": {
-    "allySlotCount": 84,
-    "enemySlotCount": 5,
+    "allySlotCount": 148,
+    "enemySlotCount": 10,
     "allHashesVerified": true,
     "allSourcesCopiedByteForByte": true,
-    "imageGenerationUsed": false,
+    "imageGenerationUsed": true,
     "sourceRasterMutationUsed": false,
     "alliesWithNonBinaryAlpha": [
       "denia.blue.DB03"
@@ -6652,7 +10287,15 @@
       "Foot/ground/pivot locations are provisional visual calibration candidates. No source weapon-anchor evidence: null.",
       "The standing-form scale reference prevents crouched/lying action bbox enlargement, but fine action-to-action registration remains runtime calibration.",
       "Mecha 1.7x humanoid body is a previous project trial, not canonical size or new approval.",
-      "Sources are user project candidate sprites only; no downloaded model/texture or proprietary Octopath asset is included."
-    ]
+      "Original 89 PNG bytes preserved. Added newly drawn Rover and prism project work images; no research screenshots, official model renders or original textures are distributed.",
+      "Pending slots have null src and are explicitly rendered as missing art. No other character image substitutes for Rover."
+    ],
+    "allyPNGCount": 148,
+    "enemyPNGCount": 10,
+    "deliveredPNGCount": 158,
+    "pendingSlotCount": 0,
+    "newArtReview": "Five prism images passed independent static inspection. All 64/64 Rover first-release body work images are integrated, with intentional aliases separately recorded. Six revised candidates retain prior review history. Browser/Q42 and user art acceptance remain separate checks; body-art coverage is not full effects acceptance.",
+    "needsRevisionCount": 0,
+    "revisionCandidatesCount": 6
   }
 }

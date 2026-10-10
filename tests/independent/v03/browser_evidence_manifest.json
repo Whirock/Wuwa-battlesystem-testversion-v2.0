@@ -1,0 +1,116 @@
+{
+  "actualBrowser": true,
+  "delivery": "Private screenshot delivery only; public repository stores filenames and checksums.",
+  "captures": [
+    {
+      "file": "01_loaded_common.jpg",
+      "stage": "A",
+      "sha256": "cbfb9cab17de5b23f2e7e4fd03d9f2ab428e6767800d785f8b741841dd5aba90"
+    },
+    {
+      "file": "02_actor_menu_focus.jpg",
+      "stage": "A",
+      "sha256": "1af4152fe4a548e1ec2b6833f09b0d0fa142c28b6fdd0b8d518a89ac4aa3d8e7"
+    },
+    {
+      "file": "03_target_keyboard.jpg",
+      "stage": "A",
+      "sha256": "4316ba5ef775e500a1137e2392bca2850b98026e4be10095dbbe9253be9e95e5"
+    },
+    {
+      "file": "04_s03_critical_four_prisms.jpg",
+      "stage": "A",
+      "sha256": "94e232d966eff3071ea91ebcaa3bbded9574cb177f469c17fd9a8e93d44b7175"
+    },
+    {
+      "file": "05_tether_frame_0.jpg",
+      "stage": "A",
+      "sha256": "c5e7f7e943ffd73a71516ded7df54b2eee33b8427ef323a5f1debc1f80244b8b"
+    },
+    {
+      "file": "05_tether_frame_1.jpg",
+      "stage": "A",
+      "sha256": "659613f6fada635a931c1b5f6d508d234b266d96f0ddc4c41d506a87f6933a57"
+    },
+    {
+      "file": "05_tether_frame_2.jpg",
+      "stage": "A",
+      "sha256": "0da0339d7f3832c7f820ad725b24032869c98ee276b308627476a138e0e39973"
+    },
+    {
+      "file": "05_tether_frame_3.jpg",
+      "stage": "A",
+      "sha256": "fac4f80915eedadc74c832918228d96ae3e91f904d93a021ce060402283e7c07"
+    },
+    {
+      "file": "05_tether_frame_4.jpg",
+      "stage": "A",
+      "sha256": "9993313741fe3935fe948b1932324bafee7270edb664136b584e59b4646d760d"
+    },
+    {
+      "file": "06_tether_expired.jpg",
+      "stage": "A",
+      "sha256": "6d5e5c9ca1bc5ee0e1eead9b3e26cf2d098bc5354cf6005600d32013574c3ec8"
+    },
+    {
+      "file": "07_s03_workbench_v004.jpg",
+      "stage": "A",
+      "sha256": "f55663b75667c118173f18031170b441ee27d945a8690c1532edb6bc4a89d8dc"
+    },
+    {
+      "file": "08_s03_ground_head_markers.jpg",
+      "stage": "A",
+      "sha256": "66862b603f4faea99048b3813f604da8364dd1bbaab83419e4682a27ca4bf463"
+    },
+    {
+      "file": "09_background_persisted.jpg",
+      "stage": "A",
+      "sha256": "1ccc248da6b745df07fef825354fb31125c8599da0bfb3ec0de9b7c8efa3d7e2"
+    },
+    {
+      "file": "10_boss_male_default.jpg",
+      "stage": "B",
+      "sha256": "f1d93e830ff62875272c3ca4b5f11655cb7be069199be6aab2e1c124301e4685"
+    },
+    {
+      "file": "11_boss_charge_warning.jpg",
+      "stage": "B",
+      "sha256": "1adf05a42ae3fa05f19d6986427de3efe8ff7b3e1874ec731fd29906f8fa7d5b"
+    },
+    {
+      "file": "12_boss_part_cancelled.jpg",
+      "stage": "B",
+      "sha256": "71184870dadd1ce600957c9ff838053c4ecaf2bdc00a7a5cc0f80d09a7e723e5"
+    },
+    {
+      "file": "13_boss_victory.jpg",
+      "stage": "B",
+      "sha256": "3215b9e2febd3bad128c53b16ce057f09bef3715317ad005f956119df4ab2724"
+    },
+    {
+      "file": "14_male_school_havoc_prism.jpg",
+      "stage": "B",
+      "sha256": "4f31e3bdf405f82de92eb0049d40890c916968c36a6767a735810cd90a1bccbd"
+    },
+    {
+      "file": "15_male_school_basic.jpg",
+      "stage": "B",
+      "sha256": "beb43db45ca9a400fe3e07c0240ee3df9a074637ecb4e1f346e72d8dc0772f83"
+    },
+    {
+      "file": "16_female_default_ingame.jpg",
+      "stage": "B",
+      "sha256": "ea7a86340966d0ddaf861d6407783f629d3124ec5d220b4c7e587857fc97f107"
+    },
+    {
+      "file": "17_project_158_assets.jpg",
+      "stage": "B",
+      "sha256": "70dc98add0ff430a9e72a8351be877032604e4199bb55a8ef2b441a632815942"
+    },
+    {
+      "file": "18_final_keyboard_cancel.jpg",
+      "stage": "C",
+      "sha256": "98b1379124dd00595cf677d8c9d48251898fe3cd876d27eb631aec7c3be882e2"
+    }
+  ]
+}

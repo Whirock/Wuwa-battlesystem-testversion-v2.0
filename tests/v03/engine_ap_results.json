@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-10T05:53:55.997Z",
+  "scope": "actual shipped engine; synthetic rule fixtures and one live-engine strategy replay; not browser or human playtest",
+  "total": 54,
+  "passed": 54,
+  "failed": 0,
+  "results": [
+    {
+      "name": "opening AP4 and concerto20, no duplicate start recovery",
+      "pass": true
+    },
+    {
+      "name": "two repeatable2AP attacks and automatic window close",
+      "pass": true
+    },
+    {
+      "name": "normal AP carry, round+4 and overflow cap6",
+      "pass": true
+    },
+    {
+      "name": "6+2 allows four2AP attacks and temporary is paid first",
+      "pass": true
+    },
+    {
+      "name": "outro requires current actor and previous paid action",
+      "pass": true
+    },
+    {
+      "name": "outro cannot self target or stack on pending receiver",
+      "pass": true
+    },
+    {
+      "name": "late relay waits until receiver next window, then expires",
+      "pass": true
+    },
+    {
+      "name": "just-filled concerto retains zeroAP window to choose outro",
+      "pass": true
+    },
+    {
+      "name": "buff persists across two paid sub-actions",
+      "pass": true
+    },
+    {
+      "name": "only current actor can issue paid action and rejection is atomic",
+      "pass": true
+    },
+    {
+      "name": "support once/window and field can combine with taunt",
+      "pass": true
+    },
+    {
+      "name": "empty heal consumes cost but gives no concerto",
+      "pass": true
+    },
+    {
+      "name": "guard1AP ends window and survives until next owner window",
+      "pass": true
+    },
+    {
+      "name": "all common enemies have zero resonance",
+      "pass": true
+    },
+    {
+      "name": "skill resonance not weapon/element weakness",
+      "pass": true
+    },
+    {
+      "name": "Lynae resource break and output alternatives use same60color",
+      "pass": true
+    },
+    {
+      "name": "break before enemy slot skips current round only",
+      "pass": true
+    },
+    {
+      "name": "break after enemy slot skips following round only",
+      "pass": true
+    },
+    {
+      "name": "already broken has no1.5damage bonus",
+      "pass": true
+    },
+    {
+      "name": "joint budget respects participant elements and DEF",
+      "pass": true
+    },
+    {
+      "name": "joint never consumes special status-outro token",
+      "pass": true
+    },
+    {
+      "name": "ordinary intent cannot reveal next skill or target",
+      "pass": true
+    },
+    {
+      "name": "committed charge target cannot be retargeted by taunt",
+      "pass": true
+    },
+    {
+      "name": "feint is contextual cost1 and does not damage or give resources",
+      "pass": true
+    },
+    {
+      "name": "parts consume2AP and do not damage body or give resources",
+      "pass": true
+    },
+    {
+      "name": "every element has explicit resistance and immune prism remains0damage",
+      "pass": true
+    },
+    {
+      "name": "four Rover modes are one identity with distinct personal kits",
+      "pass": true
+    },
+    {
+      "name": "electro critical needs100surge and60concerto",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects old schema/version",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects ap=7",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects ap=-1",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects ap=2.5",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects temp_ap=3",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects temp_ap=1",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects relay_pending=yes",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects window_actions=9",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects concerto_gain_round=41",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects atk=999999",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects skip_round=10",
+      "pass": true
+    },
+    {
+      "name": "snapshot rejects fake new skill and repeated once/window marker",
+      "pass": true
+    },
+    {
+      "name": "live battle replay restores every paid action identically",
+      "pass": true
+    },
+    {
+      "name": "lethal retaliation cancels remaining Rover effects spectro",
+      "pass": true
+    },
+    {
+      "name": "lethal retaliation cancels remaining Rover effects havoc",
+      "pass": true
+    },
+    {
+      "name": "lethal retaliation cancels remaining Rover effects aero",
+      "pass": true
+    },
+    {
+      "name": "lethal retaliation cancels remaining Rover effects electro",
+      "pass": true
+    },
+    {
+      "name": "AOE stops on source lethal retaliation and cannot hit later enemies",
+      "pass": true
+    },
+    {
+      "name": "phase threshold announces the AOE before next-round transition",
+      "pass": true
+    },
+    {
+      "name": "a committed descent warning takes priority over phase announcement",
+      "pass": true
+    },
+    {
+      "name": "lethal Rover counter interrupts enemy AOE and attached debuffs",
+      "pass": true
+    },
+    {
+      "name": "counter really takes0.6 damage and preview agrees, not0.65",
+      "pass": true
+    },
+    {
+      "name": "dead damage sources cannot produce any further packet",
+      "pass": true
+    },
+    {
+      "name": "initially incapacitated actors clear AP and concerto {\"initialHP\":{\"amy\":0}}",
+      "pass": true
+    },
+    {
+      "name": "initially incapacitated actors clear AP and concerto {\"hp_fraction\":0}",
+      "pass": true
+    },
+    {
+      "name": "initially incapacitated actors clear AP and concerto {\"initialHP\":{\"amy\":0.5,\"lynae\":0}}",
+      "pass": true
+    }
+  ]
+}

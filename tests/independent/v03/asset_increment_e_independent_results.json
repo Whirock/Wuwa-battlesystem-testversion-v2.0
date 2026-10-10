@@ -1,0 +1,305 @@
+{
+  "evidence": "Independent actual event-to-sprite draw dispatch with simulated Canvas/Image/Audio/IDB/clock. Does not certify pixels, rendering scale or real browser.",
+  "hashes": {
+    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
+    "assets/manifest.json": "ab1654190dc32862603c5210838607f385ec57ad3fd0c070f2a58b4aab8574fc",
+    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters.js": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1",
+    "tests/independent/v03/dom_harness_v03.cjs": "aafd7ada09cdc10d9f9092f06befeb94166dfe5d22a3cd5d60617a1a0fcc3862"
+  },
+  "unchanged": true,
+  "passed": 32,
+  "failed": 0,
+  "notRun": 0,
+  "results": [
+    {
+      "form": "male_default",
+      "mode": "spectro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_default.02-CM",
+      "src": "assets/RVM-D-02-CM_v001_work1px.png",
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb"
+    },
+    {
+      "form": "male_default",
+      "mode": "spectro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_default.04-SP-a",
+      "src": "assets/RVM-D-04-SP-a_v004_work1px.png",
+      "sha256": "875f35cce897418583ec802fe5e40592e029146b4e8c633e898142733137acbf"
+    },
+    {
+      "form": "male_default",
+      "mode": "havoc",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_default.02-CM",
+      "src": "assets/RVM-D-02-CM_v001_work1px.png",
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb"
+    },
+    {
+      "form": "male_default",
+      "mode": "havoc",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_default.04-HV-a",
+      "src": "assets/RVM-D-04-HV-a_v003_work1px.png",
+      "sha256": "1e3aa59a2bbf32e35ca5ff447ec653683c724d4d9ec4f222f35aa735a24b84bb"
+    },
+    {
+      "form": "male_default",
+      "mode": "aero",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_default.02-CM",
+      "src": "assets/RVM-D-02-CM_v001_work1px.png",
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb"
+    },
+    {
+      "form": "male_default",
+      "mode": "aero",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_default.04-AE-a",
+      "src": "assets/RVM-D-04-AE-a_v002_work1px.png",
+      "sha256": "b4dee887fe06cd749a2e6bce7ec02807f5d133fc2f79c41b84b0828908577b2a"
+    },
+    {
+      "form": "male_default",
+      "mode": "electro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_default.02-CM",
+      "src": "assets/RVM-D-02-CM_v001_work1px.png",
+      "sha256": "c38bb5b3abbed1e5128e0379004455eac85b9f047ec08bc03951284c939078eb"
+    },
+    {
+      "form": "male_default",
+      "mode": "electro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_default.04-EL-a",
+      "src": "assets/RVM-D-04-EL-a_v005_work1px.png",
+      "sha256": "fc65f15e33688cb40ead9b77db5af58c98e9a065a46b24f4764f126d3ecc2c6d"
+    },
+    {
+      "form": "male_school",
+      "mode": "spectro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_school.02-CM",
+      "src": "assets/RVM-S-02-CM_v002_work1px.png",
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603"
+    },
+    {
+      "form": "male_school",
+      "mode": "spectro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_school.04-SP-a",
+      "src": "assets/RVM-S-04-SP-a_v004_work1px.png",
+      "sha256": "44d5e7297a29694f0f0fdf2defc0a37ae471699efbc71ad297241edd17ed0780"
+    },
+    {
+      "form": "male_school",
+      "mode": "havoc",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_school.02-CM",
+      "src": "assets/RVM-S-02-CM_v002_work1px.png",
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603"
+    },
+    {
+      "form": "male_school",
+      "mode": "havoc",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_school.04-HV-a",
+      "src": "assets/RVM-S-04-HV-a_v002_work1px.png",
+      "sha256": "59260a827ad9f2251ba0ef3fa96a811c76c9505b49e63bed2162632291ff403d"
+    },
+    {
+      "form": "male_school",
+      "mode": "aero",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_school.02-CM",
+      "src": "assets/RVM-S-02-CM_v002_work1px.png",
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603"
+    },
+    {
+      "form": "male_school",
+      "mode": "aero",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_school.04-AE-a",
+      "src": "assets/RVM-S-04-AE-a_v002_work1px.png",
+      "sha256": "c70a475b5cca4ec5d72797453233d184c527824bbed3d2b8e8d4f53aaa1fdb0e"
+    },
+    {
+      "form": "male_school",
+      "mode": "electro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.male_school.02-CM",
+      "src": "assets/RVM-S-02-CM_v002_work1px.png",
+      "sha256": "aa8f676302fdf73e700285e465aca5cf76abf31310cf49b529a0dfa52d16e603"
+    },
+    {
+      "form": "male_school",
+      "mode": "electro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.male_school.04-EL-a",
+      "src": "assets/RVM-S-04-EL-a_v001_work1px.png",
+      "sha256": "d080387dc34748bf647eaae3af1c13b576f5912ed11ef86ed3d59fab5444b305"
+    },
+    {
+      "form": "female_default",
+      "mode": "spectro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_default.02-CM",
+      "src": "assets/RVF-D-02-CM_v001_work1px.png",
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05"
+    },
+    {
+      "form": "female_default",
+      "mode": "spectro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_default.04-SP-a",
+      "src": "assets/RVF-D-04-SP-a_v002_work1px.png",
+      "sha256": "085c4a5e8fbccae0bdc52e2fca1f27646062cc2b2a30a833478c52dd79352af0"
+    },
+    {
+      "form": "female_default",
+      "mode": "havoc",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_default.02-CM",
+      "src": "assets/RVF-D-02-CM_v001_work1px.png",
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05"
+    },
+    {
+      "form": "female_default",
+      "mode": "havoc",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_default.04-HV-a",
+      "src": "assets/RVF-D-04-HV-a_v001_work1px.png",
+      "sha256": "1a6c4e0de142ca111e978abd93b5ba17c19dd31f35bdb052e1df3bc37c7c0a60"
+    },
+    {
+      "form": "female_default",
+      "mode": "aero",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_default.02-CM",
+      "src": "assets/RVF-D-02-CM_v001_work1px.png",
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05"
+    },
+    {
+      "form": "female_default",
+      "mode": "aero",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_default.04-AE-a",
+      "src": "assets/RVF-D-04-AE-a_v004_work1px.png",
+      "sha256": "d8520b18641dad6bcaabf4939fb20ef32f2baa09f244d05b2c71d9cdd999bb42"
+    },
+    {
+      "form": "female_default",
+      "mode": "electro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_default.02-CM",
+      "src": "assets/RVF-D-02-CM_v001_work1px.png",
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05"
+    },
+    {
+      "form": "female_default",
+      "mode": "electro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_default.04-EL-a",
+      "src": "assets/RVF-D-04-EL-a_v003_work1px.png",
+      "sha256": "767a4d40648f9068aa7dcb60e6ff5eae22f6e78c2838cf165f8e6c84b4c43a35"
+    },
+    {
+      "form": "female_school",
+      "mode": "spectro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_school.02-CM",
+      "src": "assets/RVF-S-02-CM_v001_work1px.png",
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f"
+    },
+    {
+      "form": "female_school",
+      "mode": "spectro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_school.04-SP-a",
+      "src": "assets/RVF-S-04-SP-a_v004_work1px.png",
+      "sha256": "fa89ea8569a6a8678cd27c4a75bf773c02b02bfc84ffb90cdc424603f651b7c8"
+    },
+    {
+      "form": "female_school",
+      "mode": "havoc",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_school.02-CM",
+      "src": "assets/RVF-S-02-CM_v001_work1px.png",
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f"
+    },
+    {
+      "form": "female_school",
+      "mode": "havoc",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_school.04-HV-a",
+      "src": "assets/RVF-S-04-HV-a_v001_work1px.png",
+      "sha256": "6376eb40b65b6c91a93ad8a010110830e0f19c9418fd0b29d3c44bebc3549446"
+    },
+    {
+      "form": "female_school",
+      "mode": "aero",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_school.02-CM",
+      "src": "assets/RVF-S-02-CM_v001_work1px.png",
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f"
+    },
+    {
+      "form": "female_school",
+      "mode": "aero",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_school.04-AE-a",
+      "src": "assets/RVF-S-04-AE-a_v003_work1px.png",
+      "sha256": "02056eb2a3c70b3bc184179a29460ff28c6fe06902e0d4789ce1654c1e319fd1"
+    },
+    {
+      "form": "female_school",
+      "mode": "electro",
+      "action": "basic",
+      "pass": true,
+      "slot": "rover.female_school.02-CM",
+      "src": "assets/RVF-S-02-CM_v001_work1px.png",
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f"
+    },
+    {
+      "form": "female_school",
+      "mode": "electro",
+      "action": "skill",
+      "pass": true,
+      "slot": "rover.female_school.04-EL-a",
+      "src": "assets/RVF-S-04-EL-a_v003_work1px.png",
+      "sha256": "ba9927ab2177de8bc1393434b177ca9eacea3b1871ae1c8e21aefa1d1403fa72"
+    }
+  ]
+}

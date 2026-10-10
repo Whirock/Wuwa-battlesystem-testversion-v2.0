@@ -1,0 +1,118 @@
+{
+  "evidence": "Independent DOM-event integration only. Uses existing harness with mocked Canvas/Audio/Image/IndexedDB/timers; not actual-browser evidence.",
+  "timestamp": "2026-10-10T07:12:28.192Z",
+  "hashes": {
+    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
+    "index.html": "fc79e4b119aba2bf0640af88ef08c6346d19e084fb877f337d1e19358f12e0b4",
+    "style.css": "a2d94eb2090cff9e5f904eb7d7814470e9efb548892363c8241757e4545b5f38",
+    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
+    "parameters.js": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1",
+    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
+    "tests/independent/v03/dom_harness_v03.cjs": "aafd7ada09cdc10d9f9092f06befeb94166dfe5d22a3cd5d60617a1a0fcc3862"
+  },
+  "unchanged": true,
+  "passed": 25,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Target cycling, invalid blank and cancel are mutation-free across repeated menu opens",
+      "pass": true
+    },
+    {
+      "name": "Blank click while targeting closes selection and depth without paying",
+      "pass": true
+    },
+    {
+      "name": "Modal keyboard input cannot submit the pending battle action",
+      "pass": true
+    },
+    {
+      "name": "All target-selection keyboard arrows are available and wrap",
+      "pass": true
+    },
+    {
+      "name": "Rapid double confirmation pays one AP charge and one action",
+      "pass": true
+    },
+    {
+      "name": "Restart interrupts old action animation and stale completion",
+      "pass": true
+    },
+    {
+      "name": "Cancelled encounter edit preserves battle data",
+      "pass": true
+    },
+    {
+      "name": "Save/load clears stale selected action while preserving exact state",
+      "pass": true
+    },
+    {
+      "name": "Battle menu keeps defense and item and excludes removed generic tricks",
+      "pass": true
+    },
+    {
+      "name": "All original workbench sections remain reachable",
+      "pass": true
+    },
+    {
+      "name": "Initial stage data positions enemy to left and allies to right without mirror",
+      "pass": true
+    },
+    {
+      "name": "Focused Cancel plus Enter returns to menu rather than paying for target",
+      "pass": true
+    },
+    {
+      "name": "Setup close re-enables step and auto debug controls immediately",
+      "pass": true
+    },
+    {
+      "name": "Visible Bracer stance warning is not incorrectly hidden as ordinary intent",
+      "pass": true
+    },
+    {
+      "name": "Boss phase threshold publishes a warning before phase damage executes",
+      "pass": true
+    },
+    {
+      "name": "Head markers use finite explicit head anchors above ground",
+      "pass": true
+    },
+    {
+      "name": "Old idle-alias hurt keeps critical sprite when struck at low HP",
+      "pass": true
+    },
+    {
+      "name": "Distinct Rover hurt sprite renders on impact and returns to critical",
+      "pass": true
+    },
+    {
+      "name": "Project export/import preserves real embedded bytes, new head calibration and exact AP battle",
+      "pass": true
+    },
+    {
+      "name": "Malformed and out-of-range project imports are atomic for both project and combat",
+      "pass": true
+    },
+    {
+      "name": "Actual v0.1 project file retains custom assets but starts a new AP-rule battle",
+      "pass": true
+    },
+    {
+      "name": "Simulated 620px stage detail panel clears all four current actors after forward movement",
+      "pass": true
+    },
+    {
+      "name": "Simulated 650px stage detail panel clears all four current actors after forward movement",
+      "pass": true
+    },
+    {
+      "name": "Simulated 700px stage detail panel clears all four current actors after forward movement",
+      "pass": true
+    },
+    {
+      "name": "Simulated 1000px stage detail panel clears all four current actors after forward movement",
+      "pass": true
+    }
+  ]
+}

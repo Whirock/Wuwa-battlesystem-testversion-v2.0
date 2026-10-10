@@ -1,0 +1,47 @@
+{
+  "assets": [
+    {
+      "id": "RVF-D-02-CM",
+      "sha256": "198c53acc5fcd261ca71f6912bdd569e48b37bee0ea5d601d2aec4e1c1ed3f05",
+      "shaMatches": true,
+      "size": [
+        832,
+        448
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        53,
+        98,
+        535,
+        420
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "visualReview": "Direct-view pass: long blade near two heads, connected right-handed grip, preserved asymmetric leg-pouch and garment identity, supported stance, distinct attack body, facing left. Runtime scale and final user acceptance pending."
+    },
+    {
+      "id": "RVF-S-02-CM",
+      "sha256": "f00585cd3f1f69761e5672c92a402ab3abae751c02964e918b486ac1e66c990f",
+      "shaMatches": true,
+      "size": [
+        832,
+        448
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        55,
+        113,
+        548,
+        421
+      ],
+      "whiteOuterPixelFraction": 1.0,
+      "visualReview": "Direct-view pass: long blade near two heads, connected right-handed grip, preserved asymmetric leg-pouch and garment identity, supported stance, distinct attack body, facing left. Runtime scale and final user acceptance pending."
+    }
+  ],
+  "runtimeVerified": false
+}

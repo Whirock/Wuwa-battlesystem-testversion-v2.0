@@ -1,0 +1,35 @@
+{
+  "reviewedAt": "2026-10-10T06:36:00Z",
+  "staticCandidatePass": true,
+  "runtimeVerified": false,
+  "userAcceptance": false,
+  "assets": [
+    {
+      "id": "RVF-S-03-CM",
+      "version": "v004",
+      "action": "critical",
+      "sha256": "d27db0c12ee915aa61a900f06689d08ce2807814a7e8c7568266c65cda67b3fc",
+      "shaMatches": true,
+      "sizeMatches": true,
+      "alpha": [
+        0,
+        255
+      ],
+      "bbox": [
+        87,
+        147,
+        325,
+        420
+      ],
+      "minMargin": 28,
+      "whiteOuterPixelFraction": 1.0,
+      "displayNN3xIndependentlyChecked": true,
+      "referenceBodyHeight": 352.22,
+      "groundAnchor": {
+        "x": 224,
+        "y": 418
+      },
+      "visualReview": "Replacement v004 only: pouch-bearing near thigh connects skirt hip to raised knee, black sock, ankle and planted boot; rear skirt hip connects exposed thigh to knee, lower black sock/shin, rear ankle and boot. Old orphan skin region removed and below-knee sock line restored. Far knee approximately16.5 working pixels above near sole: assess scene depth/ground contact in actual renderer. v002 remains rejected; user acceptance pending."
+    }
+  ]
+}

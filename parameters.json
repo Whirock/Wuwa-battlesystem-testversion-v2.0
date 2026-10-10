@@ -1,47 +1,46 @@
 {
-  "schema_version": "0.2.0-candidate",
-  "date": "2026-10-09",
-  "status": "用户授权改进的开发测试候选；以下技能效果与难度均为回合制改编，非原作官方数值",
+  "schema_version": "0.3.0-candidate",
+  "date": "2026-10-10",
+  "status": "方案 E 主线 + 敌人分型反制的可玩测试候选；技能与敌人参数均为回合制实验映射，非原作官方数值",
   "reference_level": 20,
   "level_range": [
     1,
     60
   ],
   "formula": {
-    "damage": "floor(ATK_or_DEF * coefficient * (120+4*attacker_level)/(120+4*attacker_level+target_DEF) * element_multiplier * (1.5 if already_broken else 1) * (1+min(0.5,damage_amp)) * mitigation); exposed applies x1.15 to its next received packet and consumes once; field mitigation x0.8; cutline source x0.85; rend healing x0.75",
+    "damage": "floor(ATK_or_DEF * coefficient * (120+4*attacker_level)/(120+4*attacker_level+target_DEF) * element_multiplier * (1+min(0.5,damage_amp)) * mitigation); exposed applies x1.15 to its next received packet and consumes once; field mitigation x0.8; cutline source x0.85; rend healing x0.75",
     "element_default": 1,
     "element_resistant": 0.8,
     "weakness_damage_bonus": 0,
-    "break_damage_multiplier": 1.5,
+    "break_damage_multiplier": 1,
     "critical_rate": 0,
     "hit_rate": 1,
     "hp_level_multiplier": "0.5 + 0.025 * L",
     "atk_def_level_multiplier": "0.6 + 0.02 * L",
     "speed_growth": 0,
-    "rounding": "floor each target damage packet; animation hits collapse to one direct packet, separate status packets; all packets use action-start broken snapshot; round_half_up positive stats"
+    "rounding": "floor each damage packet; one independent resonance budget per paid action and target, never multiplied by animation hits"
   },
   "rules": {
     "party_size_max": 4,
     "enemy_size_max": 4,
-    "normal_actions_per_round": 1,
-    "wait_per_round": 1,
-    "wait_destination": "tail FIFO; token unchanged",
-    "shield_match": "element OR weapon, not sum",
-    "break_per_action_target_cap": 3,
-    "break_duration": "through end of round r+1; restore at start r+2",
-    "elite_boss_recovery_lock": "shield floor 1 until first normal enemy action completes after recovery",
+    "normal_actions_per_round": "one window, any affordable paid actions; no 3-action cap",
+    "wait_destination": "end current window and save normal AP",
+    "shield_match": "independent per-skill resonance coefficients; no weapon or elemental weakness",
+    "break_per_action_target_cap": "skill resonance_damage",
+    "break_duration": "exactly one enemy window: current round if not acted, otherwise next round; refill at round after skipped slot",
+    "elite_boss_recovery_lock": false,
     "concerto_cap": 100,
-    "concerto_start": 0,
+    "concerto_start": 20,
     "concerto_per_actor_per_round": 1,
     "concerto_grant_events": [
       "own_normal_action_effective"
     ],
-    "concerto_hard_gain_cap_per_normal_action": 35,
+    "concerto_hard_gain_cap_per_normal_action": 40,
     "concerto_intros_grant_concerto": false,
     "concerto_damage_amp_stack": "strongest only",
-    "concerto_buff_expiry": "next eligible normal action, no later than end next round",
+    "concerto_buff_expiry": "recipient next window end, including skipped window; not global round end",
     "intro_resource_gain_cap_per_recipient_round": 20,
-    "resource_start": "all 0",
+    "resource_start": "personal 0; concerto20; normalAP4; temporaryAP0",
     "resource_persistence": "reset each encounter; HP persists by scenario, no automatic full heal",
     "status_damage_triggers_resources": false,
     "no_extra_actions": true,
@@ -51,22 +50,39 @@
     "resurrection_baseline": false,
     "cosmetics_change_stats": false,
     "break_attack_gets_break_bonus": false,
-    "weakness_visibility": "Balance tests know all enemy weaknesses. Recommended initial UI shows all weaknesses in this test package. survey reveal is implemented but discovery gameplay remains outside performance claims.",
+    "weakness_visibility": "no universal weaknesses; show six-element resistance and dangerous tells only",
     "status_amp": "Status packets do not inherit field/ordinary outro damage amp; cutline and special status outro add 0.25 each, capped together at +0.50.",
     "phase_queue": "At phase announcement, replace next ordinary boss action with wingpulse; never insert a new action. Pending break delays that action.",
-    "recovery_policy": "No forced damage/enrage clock; long unfinished simulations are inconclusive, never forced defeat.",
-    "pry": "Always exactly one shield point per target; tune can add damage but never extra shield reduction to pry.",
+    "recovery_policy": "No forced recovery immunity, enrage timer or second boss window",
+    "pry": "removed",
     "battlefield_orientation": "Enemies on screen left face right; allies on screen right face left. Screen orientation is not anatomical left/right; do not mirror asymmetrical assets.",
-    "outro_channels": "Take strongest direct amp and strongest liberation-extra independently; the two count toward direct +50% cap with field. Status-outro has a separate one-use token until end of grant round+2 and is consumed by the next qualifying status damage from its recipient, including a previously placed marker; no direct attack consumes that token. Intro gain stays <=20 per recipient per round. Solo self-concerto grants half direct amp only; no intro or special channel.",
-    "concerto_auto": "Manual by default, even for single-step autoAction. Explicit auto_concerto option can be requested by automatic simulation only.",
-    "tune_teamwork": "A different ally hitting a marked weakness consumes one tune mark: +1 break (except universal pry), owner 0.5 status packet, and triggering actor primary +10 once per normal action. Derived packet grants no resources.",
+    "outro_channels": "one pending relay per recipient window; direct buff covers every sub-action, special protection/status channels explicitly once; relay adds 2 temporary AP consumed first; never reorders queue",
+    "concerto_auto": "manual by default; explicit auto_concerto only current actor at end of own window",
+    "tune_teamwork": "different ally explicitly tune_trigger tagged paid skill hit consumes tune: owner 0.35 status packet and actor primary +5 once per root action; no resonance/AP/concerto from derived packet",
     "field": "Current and next round: direct damage +15%, damage received x0.8. No free actions, healing or concerto.",
-    "fusion_packet_coefficient": 1.2,
-    "enemy_charge": "A charge uses one ordinary enemy action and publishes its committed next skill/targets. Heavy attack consumes the next ordinary action. Break cancels charge and skips only its pending heavy; no extra actions. Phase transition does not advance normal pattern.",
-    "items": "Each test battle owns an isolated 2 repair / 1 cleanse inventory. No currency, drops, permanent inventory, or revival. Using an item consumes one normal action and gives no concerto.",
+    "fusion_packet_coefficient": 0.6,
+    "enemy_charge": "preparation and release each use one enemy window. Committed target cannot be redirected. Resonance break cancels; parts and mitigation are paid alternatives",
+    "items": "isolated repair2/cleanse1; each costs2AP; never grants concerto or AP",
     "debuffs": "Rend: healing received x0.75 through grant round+1. Exposed: next incoming damage +15%, consumed once; guard still halves resulting damage. Cleanse removes both.",
     "taunt_consumption": "Only a damaging single-target enemy action consumes taunt; AOE cannot redirect or consume it, but the normal expiry still applies.",
-    "ko_retreat_buffs": "KO/retreat clears own statuses, all personal resources, form and own tune/taunt markers. Existing recipient-owned outro/barrier and timed cutline/fusion/field keep their normal expiry; they do not revive their source or trigger extra actions."
+    "ko_retreat_buffs": "KO/retreat clears own statuses, all personal resources, form and own tune/taunt markers. Existing recipient-owned outro/barrier and timed cutline/fusion/field keep their normal expiry; they do not revive their source or trigger extra actions.",
+    "ap_start": 4,
+    "ap_round_gain": 4,
+    "ap_cap": 6,
+    "temp_ap_cap": 2,
+    "concerto_gain_cap_per_round": 40,
+    "ap_sources": [
+      "start",
+      "round_gain",
+      "outro_temporary"
+    ],
+    "joint_attack_damage": 80,
+    "joint_attack": "automatic once per break: shared coefficient0.72 among living allies; reference80 total at primary200/DEF160/level20/neutral resistance. Every hit uses its contributor element, immunity and target DEF; no AP/resources/concerto/resonance.",
+    "defense": "DEF is general damage mitigation, never physical resistance",
+    "joint_attack_reference_coefficient": 0.72,
+    "ap_zero": "auto-close after paid action reaches0 AP unless a legal full-concerto outro can still be chosen; player may choose end instead",
+    "counter_mitigation_floor": 0.6,
+    "interrupted_source": "All damage packets require a living source. Lethal retaliation interrupts remaining AOE targets, attached statuses, healing and resource effects on either side; no dead actor may finish its packet chain."
   },
   "characters": {
     "amy": {
@@ -95,54 +111,60 @@
       "skills": {
         "basic": {
           "name": "人形/机兵 普通攻击",
-          "coef": 1,
-          "break_points": 1,
+          "coef": 0.78,
+          "break_points": 8,
           "cost": {},
           "gain": {
-            "sync": 50
+            "sync": 40
           },
-          "concerto": 25,
-          "action_cost": 1,
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "basic",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "battle",
-          "effectSummary": "单体攻击，积攒50同步率。",
-          "description": "单体攻击，积攒50同步率。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数0.78，独立削共振8。有效命中获得40同步率。 有效命中产生40同步率；不因武器类别改变削条。",
+          "description": "2AP；伤害系数0.78，独立削共振8。有效命中获得40同步率。 有效命中产生40同步率；不因武器类别改变削条。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "overdrive": {
           "name": "星辉启动",
-          "coef": 1.5,
-          "break_points": 1,
+          "coef": 1.05,
+          "break_points": 8,
           "cost": {
             "sync": 50
           },
           "gain": {
             "resonance": 2
           },
-          "concerto": 30,
+          "concerto": 20,
           "effect": "amy_overdrive",
           "requires": "not overdrive; resonance==0",
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "liberation",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗50同步率进入机兵/星辉，获得2谐振；需要谐振为0。",
-          "description": "消耗50同步率进入机兵/星辉，获得2谐振；需要谐振为0。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP，消耗50同步率；伤害系数1.05，独立削共振8。有效命中获得2谐振。 谐振须为0且未在星辉中；本招进入机兵/星辉并产生2谐振。",
+          "description": "2AP，消耗50同步率；伤害系数1.05，独立削共振8。有效命中获得2谐振。 谐振须为0且未在星辉中；本招进入机兵/星辉并产生2谐振。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "enhanced": {
           "name": "双相强化E",
-          "coef": 2.5,
-          "break_points": 2,
+          "coef": 1.65,
+          "break_points": 12,
           "cost": {
             "sync": 100
           },
@@ -152,69 +174,78 @@
           "concerto": 30,
           "effect": "amy_swap",
           "applies_mode": true,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "liberation",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗100同步率，强攻并切换人形/机兵，获得2谐振，施加当前异常模式。",
-          "description": "消耗100同步率，强攻并切换人形/机兵，获得2谐振，施加当前异常模式。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗100同步率；伤害系数1.65，独立削共振12。有效命中获得2谐振。 攻击后在人形/机兵之间切换，产生2谐振并施加所选聚爆或震谐模式。",
+          "description": "3AP，消耗100同步率；伤害系数1.65，独立削共振12。有效命中获得2谐振。 攻击后在人形/机兵之间切换，产生2谐振并施加所选聚爆或震谐模式。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 12,
+          "tune_trigger": true
         },
         "heavy": {
           "name": "满谐重击",
-          "coef": 0.8,
-          "break_points": 1,
+          "coef": 0.55,
+          "break_points": 8,
           "cost": {},
           "gain": {
-            "sync": 200
+            "sync": 160
           },
-          "concerto": 30,
+          "concerto": 20,
           "requires": "resonance==4",
           "effect": "amy_heavy",
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "heavy",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "battle",
-          "effectSummary": "需要4谐振；较弱攻击后同步率补满至200，为终结蓄势。",
-          "description": "需要4谐振；较弱攻击后同步率补满至200，为终结蓄势。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数0.55，独立削共振8。有效命中获得160同步率。 需要4谐振；弱攻击后产生最多160同步率，为终结付费蓄势。",
+          "description": "2AP；伤害系数0.55，独立削共振8。有效命中获得160同步率。 需要4谐振；弱攻击后产生最多160同步率，为终结付费蓄势。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "finale": {
           "name": "星辉终结",
-          "coef": 6.5,
-          "break_points": 3,
+          "coef": 3.6,
+          "break_points": 16,
           "cost": {
             "sync": 200,
             "resonance": 4
           },
           "gain": {},
-          "concerto": 35,
+          "concerto": 0,
           "requires": "sync==200 and resonance==4",
           "effect": "amy_finale",
           "applies_mode": true,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "liberation",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗200同步率与4谐振，6.5倍爆发并施加异常；结束星辉返回人形。",
-          "description": "消耗200同步率与4谐振，6.5倍爆发并施加异常；结束星辉返回人形。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗200同步率、4谐振；伤害系数3.6，独立削共振16。 消耗200同步率及4谐振，施加所选异常；关闭星辉并返回人形。解放不产生协奏。",
+          "description": "3AP，消耗200同步率、4谐振；伤害系数3.6，独立削共振16。 消耗200同步率及4谐振，施加所选异常；关闭星辉并返回人形。解放不产生协奏。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 16,
+          "tune_trigger": true
         }
       },
       "intro": {
-        "primary_gain": 20
+        "primary_gain": 0
       },
       "asset_notes": "机兵跨行动持续、双池共享HP与行动；重伤不强制返形；退场返形/停机只改表现，不自动复活。E切形和伤害同一次行动。",
       "baseline_weapon_contribution": {
@@ -238,7 +269,7 @@
           "original separate liberation energy pool"
         ]
       },
-      "role_description": "爆发主攻：双资源与双形态；将队友供给转为星辉终结。"
+      "role_description": "双池与双形态输出：同步率和谐振分别积攒，付费启动、强化、重击与终结；通过所选模式提供异常协作。"
     },
     "lynae": {
       "name": "琳奈",
@@ -258,95 +289,102 @@
         "special": "liberation_extra_0.1_within_global_cap"
       },
       "intro": {
-        "primary_gain": 20
+        "primary_gain": 0
       },
       "skills": {
         "basic": {
           "name": "定线射击",
-          "coef": 1,
-          "break_points": 1,
+          "coef": 0.86,
+          "break_points": 8,
           "cost": {},
           "gain": {
-            "color": 35
+            "color": 30
           },
-          "concerto": 25,
-          "action_cost": 1,
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "basic",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "battle",
-          "effectSummary": "单体射击，积攒35流彩。",
-          "description": "单体射击，积攒35流彩。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数0.86，独立削共振8。有效命中获得30流彩。",
+          "description": "2AP；伤害系数0.86，独立削共振8。有效命中获得30流彩。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "survey": {
-          "name": "留彩校准",
-          "coef": 1.15,
-          "break_points": 1,
+          "name": "留彩破势",
+          "coef": 0.43,
+          "break_points": 24,
           "cost": {},
-          "gain": {
-            "color": 20
-          },
-          "concerto": 30,
-          "effect": "reveal_tune",
-          "action_cost": 1,
+          "gain": {},
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "单体攻击并放置震谐标记；另一队友下一次弱点命中触发0.5倍异常追伤、多削1韧并获得10主资源（每行动一次）。",
-          "description": "单体攻击并放置震谐标记；另一队友下一次弱点命中触发0.5倍异常追伤、多削1韧并获得10主资源（每行动一次）。",
-          "durationText": "标记至下回合末；首次另一队友弱点命中消耗",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP，伤害系数0.43 / 削24共振，不产生流彩。用明显伤害代价提前击破。",
+          "description": "2AP，伤害系数0.43 / 削24共振，不产生流彩。用明显伤害代价提前击破。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 24,
+          "tune_trigger": true
         },
         "skate": {
           "name": "绚色轮迹",
-          "coef": 1.8,
-          "break_points": 2,
+          "coef": 0.69,
+          "break_points": 40,
           "cost": {
             "color": 60
           },
           "gain": {},
-          "concerto": 30,
-          "effect": "tune",
-          "action_cost": 1,
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗60流彩削2韧并放置震谐标记，准备队友接力。",
-          "description": "消耗60流彩削2韧并放置震谐标记，准备队友接力。",
-          "durationText": "标记至下回合末；首次另一队友弱点命中消耗",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP并消耗60流彩，伤害系数0.69 / 削40共振。与虹谱迸发争用同一份60流彩。",
+          "description": "2AP并消耗60流彩，伤害系数0.69 / 削40共振。与虹谱迸发争用同一份60流彩。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 40,
+          "tune_trigger": true
         },
         "spectrum": {
           "name": "虹谱迸发",
-          "coef": 2.7,
-          "break_points": 3,
+          "coef": 1.38,
+          "break_points": 8,
           "cost": {
-            "color": 100
+            "color": 60
           },
           "gain": {},
-          "concerto": 35,
-          "effect": "tune",
-          "action_cost": 1,
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 3,
           "mastery_initial": 3,
-          "damage_class": "liberation",
+          "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗100流彩，强攻削3韧并放置震谐标记。",
-          "description": "消耗100流彩，强攻削3韧并放置震谐标记。",
-          "durationText": "标记至下回合末；首次另一队友弱点命中消耗",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP并消耗60流彩，伤害系数1.38 / 削8共振。与绚色轮迹相比优先生命输出。",
+          "description": "2AP并消耗60流彩，伤害系数1.38 / 削8共振。与绚色轮迹相比优先生命输出。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         }
       },
       "asset_notes": "常服/夏装同参数；无每轮免费插枪，无空手通用施法。",
@@ -370,7 +408,7 @@
           "resonance-chain bonuses"
         ]
       },
-      "role_description": "先手接力：留彩标记让后续弱点命中多削韧并供给主资源；协奏强化下一次解放。"
+      "role_description": "共振专精：以输出机会成本换提前击破；流彩同时可花在削条或输出。"
     },
     "mornye": {
       "name": "莫宁",
@@ -391,29 +429,32 @@
         "special": "next_received_hit_x0.85"
       },
       "intro": {
-        "primary_gain": 20
+        "primary_gain": 0
       },
       "skills": {
         "basic": {
           "name": "定轨悬刃",
-          "coef": 1.05,
-          "break_points": 1,
+          "coef": 1.0,
+          "break_points": 8,
           "cost": {},
           "gain": {
-            "calibration": 30
+            "calibration": 25
           },
-          "concerto": 25,
-          "action_cost": 1,
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "basic",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "battle",
-          "effectSummary": "以防御力造成伤害，积攒30校准。",
-          "description": "以防御力造成伤害，积攒30校准。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数1，独立削共振8。有效命中获得25校准。 以DEF而非ATK计算攻击；有效命中产生25校准。",
+          "description": "2AP；伤害系数1，独立削共振8。有效命中获得25校准。 以DEF而非ATK计算攻击；有效命中产生25校准。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "heal": {
           "name": "校准修复",
@@ -423,44 +464,52 @@
             "calibration": 30
           },
           "gain": {},
-          "concerto": 25,
+          "concerto": 20,
           "target": "ally",
-          "heal_scale": 2.2,
-          "heal_flat": 100,
-          "action_cost": 1,
+          "heal_scale": 1.6,
+          "heal_flat": 70,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗30校准，单体恢复2.2×防御力+100；满血无有效恢复不充协奏。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "description": "消耗30校准，单体恢复2.2×防御力+100；满血无有效恢复不充协奏。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP，消耗30校准；治疗1.6×本人DEF+70（平值随等级缩放）。没有实际治疗/净化/新增护盾时不产协奏。",
+          "description": "2AP，消耗30校准；治疗1.6×本人DEF+70（平值随等级缩放）。没有实际治疗/净化/新增护盾时不产协奏。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 0,
+          "tune_trigger": false
         },
         "field": {
           "name": "星界定标",
-          "coef": 1.2,
-          "break_points": 1,
+          "coef": 0,
+          "break_points": 0,
           "cost": {
-            "calibration": 60
+            "calibration": 30
           },
           "gain": {},
-          "concerto": 30,
-          "aoe": true,
+          "concerto": 20,
+          "aoe": false,
           "effect": "field",
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗60校准，群攻并展开场域：我方直接伤害+15%、所受伤害×0.8，至下回合末。",
-          "description": "消耗60校准，群攻并展开场域：我方直接伤害+15%、所受伤害×0.8，至下回合末。",
-          "durationText": "至施放后的下一回合末",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP并消耗30校准，展开定标场至下轮末：全队直接伤害+15%、承伤×0.8。本窗口限一次；不直接造成伤害/削条。",
+          "description": "2AP并消耗30校准，展开定标场至下轮末：全队直接伤害+15%、承伤×0.8。本窗口限一次；不直接造成伤害/削条。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 0,
+          "target": "self",
+          "once_per_window": true,
+          "tune_trigger": false
         },
         "restore": {
           "name": "定标回响",
@@ -470,21 +519,24 @@
             "calibration": 60
           },
           "gain": {},
-          "concerto": 25,
+          "concerto": 20,
           "target": "all_allies",
           "heal_scale": 1.4,
           "heal_flat": 80,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗60校准，全体恢复1.4×防御力+80；不复活。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "description": "消耗60校准，全体恢复1.4×防御力+80；不复活。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗60校准；治疗1.4×本人DEF+80（平值随等级缩放）。没有实际治疗/净化/新增护盾时不产协奏。 全体在场队友恢复，不复活；裂伤使治疗×0.75。",
+          "description": "3AP，消耗60校准；治疗1.4×本人DEF+80（平值随等级缩放）。没有实际治疗/净化/新增护盾时不产协奏。 全体在场队友恢复，不复活；裂伤使治疗×0.75。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 0,
+          "tune_trigger": false
         }
       },
       "asset_notes": "DEF同时参与伤害与治疗；悬浮不代表无敌；冬装不更改功能。",
@@ -534,95 +586,104 @@
         "special": "next_mode_status_damage_x1.25"
       },
       "intro": {
-        "primary_gain": 20
+        "primary_gain": 0
       },
       "skills": {
         "basic": {
           "name": "布景泡沫/幻灭爪击",
-          "coef": 1,
-          "break_points": 1,
+          "coef": 0.82,
+          "break_points": 8,
           "cost": {},
           "gain": {
-            "expectation": 30
+            "expectation": 25
           },
-          "concerto": 25,
+          "concerto": 20,
           "applies_mode": true,
           "form_overrides": {
             "blue": {
-              "coef": 1.45,
+              "coef": 1.05,
               "cost": {
                 "expectation": 20
               },
               "gain": {}
             }
           },
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "basic",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "battle",
-          "effectSummary": "红形态积攒30期待、施加1层异常；蓝形态消耗20期待，1.45倍伤害、施加2层异常。聚爆3层触发1.2倍异常伤害。",
-          "description": "红形态积攒30期待、施加1层异常；蓝形态消耗20期待，1.45倍伤害、施加2层异常。聚爆3层触发1.2倍异常伤害。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数0.82，独立削共振8。有效命中获得25期待。 红形态有效命中获得25期待并施加1次模式；蓝形态伤害系数1.05、消耗20期待、不产期待并施加2次模式。聚爆3层触发0.6系数热熔异常；震谐交由另一队友可触发技能结算。",
+          "description": "2AP；伤害系数0.82，独立削共振8。有效命中获得25期待。 红形态有效命中获得25期待并施加1次模式；蓝形态伤害系数1.05、消耗20期待、不产期待并施加2次模式。聚爆3层触发0.6系数热熔异常；震谐交由另一队友可触发技能结算。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "stage": {
           "name": "布景牵引",
-          "coef": 0.75,
-          "break_points": 1,
+          "coef": 0.43,
+          "break_points": 4,
           "cost": {},
           "gain": {
-            "expectation": 35
+            "expectation": 25
           },
-          "concerto": 30,
+          "concerto": 20,
           "aoe": true,
           "requires": "red",
           "applies_mode": true,
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "红形态群攻，每敌施加异常，整次行动只获得一次35期待与协奏。",
-          "description": "红形态群攻，每敌施加异常，整次行动只获得一次35期待与协奏。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数0.43，独立削共振4。有效命中获得25期待。 只在红形态可用；群攻每目标施加1次模式，整招资源与协奏只结算一次。",
+          "description": "2AP；伤害系数0.43，独立削共振4。有效命中获得25期待。 只在红形态可用；群攻每目标施加1次模式，整招资源与协奏只结算一次。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 4,
+          "tune_trigger": true
         },
         "breakdown": {
           "name": "开幕幻灭",
-          "coef": 1.6,
-          "break_points": 1,
+          "coef": 0.85,
+          "break_points": 6,
           "cost": {
             "expectation": 80
           },
           "gain": {
             "expectation": 80
           },
-          "concerto": 30,
+          "concerto": 0,
           "aoe": true,
           "requires": "red",
           "effect": "denia_blue",
           "applies_mode": true,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "liberation",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "需要80期待，群攻切蓝；80期待转为蓝形态储能，不构成免费循环。",
-          "description": "需要80期待，群攻切蓝；80期待转为蓝形态储能，不构成免费循环。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗80期待；伤害系数0.85，独立削共振6。有效命中获得80期待。 只在红形态、至少80期待时可用；将80期待转换为蓝形态储能，非额外回复；本次群攻仍按红形态施加模式，之后入蓝。",
+          "description": "3AP，消耗80期待；伤害系数0.85，独立削共振6。有效命中获得80期待。 只在红形态、至少80期待时可用；将80期待转换为蓝形态储能，非额外回复；本次群攻仍按红形态施加模式，之后入蓝。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 6,
+          "tune_trigger": true
         },
         "blue": {
           "name": "幻灭扼流",
-          "coef": 2.35,
-          "break_points": 2,
+          "coef": 1.6,
+          "break_points": 12,
           "cost": {
             "expectation": 40
           },
@@ -630,45 +691,51 @@
           "concerto": 30,
           "requires": "blue",
           "applies_mode": true,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "蓝形态消耗40期待，单体重击并施加2层异常；不足20储能自动回红。",
-          "description": "蓝形态消耗40期待，单体重击并施加2层异常；不足20储能自动回红。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗40期待；伤害系数1.6，独立削共振12。 仅蓝形态，消耗40期待，施加2次模式；蓝储能不足20时自动回红并清余量，无免费伤害/治疗。",
+          "description": "3AP，消耗40期待；伤害系数1.6，独立削共振12。 仅蓝形态，消耗40期待，施加2次模式；蓝储能不足20时自动回红并清余量，无免费伤害/治疗。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 12,
+          "tune_trigger": true
         },
         "curtain": {
           "name": "闭幕回场",
-          "coef": 2.8,
-          "break_points": 2,
+          "coef": 1.8,
+          "break_points": 12,
           "cost": {
             "expectation": 40
           },
           "gain": {},
-          "concerto": 30,
+          "concerto": 0,
           "requires": "blue",
           "effect": "denia_red",
           "applies_mode": true,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "liberation",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "蓝形态消耗40期待，爆发后回红并清空余量。",
-          "description": "蓝形态消耗40期待，爆发后回红并清空余量。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗40期待；伤害系数1.8，独立削共振12。 仅蓝形态，消耗40期待，施加2次模式后回红并清空剩余期待；解放不产生协奏。",
+          "description": "3AP，消耗40期待；伤害系数1.8，独立削共振12。 仅蓝形态，消耗40期待，施加2次模式后回红并清空剩余期待；解放不产生协奏。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 12,
+          "tune_trigger": true
         }
       },
-      "asset_notes": "开幕的80点转为形态储能而非返还可循环开幕；切换需行动。蓝普通攻击系数1.45、消耗20、不产生期待；蓝储能不足20自动返红且清余量，不回复资源。红蓝非皮肤。",
-      "form_exit": "After an action, blue resource <20 automatically returns red and clears residue. No free attack, heal, concerto, or resource on return.",
+      "asset_notes": "红蓝是战斗形态，不是皮肤。开幕将80期待转为蓝储能；蓝普攻系数1.05/耗20，低于20自动回红清零，无免费结算。",
+      "form_exit": "After a paid action, blue expectation<20 returns red and clears residue. No free action or healing.",
       "baseline_weapon_contribution": {
         "atk": 40
       },
@@ -689,7 +756,7 @@
           "resonance-chain bonuses"
         ]
       },
-      "role_description": "异常与群攻：红形态布景积攒，蓝形态加速聚爆；与切线异常增幅协作。"
+      "role_description": "红形态准备期待，蓝形态消耗储能兑现；聚爆或震谐模式分别配合队友。"
     },
     "chisa": {
       "name": "千咲",
@@ -709,56 +776,62 @@
         "special": "next_mode_status_damage_x1.25"
       },
       "intro": {
-        "primary_gain": 20
+        "primary_gain": 0
       },
       "skills": {
         "basic": {
           "name": "闭剪裁击",
-          "coef": 1.05,
-          "break_points": 1,
+          "coef": 0.95,
+          "break_points": 8,
           "cost": {},
           "gain": {
-            "thread": 30
+            "thread": 25
           },
-          "concerto": 25,
-          "action_cost": 1,
+          "concerto": 20,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "basic",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "battle",
-          "effectSummary": "单体裁击，积攒30丝线。",
-          "description": "单体裁击，积攒30丝线。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP；伤害系数0.95，独立削共振8。有效命中获得25丝线。 有效命中产生25丝线。",
+          "description": "2AP；伤害系数0.95，独立削共振8。有效命中获得25丝线。 有效命中产生25丝线。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 8,
+          "tune_trigger": true
         },
         "cut": {
           "name": "切开结点",
-          "coef": 1.4,
-          "break_points": 2,
+          "coef": 0.62,
+          "break_points": 20,
           "cost": {
             "thread": 30
           },
           "gain": {},
-          "concerto": 30,
+          "concerto": 20,
           "effect": "cutline",
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗30丝线并施加切线：敌攻击力×0.85（2次敌行动内），受异常伤害+25%。",
-          "description": "消耗30丝线并施加切线：敌攻击力×0.85（2次敌行动内），受异常伤害+25%。",
-          "durationText": "最多2次敌方行动，且不超过施放后第3回合末",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP，消耗30丝线；伤害系数0.62，独立削共振20。 切线使敌ATK×0.85、所受异常伤害+25%；最多该敌两次正式行动，最长至施放后第3轮末。",
+          "description": "2AP，消耗30丝线；伤害系数0.62，独立削共振20。 切线使敌ATK×0.85、所受异常伤害+25%；最多该敌两次正式行动，最长至施放后第3轮末。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 20,
+          "tune_trigger": true
         },
         "chainsaw": {
           "name": "沿线断流",
-          "coef": 2.2,
-          "break_points": 2,
+          "coef": 1.12,
+          "break_points": 12,
           "cost": {
             "thread": 60
           },
@@ -766,17 +839,20 @@
           "concerto": 30,
           "aoe": true,
           "effect": "cutline",
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "skill",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗60丝线，全体攻击并施加切线，协奏与资源仅结算一次。",
-          "description": "消耗60丝线，全体攻击并施加切线，协奏与资源仅结算一次。",
-          "durationText": "最多2次敌方行动，且不超过施放后第3回合末",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗60丝线；伤害系数1.12，独立削共振12。 群攻并给每目标施加切线，整招只结算一次协奏，不凭目标数重复回资源。",
+          "description": "3AP，消耗60丝线；伤害系数1.12，独立削共振12。 群攻并给每目标施加切线，整招只结算一次协奏，不凭目标数重复回资源。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 12,
+          "tune_trigger": true
         },
         "mend": {
           "name": "缝合界线",
@@ -786,12 +862,12 @@
             "thread": 60
           },
           "gain": {},
-          "concerto": 25,
+          "concerto": 20,
           "target": "ally",
           "heal_scale": 2.5,
           "heal_flat": 130,
           "barrier": 150,
-          "action_cost": 1,
+          "action_cost": 2,
           "mastery_reference": 4,
           "mastery_initial": 4,
           "damage_class": "skill",
@@ -799,34 +875,40 @@
           "source_class": "original_project_adaptation",
           "category": "skills",
           "cleanse": true,
-          "effectSummary": "消耗60丝线，单体恢复2.5×攻击力+130，净化裂伤/暴露并给150护盾至下回合末。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "description": "消耗60丝线，单体恢复2.5×攻击力+130，净化裂伤/暴露并给150护盾至下回合末。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "durationText": "治疗/净化即时；护盾最多150并保留至下回合末",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "2AP，消耗60丝线；治疗2.5×本人ATK+130（平值随等级缩放）。净化裂伤/暴露并给予150护盾。没有实际治疗/净化/新增护盾时不产协奏。",
+          "description": "2AP，消耗60丝线；治疗2.5×本人ATK+130（平值随等级缩放）。净化裂伤/暴露并给予150护盾。没有实际治疗/净化/新增护盾时不产协奏。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 2,
+          "resonance_damage": 0,
+          "tune_trigger": false
         },
         "release": {
           "name": "终线回响",
-          "coef": 2.8,
-          "break_points": 2,
+          "coef": 1.4,
+          "break_points": 12,
           "cost": {
             "thread": 100
           },
           "gain": {},
-          "concerto": 35,
+          "concerto": 0,
           "aoe": true,
           "team_heal_scale": 1,
           "team_heal_flat": 80,
-          "action_cost": 1,
+          "action_cost": 3,
           "mastery_reference": 3,
           "mastery_initial": 3,
           "damage_class": "liberation",
           "cooldown_actions": 0,
           "source_class": "original_project_adaptation",
           "category": "skills",
-          "effectSummary": "消耗100丝线，全体攻击并给在场队友恢复攻击力+80。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "description": "消耗100丝线，全体攻击并给在场队友恢复攻击力+80。 文中治疗公式为20级基准；实际平值随等级缩放。",
-          "durationText": "结算于本次行动",
-          "cooldownText": "无冷却；需满足资源和形态条件"
+          "effectSummary": "3AP，消耗100丝线；伤害系数1.4，独立削共振12。 群攻并为全体在场队友恢复1×ATK+80（平值随等级缩放）；不复活；解放不产生协奏。",
+          "description": "3AP，消耗100丝线；伤害系数1.4，独立削共振12。 群攻并为全体在场队友恢复1×ATK+80（平值随等级缩放）；不复活；解放不产生协奏。",
+          "durationText": "即时；标记和状态按各自说明",
+          "cooldownText": "按AP和个人资源可重复；无统一三动作上限",
+          "ap_cost": 3,
+          "resonance_damage": 12,
+          "tune_trigger": true
         }
       },
       "asset_notes": "电锯只在本行动；Pocky/饮料仅协奏视觉，不附加物品治疗；托手不生盾。",
@@ -854,6 +936,627 @@
         ]
       },
       "role_description": "减攻与异常支援：切线压低敌方输出并放大异常；缝合治疗、净化并给盾。"
+    },
+    "rover": {
+      "name": "漂泊者",
+      "element": "spectro",
+      "weapon": "sword",
+      "hp": 1850,
+      "atk": 220,
+      "def": 130,
+      "speed": 107,
+      "primary": "dust",
+      "resources": {
+        "dust": 100,
+        "energy": 125
+      },
+      "form_start": "normal",
+      "mode_options": [
+        "spectro",
+        "havoc",
+        "aero",
+        "electro"
+      ],
+      "mode_default": "spectro",
+      "mode_kits": {
+        "spectro": {
+          "element": "spectro",
+          "primary": "dust",
+          "resources": {
+            "dust": 100,
+            "energy": 125
+          },
+          "skills": {
+            "basic": {
+              "name": "震声",
+              "coef": 0.88,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 8,
+              "break_points": 8,
+              "cost": {},
+              "gain": {
+                "dust": 20,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "basic",
+              "category": "battle",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "2AP；伤害系数0.88，削共振8。有效命中获得20尘微之声、20共鸣能量。",
+              "effectSummary": "2AP；伤害系数0.88，削共振8。有效命中获得20尘微之声、20共鸣能量。"
+            },
+            "skill": {
+              "name": "浮声千斩",
+              "coef": 0.75,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {},
+              "gain": {
+                "dust": 20,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "spectro_mark",
+              "description": "2AP；伤害系数0.75，削共振12。有效命中获得20尘微之声、20共鸣能量。附加微光，下一次衍射主体技能命中追加0.25系数异常伤害。",
+              "effectSummary": "2AP；伤害系数0.75，削共振12。有效命中获得20尘微之声、20共鸣能量。附加微光，下一次衍射主体技能命中追加0.25系数异常伤害。"
+            },
+            "enhanced": {
+              "name": "旋音·回声",
+              "coef": 1.4,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 20,
+              "break_points": 20,
+              "cost": {
+                "dust": 50
+              },
+              "gain": {
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "spectro_mark",
+              "description": "3AP；伤害系数1.4，削共振20。消耗50尘微之声。有效命中获得20共鸣能量。消耗50尘微之声，强化攻击并附加微光。",
+              "effectSummary": "3AP；伤害系数1.4，削共振20。消耗50尘微之声。有效命中获得20共鸣能量。消耗50尘微之声，强化攻击并附加微光。"
+            },
+            "liberation": {
+              "name": "回响奏鸣",
+              "coef": 1.65,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {
+                "energy": 125
+              },
+              "gain": {},
+              "concerto": 0,
+              "damage_class": "liberation",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "aoe": true,
+              "description": "3AP；伤害系数1.65，削共振12。消耗125共鸣能量。",
+              "effectSummary": "3AP；伤害系数1.65，削共振12。消耗125共鸣能量。"
+            }
+          },
+          "outro": {
+            "amp": 0.15,
+            "special": "liberation_extra_0.1_within_global_cap"
+          }
+        },
+        "havoc": {
+          "element": "havoc",
+          "primary": "umbra",
+          "resources": {
+            "umbra": 100,
+            "energy": 125
+          },
+          "skills": {
+            "basic": {
+              "name": "裁羽弑音",
+              "coef": 0.88,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 8,
+              "break_points": 8,
+              "cost": {},
+              "gain": {
+                "umbra": 20,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "basic",
+              "category": "battle",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "2AP；伤害系数0.88，削共振8。有效命中获得20暗流、20共鸣能量。",
+              "effectSummary": "2AP；伤害系数0.88，削共振8。有效命中获得20暗流、20共鸣能量。"
+            },
+            "skill": {
+              "name": "行刃",
+              "coef": 1.05,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 8,
+              "break_points": 8,
+              "cost": {},
+              "gain": {
+                "umbra": 30,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "2AP；伤害系数1.05，削共振8。有效命中获得30暗流、20共鸣能量。",
+              "effectSummary": "2AP；伤害系数1.05，削共振8。有效命中获得30暗流、20共鸣能量。"
+            },
+            "enhanced": {
+              "name": "灭音·暗涌",
+              "coef": 1.2,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {
+                "umbra": 100
+              },
+              "gain": {
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "umbra",
+              "description": "3AP；伤害系数1.2，削共振12。消耗100暗流。有效命中获得20共鸣能量。消耗100暗流进入暗涌；本招后两次普攻系数提高50%，每次仍需2AP，不自动攻击。",
+              "effectSummary": "3AP；伤害系数1.2，削共振12。消耗100暗流。有效命中获得20共鸣能量。消耗100暗流进入暗涌；本招后两次普攻系数提高50%，每次仍需2AP，不自动攻击。"
+            },
+            "liberation": {
+              "name": "临渊死寂",
+              "coef": 2.1,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {
+                "energy": 125
+              },
+              "gain": {},
+              "concerto": 0,
+              "damage_class": "liberation",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "aoe": true,
+              "description": "3AP；伤害系数2.1，削共振12。消耗125共鸣能量。",
+              "effectSummary": "3AP；伤害系数2.1，削共振12。消耗125共鸣能量。"
+            }
+          },
+          "outro": {
+            "amp": 0.15,
+            "special": "none"
+          }
+        },
+        "aero": {
+          "element": "aero",
+          "primary": "wind",
+          "resources": {
+            "wind": 100,
+            "energy": 125
+          },
+          "skills": {
+            "basic": {
+              "name": "风驰",
+              "coef": 0.88,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 8,
+              "break_points": 8,
+              "cost": {},
+              "gain": {
+                "wind": 20,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "basic",
+              "category": "battle",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "2AP；伤害系数0.88，削共振8。有效命中获得20弦风息、20共鸣能量。",
+              "effectSummary": "2AP；伤害系数0.88，削共振8。有效命中获得20弦风息、20共鸣能量。"
+            },
+            "skill": {
+              "name": "苍息破象",
+              "coef": 0.7,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {},
+              "gain": {
+                "wind": 25,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "wind_mark",
+              "description": "2AP；伤害系数0.7，削共振12。有效命中获得25弦风息、20共鸣能量。施加1层风蚀（上限2）；敌窗口末每层0.2系数气动伤害，归属者存活才触发。",
+              "effectSummary": "2AP；伤害系数0.7，削共振12。有效命中获得25弦风息、20共鸣能量。施加1层风蚀（上限2）；敌窗口末每层0.2系数气动伤害，归属者存活才触发。"
+            },
+            "enhanced": {
+              "name": "缥缈无相",
+              "coef": 1.25,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 20,
+              "break_points": 20,
+              "cost": {
+                "wind": 50
+              },
+              "gain": {
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "team_heal_scale": 0.45,
+              "team_heal_flat": 25,
+              "effect": "wind_mark",
+              "description": "3AP；伤害系数1.25，削共振20。消耗50弦风息。有效命中获得20共鸣能量。消耗50弦风息；强化打击、全队小额治疗、施加风蚀。",
+              "effectSummary": "3AP；伤害系数1.25，削共振20。消耗50弦风息。有效命中获得20共鸣能量。消耗50弦风息；强化打击、全队小额治疗、施加风蚀。"
+            },
+            "liberation": {
+              "name": "万象归墟",
+              "coef": 1.3,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {
+                "energy": 125
+              },
+              "gain": {},
+              "concerto": 0,
+              "damage_class": "liberation",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "aoe": true,
+              "team_heal_scale": 0.7,
+              "team_heal_flat": 40,
+              "description": "3AP；伤害系数1.3，削共振12。消耗125共鸣能量。群体气动伤害并治疗全队。",
+              "effectSummary": "3AP；伤害系数1.3，削共振12。消耗125共鸣能量。群体气动伤害并治疗全队。"
+            }
+          },
+          "outro": {
+            "amp": 0.15,
+            "special": "none"
+          }
+        },
+        "electro": {
+          "element": "electro",
+          "primary": "surge",
+          "resources": {
+            "surge": 100,
+            "energy": 125
+          },
+          "skills": {
+            "basic": {
+              "name": "止戈·斩击",
+              "coef": 0.88,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 8,
+              "break_points": 8,
+              "cost": {},
+              "gain": {
+                "surge": 20,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "basic",
+              "category": "battle",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "2AP；伤害系数0.88，削共振8。有效命中获得20电涌、20共鸣能量。",
+              "effectSummary": "2AP；伤害系数0.88，削共振8。有效命中获得20电涌、20共鸣能量。"
+            },
+            "skill": {
+              "name": "雷引",
+              "coef": 0.9,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 12,
+              "break_points": 12,
+              "cost": {},
+              "gain": {
+                "surge": 25,
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "2AP；伤害系数0.9，削共振12。有效命中获得25电涌、20共鸣能量。",
+              "effectSummary": "2AP；伤害系数0.9，削共振12。有效命中获得25电涌、20共鸣能量。"
+            },
+            "enhanced": {
+              "name": "临界共鸣",
+              "coef": 1.3,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 16,
+              "break_points": 16,
+              "cost": {
+                "surge": 100
+              },
+              "gain": {
+                "energy": 20
+              },
+              "concerto": 20,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "critical",
+              "concerto_cost": 60,
+              "description": "3AP；伤害系数1.3，削共振16。消耗100电涌。有效命中获得20共鸣能量。消耗100电涌及60协奏进入临界：本招后两次普攻附带0.25系数导电雷陨，不免费产资源。与超负荷争用同一电涌。",
+              "effectSummary": "3AP；伤害系数1.3，削共振16。消耗100电涌。有效命中获得20共鸣能量。消耗100电涌及60协奏进入临界：本招后两次普攻附带0.25系数导电雷陨，不免费产资源。与超负荷争用同一电涌。"
+            },
+            "overload": {
+              "name": "超负荷",
+              "coef": 0,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 0,
+              "break_points": 0,
+              "cost": {
+                "surge": 100
+              },
+              "gain": {},
+              "concerto": 0,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": false,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "overload",
+              "target": "self",
+              "once_per_window": true,
+              "description": "2AP；伤害系数0，削共振0。消耗100电涌。消耗100电涌，本轮及下轮全队直接伤害+10%；本窗一次，不能叠层。",
+              "effectSummary": "2AP；伤害系数0，削共振0。消耗100电涌。消耗100电涌，本轮及下轮全队直接伤害+10%；本窗一次，不能叠层。"
+            },
+            "counter": {
+              "name": "止戈·格挡反击",
+              "coef": 0,
+              "ap_cost": 2,
+              "action_cost": 2,
+              "resonance_damage": 0,
+              "break_points": 0,
+              "cost": {},
+              "gain": {},
+              "concerto": 0,
+              "damage_class": "skill",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": false,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "effect": "counter",
+              "target": "self",
+              "ends_window": true,
+              "description": "2AP；伤害系数0，削共振0。花2AP并结束窗口，下一次受到直接攻击承伤×0.6并以0.55系数导电反击一次；不返AP/资源，最晚下次本人窗口开始失效。",
+              "effectSummary": "2AP；伤害系数0，削共振0。花2AP并结束窗口，下一次受到直接攻击承伤×0.6并以0.55系数导电反击一次；不返AP/资源，最晚下次本人窗口开始失效。"
+            },
+            "liberation": {
+              "name": "最终战略",
+              "coef": 2.0,
+              "ap_cost": 3,
+              "action_cost": 3,
+              "resonance_damage": 16,
+              "break_points": 16,
+              "cost": {
+                "energy": 125
+              },
+              "gain": {},
+              "concerto": 0,
+              "damage_class": "liberation",
+              "category": "skills",
+              "mastery_initial": 3,
+              "mastery_reference": 3,
+              "tune_trigger": true,
+              "durationText": "即时；状态另依说明",
+              "cooldownText": "按AP、个人资源与明确状态条件",
+              "description": "3AP；伤害系数2，削共振16。消耗125共鸣能量。",
+              "effectSummary": "3AP；伤害系数2，削共振16。消耗125共鸣能量。"
+            }
+          },
+          "outro": {
+            "amp": 0.15,
+            "special": "none"
+          }
+        }
+      },
+      "skills": {
+        "basic": {
+          "name": "震声",
+          "coef": 0.88,
+          "ap_cost": 2,
+          "action_cost": 2,
+          "resonance_damage": 8,
+          "break_points": 8,
+          "cost": {},
+          "gain": {
+            "dust": 20,
+            "energy": 20
+          },
+          "concerto": 20,
+          "damage_class": "basic",
+          "category": "battle",
+          "mastery_initial": 3,
+          "mastery_reference": 3,
+          "tune_trigger": true,
+          "durationText": "即时；状态另依说明",
+          "cooldownText": "按AP、个人资源与明确状态条件",
+          "description": "2AP；伤害系数0.88，削共振8。有效命中获得20尘微之声、20共鸣能量。",
+          "effectSummary": "2AP；伤害系数0.88，削共振8。有效命中获得20尘微之声、20共鸣能量。"
+        },
+        "skill": {
+          "name": "浮声千斩",
+          "coef": 0.75,
+          "ap_cost": 2,
+          "action_cost": 2,
+          "resonance_damage": 12,
+          "break_points": 12,
+          "cost": {},
+          "gain": {
+            "dust": 20,
+            "energy": 20
+          },
+          "concerto": 20,
+          "damage_class": "skill",
+          "category": "skills",
+          "mastery_initial": 3,
+          "mastery_reference": 3,
+          "tune_trigger": true,
+          "durationText": "即时；状态另依说明",
+          "cooldownText": "按AP、个人资源与明确状态条件",
+          "effect": "spectro_mark",
+          "description": "2AP；伤害系数0.75，削共振12。有效命中获得20尘微之声、20共鸣能量。附加微光，下一次衍射主体技能命中追加0.25系数异常伤害。",
+          "effectSummary": "2AP；伤害系数0.75，削共振12。有效命中获得20尘微之声、20共鸣能量。附加微光，下一次衍射主体技能命中追加0.25系数异常伤害。"
+        },
+        "enhanced": {
+          "name": "旋音·回声",
+          "coef": 1.4,
+          "ap_cost": 3,
+          "action_cost": 3,
+          "resonance_damage": 20,
+          "break_points": 20,
+          "cost": {
+            "dust": 50
+          },
+          "gain": {
+            "energy": 20
+          },
+          "concerto": 20,
+          "damage_class": "skill",
+          "category": "skills",
+          "mastery_initial": 3,
+          "mastery_reference": 3,
+          "tune_trigger": true,
+          "durationText": "即时；状态另依说明",
+          "cooldownText": "按AP、个人资源与明确状态条件",
+          "effect": "spectro_mark",
+          "description": "3AP；伤害系数1.4，削共振20。消耗50尘微之声。有效命中获得20共鸣能量。消耗50尘微之声，强化攻击并附加微光。",
+          "effectSummary": "3AP；伤害系数1.4，削共振20。消耗50尘微之声。有效命中获得20共鸣能量。消耗50尘微之声，强化攻击并附加微光。"
+        },
+        "liberation": {
+          "name": "回响奏鸣",
+          "coef": 1.65,
+          "ap_cost": 3,
+          "action_cost": 3,
+          "resonance_damage": 12,
+          "break_points": 12,
+          "cost": {
+            "energy": 125
+          },
+          "gain": {},
+          "concerto": 0,
+          "damage_class": "liberation",
+          "category": "skills",
+          "mastery_initial": 3,
+          "mastery_reference": 3,
+          "tune_trigger": true,
+          "durationText": "即时；状态另依说明",
+          "cooldownText": "按AP、个人资源与明确状态条件",
+          "aoe": true,
+          "description": "3AP；伤害系数1.65，削共振12。消耗125共鸣能量。",
+          "effectSummary": "3AP；伤害系数1.65，削共振12。消耗125共鸣能量。"
+        }
+      },
+      "outro": {
+        "amp": 0.15,
+        "special": "liberation_extra_0.1_within_global_cap"
+      },
+      "intro": {
+        "primary_gain": 0
+      },
+      "reference_level": 20,
+      "recommended_entry_level": 20,
+      "baseline_weapon_contribution": {
+        "atk": 40
+      },
+      "role_description": "四属性独立技能组合；同一角色，男女默认/校服只是外观。当前为回合制候选，完整原作空地连段未复刻。",
+      "adaptation_notes": "保留命名、资源方向与四属性身份；本版将原作秒数/连段映射为付费窗口动作。资源上限100与能量125为本项目统一候选；不宣称四属性原作所有数值相同。未实现完整空地分支与导电多属性七段。"
     }
   },
   "enemies": {
@@ -862,21 +1565,18 @@
       "original_english": "Snip Snap",
       "rank": "common",
       "element": "fusion",
-      "hp": 780,
+      "hp": 460,
       "atk": 265,
       "def": 70,
       "speed": 95,
-      "shield": 2,
-      "weak_elements": [
-        "spectro",
-        "havoc"
-      ],
-      "weak_weapons": [
-        "sword",
-        "rectifier"
-      ],
+      "shield": 0,
       "resist": {
-        "fusion": 0.8
+        "glacio": 0.9,
+        "fusion": 0.6,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
       },
       "pattern": [
         "bite",
@@ -894,11 +1594,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "防御、治疗或针对弱点破防。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 1 倍攻击。",
           "description": "单体 1 倍攻击。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "spit": {
           "name": "热团喷吐",
@@ -911,36 +1611,35 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "防御、治疗或针对弱点破防。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 1.35 倍攻击。",
           "description": "单体 1.35 倍攻击。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         }
       },
-      "taunt": "next single target locked; next damage x1.15",
+      "taunt": "only uncommitted legal single-target selection; cannot override locked target or AOE",
       "negotiation": false,
-      "basic_key": "bite"
+      "basic_key": "bite",
+      "resistance_data_class": "Community 3.7 enemy snapshot: ordinary10%, named high element40%; mapped to0.9/0.6 for this prototype. No live verification claim."
     },
     "predator": {
       "name": "惊蛰猎手",
       "original_english": "Electro Predator",
       "rank": "common",
       "element": "electro",
-      "hp": 700,
+      "hp": 420,
       "atk": 290,
       "def": 65,
       "speed": 115,
-      "shield": 3,
-      "weak_elements": [
-        "fusion",
-        "havoc"
-      ],
-      "weak_weapons": [
-        "broadblade"
-      ],
+      "shield": 0,
       "resist": {
-        "electro": 0.8
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.6,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
       },
       "pattern": [
         "shot",
@@ -959,11 +1658,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "防御、治疗或针对弱点破防。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 1 倍攻击。",
           "description": "单体 1 倍攻击。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "aim": {
           "name": "引弦瞄准",
@@ -977,11 +1676,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "下一次敌方普通行动兑现；破防会打断",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "本次先准备，下一次敌方普通行动发动强攻",
+          "counterplayText": "集中伤害点杀本小怪（无共振）；锁定队友花1AP防御；花个人资源保护/治疗。",
+          "telegraphText": "投入本次窗口准备，下次本人窗口兑现；已锁定目标不可被挑衅改写。",
           "effectSummary": "投入整次行动瞄准锁定目标；下一次行动贯射。",
           "description": "投入整次行动瞄准锁定目标；下一次行动贯射。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "aimed": {
           "name": "惊蛰贯射",
@@ -994,36 +1693,35 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 2.2 倍攻击，需先完成蓄力/瞄准。",
           "description": "单体 2.2 倍攻击，需先完成蓄力/瞄准。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         }
       },
-      "taunt": "redirect next shot, including committed aim; next damage x1.15",
+      "taunt": "only uncommitted legal single-target selection; cannot override locked target or AOE",
       "negotiation": false,
-      "basic_key": "shot"
+      "basic_key": "shot",
+      "resistance_data_class": "Community 3.7 enemy snapshot: ordinary10%, named high element40%; mapped to0.9/0.6 for this prototype. No live verification claim."
     },
     "bracer": {
       "name": "坚岩斗士",
       "original_english": "Stonewall Bracer",
       "rank": "elite",
-      "element": "physical",
-      "hp": 4300,
+      "element": "spectro",
+      "hp": 1800,
       "atk": 410,
       "def": 180,
       "speed": 80,
-      "shield": 9,
-      "weak_elements": [
-        "fusion",
-        "spectro"
-      ],
-      "weak_weapons": [
-        "rectifier"
-      ],
+      "shield": 96,
       "resist": {
-        "physical": 0.8
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
       },
       "pattern": [
         "brace",
@@ -1043,11 +1741,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "防御、治疗或针对弱点破防。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 1.4 倍攻击。",
           "description": "单体 1.4 倍攻击。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "brace": {
           "name": "架岩",
@@ -1060,12 +1758,12 @@
           "special": true,
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
-          "durationText": "至下次敌方行动；非弱点命中反击最多一次",
-          "counterplayText": "优先弱点命中或撬防；非弱点命中触发一次反击，破防可取消。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
-          "effectSummary": "攻击同时架岩：所受伤害×0.7；非弱点命中反击一次。",
-          "description": "攻击同时架岩：所受伤害×0.7；非弱点命中反击一次。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "durationText": "直到下次敌方窗口开始或被卸架/击破",
+          "counterplayText": "花1AP佯攻卸架；用护盾/减伤承担一次反击；或以共振击破解除。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
+          "effectSummary": "架岩后承伤×0.7；受到首次主体直接攻击反击一次。不按属性或武器判定。",
+          "description": "架岩后承伤×0.7；受到首次主体直接攻击反击一次。不按属性或武器判定。",
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "charge": {
           "name": "沉肩蓄力",
@@ -1079,11 +1777,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "下一次敌方普通行动兑现；破防会打断",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "本次先准备并锁定单体；下次行动冲压，挑衅可重定向，破防可打断。",
+          "counterplayText": "蓄力前挑衅引向防守者；锁定后无法改人，可投资共振打断或让被锁定者提前防御并配护盾。",
+          "telegraphText": "先蓄力锁定单体；下次冲压。已有锁定不受后续挑衅影响。",
           "effectSummary": "投入整次行动蓄力；下一次行动兑现，破防打断。",
           "description": "投入整次行动蓄力；下一次行动兑现，破防打断。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "rush": {
           "name": "岩躯冲压",
@@ -1096,14 +1794,14 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 2.7 倍攻击，需先完成蓄力/瞄准。",
           "description": "单体 2.7 倍攻击，需先完成蓄力/瞄准。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         }
       },
-      "taunt": "next single target locked, next damage x1.15; does not remove brace",
+      "taunt": "only uncommitted legal single-target selection; cannot override locked target or AOE",
       "negotiation": false,
       "basic_key": "smash",
       "difficulty_patterns": {
@@ -1125,27 +1823,27 @@
           "charge",
           "rush"
         ]
-      }
+      },
+      "element_adaptation_note": "本实验以衍射映射岩拳；不是原作伤害属性断言。",
+      "resistance_data_class": "Community 3.7 enemy snapshot: ordinary10%, named high element40%; mapped to0.9/0.6 for this prototype. No live verification claim."
     },
     "carapace": {
       "name": "车刃镰",
       "original_english": "Carapace (旧英名 Chaserazor)",
       "rank": "elite",
       "element": "aero",
-      "hp": 3900,
+      "hp": 1800,
       "atk": 370,
       "def": 115,
       "speed": 112,
-      "shield": 8,
-      "weak_elements": [
-        "fusion",
-        "havoc"
-      ],
-      "weak_weapons": [
-        "pistols"
-      ],
+      "shield": 96,
       "resist": {
-        "aero": 0.8
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.6,
+        "spectro": 0.9,
+        "havoc": 0.9
       },
       "pattern": [
         "slash",
@@ -1165,11 +1863,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "裂伤持续至下回合末",
-          "counterplayText": "修复技能/净化剂去除裂伤；防御减少本次伤害。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体伤害并施加裂伤：受治疗×0.75。",
           "description": "单体伤害并施加裂伤：受治疗×0.75。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "charge": {
           "name": "收刃蓄转",
@@ -1183,11 +1881,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "下一次敌方普通行动兑现；破防会打断",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "本次先准备；下一次敌方普通行动对全体队友强攻，挑衅不能转移，破防可打断。",
+          "counterplayText": "拆旋刃部件可把本次回旋伤害降至45%；共振击破可取消；场域/防御/净化是资源替代方案。",
+          "telegraphText": "投入本次窗口准备，下次本人窗口兑现；已锁定目标不可被挑衅改写。",
           "effectSummary": "投入整次行动蓄力；下一次行动兑现，破防打断。",
           "description": "投入整次行动蓄力；下一次行动兑现，破防打断。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "spin": {
           "name": "轮刃回旋",
@@ -1201,14 +1899,14 @@
           "target": "all_allies",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "全体攻击，所有在场队友受影响",
+          "counterplayText": "拆旋刃部件可把本次回旋伤害降至45%；共振击破可取消；场域/防御/净化是资源替代方案。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "全体 1.8 倍攻击，需先完成蓄力/瞄准。",
           "description": "全体 1.8 倍攻击，需先完成蓄力/瞄准。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         }
       },
-      "taunt": "single slash can redirect x1.15; spin stays AOE, no taunt effect displayed",
+      "taunt": "only uncommitted legal single-target selection; cannot override locked target or AOE",
       "negotiation": false,
       "basic_key": "slash",
       "difficulty_patterns": {
@@ -1228,31 +1926,35 @@
           "spin",
           "slash"
         ]
-      }
+      },
+      "part_spec": {
+        "name": "旋刃连接部",
+        "maxhp": 160,
+        "effect": "weaken",
+        "damage_multiplier": 0.45
+      },
+      "resistance_data_class": "Community 3.7 enemy snapshot: ordinary10%, named high element40%; mapped to0.9/0.6 for this prototype. No live verification claim."
     },
     "crownless": {
       "name": "无冠者",
       "original_english": "Crownless",
       "rank": "boss",
       "element": "havoc",
-      "hp": 10400,
+      "hp": 4800,
       "atk": 465,
       "def": 160,
       "speed": 108,
-      "shield": 12,
-      "weak_elements": [
-        "spectro",
-        "fusion"
-      ],
-      "weak_weapons": [
-        "sword",
-        "pistols"
-      ],
+      "shield": 240,
       "resist": {
-        "havoc": 0.8
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.6
       },
       "phase_hp_fraction": 0.6,
-      "phase2_shield": 14,
+      "phase2_shield": 240,
       "phase2_attack_multiplier": 1.2,
       "pattern": [
         "spear",
@@ -1272,11 +1974,11 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "防御、治疗或针对弱点破防。",
-          "telegraphText": "单体攻击，目标在预兆中显示",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "单体 1.5 倍攻击。",
           "description": "单体 1.5 倍攻击。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "sweep": {
           "name": "羽锋横扫",
@@ -1291,15 +1993,15 @@
           "target": "all_allies",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "下次受击或下回合末结束",
-          "counterplayText": "净化暴露，或防御接住下一击。",
-          "telegraphText": "全体攻击，所有在场队友受影响",
+          "counterplayText": "防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
           "effectSummary": "全体伤害并施加暴露：下次受击伤害+15%。",
           "description": "全体伤害并施加暴露：下次受击伤害+15%。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "wingpulse": {
           "name": "展翼震荡",
-          "coef": 1.35,
+          "coef": 1.65,
           "break_points": 0,
           "cost": {},
           "gain": {},
@@ -1309,11 +2011,11 @@
           "target": "all_allies",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "防御、治疗或针对弱点破防。",
-          "telegraphText": "全体攻击，所有在场队友受影响",
-          "effectSummary": "全体 1.35 倍攻击。",
-          "description": "全体 1.35 倍攻击。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "counterplayText": "血量阈值触发后提前防御，或付资源使用场域/护盾/减攻，或共振击破延后窗口。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
+          "effectSummary": "第二阶段1.65系数全体攻击；血量阈值触发时提前预警，替换正常窗口而非增行动。",
+          "description": "第二阶段1.65系数全体攻击；血量阈值触发时提前预警，替换正常窗口而非增行动。",
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "charge": {
           "name": "升空蓄势",
@@ -1327,15 +2029,15 @@
           "target": "ally",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "下一次敌方普通行动兑现；破防会打断",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "本次先准备；下一次敌方普通行动对全体队友强攻，挑衅不能转移，破防可打断。",
+          "counterplayText": "拆升空锚点取消本次坠击；共振击破取消并跳一次窗口；全队提前防御/场域可接招，但花掉输出预算。",
+          "telegraphText": "投入本次窗口准备，下次本人窗口兑现；已锁定目标不可被挑衅改写。",
           "effectSummary": "投入整次行动蓄力；下一次行动兑现，破防打断。",
           "description": "投入整次行动蓄力；下一次行动兑现，破防打断。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         },
         "descent": {
           "name": "坠空裁决",
-          "coef": 2.15,
+          "coef": 3.6,
           "break_points": 0,
           "cost": {},
           "gain": {},
@@ -1345,15 +2047,15 @@
           "target": "all_allies",
           "costText": "消耗一次敌方普通行动；不另增行动",
           "durationText": "即时",
-          "counterplayText": "兑现前破防可打断；来不及破防时防御减半。单体可用挑衅改变目标，全体不受挑衅影响。",
-          "telegraphText": "全体攻击，所有在场队友受影响",
-          "effectSummary": "全体 2.15 倍攻击，需先完成蓄力/瞄准。",
-          "description": "全体 2.15 倍攻击，需先完成蓄力/瞄准。",
-          "cooldownText": "按可见固定行动序列循环；破防会暂停，蓄力被打断后跳过对应强攻"
+          "counterplayText": "拆升空锚点取消本次坠击；共振击破取消并跳一次窗口；全队提前防御/场域可接招，但花掉输出预算。",
+          "telegraphText": "普通意图隐藏；施放后记录实际效果",
+          "effectSummary": "全体3.6系数湮灭强攻，需先花一个敌方窗口升空蓄势。拆锚/共振打断可取消，防御可减半；无视预警会有致命风险。",
+          "description": "全体3.6系数湮灭强攻，需先花一个敌方窗口升空蓄势。拆锚/共振打断可取消，防御可减半；无视预警会有致命风险。",
+          "cooldownText": "固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示"
         }
       },
       "phase_rule": "A charge uses one ordinary enemy action and publishes its committed next skill/targets. Heavy attack consumes the next ordinary action. Break cancels charge and skips only its pending heavy; no extra actions. Phase transition does not advance normal pattern. Phase 2 attack multiplier x1.2; wingpulse replaces one normal slot without advancing the rotation; an already-committed charge resolves first.",
-      "taunt": "next single target locked x1.15; AOE unaffected",
+      "taunt": "only uncommitted legal single-target selection; cannot override locked target or AOE",
       "negotiation": false,
       "basic_key": "spear",
       "difficulty_patterns": {
@@ -1376,7 +2078,253 @@
           "sweep",
           "spear"
         ]
-      }
+      },
+      "part_spec": {
+        "name": "升空锚点",
+        "maxhp": 220,
+        "effect": "cancel"
+      },
+      "resistance_data_class": "Community 3.7 enemy snapshot: ordinary10%, named high element40%; mapped to0.9/0.6 for this prototype. No live verification claim."
+    },
+    "glacio_prism": {
+      "name": "冷凝棱镜",
+      "original_english": "Glacio Prism",
+      "rank": "common",
+      "element": "glacio",
+      "hp": 380,
+      "atk": 220,
+      "def": 75,
+      "speed": 82,
+      "shield": 0,
+      "resist": {
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
+      },
+      "immune_elements": [
+        "glacio"
+      ],
+      "heal_on_immune": false,
+      "pattern": [
+        "pulse"
+      ],
+      "basic_key": "pulse",
+      "skills": {
+        "pulse": {
+          "name": "冷凝脉冲",
+          "coef": 1.0,
+          "break_points": 0,
+          "target": "ally",
+          "cost": {},
+          "gain": {},
+          "concerto": 0,
+          "effectSummary": "单体属性攻击；普通意图不提前公开。",
+          "description": "单体属性攻击；普通意图不提前公开。",
+          "counterplayText": "切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。",
+          "costText": "一次敌方窗口",
+          "durationText": "即时",
+          "cooldownText": "每个本人窗口一次"
+        }
+      },
+      "taunt": "uncommitted single target only",
+      "negotiation": false,
+      "adaptation_notes": "本版实现同属性独立免疫及普通攻击，未实装原作五种各自支援关系；无反射、无同属性受击回血。其余属性0.9为10%抗性的本项目映射。",
+      "source_url": "https://wuthering.gg/guide/enemies/glacio-prism"
+    },
+    "fusion_prism": {
+      "name": "热熔棱镜",
+      "original_english": "Fusion Prism",
+      "rank": "common",
+      "element": "fusion",
+      "hp": 380,
+      "atk": 220,
+      "def": 75,
+      "speed": 82,
+      "shield": 0,
+      "resist": {
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
+      },
+      "immune_elements": [
+        "fusion"
+      ],
+      "heal_on_immune": false,
+      "pattern": [
+        "pulse"
+      ],
+      "basic_key": "pulse",
+      "skills": {
+        "pulse": {
+          "name": "热熔脉冲",
+          "coef": 1.0,
+          "break_points": 0,
+          "target": "ally",
+          "cost": {},
+          "gain": {},
+          "concerto": 0,
+          "effectSummary": "单体属性攻击；普通意图不提前公开。",
+          "description": "单体属性攻击；普通意图不提前公开。",
+          "counterplayText": "切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。",
+          "costText": "一次敌方窗口",
+          "durationText": "即时",
+          "cooldownText": "每个本人窗口一次"
+        }
+      },
+      "taunt": "uncommitted single target only",
+      "negotiation": false,
+      "adaptation_notes": "本版实现同属性独立免疫及普通攻击，未实装原作五种各自支援关系；无反射、无同属性受击回血。其余属性0.9为10%抗性的本项目映射。",
+      "source_url": "https://wuthering.gg/guide/enemies/fusion-prism"
+    },
+    "aero_prism": {
+      "name": "气动棱镜",
+      "original_english": "Aero Prism",
+      "rank": "common",
+      "element": "aero",
+      "hp": 380,
+      "atk": 220,
+      "def": 75,
+      "speed": 82,
+      "shield": 0,
+      "resist": {
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
+      },
+      "immune_elements": [
+        "aero"
+      ],
+      "heal_on_immune": false,
+      "pattern": [
+        "pulse"
+      ],
+      "basic_key": "pulse",
+      "skills": {
+        "pulse": {
+          "name": "气动脉冲",
+          "coef": 1.0,
+          "break_points": 0,
+          "target": "ally",
+          "cost": {},
+          "gain": {},
+          "concerto": 0,
+          "effectSummary": "单体属性攻击；普通意图不提前公开。",
+          "description": "单体属性攻击；普通意图不提前公开。",
+          "counterplayText": "切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。",
+          "costText": "一次敌方窗口",
+          "durationText": "即时",
+          "cooldownText": "每个本人窗口一次"
+        }
+      },
+      "taunt": "uncommitted single target only",
+      "negotiation": false,
+      "adaptation_notes": "本版实现同属性独立免疫及普通攻击，未实装原作五种各自支援关系；无反射、无同属性受击回血。其余属性0.9为10%抗性的本项目映射。",
+      "source_url": "https://wuthering.gg/guide/enemies/aero-prism"
+    },
+    "spectro_prism": {
+      "name": "衍射棱镜",
+      "original_english": "Spectro Prism",
+      "rank": "common",
+      "element": "spectro",
+      "hp": 380,
+      "atk": 220,
+      "def": 75,
+      "speed": 82,
+      "shield": 0,
+      "resist": {
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
+      },
+      "immune_elements": [
+        "spectro"
+      ],
+      "heal_on_immune": false,
+      "pattern": [
+        "pulse"
+      ],
+      "basic_key": "pulse",
+      "skills": {
+        "pulse": {
+          "name": "衍射脉冲",
+          "coef": 1.0,
+          "break_points": 0,
+          "target": "ally",
+          "cost": {},
+          "gain": {},
+          "concerto": 0,
+          "effectSummary": "单体属性攻击；普通意图不提前公开。",
+          "description": "单体属性攻击；普通意图不提前公开。",
+          "counterplayText": "切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。",
+          "costText": "一次敌方窗口",
+          "durationText": "即时",
+          "cooldownText": "每个本人窗口一次"
+        }
+      },
+      "taunt": "uncommitted single target only",
+      "negotiation": false,
+      "adaptation_notes": "本版实现同属性独立免疫及普通攻击，未实装原作五种各自支援关系；无反射、无同属性受击回血。其余属性0.9为10%抗性的本项目映射。",
+      "source_url": "https://wuthering.gg/guide/enemies/spectro-prism"
+    },
+    "havoc_prism": {
+      "name": "湮灭棱镜",
+      "original_english": "Havoc Prism",
+      "rank": "common",
+      "element": "havoc",
+      "hp": 380,
+      "atk": 220,
+      "def": 75,
+      "speed": 82,
+      "shield": 0,
+      "resist": {
+        "glacio": 0.9,
+        "fusion": 0.9,
+        "electro": 0.9,
+        "aero": 0.9,
+        "spectro": 0.9,
+        "havoc": 0.9
+      },
+      "immune_elements": [
+        "havoc"
+      ],
+      "heal_on_immune": false,
+      "pattern": [
+        "pulse"
+      ],
+      "basic_key": "pulse",
+      "skills": {
+        "pulse": {
+          "name": "湮灭脉冲",
+          "coef": 1.0,
+          "break_points": 0,
+          "target": "ally",
+          "cost": {},
+          "gain": {},
+          "concerto": 0,
+          "effectSummary": "单体属性攻击；普通意图不提前公开。",
+          "description": "单体属性攻击；普通意图不提前公开。",
+          "counterplayText": "切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。",
+          "costText": "一次敌方窗口",
+          "durationText": "即时",
+          "cooldownText": "每个本人窗口一次"
+        }
+      },
+      "taunt": "uncommitted single target only",
+      "negotiation": false,
+      "adaptation_notes": "本版实现同属性独立免疫及普通攻击，未实装原作五种各自支援关系；无反射、无同属性受击回血。其余属性0.9为10%抗性的本项目映射。",
+      "source_url": "https://wuthering.gg/guide/enemies/havoc-prism"
     }
   },
   "encounters": {
@@ -1395,6 +2343,16 @@
     ],
     "boss": [
       "crownless"
+    ],
+    "prism_trial": [
+      "glacio_prism",
+      "fusion_prism",
+      "aero_prism",
+      "spectro_prism"
+    ],
+    "prism_havoc_trial": [
+      "havoc_prism",
+      "predator"
     ]
   },
   "statuses": {
@@ -1402,8 +2360,8 @@
       "name": "战术谐标",
       "max_stacks": 1,
       "expires": "end next round",
-      "trigger": "next direct weakness hit by another living ally",
-      "effect": "one bonus shield point within action cap and status damage coef 0.5 from marker owner; cannot recurse",
+      "trigger": "next direct hit by another living ally",
+      "effect": "owner 0.35 status damage, acting ally +5 primary once per root action; no resonance",
       "original_conversion": "Aemeath Tune Rupture and Denia Strain are intentionally merged into this one-slot project marker; original mechanisms remain distinct in source notes."
     },
     "fusion": {
@@ -1411,7 +2369,7 @@
       "max_stacks": 3,
       "expires": "end 3rd round after last application",
       "trigger": "reach 3 stacks",
-      "effect": "consume 3, status damage coef 0.9 from triggering actor; no shield/concerto/resource generation"
+      "effect": "consume3; status coefficient0.6; no resonance/resources/concerto"
     },
     "cutline": {
       "name": "裁线",
@@ -1428,33 +2386,25 @@
       "name": "定标场",
       "expires": "end next round",
       "damage_amp": 0.15,
-      "damage_taken_multiplier": 0.9,
+      "damage_taken_multiplier": 0.8,
       "stack": "strongest only",
       "damage_amp_scope": "direct normal-action damage packets only"
     },
-    "encourage": {
-      "name": "鼓舞",
-      "expires": "next damaging normal action, no later than end next round",
-      "damage_amp": 0.25,
-      "stack": "same channel as concerto, strongest only",
-      "resource_gain": 0,
-      "concerto_gain": 0
-    },
     "guard": {
-      "expires": "start of owner next normal-action opportunity before any command, including wait; or end next round",
+      "expires": "start of owner next formal window",
       "damage_taken_multiplier": 0.5,
       "gain": 0
     },
     "aim": {
       "name": "瞄准",
       "expires": "until hunter next normal action",
-      "effect": "next 2.2x shot; break cancels; dead target selects lowest slot alive; taunt may redirect before shot"
+      "effect": "committed target; taunt cannot overwrite; kill attacker or guard/protect recipient"
     },
     "brace": {
       "name": "岩架",
       "expires": "start of bracer next normal action",
       "damage_taken_multiplier": 0.7,
-      "effect": "one retaliation 0.8x against first non-weakness direct attack, no recursion"
+      "effect": "first direct body hit retaliates once; 1AP feint removes brace, resonance break clears it, guard/barrier mitigates retaliation"
     },
     "charge": {
       "name": "蓄势",
@@ -1469,22 +2419,6 @@
     }
   },
   "generic_skills": {
-    "pry": {
-      "name": "撬防",
-      "coef": 0.7,
-      "break_points": 1,
-      "cost": {},
-      "gain": {
-        "primary": 25
-      },
-      "concerto": 15,
-      "universal_break": true,
-      "category": "battle",
-      "effectSummary": "不看弱点固定削1韧，伤害较低；有效命中获得25主资源、15协奏。震谐不能增加撬防削韧。",
-      "description": "不看弱点固定削1韧，伤害较低；有效命中获得25主资源、15协奏。震谐不能增加撬防削韧。",
-      "durationText": "即时",
-      "cooldownText": "无冷却"
-    },
     "guard": {
       "name": "防御",
       "coef": 0,
@@ -1495,25 +2429,14 @@
       "effect": "guard",
       "target": "self",
       "category": "defense",
-      "effectSummary": "本次普通行动防御；到下次自身行动机会前，所受伤害减半。等待不能延长。",
-      "description": "本次普通行动防御；到下次自身行动机会前，所受伤害减半。等待不能延长。",
+      "effectSummary": "1AP，伤害减半并结束本窗口；持续至下次本人窗口开始，不产资源。",
+      "description": "1AP，伤害减半并结束本窗口；持续至下次本人窗口开始，不产资源。",
       "durationText": "见效果描述",
-      "cooldownText": "无冷却"
-    },
-    "encourage": {
-      "name": "鼓舞",
-      "coef": 0,
-      "break_points": 0,
-      "cost": {},
-      "gain": {},
-      "concerto": 15,
-      "target": "other_ally",
-      "effect": "encourage",
-      "category": "negotiate",
-      "effectSummary": "鼓舞另一队友，下一次直接攻击增伤25%，至下回合末；与延奏普通增伤取高值。有效新加鼓舞获得15协奏。",
-      "description": "鼓舞另一队友，下一次直接攻击增伤25%，至下回合末；与延奏普通增伤取高值。有效新加鼓舞获得15协奏。",
-      "durationText": "见效果描述",
-      "cooldownText": "无冷却"
+      "cooldownText": "无冷却",
+      "ap_cost": 1,
+      "resonance_damage": 0,
+      "action_cost": 1,
+      "ends_window": true
     },
     "taunt": {
       "name": "挑衅",
@@ -1521,14 +2444,18 @@
       "break_points": 0,
       "cost": {},
       "gain": {},
-      "concerto": 15,
+      "concerto": 10,
       "target": "enemy",
       "effect": "enemy_specific",
       "category": "negotiate",
-      "effectSummary": "将敌下一次单体攻击改向自己，且该击伤害+15%；全体技不改目标。有效新加挑衅获得15协奏。",
-      "description": "将敌下一次单体攻击改向自己，且该击伤害+15%；全体技不改目标。有效新加挑衅获得15协奏。",
+      "effectSummary": "1AP，影响该敌尚未锁定的合法单体选人；不改变全体技或已有锁定。有效新建挑衅获得10协奏，本窗口限一次。",
+      "description": "1AP，影响该敌尚未锁定的合法单体选人；不改变全体技或已有锁定。有效新建挑衅获得10协奏，本窗口限一次。",
       "durationText": "下一次造成伤害的单体行动后消耗；最长至施放后第2回合末",
-      "cooldownText": "无冷却"
+      "cooldownText": "无冷却",
+      "ap_cost": 1,
+      "resonance_damage": 0,
+      "action_cost": 1,
+      "once_per_window": true
     },
     "retreat": {
       "name": "撤离",
@@ -1543,28 +2470,26 @@
       "effectSummary": "本角色撤离，保留生命但清空本场资源；消耗本次行动，无法回场。",
       "description": "本角色撤离，保留生命但清空本场资源；消耗本次行动，无法回场。",
       "durationText": "即时",
-      "cooldownText": "无冷却"
-    },
-    "wait": {
-      "name": "等待",
-      "normal_action_consumed": false,
-      "max_per_round": 1,
-      "queue": "tail_fifo",
-      "category": "battle",
-      "effectSummary": "不消耗原行动，本回合移至队尾；每人每回合最多一次。",
-      "description": "不消耗原行动，本回合移至队尾；每人每回合最多一次。",
-      "durationText": "即时",
-      "cooldownText": "每回合一次"
+      "cooldownText": "无冷却",
+      "ap_cost": 2,
+      "resonance_damage": 0,
+      "action_cost": 2,
+      "ends_window": true
     },
     "negotiate": {
       "name": "协商",
       "enabled_for_selected_enemies": false,
       "invalid_precheck_consumes_action": false,
       "category": "negotiate",
-      "effectSummary": "当前敌方无对话协商内容；可使用鼓舞或挑衅。",
-      "description": "当前敌方无对话协商内容；可使用鼓舞或挑衅。",
+      "effectSummary": "此测试遭遇没有可协商的敌人。挑衅只改变尚未锁定的合法单体选人。",
+      "description": "此测试遭遇没有可协商的敌人。挑衅只改变尚未锁定的合法单体选人。",
       "durationText": "即时",
-      "cooldownText": "无冷却"
+      "cooldownText": "无冷却",
+      "ap_cost": 2,
+      "resonance_damage": 0,
+      "break_points": 0,
+      "action_cost": 2,
+      "concerto": 0
     },
     "item_repair": {
       "name": "测试修复剂",
@@ -1580,7 +2505,10 @@
       "effectSummary": "消耗隔离测试库存1剂，恢复目标30%最大生命；不复活，不产生协奏。每场初始2剂。",
       "description": "消耗隔离测试库存1剂，恢复目标30%最大生命；不复活，不产生协奏。每场初始2剂。",
       "durationText": "即时",
-      "cooldownText": "受本场隔离库存限制"
+      "cooldownText": "受本场隔离库存限制",
+      "ap_cost": 2,
+      "resonance_damage": 0,
+      "action_cost": 2
     },
     "item_cleanse": {
       "name": "测试净化剂",
@@ -1597,7 +2525,58 @@
       "effectSummary": "消耗隔离测试库存1剂，净化裂伤/暴露并恢复12%最大生命；不复活、不充协奏。每场初始1剂。",
       "description": "消耗隔离测试库存1剂，净化裂伤/暴露并恢复12%最大生命；不复活、不充协奏。每场初始1剂。",
       "durationText": "即时",
-      "cooldownText": "受本场隔离库存限制"
+      "cooldownText": "受本场隔离库存限制",
+      "ap_cost": 2,
+      "resonance_damage": 0,
+      "action_cost": 2
+    },
+    "end": {
+      "name": "结束并保存AP",
+      "ap_cost": 0,
+      "coef": 0,
+      "resonance_damage": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "target": "self",
+      "category": "battle",
+      "ends_window": true,
+      "effectSummary": "结束本人窗口，剩余普通AP结转；下一轮+4至6。待接续临时AP与延奏增益在本窗口末过期。",
+      "durationText": "即时",
+      "cooldownText": "无冷却"
+    },
+    "feint": {
+      "name": "佯攻卸架",
+      "ap_cost": 1,
+      "coef": 0,
+      "resonance_damage": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "target": "enemy",
+      "category": "battle",
+      "effect": "feint",
+      "once_per_window": true,
+      "effectSummary": "仅对处于架岩反击姿态的敌人：花1AP解除其减伤与反击，既不造成伤害也不产资源。可改为直接承受反击、用护盾减伤，或投资共振击破。",
+      "durationText": "即时"
+    },
+    "disrupt_part": {
+      "name": "攻击危险部件",
+      "ap_cost": 2,
+      "coef": 0,
+      "part_coefficient": 0.9,
+      "resonance_damage": 0,
+      "break_points": 0,
+      "cost": {},
+      "gain": {},
+      "concerto": 0,
+      "target": "enemy",
+      "category": "battle",
+      "effect": "part",
+      "effectSummary": "仅在敌人暴露危险部件时可用。2AP，以本人的ATK/DEF系数0.9攻击部件，不伤主体、不削共振、不充资源。拆解后依敌种取消或削弱危险招式。",
+      "durationText": "部件保持到危险招式兑现/打断"
     }
   },
   "growth": {
@@ -1704,33 +2683,33 @@
     }
   },
   "damage_packet_order": [
-    "validate actor/target/form/cost before mutation",
-    "snapshot broken state per target; spend resource",
-    "direct aggregated packet for each target",
-    "shield reduction with per-action per-target budget",
-    "one tune response and/or bounded fusion status packet using same pre-action broken snapshot",
-    "apply new marks and explicit skill effects",
-    "grant resource/concerto at most once if effective",
-    "resolve form return, KO cleanup and result; no status packet recursively starts another action"
+    "validate AP/resource/target/window before any mutation",
+    "consume temporary AP before normal AP; spend personal resource",
+    "direct body OR part damage",
+    "independent resonance reduction once per root action/target; break interrupts and joint once",
+    "bounded status packet; no recursive free action or resonance",
+    "effective paid action grants personal resource and concerto within40/round",
+    "continue same window, or end clears pending relay; next actor only on window finish"
   ],
   "metadata": {
     "primary_design_status": "authorized_development_candidate",
     "simulation_scope": "Shipped deterministic JavaScript engine; DOM and actual browser verification are reported separately",
     "live_game_source_version": "mixed release-specific official pages plus unversioned community databases accessed 2026-10-09; not certified latest game build",
-    "test_core": "fixed speeds, known weaknesses, no crit or misses, zero battle resources, normal HP scenarios separately labeled"
+    "test_core": "fixed speeds; six damage elements; no weapon weaknesses/crit/misses; AP4, concerto20, personal resources0; paid mechanism alternatives",
+    "boss_threat_tuning": "test3: HP4800 and resonance240 unchanged; warned descent3.6, phase-wing1.65. Tuned against multiple squads/seeds so ignoring all defense/healing/mechanisms usually fails standard; easy remains learning mode."
   },
   "difficulties": {
     "easy": {
       "name": "轻松",
-      "description": "伤害较低、韧性较少；精英与头目大招后多一次普通行动间隔。适合熟悉协奏与预警。",
+      "description": "较低伤害和共振预算，适合学习AP与危险预警。",
       "hp_multiplier": 0.8,
       "attack_multiplier": 0.75,
-      "shield_offset": -2,
+      "shield_offset": -16,
       "targeting": "rotation"
     },
     "standard": {
       "name": "标准",
-      "description": "同级战术基准；精英和头目完整轮转，需要分配破防、治疗与协奏。",
+      "description": "同级候选：用AP、个人资源与生命输出交换削条和机制反制。",
       "hp_multiplier": 1,
       "attack_multiplier": 1,
       "shield_offset": 0,
@@ -1738,10 +2717,10 @@
     },
     "challenge": {
       "name": "挑战",
-      "description": "更高韧性与伤害；车刃镰和头目首回合蓄力，坚岩斗士压缩轮转；未锁定单体攻击优先生命比例最低者。",
+      "description": "更高伤害与共振预算，危险准备更早；非锁定单体攻击优先低生命比例目标。",
       "hp_multiplier": 1.15,
       "attack_multiplier": 1.15,
-      "shield_offset": 1,
+      "shield_offset": 24,
       "targeting": "lowest_fraction"
     }
   },
@@ -1756,5 +2735,13 @@
   "test_inventory": {
     "repair": 2,
     "cleanse": 1
+  },
+  "elements": {
+    "glacio": "冷凝",
+    "fusion": "热熔",
+    "electro": "导电",
+    "aero": "气动",
+    "spectro": "衍射",
+    "havoc": "湮灭"
   }
 }

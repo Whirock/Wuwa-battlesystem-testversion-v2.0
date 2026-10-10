@@ -18,9 +18,10 @@ for line in (root / 'SHA256SUMS.txt').read_text(encoding='utf-8').splitlines():
     checked += 1
 manifest = json.loads((root / 'tests/build_manifest.json').read_text(encoding='utf-8'))
 pngs = sorted((root / 'assets').glob('*.png'))
-if len(pngs) != 89:
-    errors.append(f'Expected 89 runtime PNG files, found {len(pngs)}')
-for entry in manifest['core'] + manifest['assets']:
+expected_pngs=manifest.get('runtime_png_count',len(manifest['assets']))
+if len(pngs) != expected_pngs:
+    errors.append(f'Expected {expected_pngs} runtime PNG files, found {len(pngs)}')
+for entry in manifest['core'] + manifest['assets'] + ([manifest['parameter_json']] if isinstance(manifest.get('parameter_json'),dict) else []):
     target = root / entry['path']
     if not target.is_file() or target.stat().st_size != entry['size']:
         errors.append(f'Size/missing: {entry["path"]}')
