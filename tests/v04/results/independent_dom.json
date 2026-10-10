@@ -1,0 +1,34 @@
+{
+  "schema": "independent-dom-test4-1",
+  "runAt": "2026-10-10T15:11:48.645Z",
+  "command": "node tests/v04/independent_dom.cjs",
+  "scope": "Independent assertions over actual app, engine, effects and storage in jsdom; shared browser-double bootstrap. Not real browser layout, canvas, media or accessibility evidence.",
+  "sha256": {
+    "app.js": "dcaeec98855c6e2efc56cb637ba399687d52999a2076a947ddb03cfa997a3c28",
+    "engine.js": "bcca898fa5206a874d70953c2844af0a445686fb04682874aa378ed48637d66b",
+    "skill-effects.js": "5cefec651c4b473d90507fa4bc66ba0da54fa4acad518cd49004baf17f0eb4c9",
+    "storage.js": "343ff397124b3ca8029ecc572f791808aa42f5e6e789071a5a67f7c0a5238334",
+    "parameters.json": "6440e27ff9f5304a8303100cfdb33842b1e97342b9c9a495c311254fa1304a6e",
+    "parameters.js": "87477b84239dfbb74a22767ef3dcfc5db170463dbd4f87256a3ac733ecfea2f4",
+    "assets.js": "5458bc83317c328da41350392f465433d6267d6471e4e903e52778a7cc4c9774",
+    "index.html": "b9c9c8fe42a78ebbbc011044b8455344492ac973d43595c8411917803bf50128"
+  },
+  "passed": [
+    "all eight stats visible, no retired AP/concerto meter",
+    "six distinct root categories",
+    "keyboard Escape cancels selected target with no resource/time changes",
+    "setup modal open/cancel preserves exact ongoing battle",
+    "BP preview can be inspected without mutating snapshot/RNG",
+    "Denia E5 unavailable without a valid two-enemy group",
+    "Chisa E6 unavailable when no expandable abnormal exists",
+    "R1 has single UI entry, R2 retains zero energy and exactly 3BP",
+    "old AP snapshot rejected atomically through actual project importer",
+    "unknown snapshot field rejected through importer without replacing battle",
+    "no runtime DOM errors"
+  ],
+  "failed": [],
+  "totals": {
+    "passed": 11,
+    "failed": 0
+  }
+}

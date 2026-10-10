@@ -1,72 +1,48 @@
 {
-  "version": "0.3.0-candidate",
+  "version": "0.4.0-candidate",
+  "release_tag": "v3.0.0-test.4",
+  "display_version": "3.0 · SP/CD/BP角色定位测试",
   "date": "2026-10-10",
-  "rule_family": "3.0 encounter prototype",
-  "parameter_version": "0.3.0-candidate",
-  "release_tag": "v3.0.0-test.3",
-  "display_version": "3.0 · AP encounter prototype v0.3",
-  "repository_program_root": ".",
-  "publication_variant": "test.3 E+C foundation pre-release; dedicated team designs remain discussion work",
+  "status": "prerelease",
+  "runtime_profiles": 9,
+  "active_cards": 61,
+  "growth_levels": 90,
+  "runtime_png_count": 160,
+  "preserved_png_count": 158,
+  "test_placeholder_png_count": 1,
+  "compatibility": "New battle-v04 schema and separate test4 storage. Import previous media only; never reinterpret old AP battles.",
   "verification": {
-    "rule_self_tests": "54/54 actual-engine tests; source-KO interruption both sides, counter0.6 and initial incapacitated state",
-    "independent_qa": {
-      "engine_hash": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
-      "parameter_hash": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105",
-      "matrix_battles": 1080,
-      "per_action_restore_checks": 48314,
-      "errors": 0,
-      "matrix_outcomes": {
-        "win": 748,
-        "loss": 332
-      },
-      "boss_independent_policy_runs": 160,
-      "directed_rules": "37/37 independent directed groups; distinct from developer54 tests."
-    },
-    "real_browser": "Actual cloud-browser commands/targets/save-load/restart, four appearances/five prisms, tether and S03, Boss victory, native media project roundtrip, final focus fix verified; see independent QA for exact coverage and remaining limits.",
-    "windows_double_click": "not verified",
-    "actual_audio": "not verified",
-    "engine_matrix": {
-      "battles": 556,
-      "wins": 426,
-      "losses": 121,
-      "inconclusive": 9,
-      "save_restore_checks": 3754
-    },
-    "boss_strategy": {
-      "battles": 2700,
-      "standard_basic_wins": "88/300",
-      "standard_part_route_wins": "300/300",
-      "standard_guard_route_wins": "297/300",
-      "easy_basic_wins": "300/300",
-      "claim": "actual engine seeded policies, not population/human win rates"
-    }
+    "status": "engine_dom_and_assets_passed_real_browser_verified",
+    "engine_and_effects": 81,
+    "independent_runtime": 413,
+    "matrix_battles": 938,
+    "parameter_checks": 23,
+    "ui_interaction": 44,
+    "independent_dom": 11,
+    "same_level_boss_victory_rounds": 36,
+    "windows_double_click": "not_tested",
+    "audible_playback": "not_tested",
+    "user_art_approval": "pending",
+    "balance": "candidate; one narrow-margin same-level victory route does not establish mature balance"
   },
-  "byte_preservation": {
-    "unchanged_png_assets": 89,
-    "runtime_code_changed": true,
-    "unchanged_parameter_json": false
+  "publication_scope": "Only required runtime programs, parameters, mapped assets, reproducible tests and public release documentation. Private design/research/source messages excluded.",
+  "new_character_png_count": 1,
+  "art": {
+    "dreamless_idle": "first iteration; independent reference/style review passed; user final approval pending",
+    "projectiles": "geometric mechanism placeholder"
   },
-  "compatibility": "battle-engine-v2-ap only for0.3.0-candidate. Old battles restart; supported asset projects migrate. No old release is overwritten.",
-  "limits": [
-    "Experimental balance and user art acceptance are not final; 64 Rover action images are present.",
-    "Rover four modes use project turn-based skill adaptations; full airborne chains are not implemented.",
-    "Five prism types use explicit same-element immunity; original species-specific support relationships not implemented.",
-    "Actual image counts and pending/reused slots are in RUNTIME_ASSETS.json.",
-    "The intended dedicated resonance team and grouping/expanded-stack/manual-detonation fusion team are not fully implemented; generic break joint attacks are not equivalent."
-  ],
-  "publication_scope": "Runtime code, necessary PNGs, candidate parameters and public-safe implementation/test documentation. No private design framework, PMX/models, reference images or private research packages.",
   "core_hashes": {
-    "index.html": "fc79e4b119aba2bf0640af88ef08c6346d19e084fb877f337d1e19358f12e0b4",
-    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
-    "engine.js": "a23ce89a7f70289e020f75486a63c590278ec8971f670929139f47ff4a87ab67",
-    "parameters.js": "e7b5b364055d510bbab69a62474f62b98f804d66261fc39bf990bbfe540ac2b1",
-    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8",
-    "storage.js": "c00c9ba4c1e918e88668a40c7763ae781ed9258ba3a7ca78f1becdc80f7ab217",
-    "style.css": "a2d94eb2090cff9e5f904eb7d7814470e9efb548892363c8241757e4545b5f38",
-    "release-notes.js": "21a23b095867821b9c30bd25cc07678f3c42ad07b60e677e84dbab739573a46d"
+    "index.html": "b9c9c8fe42a78ebbbc011044b8455344492ac973d43595c8411917803bf50128",
+    "app.js": "dcaeec98855c6e2efc56cb637ba399687d52999a2076a947ddb03cfa997a3c28",
+    "engine.js": "bcca898fa5206a874d70953c2844af0a445686fb04682874aa378ed48637d66b",
+    "parameters.js": "87477b84239dfbb74a22767ef3dcfc5db170463dbd4f87256a3ac733ecfea2f4",
+    "assets.js": "5458bc83317c328da41350392f465433d6267d6471e4e903e52778a7cc4c9774",
+    "storage.js": "343ff397124b3ca8029ecc572f791808aa42f5e6e789071a5a67f7c0a5238334",
+    "style.css": "170edd99f7fcd7f1a00baabb9f0e335109138851abea4616d4e65997337e4cae",
+    "release-notes.js": "64ffc78db566ec8615a5f4a15ac1b500d9057eb31758f38eae017e068eb44beb",
+    "skill-effects.js": "5cefec651c4b473d90507fa4bc66ba0da54fa4acad518cd49004baf17f0eb4c9"
   },
-  "parameter_json_sha256": "da11b3bf476154df67422b2b70a9de2454c2503607f6755f5934abf8d854d105",
-  "runtime_png_count": 158,
+  "parameter_json_sha256": "6440e27ff9f5304a8303100cfdb33842b1e97342b9c9a495c311254fa1304a6e",
   "pending_art_slot_count": 0,
-  "manifest_generated_at": "2026-10-10T07:26:23.429864+00:00"
+  "manifest_generated_at": "2026-10-10T15:12:43.534538+00:00"
 }

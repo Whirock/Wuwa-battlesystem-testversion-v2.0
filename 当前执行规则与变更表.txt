@@ -1,381 +1,94 @@
-鸣潮AP遭遇演算 v0.3 当前执行规则与变更表
-参数版本：0.3.0-candidate
-本文件从随包 parameters.json 生成。旧v0.1r2文稿属于历史，不代表本次全部当前规则。
+鸣潮回合制 3.0 · test.4 当前执行规则与变更表
+参数版本：0.4.0-candidate
+此表由随包运行参数生成；候选改编数值，不是官方参数。
 
-一、难度（开场选择，新遭遇生效）
-轻松 / easy
-较低伤害和共振预算，适合学习AP与危险预警。
-敌生命倍率 0.8；攻击倍率 0.75；共振偏移 -16；目标策略 rotation
+每人每轮一次正常行动；等待同轮延后一次。开场HP/SP满，BP1，能量0。BP上限5，花0–3BP；花点后下一轮不自然补点。SP不自动恢复。
+普通攻击1–4次真实攻击。本体追加每击40%，合格外部效果按真实攻击条件执行，协同不递归。
+基础能量每根仅发一次：本人B×ER，其他存活队友B×0.5×接收者ER。锁能不阻止向外共享。
+共振：精英72，无冠112，无妄156；投射物反弹54.6，无妄严格低于78中断特殊蓄能。普通敌没有共振条。
+爱弥斯/达妮娅R1满能后保留R2并锁能，R2正常行动且总耗3BP，无二次满能门槛。
+实现澄清：琳奈E5仅下一次R/R1/R2；无冠束缚只压制下一反击；连景按真实本体属性基数并受既定上限。
 
-标准 / standard
-同级候选：用AP、个人资源与生命输出交换削条和机制反制。
-敌生命倍率 1；攻击倍率 1；共振偏移 0；目标策略 rotation
+九配置 / 六十一主动卡
 
-挑战 / challenge
-更高伤害与共振预算，危险准备更早；非锁定单体攻击优先低生命比例目标。
-敌生命倍率 1.15；攻击倍率 1.15；共振偏移 24；目标策略 lowest_fraction
+爱弥斯 / amy / 个人能量上限 125
+A 校准无垠：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E1 合击·突刺：SP 12 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E2 重击·二段蓄力：SP 18 / CD 2 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E3 光翼共奏·降临/登台：SP 24 / CD 3 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E4 以旋律穿越长空/携星辉降临于此：SP 10 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E5 沉默守护·护航：SP 12 / CD 3 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+R1 星辉破界而来·过载：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
+R2 星辉破界而来·终结：SP 0 / CD 0 / B 0 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
 
-二、与v0.1r2的参数变化（参考等级一致）
-  人形/机兵 普通攻击：coef: 1 → 0.78；break_points: 1 → 8；gain: {'sync': 50} → {'sync': 40}
-  星辉启动：coef: 1.5 → 1.05；break_points: 1 → 8
-  双相强化E：coef: 2.5 → 1.65；break_points: 2 → 12；concerto: 20 → 30
-  满谐重击：coef: 0.8 → 0.55；break_points: 1 → 8；gain: {'sync': 200} → {'sync': 160}
-  星辉终结：coef: 6.5 → 3.6；break_points: 3 → 16；concerto: 25 → 0
-  定线射击：coef: 1 → 0.86；break_points: 1 → 8；gain: {'color': 35} → {'color': 30}
-  留彩破势：coef: 1.15 → 0.43；break_points: 1 → 24；gain: {'color': 20} → {}；effect: reveal → None
-  绚色轮迹：coef: 1.8 → 0.69；break_points: 2 → 40；effect: tune → None
-  虹谱迸发：coef: 2.7 → 1.38；break_points: 3 → 8；concerto: 25 → 20；cost: {'color': 100} → {'color': 60}；effect: tune → None
-  定轨悬刃：coef: 1.05 → 1.0；break_points: 1 → 8；gain: {'calibration': 30} → {'calibration': 25}
-  校准修复：concerto: 15 → 20；heal_scale: 2.0 → 1.6；heal_flat: 100 → 70
-  星界定标：coef: 1.2 → 0；break_points: 1 → 0；cost: {'calibration': 60} → {'calibration': 30}
-  定标回响：concerto: 15 → 20；heal_scale: 1.2 → 1.4
-  布景泡沫/幻灭爪击：coef: 1 → 0.82；break_points: 1 → 8；gain: {'expectation': 30} → {'expectation': 25}
-  布景牵引：coef: 0.75 → 0.43；break_points: 1 → 4；gain: {'expectation': 35} → {'expectation': 25}
-  开幕幻灭：coef: 1.6 → 0.85；break_points: 1 → 6；concerto: 20 → 0
-  幻灭扼流：coef: 2.35 → 1.6；break_points: 2 → 12；concerto: 20 → 30
-  闭幕回场：coef: 2.8 → 1.8；break_points: 2 → 12；concerto: 20 → 0
-  闭剪裁击：coef: 1.05 → 0.95；break_points: 1 → 8；gain: {'thread': 30} → {'thread': 25}
-  切开结点：coef: 1.4 → 0.62；break_points: 2 → 20
-  沿线断流：coef: 2.2 → 1.12；break_points: 2 → 12；concerto: 20 → 30
-  缝合界线：concerto: 15 → 20
-  终线回响：coef: 2.8 → 1.4；break_points: 2 → 12；concerto: 25 → 0
-漂泊者：hp: None → 1850；atk: None → 220；def: None → 130；speed: None → 107
-  震声：coef: None → 0.88；break_points: None → 8；concerto: None → 20；cost: None → {}；gain: None → {'dust': 20, 'energy': 20}
-  浮声千斩：coef: None → 0.75；break_points: None → 12；concerto: None → 20；cost: None → {}；gain: None → {'dust': 20, 'energy': 20}；effect: None → spectro_mark
-  旋音·回声：coef: None → 1.4；break_points: None → 20；concerto: None → 20；cost: None → {'dust': 50}；gain: None → {'energy': 20}；effect: None → spectro_mark
-  回响奏鸣：coef: None → 1.65；break_points: None → 12；concerto: None → 0；cost: None → {'energy': 125}；gain: None → {}
-咔嚓嚓：hp: 640 → 460；atk: 230 → 265；shield: 2 → 0
-惊蛰猎手：hp: 560 → 420；atk: 240 → 290；shield: 3 → 0
-坚岩斗士：hp: 2850 → 1800；atk: 350 → 410；shield: 6 → 96
-  岩拳：coef: 1.25 → 1.4
-  架岩：coef: 0 → 0.8
-  岩躯冲压：coef: 2.5 → 2.7
-车刃镰：hp: 2500 → 1800；atk: 330 → 370；shield: 5 → 96
-  镰爪挥击：effect: None → rend
-  轮刃回旋：coef: 1.5 → 1.8
-无冠者：hp: 7200 → 4800；atk: 440 → 465；shield: 8 → 240；phase2_shield: 10 → 240
-  羽锋横扫：coef: 1.1 → 0.95；effect: None → expose
-  展翼震荡：coef: 1.6 → 1.65
-  坠空裁决：coef: 2.15 → 3.6
-冷凝棱镜：hp: None → 380；atk: None → 220；def: None → 75；speed: None → 82；shield: None → 0
-  冷凝脉冲：coef: None → 1.0；break_points: None → 0；concerto: None → 0；cost: None → {}；gain: None → {}
-热熔棱镜：hp: None → 380；atk: None → 220；def: None → 75；speed: None → 82；shield: None → 0
-  热熔脉冲：coef: None → 1.0；break_points: None → 0；concerto: None → 0；cost: None → {}；gain: None → {}
-气动棱镜：hp: None → 380；atk: None → 220；def: None → 75；speed: None → 82；shield: None → 0
-  气动脉冲：coef: None → 1.0；break_points: None → 0；concerto: None → 0；cost: None → {}；gain: None → {}
-衍射棱镜：hp: None → 380；atk: None → 220；def: None → 75；speed: None → 82；shield: None → 0
-  衍射脉冲：coef: None → 1.0；break_points: None → 0；concerto: None → 0；cost: None → {}；gain: None → {}
-湮灭棱镜：hp: None → 380；atk: None → 220；def: None → 75；speed: None → 82；shield: None → 0
-  湮灭脉冲：coef: None → 1.0；break_points: None → 0；concerto: None → 0；cost: None → {}；gain: None → {}
+琳奈 / lynae / 个人能量上限 125
+A 流彩律动/绮彩巡游·普攻：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E1 琳奈式创想/加色混合：SP 10 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E2 灵感碰撞：SP 12 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E3 幻光折跃：SP 14 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E4 视觉冲击：SP 22 / CD 3 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E5 有空一起兜风！：SP 14 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+R 爆炸喷涂：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
 
-三、我方当前行动说明
+莫宁 / mornye / 个人能量上限 175
+A 基态校准/广域观测·普攻：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E1 期望误差：SP 10 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E2 位势转换：SP 12 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E3 分布式阵列：SP 18 / CD 3 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E4 反演：SP 16 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E5 递归·支援：SP 12 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+R 临界协议：SP 0 / CD 3 / B 0 / 能量耗 175；完整分支与BP四档请查看游戏卡面。
 
-爱弥斯 / amy
-  人形/机兵 普通攻击 [basic]：2AP；伤害系数0.78，独立削共振8。有效命中获得40同步率。 有效命中产生40同步率；不因武器类别改变削条。
-    AP2 / 倍率0.78 / 削共振8 / 消耗无 / 获取同步率 40 / 协奏20
-  星辉启动 [overdrive]：2AP，消耗50同步率；伤害系数1.05，独立削共振8。有效命中获得2谐振。 谐振须为0且未在星辉中；本招进入机兵/星辉并产生2谐振。
-    AP2 / 倍率1.05 / 削共振8 / 消耗同步率 50 / 获取谐振 2 / 协奏20
-  双相强化E [enhanced]：3AP，消耗100同步率；伤害系数1.65，独立削共振12。有效命中获得2谐振。 攻击后在人形/机兵之间切换，产生2谐振并施加所选聚爆或震谐模式。
-    AP3 / 倍率1.65 / 削共振12 / 消耗同步率 100 / 获取谐振 2 / 协奏30
-  满谐重击 [heavy]：2AP；伤害系数0.55，独立削共振8。有效命中获得160同步率。 需要4谐振；弱攻击后产生最多160同步率，为终结付费蓄势。
-    AP2 / 倍率0.55 / 削共振8 / 消耗无 / 获取同步率 160 / 协奏20
-  星辉终结 [finale]：3AP，消耗200同步率、4谐振；伤害系数3.6，独立削共振16。 消耗200同步率及4谐振，施加所选异常；关闭星辉并返回人形。解放不产生协奏。
-    AP3 / 倍率3.6 / 削共振16 / 消耗同步率 200、谐振 4 / 获取无 / 协奏0
+达妮娅 / denia / 个人能量上限 125
+A 织梦的飨宴：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E1 拟态泡泡：SP 12 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E2 久疏问候！/轻叩门扉：SP 10 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E3 轻唤/放逐：SP 18 / CD 2 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E4 织梦重击：SP 14 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E5 幕间连景：SP 16 / CD 3 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+R1 帷幕终景·布景之形：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
+R2 帷幕终景·幻灭之形：SP 0 / CD 0 / B 0 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
 
-琳奈 / lynae
-  定线射击 [basic]：2AP；伤害系数0.86，独立削共振8。有效命中获得30流彩。
-    AP2 / 倍率0.86 / 削共振8 / 消耗无 / 获取流彩 30 / 协奏20
-  留彩破势 [survey]：2AP，伤害系数0.43 / 削24共振，不产生流彩。用明显伤害代价提前击破。
-    AP2 / 倍率0.43 / 削共振24 / 消耗无 / 获取无 / 协奏20
-  绚色轮迹 [skate]：2AP并消耗60流彩，伤害系数0.69 / 削40共振。与虹谱迸发争用同一份60流彩。
-    AP2 / 倍率0.69 / 削共振40 / 消耗流彩 60 / 获取无 / 协奏20
-  虹谱迸发 [spectrum]：2AP并消耗60流彩，伤害系数1.38 / 削8共振。与绚色轮迹相比优先生命输出。
-    AP2 / 倍率1.38 / 削共振8 / 消耗流彩 60 / 获取无 / 协奏20
+千咲 / chisa / 个人能量上限 125
+A 俱寂：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E1 解弦之眼：SP 18 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E2 断命之铗：SP 14 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E3 齿轨轮回：SP 14 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E4 锯环·疾攻：SP 18 / CD 2 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E5 锯环·终结：SP 22 / CD 3 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+E6 解弦式第零定律：SP 16 / CD 3 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+R 即刻·归无：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
 
-莫宁 / mornye
-  定轨悬刃 [basic]：2AP；伤害系数1，独立削共振8。有效命中获得25校准。 以DEF而非ATK计算攻击；有效命中产生25校准。
-    AP2 / 倍率1.0 / 削共振8 / 消耗无 / 获取校准 25 / 协奏20
-  校准修复 [heal]：2AP，消耗30校准；治疗1.6×本人DEF+70（平值随等级缩放）。没有实际治疗/净化/新增护盾时不产协奏。
-    AP2 / 倍率0 / 削共振0 / 消耗校准 30 / 获取无 / 协奏20
-  星界定标 [field]：2AP并消耗30校准，展开定标场至下轮末：全队直接伤害+15%、承伤×0.8。本窗口限一次；不直接造成伤害/削条。
-    AP2 / 倍率0 / 削共振0 / 消耗校准 30 / 获取无 / 协奏20
-  定标回响 [restore]：3AP，消耗60校准；治疗1.4×本人DEF+80（平值随等级缩放）。没有实际治疗/净化/新增护盾时不产协奏。 全体在场队友恢复，不复活；裂伤使治疗×0.75。
-    AP3 / 倍率0 / 削共振0 / 消耗校准 60 / 获取无 / 协奏20
+漂泊者·衍射 / rover_spectro / 个人能量上限 125
+rover_spectro_a 化声为形：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_spectro_e1 浮声千斩：SP 12 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_spectro_e2 浮声千斩·旋音：SP 16 / CD 3 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_spectro_s 瞬刻：SP 16 / CD 3 / B 10 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_spectro_r 回响奏鸣：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
 
-达妮娅 / denia
-  布景泡沫/幻灭爪击 [basic]：2AP；伤害系数0.82，独立削共振8。有效命中获得25期待。 红形态有效命中获得25期待并施加1次模式；蓝形态伤害系数1.05、消耗20期待、不产期待并施加2次模式。聚爆3层触发0.6系数热熔异常；震谐交由另一队友可触发技能结算。
-    AP2 / 倍率0.82 / 削共振8 / 消耗无 / 获取期待 25 / 协奏20
-    形态覆盖：{"blue": {"coef": 1.05, "cost": {"expectation": 20}, "gain": {}}}
-  布景牵引 [stage]：2AP；伤害系数0.43，独立削共振4。有效命中获得25期待。 只在红形态可用；群攻每目标施加1次模式，整招资源与协奏只结算一次。
-    AP2 / 倍率0.43 / 削共振4 / 消耗无 / 获取期待 25 / 协奏20
-  开幕幻灭 [breakdown]：3AP，消耗80期待；伤害系数0.85，独立削共振6。有效命中获得80期待。 只在红形态、至少80期待时可用；将80期待转换为蓝形态储能，非额外回复；本次群攻仍按红形态施加模式，之后入蓝。
-    AP3 / 倍率0.85 / 削共振6 / 消耗期待 80 / 获取期待 80 / 协奏0
-  幻灭扼流 [blue]：3AP，消耗40期待；伤害系数1.6，独立削共振12。 仅蓝形态，消耗40期待，施加2次模式；蓝储能不足20时自动回红并清余量，无免费伤害/治疗。
-    AP3 / 倍率1.6 / 削共振12 / 消耗期待 40 / 获取无 / 协奏30
-  闭幕回场 [curtain]：3AP，消耗40期待；伤害系数1.8，独立削共振12。 仅蓝形态，消耗40期待，施加2次模式后回红并清空剩余期待；解放不产生协奏。
-    AP3 / 倍率1.8 / 削共振12 / 消耗期待 40 / 获取无 / 协奏0
+漂泊者·湮灭 / rover_havoc / 个人能量上限 125
+rover_havoc_a 裁音：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_havoc_e1 行刃／命刈：SP 12 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_havoc_e2 重击·鸣破：SP 18 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_havoc_s 唤声：SP 20 / CD 3 / B 10 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_havoc_r 临渊死寂：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
 
-千咲 / chisa
-  闭剪裁击 [basic]：2AP；伤害系数0.95，独立削共振8。有效命中获得25丝线。 有效命中产生25丝线。
-    AP2 / 倍率0.95 / 削共振8 / 消耗无 / 获取丝线 25 / 协奏20
-  切开结点 [cut]：2AP，消耗30丝线；伤害系数0.62，独立削共振20。 切线使敌ATK×0.85、所受异常伤害+25%；最多该敌两次正式行动，最长至施放后第3轮末。
-    AP2 / 倍率0.62 / 削共振20 / 消耗丝线 30 / 获取无 / 协奏20
-  沿线断流 [chainsaw]：3AP，消耗60丝线；伤害系数1.12，独立削共振12。 群攻并给每目标施加切线，整招只结算一次协奏，不凭目标数重复回资源。
-    AP3 / 倍率1.12 / 削共振12 / 消耗丝线 60 / 获取无 / 协奏30
-  缝合界线 [mend]：2AP，消耗60丝线；治疗2.5×本人ATK+130（平值随等级缩放）。净化裂伤/暴露并给予150护盾。没有实际治疗/净化/新增护盾时不产协奏。
-    AP2 / 倍率0 / 削共振0 / 消耗丝线 60 / 获取无 / 协奏20
-  终线回响 [release]：3AP，消耗100丝线；伤害系数1.4，独立削共振12。 群攻并为全体在场队友恢复1×ATK+80（平值随等级缩放）；不复活；解放不产生协奏。
-    AP3 / 倍率1.4 / 削共振12 / 消耗丝线 100 / 获取无 / 协奏0
+漂泊者·气动 / rover_aero / 个人能量上限 150
+rover_aero_a 刻雾裁风：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_aero_e1 苍息破象·抃风儛润：SP 16 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_aero_e2 缥缈无相：SP 20 / CD 3 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_aero_e3 碧霄断行：SP 14 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_aero_s 蚀境象：SP 16 / CD 3 / B 10 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_aero_r 万象归墟：SP 0 / CD 3 / B 0 / 能量耗 150；完整分支与BP四档请查看游戏卡面。
 
-漂泊者 / rover
-  震声 [basic]：2AP；伤害系数0.88，削共振8。有效命中获得20尘微之声、20共鸣能量。
-    AP2 / 倍率0.88 / 削共振8 / 消耗无 / 获取尘微之声 20、共鸣能量 20 / 协奏20
-  浮声千斩 [skill]：2AP；伤害系数0.75，削共振12。有效命中获得20尘微之声、20共鸣能量。附加微光，下一次衍射主体技能命中追加0.25系数异常伤害。
-    AP2 / 倍率0.75 / 削共振12 / 消耗无 / 获取尘微之声 20、共鸣能量 20 / 协奏20
-  旋音·回声 [enhanced]：3AP；伤害系数1.4，削共振20。消耗50尘微之声。有效命中获得20共鸣能量。消耗50尘微之声，强化攻击并附加微光。
-    AP3 / 倍率1.4 / 削共振20 / 消耗尘微之声 50 / 获取共鸣能量 20 / 协奏20
-  回响奏鸣 [liberation]：3AP；伤害系数1.65，削共振12。消耗125共鸣能量。
-    AP3 / 倍率1.65 / 削共振12 / 消耗共鸣能量 125 / 获取无 / 协奏0
+漂泊者·导电 / rover_electro / 个人能量上限 125
+rover_electro_a 止戈：SP 0 / CD 0 / B 15 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_electro_e1 雷引：SP 12 / CD 2 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_electro_e2a 超负荷·援阵：SP 18 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_electro_e2b 超负荷·临界：SP 24 / CD 3 / B 20 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_electro_e1_state 千声翻涌：SP 16 / CD 1 / B 25 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_electro_s 殷殷其雷：SP 16 / CD 3 / B 10 / 能量耗 0；完整分支与BP四档请查看游戏卡面。
+rover_electro_r 最终战略：SP 0 / CD 3 / B 0 / 能量耗 125；完整分支与BP四档请查看游戏卡面。
 
-漂泊者四属性配置（同一角色，不重复编队）
-spectro / 尘微之声 100、共鸣能量 125
-  震声：2AP；伤害系数0.88，削共振8。有效命中获得20尘微之声、20共鸣能量。
-  浮声千斩：2AP；伤害系数0.75，削共振12。有效命中获得20尘微之声、20共鸣能量。附加微光，下一次衍射主体技能命中追加0.25系数异常伤害。
-  旋音·回声：3AP；伤害系数1.4，削共振20。消耗50尘微之声。有效命中获得20共鸣能量。消耗50尘微之声，强化攻击并附加微光。
-  回响奏鸣：3AP；伤害系数1.65，削共振12。消耗125共鸣能量。
-havoc / 暗流 100、共鸣能量 125
-  裁羽弑音：2AP；伤害系数0.88，削共振8。有效命中获得20暗流、20共鸣能量。
-  行刃：2AP；伤害系数1.05，削共振8。有效命中获得30暗流、20共鸣能量。
-  灭音·暗涌：3AP；伤害系数1.2，削共振12。消耗100暗流。有效命中获得20共鸣能量。消耗100暗流进入暗涌；本招后两次普攻系数提高50%，每次仍需2AP，不自动攻击。
-  临渊死寂：3AP；伤害系数2.1，削共振12。消耗125共鸣能量。
-aero / 弦风息 100、共鸣能量 125
-  风驰：2AP；伤害系数0.88，削共振8。有效命中获得20弦风息、20共鸣能量。
-  苍息破象：2AP；伤害系数0.7，削共振12。有效命中获得25弦风息、20共鸣能量。施加1层风蚀（上限2）；敌窗口末每层0.2系数气动伤害，归属者存活才触发。
-  缥缈无相：3AP；伤害系数1.25，削共振20。消耗50弦风息。有效命中获得20共鸣能量。消耗50弦风息；强化打击、全队小额治疗、施加风蚀。
-  万象归墟：3AP；伤害系数1.3，削共振12。消耗125共鸣能量。群体气动伤害并治疗全队。
-electro / 电涌 100、共鸣能量 125
-  止戈·斩击：2AP；伤害系数0.88，削共振8。有效命中获得20电涌、20共鸣能量。
-  雷引：2AP；伤害系数0.9，削共振12。有效命中获得25电涌、20共鸣能量。
-  临界共鸣：3AP；伤害系数1.3，削共振16。消耗100电涌。有效命中获得20共鸣能量。消耗100电涌及60协奏进入临界：本招后两次普攻附带0.25系数导电雷陨，不免费产资源。与超负荷争用同一电涌。
-  超负荷：2AP；伤害系数0，削共振0。消耗100电涌。消耗100电涌，本轮及下轮全队直接伤害+10%；本窗一次，不能叠层。
-  止戈·格挡反击：2AP；伤害系数0，削共振0。花2AP并结束窗口，下一次受到直接攻击承伤×0.6并以0.55系数导电反击一次；不返AP/资源，最晚下次本人窗口开始失效。
-  最终战略：3AP；伤害系数2，削共振16。消耗125共鸣能量。
-
-四、通用指令、交涉与有限测试道具
-防御 [guard]：1AP，伤害减半并结束本窗口；持续至下次本人窗口开始，不产资源。
-挑衅 [taunt]：1AP，影响该敌尚未锁定的合法单体选人；不改变全体技或已有锁定。有效新建挑衅获得10协奏，本窗口限一次。 当前实现另有成本：该敌下一次实际造成伤害的单体攻击伤害+15%，攻击后消耗；全体攻击不加此项、不消费。最长至施放后第2轮末；施放者倒地/撤离清除。
-撤离 [retreat]：本角色撤离，保留生命但清空本场资源；消耗本次行动，无法回场。
-协商 [negotiate]：此测试遭遇没有可协商的敌人。挑衅只改变尚未锁定的合法单体选人。
-测试修复剂 [item_repair]：消耗隔离测试库存1剂，恢复目标30%最大生命；不复活，不产生协奏。每场初始2剂。
-测试净化剂 [item_cleanse]：消耗隔离测试库存1剂，净化裂伤/暴露并恢复12%最大生命；不复活、不充协奏。每场初始1剂。
-结束并保存AP [end]：结束本人窗口，剩余普通AP结转；下一轮+4至6。待接续临时AP与延奏增益在本窗口末过期。
-佯攻卸架 [feint]：仅对处于架岩反击姿态的敌人：花1AP解除其减伤与反击，既不造成伤害也不产资源。可改为直接承受反击、用护盾减伤，或投资共振击破。
-攻击危险部件 [disrupt_part]：仅在敌人暴露危险部件时可用。2AP，以本人的ATK/DEF系数0.9攻击部件，不伤主体、不削共振、不充资源。拆解后依敌种取消或削弱危险招式。
-测试库存：{"repair": 2, "cleanse": 1}
-道具不属于持久经济或商店，不会复活；每次遭遇按规则重置库存。
-
-五、敌人行动与预警 / 可执行对策
-
-咔嚓嚓 / common
-  扑咬 [bite]：单体 1 倍攻击。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  热团喷吐 [spit]：单体 1.35 倍攻击。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  standard轮转：扑咬 → 热团喷吐
-
-惊蛰猎手 / common
-  雷矢 [shot]：单体 1 倍攻击。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  引弦瞄准 [aim]：投入整次行动瞄准锁定目标；下一次行动贯射。
-    预警：投入本次窗口准备，下次本人窗口兑现；已锁定目标不可被挑衅改写。
-    对策：集中伤害点杀本小怪（无共振）；锁定队友花1AP防御；花个人资源保护/治疗。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：下一次敌方普通行动兑现；破防会打断
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  惊蛰贯射 [aimed]：单体 2.2 倍攻击，需先完成蓄力/瞄准。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  standard轮转：雷矢 → 引弦瞄准 → 惊蛰贯射
-
-坚岩斗士 / elite
-  岩拳 [smash]：单体 1.4 倍攻击。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  架岩 [brace]：架岩后承伤×0.7；受到首次主体直接攻击反击一次。不按属性或武器判定。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：花1AP佯攻卸架；用护盾/减伤承担一次反击；或以共振击破解除。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：直到下次敌方窗口开始或被卸架/击破
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  沉肩蓄力 [charge]：投入整次行动蓄力；下一次行动兑现，破防打断。
-    预警：先蓄力锁定单体；下次冲压。已有锁定不受后续挑衅影响。
-    对策：蓄力前挑衅引向防守者；锁定后无法改人，可投资共振打断或让被锁定者提前防御并配护盾。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：下一次敌方普通行动兑现；破防会打断
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  岩躯冲压 [rush]：单体 2.7 倍攻击，需先完成蓄力/瞄准。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  easy轮转：架岩 → 沉肩蓄力 → 岩躯冲压 → 岩拳 → 岩拳
-  standard轮转：架岩 → 沉肩蓄力 → 岩躯冲压 → 岩拳
-  challenge轮转：架岩 → 沉肩蓄力 → 岩躯冲压
-
-车刃镰 / elite
-  镰爪挥击 [slash]：单体伤害并施加裂伤：受治疗×0.75。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：裂伤持续至下回合末
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  收刃蓄转 [charge]：投入整次行动蓄力；下一次行动兑现，破防打断。
-    预警：投入本次窗口准备，下次本人窗口兑现；已锁定目标不可被挑衅改写。
-    对策：拆旋刃部件可把本次回旋伤害降至45%；共振击破可取消；场域/防御/净化是资源替代方案。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：下一次敌方普通行动兑现；破防会打断
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  轮刃回旋 [spin]：全体 1.8 倍攻击，需先完成蓄力/瞄准。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：拆旋刃部件可把本次回旋伤害降至45%；共振击破可取消；场域/防御/净化是资源替代方案。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  easy轮转：镰爪挥击 → 收刃蓄转 → 轮刃回旋 → 镰爪挥击
-  standard轮转：镰爪挥击 → 收刃蓄转 → 轮刃回旋
-  challenge轮转：收刃蓄转 → 轮刃回旋 → 镰爪挥击
-
-无冠者 / boss
-  无冠连槊 [spear]：单体 1.5 倍攻击。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  羽锋横扫 [sweep]：全体伤害并施加暴露：下次受击伤害+15%。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：防御花1AP并关窗、护盾/治疗消耗AP与个人资源；优先点杀也是生命输出投入。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：下次受击或下回合末结束
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  展翼震荡 [wingpulse]：第二阶段1.65系数全体攻击；血量阈值触发时提前预警，替换正常窗口而非增行动。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：血量阈值触发后提前防御，或付资源使用场域/护盾/减攻，或共振击破延后窗口。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  升空蓄势 [charge]：投入整次行动蓄力；下一次行动兑现，破防打断。
-    预警：投入本次窗口准备，下次本人窗口兑现；已锁定目标不可被挑衅改写。
-    对策：拆升空锚点取消本次坠击；共振击破取消并跳一次窗口；全队提前防御/场域可接招，但花掉输出预算。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：下一次敌方普通行动兑现；破防会打断
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  坠空裁决 [descent]：全体3.6系数湮灭强攻，需先花一个敌方窗口升空蓄势。拆锚/共振打断可取消，防御可减半；无视预警会有致命风险。
-    预警：普通意图隐藏；施放后记录实际效果
-    对策：拆升空锚点取消本次坠击；共振击破取消并跳一次窗口；全队提前防御/场域可接招，但花掉输出预算。
-    行动成本：消耗一次敌方普通行动；不另增行动
-    持续：即时
-    间隔：固定轮转；常规意图不预先公开；危险招式投入准备窗口后显示
-  easy轮转：无冠连槊 → 羽锋横扫 → 升空蓄势 → 坠空裁决 → 无冠连槊
-  standard轮转：无冠连槊 → 升空蓄势 → 坠空裁决 → 羽锋横扫
-  challenge轮转：升空蓄势 → 坠空裁决 → 羽锋横扫 → 无冠连槊
-
-冷凝棱镜 / common
-  冷凝脉冲 [pulse]：单体属性攻击；普通意图不提前公开。
-    对策：切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。
-    行动成本：一次敌方窗口
-    持续：即时
-    间隔：每个本人窗口一次
-  standard轮转：冷凝脉冲
-
-热熔棱镜 / common
-  热熔脉冲 [pulse]：单体属性攻击；普通意图不提前公开。
-    对策：切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。
-    行动成本：一次敌方窗口
-    持续：即时
-    间隔：每个本人窗口一次
-  standard轮转：热熔脉冲
-
-气动棱镜 / common
-  气动脉冲 [pulse]：单体属性攻击；普通意图不提前公开。
-    对策：切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。
-    行动成本：一次敌方窗口
-    持续：即时
-    间隔：每个本人窗口一次
-  standard轮转：气动脉冲
-
-衍射棱镜 / common
-  衍射脉冲 [pulse]：单体属性攻击；普通意图不提前公开。
-    对策：切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。
-    行动成本：一次敌方窗口
-    持续：即时
-    间隔：每个本人窗口一次
-  standard轮转：衍射脉冲
-
-湮灭棱镜 / common
-  湮灭脉冲 [pulse]：单体属性攻击；普通意图不提前公开。
-    对策：切换到其他属性队友攻击；防御/治疗消耗AP。单人同属性阵容应撤离后重组。
-    行动成本：一次敌方窗口
-    持续：即时
-    间隔：每个本人窗口一次
-  standard轮转：湮灭脉冲
-
-六、规则数据的新增/修改字段
-normal_actions_per_round：1 → one window, any affordable paid actions; no 3-action cap
-wait_destination：tail FIFO; token unchanged → end current window and save normal AP
-shield_match：element OR weapon, not sum → independent per-skill resonance coefficients; no weapon or elemental weakness
-break_per_action_target_cap：3 → skill resonance_damage
-break_duration：through end of round r+1; restore at start r+2 → exactly one enemy window: current round if not acted, otherwise next round; refill at round after skipped slot
-elite_boss_recovery_lock：shield floor 1 until first normal enemy action completes after recovery → False
-concerto_start：0 → 20
-concerto_hard_gain_cap_per_normal_action：25 → 40
-concerto_buff_expiry：next eligible normal action, no later than end next round → recipient next window end, including skipped window; not global round end
-resource_start：all 0 → personal 0; concerto20; normalAP4; temporaryAP0
-weakness_visibility：Balance tests know all enemy weaknesses. Recommended initial UI shows all weaknesses in this test package. survey reveal is implemented but discovery gameplay remains outside performance claims. → no universal weaknesses; show six-element resistance and dangerous tells only
-recovery_policy：No enrage clock in this candidate. A slow tank/healer team may stalemate; timeout in experiment is inconclusive, never forced defeat. → No forced recovery immunity, enrage timer or second boss window
-pry：Always exactly one shield point per target; tune can add damage but never extra shield reduction to pry. → removed
-outro_channels：Take strongest direct amp and strongest liberation-extra independently; the two count toward direct +50% cap with field. Status-outro has a separate one-use token until end of grant round+2 and is consumed by the next qualifying status damage from its recipient, including a previously placed marker; no direct attack consumes that token. Intro gain stays <=20 per recipient per round. Solo self-concerto grants half direct amp only; no intro or special channel. → one pending relay per recipient window; direct buff covers every sub-action, special protection/status channels explicitly once; relay adds 2 temporary AP consumed first; never reorders queue
-concerto_auto：（旧版无） → manual by default; explicit auto_concerto only current actor at end of own window
-tune_teamwork：（旧版无） → different ally explicitly tune_trigger tagged paid skill hit consumes tune: owner 0.35 status packet and actor primary +5 once per root action; no resonance/AP/concerto from derived packet
-field：（旧版无） → Current and next round: direct damage +15%, damage received x0.8. No free actions, healing or concerto.
-fusion_packet_coefficient：（旧版无） → 0.6
-enemy_charge：（旧版无） → preparation and release each use one enemy window. Committed target cannot be redirected. Resonance break cancels; parts and mitigation are paid alternatives
-items：（旧版无） → isolated repair2/cleanse1; each costs2AP; never grants concerto or AP
-debuffs：（旧版无） → Rend: healing received x0.75 through grant round+1. Exposed: next incoming damage +15%, consumed once; guard still halves resulting damage. Cleanse removes both.
-taunt_consumption：（旧版无） → Only a damaging single-target enemy action consumes taunt; AOE cannot redirect or consume it, but the normal expiry still applies.
-ko_retreat_buffs：（旧版无） → KO/retreat clears own statuses, all personal resources, form and own tune/taunt markers. Existing recipient-owned outro/barrier and timed cutline/fusion/field keep their normal expiry; they do not revive their source or trigger extra actions.
-ap_start：（旧版无） → 4
-ap_round_gain：（旧版无） → 4
-ap_cap：（旧版无） → 6
-temp_ap_cap：（旧版无） → 2
-concerto_gain_cap_per_round：（旧版无） → 40
-ap_sources：（旧版无） → ['start', 'round_gain', 'outro_temporary']
-joint_attack_damage：（旧版无） → 80
-joint_attack：（旧版无） → automatic once per break: shared coefficient0.72 among living allies; reference80 total at primary200/DEF160/level20/neutral resistance. Every hit uses its contributor element, immunity and target DEF; no AP/resources/concerto/resonance.
-defense：（旧版无） → DEF is general damage mitigation, never physical resistance
-joint_attack_reference_coefficient：（旧版无） → 0.72
-ap_zero：（旧版无） → auto-close after paid action reaches0 AP unless a legal full-concerto outro can still be chosen; player may choose end instead
-counter_mitigation_floor：（旧版无） → 0.6
-interrupted_source：（旧版无） → All damage packets require a living source. Lethal retaliation interrupts remaining AOE targets, attached statuses, healing and resource effects on either side; no dead actor may finish its packet chain.
-
-说明：不把新增候选平衡称为已最终确认。实际伤害由引擎当前状态、抗性、共振跳窗、减伤与延奏通道共同结算。默认不会自动消耗满协奏；只能由当前行动者在付费动作后选择接收者，并结束本人窗口。
-当前JSON及单元/DOM测试证据随包，真实浏览器视觉/音频/Windows启动的验证状态另见测试报告。
+升级兼容：只迁移明确支持的本地素材与设置。旧AP战局拒绝续接，新库与旧版分离。
+验证：参见测试报告.txt、docs/test4-independent-qa.md、tests/v04/results。旧版报告不作为本版证据。

@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-10-10T15:10:59.900Z",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux"
+  },
+  "scope": "Executable engine / DOM / asset verification. Not rendered-browser or playtest certification.",
+  "hashes": {
+    "engine.js": "bcca898fa5206a874d70953c2844af0a445686fb04682874aa378ed48637d66b",
+    "skill-effects.js": "5cefec651c4b473d90507fa4bc66ba0da54fa4acad518cd49004baf17f0eb4c9",
+    "parameters.json": "6440e27ff9f5304a8303100cfdb33842b1e97342b9c9a495c311254fa1304a6e",
+    "parameters.js": "87477b84239dfbb74a22767ef3dcfc5db170463dbd4f87256a3ac733ecfea2f4",
+    "app.js": "dcaeec98855c6e2efc56cb637ba399687d52999a2076a947ddb03cfa997a3c28",
+    "storage.js": "343ff397124b3ca8029ecc572f791808aa42f5e6e789071a5a67f7c0a5238334",
+    "assets.js": "5458bc83317c328da41350392f465433d6267d6471e4e903e52778a7cc4c9774",
+    "index.html": "b9c9c8fe42a78ebbbc011044b8455344492ac973d43595c8411917803bf50128",
+    "style.css": "170edd99f7fcd7f1a00baabb9f0e335109138851abea4616d4e65997337e4cae"
+  },
+  "passed": true,
+  "schema": "test4-publication-test-summary-1",
+  "commands": [
+    {
+      "command": "node --test tests/v04/engine_core.test.cjs tests/v04/skill_effects.test.cjs",
+      "exitCode": 0,
+      "elapsedMs": 881,
+      "summary": "s only R/R1/R2, never liberation-class skills or blue A (0.541993ms)\n✔ Denia spill uses DEF-scaled original body for Mornye, subject to Denia cap (0.359906ms)\nℹ tests 81\nℹ suites 0\nℹ pass 81\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 795.274302\n"
+    },
+    {
+      "command": "node tests/v04/independent_parameters.cjs",
+      "exitCode": 0,
+      "elapsedMs": 70,
+      "suite": null,
+      "totals": null,
+      "passed": 23
+    },
+    {
+      "command": "node tests/v04/independent_runtime.cjs",
+      "exitCode": 0,
+      "elapsedMs": 38291,
+      "suite": "independent-test4-runtime-1",
+      "totals": {
+        "passed": 413,
+        "failed": 0,
+        "notRun": 0
+      },
+      "passed": 413
+    },
+    {
+      "command": "node tests/v04/ui_bp_contract.cjs",
+      "exitCode": 0,
+      "elapsedMs": 2805,
+      "suite": "test4-ui-contract",
+      "totals": null,
+      "passed": 24
+    },
+    {
+      "command": "node tests/v04/ui_project_migration.cjs",
+      "exitCode": 0,
+      "elapsedMs": 1072,
+      "suite": "test4-ui-migration",
+      "totals": null,
+      "passed": 10
+    },
+    {
+      "command": "node tests/v04/ui_target_branches.cjs",
+      "exitCode": 0,
+      "elapsedMs": 1525,
+      "suite": "test4-ui-target-branches",
+      "totals": null,
+      "passed": 10
+    },
+    {
+      "command": "node tests/v04/ui_roster_coverage.cjs",
+      "exitCode": 0,
+      "elapsedMs": 1489,
+      "suite": "test4-ui-roster",
+      "totals": null,
+      "passed": null
+    },
+    {
+      "command": "node tests/v04/ui_dreamless_bounds.cjs",
+      "exitCode": 0,
+      "elapsedMs": 772,
+      "suite": "test4-ui-dreamless-bounds",
+      "totals": null,
+      "passed": null
+    },
+    {
+      "command": "node tests/v04/ui_enemy_action_labels.cjs",
+      "exitCode": 0,
+      "elapsedMs": 728,
+      "suite": "test4-ui-enemy-labels",
+      "totals": null,
+      "passed": null
+    },
+    {
+      "command": "node tests/v04/ui_projectile_queue.cjs",
+      "exitCode": 0,
+      "elapsedMs": 819,
+      "suite": "test4-ui-projectile-queue",
+      "totals": null,
+      "passed": null
+    },
+    {
+      "command": "node tests/v04/independent_dom.cjs",
+      "exitCode": 0,
+      "elapsedMs": 1691,
+      "suite": "independent-dom-test4-1",
+      "totals": {
+        "passed": 11,
+        "failed": 0
+      },
+      "passed": 11
+    },
+    {
+      "command": "node tests/v04/independent_victory_replay.cjs",
+      "exitCode": 0,
+      "elapsedMs": 211,
+      "suite": "independent-victory-replay-test4-1",
+      "totals": null,
+      "passed": true
+    },
+    {
+      "command": "python tests/v04/asset_audit.py",
+      "exitCode": 0,
+      "elapsedMs": 1209,
+      "suite": "test4-decoded-assets",
+      "totals": null,
+      "passed": true
+    }
+  ]
+}

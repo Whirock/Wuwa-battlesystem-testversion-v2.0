@@ -1,8 +1,8 @@
 {
-  "public_version": "0.3.0-candidate",
+  "public_version": "0.4.0-candidate",
   "scope": "Actual mapped runtime PNGs; empty slots are pending, not claimed complete.",
-  "runtime_png_count": 158,
-  "mapped_slot_count": 158,
+  "runtime_png_count": 160,
+  "mapped_slot_count": 160,
   "pending_slot_count": 0,
   "contains_master_or_3x_archives": false,
   "provenance_note": "Only public package-local paths, dimensions and hashes. Source models, reference renders and private research are excluded.",
@@ -1428,6 +1428,24 @@
       "sha256": "1ffe9d6f9b5f904fe9e5ecedd70050d718dce33ed7062513ff5071db5334f8ea",
       "width": 832,
       "height": 448
+    },
+    {
+      "slot": "enemy.dreamless.idle",
+      "role": "offline_runtime_copy",
+      "path": "assets/dreamless_idle_v002_work1px.png",
+      "size": 1228253,
+      "sha256": "6e48b728ad53351ead2ad2effa19ba495563fbeabdbd3a3cc3e195ed3b3e0a17",
+      "width": 1374,
+      "height": 1145
+    },
+    {
+      "slot": "enemy.dreamless_projectile.idle",
+      "role": "offline_runtime_copy",
+      "path": "assets/dreamless_projectile_test_placeholder.png",
+      "size": 14838,
+      "sha256": "ec492c27cb8d2b439cfa8491ee1249d61d696b11915843fa9da408621c4de87f",
+      "width": 192,
+      "height": 192
     }
   ],
   "pending_slots": []

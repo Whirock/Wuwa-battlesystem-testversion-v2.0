@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": "runtime-assets-test4",
   "created": "2026-10-10",
   "slots": {
     "lynae.normal.L01": {
@@ -276,7 +276,7 @@
       "entity": "lynae",
       "form": "normal",
       "action": "L05",
-      "label": "把颜色交给你 协奏支援",
+      "label": "把颜色交给你 支援动作",
       "src": "assets/lynae_normal_L05.png",
       "width": 287,
       "height": 379,
@@ -743,7 +743,7 @@
       "entity": "lynae",
       "form": "peppermint",
       "action": "LP05",
-      "label": "跟上这阵风 协奏支援",
+      "label": "跟上这阵风 支援动作",
       "src": "assets/lynae_peppermint_LP05.png",
       "width": 305,
       "height": 402,
@@ -1210,7 +1210,7 @@
       "entity": "mornye",
       "form": "normal",
       "action": "M05",
-      "label": "同步给你 协奏支援",
+      "label": "同步给你 支援动作",
       "src": "assets/mornye_normal_M05.png",
       "width": 443,
       "height": 443,
@@ -1453,7 +1453,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual support estimate",
         "head": {
-          "x": 220.0,
+          "x": 220,
           "y": 45
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -1677,7 +1677,7 @@
       "entity": "mornye",
       "form": "winter",
       "action": "MP05",
-      "label": "信号已抵达 协奏支援",
+      "label": "信号已抵达 支援动作",
       "src": "assets/mornye_winter_MP05.png",
       "width": 438,
       "height": 438,
@@ -1920,7 +1920,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual support estimate",
         "head": {
-          "x": 191.0,
+          "x": 191,
           "y": 44
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -2989,7 +2989,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual support estimate",
         "head": {
-          "x": 396.0,
+          "x": 396,
           "y": 72
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -3522,7 +3522,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual support estimate",
         "head": {
-          "x": 421.0,
+          "x": 421,
           "y": 54
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -4852,7 +4852,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual support estimate",
         "head": {
-          "x": 217.0,
+          "x": 217,
           "y": 70
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -5720,7 +5720,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
         "head": {
-          "x": 185.0,
+          "x": 185,
           "y": 19
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -5860,7 +5860,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
         "head": {
-          "x": 686.0,
+          "x": 686,
           "y": 298
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -5930,7 +5930,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "manual body/ground estimate; wing and weapon bbox not used for scale",
         "head": {
-          "x": 973.0,
+          "x": 973,
           "y": 100
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -6162,7 +6162,7 @@
         "coordinateSpace": "natural PNG pixels",
         "method": "mineral is airborne; screen-ground anchor estimated 13 px below lowermost body; body front seal as attack origin needs renderer test",
         "head": {
-          "x": 147.0,
+          "x": 147,
           "y": 19
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -6373,7 +6373,7 @@
           "y": 418
         },
         "head": {
-          "x": 220.0,
+          "x": 220,
           "y": 55
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -7086,7 +7086,7 @@
           "y": 418
         },
         "head": {
-          "x": 220.0,
+          "x": 220,
           "y": 55
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -7809,7 +7809,7 @@
           "y": 418
         },
         "head": {
-          "x": 221.0,
+          "x": 221,
           "y": 57
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -8534,7 +8534,7 @@
           "y": 418
         },
         "head": {
-          "x": 222.0,
+          "x": 222,
           "y": 56
         },
         "headMethod": "Opaque top within the existing portrait/head crop; runtime candidate."
@@ -9245,6 +9245,139 @@
         531,
         418
       ]
+    },
+    "enemy.dreamless.idle": {
+      "key": "enemy.dreamless.idle",
+      "entity": "dreamless",
+      "form": "normal",
+      "action": "idle",
+      "label": "无妄者 · 首版主战待机",
+      "src": "assets/dreamless_idle_v002_work1px.png",
+      "width": 1374,
+      "height": 1145,
+      "naturalWidth": 1374,
+      "naturalHeight": 1145,
+      "alphaBBox": [
+        36,
+        25,
+        1351,
+        1110
+      ],
+      "sha256": "6e48b728ad53351ead2ad2effa19ba495563fbeabdbd3a3cc3e195ed3b3e0a17",
+      "sourceVersion": "0.4.0-candidate",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "bodyHeight": 777,
+      "bodyScale": 3.5,
+      "bodyHeightBasis": "Anatomical head-to-foot estimate excluding crown, wings and floating gap; runtime calibration candidate",
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "mirrorAllowed": false,
+      "placeholder": false,
+      "anchors": {
+        "foot": {
+          "x": 839,
+          "y": 1107
+        },
+        "ground": {
+          "x": 839,
+          "y": 1107
+        },
+        "pivot": {
+          "x": 839,
+          "y": 1107
+        },
+        "head": {
+          "x": 950,
+          "y": 330
+        },
+        "weapon": null,
+        "coordinateSpace": "natural PNG pixels"
+      },
+      "anchor": {
+        "x": 839,
+        "y": 1107
+      },
+      "groundAnchor": [
+        839,
+        1107
+      ],
+      "pivot": [
+        839,
+        1107
+      ],
+      "weaponAnchor": null,
+      "airborne": true,
+      "provenanceVerified": true,
+      "provenanceNote": "New generated first-iteration Dreamless battle sprite; one idle pose reused for actions, not a complete animation set",
+      "alphaBinary": true,
+      "singlePose": true,
+      "artReview": "Independent reference/style review passed; user final approval pending"
+    },
+    "enemy.dreamless_projectile.idle": {
+      "key": "enemy.dreamless_projectile.idle",
+      "entity": "dreamless_projectile",
+      "form": "normal",
+      "action": "idle",
+      "label": "投射物 · 明确测试占位",
+      "src": "assets/dreamless_projectile_test_placeholder.png",
+      "width": 192,
+      "height": 192,
+      "naturalWidth": 192,
+      "naturalHeight": 192,
+      "alphaBBox": [
+        5,
+        1,
+        187,
+        186
+      ],
+      "sha256": "ec492c27cb8d2b439cfa8491ee1249d61d696b11915843fa9da408621c4de87f",
+      "sourceVersion": "0.4.0-candidate",
+      "userConfirmed": false,
+      "runtimeVerified": false,
+      "bodyHeight": 180,
+      "bodyScale": 0.5,
+      "bodyHeightBasis": "Original geometric test placeholder; not game artwork",
+      "side": "enemy",
+      "facing": "right_or_front_right",
+      "mirrorAllowed": false,
+      "placeholder": true,
+      "anchors": {
+        "foot": {
+          "x": 96.0,
+          "y": 186
+        },
+        "ground": {
+          "x": 96.0,
+          "y": 186
+        },
+        "pivot": {
+          "x": 96.0,
+          "y": 186
+        },
+        "head": {
+          "x": 96.0,
+          "y": 1
+        },
+        "weapon": null,
+        "coordinateSpace": "natural PNG pixels"
+      },
+      "anchor": {
+        "x": 96.0,
+        "y": 186
+      },
+      "groundAnchor": [
+        96.0,
+        186
+      ],
+      "pivot": [
+        96.0,
+        186
+      ],
+      "weaponAnchor": null,
+      "airborne": true,
+      "provenanceVerified": true,
+      "provenanceNote": "Project-created geometric mechanic marker. Not a depiction of final Dreamless art."
     }
   },
   "forms": {
@@ -9259,11 +9392,6 @@
           "retreat": "amy.human.A01",
           "basic": "amy.human.A02",
           "attack": "amy.human.A02",
-          "pry": "amy.human.A02",
-          "encourage": "amy.human.A05",
-          "concerto": "amy.human.A05",
-          "intro": "amy.human.A05",
-          "outro": "amy.human.A05",
           "support": "amy.human.A05",
           "guard": "amy.human.A06",
           "defend": "amy.human.A06",
@@ -9277,7 +9405,15 @@
           "heavy": "amy.human.A08",
           "finale": "amy.human.A10",
           "transformIn": "amy.human.A04b",
-          "transformOut": "amy.human.A04a"
+          "transformOut": "amy.human.A04a",
+          "A": "amy.human.A02",
+          "E1": "amy.human.A04a",
+          "E2": "amy.human.A08",
+          "E3": "amy.human.A04b",
+          "E4": "amy.human.A04a",
+          "E5": "amy.human.A05",
+          "R1": "amy.human.A08",
+          "R2": "amy.human.A10"
         },
         "actionOrder": [
           "amy.human.A01",
@@ -9297,13 +9433,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 359,
         "bodyScale": 1,
@@ -9314,6 +9448,14 @@
             "amy.human.A02"
           ],
           "finale": [
+            "amy.human.A09",
+            "amy.human.A10"
+          ],
+          "E2": [
+            "amy.human.A08",
+            "amy.human.A02"
+          ],
+          "R2": [
             "amy.human.A09",
             "amy.human.A10"
           ]
@@ -9329,11 +9471,6 @@
           "retreat": "amy.mecha.M01",
           "basic": "amy.mecha.M02",
           "attack": "amy.mecha.M02",
-          "pry": "amy.mecha.M02",
-          "encourage": "amy.mecha.M05",
-          "concerto": "amy.mecha.M05",
-          "intro": "amy.mecha.M05",
-          "outro": "amy.mecha.M05",
           "support": "amy.mecha.M05",
           "guard": "amy.mecha.M10",
           "defend": "amy.mecha.M10",
@@ -9347,7 +9484,15 @@
           "heavy": "amy.mecha.M04",
           "finale": "amy.mecha.M09",
           "transformIn": "amy.mecha.M05",
-          "transformOut": "amy.mecha.M06"
+          "transformOut": "amy.mecha.M06",
+          "A": "amy.mecha.M02",
+          "E1": "amy.mecha.M07",
+          "E2": "amy.mecha.M04",
+          "E3": "amy.mecha.M05",
+          "E4": "amy.mecha.M07",
+          "E5": "amy.mecha.M05",
+          "R1": "amy.mecha.M03",
+          "R2": "amy.mecha.M09"
         },
         "actionOrder": [
           "amy.mecha.M01",
@@ -9367,13 +9512,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 414,
         "bodyScale": 1.7,
@@ -9384,6 +9527,14 @@
             "amy.mecha.M04"
           ],
           "finale": [
+            "amy.mecha.M08",
+            "amy.mecha.M09"
+          ],
+          "E2": [
+            "amy.mecha.M03",
+            "amy.mecha.M04"
+          ],
+          "R2": [
             "amy.mecha.M08",
             "amy.mecha.M09"
           ]
@@ -9401,11 +9552,6 @@
           "retreat": "lynae.normal.L01",
           "basic": "lynae.normal.L02",
           "attack": "lynae.normal.L02",
-          "pry": "lynae.normal.L02",
-          "encourage": "lynae.normal.L05",
-          "concerto": "lynae.normal.L05",
-          "intro": "lynae.normal.L05",
-          "outro": "lynae.normal.L05",
           "support": "lynae.normal.L05",
           "guard": "lynae.normal.L06",
           "defend": "lynae.normal.L06",
@@ -9416,7 +9562,14 @@
           "victory": "lynae.normal.L01",
           "survey": "lynae.normal.L02",
           "skate": "lynae.normal.L04",
-          "spectrum": "lynae.normal.L04"
+          "spectrum": "lynae.normal.L04",
+          "A": "lynae.normal.L02",
+          "E1": "lynae.normal.L02",
+          "E2": "lynae.normal.L04",
+          "E3": "lynae.normal.L04",
+          "E4": "lynae.normal.L04",
+          "E5": "lynae.normal.L05",
+          "R": "lynae.normal.L04"
         },
         "actionOrder": [
           "lynae.normal.L01",
@@ -9431,13 +9584,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 350,
         "bodyScale": 1,
@@ -9454,11 +9605,6 @@
           "retreat": "lynae.peppermint.LP01",
           "basic": "lynae.peppermint.LP02",
           "attack": "lynae.peppermint.LP02",
-          "pry": "lynae.peppermint.LP02",
-          "encourage": "lynae.peppermint.LP05",
-          "concerto": "lynae.peppermint.LP05",
-          "intro": "lynae.peppermint.LP05",
-          "outro": "lynae.peppermint.LP05",
           "support": "lynae.peppermint.LP05",
           "guard": "lynae.peppermint.LP06",
           "defend": "lynae.peppermint.LP06",
@@ -9469,7 +9615,14 @@
           "victory": "lynae.peppermint.LP01",
           "survey": "lynae.peppermint.LP02",
           "skate": "lynae.peppermint.LP04",
-          "spectrum": "lynae.peppermint.LP04"
+          "spectrum": "lynae.peppermint.LP04",
+          "A": "lynae.peppermint.LP02",
+          "E1": "lynae.peppermint.LP02",
+          "E2": "lynae.peppermint.LP04",
+          "E3": "lynae.peppermint.LP04",
+          "E4": "lynae.peppermint.LP04",
+          "E5": "lynae.peppermint.LP05",
+          "R": "lynae.peppermint.LP04"
         },
         "actionOrder": [
           "lynae.peppermint.LP01",
@@ -9484,13 +9637,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 350,
         "bodyScale": 1,
@@ -9509,11 +9660,6 @@
           "retreat": "mornye.normal.M01",
           "basic": "mornye.normal.M02",
           "attack": "mornye.normal.M02",
-          "pry": "mornye.normal.M02",
-          "encourage": "mornye.normal.M05",
-          "concerto": "mornye.normal.M05",
-          "intro": "mornye.normal.M05",
-          "outro": "mornye.normal.M05",
           "support": "mornye.normal.M05",
           "guard": "mornye.normal.M06",
           "defend": "mornye.normal.M06",
@@ -9524,7 +9670,14 @@
           "victory": "mornye.normal.M01",
           "heal": "mornye.normal.M05",
           "field": "mornye.normal.M04",
-          "restore": "mornye.normal.M04"
+          "restore": "mornye.normal.M04",
+          "A": "mornye.normal.M02",
+          "E1": "mornye.normal.M05",
+          "E2": "mornye.normal.M04",
+          "E3": "mornye.normal.M04",
+          "E4": "mornye.normal.M04",
+          "E5": "mornye.normal.M05",
+          "R": "mornye.normal.M04"
         },
         "actionOrder": [
           "mornye.normal.M01",
@@ -9539,13 +9692,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 358,
         "bodyScale": 1,
@@ -9562,11 +9713,6 @@
           "retreat": "mornye.winter.MP01",
           "basic": "mornye.winter.MP02",
           "attack": "mornye.winter.MP02",
-          "pry": "mornye.winter.MP02",
-          "encourage": "mornye.winter.MP05",
-          "concerto": "mornye.winter.MP05",
-          "intro": "mornye.winter.MP05",
-          "outro": "mornye.winter.MP05",
           "support": "mornye.winter.MP05",
           "guard": "mornye.winter.MP06",
           "defend": "mornye.winter.MP06",
@@ -9577,7 +9723,14 @@
           "victory": "mornye.winter.MP01",
           "heal": "mornye.winter.MP05",
           "field": "mornye.winter.MP04",
-          "restore": "mornye.winter.MP04"
+          "restore": "mornye.winter.MP04",
+          "A": "mornye.winter.MP02",
+          "E1": "mornye.winter.MP05",
+          "E2": "mornye.winter.MP04",
+          "E3": "mornye.winter.MP04",
+          "E4": "mornye.winter.MP04",
+          "E5": "mornye.winter.MP05",
+          "R": "mornye.winter.MP04"
         },
         "actionOrder": [
           "mornye.winter.MP01",
@@ -9592,13 +9745,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 358,
         "bodyScale": 1,
@@ -9617,11 +9768,6 @@
           "retreat": "denia.red.DR01",
           "basic": "denia.red.DR02",
           "attack": "denia.red.DR02",
-          "pry": "denia.red.DR02",
-          "encourage": "denia.red.DR05",
-          "concerto": "denia.red.DR05",
-          "intro": "denia.red.DR05",
-          "outro": "denia.red.DR05",
           "support": "denia.red.DR05",
           "guard": "denia.red.DR06",
           "defend": "denia.red.DR06",
@@ -9635,7 +9781,15 @@
           "blue": "denia.red.DR04",
           "curtain": "denia.red.DR08",
           "transformIn": "denia.red.DR01",
-          "transformOut": "denia.red.DR08"
+          "transformOut": "denia.red.DR08",
+          "A": "denia.red.DR02",
+          "E1": "denia.red.DR04",
+          "E2": "denia.red.DR08",
+          "E3": "denia.red.DR04",
+          "E4": "denia.red.DR08",
+          "E5": "denia.red.DR05",
+          "R1": "denia.red.DR08",
+          "R2": "denia.red.DR08"
         },
         "actionOrder": [
           "denia.red.DR01",
@@ -9651,13 +9805,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 288,
         "bodyScale": 1,
@@ -9674,11 +9826,6 @@
           "retreat": "denia.blue.DB01",
           "basic": "denia.blue.DB02",
           "attack": "denia.blue.DB02",
-          "pry": "denia.blue.DB02",
-          "encourage": "denia.blue.DB05",
-          "concerto": "denia.blue.DB05",
-          "intro": "denia.blue.DB05",
-          "outro": "denia.blue.DB05",
           "support": "denia.blue.DB05",
           "guard": "denia.blue.DB06",
           "defend": "denia.blue.DB06",
@@ -9692,7 +9839,15 @@
           "blue": "denia.blue.DB04",
           "curtain": "denia.blue.DB08",
           "transformIn": "denia.blue.DB01",
-          "transformOut": "denia.blue.DB08"
+          "transformOut": "denia.blue.DB08",
+          "A": "denia.blue.DB02",
+          "E1": "denia.blue.DB04",
+          "E2": "denia.blue.DB04",
+          "E3": "denia.blue.DB04",
+          "E4": "denia.blue.DB04",
+          "E5": "denia.blue.DB05",
+          "R1": "denia.blue.DB08",
+          "R2": "denia.blue.DB08"
         },
         "actionOrder": [
           "denia.blue.DB01",
@@ -9708,13 +9863,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 278,
         "bodyScale": 1,
@@ -9733,11 +9886,6 @@
           "retreat": "chisa.normal.CD01",
           "basic": "chisa.normal.CD02",
           "attack": "chisa.normal.CD02",
-          "pry": "chisa.normal.CD02",
-          "encourage": "chisa.normal.CD06",
-          "concerto": "chisa.normal.CD06",
-          "intro": "chisa.normal.CD06",
-          "outro": "chisa.normal.CD06",
           "support": "chisa.normal.CD06",
           "guard": "chisa.normal.CD07",
           "defend": "chisa.normal.CD07",
@@ -9749,7 +9897,15 @@
           "cut": "chisa.normal.CD04",
           "chainsaw": "chisa.normal.CD05",
           "mend": "chisa.normal.CD06",
-          "release": "chisa.normal.CD04"
+          "release": "chisa.normal.CD04",
+          "A": "chisa.normal.CD02",
+          "E1": "chisa.normal.CD04",
+          "E2": "chisa.normal.CD06",
+          "E3": "chisa.normal.CD05",
+          "E4": "chisa.normal.CD05",
+          "E5": "chisa.normal.CD04",
+          "E6": "chisa.normal.CD06",
+          "R": "chisa.normal.CD04"
         },
         "actionOrder": [
           "chisa.normal.CD01",
@@ -9765,13 +9921,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 364,
         "bodyScale": 1,
@@ -9788,11 +9942,6 @@
           "retreat": "chisa.peach.CP01",
           "basic": "chisa.peach.CP02",
           "attack": "chisa.peach.CP02",
-          "pry": "chisa.peach.CP02",
-          "encourage": "chisa.peach.CP06",
-          "concerto": "chisa.peach.CP06",
-          "intro": "chisa.peach.CP06",
-          "outro": "chisa.peach.CP06",
           "support": "chisa.peach.CP06",
           "guard": "chisa.peach.CP07",
           "defend": "chisa.peach.CP07",
@@ -9804,7 +9953,15 @@
           "cut": "chisa.peach.CP04",
           "chainsaw": "chisa.peach.CP05",
           "mend": "chisa.peach.CP06",
-          "release": "chisa.peach.CP04"
+          "release": "chisa.peach.CP04",
+          "A": "chisa.peach.CP02",
+          "E1": "chisa.peach.CP04",
+          "E2": "chisa.peach.CP06",
+          "E3": "chisa.peach.CP05",
+          "E4": "chisa.peach.CP05",
+          "E5": "chisa.peach.CP04",
+          "E6": "chisa.peach.CP06",
+          "R": "chisa.peach.CP04"
         },
         "actionOrder": [
           "chisa.peach.CP01",
@@ -9820,13 +9977,11 @@
           "wait": "shared idle pose; no new action",
           "taunt": "shared idle pose plus target cue",
           "retreat": "shared idle pose with retreat translation, no mirror",
-          "pry": "shared weapon/basic pose; exactly one shield point still decided by rules",
-          "encourage": "shared support pose; independent feedback",
-          "concerto": "shared support pose; rules decide effects",
           "hurt": "reuse current live pose with flash/recoil; mapped idle is fallback only",
           "critical": "persistent heavy-injury pose while alive",
           "down": "terminal down pose; do not return to idle unless revived by an actual rule",
-          "victory": "shared idle where no dedicated victory PNG exists"
+          "victory": "shared idle where no dedicated victory PNG exists",
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose."
         },
         "bodyHeight": 374,
         "bodyScale": 1,
@@ -9863,8 +10018,42 @@
           "down": "rover.male_default.07-CM",
           "hurt": "rover.male_default.09-CM",
           "victory": "rover.male_default.01-CM",
-          "outro": "rover.male_default.01-CM",
-          "concerto": "rover.male_default.01-CM"
+          "rover_spectro_a": "rover.male_default.02-CM",
+          "rover_spectro_e1": "rover.male_default.04-SP-a",
+          "rover_spectro_e2": "rover.male_default.04-SP-b",
+          "rover_spectro_e3": "rover.male_default.04-SP-a",
+          "rover_spectro_s": "rover.male_default.04-SP-b",
+          "rover_spectro_r": "rover.male_default.10-SP",
+          "rover_spectro_e2a": "rover.male_default.04-SP-a",
+          "rover_spectro_e2b": "rover.male_default.04-SP-b",
+          "rover_spectro_e1_state": "rover.male_default.04-SP-a",
+          "rover_havoc_a": "rover.male_default.02-CM",
+          "rover_havoc_e1": "rover.male_default.04-HV-a",
+          "rover_havoc_e2": "rover.male_default.04-HV-b",
+          "rover_havoc_e3": "rover.male_default.04-HV-a",
+          "rover_havoc_s": "rover.male_default.04-HV-b",
+          "rover_havoc_r": "rover.male_default.10-HV",
+          "rover_havoc_e2a": "rover.male_default.04-HV-a",
+          "rover_havoc_e2b": "rover.male_default.04-HV-b",
+          "rover_havoc_e1_state": "rover.male_default.04-HV-a",
+          "rover_aero_a": "rover.male_default.02-CM",
+          "rover_aero_e1": "rover.male_default.04-AE-a",
+          "rover_aero_e2": "rover.male_default.10-AE",
+          "rover_aero_e3": "rover.male_default.04-AE-a",
+          "rover_aero_s": "rover.male_default.10-AE",
+          "rover_aero_r": "rover.male_default.10-AE",
+          "rover_aero_e2a": "rover.male_default.04-AE-a",
+          "rover_aero_e2b": "rover.male_default.10-AE",
+          "rover_aero_e1_state": "rover.male_default.04-AE-a",
+          "rover_electro_a": "rover.male_default.02-CM",
+          "rover_electro_e1": "rover.male_default.04-EL-a",
+          "rover_electro_e2": "rover.male_default.02-CM",
+          "rover_electro_e3": "rover.male_default.04-EL-a",
+          "rover_electro_s": "rover.male_default.02-CM",
+          "rover_electro_r": "rover.male_default.10-EL",
+          "rover_electro_e2a": "rover.male_default.01-CM",
+          "rover_electro_e2b": "rover.male_default.02-CM",
+          "rover_electro_e1_state": "rover.male_default.04-EL-a"
         },
         "sequences": {
           "electro_counter": [
@@ -9882,6 +10071,10 @@
           "electro_overload": "Pure team buff effect; idle body remains unchanged",
           "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
           "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        },
+        "mappingNotes": {
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose.",
+          "rover_electro_e1_state": "Four true attacks are engine events; visual keypose reuses existing conductive skill art."
         }
       },
       "male_school": {
@@ -9912,8 +10105,42 @@
           "down": "rover.male_school.07-CM",
           "hurt": "rover.male_school.09-CM",
           "victory": "rover.male_school.01-CM",
-          "outro": "rover.male_school.01-CM",
-          "concerto": "rover.male_school.01-CM"
+          "rover_spectro_a": "rover.male_school.02-CM",
+          "rover_spectro_e1": "rover.male_school.04-SP-a",
+          "rover_spectro_e2": "rover.male_school.04-SP-b",
+          "rover_spectro_e3": "rover.male_school.04-SP-a",
+          "rover_spectro_s": "rover.male_school.04-SP-b",
+          "rover_spectro_r": "rover.male_school.10-SP",
+          "rover_spectro_e2a": "rover.male_school.04-SP-a",
+          "rover_spectro_e2b": "rover.male_school.04-SP-b",
+          "rover_spectro_e1_state": "rover.male_school.04-SP-a",
+          "rover_havoc_a": "rover.male_school.02-CM",
+          "rover_havoc_e1": "rover.male_school.04-HV-a",
+          "rover_havoc_e2": "rover.male_school.04-HV-b",
+          "rover_havoc_e3": "rover.male_school.04-HV-a",
+          "rover_havoc_s": "rover.male_school.04-HV-b",
+          "rover_havoc_r": "rover.male_school.10-HV",
+          "rover_havoc_e2a": "rover.male_school.04-HV-a",
+          "rover_havoc_e2b": "rover.male_school.04-HV-b",
+          "rover_havoc_e1_state": "rover.male_school.04-HV-a",
+          "rover_aero_a": "rover.male_school.02-CM",
+          "rover_aero_e1": "rover.male_school.04-AE-a",
+          "rover_aero_e2": "rover.male_school.10-AE",
+          "rover_aero_e3": "rover.male_school.04-AE-a",
+          "rover_aero_s": "rover.male_school.10-AE",
+          "rover_aero_r": "rover.male_school.10-AE",
+          "rover_aero_e2a": "rover.male_school.04-AE-a",
+          "rover_aero_e2b": "rover.male_school.10-AE",
+          "rover_aero_e1_state": "rover.male_school.04-AE-a",
+          "rover_electro_a": "rover.male_school.02-CM",
+          "rover_electro_e1": "rover.male_school.04-EL-a",
+          "rover_electro_e2": "rover.male_school.02-CM",
+          "rover_electro_e3": "rover.male_school.04-EL-a",
+          "rover_electro_s": "rover.male_school.02-CM",
+          "rover_electro_r": "rover.male_school.10-EL",
+          "rover_electro_e2a": "rover.male_school.01-CM",
+          "rover_electro_e2b": "rover.male_school.02-CM",
+          "rover_electro_e1_state": "rover.male_school.04-EL-a"
         },
         "sequences": {
           "electro_counter": [
@@ -9931,6 +10158,10 @@
           "electro_overload": "Pure team buff effect; idle body remains unchanged",
           "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
           "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        },
+        "mappingNotes": {
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose.",
+          "rover_electro_e1_state": "Four true attacks are engine events; visual keypose reuses existing conductive skill art."
         }
       },
       "female_default": {
@@ -9961,8 +10192,42 @@
           "down": "rover.female_default.07-CM",
           "hurt": "rover.female_default.09-CM",
           "victory": "rover.female_default.01-CM",
-          "outro": "rover.female_default.01-CM",
-          "concerto": "rover.female_default.01-CM"
+          "rover_spectro_a": "rover.female_default.02-CM",
+          "rover_spectro_e1": "rover.female_default.04-SP-a",
+          "rover_spectro_e2": "rover.female_default.04-SP-b",
+          "rover_spectro_e3": "rover.female_default.04-SP-a",
+          "rover_spectro_s": "rover.female_default.04-SP-b",
+          "rover_spectro_r": "rover.female_default.10-SP",
+          "rover_spectro_e2a": "rover.female_default.04-SP-a",
+          "rover_spectro_e2b": "rover.female_default.04-SP-b",
+          "rover_spectro_e1_state": "rover.female_default.04-SP-a",
+          "rover_havoc_a": "rover.female_default.02-CM",
+          "rover_havoc_e1": "rover.female_default.04-HV-a",
+          "rover_havoc_e2": "rover.female_default.04-HV-b",
+          "rover_havoc_e3": "rover.female_default.04-HV-a",
+          "rover_havoc_s": "rover.female_default.04-HV-b",
+          "rover_havoc_r": "rover.female_default.10-HV",
+          "rover_havoc_e2a": "rover.female_default.04-HV-a",
+          "rover_havoc_e2b": "rover.female_default.04-HV-b",
+          "rover_havoc_e1_state": "rover.female_default.04-HV-a",
+          "rover_aero_a": "rover.female_default.02-CM",
+          "rover_aero_e1": "rover.female_default.04-AE-a",
+          "rover_aero_e2": "rover.female_default.10-AE",
+          "rover_aero_e3": "rover.female_default.04-AE-a",
+          "rover_aero_s": "rover.female_default.10-AE",
+          "rover_aero_r": "rover.female_default.10-AE",
+          "rover_aero_e2a": "rover.female_default.04-AE-a",
+          "rover_aero_e2b": "rover.female_default.10-AE",
+          "rover_aero_e1_state": "rover.female_default.04-AE-a",
+          "rover_electro_a": "rover.female_default.02-CM",
+          "rover_electro_e1": "rover.female_default.04-EL-a",
+          "rover_electro_e2": "rover.female_default.02-CM",
+          "rover_electro_e3": "rover.female_default.04-EL-a",
+          "rover_electro_s": "rover.female_default.02-CM",
+          "rover_electro_r": "rover.female_default.10-EL",
+          "rover_electro_e2a": "rover.female_default.01-CM",
+          "rover_electro_e2b": "rover.female_default.02-CM",
+          "rover_electro_e1_state": "rover.female_default.04-EL-a"
         },
         "sequences": {
           "electro_counter": [
@@ -9980,6 +10245,10 @@
           "electro_overload": "Pure team buff effect; idle body remains unchanged",
           "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
           "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        },
+        "mappingNotes": {
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose.",
+          "rover_electro_e1_state": "Four true attacks are engine events; visual keypose reuses existing conductive skill art."
         }
       },
       "female_school": {
@@ -10010,8 +10279,42 @@
           "down": "rover.female_school.07-CM",
           "hurt": "rover.female_school.09-CM",
           "victory": "rover.female_school.01-CM",
-          "outro": "rover.female_school.01-CM",
-          "concerto": "rover.female_school.01-CM"
+          "rover_spectro_a": "rover.female_school.02-CM",
+          "rover_spectro_e1": "rover.female_school.04-SP-a",
+          "rover_spectro_e2": "rover.female_school.04-SP-b",
+          "rover_spectro_e3": "rover.female_school.04-SP-a",
+          "rover_spectro_s": "rover.female_school.04-SP-b",
+          "rover_spectro_r": "rover.female_school.10-SP",
+          "rover_spectro_e2a": "rover.female_school.04-SP-a",
+          "rover_spectro_e2b": "rover.female_school.04-SP-b",
+          "rover_spectro_e1_state": "rover.female_school.04-SP-a",
+          "rover_havoc_a": "rover.female_school.02-CM",
+          "rover_havoc_e1": "rover.female_school.04-HV-a",
+          "rover_havoc_e2": "rover.female_school.04-HV-b",
+          "rover_havoc_e3": "rover.female_school.04-HV-a",
+          "rover_havoc_s": "rover.female_school.04-HV-b",
+          "rover_havoc_r": "rover.female_school.10-HV",
+          "rover_havoc_e2a": "rover.female_school.04-HV-a",
+          "rover_havoc_e2b": "rover.female_school.04-HV-b",
+          "rover_havoc_e1_state": "rover.female_school.04-HV-a",
+          "rover_aero_a": "rover.female_school.02-CM",
+          "rover_aero_e1": "rover.female_school.04-AE-a",
+          "rover_aero_e2": "rover.female_school.10-AE",
+          "rover_aero_e3": "rover.female_school.04-AE-a",
+          "rover_aero_s": "rover.female_school.10-AE",
+          "rover_aero_r": "rover.female_school.10-AE",
+          "rover_aero_e2a": "rover.female_school.04-AE-a",
+          "rover_aero_e2b": "rover.female_school.10-AE",
+          "rover_aero_e1_state": "rover.female_school.04-AE-a",
+          "rover_electro_a": "rover.female_school.02-CM",
+          "rover_electro_e1": "rover.female_school.04-EL-a",
+          "rover_electro_e2": "rover.female_school.02-CM",
+          "rover_electro_e3": "rover.female_school.04-EL-a",
+          "rover_electro_s": "rover.female_school.02-CM",
+          "rover_electro_r": "rover.female_school.10-EL",
+          "rover_electro_e2a": "rover.female_school.01-CM",
+          "rover_electro_e2b": "rover.female_school.02-CM",
+          "rover_electro_e1_state": "rover.female_school.04-EL-a"
         },
         "sequences": {
           "electro_counter": [
@@ -10029,6 +10332,10 @@
           "electro_overload": "Pure team buff effect; idle body remains unchanged",
           "victory": "Standing relaxation display uses existing neutral idle, no claim of a new victory artwork",
           "outro": "Existing neutral retreat/transition staging plus independent mode-specific field effects"
+        },
+        "mappingNotes": {
+          "test4": "New skill keys explicitly reuse delivered action poses. A different skill key does not claim a newly drawn pose.",
+          "rover_electro_e1_state": "Four true attacks are engine events; visual keypose reuses existing conductive skill art."
         }
       }
     }
@@ -10210,6 +10517,58 @@
       "bodyScale": 1.0501392757660166,
       "rank": "common",
       "mappingNotes": "New fan-art single pose. Code-only action motion; full animation not yet drawn. Runtime calibration pending."
+    },
+    "dreamless": {
+      "slot": "enemy.dreamless.idle",
+      "idle": "enemy.dreamless.idle",
+      "actions": {
+        "idle": "enemy.dreamless.idle",
+        "basic": "enemy.dreamless.idle",
+        "attack": "enemy.dreamless.idle",
+        "hurt": "enemy.dreamless.idle",
+        "hit": "enemy.dreamless.idle",
+        "critical": "enemy.dreamless.idle",
+        "down": "enemy.dreamless.idle",
+        "dead": "enemy.dreamless.idle",
+        "charge": "enemy.dreamless.idle",
+        "charge_release": "enemy.dreamless.idle",
+        "sweep": "enemy.dreamless.idle",
+        "scythe": "enemy.dreamless.idle",
+        "heavy": "enemy.dreamless.idle",
+        "counter": "enemy.dreamless.idle",
+        "projectile": "enemy.dreamless.idle"
+      },
+      "bodyHeight": 777,
+      "bodyScale": 3.5,
+      "rank": "boss",
+      "placeholder": false,
+      "mappingNotes": "New generated first-iteration Dreamless battle sprite; one idle pose reused for actions, not a complete animation set"
+    },
+    "dreamless_projectile": {
+      "slot": "enemy.dreamless_projectile.idle",
+      "idle": "enemy.dreamless_projectile.idle",
+      "actions": {
+        "idle": "enemy.dreamless_projectile.idle",
+        "basic": "enemy.dreamless_projectile.idle",
+        "attack": "enemy.dreamless_projectile.idle",
+        "hurt": "enemy.dreamless_projectile.idle",
+        "hit": "enemy.dreamless_projectile.idle",
+        "critical": "enemy.dreamless_projectile.idle",
+        "down": "enemy.dreamless_projectile.idle",
+        "dead": "enemy.dreamless_projectile.idle",
+        "charge": "enemy.dreamless_projectile.idle",
+        "charge_release": "enemy.dreamless_projectile.idle",
+        "sweep": "enemy.dreamless_projectile.idle",
+        "scythe": "enemy.dreamless_projectile.idle",
+        "heavy": "enemy.dreamless_projectile.idle",
+        "counter": "enemy.dreamless_projectile.idle",
+        "projectile": "enemy.dreamless_projectile.idle"
+      },
+      "bodyHeight": 180,
+      "bodyScale": 0.5,
+      "rank": "mechanism",
+      "placeholder": true,
+      "mappingNotes": "Project-created geometric mechanic marker. Not a depiction of final Dreamless art."
     }
   },
   "transitions": {
@@ -10243,6 +10602,9 @@
     "chisa": {
       "summer": "peach",
       "peach_parfait": "peach"
+    },
+    "amy": {
+      "mech": "mecha"
     }
   },
   "defaults": {
@@ -10297,5 +10659,74 @@
     "newArtReview": "Five prism images passed independent static inspection. All 64/64 Rover first-release body work images are integrated, with intentional aliases separately recorded. Six revised candidates retain prior review history. Browser/Q42 and user art acceptance remain separate checks; body-art coverage is not full effects acceptance.",
     "needsRevisionCount": 0,
     "revisionCandidatesCount": 6
+  },
+  "combatStatePoses": {
+    "amy": {
+      "human": {
+        "asset_form": "human"
+      },
+      "mech": {
+        "asset_form": "mecha"
+      }
+    },
+    "lynae": {
+      "sampling": {
+        "idle_action": "idle"
+      },
+      "cruise": {
+        "idle_action": "skate",
+        "note": "Reuses delivered skate pose for persistent cruise state."
+      }
+    },
+    "mornye": {
+      "ground": {
+        "idle_action": "idle"
+      },
+      "air": {
+        "idle_action": "field",
+        "note": "Existing field keypose plus raised placement; airborne artwork not newly drawn."
+      }
+    },
+    "denia": {
+      "red": {
+        "asset_form": "red"
+      },
+      "blue": {
+        "asset_form": "blue"
+      }
+    },
+    "chisa": {
+      "scissors": {
+        "idle_action": "idle"
+      },
+      "saw": {
+        "idle_action": "chainsaw",
+        "note": "Existing chainsaw pose used as persistent saw-state display."
+      }
+    },
+    "rover_havoc": {
+      "normal": {
+        "idle_action": "idle"
+      },
+      "dark_surge": {
+        "idle_action": "havoc_enhanced"
+      }
+    },
+    "rover_electro": {
+      "normal": {
+        "idle_action": "idle"
+      },
+      "critical": {
+        "idle_action": "electro_enhanced"
+      }
+    }
+  },
+  "test4Mapping": {
+    "skill_count": 61,
+    "reused_test3_pngs": 158,
+    "new_placeholder_pngs": 1,
+    "new_character_pngs": 1,
+    "placeholder_final_art": false,
+    "new_skill_mapping_policy": "Explicit reuse only; no new art-completion claims."
   }
 }

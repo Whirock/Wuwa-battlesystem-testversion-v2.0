@@ -1,47 +1,18 @@
-"""Generate user-readable current rules and a traceable difference list. No external services."""
+"""Generate current public combat reference from shipped runtime data only."""
 from pathlib import Path
 import json
-ROOT=Path(__file__).resolve().parent.parent
-p=json.loads((ROOT/'parameters.json').read_text());old=json.loads((ROOT/'history/v0.1_parameters.json').read_text())
-L={'sync':'同步率','resonance':'谐振','color':'流彩','calibration':'校准','expectation':'期待','thread':'丝线','primary':'主要资源','dust':'尘微之声','umbra':'暗流','wind':'弦风息','surge':'电涌','energy':'共鸣能量'}
-def pool(x):return '、'.join(L.get(k,k)+' '+str(v) for k,v in x.items()) or '无'
-rows=['鸣潮AP遭遇演算 v0.3 当前执行规则与变更表','参数版本：'+p['schema_version'],'本文件从随包 parameters.json 生成。旧v0.1r2文稿属于历史，不代表本次全部当前规则。','']
-rows+=['一、难度（开场选择，新遭遇生效）']
-for key,d in p.get('difficulties',{}).items():rows += [f"{d['name']} / {key}",d['description'],f"敌生命倍率 {d.get('hp_multiplier')}；攻击倍率 {d.get('attack_multiplier')}；共振偏移 {d.get('shield_offset')}；目标策略 {d.get('targeting')}",'']
-rows+=['二、与v0.1r2的参数变化（参考等级一致）']
-for section in ['characters','enemies']:
- for key,u in p[section].items():
-  previous=old[section].get(key,{});changes=[f'{f}: {previous.get(f)} → {u.get(f)}' for f in ['hp','atk','def','speed','shield','phase2_shield','phase2_attack_multiplier'] if previous.get(f)!=u.get(f)]
-  if changes:rows.append(u['name']+'：'+'；'.join(changes))
-  for k,s in u.get('skills',{}).items():
-   prev=previous.get('skills',{}).get(k,{})
-   diff=[f'{f}: {prev.get(f)} → {s.get(f)}' for f in ['coef','break_points','concerto','cost','gain','effect','applies_mode','barrier','heal_scale','heal_flat','team_heal_scale','team_heal_flat'] if prev.get(f)!=s.get(f)]
-   if diff:rows.append('  '+s['name']+'：'+'；'.join(diff))
-rows+=['','三、我方当前行动说明']
-for key,u in p['characters'].items():
- rows+=['',u['name']+' / '+key]
- for k,s in u['skills'].items():
-  rows.append(f"  {s['name']} [{k}]：{s.get('effectSummary') or s.get('description') or ''}")
-  rows.append(f"    AP{s.get('ap_cost',0)} / 倍率{s.get('coef',0)} / 削共振{s.get('break_points',0)} / 消耗{pool(s.get('cost',{}))} / 获取{pool(s.get('gain',{}))} / 协奏{s.get('concerto',0)}")
-  if s.get('form_overrides'):rows.append('    形态覆盖：'+json.dumps(s['form_overrides'],ensure_ascii=False))
-rows+=['','漂泊者四属性配置（同一角色，不重复编队）']
-for mode,kit in p['characters'].get('rover',{}).get('mode_kits',{}).items():
- rows.append(mode+' / '+pool(kit['resources']))
- for key,s in kit['skills'].items():rows.append('  '+s['name']+'：'+s['effectSummary'])
-rows+=['','四、通用指令、交涉与有限测试道具']
-for k,s in p['generic_skills'].items():rows.append(f"{s['name']} [{k}]：{s.get('effectSummary') or s.get('description') or ''}"+(' 当前实现另有成本：该敌下一次实际造成伤害的单体攻击伤害+15%，攻击后消耗；全体攻击不加此项、不消费。最长至施放后第2轮末；施放者倒地/撤离清除。' if k=='taunt' else ''))
-rows+=['测试库存：'+json.dumps(p.get('test_inventory',{}),ensure_ascii=False),'道具不属于持久经济或商店，不会复活；每次遭遇按规则重置库存。','']
-rows+=['五、敌人行动与预警 / 可执行对策']
-for key,u in p['enemies'].items():
- rows+=['',u['name']+' / '+u['rank']]
- for k,s in u['skills'].items():
-  rows.append(f"  {s['name']} [{k}]：{s.get('effectSummary') or s.get('description') or ''}")
-  for field,label in [('telegraphText','预警'),('counterplayText','对策'),('costText','行动成本'),('durationText','持续'),('cooldownText','间隔')]:
-   if s.get(field):rows.append('    '+label+'：'+s[field])
- for diff,pattern in u.get('difficulty_patterns',{'standard':u['pattern']}).items():rows.append('  '+diff+'轮转：'+' → '.join(u['skills'][s]['name'] for s in pattern))
-rows+=['','六、规则数据的新增/修改字段']
-for k,v in p['rules'].items():
- if old['rules'].get(k)!=v:rows.append(k+'：'+str(old['rules'].get(k,'（旧版无）'))+' → '+str(v))
-rows+=['','说明：不把新增候选平衡称为已最终确认。实际伤害由引擎当前状态、抗性、共振跳窗、减伤与延奏通道共同结算。默认不会自动消耗满协奏；只能由当前行动者在付费动作后选择接收者，并结束本人窗口。','当前JSON及单元/DOM测试证据随包，真实浏览器视觉/音频/Windows启动的验证状态另见测试报告。']
-(ROOT/'当前执行规则与变更表.txt').write_text('\n'.join(rows)+'\n')
-print(ROOT/'当前执行规则与变更表.txt')
+root=Path(__file__).resolve().parent.parent
+p=json.loads((root/'parameters.json').read_text())
+rows=['鸣潮回合制 3.0 · test.4 当前执行规则与变更表','参数版本：'+p['schema_version'],'此表由随包运行参数生成；候选改编数值，不是官方参数。','',
+'每人每轮一次正常行动；等待同轮延后一次。开场HP/SP满，BP1，能量0。BP上限5，花0–3BP；花点后下一轮不自然补点。SP不自动恢复。',
+'普通攻击1–4次真实攻击。本体追加每击40%，合格外部效果按真实攻击条件执行，协同不递归。',
+'基础能量每根仅发一次：本人B×ER，其他存活队友B×0.5×接收者ER。锁能不阻止向外共享。',
+'共振：精英72，无冠112，无妄156；投射物反弹54.6，无妄严格低于78中断特殊蓄能。普通敌没有共振条。',
+'爱弥斯/达妮娅R1满能后保留R2并锁能，R2正常行动且总耗3BP，无二次满能门槛。',
+'实现澄清：琳奈E5仅下一次R/R1/R2；无冠束缚只压制下一反击；连景按真实本体属性基数并受既定上限。','', '九配置 / 六十一主动卡']
+for key,c in p['characters'].items():
+ rows.extend(['',c['name']+' / '+key+' / 个人能量上限 '+str(c['energy_cap'])])
+ for sid,s in c['skills'].items():
+  a=s['numeric_audit'];rows.append(f"{sid} {s['name']}：SP {a['sp']} / CD {a['cd']} / B {a['base_energy']} / 能量耗 {a['energy_cost']}；完整分支与BP四档请查看游戏卡面。")
+rows.extend(['','升级兼容：只迁移明确支持的本地素材与设置。旧AP战局拒绝续接，新库与旧版分离。','验证：参见测试报告.txt、docs/test4-independent-qa.md、tests/v04/results。旧版报告不作为本版证据。'])
+(root/'当前执行规则与变更表.txt').write_text('\n'.join(rows)+'\n')

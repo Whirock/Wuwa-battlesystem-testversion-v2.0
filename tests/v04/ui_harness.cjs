@@ -1,0 +1,31 @@
+'use strict';
+// REAL app/engine/storage source executed in jsdom with fake IndexedDB/media/canvas/clock.
+// No browser rendering, layout, real codec, autoplay, accessibility or Windows evidence.
+const fs=require('fs'),path=require('path'),assert=require('assert'),crypto=require('crypto');
+const {JSDOM}=require('../independent/v02/node_modules/jsdom');const {IDBFactory}=require('../independent/v02/node_modules/fake-indexeddb');
+const ROOT=path.resolve(process.env.QA_ROOT||path.join(__dirname,'../..'));const fixtures=path.join(__dirname,'../independent/v02/fixtures');
+if(!fs.existsSync(path.join(fixtures,'qa_oversize.png')))fs.writeFileSync(path.join(fixtures,'qa_oversize.png'),Buffer.alloc(30*1024*1024));
+const flush=()=>new Promise(r=>setImmediate(r));
+function sha(f){return crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,f))).digest('hex')}
+async function boot(db=new IDBFactory()){
+ const html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8').replace(/<script[^>]*src=[^>]*><\/script>/g,'');const dom=new JSDOM(html,{url:'https://qa.invalid/',runScripts:'outside-only'}),w=dom.window;
+ let now=0,id=0,raf=null,timers=new Map(),downloads=[],draws=[],texts=[],errors=[];w.console={...console,error:(...e)=>errors.push(e.map(String).join(' '))};w.indexedDB=db;w.structuredClone=structuredClone;w.matchMedia=()=>({matches:false});w.confirm=()=>true;w.setTimeout=(fn,delay=0)=>{timers.set(++id,{fn,t:now+Number(delay)});return id};w.clearTimeout=id=>timers.delete(id);w.requestAnimationFrame=fn=>(raf=fn,1);w.cancelAnimationFrame=()=>{};Object.defineProperty(w.performance,'now',{value:()=>now});
+ w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','')};w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new w.Event('close'))};
+ const no=()=>{};const ctx=new Proxy({drawImage:(image,...args)=>{draws.push({src:image.src||'canvas',args});},imageSmoothingEnabled:false,measureText:()=>({width:0})},{get:(o,k)=>k in o?o[k]:no,set:(o,k,v)=>(o[k]=v,true)});w.HTMLCanvasElement.prototype.getContext=function(){const canvas=this;return new Proxy({...ctx,fillText:(text,x,y)=>texts.push({canvas:canvas.id,text,x,y}),drawImage:(image,...args)=>{const src=image.src||image.__qaSource||'canvas';canvas.__qaSource=src;draws.push({canvas:canvas.id,src,args});}},{get:(o,k)=>k in o?o[k]:no,set:(o,k,v)=>(o[k]=v,true)})};w.HTMLCanvasElement.prototype.getBoundingClientRect=()=>({left:0,top:0,width:900,height:400,right:900,bottom:400});
+ w.Blob=Blob;w.File=File;w.FileReader=class{readAsDataURL(blob){blob.arrayBuffer().then(a=>{this.result='data:'+blob.type+';base64,'+Buffer.from(a).toString('base64');this.onload?.()}).catch(e=>{this.error=e;this.onerror?.()})}};
+ w.Image=class{constructor(){this.width=0;this.height=0;}set src(v){this._src=v;Promise.resolve().then(()=>{try{let buf=v.startsWith('data:')?Buffer.from(v.split(',')[1],'base64'):fs.readFileSync(path.join(ROOT,v));if(buf.readUInt32BE(0)!==0x89504e47||buf.length<24)throw Error('mock only supports test PNG');this.width=this.naturalWidth=buf.readUInt32BE(16);this.height=this.naturalHeight=buf.readUInt32BE(20);if(!this.width||!this.height)throw Error('bad');this.onload?.()}catch{this.onerror?.()}})}get src(){return this._src}};
+ w.Audio=class{constructor(src){this.src=src;this.paused=true;this.currentTime=0;}play(){this.paused=false;return Promise.resolve()}pause(){this.paused=true}};
+ const blobs=new Map();w.URL.createObjectURL=blob=>{const u='blob:qa/'+(++id);blobs.set(u,blob);return u};w.URL.revokeObjectURL=no;const originalClick=w.HTMLAnchorElement.prototype.click;w.HTMLAnchorElement.prototype.click=function(){if(this.download){downloads.push({name:this.download,blob:blobs.get(this.href)});return;}return originalClick.call(this)};
+ for(const f of ['parameters.js','assets.js','skill-effects.js','engine.js','storage.js','release-notes.js','app.js']){w.eval(fs.readFileSync(path.join(ROOT,f),'utf8')+'\n//# sourceURL='+f);if(f==='storage.js'){
+ // fake-indexeddb is hosted in Node's realm; native IDB returns structured clones in
+ // the requesting Window's realm. Recreate that native prototype boundary only.
+ const rawGet=w.LocalProjectStore.prototype.get;
+ w.LocalProjectStore.prototype.get=async function(k){const v=await rawGet.call(this,k);return v===undefined?undefined:w.JSON.parse(JSON.stringify(v));};
+ }}
+ const $=sel=>w.document.querySelector(sel);async function tick(){await flush();await Promise.resolve()};async function next(){await tick();if(!timers.size)return false;const [key,item]=[...timers.entries()].sort((a,b)=>a[1].t-b[1].t)[0];timers.delete(key);now=item.t;item.fn();await tick();return true;}
+ async function until(pred,max=100){for(let i=0;i<max;i++){await tick();if(pred())return;await next()}throw Error('Condition timed out '+$.toString())}
+ await until(()=>w.BattleLabDiagnostics?.getState().round>0,20);
+ return {dom,w,db,$,downloads,draws,texts,errors,timers,tick,next,until,diag:()=>w.BattleLabDiagnostics.getState(),click:sel=>{const n=$(sel);assert(n,'missing '+sel);n.click();return n},change:(sel,value)=>{const n=$(sel);n.value=value;n.dispatchEvent(new w.Event('change',{bubbles:true}));},input:(sel,value)=>{const n=$(sel);n.value=value;n.dispatchEvent(new w.Event('input',{bubbles:true}));},frame:async(offset=20)=>{now+=offset;if(raf)raf(now);await tick();now+=20;if(raf)raf(now);await tick();},import:async(sel,name,contents)=>{const n=$(sel);assert(n,'missing '+sel);const file=contents===undefined?new File([fs.readFileSync(path.join(fixtures,name))],name):new File([contents],name);Object.defineProperty(n,'files',{configurable:true,value:[file]});n.dispatchEvent(new w.Event('change',{bubbles:true}));for(let i=0;i<12;i++)await tick();},cancelFile:async(sel)=>{const n=$(sel);Object.defineProperty(n,'files',{configurable:true,value:[]});n.dispatchEvent(new w.Event('change',{bubbles:true}));await tick();},close:()=>{timers.clear();}};
+}
+
+module.exports={boot,sha,ROOT,fixtures,flush};

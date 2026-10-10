@@ -1,0 +1,5959 @@
+{
+  "schema": "independent-dreamless-normal-strategy-1",
+  "runAt": "2026-10-10T14:57:56.886Z",
+  "command": "node tests/v04/independent_dreamless_strategy.cjs",
+  "scope": "Unmodified level20 and level40 default HP/SP/BP1/E0 vs fixed level40 Dreamless; no stat or phase injection.",
+  "strategy": "Prioritize living projectiles with lethal preview; otherwise highest legal Q / heal below 55%; reserve BP for pending R2, prioritize its legal finisher, guard committed high-risk charges, SP items only on depletion.",
+  "sha256": {
+    "engine.js": "bcca898fa5206a874d70953c2844af0a445686fb04682874aa378ed48637d66b",
+    "skill-effects.js": "5cefec651c4b473d90507fa4bc66ba0da54fa4acad518cd49004baf17f0eb4c9",
+    "parameters.json": "6440e27ff9f5304a8303100cfdb33842b1e97342b9c9a495c311254fa1304a6e"
+  },
+  "runs": [
+    {
+      "level": 20,
+      "team": [
+        "amy",
+        "mornye",
+        "chisa",
+        "rover_aero"
+      ],
+      "seed": 4204,
+      "steps": 77,
+      "outcome": {
+        "outcome": "loss",
+        "rounds": 20
+      },
+      "summary": {
+        "outcome": "loss",
+        "rounds": 20,
+        "survivors": 0,
+        "escaped_count": 0,
+        "ko_count": 4,
+        "ally_hp_fraction": 0,
+        "counts": {
+          "round_start": 20,
+          "slot_start": 77,
+          "enemy_action": 20,
+          "damage": 96,
+          "energy": 140,
+          "action_end": 77,
+          "action_commit": 57,
+          "original_attack": 68,
+          "successful_hit": 68,
+          "q_damage": 64,
+          "heal": 30,
+          "form": 10,
+          "status": 25,
+          "round_end": 19,
+          "abnormal_apply": 4,
+          "status_removed": 18,
+          "break": 3,
+          "break_recover": 3,
+          "charge": 1,
+          "spawn": 2,
+          "down": 5,
+          "reflection": 1,
+          "despawn": 1,
+          "special_interrupt": 1,
+          "battle_end": 1
+        },
+        "skills": {
+          "rover_aero:rover_aero_e1": 2,
+          "amy:E3": 1,
+          "chisa:E3": 1,
+          "mornye:E2": 2,
+          "rover_aero:rover_aero_e2": 2,
+          "amy:E2": 1,
+          "chisa:E5": 1,
+          "mornye:E3": 1,
+          "rover_aero:rover_aero_r": 4,
+          "amy:E1": 1,
+          "chisa:R": 4,
+          "mornye:E1": 3,
+          "amy:R1": 1,
+          "chisa:E2": 3,
+          "mornye:R": 2,
+          "amy:A": 4,
+          "chisa:A": 10,
+          "rover_aero:rover_aero_e3": 1,
+          "amy:R2": 1,
+          "mornye:E4": 1,
+          "rover_aero:rover_aero_a": 7,
+          "mornye:A": 4
+        },
+        "enemy_skills": {
+          "dreamless:scythe": 6,
+          "dreamless:sweep": 3,
+          "dreamless:basic": 1,
+          "dreamless:break_recover": 3,
+          "dreamless:projectiles": 1,
+          "dreamless:special_recover": 1,
+          "dreamless:heavy": 5
+        },
+        "inventory": {
+          "sp": 2,
+          "repair": 2,
+          "cleanse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sp": 3,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "mornye": {
+            "sp": 5,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "chisa": {
+            "sp": 6,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "rover_aero": {
+            "sp": 3,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          }
+        },
+        "first_break_round": 4,
+        "enemy_effective_actions": 16
+      },
+      "finalEnemies": [
+        {
+          "key": "dreamless",
+          "hp": 16987,
+          "maxhp": 24000,
+          "q": 99.6,
+          "maxq": 156,
+          "phase": 2,
+          "retreated": false
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 0,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 180,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        }
+      ],
+      "commands": [
+        {
+          "round": 1,
+          "actor": "rover_aero",
+          "key": "rover_aero_e1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "amy",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "mornye",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "amy",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "mornye",
+          "key": "E1",
+          "target": "ally:0:amy",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "rover_aero",
+          "key": "rover_aero_e1",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "mornye",
+          "key": "E1",
+          "target": "ally:0:amy",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:projectile:1",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 7,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "mornye",
+          "key": "E1",
+          "target": "ally:0:amy",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 11,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 13,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 16,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 16,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 17,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 18,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 19,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        }
+      ],
+      "mechanismEvents": [
+        {
+          "id": 3,
+          "round": 1,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 1,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 62,
+          "round": 2,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 6,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 139,
+          "round": 3,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 11,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 187,
+          "round": 4,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 16,
+          "message": "无妄者：短剑连段"
+        },
+        {
+          "id": 216,
+          "round": 4,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 19,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 232,
+          "round": 5,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 21,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 233,
+          "round": 5,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 290,
+          "round": 6,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "projectiles",
+          "rootActionId": 26,
+          "message": "无妄者：投射物蓄能"
+        },
+        {
+          "id": 291,
+          "round": 6,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "projectiles",
+          "required": 2,
+          "targets": [
+            "ally:0:amy",
+            "ally:1:mornye",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 292,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:1",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 293,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:2",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 300,
+          "round": 6,
+          "event": "reflection",
+          "source": "enemy:projectile:1",
+          "target": "enemy:0:dreamless",
+          "actor": "ally:3:rover_aero",
+          "q": 54.6,
+          "message": ""
+        },
+        {
+          "id": 304,
+          "round": 6,
+          "event": "special_interrupt",
+          "target": "enemy:0:dreamless",
+          "q": 73.8,
+          "threshold": 78,
+          "message": "无妄者蓄能中断"
+        },
+        {
+          "id": 343,
+          "round": 7,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "special_recover",
+          "rootActionId": 31,
+          "message": "无妄者：中断收势"
+        },
+        {
+          "id": 391,
+          "round": 8,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 36,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 423,
+          "round": 8,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 39,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 446,
+          "round": 9,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 41,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 447,
+          "round": 9,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 501,
+          "round": 10,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 46,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 536,
+          "round": 11,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 50,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 579,
+          "round": 12,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 54,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 617,
+          "round": 13,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 58,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 670,
+          "round": 14,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 62,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 689,
+          "round": 14,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 64,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 697,
+          "round": 15,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 65,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 698,
+          "round": 15,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 729,
+          "round": 16,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 68,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 754,
+          "round": 17,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 71,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 773,
+          "round": 18,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 73,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 788,
+          "round": 19,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 75,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 807,
+          "round": 20,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 77,
+          "message": "无妄者：重连击"
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "team": [
+        "amy",
+        "lynae",
+        "mornye",
+        "chisa"
+      ],
+      "seed": 4204,
+      "steps": 51,
+      "outcome": {
+        "outcome": "loss",
+        "rounds": 15
+      },
+      "summary": {
+        "outcome": "loss",
+        "rounds": 15,
+        "survivors": 0,
+        "escaped_count": 0,
+        "ko_count": 4,
+        "ally_hp_fraction": 0,
+        "counts": {
+          "round_start": 15,
+          "slot_start": 51,
+          "enemy_action": 15,
+          "damage": 60,
+          "energy": 91,
+          "action_end": 51,
+          "action_commit": 36,
+          "original_attack": 41,
+          "successful_hit": 42,
+          "q_damage": 37,
+          "form": 8,
+          "heal": 19,
+          "status": 22,
+          "round_end": 14,
+          "status_removed": 19,
+          "down": 5,
+          "break": 2,
+          "break_recover": 2,
+          "charge": 1,
+          "spawn": 2,
+          "reflection": 1,
+          "despawn": 1,
+          "special_interrupt": 1,
+          "battle_end": 1
+        },
+        "skills": {
+          "lynae:E1": 3,
+          "amy:E3": 1,
+          "chisa:E2": 3,
+          "mornye:E1": 1,
+          "lynae:E2": 2,
+          "amy:E2": 1,
+          "chisa:E3": 1,
+          "mornye:E2": 2,
+          "lynae:R": 2,
+          "chisa:R": 2,
+          "mornye:E4": 2,
+          "chisa:E5": 1,
+          "mornye:E3": 1,
+          "mornye:R": 2,
+          "lynae:E4": 1,
+          "chisa:A": 2,
+          "mornye:A": 6,
+          "lynae:A": 3
+        },
+        "enemy_skills": {
+          "dreamless:scythe": 5,
+          "dreamless:sweep": 2,
+          "dreamless:basic": 1,
+          "dreamless:break_recover": 2,
+          "dreamless:projectiles": 1,
+          "dreamless:special_recover": 1,
+          "dreamless:heavy": 3
+        },
+        "inventory": {
+          "sp": 2,
+          "repair": 2,
+          "cleanse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sp": 19,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "lynae": {
+            "sp": 3,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "mornye": {
+            "sp": 9,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "chisa": {
+            "sp": 6,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          }
+        },
+        "first_break_round": 4,
+        "enemy_effective_actions": 12
+      },
+      "finalEnemies": [
+        {
+          "key": "dreamless",
+          "hp": 19105,
+          "maxhp": 24000,
+          "q": 73.4,
+          "maxq": 156,
+          "phase": 2,
+          "retreated": false
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 0,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 180,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        }
+      ],
+      "commands": [
+        {
+          "round": 1,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "amy",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "mornye",
+          "key": "E1",
+          "target": "ally:0:amy",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "lynae",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "lynae",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "mornye",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "lynae",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "lynae",
+          "key": "E4",
+          "target": "enemy:projectile:1",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "lynae",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "lynae",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "lynae",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "lynae",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 13,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 15,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        }
+      ],
+      "mechanismEvents": [
+        {
+          "id": 3,
+          "round": 1,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 1,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 55,
+          "round": 2,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 6,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 124,
+          "round": 3,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 11,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 163,
+          "round": 4,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 15,
+          "message": "无妄者：短剑连段"
+        },
+        {
+          "id": 185,
+          "round": 4,
+          "event": "break",
+          "source": "ally:3:chisa",
+          "breaker": "ally:3:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 17,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 215,
+          "round": 5,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 19,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 216,
+          "round": 5,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 253,
+          "round": 6,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "projectiles",
+          "rootActionId": 23,
+          "message": "无妄者：投射物蓄能"
+        },
+        {
+          "id": 254,
+          "round": 6,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "projectiles",
+          "required": 2,
+          "targets": [
+            "ally:1:lynae",
+            "ally:2:mornye",
+            "ally:3:chisa"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 255,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:1",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 256,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:2",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 263,
+          "round": 6,
+          "event": "reflection",
+          "source": "enemy:projectile:1",
+          "target": "enemy:0:dreamless",
+          "actor": "ally:1:lynae",
+          "q": 54.6,
+          "message": ""
+        },
+        {
+          "id": 267,
+          "round": 6,
+          "event": "special_interrupt",
+          "target": "enemy:0:dreamless",
+          "q": 60.8,
+          "threshold": 78,
+          "message": "无妄者蓄能中断"
+        },
+        {
+          "id": 301,
+          "round": 7,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "special_recover",
+          "rootActionId": 27,
+          "message": "无妄者：中断收势"
+        },
+        {
+          "id": 337,
+          "round": 8,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 31,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 358,
+          "round": 8,
+          "event": "break",
+          "source": "ally:3:chisa",
+          "breaker": "ally:3:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 33,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 381,
+          "round": 9,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 35,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 382,
+          "round": 9,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 430,
+          "round": 10,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 39,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 452,
+          "round": 11,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 42,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 484,
+          "round": 12,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 45,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 499,
+          "round": 13,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 47,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 518,
+          "round": 14,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 49,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 533,
+          "round": 15,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 51,
+          "message": "无妄者：镰刃回旋"
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "team": [
+        "amy",
+        "denia",
+        "chisa",
+        "rover_aero"
+      ],
+      "seed": 4204,
+      "steps": 51,
+      "outcome": {
+        "outcome": "loss",
+        "rounds": 15
+      },
+      "summary": {
+        "outcome": "loss",
+        "rounds": 15,
+        "survivors": 0,
+        "escaped_count": 0,
+        "ko_count": 4,
+        "ally_hp_fraction": 0,
+        "counts": {
+          "round_start": 15,
+          "slot_start": 51,
+          "enemy_action": 15,
+          "damage": 66,
+          "energy": 78,
+          "action_end": 51,
+          "action_commit": 36,
+          "original_attack": 43,
+          "successful_hit": 43,
+          "q_damage": 39,
+          "heal": 11,
+          "form": 5,
+          "status": 21,
+          "round_end": 14,
+          "abnormal_apply": 9,
+          "status_removed": 9,
+          "down": 5,
+          "break": 2,
+          "break_recover": 2,
+          "charge": 1,
+          "spawn": 2,
+          "reflection": 1,
+          "despawn": 1,
+          "special_interrupt": 1,
+          "fusion_burst": 1,
+          "battle_end": 1
+        },
+        "skills": {
+          "rover_aero:rover_aero_e1": 1,
+          "denia:E4": 3,
+          "amy:E3": 1,
+          "chisa:E3": 2,
+          "rover_aero:rover_aero_e2": 2,
+          "denia:E2": 4,
+          "amy:E2": 1,
+          "chisa:E5": 2,
+          "rover_aero:rover_aero_r": 3,
+          "chisa:R": 3,
+          "rover_aero:rover_aero_e3": 2,
+          "denia:A": 1,
+          "chisa:A": 5,
+          "rover_aero:rover_aero_a": 6
+        },
+        "enemy_skills": {
+          "dreamless:scythe": 5,
+          "dreamless:sweep": 2,
+          "dreamless:basic": 1,
+          "dreamless:break_recover": 2,
+          "dreamless:projectiles": 1,
+          "dreamless:special_recover": 1,
+          "dreamless:heavy": 3
+        },
+        "inventory": {
+          "sp": 2,
+          "repair": 2,
+          "cleanse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sp": 19,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "denia": {
+            "sp": 0,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "chisa": {
+            "sp": 12,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "rover_aero": {
+            "sp": 5,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          }
+        },
+        "first_break_round": 4,
+        "enemy_effective_actions": 12
+      },
+      "finalEnemies": [
+        {
+          "key": "dreamless",
+          "hp": 18875,
+          "maxhp": 24000,
+          "q": 82.8,
+          "maxq": 156,
+          "phase": 2,
+          "retreated": false
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 0,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 180,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        }
+      ],
+      "commands": [
+        {
+          "round": 1,
+          "actor": "rover_aero",
+          "key": "rover_aero_e1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "amy",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:projectile:1",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "denia",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 15,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        }
+      ],
+      "mechanismEvents": [
+        {
+          "id": 3,
+          "round": 1,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 1,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 58,
+          "round": 2,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 6,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 132,
+          "round": 3,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 11,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 169,
+          "round": 4,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 15,
+          "message": "无妄者：短剑连段"
+        },
+        {
+          "id": 187,
+          "round": 4,
+          "event": "break",
+          "source": "ally:1:denia",
+          "breaker": "ally:1:denia",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 17,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 208,
+          "round": 5,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 19,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 209,
+          "round": 5,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 256,
+          "round": 6,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "projectiles",
+          "rootActionId": 23,
+          "message": "无妄者：投射物蓄能"
+        },
+        {
+          "id": 257,
+          "round": 6,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "projectiles",
+          "required": 2,
+          "targets": [
+            "ally:1:denia",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 258,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:1",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 259,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:2",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 266,
+          "round": 6,
+          "event": "reflection",
+          "source": "enemy:projectile:1",
+          "target": "enemy:0:dreamless",
+          "actor": "ally:3:rover_aero",
+          "q": 54.6,
+          "message": ""
+        },
+        {
+          "id": 270,
+          "round": 6,
+          "event": "special_interrupt",
+          "target": "enemy:0:dreamless",
+          "q": 60.9,
+          "threshold": 78,
+          "message": "无妄者蓄能中断"
+        },
+        {
+          "id": 299,
+          "round": 7,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "special_recover",
+          "rootActionId": 27,
+          "message": "无妄者：中断收势"
+        },
+        {
+          "id": 342,
+          "round": 8,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 31,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 378,
+          "round": 9,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 35,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 402,
+          "round": 9,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 37,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 412,
+          "round": 10,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 38,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 413,
+          "round": 10,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 436,
+          "round": 11,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 41,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 463,
+          "round": 12,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 44,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 487,
+          "round": 13,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 47,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 504,
+          "round": 14,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 49,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 519,
+          "round": 15,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 51,
+          "message": "无妄者：镰刃回旋"
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "team": [
+        "amy",
+        "mornye",
+        "chisa",
+        "rover_aero"
+      ],
+      "seed": 4204,
+      "steps": 145,
+      "outcome": {
+        "outcome": "loss",
+        "rounds": 37
+      },
+      "summary": {
+        "outcome": "loss",
+        "rounds": 37,
+        "survivors": 0,
+        "escaped_count": 0,
+        "ko_count": 4,
+        "ally_hp_fraction": 0,
+        "counts": {
+          "round_start": 37,
+          "slot_start": 145,
+          "enemy_action": 37,
+          "damage": 161,
+          "energy": 208,
+          "action_end": 145,
+          "action_commit": 108,
+          "original_attack": 112,
+          "successful_hit": 112,
+          "q_damage": 104,
+          "status": 73,
+          "abnormal_apply": 6,
+          "form": 13,
+          "round_end": 36,
+          "heal": 36,
+          "status_removed": 32,
+          "break": 5,
+          "break_recover": 5,
+          "charge": 6,
+          "spawn": 2,
+          "down": 5,
+          "reflection": 1,
+          "despawn": 1,
+          "special_interrupt": 1,
+          "battle_end": 1
+        },
+        "skills": {
+          "rover_aero:rover_aero_e2": 3,
+          "amy:E3": 1,
+          "chisa:E3": 2,
+          "mornye:E2": 3,
+          "rover_aero:rover_aero_e3": 3,
+          "amy:E2": 2,
+          "chisa:E5": 2,
+          "mornye:E4": 3,
+          "rover_aero:rover_aero_r": 5,
+          "amy:E1": 1,
+          "chisa:R": 6,
+          "mornye:R": 6,
+          "amy:R1": 2,
+          "amy:A": 6,
+          "amy:R2": 2,
+          "chisa:E2": 2,
+          "chisa:A": 12,
+          "rover_aero:rover_aero_a": 8,
+          "mornye:E3": 1,
+          "mornye:E1": 1,
+          "mornye:A": 13,
+          "rover_aero:guard": 4,
+          "amy:guard": 2,
+          "chisa:guard": 8,
+          "mornye:guard": 10
+        },
+        "enemy_skills": {
+          "dreamless:scythe": 8,
+          "dreamless:sweep": 2,
+          "dreamless:break_recover": 5,
+          "dreamless:projectiles": 1,
+          "dreamless:special_recover": 1,
+          "dreamless:heavy": 6,
+          "dreamless:highrisk": 5,
+          "dreamless:charge_release": 5,
+          "dreamless:basic": 4
+        },
+        "inventory": {
+          "sp": 2,
+          "repair": 2,
+          "cleanse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sp": 2,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "mornye": {
+            "sp": 6,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "chisa": {
+            "sp": 5,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "rover_aero": {
+            "sp": 10,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          }
+        },
+        "first_break_round": 3,
+        "enemy_effective_actions": 31
+      },
+      "finalEnemies": [
+        {
+          "key": "dreamless",
+          "hp": 96,
+          "maxhp": 24000,
+          "q": 101.1,
+          "maxq": 156,
+          "phase": 3,
+          "retreated": false
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 0,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 180,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        }
+      ],
+      "commands": [
+        {
+          "round": 1,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "amy",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "amy",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:projectile:1",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 7,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "mornye",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 11,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "mornye",
+          "key": "E1",
+          "target": "ally:0:amy",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 13,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 13,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "amy",
+          "key": "guard",
+          "target": "ally:0:amy",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "amy",
+          "key": "guard",
+          "target": "ally:0:amy",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 16,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 16,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 16,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 16,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 17,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 17,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 18,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 18,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 18,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 19,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 19,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 19,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 22,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 22,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 22,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 23,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 23,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 24,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 24,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 25,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 25,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 26,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 26,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 26,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 27,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 27,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 28,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 29,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 29,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 30,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 30,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 31,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 31,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 32,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 32,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 32,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 33,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 35,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 36,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 37,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        },
+        {
+          "round": 37,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:1:mornye",
+          "bp": 0
+        }
+      ],
+      "mechanismEvents": [
+        {
+          "id": 3,
+          "round": 1,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 1,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 70,
+          "round": 2,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 6,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 133,
+          "round": 3,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 11,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 171,
+          "round": 3,
+          "event": "break",
+          "source": "ally:1:mornye",
+          "breaker": "ally:1:mornye",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 15,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 187,
+          "round": 4,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 16,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 188,
+          "round": 4,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 253,
+          "round": 5,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "projectiles",
+          "rootActionId": 21,
+          "message": "无妄者：投射物蓄能"
+        },
+        {
+          "id": 254,
+          "round": 5,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "projectiles",
+          "required": 2,
+          "targets": [
+            "ally:0:amy",
+            "ally:1:mornye",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 255,
+          "round": 5,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:1",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 256,
+          "round": 5,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:2",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 263,
+          "round": 5,
+          "event": "reflection",
+          "source": "enemy:projectile:1",
+          "target": "enemy:0:dreamless",
+          "actor": "ally:3:rover_aero",
+          "q": 54.6,
+          "message": ""
+        },
+        {
+          "id": 267,
+          "round": 5,
+          "event": "special_interrupt",
+          "target": "enemy:0:dreamless",
+          "q": 63.4,
+          "threshold": 78,
+          "message": "无妄者蓄能中断"
+        },
+        {
+          "id": 311,
+          "round": 6,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "special_recover",
+          "rootActionId": 26,
+          "message": "无妄者：中断收势"
+        },
+        {
+          "id": 356,
+          "round": 7,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 31,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 383,
+          "round": 7,
+          "event": "break",
+          "source": "ally:0:amy",
+          "breaker": "ally:0:amy",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 33,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 421,
+          "round": 8,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 36,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 422,
+          "round": 8,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 477,
+          "round": 9,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 41,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 539,
+          "round": 10,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 46,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 584,
+          "round": 11,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 51,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 636,
+          "round": 12,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 56,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 673,
+          "round": 12,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 59,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 692,
+          "round": 13,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 61,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 693,
+          "round": 13,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 749,
+          "round": 14,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 66,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 750,
+          "round": 14,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:0:amy",
+            "ally:1:mornye",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 788,
+          "round": 15,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 75,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 856,
+          "round": 16,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 80,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 863,
+          "round": 17,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 81,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 901,
+          "round": 18,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 85,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 939,
+          "round": 18,
+          "event": "break",
+          "source": "ally:1:mornye",
+          "breaker": "ally:1:mornye",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 88,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 947,
+          "round": 19,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 89,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 948,
+          "round": 19,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 983,
+          "round": 20,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 93,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 984,
+          "round": 20,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:1:mornye",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 1014,
+          "round": 21,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 100,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 1079,
+          "round": 22,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 104,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 1086,
+          "round": 23,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 105,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 1118,
+          "round": 24,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 109,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 1150,
+          "round": 25,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 112,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 1151,
+          "round": 25,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:1:mornye",
+            "ally:2:chisa"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 1172,
+          "round": 26,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 117,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 1207,
+          "round": 27,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 120,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 1214,
+          "round": 28,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 121,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 1239,
+          "round": 29,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 124,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 1253,
+          "round": 29,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 125,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 1272,
+          "round": 30,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 127,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 1273,
+          "round": 30,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 1296,
+          "round": 31,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 130,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 1297,
+          "round": 31,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:1:mornye",
+            "ally:2:chisa"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 1318,
+          "round": 32,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 135,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 1333,
+          "round": 33,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 137,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 1340,
+          "round": 34,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 138,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 1355,
+          "round": 35,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 140,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 1374,
+          "round": 36,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 142,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 1375,
+          "round": 36,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:1:mornye"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 1388,
+          "round": 37,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 145,
+          "message": "无妄者：毁灭放射"
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "team": [
+        "amy",
+        "lynae",
+        "mornye",
+        "chisa"
+      ],
+      "seed": 4204,
+      "steps": 106,
+      "outcome": {
+        "outcome": "loss",
+        "rounds": 28
+      },
+      "summary": {
+        "outcome": "loss",
+        "rounds": 28,
+        "survivors": 0,
+        "escaped_count": 0,
+        "ko_count": 4,
+        "ally_hp_fraction": 0,
+        "counts": {
+          "round_start": 28,
+          "slot_start": 106,
+          "enemy_action": 28,
+          "damage": 114,
+          "energy": 157,
+          "action_end": 106,
+          "action_commit": 78,
+          "original_attack": 81,
+          "successful_hit": 81,
+          "q_damage": 76,
+          "form": 16,
+          "status": 59,
+          "round_end": 27,
+          "heal": 24,
+          "status_removed": 35,
+          "break": 4,
+          "break_recover": 4,
+          "charge": 4,
+          "spawn": 2,
+          "down": 5,
+          "reflection": 1,
+          "despawn": 1,
+          "special_interrupt": 1,
+          "battle_end": 1
+        },
+        "skills": {
+          "lynae:E1": 6,
+          "amy:E3": 1,
+          "chisa:E3": 2,
+          "mornye:E2": 3,
+          "lynae:E2": 3,
+          "amy:E2": 2,
+          "chisa:E5": 2,
+          "mornye:E4": 3,
+          "lynae:R": 4,
+          "amy:E1": 1,
+          "chisa:R": 5,
+          "mornye:R": 4,
+          "lynae:A": 2,
+          "amy:R1": 2,
+          "amy:A": 5,
+          "mornye:E3": 1,
+          "amy:R2": 1,
+          "chisa:E2": 2,
+          "chisa:A": 7,
+          "mornye:E1": 1,
+          "mornye:A": 9,
+          "lynae:guard": 2,
+          "chisa:guard": 4,
+          "mornye:guard": 6
+        },
+        "enemy_skills": {
+          "dreamless:scythe": 6,
+          "dreamless:sweep": 1,
+          "dreamless:break_recover": 4,
+          "dreamless:projectiles": 1,
+          "dreamless:special_recover": 1,
+          "dreamless:heavy": 6,
+          "dreamless:highrisk": 3,
+          "dreamless:charge_release": 3,
+          "dreamless:basic": 3
+        },
+        "inventory": {
+          "sp": 2,
+          "repair": 2,
+          "cleanse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sp": 2,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "lynae": {
+            "sp": 3,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "mornye": {
+            "sp": 6,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "chisa": {
+            "sp": 5,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          }
+        },
+        "first_break_round": 3,
+        "enemy_effective_actions": 23
+      },
+      "finalEnemies": [
+        {
+          "key": "dreamless",
+          "hp": 4875,
+          "maxhp": 24000,
+          "q": 84.1,
+          "maxq": 156,
+          "phase": 3,
+          "retreated": false
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 0,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 180,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        }
+      ],
+      "commands": [
+        {
+          "round": 1,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "amy",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "lynae",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "lynae",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "amy",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "lynae",
+          "key": "A",
+          "target": "enemy:projectile:1",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "lynae",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "mornye",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 7,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "lynae",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "mornye",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "mornye",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "lynae",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "mornye",
+          "key": "E1",
+          "target": "ally:0:amy",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 11,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "lynae",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "lynae",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 13,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "lynae",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "lynae",
+          "key": "guard",
+          "target": "ally:1:lynae",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:3:chisa",
+          "bp": 0
+        },
+        {
+          "round": 16,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:2:mornye",
+          "bp": 0
+        },
+        {
+          "round": 16,
+          "actor": "lynae",
+          "key": "guard",
+          "target": "ally:1:lynae",
+          "bp": 0
+        },
+        {
+          "round": 16,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:3:chisa",
+          "bp": 0
+        },
+        {
+          "round": 16,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:2:mornye",
+          "bp": 0
+        },
+        {
+          "round": 17,
+          "actor": "lynae",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 17,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 17,
+          "actor": "mornye",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 18,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 19,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 19,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 20,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 20,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:3:chisa",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:2:mornye",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:3:chisa",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:2:mornye",
+          "bp": 0
+        },
+        {
+          "round": 22,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 22,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 24,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 25,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 26,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:2:mornye",
+          "bp": 0
+        },
+        {
+          "round": 26,
+          "actor": "mornye",
+          "key": "guard",
+          "target": "ally:2:mornye",
+          "bp": 0
+        },
+        {
+          "round": 27,
+          "actor": "mornye",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        }
+      ],
+      "mechanismEvents": [
+        {
+          "id": 3,
+          "round": 1,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 1,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 61,
+          "round": 2,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 6,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 126,
+          "round": 3,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 11,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 165,
+          "round": 3,
+          "event": "break",
+          "source": "ally:2:mornye",
+          "breaker": "ally:2:mornye",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 15,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 179,
+          "round": 4,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 16,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 180,
+          "round": 4,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 240,
+          "round": 5,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "projectiles",
+          "rootActionId": 21,
+          "message": "无妄者：投射物蓄能"
+        },
+        {
+          "id": 241,
+          "round": 5,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "projectiles",
+          "required": 2,
+          "targets": [
+            "ally:0:amy",
+            "ally:1:lynae",
+            "ally:2:mornye",
+            "ally:3:chisa"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 242,
+          "round": 5,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:1",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 243,
+          "round": 5,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:2",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 250,
+          "round": 5,
+          "event": "reflection",
+          "source": "enemy:projectile:1",
+          "target": "enemy:0:dreamless",
+          "actor": "ally:1:lynae",
+          "q": 54.6,
+          "message": ""
+        },
+        {
+          "id": 254,
+          "round": 5,
+          "event": "special_interrupt",
+          "target": "enemy:0:dreamless",
+          "q": 61.4,
+          "threshold": 78,
+          "message": "无妄者蓄能中断"
+        },
+        {
+          "id": 297,
+          "round": 6,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "special_recover",
+          "rootActionId": 26,
+          "message": "无妄者：中断收势"
+        },
+        {
+          "id": 346,
+          "round": 7,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 31,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 365,
+          "round": 7,
+          "event": "break",
+          "source": "ally:0:amy",
+          "breaker": "ally:0:amy",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 33,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 390,
+          "round": 8,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 36,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 391,
+          "round": 8,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 450,
+          "round": 9,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 41,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 504,
+          "round": 10,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 46,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 557,
+          "round": 11,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 51,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 599,
+          "round": 11,
+          "event": "break",
+          "source": "ally:2:mornye",
+          "breaker": "ally:2:mornye",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 55,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 608,
+          "round": 12,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 56,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 609,
+          "round": 12,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 657,
+          "round": 13,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 61,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 695,
+          "round": 14,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 65,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 736,
+          "round": 15,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 69,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 737,
+          "round": 15,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:1:lynae",
+            "ally:2:mornye",
+            "ally:3:chisa"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 767,
+          "round": 16,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 76,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 829,
+          "round": 17,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 80,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 836,
+          "round": 18,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 81,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 855,
+          "round": 18,
+          "event": "break",
+          "source": "ally:2:mornye",
+          "breaker": "ally:2:mornye",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 83,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 862,
+          "round": 19,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 84,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 863,
+          "round": 19,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 893,
+          "round": 20,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 87,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 894,
+          "round": 20,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:2:mornye",
+            "ally:3:chisa"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 915,
+          "round": 21,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 92,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 950,
+          "round": 22,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 95,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 957,
+          "round": 23,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 96,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 973,
+          "round": 24,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 98,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 992,
+          "round": 25,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 100,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 993,
+          "round": 25,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:2:mornye"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 1006,
+          "round": 26,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 103,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 1029,
+          "round": 27,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 105,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 1035,
+          "round": 28,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 106,
+          "message": "无妄者：重连击"
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "team": [
+        "amy",
+        "denia",
+        "chisa",
+        "rover_aero"
+      ],
+      "seed": 4204,
+      "steps": 110,
+      "outcome": {
+        "outcome": "loss",
+        "rounds": 27
+      },
+      "summary": {
+        "outcome": "loss",
+        "rounds": 27,
+        "survivors": 0,
+        "escaped_count": 0,
+        "ko_count": 4,
+        "ally_hp_fraction": 0,
+        "counts": {
+          "round_start": 27,
+          "slot_start": 110,
+          "enemy_action": 27,
+          "damage": 133,
+          "energy": 136,
+          "action_end": 110,
+          "action_commit": 83,
+          "original_attack": 89,
+          "successful_hit": 89,
+          "q_damage": 83,
+          "status": 53,
+          "abnormal_apply": 18,
+          "form": 12,
+          "round_end": 26,
+          "heal": 23,
+          "status_removed": 16,
+          "break": 4,
+          "break_recover": 4,
+          "charge": 4,
+          "spawn": 2,
+          "down": 5,
+          "reflection": 1,
+          "despawn": 1,
+          "special_interrupt": 1,
+          "fusion_burst": 3,
+          "battle_end": 1
+        },
+        "skills": {
+          "rover_aero:rover_aero_e2": 3,
+          "denia:E4": 4,
+          "amy:E3": 1,
+          "chisa:E3": 2,
+          "rover_aero:rover_aero_e3": 2,
+          "denia:E2": 4,
+          "amy:E2": 2,
+          "chisa:R": 5,
+          "rover_aero:rover_aero_r": 4,
+          "amy:E1": 1,
+          "chisa:E5": 2,
+          "rover_aero:rover_aero_e1": 1,
+          "amy:R1": 2,
+          "amy:A": 5,
+          "amy:R2": 2,
+          "chisa:E2": 2,
+          "rover_aero:rover_aero_a": 9,
+          "denia:A": 5,
+          "denia:R1": 1,
+          "chisa:A": 9,
+          "denia:R2": 1,
+          "rover_aero:guard": 6,
+          "denia:guard": 2,
+          "amy:guard": 2,
+          "chisa:guard": 6
+        },
+        "enemy_skills": {
+          "dreamless:scythe": 4,
+          "dreamless:sweep": 2,
+          "dreamless:basic": 4,
+          "dreamless:break_recover": 4,
+          "dreamless:projectiles": 1,
+          "dreamless:special_recover": 1,
+          "dreamless:heavy": 5,
+          "dreamless:highrisk": 3,
+          "dreamless:charge_release": 3
+        },
+        "inventory": {
+          "sp": 2,
+          "repair": 2,
+          "cleanse": 1
+        },
+        "final_resources": {
+          "amy": {
+            "sp": 2,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "denia": {
+            "sp": 6,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "chisa": {
+            "sp": 5,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          },
+          "rover_aero": {
+            "sp": 8,
+            "bp": 0,
+            "energy": 0,
+            "r2Pending": false
+          }
+        },
+        "first_break_round": 4,
+        "enemy_effective_actions": 22
+      },
+      "finalEnemies": [
+        {
+          "key": "dreamless",
+          "hp": 3531,
+          "maxhp": 24000,
+          "q": 130.2,
+          "maxq": 156,
+          "phase": 3,
+          "retreated": false
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 0,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        },
+        {
+          "key": "dreamless_projectile",
+          "hp": 180,
+          "maxhp": 180,
+          "q": 0,
+          "maxq": 0,
+          "phase": 1,
+          "retreated": true
+        }
+      ],
+      "commands": [
+        {
+          "round": 1,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 1,
+          "actor": "amy",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 2,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 2,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 3,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 3,
+          "actor": "amy",
+          "key": "E1",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 4,
+          "actor": "rover_aero",
+          "key": "rover_aero_e1",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 4,
+          "actor": "amy",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "chisa",
+          "key": "E3",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 5,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 5,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 6,
+          "actor": "rover_aero",
+          "key": "rover_aero_e3",
+          "target": "enemy:projectile:1",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 6,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "chisa",
+          "key": "E5",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 7,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "denia",
+          "key": "E4",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 7,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 8,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 8,
+          "actor": "rover_aero",
+          "key": "rover_aero_e2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "denia",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 8,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 9,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "denia",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 9,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "chisa",
+          "key": "E2",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 10,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "denia",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 10,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 11,
+          "actor": "denia",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 11,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 12,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "denia",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 12,
+          "actor": "amy",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 13,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 13,
+          "actor": "denia",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 13,
+          "actor": "amy",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 3
+        },
+        {
+          "round": 14,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 14,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "denia",
+          "key": "guard",
+          "target": "ally:1:denia",
+          "bp": 0
+        },
+        {
+          "round": 14,
+          "actor": "amy",
+          "key": "guard",
+          "target": "ally:0:amy",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "denia",
+          "key": "guard",
+          "target": "ally:1:denia",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "amy",
+          "key": "guard",
+          "target": "ally:0:amy",
+          "bp": 0
+        },
+        {
+          "round": 15,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 16,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 16,
+          "actor": "denia",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 16,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 17,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 17,
+          "actor": "denia",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 18,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 18,
+          "actor": "rover_aero",
+          "key": "rover_aero_r",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 19,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 19,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 20,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 21,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 21,
+          "actor": "chisa",
+          "key": "R",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        },
+        {
+          "round": 22,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 23,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 0
+        },
+        {
+          "round": 23,
+          "actor": "rover_aero",
+          "key": "rover_aero_a",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 24,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 1
+        },
+        {
+          "round": 24,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 25,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 25,
+          "actor": "rover_aero",
+          "key": "guard",
+          "target": "ally:3:rover_aero",
+          "bp": 0
+        },
+        {
+          "round": 25,
+          "actor": "chisa",
+          "key": "guard",
+          "target": "ally:2:chisa",
+          "bp": 0
+        },
+        {
+          "round": 26,
+          "actor": "chisa",
+          "key": "A",
+          "target": "enemy:0:dreamless",
+          "bp": 2
+        }
+      ],
+      "mechanismEvents": [
+        {
+          "id": 3,
+          "round": 1,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 1,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 66,
+          "round": 2,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 6,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 127,
+          "round": 3,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 11,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 181,
+          "round": 4,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 16,
+          "message": "无妄者：短剑连段"
+        },
+        {
+          "id": 190,
+          "round": 4,
+          "event": "break",
+          "source": "ally:3:rover_aero",
+          "breaker": "ally:3:rover_aero",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 17,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 226,
+          "round": 5,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 21,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 227,
+          "round": 5,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 273,
+          "round": 6,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "projectiles",
+          "rootActionId": 26,
+          "message": "无妄者：投射物蓄能"
+        },
+        {
+          "id": 274,
+          "round": 6,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "projectiles",
+          "required": 2,
+          "targets": [
+            "ally:0:amy",
+            "ally:1:denia",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 275,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:1",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 276,
+          "round": 6,
+          "event": "spawn",
+          "source": "enemy:0:dreamless",
+          "target": "enemy:projectile:2",
+          "kind": "projectile",
+          "message": ""
+        },
+        {
+          "id": 283,
+          "round": 6,
+          "event": "reflection",
+          "source": "enemy:projectile:1",
+          "target": "enemy:0:dreamless",
+          "actor": "ally:3:rover_aero",
+          "q": 54.6,
+          "message": ""
+        },
+        {
+          "id": 287,
+          "round": 6,
+          "event": "special_interrupt",
+          "target": "enemy:0:dreamless",
+          "q": 47.5,
+          "threshold": 78,
+          "message": "无妄者蓄能中断"
+        },
+        {
+          "id": 328,
+          "round": 7,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "special_recover",
+          "rootActionId": 31,
+          "message": "无妄者：中断收势"
+        },
+        {
+          "id": 361,
+          "round": 7,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 35,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 372,
+          "round": 8,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 36,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 373,
+          "round": 8,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 427,
+          "round": 9,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 41,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 491,
+          "round": 10,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 46,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 542,
+          "round": 11,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "sweep",
+          "rootActionId": 51,
+          "message": "无妄者：翼刃扫荡"
+        },
+        {
+          "id": 596,
+          "round": 12,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 56,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 631,
+          "round": 12,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 60,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 638,
+          "round": 13,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 61,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 639,
+          "round": 13,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 692,
+          "round": 14,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 66,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 693,
+          "round": 14,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:0:amy",
+            "ally:1:denia",
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 735,
+          "round": 15,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 75,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 807,
+          "round": 16,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 79,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 814,
+          "round": 17,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 80,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 851,
+          "round": 18,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "scythe",
+          "rootActionId": 84,
+          "message": "无妄者：镰刃回旋"
+        },
+        {
+          "id": 881,
+          "round": 19,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 87,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 882,
+          "round": 19,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 903,
+          "round": 20,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 92,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 937,
+          "round": 21,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 95,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 944,
+          "round": 22,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 96,
+          "message": "无妄者：重连击"
+        },
+        {
+          "id": 963,
+          "round": 22,
+          "event": "break",
+          "source": "ally:2:chisa",
+          "breaker": "ally:2:chisa",
+          "target": "enemy:0:dreamless",
+          "rootActionId": 98,
+          "noResponse": false,
+          "message": "无妄者共振击破"
+        },
+        {
+          "id": 970,
+          "round": 23,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "break_recover",
+          "rootActionId": 99,
+          "message": "无妄者：失衡收势"
+        },
+        {
+          "id": 971,
+          "round": 23,
+          "event": "break_recover",
+          "target": "enemy:0:dreamless",
+          "q": 156,
+          "message": ""
+        },
+        {
+          "id": 1003,
+          "round": 24,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "highrisk",
+          "rootActionId": 102,
+          "message": "无妄者：高危蓄力"
+        },
+        {
+          "id": 1004,
+          "round": 24,
+          "event": "charge",
+          "source": "enemy:0:dreamless",
+          "type": "highrisk",
+          "required": 1,
+          "targets": [
+            "ally:2:chisa",
+            "ally:3:rover_aero"
+          ],
+          "message": "无妄者正在蓄力"
+        },
+        {
+          "id": 1025,
+          "round": 25,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "charge_release",
+          "rootActionId": 107,
+          "message": "无妄者：毁灭放射"
+        },
+        {
+          "id": 1050,
+          "round": 26,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "basic",
+          "rootActionId": 109,
+          "message": "无妄者：收势短剑"
+        },
+        {
+          "id": 1057,
+          "round": 27,
+          "event": "enemy_action",
+          "actor": "enemy:0:dreamless",
+          "source": "enemy:0:dreamless",
+          "skill": "heavy",
+          "rootActionId": 110,
+          "message": "无妄者：重连击"
+        }
+      ]
+    }
+  ],
+  "established": {
+    "normalInitialResources": true,
+    "anyBreak": true,
+    "anyProjectiles": true,
+    "anyReflection": true
+  }
+}

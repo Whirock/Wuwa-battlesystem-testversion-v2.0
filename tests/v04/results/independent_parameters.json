@@ -1,0 +1,33 @@
+{
+  "runAt": "2026-10-10T15:02:29.126Z",
+  "command": "node tests/v04/independent_parameters.cjs",
+  "scope": "Independent static parameter audit only; not an executable combat pass",
+  "sha256": "6440e27ff9f5304a8303100cfdb33842b1e97342b9c9a495c311254fa1304a6e",
+  "passed": 23,
+  "failed": [],
+  "checks": [
+    "cards:amy",
+    "cards:lynae",
+    "cards:mornye",
+    "cards:denia",
+    "cards:chisa",
+    "cards:rover_spectro",
+    "cards:rover_havoc",
+    "cards:rover_aero",
+    "cards:rover_electro",
+    "growth:amy:90 levels",
+    "growth:lynae:90 levels",
+    "growth:mornye:90 levels",
+    "growth:denia:90 levels",
+    "growth:chisa:90 levels",
+    "growth:rover_spectro:90 levels",
+    "growth:rover_havoc:90 levels",
+    "growth:rover_aero:90 levels",
+    "growth:rover_electro:90 levels",
+    "nine roster configurations / 61 skills",
+    "boss/elite Q final frozen capacities",
+    "five prisms, independent own-element immunity, no electro prism",
+    "enemies retain fixed reference level rather than ally growth",
+    "final integrated controls: high-pressure boss charge immunity"
+  ]
+}

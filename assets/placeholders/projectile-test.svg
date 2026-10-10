@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+ <circle cx="96" cy="88" r="65" fill="#123b49" stroke="#7ce8f3" stroke-width="4" stroke-dasharray="8 6"/>
+ <path d="M96 15L155 88 96 153 37 88Z" fill="#276c7c" stroke="#99f3ff" stroke-width="5"/>
+ <path d="M97 49L124 88 97 126 69 88Z" fill="#c1fbff"/>
+ <path d="M5 88L37 88M155 88L187 88M96 1L96 16" stroke="#99f3ff" stroke-width="4"/>
+ <rect x="26" y="158" width="140" height="27" rx="5" fill="#102a3b" stroke="#7ce8f3"/>
+ <text x="96" y="177" text-anchor="middle" fill="#c1fbff" font-family="sans-serif" font-size="16" font-weight="bold">TEST TARGET</text>
+</svg>

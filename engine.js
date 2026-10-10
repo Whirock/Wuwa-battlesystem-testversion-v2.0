@@ -1,544 +1,341 @@
-/* Deterministic battle engine for 参数 v0.3.0. No DOM, network, clock, or dependencies.
- * CommonJS: const BattleEngine = require('./engine.js'); browser: window.BattleEngine.
- * Public mutation commands return {ok, reason, events, result}; rejected commands are mutation-free.
- * The current slot is excluded from queue. advance() never executes an enemy attack.
+/* v0.4 deterministic SP / cooldown / BP battle runtime. No DOM, clock or network.
+ * One normal command per registered slot. Rejected commands never mutate state.
+ * SkillEffects owns authored role effects; this module owns timing and arithmetic.
  */
 (function (root, factory) {
-  const BattleEngine = factory();
+  const effects = typeof module === 'object' && module.exports ? (() => { try { return require('./skill-effects.js'); } catch (e) { if (e.code === 'MODULE_NOT_FOUND' && e.message.includes("'./skill-effects.js'")) return {}; throw e; } })() : root.SkillEffects;
+  const BattleEngine = factory(effects || {});
   if (typeof module === 'object' && module.exports) module.exports = BattleEngine;
   if (root) root.BattleEngine = BattleEngine;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Effects) {
   'use strict';
-  const clone = value => JSON.parse(JSON.stringify(value));
-  const round = value => Math.floor(value + 0.5);
-  const resourceNames = {sync:'同步率',resonance:'谐振',color:'流彩',calibration:'校准',expectation:'期待',thread:'丝线',primary:'主要资源',dust:'尘微之声',umbra:'暗流',wind:'弦风息',surge:'电涌',energy:'共鸣能量'};
-  const statusNames = {fusion:'聚爆',tune:'震谐标记',cutline:'切线',guard:'防御',brace:'架岩',charge:'蓄力',aim:'瞄准',taunt:'挑衅',outro:'延奏增伤',outro_guard:'延奏减伤',umbra:'暗涌',critical:'临界共鸣',status_outro:'异常增幅',counter:'止戈反击',overload:'超负荷',spectro_mark:'微光',wind_mark:'风蚀',barrier:'护盾',rend:'裂伤',exposed:'暴露'};
-  const own = (o,k) => !!o && Object.prototype.hasOwnProperty.call(o,k);
-  const finite = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
-
+  const clone = x => JSON.parse(JSON.stringify(x));
+  const fingerprint = value => {const text=JSON.stringify(value);let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return 'fnv1a-'+(h>>>0).toString(16).padStart(8,'0');};
+  const own = (x,k) => !!x && Object.prototype.hasOwnProperty.call(x,k);
+  const clamp = (x,a,b) => Math.min(b,Math.max(a,x));
+  const finite = (x,a=0,b=1e12) => typeof x==='number' && Number.isFinite(x) && x>=a && x<=b;
+  const int = (x,a=0,b=1e12) => Number.isInteger(x)&&x>=a&&x<=b;
+  const quant = x => Math.round(x*10000)/10000;
+  const elements = {冷凝:'glacio',热熔:'fusion',導電:'electro',导电:'electro',气动:'aero',氣動:'aero',衍射:'spectro',湮灭:'havoc',湮滅:'havoc'};
+  const elementKey = x => elements[x] || x || 'spectro';
+  const generic = {
+    guard:{name:'防御',target:'self',generic:true},wait:{name:'等待',target:'self',generic:true},
+    item_sp:{name:'SP恢复剂',target:'ally',generic:true},item_repair:{name:'修复药剂',target:'ally',generic:true},item_cleanse:{name:'净化药剂',target:'ally',generic:true},escape:{name:'逃跑',target:'self',generic:true},
+    negotiate:{name:'交涉',target:'enemy',generic:true}
+  };
   class BattleEngine {
-    constructor(params, options = {}) {
-      if (!params || !params.characters || !params.enemies || !params.encounters || !params.generic_skills) throw new Error('缺少完整战斗参数');
-      this.params = clone(params);
-      const team = options.team || ['amy','lynae','mornye'];
-      if (!Array.isArray(team) || team.length < 1 || team.length > 4 || new Set(team).size !== team.length || team.some(k => !own(params.characters,k))) throw new Error('队伍必须由 1–4 名不重复的有效角色组成');
-      const encounter = options.encounter || 'normal';
-      const enemyKeys = Array.isArray(encounter) ? encounter : own(params.encounters,encounter) ? params.encounters[encounter] : null;
-      if (!Array.isArray(enemyKeys) || enemyKeys.length < 1 || enemyKeys.length > 4 || enemyKeys.some(k => !own(params.enemies,k))) throw new Error('遭遇必须包含 1–4 个有效敌人');
-      const level = options.level === undefined ? 20 : options.level;
-      if (!Number.isInteger(level) || level < 1 || level > 60) throw new Error('等级必须是 1–60 的整数');
-      const hpFraction = options.hp_fraction === undefined ? (options.hpFraction === undefined ? 1 : options.hpFraction) : options.hp_fraction;
-      if (!finite(hpFraction,0,1)) throw new Error('初始生命比例必须在 0–1 之间');
-      const hpScale = options.enemy_hp_scale === undefined ? 1 : options.enemy_hp_scale;
-      const atkScale = options.enemy_atk_scale === undefined ? 1 : options.enemy_atk_scale;
-      if (!finite(hpScale,0.001,1000) || !finite(atkScale,0,1000)) throw new Error('敌方缩放参数无效');
-      const difficulty=options.difficulty===undefined?'standard':options.difficulty;
-      if(!own(params.difficulties,difficulty))throw new Error('未知难度');
-      const preset=params.difficulties[difficulty];
-      if(options.auto_concerto!==undefined&&typeof options.auto_concerto!=='boolean')throw new Error('自动协奏选项必须为布尔值');
-      this.options = clone({...options,team,encounter,level,hp_fraction:hpFraction,difficulty,auto_concerto:!!options.auto_concerto});
-      this.allies = team.map((key,slot) => this._unit(key,'ally',slot,level,hpFraction));
-      this.enemies = enemyKeys.map((key,slot) => this._unit(key,'enemy',slot,level,1));
-      for (const a of this.allies) {
-        a.mode = (options.mode || options.modes || {})[a.key] || a.mode_default || null;
-        if(a.key==='rover'){const kit=a.mode_kits[a.mode];if(!kit)throw new Error('漂泊者属性无效');Object.assign(a,clone(kit));a.rsc=Object.fromEntries(Object.keys(a.resources).map(k=>[k,0]));a.mastery=Object.fromEntries(Object.entries(a.skills).map(([k,v])=>[k,v.mastery_initial||0]));}
-        if (a.mode_options && !a.mode_options.includes(a.mode)) throw new Error(`${a.name}的模式无效`);
-        if (options.initialHP && options.initialHP[a.key] !== undefined) {
-          if (!finite(options.initialHP[a.key],0,a.maxhp)) throw new Error('继承生命值无效');
-          a.hp = Math.floor(options.initialHP[a.key]);
-        }
-        a.dead = a.hp === 0;
-        if(a.dead){a.ap=0;a.temp_ap=0;a.relay_pending=false;a.concerto=0;a.rsc=Object.fromEntries(Object.keys(a.rsc).map(k=>[k,0]));a.status={};a.overdrive=false;a.form=a.form_start||'normal';}
+    constructor(params, options={}) {
+      if (!params || !params.characters || !params.enemies || !params.encounters) throw new Error('缺少战斗参数');
+      this.params=clone(params);
+      const team=options.team || ['amy','lynae','mornye'];
+      if (!Array.isArray(team)||team.length<1||team.length>4||new Set(team).size!==team.length||team.some(k=>!own(params.characters,k))||team.filter(k=>k==='rover'||k.startsWith('rover_')).length>1) throw new Error('队伍需要1–4名不重复角色，且只能有一个漂泊者');
+      const encounter=options.encounter||'normal';
+      const entry=Array.isArray(encounter)?encounter:params.encounters[encounter];
+      const enemyKeys=Array.isArray(entry)?entry:entry?.enemies;
+      if(!Array.isArray(enemyKeys)||enemyKeys.length<1||enemyKeys.length>4||enemyKeys.some(k=>!own(params.enemies,k)||params.enemies[k].mechanism===true||params.enemies[k].rank==='mechanism')) throw new Error('遭遇需要1–4名有效敌人');
+      if(options.difficulty!==undefined&&params.difficulties&&!own(params.difficulties,options.difficulty))throw new Error('未知难度');if(options.stochastic!==undefined&&typeof options.stochastic!=='boolean')throw new Error('随机选项必须为布尔值');if(options.seed!==undefined&&!int(options.seed,0,0xffffffff))throw new Error('随机种子无效');
+      const level=options.level??20;
+      if(!int(level,1,90))throw new Error('等级必须为1–90');
+      const hpFraction=options.hp_fraction??options.hpFraction??1;
+      const hpScale=options.enemy_hp_scale??1,atkScale=options.enemy_atk_scale??1;
+      if(!finite(hpFraction,0,1)||!finite(hpScale,.001,1000)||!finite(atkScale,0,1000))throw new Error('初始缩放参数无效');
+      this.options=clone({...options,team,encounter,level,hp_fraction:hpFraction});
+      this.round=0;this.started=false;this.queue=[];this._currentId=null;this.result=null;this.log=[];
+      this.count={};this.actions={};this.enemy_actions={};this.action_id=0;this.attack_id=0;this.hit_id=0;this.projectile_id=0;
+      this.rngState=(Number(options.seed??0)>>>0)||0x6d2b79f5;this.stochastic=!!options.stochastic;
+      this.activeContext=null;this.active_action=false;this.fields=[];
+      this.inventory={sp:3,repair:2,cleanse:1,...clone(params.test_inventory||{})};
+      this.allies=team.map((k,i)=>this._unit(k,'ally',i,level));
+      this.enemies=enemyKeys.map((k,i)=>this._unit(k,'enemy',i,params.enemies[k].level||20));
+      for(const a of this.allies){
+        a.hp=Math.floor(a.maxhp*hpFraction);
+        for(const [name,field,max] of [['initialHP','hp','maxhp'],['initialSP','sp','maxsp'],['initialEnergy','energy','energyCap'],['initialBP','bp',null]])if(options[name]?.[a.key]!==undefined){const v=options[name][a.key];if(!finite(v,0,max?a[max]:5)||(field==='bp'&&!int(v,0,5)))throw new Error('初始资源无效');a[field]=v;}
+        a.mode=(options.modes||options.mode||{})[a.key]||a.mode_default||a.mode||null;
+        if(a.mode_options&&!a.mode_options.includes(a.mode))throw new Error('角色模态无效');
+        a.dead=a.hp===0;if(a.dead){a.bp=0;a.energy=0;}
+        this._hook('init',a);
       }
-      for (const e of this.enemies) {
-        const hp=round(e.maxhp*hpScale*preset.hp_multiplier);if(hp<1)throw new Error('敌方生命缩放后必须至少为 1');
-        e.hp=e.maxhp=hp;e.atk=round(e.atk*atkScale*preset.attack_multiplier);
-        e.shield=e.maxshield=e.rank==='common'?0:Math.max(1,e.maxshield+preset.shield_offset);
-        if(e.phase2_shield)e.phase2_shield=Math.max(1,e.phase2_shield+preset.shield_offset);
-        if(e.difficulty_patterns)e.pattern=clone(e.difficulty_patterns[difficulty]);
-      }
-      this.inventory=clone(params.test_inventory);
-      this.round=0;this.queue=[];this._currentId=null;this.result=null;this.log=[];
-      this.field_until=0;this.count={};this.actions={};this.enemy_actions={};
-      this.action_id=0;this.shield_budgets={};this.active_action=false;this.action_break_snapshot={};
-      this.started=false;this.policy=options.policy || 'tactical';this.stochastic=!!options.stochastic;
-      this.rngState=(Number(options.seed || 0)>>>0) || 0x6d2b79f5;
-      this.start_hp=this.allies.reduce((n,a)=>n+a.hp,0);
+      const difficulty=this.params.difficulties?.[options.difficulty||'standard']||{};
+      for(const e of this.enemies){e.maxhp=e.hp=Math.max(1,Math.round(e.maxhp*hpScale*(difficulty.hp_multiplier??1)));e.atk=Math.round(e.atk*atkScale*(difficulty.attack_multiplier??1));}
     }
-    _unit(key,side,slot,level,hpFraction) {
-      const u=clone(this.params[side==='ally'?'characters':'enemies'][key]);
-      Object.assign(u,{key,side,slot,id:`${side}:${slot}:${key}`,level});
-      for (const stat of ['hp','atk','def']) u[stat]=round(u[stat]*(stat==='hp'?0.5+0.025*level:0.6+0.02*level));
-      Object.assign(u,{maxhp:u.hp,hp:round(u.hp*hpFraction),rsc:Object.fromEntries(Object.keys(u.resources || {}).map(k=>[k,0])),concerto:0,form:u.form_start || 'normal',overdrive:false,broken_until:0,recovery_lock:false,status:{},pattern_i:0,phase:1,phase_pending:false,normal_count:0,concerto_round:0,intro_round:0,intro_received:0,dead:false,retreated:false,wait_round:0,revealed:false,phase_attack_pending:false,acted_round:0});
-      Object.assign(u,{ap:side==='ally'?this.params.rules.ap_start:0,temp_ap:0,relay_pending:false,window_actions:0,window_skills:{},concerto_gain_round:0,skip_round:0,part:null});u.concerto=side==='ally'?this.params.rules.concerto_start:0;u.shield=u.shield||0;u.maxshield=u.shield || 0;u.mastery=Object.fromEntries(Object.entries(u.skills).map(([k,s])=>[k,s.mastery_initial || 0]));
+    _unit(key,side,slot,level) {
+      const def=clone(this.params[side==='ally'?'characters':'enemies'][key]);
+      const growth=def.growth_by_level?.[level]||def.growth_by_level?.[String(level)]||def;
+      const hp=growth.hp??growth.HP??def.hp??1000,sp=growth.sp??growth.SP??def.sp??80;
+      const u={...def,key,side,slot,id:`${side}:${slot}:${key}`,level,maxhp:hp,hp,maxsp:side==='ally'?sp:0,sp:side==='ally'?sp:0,
+        atk:growth.atk??growth.ATK??def.atk??200,def:growth.def??growth.DEF??def.def??100,spd:growth.spd??growth.speed??growth.SPD??def.spd??def.speed??100,
+        cr:growth.cr??growth.CR??def.cr??(side==='ally'?.05:0),cdmg:growth.cdmg??growth.CDMG??def.cdmg??1.5,er:growth.er??growth.ER??def.er??1,
+        bp:side==='ally'?1:0,energy:0,energyCap:side==='ally'?(def.energy_cap??def.energyCap??125):0,cooldowns:{},status:{},
+        form:def.form_start||def.initial_form||(key==='amy'?'human':key==='denia'?'red':'normal'),r2Pending:false,energyLocked:false,
+        spentBPRound:0,actedRound:0,slotStartedRound:0,waitRound:0,defendPriority:false,dead:false,retreated:false,
+        phase:1,phasePending:false,mainActions:0,breakPending:false,breakCount:0,firstBreakRecovered:false,specialDone:false,
+        bossState:'normal',charge:null,recovering:false,q:0,maxq:0};
+      delete u.growth_by_level;
+      u.element=elementKey(def.element);
+      u.resist=clone(def.resist||def.resistances||Object.fromEntries(['glacio','fusion','electro','aero','spectro','havoc'].map(k=>[k,.1])));
+      u.skills=clone(def.skills||{});
+      if(side==='enemy')u.q=u.maxq=def.q_capacity??(key==='crownless'?112:key==='dreamless'?156:def.rank==='elite'?72:0);
       return u;
     }
-    get current() {return this.getUnit(this._currentId);}
-    get currentId() {return this._currentId;}
-    getUnit(id) {if (id && typeof id==='object') id=id.id;return this.allies.concat(this.enemies).find(u=>u.id===id) || null;}
-    living(side) {return (side==='ally'?this.allies:this.enemies).filter(u=>u.hp>0&&!u.retreated);}
-    has(unit,status) {return !!unit && Object.prototype.hasOwnProperty.call(unit.status,status);}
-    isweak() {return false;} // Legacy API: universal weaknesses are removed.
-    getSkill(actor,key) {
-      const a=this.getUnit(actor);if (!a) return null;
-      const original=own(a.skills,key)?a.skills[key]:(a.side==='ally'&&own(this.params.generic_skills,key)?this.params.generic_skills[key]:null);
-      if (!original) return null;
-      const s=clone(original);if (s.form_overrides && s.form_overrides[a.form]) Object.assign(s,clone(s.form_overrides[a.form]));
-      return s;
+    _hook(name,...args){return typeof Effects[name]==='function'?Effects[name](this,...args):undefined;}
+    get current(){return this.getUnit(this._currentId);}
+    get currentId(){return this._currentId;}
+    getUnit(id){if(id&&typeof id==='object')return id.id?this.allies.concat(this.enemies).find(x=>x.id===id.id)||null:null;return this.allies.concat(this.enemies).find(x=>x.id===id)||null;}
+    living(side){return (side==='ally'?this.allies:this.enemies).filter(x=>x.hp>0&&!x.retreated);}
+    has(u,key){u=this.getUnit(u);return !!u&&own(u.status,key);}
+    isweak(){return false;}
+    _record(event,data={},message=''){const row={id:this.log.length+1,round:this.round,event,...data,message};this.log.push(row);this.count[event]=(this.count[event]||0)+1;return row;}
+    _random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
+    _reject(reason){return {ok:false,reason,events:[],result:this.result};}
+    _reply(start){return {ok:true,reason:'',events:this.log.slice(start),result:this.result};}
+    finalStat(unit,stat){const u=this.getUnit(unit);if(!u)return 0;const alias={speed:'spd',HP:'maxhp',SP:'maxsp',ATK:'atk',DEF:'def',SPD:'spd',CR:'cr',CDMG:'cdmg',ER:'er'};stat=alias[stat]||stat;const m=this._hook('statModifiers',u,stat)||0;return Math.max(0,(u[stat]||0)*(1+(typeof m==='number'?m:m.pct||0))+(typeof m==='object'?m.flat||0:0));}
+    addStatus(target,key,data={},duration){const t=this.getUnit(target);if(!t||t.hp<=0||t.retreated)return false;const value=clone(data);if(duration!==undefined)value.expires=this.round+duration-1;const changed=JSON.stringify(t.status[key])!==JSON.stringify(value);t.status[key]=value;if(changed){this._record('status',{target:t.id,status:key,value:clone(value)},`${t.name}获得${value.name||key}`);if(this.activeContext)this.activeContext.effective=true;}return changed;}
+    removeStatus(target,key){const t=this.getUnit(target);if(!t||!own(t.status,key))return false;delete t.status[key];this._record('status_removed',{target:t.id,status:key});return true;}
+    _status(...args){return this.addStatus(...args);}
+    heal(source,target,amount){const s=this.getUnit(source),t=this.getUnit(target);if(!s||!t||s.hp<=0||s.retreated||t.hp<=0||t.retreated||t.mechanicUnit)return 0;const n=Math.min(t.maxhp-t.hp,Math.max(0,Math.floor(amount)));if(n){t.hp+=n;this._record('heal',{source:s.id,target:t.id,amount:n,hp_after:t.hp});if(this.activeContext)this.activeContext.effective=true;}return n;}
+    shield(source,target,amount,duration=2,key='barrier'){const s=this.getUnit(source),t=this.getUnit(target);if(!s||!t||s.hp<=0||s.retreated||t.hp<=0||t.retreated)return 0;const old=t.status[key]?.amount||0;const n=Math.max(0,Math.floor(amount));this.addStatus(t,key,{owner:s.id,amount:Math.max(old,n),shield:true},duration);return Math.max(0,n-old);}
+    restoreSP(source,target,amount){const s=this.getUnit(source),t=this.getUnit(target);if(!s||!t||s.hp<=0||s.retreated||s.id===t.id||t.hp<=0||t.retreated)return 0;const n=Math.min(t.maxsp-t.sp,Math.max(0,Math.floor(amount)));if(n){t.sp+=n;this._record('sp',{source:s.id,target:t.id,amount:n,sp_after:t.sp});if(this.activeContext)this.activeContext.effective=true;}return n;}
+    _gainEnergy(target,amount,source,shared=false){const t=this.getUnit(target);if(!t||t.hp<=0||t.retreated||t.energyLocked||amount<=0)return 0;const n=quant(Math.min(t.energyCap-t.energy,amount));t.energy=quant(t.energy+n);if(n)this._record('energy',{source:source?.id||source||t.id,target:t.id,amount:n,shared,energy_after:t.energy});return n;}
+    distributeEnergy(producer,base){const a=this.getUnit(producer);if(!a||base<=0)return;for(const t of this.living('ally'))this._gainEnergy(t,base*(t.id===a.id?1:.5)*this.finalStat(t,'er'),a,t.id!==a.id);}
+    _resolveKey(a,key){if(key==='retreat')key='escape';if(key==='R'&&a?.skills.R1)return a.r2Pending?'R2':'R1';if(own(a?.skills,key)||own(generic,key))return key;if(a?.key?.startsWith('rover_')){const alias=`${a.key}_${String(key).toLowerCase()}`;if(own(a.skills,alias))return alias;}return key;}
+    getSkill(actor,key){const a=this.getUnit(actor);if(!a)return null;key=this._resolveKey(a,key);return clone(a.skills[key]||(generic[key]?{...generic[key],...(this.params.generic_skills?.[key]||{}),generic:true}:null));}
+    _options(options={}){const o=clone(options||{});if(o.allyTargetId)o.allyTarget=o.allyTargetId;if(o.targetIds){o.extraTargets=o.extraTargets||o.targetIds;o.allyTargets=o.allyTargets||o.targetIds;}if(o.abnormal&&typeof o.abnormal==='object'&&!Array.isArray(o.abnormal))o.abnormalSelections=Object.entries(o.abnormal).map(([targetId,statusId])=>({targetId,statusId}));return o;}
+    _numeric(a,skill,key,bp,options){const p=this._hook('preview',a,skill,key,bp,options)||{};const audit=clone(p.audit||skill.numeric_audit||{});return {audit,category:p.category||skill.damage_category||(/_a$|^A$/.test(key)?'普攻':/R|_r$/.test(key)?'共鸣解放':'技能'),target:p.target||skill.target||'enemy',name:p.name||skill.name};}
+    _targetMode(a,skill,key,numeric){if(key==='guard'||key==='wait'||key==='escape')return 'self';if(key.startsWith('item_'))return 'ally';const text=numeric?.target||skill.target||'';if(/全敌|全敵|敌全体|敵全体|all_enemies/.test(text))return 'all_enemies';if(/敌|敵|enemy/.test(text))return 'enemy';if(/另一|其他|禁止施法者/.test(text))return 'other_ally';if(/全部|全体|全队|all_allies/.test(text))return 'all_allies';if(/队员|队友|友方|ally/.test(text))return 'ally';if(/自身|本人|self/.test(text))return 'self';return 'enemy';}
+    _cooldownKey(key,skill){return skill.cooldown_group||(/rover_electro_e2[ab]$/.test(key)?'rover_electro_e2':key==='R1'||key==='R2'?'R':key);}
+    _context(a,key,targetId,options={}){key=this._resolveKey(a,key);const skill=this.getSkill(a,key);if(!skill)return null;const o=this._options(options),bp=o.bp??0;const numeric=this._numeric(a,skill,key,bp,o),n=numeric.audit;
+      const mode=this._targetMode(a,skill,key,numeric),target=this.getUnit(targetId||o.targetId);
+      let targets=mode==='all_enemies'?this.living(a.side==='ally'?'enemy':'ally'):mode==='all_allies'?this.living(a.side):mode==='self'?[a]:target?[target]:[];
+      const count=n.original_attacks_by_bp?.[bp]||0,total=n.damage_atk_by_bp?.[bp]||0,defTotal=n.damage_def_by_bp?.[bp]||0,q=n.q_by_bp?.[bp]||0;
+      const basic=n.role_class==='basic';const base=n.damage_atk_by_bp?.[0]||0,defBase=n.damage_def_by_bp?.[0]||0;
+      const attacks=Array.from({length:count},(_,i)=>({coef:basic?base*(i?0.4:1):total/count,defCoef:basic?defBase*(i?0.4:1):defTotal/count,element:a.element,q:basic?[6,2.1,1.5,1.2][i]:q/count,index:i}));
+      return {actor:a,skill,key,bp,options:o,target,targets,targetMode:mode,audit:n,category:numeric.category,name:numeric.name,attacks,rootActionId:this.action_id+1,startForm:a.form,effective:false,hits:[],breaks:[],markerSnapshot:{},baseEnergy:n.base_energy??skill.base_energy_gain??0,spCost:n.sp??skill.sp_cost??0,energyCost:n.energy_cost??skill.resonance_energy_cost??0,cooldown:n.cd??skill.cooldown_rounds??0,coef:total,coefDef:defTotal,q};
     }
-    _bump(key,n=1,bucket=this.count) {bucket[key]=(bucket[key]||0)+n;}
-    _record(event,data={},message='') {const row={id:this.log.length+1,round:this.round,event,message,...data};this.log.push(row);return row;}
-    _random() {let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
-    _reject(reason) {return {ok:false,reason,events:[],result:this.result};}
-    _reply(start) {return {ok:true,reason:'',events:this.log.slice(start),result:this.result};}
-    _status(u,key,value) {u.status[key]=value;this._record('status',{target:u.id,status:key,value:clone(value)},`${u.name}获得${statusNames[key]||key}`);}
-    _removeOwnedMarkers(a) {for(const t of this.enemies) for(const key of ['tune','taunt','spectro_mark','wind_mark','fusion']) if(t.status[key]&&t.status[key].owner===a.id) delete t.status[key];}
-    _resource(u,key,value) {if(key==='primary')key=u.primary;if(!Object.prototype.hasOwnProperty.call(u.resources||{},key))return 0;const before=u.rsc[key]||0;u.rsc[key]=Math.min(u.resources[key],Math.max(0,before+value));return u.rsc[key]-before;}
-    _gainConcerto(u,value,source) {
-      if(u.hp<=0||u.retreated||value<=0)return 0;
-      const before=u.concerto,remaining=Math.max(0,this.params.rules.concerto_gain_cap_per_round-u.concerto_gain_round);
-      u.concerto=Math.min(100,before+Math.min(remaining,value));const gain=u.concerto-before;u.concerto_gain_round+=gain;
-      if(gain)this._record('concerto_gain',{actor:u.id,amount:gain,before,after:u.concerto,source},`${u.name}个人协奏 +${gain}（${u.concerto}/100；本轮${u.concerto_gain_round}/40）`);
-      if(before<100&&u.concerto===100){this._bump('concerto_ready');this._record('concerto_ready',{actor:u.id,amount:100},`${u.name}协奏已满，可在本人付费动作后发动延奏并结束窗口`);}return gain;
+    _legality(ctx,selection=true){if(!ctx)return '未知技能';const a=ctx.actor;if(!this.started)return '战斗尚未开始';if(this.result)return '战斗已结束';if(a.side!=='ally'||a.hp<=0||a.retreated)return '角色无法行动';if(this.currentId!==a.id||a.actedRound===this.round)return '当前没有正常行动';if(!int(ctx.bp,0,3))return 'BP必须为0–3整数';if(ctx.bp>a.bp)return 'BP不足';if(ctx.skill.generic&&ctx.bp!==0)return '此指令不接受BP强化';if(ctx.audit.legal_by_bp&&!ctx.audit.legal_by_bp[ctx.bp])return ctx.key==='R2'?'R2固定需要3BP':'该BP档不可用';
+      if(ctx.key==='R2'){if(!a.r2Pending)return '尚未获得R2资格';if(ctx.bp!==3)return 'R2固定需要3BP';}
+      else {if((a.cooldowns[this._cooldownKey(ctx.key,ctx.skill)]||0)>this.round)return '技能冷却中';if((ctx.key==='R1'||ctx.energyCost>0)&&a.r2Pending)return '必须先完成R2';if(ctx.energyCost>0&&a.energy+1e-8<a.energyCap)return '共鸣能量未满';}
+      if(a.sp<ctx.spCost)return 'SP不足';
+      if(ctx.key==='wait'&&(a.waitRound===this.round||!this.queue.some(id=>{const t=this.getUnit(id);return t&&t.hp>0&&!t.retreated&&t.actedRound!==this.round;})))return '本轮不能再次等待或已无可延后槽';
+      if(ctx.key.startsWith('item_')&&(this.inventory[ctx.key.slice(5)]||0)<=0)return '道具不足';
+      if(selection){const ts=ctx.targets;if(ctx.targetMode==='all_enemies'&&ctx.target&&(ctx.target.side===a.side||ctx.target.hp<=0||ctx.target.retreated))return '主目标已失效';if(!ts.length)return '请选择合法目标';if(ts.some(t=>!t||t.hp<=0||t.retreated))return '目标已失效';if(ctx.targetMode==='enemy'&&ctx.target?.side===a.side)return '需要敌方目标';if(['ally','other_ally'].includes(ctx.targetMode)&&ctx.target?.side!==a.side)return '需要友方目标';if(ctx.targetMode==='other_ally'&&ctx.target?.id===a.id)return '不能指定本人';if(ctx.key==='negotiate'&&!ctx.target?.negotiation)return '此敌人不可交涉';const reason=this._hook('validate',ctx);if(reason)return typeof reason==='string'?reason:reason.reason||'技能条件不满足';}
+      return '';
     }
-    _cleanse(a,t){let n=0;for(const key of ['rend','exposed'])if(this.has(t,key)){delete t.status[key];n++;this._record('cleanse',{actor:a.id,target:t.id,status:key},`${a.name}净化${t.name}的${statusNames[key]}`);}this._bump('cleansed',n);return n;}
-    queuePreview(){const ids=this.living('ally').concat(this.living('enemy')).sort((a,b)=>b.speed-a.speed||(a.side===b.side?0:a.side==='ally'?-1:1)||a.slot-b.slot).map(u=>u.id);return {currentId:this.currentId,remainingIds:this.queue.filter(id=>{const u=this.getUnit(id);return u&&u.hp>0&&!u.retreated&&u.acted_round!==this.round;}),nextPreview:{ids,certainty:'conditional',reason:'按本轮固定速度预计；击倒、撤离、共振击破跳过改变可行动者，新增AP不会插队。'}};}
-    describeStatus(unit,key){const u=this.getUnit(unit),v=u?.status[key];if(!v)return null;const texts={umbra:'下两次普攻系数+50%，每次仍支付2AP',critical:'下两次普攻附带0.25系数导电雷陨；无免费资源',rend:'治疗量×0.75；治疗/净化消耗AP与个人资源',exposed:'下一次受击伤害+15%；可净化，受击后消耗',tune:'另一队友的可触发技能命中：标记归属者0.35倍异常伤害，行动者+5主资源；不削共振',cutline:'敌攻击力×0.85；受到异常伤害+25%',brace:'所受伤害×0.7，主体首次直接受击反击一次；1AP佯攻可解除',charge:'已投入窗口蓄力；下一敌方窗口兑现；可共振打断/处理部件/提前防守',aim:'已锁定队友；下次射击兑现；后续挑衅不能改人',guard:'到下次本人窗口开始前伤害减半',outro:'接收者下一本人窗口全部直接动作增伤，到该窗口结束',outro_guard:'下一次受击伤害×0.85；最晚接收窗口末过期',status_outro:'下一次本人归属异常伤害+25%；最晚接收窗口末过期',barrier:'吸收伤害；刷新取高值不叠加',fusion:'累计3层触发0.6倍异常伤害',counter:'下一次受到主体直接攻击时承伤×0.6并反击一次；不插入正式窗口',overload:'队伍超负荷：当前和下轮直接伤害+10%',spectro_mark:'微光：该目标下一次受到衍射技能追加0.25系数伤害；不返资源',wind_mark:'风蚀：在该敌正式窗口末造成归属者0.2系数气动伤害；最多2层'};let detail=texts[key]||'';const owner=this.getUnit(v.owner);if(owner&&u.side==='enemy'&&['fusion','tune','wind_mark'].includes(key)){const el=key==='fusion'?'fusion':key==='wind_mark'?'aero':owner.element,coef=key==='fusion'?.6:key==='tune'?.35:.2*v.n;detail+=`；当前预计${this.previewPacket(owner,u,coef,el,true)}点${this.params.elements[el]}伤害，归属${owner.name}（不含未来状态变化）`;}return {name:statusNames[key]||key,description:detail,expires:v.expires,remainingRounds:Number.isFinite(v.expires)?Math.max(0,v.expires-this.round):null,...clone(v)};}
-
-    _kill(u) {
-      if(u.hp>0||u.dead)return;
-      if(this.has(u,'charge')||this.has(u,'aim')){this._bump('charge_cancelled_ko');this._record('charge_cancelled',{actor:u.id,reason:'incapacitated'},`${u.name}失能，准备中的强攻取消`);}
-      u.hp=0;u.dead=true;u.status={};u.temp_ap=0;u.relay_pending=false;u.ap=0;u.part=null;u.concerto=0;u.rsc=Object.fromEntries(Object.keys(u.rsc).map(k=>[k,0]));u.overdrive=false;u.form=u.form_start||'normal';
-      this._removeOwnedMarkers(u);this._record('incapacitated',{unit:u.id,target:u.id},`${u.name}失去战斗能力`);this._bump('ko_'+u.side);
+    availableActions(actorId=this.currentId,bp=0,options={}){const a=this.getUnit(actorId);if(!a||a.side!=='ally')return [];let keys=Object.keys(a.skills);if(a.skills.R1){keys=keys.filter(k=>!['R1','R2'].includes(k));keys.push('R');}keys.push(...Object.keys(generic));return keys.map(publicKey=>{const key=this._resolveKey(a,publicKey),ctx=this._context(a,key,options.targetId,{...options,bp});const s=ctx.skill;const candidates=ctx.targetMode==='enemy'||ctx.targetMode==='all_enemies'?this.living('enemy'):ctx.targetMode==='self'?[a]:this.living('ally').filter(t=>ctx.targetMode!=='other_ally'||t.id!==a.id);const choices=this._hook('choices',a,s,key,bp,ctx.options)||{};let reason=this._legality(ctx,false);if(!reason&&candidates.length===0)reason='没有合法目标';let previewReason='';if(!reason){const sample=options.targetId||candidates[0]?.id;const c=this._context(a,key,sample,{...options,bp});previewReason=this._hook('validate',c)||'';/* Selection errors belong to the target picker, not the skill menu. */if(typeof previewReason==='string'&&/形态|姿态|模式|尚未|不处于|仅限|^需要|^临界期间/.test(previewReason))reason=previewReason;}
+        if(!reason&&choices.allyTargets&&choices.allyTargets.length===0)reason='没有合法其他队友';if(!reason&&choices.multiTarget?.min>0&&choices.multiTarget.ids.length<choices.multiTarget.min)reason='没有符合条件的目标';
+        return {...s,key:publicKey,resolvedKey:key,skill:s,name:ctx.name,enabled:!reason,ready:!reason,reason,selectionReason:previewReason,spCost:ctx.spCost,energyCost:ctx.energyCost,cooldownRemaining:key==='R2'?0:Math.max(0,(a.cooldowns[this._cooldownKey(key,s)]||0)-this.round),bp,requiredBP:key==='R2'?3:null,target:ctx.targetMode,targetText:ctx.targetMode==='other_ally'?'另一名存活队友':s.target||'',targets:candidates.map(t=>t.id),...choices,preview:{coef:ctx.coef,coefDef:ctx.coefDef,q:ctx.q,attacks:ctx.attacks.length,sp:ctx.spCost,energyCost:ctx.energyCost,bp,bodyText:ctx.coefDef?`${quant(ctx.coefDef)}×DEF`:ctx.coef?`${quant(ctx.coef)}×ATK`:'支援效果'}};});}
+    start(){if(this.started)return this._reject('战斗已开始');const n=this.log.length;this.started=true;this._checkResult();if(!this.result){this._beginRound();this._advance();}return this._reply(n);}
+    _beginRound(){this.round++;for(const a of this.living('ally')){if(this.round>1&&a.spentBPRound!==this.round-1)a.bp=Math.min(5,a.bp+1);if(a.r2Pending){a.energyLocked=true;a.form=a.key==='amy'?'mech':a.key==='denia'?'blue':a.form;}}
+      this._hook('roundStart');const units=this.living('ally').concat(this.living('enemy').filter(e=>!e.mechanicUnit));units.sort((a,b)=>Number(b.defendPriority)-Number(a.defendPriority)||this.finalStat(b,'spd')-this.finalStat(a,'spd')||(a.side===b.side?a.slot-b.slot:a.side==='ally'?-1:1));this.queue=units.map(u=>u.id);this._record('round_start',{queue:this.queue.slice()},`第${this.round}轮`);}
+    _endRound(){this._record('round_end');this._hook('roundEnd');for(const u of this.allies.concat(this.enemies))for(const [k,v] of Object.entries(u.status))if(!v.roleEffect&&Number.isFinite(v.expires)&&v.expires<=this.round&&!v.slotBound)delete u.status[k];this._checkResult();}
+    _advance(){this._currentId=null;let guard=0;while(!this.result&&guard++<1000){if(!this.queue.length){this._endRound();if(this.result)break;this._beginRound();}const u=this.getUnit(this.queue.shift());if(!u||u.hp<=0||u.retreated||u.actedRound===this.round||u.mechanicUnit)continue;
+        if(u.slotStartedRound!==this.round){u.slotStartedRound=this.round;delete u.status.guard;u.defendPriority=false;if(u.side==='enemy'){delete u.status.counter_stance;if(u.steadfastActions>0)u.steadfastActions--;}
+          this._hook('onActionStart',u);this._record('slot_start',{actor:u.id});}
+        if(u.status.stasis_delay?.uses>0&&u.side==='enemy'&&u.rank!=='boss'){u.status.stasis_delay.uses--;if(!u.status.stasis_delay.uses)delete u.status.stasis_delay;if(this.queue.length){this.queue.push(u.id);this._record('delay',{target:u.id});continue;}}
+        if(u.side==='ally'&&u.status.stun){u.actedRound=this.round;this._record('control_skip',{actor:u.id});this._registerOpportunity(u);continue;}
+        this._currentId=u.id;return;
+      }if(guard>=1000)throw new Error('行动队列未推进');}
+    advance(){if(this.currentId)return this._reject('当前行动尚未提交');const n=this.log.length;this._advance();return this._reply(n);}
+    _registerOpportunity(actor){for(const e of this.living('enemy'))if(e.charge?.opportunities&&own(e.charge.opportunities,actor.id))e.charge.opportunities[actor.id]++;}
+    _finishCommand(ctx){ctx.actor.actedRound=this.round;if(ctx.actor.side==='ally')this._registerOpportunity(ctx.actor);this._hook('onActionEnd',ctx.actor,ctx);this._checkResult();this.activeContext=null;this.active_action=false;if(!this.result)this._advance();}
+    act(key,targetId,options={}){if(!options||typeof options!=='object'||Array.isArray(options)||(options.bp!==undefined&&!int(options.bp,0,3)))return this._reject('BP必须为0–3整数');const a=this.current;if(!a)return this._reject(this.result?'战斗已结束':'当前没有角色');const ctx=this._context(a,key,targetId,options);const reason=this._legality(ctx,true);if(reason)return this._reject(reason);const n=this.log.length;
+      if(ctx.key==='wait'){a.waitRound=this.round;this.queue.push(a.id);this._record('wait',{actor:a.id});this._advance();return this._reply(n);}
+      this.action_id++;ctx.rootActionId=this.action_id;this.activeContext=ctx;this.active_action=true;a.sp-=ctx.spCost;a.bp-=ctx.bp;if(ctx.bp)a.spentBPRound=this.round;
+      if(ctx.key!=='R2'&&ctx.cooldown>0)a.cooldowns[this._cooldownKey(ctx.key,ctx.skill)]=this.round+ctx.cooldown;
+      if(ctx.energyCost>0)a.energy=0;
+      if(ctx.key==='R1'){a.r2Pending=true;a.energyLocked=true;}
+      ctx.crit=false;
+      this.actions[`${a.key}:${ctx.key}`]=(this.actions[`${a.key}:${ctx.key}`]||0)+1;
+      this._record('action_commit',{actor:a.id,source:a.id,skill:ctx.key,rootActionId:ctx.rootActionId,bp:ctx.bp,sp:ctx.spCost,energyCost:ctx.energyCost,targets:ctx.targets.map(t=>t.id)},`${a.name}：${ctx.name}`);
+      if(ctx.skill.generic)this._generic(ctx);else{
+        this._hook('prepare',ctx);ctx.crit=this.stochastic&&ctx.attacks.length>0?this._random()<Math.min(1,this.finalStat(a,'cr')+(ctx.roleCrBonus||0)):false;this._executeOriginal(ctx);this._hook('afterRoot',ctx);
+        for(const event of ctx.breaks)if(this.getUnit(event.target)?.hp>0)this._hook('onBreak',event,ctx);
+        this._hook('afterBreaks',ctx);
+        if(ctx.key==='R2'){a.r2Pending=false;a.energyLocked=false;if(a.key==='amy')a.form='human';if(a.key==='denia')a.form='red';}
+        if(ctx.effective||ctx.launchedAttacks>0)this.distributeEnergy(a,ctx.baseEnergy);
+        this._enemyCounters(ctx);this._hook('afterCounterQueue',ctx);
+      }
+      this._record('action_end',{actor:a.id,rootActionId:ctx.rootActionId});this._finishCommand(ctx);return this._reply(n);
     }
-    _heal(a,t,scale,flat) {
-      if(t.hp<=0||t.retreated||this.policy==='no_healing')return 0;
-      const value=Math.floor((a[a.damage_stat||'atk']*scale+flat*(0.6+0.02*a.level))*(this.has(t,'rend')?.75:1));
-      const actual=Math.min(value,t.maxhp-t.hp),before=t.hp;t.hp+=actual;this._bump('heal',actual);
-      this._record('heal',{actor:a.id,target:t.id,amount:actual,hp_before:before,hp_after:t.hp},`${a.name}为${t.name}恢复 ${actual} 点生命`);return actual;
-    }
-    _damage(a,t,coef,{amp=0,status_damage=false,element=null,joint=false}={}) {
-      if(a.hp<=0||a.retreated||t.hp<=0||t.retreated)return 0;
-      const damageElement=element||a.element;if((t.immune_elements||[]).includes(damageElement)){this._record('immune',{actor:a.id,target:t.id,element:damageElement,amount:0},`${t.name}免疫${this.params.elements[damageElement]||damageElement}伤害`);return 0;}
-      let source=a[a.damage_stat||'atk'];if(a.side==='enemy'&&a.phase===2)source*=a.phase2_attack_multiplier||1;if(this.has(a,'cutline'))source*=0.85;
-      const k=120+4*a.level;let mit=1;
-      if(this.has(t,'guard'))mit*=0.5;if(this.has(t,'counter'))mit*=.6;if(this.has(t,'brace'))mit*=0.7;if(t.side==='ally'&&this.field_until>=this.round)mit*=0.8;
-      if(this.has(t,'outro_guard')){mit*=0.85;delete t.status.outro_guard;}if(!this.has(t,'guard'))mit=Math.max(this.has(t,'counter')?(this.params.rules.counter_mitigation_floor??.6):this.params.rules.non_guard_mitigation_floor,mit);
-      if(status_damage&&!joint&&this.has(t,'cutline'))amp+=0.25;
-      if(status_damage&&!joint&&this.has(a,'status_outro')){amp+=a.status.status_outro.amp;delete a.status.status_outro;}
-      if(this.has(t,'exposed')){mit*=1.15;delete t.status.exposed;this._bump('exposed_hits');}
-      let broken=t.broken_until>=this.round&&t.broken_until>0;
-      if(this.active_action&&a.side==='ally'&&Object.prototype.hasOwnProperty.call(this.action_break_snapshot,t.id))broken=this.action_break_snapshot[t.id];
-      const factor=this.stochastic?0.95+0.1*this._random():1;
-      let raw=Math.max(1,Math.floor(source*coef*k/(k+t.def)*((t.resist||{})[element||a.element]??1)*(1+Math.min(0.5,amp))*mit*factor));
-      let absorbed=0;if(this.has(t,'barrier')){absorbed=Math.min(raw,t.status.barrier.amount);raw-=absorbed;t.status.barrier.amount-=absorbed;this._bump('absorbed',absorbed);if(t.status.barrier.amount<=0)delete t.status.barrier;}
-      const before=t.hp,actual=Math.min(t.hp,raw);t.hp-=actual;this._bump('damage_'+a.side,actual);
-      const unamplified=Math.max(1,Math.floor(source*coef*k/(k+t.def)*((t.resist||{})[element||a.element]??1)*mit*factor));
-      const ampBenefit=Math.max(0,raw+absorbed-unamplified);
-      const withoutMitigation=Math.max(1,Math.floor(source*coef*k/(k+t.def)*((t.resist||{})[element||a.element]??1)*(1+Math.min(0.5,amp))*factor));
-      const prevented=t.side==='ally'?Math.max(0,withoutMitigation-(raw+absorbed))+absorbed:0;
-      if(a.side==='ally'&&ampBenefit){this._bump('buff_bonus_damage',ampBenefit);this._record('buff_used',{actor:a.id,target:t.id,kind:status_damage?'status_amplifier':'damage_amplifier',amount:ampBenefit},`增益为${a.name}本段伤害提供约 ${ampBenefit} 点收益`);}
-      if(this.has(a,'cutline')&&a.side==='enemy'){const cutBenefit=Math.max(0,Math.floor((raw+absorbed)/.85)-(raw+absorbed));this._bump('cutline_prevented',cutBenefit);this._record('buff_used',{actor:a.id,target:t.id,kind:'cutline_attack_reduction',amount:cutBenefit},`切线压低敌方伤害约 ${cutBenefit} 点`);}
-      if(prevented){this._bump('mitigation_prevented',prevented);this._record('buff_used',{actor:a.id,target:t.id,kind:'mitigation',amount:prevented},`${t.name}的防护避免约 ${prevented} 点伤害`);}
-
-      this._record('damage',{actor:a.id,target:t.id,amount:actual,absorbed,coefficient:coef,status_damage,damage_source:joint?'joint':status_damage?'status':'direct',broken_bonus:false,hp_before:before,hp_after:t.hp,element:element||a.element,amp_applied:Math.min(.5,amp),mitigation:mit,buff_bonus:ampBenefit,prevented},`${a.name}${status_damage?'的异常效果':''}对${t.name}造成 ${actual} 点伤害${absorbed?`（护盾吸收 ${absorbed}）`:''}`);
-      if(t.key==='crownless'&&t.phase===1&&t.hp>0&&t.hp<=t.maxhp*(t.phase_hp_fraction||0.6)&&!t.phase_pending){t.phase_pending=true;this._record('phase_pending',{unit:t.id,target:t.id},`${t.name}准备展翼；下次阶段切换不会增加行动`);}
-      this._kill(t);if(t.hp>0&&a.side==='enemy'&&t.side==='ally'&&!status_damage&&this.has(t,'counter')){delete t.status.counter;this._damage(t,a,.55,{status_damage:true});this._bump('rover_counters');}return actual;
-    }
-    _cancelCharge(t,reason,actor) {
-      if(!this.has(t,'charge')&&!this.has(t,'aim'))return false;
-      const pending=t.pattern[t.pattern_i%t.pattern.length];
-      if(['rush','spin','descent','aimed'].includes(pending))t.pattern_i++;
-      delete t.status.charge;delete t.status.aim;t.part=null;
-      this._bump('charge_interrupts');this._record('charge_interrupted',{actor:actor?.id||null,target:t.id,skill:pending,reason},`${t.name}准备的${t.skills[pending]?.name||'强攻'}被${reason}取消`);return true;
-    }
-    _jointAttack(t) {
-      const team=this.living('ally');if(!team.length||t.hp<=0)return;
-      const coefficient=(this.params.rules.joint_attack_reference_coefficient||.72)/team.length;let total=0;
-      for(const ally of team)if(t.hp>0)total+=this._damage(ally,t,coefficient,{joint:true});
-      this._bump('joint_attacks');this._bump('joint_damage',total);
-      this._record('joint_attack',{target:t.id,actors:team.map(a=>a.id),amount:total,reference_budget:80},`联合攻击共造成${total}伤害；80为200主属性/目标160DEF/中性抗性的总参考预算，无额外资源`);
-    }
-    _shieldDamage(a,t,points) {
-      if(t.hp<=0||t.maxshield===0||t.shield===0||t.broken_until>=this.round&&t.broken_until>0)return 0;
-      const key=`${this.action_id}|${t.id}`,remaining=Math.max(0,points-(this.shield_budgets[key]||0));
-      const actual=Math.max(0,Math.min(remaining,t.shield)),before=t.shield;t.shield-=actual;
-      this.shield_budgets[key]=(this.shield_budgets[key]||0)+actual;this._bump('shield_removed',actual);
-      if(actual)this._record('shield',{actor:a.id,target:t.id,amount:actual,shield_before:before,shield_after:t.shield},`${t.name}共振 −${actual}`);
-      if(t.shield===0){
-        t.skip_round=t.acted_round===this.round?this.round+1:this.round;t.broken_until=t.skip_round;t.recovery_lock=false;
-        this._cancelCharge(t,'共振击破',a);delete t.status.brace;t.part=null;
-        this._bump('breaks');this._record('break',{actor:a.id,target:t.id,until:t.broken_until,skip_round:t.skip_round},`${t.name}共振击破！取消准备并跳过第${t.skip_round}轮的一个窗口，不附加易伤`);
-        this._jointAttack(t);
-      }return actual;
-    }
-    _damagePart(a,t,s) {
-      const part=t.part;if(!part||part.hp<=0)return 0;
-      const element=a.element;if((t.immune_elements||[]).includes(element))return 0;
-      const k=120+4*a.level,raw=Math.max(1,Math.floor(a[a.damage_stat||'atk']*s.part_coefficient*k/(k+t.def)*((t.resist||{})[element]??1)));
-      const actual=Math.min(part.hp,raw);part.hp-=actual;this._bump('part_damage',actual);
-      this._record('part_damage',{actor:a.id,target:t.id,part:part.name,amount:actual,hp_after:part.hp},`${a.name}对${t.name}的${part.name}造成${actual}部件伤害（主体未受伤）`);
-      if(part.hp===0){part.destroyed=true;this._bump('parts_destroyed');this._record('part_destroyed',{actor:a.id,target:t.id,part:part.name,effect:part.effect},`${part.name}被拆解：${part.effect==='cancel'?'本次危险技取消':'本次危险技伤害降至45%'}`);if(part.effect==='cancel')this._cancelCharge(t,'拆解锚点',a);}
-      return actual;
-    }
-    _addMode(a,t,count=1) {
-      if(t.hp<=0)return;
-      if(a.mode==='fusion'){const n=(t.status.fusion?.n||0)+count;if(n>=3){delete t.status.fusion;this._damage(a,t,this.params.rules.fusion_packet_coefficient||.9,{status_damage:true,element:'fusion'});this._bump('fusion_procs');}else this._status(t,'fusion',{n,owner:a.id,expires:this.round+3});}
-      else if(a.mode==='tune'||a.mode==='strain')this._status(t,'tune',{owner:a.id,expires:this.round+1});
-    }
-    start() {
-      if(this.started)return [];
-      const from=this.log.length;this.started=true;
-      this._record('start',{team:this.allies.map(a=>a.id),enemies:this.enemies.map(e=>e.id)},'遭遇开始：个人资源0，普通AP4，协奏20');
-      if(!this._checkResult())this.advance();return this.log.slice(from);
-    }
-    _beginRound() {
-      this.round++;this.shield_budgets={};this._record('round',{number:this.round},`第 ${this.round} 回合`);
-      for(const u of this.allies.concat(this.enemies)){
-        if(u.side==='ally'){u.concerto_gain_round=0;u.window_actions=0;u.window_skills={};if(this.round>1&&u.hp>0&&!u.retreated){const before=u.ap;u.ap=Math.min(6,u.ap+4);this._bump('ap_recovery_overflow',Math.max(0,before+4-6));this._record('ap_gain',{actor:u.id,before,after:u.ap,amount:u.ap-before},`${u.name}普通AP ${before}→${u.ap}（+4，上限6）`);}}
-        for(const [key,value] of Object.entries(u.status))if(!value.window_bound&&(value.expires??this.round)<this.round){delete u.status[key];this._record('status_expired',{target:u.id,status:key},`${u.name}的${statusNames[key]||key}结束`);}
-        if(u.side==='enemy'&&u.hp>0){
-          if(u.broken_until&&u.broken_until<this.round){u.broken_until=0;u.shield=u.maxshield;u.recovery_lock=false;u.skip_round=0;this._record('recover',{unit:u.id,target:u.id,shield:u.shield,recovery_lock:u.recovery_lock},`${u.name}恢复 ${u.shield} 点共振，无恢复硬保护`);}
-          if(u.phase_pending&&!u.broken_until){u.phase=2;u.phase_pending=false;u.maxshield=u.phase2_shield;u.shield=Math.min(u.shield,u.maxshield);u.phase_attack_pending=true;this._bump('phase_changes');this._record('phase',{unit:u.id,target:u.id,phase:2},`${u.name}进入第二阶段；展翼震荡替换下一次普通行动`);}
+    _generic(ctx){const a=ctx.actor,t=ctx.target;switch(ctx.key){case'guard':this.addStatus(a,'guard',{owner:a.id,slotBound:true});a.defendPriority=true;break;case'item_sp':{this.inventory.sp--;const target=t||a;const value=Math.min(ctx.skill.recovery??40,target.maxsp-target.sp);target.sp+=value;this._record('item',{actor:a.id,target:target.id,item:'sp',amount:value});break;}case'item_repair':this.inventory.repair--;this.heal(a,t,t.maxhp*(ctx.skill.heal_fraction??.25));break;case'item_cleanse':this.inventory.cleanse--;for(const [k,v] of Object.entries(t.status))if(v.debuff||v.cleanseable||['stun','role_slow','stasis_delay'].includes(k))this.removeStatus(t,k);break;case'escape':a.retreated=true;a.bp=0;a.energy=0;this._hook('onDown',a);a.status={};this._record('retreat',{actor:a.id});break;case'negotiate':if(t&&t.negotiation){t.retreated=true;this._hook('onDown',t);this._record('negotiate',{actor:a.id,target:t.id});}break;}}
+    _executeOriginal(ctx){const a=ctx.actor;ctx.launchedAttacks=0;for(const attack of ctx.attacks){if(a.hp<=0||a.retreated||this.result)break;const targets=(attack.targets||ctx.targets).map(t=>this.getUnit(t)).filter(t=>t&&t.hp>0&&!t.retreated);if(!targets.length)break;attack.attackId=++this.attack_id;attack.rootActionId=ctx.rootActionId;ctx.launchedAttacks++;ctx.currentAttack=attack;this._hook('beforeAttack',ctx,attack);this._record('original_attack',{source:a.id,actor:a.id,rootActionId:ctx.rootActionId,attackId:attack.attackId,targets:targets.map(t=>t.id),index:attack.index});const hits=[];
+        for(const t of targets){if(a.hp<=0||t.hp<=0||t.retreated||this.result)continue;const scale=attack.targetModifiers?.[t.id]||{};const packets=attack.packets||[{coef:attack.coef,defCoef:attack.defCoef,element:attack.element}];let total={damage:0,hpDamage:0,shieldDamage:0,damageImmune:true,hit:true};const hitId=++this.hit_id;
+          for(const p of packets){if(t.hp<=0)break;const d=this.damage(a,t,{...p,coef:(p.coef||0)*(scale.coefScale??1),defCoef:(p.defCoef||0)*(scale.coefScale??1),category:ctx.category,kind:'original',attackId:attack.attackId,hitId,rootActionId:ctx.rootActionId,ctx,crit:ctx.crit,forceMiss:attack.forceMiss||ctx.options.forceMiss===true||ctx.options.forceMiss?.includes?.(attack.index)});total.damage+=d.damage;total.hpDamage+=d.hpDamage;total.shieldDamage+=d.shieldDamage;total.damageImmune=total.damageImmune&&d.damageImmune;total.hit=total.hit&&d.hit;}
+          if(total.hit){const hit={...total,source:a,target:t,rootActionId:ctx.rootActionId,attackId:attack.attackId,hitId,element:attack.element,coef:attack.coef,defCoef:attack.defCoef,original:true};ctx.hits.push(hit);hits.push(hit);this._record('successful_hit',{source:a.id,target:t.id,rootActionId:ctx.rootActionId,attackId:attack.attackId,hitId,...total});if(t.hp>0&&!total.damageImmune)this.applyQ(a,t,(attack.q||0)*(scale.qScale??1),ctx);this._hook('afterHit',ctx,hit);}
         }
+        this._hook('afterAttack',ctx,attack,hits);
+      }delete ctx.currentAttack;}
+    _damageMath(source,target,p={}){const m=this._hook('modifiers',source,target,p)||{};const level=p.levelSnapshot??source.level,K=100+5*level;
+      const atk=p.atkSnapshot??this.finalStat(source,'atk'),defSource=p.defSnapshot??this.finalStat(source,'def');const base=p.base??((p.coef||0)*atk+(p.defCoef||0)*defSource+(p.hpCoef||0)*source.maxhp+(p.flat||0));
+      const element=elementKey(p.element||source.element);const immune=(target.immune_elements||[]).map(elementKey).includes(element)||target.damageImmune===true||target.damageImmunities?.includes(element);
+      const miss=!!p.forceMiss||!!target.hitImmune;const shred=clamp((m.defShred||0)+(p.defShred||0),0,.6),ignore=clamp((m.defIgnore||0)+(p.defIgnore||0),0,.5);
+      const defense=this.finalStat(target,'def')*(1-shred)*(1-ignore);let res=target.resist?.[element];if(res===undefined){const cn=Object.entries(elements).find(([,v])=>v===element)?.[0];res=target.resist?.[cn]??.1;}
+      res+=(m.resistance||0);res-=m.resShred||0;res-=Math.max(0,res)*(m.resPenetration||p.resPenetration||0)+(m.resIgnore||p.resIgnore||0);res=clamp(res,-.5,.9);const resistMultiplier=res<0?1-res/2:res<.75?1-res:1/(1+4*res);
+      let reduction=Math.max(m.reduction||0,p.reduction||0);if(target.status.guard)reduction=Math.max(reduction,.5);reduction=clamp(reduction,0,.75);
+      const noSource=p.ignoreSourceBonuses||p.kind==='status'||p.kind==='reflection';const bonus=noSource?1:p.snapshotSourceBonuses?1+(p.damageBonus||0):1+(m.damageBonus||0)+(p.damageBonus||0)+(source.status.damage_boost?.amount||0);const amp=1+(m.allHpAmplify||0)+(p.kind==='status'?(m.statusAmplify||0)+(p.statusAmplify||0):noSource?0:p.snapshotSourceBonuses?(p.amplify||0):(m.amplify||0)+(p.amplify||0));
+      const crit=p.canCrit===false?false:!!p.crit;const critMultiplier=crit?this.finalStat(source,'cdmg')+(m.cdmgBonus||0):1;
+      const raw=base*bonus*amp*critMultiplier*K/(K+defense)*resistMultiplier*(1-reduction);
+      const damage=!miss&&!immune&&base>0?Math.max(1,Math.floor(raw)):0;
+      return {damage,base,element,immune,damageImmune:immune,hit:!miss,crit,defense,resistance:res,K,defMultiplier:K/(K+defense),resistMultiplier};}
+    damage(source,target,packet={}){const s=this.getUnit(source),t=this.getUnit(target);if(!s||!t||s.hp<=0||s.retreated||t.hp<=0||t.retreated)return {damage:0,hpDamage:0,shieldDamage:0,hit:false,damageImmune:false};const ctx=packet.ctx||this.activeContext;const p={...packet,ctx,rootActionId:packet.rootActionId??ctx?.rootActionId,source:s,target:t,kind:packet.kind||'attached'};if(p.crit===undefined&&p.canCrit!==false&&this.stochastic&&['coordinated','counter'].includes(p.kind))p.crit=this._random()<this.finalStat(s,'cr');const calc=this._damageMath(s,t,p);let amount=calc.damage;p.amount=amount;p.element=calc.element;p.damageImmune=calc.damageImmune;p.hit=calc.hit;p.afterDamage=[];
+      if(t.side==='ally'&&calc.hit)this._hook('beforeIncomingDamage',p);amount=Math.max(0,Math.floor(p.amount));let remaining=amount,shieldDamage=0;
+      for(const [key,value] of Object.entries(t.status)){if(!remaining)break;if(value.shield||key==='barrier'){const absorbed=Math.min(remaining,value.amount||0);remaining-=absorbed;shieldDamage+=absorbed;value.amount-=absorbed;if(value.amount<=0)delete t.status[key];}}
+      p.amount=remaining;p.shieldDamage=shieldDamage;if(t.side==='ally'&&calc.hit)this._hook('beforeHPDamage',p);const hpDamage=Math.min(t.hp,Math.max(0,Math.floor(p.amount)));t.hp-=hpDamage;p.hpDamage=hpDamage;p.damage=shieldDamage+hpDamage;
+      this._record('damage',{source:s.id,actor:s.id,target:t.id,kind:p.kind,category:p.category,element:p.element,damage:p.damage,hpDamage,shieldDamage,damageImmune:calc.damageImmune,hit:calc.hit,crit:calc.crit,hp_after:t.hp,rootActionId:p.rootActionId,attackId:p.attackId,hitId:p.hitId},`${s.name} → ${t.name} ${p.damage}`);
+      if(ctx&&(hpDamage>0||shieldDamage>0))ctx.effective=true;for(const f of p.afterDamage)if(typeof f==='function')f(p);
+      if(t.hp<=0)this._down(t,s,p);else this._phaseFacts(t);
+      if((p.q||0)>0&&t.hp>0)this.applyQ(s,t,p.q,ctx,p.kind==='reflection');
+      return {...calc,damage:p.damage,hpDamage,shieldDamage};}
+    applyQ(source,target,amount,ctx=this.activeContext,noResponse=false){const s=this.getUnit(source),t=this.getUnit(target);if(!s||!t||t.hp<=0||!t.maxq||t.q<=0||t.breakPending||t.bossState==='special_interrupted'||amount<=0)return 0;const before=t.q;t.q=quant(Math.max(0,t.q-amount));const delta=quant(before-t.q);this._record('q_damage',{source:s.id,target:t.id,amount:delta,q_after:t.q,rootActionId:ctx?.rootActionId});
+      if(t.q===0){t.breakPending=true;t.breakCount++;this._cancelCharge(t,true);delete t.status.counter_stance;const event=this._record('break',{source:s.id,breaker:s.id,target:t.id,rootActionId:ctx?.rootActionId,noResponse},`${t.name}共振击破`);if(ctx&&!noResponse)ctx.breaks.push(event);}
+      if(t.key==='dreamless'&&t.bossState==='projectiles'&&t.q<t.maxq*.5)this._interruptSpecial(t);
+      return delta;}
+    _phaseFacts(t){if(t.key==='crownless'&&t.phase===1&&t.hp<=t.maxhp*.7)t.phasePending=true;if(t.key==='dreamless'&&t.hp<=t.maxhp*.35){t.phasePending=true;if(t.specialDone&&t.bossState==='normal')t.phase=3;}}
+    _down(t,source,packet){if(t.dead)return;t.hp=0;t.dead=true;t.bp=0;t.energy=0;this._record('down',{target:t.id,source:source?.id});this._hook('onDown',t);if(t.mechanicUnit){this._reflect(t,source,packet);return;}t.status={};if(t.r2Pending){t.energyLocked=true;t.form=t.key==='amy'?'mech':t.key==='denia'?'blue':t.form;}if(t.key==='dreamless')this._removeProjectiles(t);this._checkResult();}
+    revive(target,hp){const t=this.getUnit(target);if(!t||t.hp>0||t.mechanicUnit||hp<=0)return false;t.hp=Math.min(t.maxhp,Math.max(1,Math.floor(hp)));t.dead=false;t.actedRound=this.round;t.bp=0;t.energy=0;if(t.r2Pending){t.energyLocked=true;t.form=t.key==='amy'?'mech':'blue';}this._record('revive',{target:t.id,hp:t.hp});return true;}
+    _selectTarget(actor){const alive=this.living(actor.side==='ally'?'enemy':'ally');if(!alive.length)return null;const taunt=actor.status.taunt?.owner&&this.getUnit(actor.status.taunt.owner);if(taunt&&taunt.hp>0&&!taunt.retreated)return taunt;return alive.slice().sort((a,b)=>a.hp/a.maxhp-b.hp/b.maxhp||a.slot-b.slot)[0];}
+    effectPolicy(target,type){const t=this.getUnit(target);if(!t)return 'immune';if(t.mechanicUnit)return 'immune';if(type==='slow')return 'apply';if(type==='pull')return t.rank==='boss'||t.pull_immune?'immune':'apply';if(t.rank!=='boss')return 'apply';if(t.charge){const training=this.options.difficulty==='easy'&&this.params.difficulties?.easy?.allow_charge_control_once===true;return training&&!t.charge.controlDelayed?'delay_once':'immune';}if(t.key==='crownless'&&t.status.counter_stance&&!t.steadfastActions)return 'suppress_reaction';return 'immune';}
+    control(source,target,type='bind'){const s=this.getUnit(source),t=this.getUnit(target);if(!s||!t||t.hp<=0)return false;const policy=this.effectPolicy(t,type);if(policy==='immune'){this._record('control_immune',{source:s.id,target:t.id,type,policy});return false;}if(type==='pull'||type==='slow')return true;
+      if(t.status.interruption_guard?.uses>0){t.status.interruption_guard.uses--;if(!t.status.interruption_guard.uses)delete t.status.interruption_guard;return false;}
+      if(policy==='suppress_reaction'){t.status.counter_stance.suppressedUses=1;t.steadfastActions=2;this._record('reaction_suppressed',{source:s.id,target:t.id});return true;}
+      if(policy==='delay_once'){t.charge.controlDelayed=true;if(t.charge.opportunities)t.charge.required++;else t.charge.delaySlots=1;this._record('charge_delayed',{source:s.id,target:t.id});return true;}
+      if(t.status.counter_stance)t.status.counter_stance.suppressed=true;
+      if(t.charge){if(t.charge.controlDelayed)return false;t.charge.controlDelayed=true;t.charge.delaySlots=1;}
+      else this.addStatus(t,'stasis_delay',{owner:s.id,uses:1},2);
+      this._record('control',{source:s.id,target:t.id,type});return true;
+    }
+    _prepareCharge(e,type,required=1){delete e.status.counter_stance;e.charge={type,startedRound:this.round,required,opportunities:Object.fromEntries(this.living('ally').map(a=>[a.id,0])),controlDelayed:false,delaySlots:0};this._record('charge',{source:e.id,type,required,targets:this.living('ally').map(a=>a.id)},`${e.name}正在蓄力`);}
+    _canRelease(e){return e.charge&&this.living('ally').filter(a=>own(e.charge.opportunities||{},a.id)).every(a=>(e.charge.opportunities[a.id]||0)>=e.charge.required);}
+    _cancelCharge(e,broken=false){if(!e.charge)return;if(e.key==='crownless')e.cooldowns.wing_charge=this.round+5;if(e.key==='dreamless'&&e.bossState==='projectiles'){this._interruptSpecial(e);return;}e.charge=null;this._record('charge_cancelled',{source:e.id,broken});}
+    _spawnProjectiles(e){for(let i=0;i<2;i++){const key='dreamless_projectile';const def=this.params.enemies[key]||{};const slot=this.enemies.length;const u={...clone(def),key,asset_key:key,id:`enemy:projectile:${++this.projectile_id}`,side:'enemy',slot,level:e.level,name:`可反弹投射物${i+1}`,maxhp:e.projectile_hp||180,hp:e.projectile_hp||180,atk:e.atk,def:e.projectile_def||90,spd:0,cr:0,cdmg:1.5,er:1,maxsp:0,sp:0,bp:0,energy:0,energyCap:0,cooldowns:{},status:{},form:'normal',r2Pending:false,energyLocked:false,spentBPRound:0,actedRound:this.round,slotStartedRound:0,waitRound:0,defendPriority:false,dead:false,retreated:false,phase:1,phasePending:false,mainActions:0,breakPending:false,breakCount:0,firstBreakRecovered:false,specialDone:false,bossState:'normal',charge:null,recovering:false,q:0,maxq:0,rank:'mechanism',mechanism:true,mechanicUnit:true,owner:e.id,reflected:false,element:'havoc',skills:{},resist:Object.fromEntries(['glacio','fusion','electro','aero','spectro','havoc'].map(k=>[k,.1])),control_immune:['pull','bind','stun','heal','revive','negotiate']};this.enemies.push(u);this._record('spawn',{source:e.id,target:u.id,kind:'projectile'});}}
+    _removeProjectiles(e){for(const p of this.enemies)if(p.mechanicUnit&&p.owner===e.id){if(!p.retreated){p.retreated=true;this._record('despawn',{target:p.id});}this._hook('onDown',p);p.status={};}}
+    _reflect(p,source,packet){if(p.reflected)return;p.reflected=true;p.retreated=true;const e=this.getUnit(p.owner);if(!e||e.hp<=0)return;this._record('reflection',{source:p.id,target:e.id,actor:source?.id,q:e.reflection_q??54.6});this.damage(e,e,{coef:e.reflection_coefficient??3,element:'havoc',kind:'reflection',category:'反弹',canCrit:false,ignoreSourceBonuses:true,levelSnapshot:e.level,q:e.reflection_q??54.6,ctx:packet.ctx});}
+    _interruptSpecial(e){if(e.bossState==='special_interrupted')return;e.bossState='special_interrupted';e.charge=null;this._removeProjectiles(e);this._record('special_interrupt',{target:e.id,q:e.q,threshold:e.maxq*.5},`${e.name}蓄能中断`);}
+    _finishSpecial(e){e.specialDone=true;e.phase=e.phasePending?3:2;e.bossState='normal';e.charge=null;e.lastHighRiskAction=e.mainActions;this._removeProjectiles(e);}
+    _recoverBreak(e){e.breakPending=false;e.q=e.maxq;e.firstBreakRecovered=true;this._record('break_recover',{target:e.id,q:e.q});}
+    _ready(e,key){return (e.cooldowns[key]||0)<=this.round;}
+    _enemyPlan(e){const target=this._selectTarget(e);if(e.breakPending)return {key:'break_recover',name:'失衡收势',skip:true};
+      if(e.key==='dreamless'&&e.bossState==='special_interrupted')return {key:'special_recover',name:'中断收势',skip:true};
+      if(e.charge){if(e.charge.delaySlots>0)return {key:'charge_delay',name:'受控延后',skip:true};if(!this._canRelease(e))return {key:'charge_maintain',name:'维持蓄能',skip:true};return {key:'charge_release',name:e.key==='crownless'?'展翼裁决':e.key==='dreamless'?'毁灭放射':e.key==='predator'?'猎手狙击':'轮刃回旋',coef:e.key==='crownless'?12:e.key==='dreamless'?9:e.key==='predator'?2.8:2.6,aoe:e.key!=='predator',targetId:e.charge.targetId,release:true};}
+      if(e.key==='crownless'){
+        if(!e.mainActions)return {key:'opening',name:'跃击',coef:1.8};
+        if(e.phasePending&&e.phase===1)return {key:'transform',name:'持枪转段',transform:true};
+        if(e.recovering)return {key:'basic',name:'收势短连',coef:1.8,recovery:true};
+        if(e.phase===1)return this._ready(e,'uppercut')?{key:'uppercut',name:'升击',coef:2.8,cd:2}:{key:'basic',name:'短连',coef:1.8};
+        if(this._ready(e,'wing_charge'))return {key:'wing_charge',name:'展翼蓄力',prepare:true};
+        if(this._ready(e,'stance'))return {key:'stance',name:'反击架势',stance:true,coef:0,cd:3};
+        if(this._ready(e,'sweep'))return {key:'sweep',name:'枪刃横扫',coef:1.8,aoe:true,cd:3};
+        if(this._ready(e,'spear'))return {key:'spear',name:'枪刃',coef:3.6,cd:2};return {key:'basic',name:'短连',coef:1.8};
       }
-      this.queue=this.living('ally').concat(this.living('enemy')).sort((a,b)=>b.speed-a.speed||(a.side===b.side?0:a.side==='ally'?-1:1)||a.slot-b.slot).map(u=>u.id);
-    }
-    advance() {
-      if(!this.started||this.result)return null;
-      if(this.current&&this.current.hp>0&&!this.current.retreated&&this.current.acted_round!==this.round)return this.current;
-      this._currentId=null;
-      while(!this._checkResult()){
-        if(!this.queue.length)this._beginRound();
-        const u=this.getUnit(this.queue.shift());if(!u||u.hp<=0||u.retreated||u.acted_round===this.round)continue;
-        if(u.side==='enemy'&&u.skip_round===this.round){u.acted_round=this.round;this._bump('skipped_enemy_actions');this._record('skip',{actor:u.id,reason:'broken'},`${u.name}共振击破，跳过本轮窗口`);continue;}
-        this._currentId=u.id;
-        if(u.side==='ally'){u.window_actions=0;u.window_skills={};delete u.status.guard;delete u.status.counter;}
-        this._record('turn',{actor:u.id,side:u.side},`轮到${u.name}行动`);return u;
+      if(e.key==='dreamless'){
+        if(e.firstBreakRecovered&&!e.specialDone)return {key:'projectiles',name:'投射物蓄能',prepare:true,projectiles:true};
+        if(e.recovering)return {key:'basic',name:'收势短剑',coef:2.2,recovery:true};
+        if(e.phase===3&&e.mainActions-(e.lastHighRiskAction??-4)>=4)return {key:'highrisk',name:'高危蓄力',prepare:true};
+        if(e.phase>=2&&this._ready(e,'heavy'))return {key:'heavy',name:'重连击',coef:4.2,cd:3};
+        if(this._ready(e,'scythe'))return {key:'scythe',name:'镰刃回旋',coef:3.2,cd:2};
+        if(this._ready(e,'sweep'))return {key:'sweep',name:'翼刃扫荡',coef:1.6,aoe:true,cd:3};return {key:'basic',name:'短剑连段',coef:2.2};
       }
-      return null;
-    }
-    _finish(a) {if(a.side==='ally'){if(a.temp_ap)this._bump('temp_ap_wasted',a.temp_ap);a.temp_ap=0;a.relay_pending=false;for(const k of ['outro','outro_guard','status_outro'])delete a.status[k];this._record('window_end',{actor:a.id,ap:a.ap,paid_actions:a.window_actions},`${a.name}结束窗口，保留${a.ap}普通AP`);}a.acted_round=this.round;this._currentId=null;this._checkResult();if(!this.result)this.advance();this.validate();}
-    _checkResult() {
-      if(this.result)return this.result;
-      const allies=this.living('ally'),enemies=this.living('enemy');
-      if(enemies.length&&allies.length)return null;
-      const escaped=this.allies.filter(a=>a.retreated).length,ko=this.allies.filter(a=>a.hp===0).length;
-      const outcome=!enemies.length?'win':escaped?(ko?'escaped_partial':'escaped'):'loss';
-      this.result={...this.summary(),outcome};this._currentId=null;this.queue=[];
-      this._record('result',{outcome},({win:'战斗胜利',loss:'战斗失败',escaped:'全员撤离',escaped_partial:'存活队员撤离，部分队员已失去战斗能力'})[outcome]);return this.result;
-    }
-    _windowReason(a) {
-      if(!this.started)return '战斗尚未开始';if(this.result)return '战斗已结束';if(!a||a.side!=='ally')return '请选择我方角色';
-      if(a.hp<=0)return '角色已失去战斗能力';if(a.retreated)return '角色已撤离';if(!this.current||this.current.id!==a.id)return '尚未轮到该角色';if(a.acted_round===this.round)return '本回合窗口已结束';return '';
-    }
-    _targets(a,s) {
-      if(s.target==='self')return a.hp>0&&!a.retreated?[a.id]:[];
-      const side=['ally','all_allies','other_ally'].includes(s.target)?'ally':'enemy';
-      return this.living(side).filter(t=>(s.target!=='other_ally'||t.id!==a.id)&&(!s.effect||s.effect!=='feint'||this.has(t,'brace'))&&(s.effect!=='part'||t.part&&t.part.hp>0)&&(s.effect!=='enemy_specific'||this._canTaunt(t))).map(t=>t.id);
-    }
-    _canTaunt(t) {return t.hp>0&&!this.has(t,'charge')&&!this.has(t,'aim')&&t.skills&&Object.values(t.skills).some(s=>s.coef>0&&!s.aoe);}
-    _skillReason(a,key,s) {
-      if(!s)return '未知技能';if(s.item&&(this.inventory[s.item]||0)<1)return '本场测试库存已用完';if(key==='negotiate')return '此测试遭遇没有可协商的敌人';
-      if(a.ap+a.temp_ap<(s.ap_cost||0))return `AP不足：需要${s.ap_cost}，当前${a.ap}+${a.temp_ap}`;
-      if(s.once_per_window&&a.window_skills[key])return '本窗口已使用一次该支援技能';
-      if(s.mode_required&&a.mode!==s.mode_required)return '当前属性不可使用';
-      if(s.concerto_cost&&a.concerto<s.concerto_cost)return `协奏不足：此技能还需${s.concerto_cost}协奏`;
-      if(a.key==='amy'){
-        if(key==='overdrive'&&(a.overdrive||a.rsc.resonance!==0))return '需要未启动星辉，且谐振为 0';
-        if(key==='heavy'&&a.rsc.resonance!==4)return '需要 4 点谐振';
-        if(key==='finale'&&(a.rsc.sync!==200||a.rsc.resonance!==4))return '需要 200 同步率与 4 点谐振';
+      if(e.key==='bracer'&&this._ready(e,'stance'))return {key:'stance',name:'架岩',stance:true,cd:3};
+      if(['predator','carapace'].includes(e.key)&&this._ready(e,'charge'))return {key:'charge',name:e.key==='predator'?'瞄准':'旋刃蓄力',prepare:true,targetId:target?.id};
+      if(/prism$/.test(e.key)){
+        if(e.status.attack_link){const linked=this.getUnit(e.status.attack_link.target);if(!linked||linked.hp<=0||linked.retreated)return {key:'link_lost',name:'连线中断',skip:true};return {key:'linked_attack',name:'连线脉冲',coef:1.4};}
+        if(this._ready(e,'support')&&this.living('enemy').some(t=>t.id!==e.id&&!t.mechanicUnit))return {key:'support',name:'棱镜支援',support:true,cd:3};
       }
-      if(a.key==='denia'){
-        if(['stage','breakdown'].includes(key)&&a.form!=='red')return '仅红形态可用';
-        if(['blue','curtain'].includes(key)&&a.form!=='blue')return '仅蓝形态可用';
+      return {key:'basic',name:'普通攻击',coef:e.key==='bracer'?1.6:e.key==='carapace'?1.8:/prism$/.test(e.key)?1.2:1.4};
+    }
+    enemyIntent(actorId){const e=this.getUnit(actorId);if(!e||e.side!=='enemy')return null;if(e.mechanicUnit)return {visible:true,dangerous:false,committed:false,phase:1,name:'可反弹投射物',targets:[e.owner],description:'没有独立行动槽。可被正常单体和群体攻击；击毁后反弹54.6共振。免疫牵引、束缚、治疗、复活与交涉。',q:0,maxq:0,controlPolicy:'immune'};const isCharge=!!e.charge,visible=isCharge||e.breakPending||e.bossState==='special_interrupted'||e.phasePending&&e.key==='crownless';const p=this._enemyPlan(e);return {visible,dangerous:isCharge,committed:isCharge,phase:e.phase,name:visible?p.name:'行动未公开',targets:isCharge?(e.charge.targetId?[e.charge.targetId]:this.living('ally').map(a=>a.id)):[],description:e.bossState==='projectiles'?`击毁投射物可反弹54.6共振；当前${e.q}/${e.maxq}，严格低于${e.maxq*.5}中断。每名存活队友有${e.charge?.required||2}次应对机会。`:isCharge?`${p.name}；控制策略：${this.effectPolicy(e,'bind')==='immune'?'霸体，普通束缚无效':'可干预一次'}；共振击破可中断。`:visible?p.name:'普通招式不预先公开',q:e.q,maxq:e.maxq,controlPolicy:this.effectPolicy(e,'bind')};}
+    _enemyHit(ctx,targets,coef,kind='original'){const e=ctx.actor;ctx.crit=false;const attackId=++this.attack_id;for(const t of targets){if(!t||t.hp<=0||t.retreated||e.hp<=0||this.result)continue;const d=this.damage(e,t,{coef,element:e.element,category:'敌方攻击',kind,attackId,rootActionId:ctx.rootActionId,ctx,canCrit:false,original:kind==='original'});ctx.hits.push({source:e,target:t,attackId,rootActionId:ctx.rootActionId,...d});if(d.hpDamage+d.shieldDamage>0&&!ctx.receivedEnergy.has(t.id)){ctx.receivedEnergy.add(t.id);this._gainEnergy(t,4*this.finalStat(t,'er'),e,false);if(e.status.energy_drain)t.energy=quant(Math.max(0,t.energy-8));}}
+    }
+    _prismSupport(e){const target=this.living('enemy').filter(t=>t.id!==e.id&&!t.mechanicUnit).sort((a,b)=>a.hp/a.maxhp-b.hp/b.maxhp||a.slot-b.slot)[0];if(!target)return;switch(e.element){case'glacio':this.addStatus(target,'interruption_guard',{owner:e.id,uses:1},2);break;case'fusion':this.addStatus(target,'damage_boost',{owner:e.id,amount:.15},2);break;case'aero':this.addStatus(e,'attack_link',{owner:e.id,target:target.id});break;case'spectro':this.shield(e,target,250,2);break;case'havoc':this.addStatus(target,'energy_drain',{owner:e.id,amount:8},2);break;}}
+    stepEnemy(){const e=this.current;if(!e||e.side!=='enemy'||this.result)return this._reject('当前不是敌方行动');const start=this.log.length,p=this._enemyPlan(e);this.action_id++;const ctx={actor:e,key:p.key,skill:p,rootActionId:this.action_id,category:'敌方攻击',hits:[],breaks:[],receivedEnergy:new Set(),effective:false,skipped:!!p.skip};this.activeContext=ctx;this.active_action=true;e.mainActions++;this.enemy_actions[`${e.key}:${p.key}`]=(this.enemy_actions[`${e.key}:${p.key}`]||0)+1;this._record('enemy_action',{actor:e.id,source:e.id,skill:p.key,rootActionId:ctx.rootActionId},`${e.name}：${p.name}`);
+      if(p.key==='break_recover'){const special=e.bossState==='special_interrupted';this._recoverBreak(e);if(special)this._finishSpecial(e);}
+      else if(p.key==='special_recover')this._finishSpecial(e);
+      else if(p.key==='charge_delay')e.charge.delaySlots--;
+      else if(p.key==='link_lost')delete e.status.attack_link;
+      else if(p.transform){e.phase=2;e.phasePending=false;this._record('phase',{target:e.id,phase:2});}
+      else if(p.prepare){this._prepareCharge(e,p.key,p.projectiles?e.projectile_responses||2:1);if(p.targetId)e.charge.targetId=p.targetId;if(p.projectiles){e.bossState='projectiles';this._spawnProjectiles(e);if(e.q<e.maxq*.5)this._interruptSpecial(e);}if(p.key==='highrisk')e.lastHighRiskAction=e.mainActions;}
+      else if(p.stance)this.addStatus(e,'counter_stance',{owner:e.id,coef:e.key==='crownless'?2.3:1.8,suppressed:false,slotBound:true});
+      else if(p.support)this._prismSupport(e);
+      else if(!p.skip){
+        if(p.release&&e.key==='dreamless'&&e.bossState==='projectiles'){const living=this.living('ally');let index=0;for(const projectile of this.living('enemy').filter(x=>x.mechanicUnit&&x.owner===e.id)){this._enemyHit(ctx,[living[index++%living.length]],1.6);projectile.retreated=true;this._hook('onDown',projectile);projectile.status={};}}
+        const targets=p.aoe?this.living('ally'):[this.getUnit(p.targetId)||this._selectTarget(e)];this._enemyHit(ctx,targets,p.coef||0);
+        if(p.release){if(e.key==='crownless'){e.cooldowns.wing_charge=this.round+5;e.recovering=true;}else if(e.key==='dreamless'){if(e.bossState==='projectiles')this._finishSpecial(e);else e.recovering=true;}else e.cooldowns.charge=this.round+3;e.charge=null;}
+        if(p.recovery)e.recovering=false;
       }
-      for(const [resource,cost] of Object.entries(s.cost||{}))if((a.rsc[resource]||0)<cost)return `${resourceNames[resource]||resource}不足：需要 ${cost}，当前 ${a.rsc[resource]||0}`;
-      if(!this._targets(a,s).length)return s.target==='other_ally'?'需要另一名在场队友':'没有合法目标';return '';
+      if(p.cd)e.cooldowns[p.key]=this.round+p.cd;
+      this._hook('afterEnemyRoot',ctx);this._record('action_end',{actor:e.id,rootActionId:ctx.rootActionId});this._finishCommand(ctx);return this._reply(start);
     }
-    validateAction(actor,key,target) {
-      const a=this.getUnit(actor),window=this._windowReason(a);if(window)return window;
-      const s=this.getSkill(a,key),reason=this._skillReason(a,key,s);if(reason)return reason;
-      if(key==='wait')return '';
-      const t=this.getUnit(target);if(!t||t.hp<=0||t.retreated)return '目标不存在、已失去战斗能力或已撤离';
-      if(!this._targets(a,s).includes(t.id))return s.target==='self'?'该指令只能对自己使用':s.target==='other_ally'?'需要选择另一名队友':'目标阵营不符合技能要求';return '';
+    _enemyCounters(ctx){if(!ctx.launchedAttacks||ctx.actor.hp<=0||this.result)return;const threatened=new Set(ctx.targets.map(t=>t.id));for(const e of this.living('enemy')){const stance=e.status.counter_stance;if(!stance||stance.suppressed||e.breakPending||!threatened.has(e.id)||ctx.actor.hp<=0||this.result)continue;if(stance.suppressedUses>0){stance.suppressedUses--;this._record('counter_suppressed',{source:e.id,target:ctx.actor.id,rootActionId:ctx.rootActionId});continue;}this._record('counter',{source:e.id,target:ctx.actor.id,rootActionId:ctx.rootActionId});const c={actor:e,key:'counter',rootActionId:ctx.rootActionId,hits:[],receivedEnergy:new Set(),breaks:[],isCounter:true,kind:'counter',category:'反击'};this._enemyHit(c,[ctx.actor],stance.coef,'counter');this._hook('afterEnemyRoot',c);}}
+    _checkResult(){if(this.result)return this.result;let outcome=null;if(!this.living('enemy').some(e=>!e.mechanicUnit))outcome='win';else if(!this.living('ally').length)outcome=this.allies.some(a=>a.retreated)?this.allies.some(a=>a.hp<=0)?'escaped_partial':'escaped':'loss';if(!outcome)return null;this.result={outcome,rounds:this.round};this._currentId=null;this.queue=[];for(const a of this.allies){a.r2Pending=false;a.energyLocked=false;}this._record('battle_end',{outcome});return this.result;}
+    queuePreview(){const remaining=[this.currentId,...this.queue].filter(Boolean).map(id=>this.getUnit(id)).filter(u=>u&&u.hp>0&&!u.retreated);return remaining.map(u=>({id:u.id,key:u.key,name:u.name,side:u.side,spd:this.finalStat(u,'spd'),current:u.id===this.currentId,acted:u.actedRound===this.round}));}
+    _previewArgs(actor,target,key,options){const a=this.getUnit(actor);if(typeof target==='string'&&(a?.skills[target]||generic[target]||target==='R')&&this.getUnit(key)){const swap=key;key=target;target=swap;}return {a,t:this.getUnit(target),key,options:options||{}};}
+    _previewClone(){const e=Object.create(BattleEngine.prototype);Object.assign(e,this);const unit=u=>({...u,status:clone(u.status),cooldowns:clone(u.cooldowns),roleState:clone(u.roleState||{}),charge:clone(u.charge)});e.allies=this.allies.map(unit);e.enemies=this.enemies.map(unit);e.log=[];e.count={};e.queue=this.queue.slice();e.result=null;e.activeContext=null;e.fields=clone(this.fields);return e;}
+    previewPacket(actor,target,key,options={}){const {a,t,key:k,options:o}=this._previewArgs(actor,target,key,options);if(!a||!t)return {damage:0,coef:0,coefDef:0,q:0,attacks:0,immune:false,sp:0,bp:o.bp||0};const e=this._previewClone(),src=e.getUnit(a),dst=e.getUnit(t),ctx=e._context(src,k,dst.id,o);if(!ctx)return {damage:0};e.activeContext=ctx;ctx.crit=false;e._hook('prepare',ctx);let damage=0,q=0,immune=true,coef=0,coefDef=0;const packets=[];for(const attack of ctx.attacks){const scale=attack.targetModifiers?.[dst.id]||{};const list=attack.packets||[{coef:attack.coef,defCoef:attack.defCoef,element:attack.element}];let immuneAttack=true;for(const packet of list){const p={...packet,coef:(packet.coef||0)*(scale.coefScale??1),defCoef:(packet.defCoef||0)*(scale.coefScale??1),category:ctx.category,kind:'original',ctx,crit:false,canCrit:false,attackId:attack.index+1};coef+=p.coef;coefDef+=p.defCoef;const d=e._damageMath(src,dst,p);damage+=d.damage;immune=immune&&d.immune;immuneAttack=immuneAttack&&d.immune;packets.push({element:d.element,damage:d.damage,coef:p.coef,coefDef:p.defCoef,immune:d.immune});}if(!immuneAttack)q+=(attack.q||0)*(scale.qScale??1);}return {damage,coef,coefDef,q:dst.maxq?quant(q):0,attacks:ctx.attacks.length,element:a.element,packets,immune,sp:ctx.spCost,bp:ctx.bp,energyCost:ctx.energyCost,category:ctx.category,nonCritical:true};}
+    previewDamage(actor,target,key,options={}){return this.previewPacket(actor,target,key,options).damage;}
+    describeStatus(id,key){const u=this.getUnit(id),s=u?.status[key];if(!s)return '';return `${s.name||key}${s.owner?` · 来源${this.getUnit(s.owner)?.name||s.owner}`:''}${Number.isFinite(s.expires)?` · 至第${s.expires}轮末`:''}${s.uses!==undefined?` · 余${s.uses}次`:''}${s.stacks!==undefined?` · ${s.stacks}层`:''}`;}
+    autoAction(){const a=this.current;if(!a)return this._reject('没有当前行动');if(a.side==='enemy')return this.stepEnemy();const enemy=this.living('enemy').sort((x,y)=>Number(y.mechanicUnit)-Number(x.mechanicUnit)||x.hp-y.hp)[0];const bp=a.r2Pending&&a.bp>=3?3:a.bp>=3?3:0;
+      const candidates=[];for(const spend of [...new Set([bp,0])])for(const row of this.availableActions(a.id,spend)){if(!row.enabled||['wait','escape','negotiate','guard'].includes(row.key))continue;const target=row.target==='self'?a:row.target==='ally'||row.target==='other_ally'?this.living('ally').filter(t=>row.target!=='other_ally'||t.id!==a.id).sort((x,y)=>(y.maxhp-y.hp)-(x.maxhp-x.hp))[0]:enemy;if(!target)continue;const opts={bp:spend,allyTargetId:(row.allyTargets||[]).find(id=>id!==a.id)||a.id};if(row.choices?.length)opts.choice=row.choices[0].value;if(row.abnormalChoices?.length)opts.abnormal=row.abnormalChoices[0].value;if(row.multiTarget){const ids=row.multiTarget.ids||[];opts.targetIds=ids.slice(0,row.multiTarget.max||1);if(row.multiTarget.perTargetAbnormal){opts.abnormal={};for(const id of opts.targetIds){const t=this.getUnit(id);const k=Object.keys(t?.status||{}).find(k=>['spectro_frazzle','aero_erosion','electro_flare','fusion_burst','havoc_bane'].includes(k));if(k)opts.abnormal[id]=k;}}}
+        const ctx=this._context(a,row.key,target.id,opts);if(this._legality(ctx,true))continue;let score=this.previewDamage(a,target,row.key,opts);if(row.resolvedKey==='R2')score+=10000;if(ctx.energyCost>0)score+=100;if(row.key==='item_sp')score=a.sp<12?500:-500;if(row.key==='item_repair')score=target.hp<target.maxhp*.45?600:-500;if(ctx.attacks.length===0&&!row.skill.generic)score+=this.living('ally').reduce((n,t)=>n+(t.maxhp-t.hp)*.1,0)+30;candidates.push({score,row,target,opts});}
+      candidates.sort((x,y)=>y.score-x.score);if(candidates.length){const c=candidates[0];return this.act(c.row.key,c.target.id,c.opts);}return this.act('guard',a.id,{bp:0});}
+    summary(){return {outcome:this.result?.outcome||'inconclusive',rounds:this.round,survivors:this.living('ally').length,escaped_count:this.allies.filter(a=>a.retreated).length,ko_count:this.allies.filter(a=>a.hp===0).length,ally_hp_fraction:this.allies.reduce((n,a)=>n+a.hp,0)/this.allies.reduce((n,a)=>n+a.maxhp,0),counts:clone(this.count),skills:clone(this.actions),enemy_skills:clone(this.enemy_actions),inventory:clone(this.inventory),final_resources:Object.fromEntries(this.allies.map(a=>[a.key,{sp:a.sp,bp:a.bp,energy:a.energy,r2Pending:a.r2Pending}])),first_break_round:this.log.find(e=>e.event==='break')?.round||null,enemy_effective_actions:this.log.filter(e=>e.event==='enemy_action'&&!['break_recover','special_recover','charge_maintain'].includes(e.skill)).length};}
+    snapshot(){if(this.active_action)throw new Error('不能保存未完成指令');const state={};for(const k of Object.keys(this))if(!['params','options','activeContext'].includes(k))state[k]=clone(this[k]);return {schema_version:'battle-v04',version:4,parameter_fingerprint:fingerprint(this.params),options:clone(this.options),state};}
+    static restore(params,snapshot){
+      const fail=message=>{throw new Error(message||'非法战斗存档');};
+      if(!snapshot||snapshot.schema_version!=='battle-v04'||snapshot.version!==4||!snapshot.state||!snapshot.options||snapshot.parameter_fingerprint!==fingerprint(params))fail('存档版本或参数不兼容；请开始新测试');
+      const top=['schema_version','version','parameter_fingerprint','options','state'];if(Object.keys(snapshot).some(k=>!top.includes(k))||top.some(k=>!own(snapshot,k)))fail();
+      const b=new BattleEngine(params,snapshot.options),s=clone(snapshot.state);
+      const allowed=Object.keys(b).filter(k=>!['params','options','activeContext'].includes(k));
+      if(Object.keys(s).some(k=>!allowed.includes(k))||allowed.some(k=>!own(s,k)))fail('存档包含未知状态字段');
+      if(!Array.isArray(s.allies)||!Array.isArray(s.enemies)||s.allies.length!==b.allies.length||s.enemies.length<b.enemies.length||s.enemies.length>b.enemies.length+2)fail('非法存档单位');
+      if(s.enemies.length>b.enemies.length){const boss=b.enemies.find(e=>e.key==='dreamless');if(!boss||s.enemies.length!==b.enemies.length+2)fail('非法机制单位');b._spawnProjectiles(boss);}
+      const mutable=new Set(['hp','sp','bp','energy','cooldowns','status','form','r2Pending','energyLocked','spentBPRound','actedRound','slotStartedRound','waitRound','defendPriority','dead','retreated','phase','phasePending','mainActions','breakPending','breakCount','firstBreakRecovered','specialDone','bossState','charge','recovering','q','roleState','lastHighRiskAction','steadfastActions','reflected']);
+      const units={};for(const side of ['allies','enemies'])units[side]=s[side].map((u,i)=>{const original=b[side][i];if(!u||typeof u!=='object'||Array.isArray(u))fail();for(const key of Object.keys(u))if(!own(original,key)&&!mutable.has(key))fail('存档包含未知单位字段');for(const key of Object.keys(original))if(!mutable.has(key)&&JSON.stringify(u[key])!==JSON.stringify(original[key]))fail('存档静态定义不匹配');const result={...original};for(const key of mutable){if(own(u,key))result[key]=u[key];else if(own(original,key))fail('存档缺少运行状态');}return result;});
+      for(const key of allowed)if(!['allies','enemies'].includes(key))b[key]=s[key];b.allies=units.allies;b.enemies=units.enemies;b.activeContext=null;b.validate();return b;
     }
-    availableActions(actorId) {
-      const a=this.getUnit(actorId||this._currentId);if(!a||a.side!=='ally')return [];
-      return [...Object.keys(a.skills),...Object.keys(this.params.generic_skills).filter(k=>!own(a.skills,k))].map(key=>{
-        const s=this.getSkill(a,key),reason=this._windowReason(a)||this._skillReason(a,key,s);
-        const mastery=(1+0.02*(a.mastery[key]??s.mastery_reference??0))/(1+0.02*(s.mastery_reference||0));
-        const healScale=s.heal_scale||s.team_heal_scale||0,healFlat=s.heal_flat||s.team_heal_flat||0;
-        const healingPreview=healScale?{amount:Math.floor((a[a.damage_stat||'atk']*healScale+healFlat*(.6+.02*a.level))*mastery),level:a.level,before_target_debuff:true,mastery_multiplier:mastery}:null;
-        const effectSummary=(s.effectSummary||s.description||'')+(healingPreview?` 当前等级/熟练预计恢复${healingPreview.amount}生命/人（受裂伤时×0.75；不超过缺失生命）。`:'');
-        const category=s.category||(key==='basic'?'battle':'skills'),targetText=({self:'自己',ally:'单名在场队友',other_ally:'另一名在场队友',all_allies:'全体在场队友'})[s.target]||(s.aoe?'全体在场敌人':'单名在场敌人');
-        return {...s,key,name:s.name,category,enabled:!reason,ready:!reason,reason,targets:key==='wait'?[a.id]:key==='negotiate'?[]:this._targets(a,s),cost:s.cost||{},gain:s.gain||{},aoe:!!s.aoe,normal_action_consumed:!!s.ends_window,apCost:s.ap_cost||0,resonanceDamage:s.resonance_damage||0,oncePerWindow:!!s.once_per_window,damagePreview:this.living('enemy').map(t=>this.previewDamage(a,key,t)),targetText,resourceCost:s.cost||{},resourceGain:s.gain||{},concertoGain:s.concerto||0,shieldDamage:s.resonance_damage||0,effectSummary,description:effectSummary,healingPreview,durationText:s.durationText||'即时',cooldownText:s.cooldownText||'无冷却',inventoryCount:s.item?this.inventory[s.item]:null};
-      });
-    }
-    previewPacket(a,t,coefficient,element=a.element,status=false) {
-      if((t.immune_elements||[]).includes(element))return 0;
-      const k=120+4*a.level;let source=a[a.damage_stat||'atk']*(this.has(a,'cutline')?.85:1)*(a.side==='enemy'&&a.phase===2?(a.phase2_attack_multiplier||1):1),amp=0,mit=(this.has(t,'guard')?.5:1)*(this.has(t,'brace')?.7:1)*(this.has(t,'counter')?.6:1)*(t.side==='ally'&&this.field_until>=this.round?.8:1)*(this.has(t,'outro_guard')?.85:1);
-      if(!this.has(t,'guard'))mit=Math.max(this.has(t,'counter')?(this.params.rules.counter_mitigation_floor??.6):this.params.rules.non_guard_mitigation_floor,mit);
-      if(this.has(t,'exposed'))mit*=1.15;
-      if(status)amp=(this.has(t,'cutline')?.25:0)+(a.status.status_outro?.amp||0);
-      return Math.max(1,Math.floor(source*coefficient*k/(k+t.def)*((t.resist||{})[element]??1)*(1+Math.min(.5,amp))*mit));
-    }
-    previewDamage(actor,key,target) {
-      const a=this.getUnit(actor),t=this.getUnit(target),s=this.getSkill(a,key);if(!a||!t||!s)return null;
-      const elem=s.element||a.element,immune=(t.immune_elements||[]).includes(elem),k=120+4*a.level;
-      const mastery=(1+.02*(a.mastery[key]??0))/(1+.02*(s.mastery_reference||0));
-      const coefficient=(s.part_coefficient||s.coef||0)*(key==='basic'&&this.has(a,'umbra')?1.5:1),amp=Math.min(.5,(this.field_until>=this.round?.15:0)+(a.status.outro?.amp||0)+(this.has(a,'overload')?.1:0)+(s.damage_class==='liberation'?(a.status.outro?.liberation_extra||0):0));
-      const mitigation=s.part_coefficient?1:(this.has(t,'brace')?.7:1);
-      const amount=immune?0:coefficient>0?Math.max(1,Math.floor(a[a.damage_stat||'atk']*coefficient*mastery*k/(k+t.def)*((t.resist||{})[elem]??1)*(1+(s.part_coefficient?0:amp))*mitigation)):0;
-      return {target:t.id,amount,element:elem,immune,part:!!s.part_coefficient,resonance:s.resonance_damage||0,deterministic:!this.stochastic,description:immune?'同属性免疫':s.part_coefficient?'仅部件，不伤主体':'直接伤害；不包含后续异常/联合'};
-    }
-    wait() {return this.end();}
-    end() {return this.act('end',this.currentId);}
-    act(key,targetId) {
-      if(key==='wait')key='end';
-      const a=this.current,reason=this.validateAction(a,key,targetId||a?.id);if(reason)return this._reject(reason);
-      const t=this.getUnit(targetId||a.id),from=this.log.length,s=this.getSkill(a,key),cost=s.ap_cost||0;
-      const temp=Math.min(a.temp_ap,cost);a.temp_ap-=temp;a.ap-=cost-temp;
-      if(cost){a.window_actions++;a.window_skills[key]=(a.window_skills[key]||0)+1;this._bump('ap_spent',cost);this._bump('temp_ap_spent',temp);if(s.heal_scale||s.heal_fraction)this._bump('healing_ap',cost);this._record('ap_spent',{actor:a.id,skill:key,amount:cost,temporary:temp,normal:cost-temp,ap_after:a.ap,temp_ap_after:a.temp_ap},`${a.name}支付${cost}AP（临时${temp}），剩余${a.ap}+${a.temp_ap}`);this._actAlly(a,key,t);a.normal_count++;}
-      if(s.ends_window||a.hp<=0||a.retreated)this._finish(a);
-      else {this._checkResult();if(!this.result&&a.ap+a.temp_ap===0&&!this.availableConcertos().some(c=>c.actor===a.id&&c.enabled))this._finish(a);else this.validate();}
-      return this._reply(from);
-    }
-    _actAlly(a,key,t) {
-      this.action_id++;this.active_action=true;this.action_break_snapshot=Object.fromEntries(this.enemies.map(e=>[e.id,e.broken_until>=this.round&&e.broken_until>0]));
-      const s=this.getSkill(a,key),mastery=(1+0.02*(a.mastery[key]??s.mastery_reference??0))/(1+0.02*(s.mastery_reference||0));
-      s.coef*=mastery;if(key==='basic'&&this.has(a,'umbra'))s.coef*=1.5;for(const field of ['heal_scale','heal_flat','team_heal_scale','team_heal_flat'])if(s[field]!==undefined)s[field]*=mastery;
-      let targets=s.aoe?this.living('enemy').slice():[t];if(s.target==='all_allies')targets=this.living('ally').slice();
-      this._record('action',{actor:a.id,skill:key,skill_name:s.name,target:t.id,targets:targets.map(x=>x.id),resources_before:clone(a.rsc),form:a.form},`${a.name}使用「${s.name}」${targets.length===1?` → ${t.name}`:'（全体）'}`);
-      for(const [k,v] of Object.entries(s.cost||{}))this._resource(a,k,-v);if(s.concerto_cost)a.concerto-=s.concerto_cost;if(s.item){this.inventory[s.item]--;this._record('item_used',{actor:a.id,target:t.id,item:s.item,remaining:this.inventory[s.item]},`${a.name}使用${s.name}，本场剩余 ${this.inventory[s.item]}`);}
-      let effective=0,amp=(this.field_until>=this.round?0.15:0)+(this.has(a,'overload')?.1:0),actionBuff=0,teamworkGranted=false;
-      if(s.coef>0&&this.has(a,'outro')){const buff=a.status.outro;actionBuff=buff.amp+(s.damage_class==='liberation'?(buff.liberation_extra||0):0);}
-      amp+=actionBuff;
-      for(const target of targets){
-        if(a.hp<=0||a.retreated)break;
-        if(s.cleanse)effective+=this._cleanse(a,target);
-        if(s.heal_fraction){const value=Math.floor(target.maxhp*s.heal_fraction*(this.has(target,'rend')?.75:1)),actual=Math.min(value,target.maxhp-target.hp),before=target.hp;target.hp+=actual;effective+=actual;this._bump('heal',actual);this._record('heal',{actor:a.id,target:target.id,amount:actual,hp_before:before,hp_after:target.hp,item:true},`${s.name}为${target.name}恢复 ${actual} 生命`);}
-        if(s.heal_scale){effective+=this._heal(a,target,s.heal_scale,s.heal_flat);if(s.barrier){const amount=Math.min(s.barrier,Math.floor(target.maxhp*0.25)),old=target.status.barrier?.amount||0;this._status(target,'barrier',{amount:Math.max(old,amount),expires:this.round+1});effective+=Math.max(0,amount-old);}}
-        else if(s.coef>0){
-          const retaliation=this.has(target,'brace')&&!target.status.brace.used;
-          const tune=target.status.tune;let extra=0;if(tune&&tune.owner!==a.id&&s.tune_trigger){delete target.status.tune;extra=1;}
-          const glow=this.has(target,'spectro_mark')&&a.element==='spectro';if(glow)delete target.status.spectro_mark;
-          effective+=this._damage(a,target,s.coef,{amp});if(glow&&target.hp>0)this._damage(a,target,.25,{status_damage:true});if(key==='basic'&&this.has(a,'critical')&&target.hp>0)this._damage(a,target,.25,{status_damage:true,element:'electro'});this._shieldDamage(a,target,s.resonance_damage||0);
-          if(extra&&target.hp>0){if(!teamworkGranted){const supplied=this._resource(a,'primary',5);teamworkGranted=true;this._bump('teamwork_resource',supplied);this._record('teamwork',{actor:a.id,target:target.id,owner:tune.owner,resource:a.primary,amount:supplied},`${a.name}接力震谐，${resourceNames[a.primary]} +${supplied}（每行动一次）`);}const owner=this.getUnit(tune.owner);if(owner&&owner.hp>0&&!owner.retreated){this._damage(owner,target,0.35,{status_damage:true});this._bump('tune_procs');}}
-          if(s.effect==='tune'&&target.hp>0)this._status(target,'tune',{owner:a.id,expires:this.round+1});
-          if(s.effect==='cutline'&&target.hp>0)this._status(target,'cutline',{actions:2,expires:this.round+3});
-          if(['reveal','reveal_tune'].includes(s.effect)&&target.hp>0){if(s.effect==='reveal_tune')this._status(target,'tune',{owner:a.id,expires:this.round+1});target.revealed=true;this._record('reveal',{actor:a.id,target:target.id},`${target.name}的属性抗性已记录`);}
-          if(s.applies_mode)this._addMode(a,target,a.key==='denia'&&a.form==='blue'?2:1);
-          if(retaliation&&target.hp>0&&this.has(target,'brace')&&!(target.broken_until>=this.round)){target.status.brace.used=true;this._damage(target,a,0.8);this._bump('retaliations');}
-        }
+    validate(){
+      const fail=message=>{throw new Error(message||'非法战斗状态');};
+      const plain=x=>!!x&&typeof x==='object'&&!Array.isArray(x);
+      if(!int(this.round,0,100000)||!Array.isArray(this.queue)||new Set(this.queue).size!==this.queue.length||!Array.isArray(this.log)||!int(this.rngState,0,0xffffffff)||this.active_action!==false||typeof this.started!=='boolean'||typeof this.stochastic!=='boolean')fail('非法战斗时序');
+      for(const k of ['action_id','attack_id','hit_id','projectile_id','_roleStatusSerial','_roleOrder'])if(this[k]!==undefined&&!int(this[k],0,1e9))fail('非法事件计数');
+      for(const bucket of [this.count,this.actions,this.enemy_actions,this.inventory])if(!plain(bucket)||Object.values(bucket).some(v=>!int(v,0,1e9)))fail('非法计数或背包');
+      const forms={amy:['human','mech'],lynae:['sampling','cruise'],mornye:['ground','air'],denia:['red','blue'],chisa:['scissors','saw'],rover_spectro:['normal'],rover_havoc:['normal','dark_surge'],rover_aero:['normal'],rover_electro:['normal','critical']};
+      const ids=new Set();const all=this.allies.concat(this.enemies);
+      for(const u of all){
+        if(!u||ids.has(u.id))fail('单位ID重复');ids.add(u.id);
+        if(!finite(u.hp,0,u.maxhp)||!finite(u.sp,0,u.maxsp)||!int(u.bp,0,5)||!finite(u.energy,0,u.energyCap)||!finite(u.q,0,u.maxq)||u.dead!==(u.hp===0))fail('非法单位资源');
+        if(['dead','retreated','r2Pending','energyLocked','defendPriority','phasePending','breakPending','firstBreakRecovered','specialDone','recovering'].some(k=>typeof u[k]!=='boolean'))fail('非法单位布尔值');
+        if(u.dead&&(u.bp||u.energy)||u.dead&&u.retreated&&!u.mechanicUnit)fail('倒下资源状态无效');
+        if(u.r2Pending!==u.energyLocked||u.r2Pending&&u.key!=='amy'&&u.key!=='denia')fail('非法R2资格');
+        if(u.r2Pending&&(u.energy!==0||u.form!==(u.key==='amy'?'mech':'blue')))fail('非法R2形态或能量');
+        if(u.side==='ally'&&!forms[u.key]?.includes(u.form))fail('未知角色形态');
+        for(const key of ['spentBPRound','actedRound','slotStartedRound','waitRound'])if(!int(u[key],0,this.round))fail('非法行动轮');
+        if(!int(u.mainActions,0,this.round)||!int(u.breakCount,0,1e9)||!int(u.phase,1,3)||u.steadfastActions!==undefined&&!int(u.steadfastActions,0,2))fail('非法阶段计数');
+        if(!plain(u.status)||!plain(u.cooldowns)||Object.values(u.cooldowns).some(v=>!int(v,0,100005)))fail('非法状态或CD');
+        const cds=new Set([...Object.keys(u.skills||{}),'R','rover_electro_e2','wing_charge','uppercut','stance','sweep','spear','scythe','heavy','charge','support']);if(Object.keys(u.cooldowns).some(k=>!cds.has(k)))fail('未知CD');
+        if(u.roleState&&(!plain(u.roleState)||Object.keys(u.roleState).some(k=>k!=='boundGranted')||u.roleState.boundGranted!==undefined&&typeof u.roleState.boundGranted!=='boolean'))fail('非法角色一次性资格');
+        if(['ap','temp_ap','concerto','rsc'].some(k=>own(u,k)))fail('旧框架资源禁止混入');
+        if(u.breakPending&&(u.q!==0||!u.maxq))fail('非法失衡');
+        if(!['normal','projectiles','special_interrupted'].includes(u.bossState)||u.bossState!=='normal'&&u.key!=='dreamless')fail('非法Boss阶段');
+        if(u.phase===3&&u.key!=='dreamless'||u.phase!==1&&u.side==='ally'||u.phase!==1&&u.side==='enemy'&&!['dreamless','crownless'].includes(u.key))fail('阶段与单位不匹配');if(u.bossState==='projectiles'&&(!u.charge||u.charge.type!=='projectiles'||u.specialDone)||u.bossState==='special_interrupted'&&u.charge)fail('特殊阶段与蓄力不匹配');
+        if(u.charge){const c=u.charge;if(!plain(c)||Object.keys(c).some(k=>!['type','startedRound','required','opportunities','controlDelayed','delaySlots','targetId'].includes(k))||!['wing_charge','projectiles','highrisk','charge'].includes(c.type)||!int(c.startedRound,1,this.round)||!int(c.required,1,3)||!plain(c.opportunities)||typeof c.controlDelayed!=='boolean'||!int(c.delaySlots,0,1))fail('非法蓄力');for(const [id,n] of Object.entries(c.opportunities))if(!this.allies.some(a=>a.id===id)||!int(n,0,this.round-c.startedRound+1))fail('非法应对次数');if(c.targetId&&!this.allies.some(a=>a.id===c.targetId))fail('非法锁定对象');}
       }
-      if(a.hp<=0||a.retreated){this._record('action_end',{actor:a.id,skill:key,resources_after:clone(a.rsc),concerto:a.concerto,form:a.form,interrupted_by_ko:true},`${a.name}失去战斗能力，取消本招剩余效果`);this._bump(key,1,this.actions);this.active_action=false;this.action_break_snapshot={};return;}
-      if(s.team_heal_scale)for(const target of this.living('ally'))effective+=this._heal(a,target,s.team_heal_scale,s.team_heal_flat);
-      if(s.effect==='field'){effective+=this.field_until<this.round+1?1:0;this.field_until=this.round+1;this._record('field',{actor:a.id,until:this.field_until},`星界定标持续至第 ${this.field_until} 回合结束：我方伤害 +15%，所受伤害 ×0.8`);}
-      if(key==='guard')this._status(a,'guard',{expires:this.round+1,window_bound:true});
-      if(s.effect==='feint'){delete t.status.brace;this._record('feint',{actor:a.id,target:t.id},`${a.name}花1AP卸去${t.name}架岩，无伤害或资源收益`);}
-      if(s.effect==='part')this._damagePart(a,t,s);
-      if(s.effect==='umbra')this._status(a,'umbra',{charges:2,expires:this.round+3});
-      if(s.effect==='critical')this._status(a,'critical',{charges:2,expires:this.round+3});
-      if(key==='basic')for(const mode of ['umbra','critical'])if(this.has(a,mode)){a.status[mode].charges--;if(!a.status[mode].charges)delete a.status[mode];}
-      if(s.effect==='counter'){effective++;this._status(a,'counter',{expires:this.round+1,window_bound:true});}
-      if(s.effect==='overload'){for(const ally of this.living('ally'))this._status(ally,'overload',{expires:this.round+1});effective++;}
-      if(s.effect==='spectro_mark'&&t.hp>0)this._status(t,'spectro_mark',{owner:a.id,expires:this.round+2});
-      if(s.effect==='wind_mark'&&t.hp>0)this._status(t,'wind_mark',{owner:a.id,n:Math.min(2,(t.status.wind_mark?.n||0)+1),expires:this.round+2});
-      if(key==='taunt'){if(!this.has(t,'taunt')||t.status.taunt.owner!==a.id)effective++;this._status(t,'taunt',{owner:a.id,expires:this.round+2});}
-      if(key==='retreat'){a.retreated=true;a.status={};a.temp_ap=0;a.relay_pending=false;a.ap=0;a.concerto=0;a.rsc=Object.fromEntries(Object.keys(a.rsc).map(k=>[k,0]));a.form=a.form_start||'normal';a.overdrive=false;this._removeOwnedMarkers(a);this._record('retreat',{actor:a.id},`${a.name}撤离，保留剩余生命并清空战斗资源`);}
-      if(a.hp>0&&!a.retreated){
-        if(effective>0){for(const [k,v] of Object.entries(s.gain||{}))this._resource(a,k,v);this._gainConcerto(a,s.concerto||0,key);}
-        const before=a.form;
-        if(key==='overdrive'){a.overdrive=true;a.form='mech';}if(a.key==='amy'&&key==='enhanced')a.form=a.form==='human'?'mech':'human';
-        if(key==='finale'){a.overdrive=false;a.form='human';this._bump('finales');}
-        if(key==='breakdown')a.form='blue';if(key==='curtain'){a.form='red';a.rsc.expectation=0;}
-        if(a.key==='denia'&&a.form==='blue'&&a.rsc.expectation<20){a.form='red';a.rsc.expectation=0;}
-        if(before!==a.form)this._record('form',{actor:a.id,from:before,to:a.form},`${a.name}切换为${{human:'人形',mech:'机兵',red:'红形态',blue:'蓝形态'}[a.form]||a.form}`);
+      const baseStatuses={guard:['owner','slotBound'],counter_stance:['owner','coef','suppressed','suppressedUses','slotBound'],stasis_delay:['owner','uses','expires'],interruption_guard:['owner','uses','expires'],damage_boost:['owner','amount','expires'],attack_link:['owner','target'],barrier:['owner','amount','shield','expires'],chisa_shield:['owner','amount','shield','expires'],energy_drain:['owner','amount','expires'],stun:['owner','expires','debuff','cleanseable']};
+      for(const u of all)for(const [key,status] of Object.entries(u.status)){
+        if(!plain(status))fail('非法状态记录');if(status.roleEffect){if(typeof Effects.validateState!=='function') {if(!status.id||!ids.has(status.ownerId))fail('非法角色状态来源');}continue;}
+        const allowed=baseStatuses[key];if(!allowed||Object.keys(status).some(k=>!allowed.includes(k)))fail('未知状态或字段');
+        if(status.suppressedUses!==undefined&&!int(status.suppressedUses,0,1))fail('非法反击压制次数');if(status.owner&&!ids.has(status.owner)||status.target&&!ids.has(status.target))fail('非法状态引用');if(status.expires!==undefined&&!int(status.expires,this.round,100005))fail('非法状态期限');if(status.amount!==undefined&&!finite(status.amount,0,1e9)||status.uses!==undefined&&!int(status.uses,1,10))fail('非法状态数值');
       }
-      this._record('action_end',{actor:a.id,skill:key,resources_after:clone(a.rsc),concerto:a.concerto,form:a.form},`${a.name}行动结束`);
-      this._bump(key,1,this.actions);this.active_action=false;this.action_break_snapshot={};
+      this._hook('validateState');if(!Array.isArray(this.fields)||this.fields.length)fail('非法场记录');for(const u of all)for(const value of Object.values(u.status)){if(value.roleEffect&&(!int(this._roleStatusSerial,value.token||0,1e9)||!int(this._roleOrder,value.order||0,1e9)))fail('状态序号倒退');}
+      if(this.queue.some(id=>!ids.has(id))||this.currentId&&!ids.has(this.currentId)||this.currentId&&this.queue.includes(this.currentId))fail('非法行动队列');
+      if(this.started&&!this.result){for(const u of all)if(u.hp>0&&!u.retreated&&!u.mechanicUnit&&u.actedRound!==this.round&&u.id!==this.currentId&&!this.queue.includes(u.id))fail('正常行动槽遗失');}
+      if(this.current&&(this.current.hp<=0||this.current.retreated||this.current.actedRound===this.round||this.current.mechanicUnit))fail('非法当前行动');
+      if(!this.started&&(this.round||this.currentId||this.queue.length||this.log.length||this.result))fail('未开战状态无效');
+      if(this.result){if(this.currentId||this.queue.length||!plain(this.result)||!['win','loss','escaped','escaped_partial'].includes(this.result.outcome))fail('非法结束状态');const outcome=!this.living('enemy').some(e=>!e.mechanicUnit)?'win':!this.living('ally').length?this.allies.some(a=>a.retreated)?this.allies.some(a=>a.hp<=0)?'escaped_partial':'escaped':'loss':null;if(outcome!==this.result.outcome)fail('伪造胜负');}
+      const check=(x,depth=0)=>{if(depth>30)fail('状态嵌套过深');if(typeof x==='number'&&!Number.isFinite(x))fail('非法数值');if(x&&typeof x==='object')for(const [k,v] of Object.entries(x)){if(['__proto__','constructor','prototype'].includes(k))fail('非法字段');check(v,depth+1);}};for(const u of all)check(u.status);check(this.log);return true;
     }
-    validateConcerto(actor,target) {
-      const a=this.getUnit(actor),t=this.getUnit(target),reason=this._windowReason(a);if(reason)return reason;
-      if(a.window_actions<1)return '需要先在本人窗口完成至少一个付费动作';
-      if(a.concerto<100)return `协奏能量不足：需要100，当前${a.concerto}`;
-      if(a.concerto_round===this.round)return '该角色本轮已发动延奏';
-      if(!t||t.side!=='ally'||t.hp<=0||t.retreated)return '请选择仍在场的队友';
-      if(a.id===t.id)return '延奏不能指定自己';
-      if(t.relay_pending)return '该队友已有待接续，不能叠加或刷新';return '';
-    }
-    availableConcertos() {return this.allies.map(a=>{const targets=this.living('ally').filter(t=>t.id!==a.id&&!t.relay_pending).map(t=>t.id),reason=this.validateConcerto(a,targets[0]);return {actor:a.id,name:a.name,enabled:!reason,ready:!reason,reason,targets,cost:100,effectSummary:`本人窗口末消耗100协奏并结束。接收者临时AP+2、下一本人窗口所有直接动作+${Math.round(a.outro.amp*100)}%伤害；${a.key==='lynae'?'解放额外+10%；':a.key==='mornye'?'下一次受击×0.85；':['denia','chisa'].includes(a.key)?'下一次本人异常+25%；':''}临时AP优先用，窗口末过期，不插队。`,durationText:'到接收者下一本人窗口结束；特殊一次性增益按描述消耗',normal_action_consumed:true};});}
-    concerto(actorId,targetId,options={}) {
-      const reason=this.validateConcerto(actorId,targetId);if(reason)return this._reject(reason);
-      const from=this.log.length,a=this.getUnit(actorId),t=this.getUnit(targetId);a.concerto-=100;a.concerto_round=this.round;t.temp_ap=2;t.relay_pending=true;
-      this._status(t,'outro',{amp:a.outro.amp,liberation_extra:a.outro.special==='liberation_extra_0.1_within_global_cap'?.1:0,expires:this.round+1,window_bound:true});
-      if(a.outro.special==='next_mode_status_damage_x1.25')this._status(t,'status_outro',{amp:.25,expires:this.round+1,window_bound:true});
-      if(a.key==='mornye')this._status(t,'outro_guard',{expires:this.round+1,window_bound:true});
-      this._bump('concerto');this._bump(options.automatic?'automatic_concertos':'manual_concertos');this._bump('temp_ap_generated',2);
-      this._record('concerto',{actor:a.id,target:t.id,amp:a.outro.amp,intro_gain:0,temp_ap:2,trigger:options.automatic?'automatic':'manual'},`${a.name}延奏给${t.name}：临时2AP及专属增益，来源窗口结束；不改变顺位`);
-      this._finish(a);return this._reply(from);
-    }
-    _enemyTarget(a,random=true) {
-      const alive=this.living('ally');if(!alive.length)return null;
-      if(this.has(a,'aim')||this.has(a,'charge'))return alive.find(u=>u.id===(a.status.aim||a.status.charge).target)||alive.slice().sort((x,y)=>x.slot-y.slot)[0];
-      if(this.has(a,'taunt')){const locked=alive.find(u=>u.id===a.status.taunt.owner);if(locked)return locked;}
-      if(this.params.difficulties[this.options.difficulty].targeting==='lowest_fraction'&&a.rank!=='common')return alive.slice().sort((x,y)=>x.hp/x.maxhp-y.hp/y.maxhp||x.slot-y.slot)[0];
-      if(this.stochastic&&random)return alive[Math.floor(this._random()*alive.length)];
-      return alive[(a.normal_count+a.slot)%alive.length];
-    }
-    _enemySkill(a) {
-      let key=a.phase_attack_pending&&!this.has(a,'charge')?'wingpulse':a.pattern[a.pattern_i%a.pattern.length];
-      if(['rush','spin','descent'].includes(key)&&!this.has(a,'charge'))key=a.basic_key||a.pattern[0];if(key==='aimed'&&!this.has(a,'aim'))key='shot';
-      return {key,skill:a.skills[key]};
-    }
-    enemyIntent(actorId) {
-      const a=this.getUnit(actorId||this._currentId);if(!a||a.side!=='enemy'||a.hp<=0)return null;
-      const {key,skill:s}=this._enemySkill(a),target=this._enemyTarget(a,false),committed=this.has(a,'charge')||this.has(a,'aim'),visible=committed||this.has(a,'brace')||a.phase_attack_pending;
-      if(a.phase_pending&&!committed)return {actor:a.id,hidden:false,dangerous:true,phaseWarning:true,key:'wingpulse',name:'阶段预警·展翼震荡',aoe:true,coefficient:a.skills.wingpulse.coef,targets:this.living('ally').map(u=>u.id),committed:true,skipped:a.skip_round===this.round,description:'下轮进入第二阶段，以展翼震荡替换一次正常窗口；已承诺蓄力会先兑现。',effectSummary:'阶段群攻预警，未增加敌方窗口。',telegraphText:'下一轮开始转阶段；慢速队友现在可提前防御，快速队友也可下轮先应对。',counterplayText:'每人1AP防御并关窗；定标场/护盾/减攻花AP与个人资源；共振击破可延后该窗口。',costText:'替换一次敌方窗口',part:null};
-      if(!visible)return {actor:a.id,hidden:true,key:null,name:'常规意图隐藏',targets:[],aoe:false,committed:false,skipped:a.skip_round===this.round,description:'常规招式与目标不提前公开；危险准备后会显示征兆。',effectSummary:'常规意图隐藏',part:null};
-      const warning=committed?s:a.skills.brace||s;
-      return {actor:a.id,hidden:false,dangerous:true,key:committed||a.phase_attack_pending?key:'brace',name:committed||a.phase_attack_pending?s.name:'架岩反击姿态',aoe:!!s.aoe,coefficient:s.coef,effect:s.effect||null,targets:committed?(s.aoe?this.living('ally').map(u=>u.id):target?[target.id]:[]):[],uncertain:false,skipped:a.skip_round===this.round,description:warning.effectSummary,effectSummary:warning.effectSummary,telegraphText:committed?'下次本人窗口兑现；已锁定，不受后续挑衅影响':warning.telegraphText,counterplayText:warning.counterplayText,costText:'消耗一次敌方窗口',durationText:'到下一次敌方窗口',chargeTurnsRemaining:committed?1:null,committed,part:a.part?clone(a.part):null};
-    }
-    stepEnemy() {
-      if(!this.started)return this._reject('战斗尚未开始');if(this.result)return this._reject('战斗已结束');const a=this.current;
-      if(!a||a.side!=='enemy')return this._reject('当前不是敌方行动');
-      const from=this.log.length;if(a.skip_round===this.round){this._record('skip',{actor:a.id,reason:'broken'},`${a.name}共振击破，跳过窗口`);this._bump('skipped_enemy_actions');this._finish(a);return this._reply(from);}
-      const {key,skill:s}=this._enemySkill(a);if(key==='wingpulse')a.phase_attack_pending=false;else a.pattern_i++;delete a.status.brace;
-      const targets=s.aoe?this.living('ally').slice():[this._enemyTarget(a)];
-      this.action_id++;this._record('enemy_action',{actor:a.id,skill:key,skill_name:s.name,target:targets[0]?.id,targets:targets.map(t=>t.id)},`${a.name}使用「${s.name}」${s.aoe?'（全体）':` → ${targets[0].name}`}`);
-      if(s.coef){const amp=this.has(a,'taunt')&&!s.aoe?0.15:0;for(const t of targets){if(a.hp<=0||a.retreated)break;this._damage(a,t,s.coef*(a.part?.destroyed&&a.part.effect==='weaken'?a.part.damage_multiplier:1),{amp});}if(!s.aoe)delete a.status.taunt;}
-      if(a.hp<=0||a.retreated){this._record('enemy_action_end',{actor:a.id,skill:key,interrupted_by_ko:true},`${a.name}被反击击倒，取消本招剩余目标与附加效果`);a.normal_count++;this._bump(key,1,this.enemy_actions);this._finish(a);return this._reply(from);}
-      if(s.effect==='charge'&&a.part_spec){a.part={...clone(a.part_spec),hp:a.part_spec.maxhp,destroyed:false};this._record('part_exposed',{actor:a.id,target:a.id,part:clone(a.part)},`${a.name}暴露${a.part.name}（${a.part.hp}HP），2AP攻击部件不伤主体/不产资源`);}
-      if(['aim','charge','brace'].includes(s.effect))this._status(a,s.effect,{expires:this.round+2,target:targets[0].id});
-      if(['aim','charge'].includes(s.effect)){this._bump('charge_warnings');const next=a.pattern[a.pattern_i%a.pattern.length];this._record('charge_started',{actor:a.id,target:targets[0].id,targets:a.skills[next]?.aoe?this.living('ally').map(u=>u.id):[targets[0].id],skill:next,resolve_after_enemy_actions:1},`${a.name}预告「${a.skills[next]?.name||next}」：下次行动兑现，破防可打断，防御可减半`);}
-      if(['rush','spin','descent','aimed'].includes(key)){this._bump('charge_releases');this._record('charge_released',{actor:a.id,skill:key,targets:targets.map(t=>t.id)},`${a.name}的蓄力兑现为「${s.name}」`);}
-      if(['rend','expose'].includes(s.effect))for(const t of targets)if(t.hp>0)this._status(t,s.effect==='expose'?'exposed':'rend',{expires:this.round+1});
-      if(['rush','spin','descent'].includes(key)){delete a.status.charge;a.part=null;}if(key==='aimed')delete a.status.aim;
-      if(this.has(a,'cutline')){a.status.cutline.actions--;if(a.status.cutline.actions<=0)delete a.status.cutline;}
-            if(this.has(a,'wind_mark')){const mark=a.status.wind_mark,owner=this.getUnit(mark.owner);if(owner&&owner.hp>0)this._damage(owner,a,.2*mark.n,{status_damage:true,element:'aero'});}
-      a.recovery_lock=false;a.normal_count++;this._bump(key,1,this.enemy_actions);this._finish(a);return this._reply(from);
-    }
-    _selectTarget(a) {return this.living('enemy').slice().sort((x,y)=>(x.immune_elements||[]).includes(a.element)-(y.immune_elements||[]).includes(a.element)||x.hp-y.hp)[0];}
-    _choose(a) {
-      const actions=this.availableActions(a.id).filter(s=>s.enabled&&!['retreat','negotiate'].includes(s.key)),es=this.living('enemy'),t=this._selectTarget(a);
-      const legal=(key,target=t)=>actions.some(s=>s.key===key&&s.targets.includes(target?.id));
-      if(this.policy==='random_legal'){const choices=actions.flatMap(s=>s.targets.map(id=>[s.key,this.getUnit(id)]));return choices[Math.floor(this._random()*choices.length)];}
-      if(this.policy==='basic_only')return legal('basic')?['basic',t]:['end',a];
-      const danger=es.find(e=>this.enemyIntent(e)?.committed),worst=this.living('ally').slice().sort((x,y)=>(y.maxhp-y.hp)-(x.maxhp-x.hp))[0];
-      if(!['no_healing','no_dedicated_heal'].includes(this.policy)&&worst.maxhp-worst.hp>=250){for(const key of ['heal','restore','mend'])if(legal(key,worst))return [key,worst];}
-      if(danger&&this.policy!=='offense_only'){
-        if(this.policy==='mechanism'&&legal('disrupt_part',danger))return ['disrupt_part',danger];
-        if(this.policy==='mechanism'&&this.enemyIntent(danger).phaseWarning&&legal('guard',a))return ['guard',a];
-        if(this.policy==='defensive'&&this.enemyIntent(danger).targets.includes(a.id)&&legal('guard',a))return ['guard',a];
-        if(legal('disrupt_part',danger)&&danger.part.hp<=Math.floor(a[a.damage_stat||'atk']*.9*(120+4*a.level)/(120+4*a.level+danger.def)))return ['disrupt_part',danger];
-        const intent=this.enemyIntent(danger);
-        if(intent.targets.includes(a.id)&&a.hp/a.maxhp<.6&&legal('guard',a))return ['guard',a];
-      }
-      if(t&&this.has(t,'brace')&&legal('feint',t))return ['feint',t];
-      if(this.policy!=='no_teamwork'&&legal('field',a)&&this.field_until<this.round)return ['field',a];
-      if(a.key==='lynae'){
-        if(this.policy==='break_focus'&&legal('skate'))return ['skate',t];
-        if((this.policy==='break_focus'||danger&&t.shield<=48)&&legal('survey'))return ['survey',t];
-        if(legal('spectrum'))return ['spectrum',t];
-      }
-      const order=['finale','liberation','curtain','breakdown','blue','chainsaw','release','enhanced','heavy','overdrive','skill','cut','basic'];
-      for(const key of order)if(legal(key))return [key,t];
-      return ['end',a];
-    }
-    autoAction() {
-      if(!this.started)this.start();if(this.result)return this._reject('战斗已结束');if(this.current.side==='enemy')return this.stepEnemy();
-      const a=this.current;
-      if(this.options.auto_concerto&&!['no_concerto','no_teamwork'].includes(this.policy)&&a.window_actions>0&&a.concerto>=100){const choice=this.availableConcertos().find(c=>c.actor===a.id&&c.enabled);if(choice)return this.concerto(a.id,choice.targets[0],{automatic:true});}
-      const choice=this._choose(a);if(!choice)return this.end();return this.act(choice[0],choice[1].id);
-    }
-    summary() {return {difficulty:this.options.difficulty,first_concerto_ready_round:this.log.find(e=>e.event==='concerto_ready')?.round||null,min_hp_fraction:Object.fromEntries(this.allies.map(a=>[a.key,Math.round(Math.min(this.options.initialHP?.[a.key]??round(a.maxhp*this.options.hp_fraction),a.hp,...this.log.filter(e=>e.target===a.id&&Number.isFinite(e.hp_after)).map(e=>e.hp_after))/a.maxhp*10000)/10000])),inventory:clone(this.inventory),outcome:this.result?.outcome||'inconclusive',rounds:this.round,ally_hp_fraction:Math.round(this.allies.reduce((n,a)=>n+a.hp,0)/this.allies.reduce((n,a)=>n+a.maxhp,0)*10000)/10000,survivors:this.living('ally').length,escaped_count:this.allies.filter(a=>a.retreated).length,ko_count:this.allies.filter(a=>a.hp===0).length,counts:clone(this.count),skills:clone(this.actions),enemy_skills:clone(this.enemy_actions),final_resources:Object.fromEntries(this.allies.map(a=>[a.key,clone(a.rsc)])),final_concerto:Object.fromEntries(this.allies.map(a=>[a.key,a.concerto])),final_ap:Object.fromEntries(this.allies.map(a=>[a.key,{normal:a.ap,temporary:a.temp_ap}])),first_break_round:this.log.find(e=>e.event==='break')?.round||null,enemy_effective_actions:this.log.filter(e=>e.event==='enemy_action'&&this.getUnit(e.actor)?.skills[e.skill]?.coef>0).length};}
-    validate() {
-      const ids=new Set();for(const u of this.allies.concat(this.enemies)){
-        if(ids.has(u.id)||!finite(u.hp,0,u.maxhp)||!finite(u.concerto,0,100))throw new Error('战斗状态越界');ids.add(u.id);
-        for(const [k,v] of Object.entries(u.rsc))if(!finite(v,0,(u.resources||{})[k]))throw new Error('资源越界');
-        if(u.side==='enemy'&&!finite(u.shield,0,u.maxshield))throw new Error('共振越界');
-        if(u.side==='ally'&&(!Number.isInteger(u.ap)||!finite(u.ap,0,6)||!Number.isInteger(u.temp_ap)||!finite(u.temp_ap,0,2)||u.temp_ap>0&&!u.relay_pending||!finite(u.concerto_gain_round,0,40)))throw new Error('AP/协奏资格越界');
-      }
-      if(new Set(this.queue).size!==this.queue.length||this.queue.some(id=>!ids.has(id))||this._currentId&&(!ids.has(this._currentId)||this.queue.includes(this._currentId)))throw new Error('行动队列无效');return true;
-    }
-    snapshot() {
-      const state={};for(const k of ['options','allies','enemies','round','queue','_currentId','result','log','field_until','count','actions','enemy_actions','action_id','shield_budgets','active_action','action_break_snapshot','started','policy','stochastic','rngState','start_hp','inventory'])state[k]=clone(this[k]);
-      return {schema:'battle-engine-v2-ap',parameter_version:this.params.schema_version,state};
-    }
-    static restore(params,snapshot) {
-      if(!snapshot||snapshot.schema!=='battle-engine-v2-ap'||snapshot.parameter_version!==params.schema_version||!snapshot.state)throw new Error('存档格式或参数版本不匹配');
-      const s=clone(snapshot.state),b=new BattleEngine(params,s.options),fail=()=>{throw new Error('存档状态无效或与当前参数不符');};
-      const int=(v,min=0,max=Number.MAX_SAFE_INTEGER)=>Number.isSafeInteger(v)&&v>=min&&v<=max;
-      const equal=(a,c)=>JSON.stringify(a)===JSON.stringify(c);
-      const plain=o=>o&&typeof o==='object'&&!Array.isArray(o);
-      const keysEqual=(a,c)=>plain(a)&&plain(c)&&equal(Object.keys(a).sort(),Object.keys(c).sort());
-      const expectedKeys=Object.keys(b.snapshot().state);
-      if(!keysEqual(s,b.snapshot().state)||!int(s.round)||!Array.isArray(s.allies)||!Array.isArray(s.enemies)||!Array.isArray(s.queue)||!Array.isArray(s.log)||typeof s.started!=='boolean'||s.active_action!==false||!plain(s.action_break_snapshot)||Object.keys(s.action_break_snapshot).length)fail();
-      if(!int(s.action_id)||!int(s.rngState,0,0xffffffff)||!int(s.field_until,0,s.round+1)||!finite(s.start_hp,0,b.allies.reduce((n,a)=>n+a.maxhp,0))||typeof s.stochastic!=='boolean'||s.stochastic!==b.stochastic||s.policy!==b.policy)fail();
-      for(const bucket of [s.count,s.actions,s.enemy_actions,s.shield_budgets])if(!plain(bucket)||Object.values(bucket).some(v=>!int(v)))fail();
-      if(Object.values(s.shield_budgets).some(v=>v>1000))fail();
-      if(!keysEqual(s.inventory,b.inventory)||Object.entries(s.inventory).some(([k,v])=>!int(v,0,b.inventory[k])))fail();
-      const mutable=new Set(['hp','rsc','concerto','form','overdrive','broken_until','recovery_lock','status','pattern_i','phase','phase_pending','normal_count','concerto_round','intro_round','intro_received','dead','retreated','wait_round','revealed','phase_attack_pending','acted_round','maxshield','shield','mastery','ap','temp_ap','relay_pending','window_actions','window_skills','concerto_gain_round','skip_round','part']);
-      for(const side of ['allies','enemies']){
-        if(s[side].length!==b[side].length)fail();
-        s[side].forEach((u,i)=>{
-          const original=b[side][i];if(!keysEqual(u,original))fail();
-          // Source definitions and stats are rebuilt from verified parameters, never trusted from a save.
-          for(const key of Object.keys(original))if(!mutable.has(key)&&!equal(u[key],original[key]))fail();
-          if(!int(u.hp,0,original.maxhp)||!int(u.concerto,0,100)||!keysEqual(u.rsc,original.rsc)||Object.entries(u.rsc).some(([k,v])=>!int(v,0,original.resources[k])))fail();
-          for(const key of ['overdrive','recovery_lock','phase_pending','dead','retreated','revealed','phase_attack_pending'])if(typeof u[key]!=='boolean')fail();
-          if(u.dead!==(u.hp===0)||u.retreated&&u.hp===0)fail();
-          if(!int(u.ap,0,u.side==='ally'?6:0)||!int(u.temp_ap,0,u.side==='ally'?2:0)||typeof u.relay_pending!=='boolean'||u.temp_ap>0&&!u.relay_pending||!int(u.window_actions,0,8)||!plain(u.window_skills)||Object.entries(u.window_skills).some(([k,v])=>!own(u.skills,k)&&!own(params.generic_skills,k)||!int(v,1,8))||Object.values(u.window_skills).reduce((n,v)=>n+v,0)!==u.window_actions||!int(u.concerto_gain_round,0,40)||!int(u.skip_round,0,s.round+1))fail();
-          if(u.side==='ally'&&(u.relay_pending!==!!u.status.outro||u.status.outro&&!u.status.outro.window_bound))fail();
-          for(const [key,n] of Object.entries(u.window_skills)){const skill=b.getSkill(original,key);if(!skill||!skill.ap_cost||skill.once_per_window&&n>1)fail();}
-          if(!int(u.normal_count,0,s.round*8)||!int(u.pattern_i,0,s.round*3+4)||!int(u.broken_until,0,s.round+1)||![1,2].includes(u.phase))fail();
-          for(const key of ['concerto_round','intro_round','wait_round','acted_round'])if(!int(u[key],0,s.round))fail();
-          if(!int(u.intro_received,0,20)||!keysEqual(u.mastery,original.mastery)||Object.values(u.mastery).some(v=>!int(v,0,5)))fail();
-          const forms=u.key==='amy'?['human','mech']:u.key==='denia'?['red','blue']:[original.form_start||'normal'];
-          if(!forms.includes(u.form)||u.key!=='amy'&&u.overdrive||!plain(u.status))fail();
-          if(u.dead||u.retreated){if(u.ap||u.temp_ap||u.relay_pending||Object.keys(u.status).length||u.concerto||Object.values(u.rsc).some(Boolean)||u.overdrive||u.form!==(original.form_start||'normal'))fail();}
-          if(u.side==='enemy'){
-            if(u.part!==null){if(!plain(u.part)||!u.part_spec||!equal(Object.keys(u.part).sort(),[...Object.keys(u.part_spec),'hp','destroyed'].sort())||Object.keys(u.part_spec).some(k=>!equal(u.part[k],u.part_spec[k]))||!int(u.part.hp,0,u.part.maxhp)||typeof u.part.destroyed!=='boolean'||u.part.destroyed!==(u.part.hp===0)||!u.status.charge)fail();}
-            if(u.phase===2&&u.key!=='crownless'||u.maxshield!==(u.phase===2?original.phase2_shield:original.maxshield)||!int(u.shield,0,u.maxshield))fail();
-            if(u.hp>0&&u.broken_until>0&&(u.broken_until<s.round||u.shield!==0||u.skip_round!==u.broken_until)||u.recovery_lock)fail();
-          }else if(u.part!==null||u.skip_round!==0||u.maxshield!==0||u.broken_until!==0||u.recovery_lock||u.phase!==1||u.phase_pending||u.phase_attack_pending)fail();
-          b[side][i]={...original,...Object.fromEntries([...mutable].filter(k=>own(u,k)).map(k=>[k,u[k]]))};
-        });
-      }
-      const all=b.allies.concat(b.enemies),ids=new Set(all.map(u=>u.id)),allyIds=new Set(b.allies.map(u=>u.id));
-      const statusRules={rend:{side:'ally',fields:['expires'],duration:1},exposed:{side:'ally',fields:['expires'],duration:1},fusion:{side:'enemy',fields:['n','owner','expires'],duration:3},tune:{side:'enemy',fields:['owner','expires'],duration:1},cutline:{side:'enemy',fields:['actions','expires'],duration:3},guard:{side:'ally',fields:['expires','window_bound'],duration:1},brace:{side:'enemy',fields:['expires','target','used'],duration:2},charge:{side:'enemy',fields:['expires','target'],duration:2},aim:{side:'enemy',fields:['expires','target'],duration:2},taunt:{side:'enemy',fields:['owner','expires'],duration:2},outro:{side:'ally',fields:['amp','liberation_extra','expires','window_bound'],duration:1},outro_guard:{side:'ally',fields:['expires','window_bound'],duration:1},status_outro:{side:'ally',fields:['amp','expires','window_bound'],duration:2},umbra:{side:'ally',fields:['charges','expires'],duration:3},critical:{side:'ally',fields:['charges','expires'],duration:3},counter:{side:'ally',fields:['expires','window_bound'],duration:1},overload:{side:'ally',fields:['expires'],duration:1},spectro_mark:{side:'enemy',fields:['owner','expires'],duration:2},wind_mark:{side:'enemy',fields:['owner','n','expires'],duration:2},barrier:{side:'ally',fields:['amount','expires'],duration:1}};
-      for(const u of all)for(const [key,value] of Object.entries(u.status)){
-        const rule=own(statusRules,key)?statusRules[key]:null;
-        if(!rule||rule.side!==u.side||!plain(value)||Object.keys(value).some(k=>!rule.fields.includes(k))||!int(value.expires,value.window_bound?Math.max(0,s.round-1):s.round,s.round+rule.duration))fail();
-        if(own(value,'window_bound')&&value.window_bound!==true)fail();
-        if(['tune','taunt','spectro_mark','wind_mark','fusion'].includes(key)&&(!allyIds.has(value.owner)||!b.living('ally').some(a=>a.id===value.owner)))fail();
-        if(['aim','charge','brace'].includes(key)&&!allyIds.has(value.target))fail();
-        if(key==='brace'&&own(value,'used')&&typeof value.used!=='boolean')fail();
-        if(['umbra','critical'].includes(key)&&!int(value.charges,1,2))fail();
-        if(key==='wind_mark'&&!int(value.n,1,2))fail();
-        if(key==='fusion'&&!int(value.n,1,2)||key==='cutline'&&!int(value.actions,1,2)||key==='barrier'&&!int(value.amount,1,Math.floor(u.maxhp*0.25)))fail();
-        if(key==='outro'&&(!finite(value.amp,0,0.25)||![0,0.1].includes(value.liberation_extra)))fail();
-        if(key==='status_outro'&&value.amp!==0.25)fail();
-      }
-      // Copy only the known state fields, keeping reconstructed unit definitions.
-      for(const key of expectedKeys)if(!['allies','enemies'].includes(key))b[key]=s[key];
-      b.validate();
-      if(!s.started){if(s.round!==0||s._currentId!==null||s.queue.length||s.result!==null||s.log.length)fail();}
-      else if(s.result){
-        if(!plain(s.result)||!['win','loss','escaped','escaped_partial'].includes(s.result.outcome)||s._currentId!==null||s.queue.length)fail();
-        const alive=b.living('ally').length,enemies=b.living('enemy').length,escaped=b.allies.some(a=>a.retreated),ko=b.allies.some(a=>!a.hp);
-        const expected=!enemies?'win':!alive?(escaped?(ko?'escaped_partial':'escaped'):'loss'):null;
-        if(expected!==s.result.outcome)fail();
-      }else{
-        if(s.round<1||!b.living('ally').length||!b.living('enemy').length||!ids.has(s._currentId)||!b.current||b.current.hp<=0||b.current.retreated||b.current.acted_round===s.round)fail();
-        if(b.current.side==='enemy'&&b.current.skip_round===s.round)fail();
-        for(const u of all){const queued=b.queue.includes(u.id);if(queued&&u.acted_round===s.round)fail();if(u.hp>0&&!u.retreated&&u.acted_round!==s.round&&!queued&&s._currentId!==u.id)fail();}
-      }
-      if(s.log.some((e,i)=>!plain(e)||e.id!==i+1||!int(e.round,0,s.round)||typeof e.event!=='string'||typeof e.message!=='string'))fail();
-      return b;
-    }
+
   }
-  BattleEngine.resourceNames=resourceNames;BattleEngine.statusNames=statusNames;
+  BattleEngine.version='3.0.0-test.4';
+  BattleEngine.parameterFingerprint=fingerprint;
+  BattleEngine.elements=Object.freeze(['glacio','fusion','electro','aero','spectro','havoc']);
   return BattleEngine;
 });

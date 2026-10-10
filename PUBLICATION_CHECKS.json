@@ -1,52 +1,51 @@
 {
-  "release_tag": "v3.0.0-test.3",
-  "updated_at": "2026-10-10T07:19:00Z",
-  "status": "verified_foundation_candidate_with_documented_feature_gaps",
-  "scope": "E+C foundation test candidate; not completion of the full intended resonance/fusion team designs.",
-  "tests": {
-    "actual_engine_self_checks": "54/54",
-    "independent_rule_checks": "37/37",
-    "independent_matrix": {
-      "battles": 1080,
-      "restore_checks": 48314,
-      "errors": 0
+  "release_tag": "v3.0.0-test.4",
+  "current_version": "0.4.0-candidate",
+  "verification": {
+    "engine_and_effects": {
+      "passed": 81,
+      "failed": 0
     },
-    "real_browser": "Verified actual cloud-browser keyboard/mouse commands, target cancel, AP, save/load/restart, four appearances, five prisms, S03, tether, 7-round Boss victory, native project import/export including audio bytes. All-motion visuals, multiple real viewports, Windows/file entry and audible playback not verified.",
-    "windows_double_click": "not tested",
-    "audio_playback": "Audio bytes preserved through native import/export; audible playback not verified",
+    "independent_runtime": {
+      "passed": 413,
+      "failed": 0,
+      "not_run": 0
+    },
+    "actual_matrix": {
+      "legal_teams": 134,
+      "encounters": 7,
+      "battles": 938,
+      "errors": 0,
+      "bounded_outcomes": 0
+    },
+    "static_parameters": 23,
+    "ui_interaction": 44,
+    "independent_dom": 11,
+    "same_level_victory": {
+      "level": 40,
+      "enemy_level": 40,
+      "normal_initial_resources": true,
+      "stat_adjustments": false,
+      "rounds": 36,
+      "survivor": "mornye",
+      "remaining_hp": 90,
+      "legal_commands": 143,
+      "events": 1385
+    },
     "art": {
-      "rover_unique_pngs": 64,
-      "total_runtime_pngs": 158,
-      "missing_slots": 0,
-      "independent_static_checks": 1143,
-      "failures": 0,
-      "user_art_acceptance": "pending"
+      "runtime_pngs": 160,
+      "historical_pngs_byte_preserved": 158,
+      "new_dreamless_idle": 1,
+      "projectile_placeholder": 1,
+      "user_acceptance": "pending"
     },
-    "publication_package": "Local foundation candidate: 337 source checksums and 158 runtime PNGs verified; not a published Release.",
-    "independent_ui": {
-      "dom": 25,
-      "tether": 8,
-      "basic_and_skill_image_mapping": 32,
-      "enhanced_and_liberation_mapping": 32,
-      "critical_revision": 1,
-      "focus_regressions": 2,
-      "failures": 0
-    }
+    "real_browser": "Separate recorded cloud-browser QA; see docs/test4-browser-qa.md",
+    "windows_double_click": "not tested",
+    "audio_playback": "audible playback not verified"
   },
-  "public_safety_scan": "Checked new public text/art manifests: no private paths, Library IDs, account identifiers, models, references or credentials found.",
-  "runtime_hashes": {
-    "app.js": "5841dc6b4ecc73b11b882b6c9aee332e2954aedf1a523f8ebcb6939d135f0a65",
-    "assets.js": "76a0c46252edd33bff186b39cb6df56aab4ef98bcb838cb49e3145123b4970b8"
-  },
-  "requirements_gaps": [
-    "Dedicated resonance team loop incomplete",
-    "Grouping, expanded fusion stacks and manual detonation incomplete",
-    "Outro identity still largely damage-buff based",
-    "Minor old terminology remains in logs"
-  ],
-  "publication_snapshot_note": "This file records checks before source push and Release creation. Actual remote receipt is verified separately at the GitHub Release; false flags below are historical packaging state, not a failed upload.",
-  "github_at_package_freeze": {
-    "pushed": false,
-    "release_published": false
-  }
+  "limits": [
+    "Candidate balance; narrow same-level victory does not establish mature balance.",
+    "Dreamless one idle pose reused for actions; projectile is a geometric mechanism marker.",
+    "Offline standalone battle prototype, not full narrative/RPG integration."
+  ]
 }

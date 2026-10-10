@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
+const {boot}=require('./ui_harness.cjs');
+const result={schema:'independent-dom-test4-1',runAt:new Date().toISOString(),command:'node tests/v04/independent_dom.cjs',scope:'Independent assertions over actual app, engine, effects and storage in jsdom; shared browser-double bootstrap. Not real browser layout, canvas, media or accessibility evidence.',sha256:{},passed:[],failed:[]};
+for(const f of ['app.js','engine.js','skill-effects.js','storage.js','parameters.json','parameters.js','assets.js','index.html'])result.sha256[f]=crypto.createHash('sha256').update(fs.readFileSync(require('node:path').resolve(__dirname,'../..',f))).digest('hex');
+const test=async(name,fn)=>{try{await fn();result.passed.push(name);}catch(e){result.failed.push({name,error:e.message});}};
+(async()=>{const h=await boot();const snapshot=()=>h.w.BattleLabDiagnostics.getSnapshot();
+ async function load(options){const e=new h.w.BattleEngine(h.w.BATTLE_PARAMETERS,options);e.start();const p=h.w.BattleLabDiagnostics.getProject();p.battle=e.snapshot();h.click('#assetsBtn');h.click('[data-tab="project"]');await h.import('#importProject','independent-qa.json',JSON.stringify(p));h.click('[data-close="assetDialog"]');await h.until(()=>!h.diag().busy&&snapshot().state.allies.some(x=>x.id===h.diag().current),100);}
+ function open(cat){if(!h.diag().menuOpen)h.click('#actorTrigger');if(h.diag().menuCategory!=='root')h.click('#menuBackBtn');h.click('[data-category="'+cat+'"]');}
+ try{
+ await test('all eight stats visible, no retired AP/concerto meter',()=>{for(const list of h.w.document.querySelectorAll('.base-stats'))assert.deepEqual([...list.querySelectorAll('dt')].map(x=>x.textContent),['HP','SP','ATK','DEF','SPD','CR','CDMG','ER']);assert.equal(h.w.document.querySelectorAll('.ap-meter,.bar.concerto').length,0);});
+ await test('six distinct root categories',()=>{h.click('#actorTrigger');assert.deepEqual([...h.w.document.querySelectorAll('[data-category]')].map(x=>x.dataset.category),['battle','skills','items','defense','negotiate','escape']);});
+ await test('keyboard Escape cancels selected target with no resource/time changes',()=>{open('battle');h.click('[data-action="A"]');const before=snapshot();h.w.document.dispatchEvent(new h.w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));assert.deepEqual(snapshot(),before);assert.equal(h.diag().selected,null);});
+ await test('setup modal open/cancel preserves exact ongoing battle',()=>{const before=snapshot();h.click('#setupBtn');h.click('[data-close="setupDialog"]');assert.deepEqual(snapshot(),before);});
+ await test('BP preview can be inspected without mutating snapshot/RNG',()=>{open('battle');const before=snapshot();h.$('[data-action="A"]').focus();const old=h.$('#detailBody').textContent;h.click('[data-bp="1"]');const next=h.$('#detailBody').textContent;assert.notEqual(next,old);assert.match(next,/8.1/);assert.deepEqual(snapshot(),before);});
+ await load({team:['denia'],encounter:['bracer'],enemy_hp_scale:100,enemy_atk_scale:0});
+ await test('Denia E5 unavailable without a valid two-enemy group',()=>{open('skills');assert.equal(h.$('[data-action="E5"]').getAttribute('aria-disabled'),'true');h.$('[data-action="E5"]').focus();assert.match(h.$('#detailBody').textContent,/归群/);});
+ await load({team:['chisa'],encounter:['bracer'],enemy_hp_scale:100,enemy_atk_scale:0});
+ await test('Chisa E6 unavailable when no expandable abnormal exists',()=>{open('skills');assert.equal(h.$('[data-action="E6"]').getAttribute('aria-disabled'),'true');});
+ await load({team:['amy'],encounter:['bracer'],initialEnergy:{amy:125},initialBP:{amy:5},enemy_hp_scale:100,enemy_atk_scale:0});
+ await test('R1 has single UI entry, R2 retains zero energy and exactly 3BP',async()=>{open('skills');assert.equal(h.w.document.querySelectorAll('[data-action="R"]').length,1);assert.equal(h.w.document.querySelectorAll('[data-action="R1"],[data-action="R2"]').length,0);h.click('[data-action="R"]');await h.frame(250);h.click('#confirmBtn');await h.until(()=>!h.diag().busy&&h.diag().current?.includes('amy'),100);const a=snapshot().state.allies[0];assert.ok(a.r2Pending&&a.energyLocked);assert.equal(a.energy,0);open('skills');h.click('[data-bp="3"]');h.click('[data-action="R"]');await h.frame(250);assert.equal(h.$('#confirmBtn').disabled,false);const bp=snapshot().state.allies[0].bp;h.click('#confirmBtn');h.click('#confirmBtn');const done=snapshot().state.allies[0];assert.equal(done.bp,bp-3);assert.ok(!done.r2Pending&&!done.energyLocked);assert.equal(done.form,'human');});
+ await h.until(()=>!h.diag().busy,100);
+ await test('old AP snapshot rejected atomically through actual project importer',async()=>{const p=h.w.BattleLabDiagnostics.getProject(),before=snapshot();p.battle={schema:'battle-engine-v2-ap',parameter_version:'0.3.0-candidate',state:{ap:6}};h.click('#assetsBtn');h.click('[data-tab="project"]');await h.import('#importProject','old-ap.json',JSON.stringify(p));assert.deepEqual(snapshot(),before);assert.match(h.$('#toast').textContent,/存档|版本|不兼容/);h.click('[data-close="assetDialog"]');});
+ await test('unknown snapshot field rejected through importer without replacing battle',async()=>{const p=h.w.BattleLabDiagnostics.getProject(),before=snapshot();p.battle=JSON.parse(JSON.stringify(before));p.battle.state.act='overwrite';h.click('#assetsBtn');h.click('[data-tab="project"]');await h.import('#importProject','bad-state.json',JSON.stringify(p));assert.deepEqual(snapshot(),before);h.click('[data-close="assetDialog"]');});
+ await test('no runtime DOM errors',()=>assert.deepEqual(h.errors,[]));
+ }finally{h.close();}
+ result.totals={passed:result.passed.length,failed:result.failed.length};console.log(JSON.stringify(result,null,2));process.exitCode=result.failed.length?1:0;
+})().catch(e=>{console.error(e.stack);process.exitCode=1;});
